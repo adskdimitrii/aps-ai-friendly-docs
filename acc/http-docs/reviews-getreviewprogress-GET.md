@@ -1,0 +1,89 @@
+# projects/{projectId}/reviews/{reviewId}/progress
+
+Source: https://aps.autodesk.com/en/docs/acc/reference/http/reviews-getreviewprogress-GET/
+
+---
+
+# projects/{projectId}/reviews/{reviewId}/progress
+
+Retrieves the progress of a specific review in the specified project.
+
+This endpoint tracks the current state of each step in the reviewâs approval workflow, showing the assigned candidates, whether steps have been claimed or submitted, and who performed each action. Results are returned in reverse chronological order (most recent action first).
+
+Note that this endpoint only returns data for the current round of the review.
+
+To retrieve the reviewâs configuration and metadata, call GET reviews/:reviewId .
+
+For more details about reviews, see the Help documentation .
+
+## Resource Information
+
+Method and URI GET https://developer.api.autodesk.com/construction/reviews/v1/projects/{projectId}/reviews/{reviewId}/progress Authentication Context user context optional Required OAuth Scopes data:read Data Format JSON
+
+### Request
+
+## Headers
+
+Authorization * string Must be Bearer <token> , where <token> is obtained via either a two-legged or three-legged OAuth flow. x-user-id string The ID of a user on whose behalf the request is made. Your application has access to all users specified by the administrator in the SaaS Integrations UI. Use this header to specify which user should be affected by the request. This header is only required when using two-legged authentication. It is not needed for three-legged authentication. Only userâs Autodesk ID ( autodeskId ) can be accepted.
+
+This header is only required when using two-legged authentication. It is not needed for three-legged authentication.
+
+Only userâs Autodesk ID ( autodeskId ) can be accepted.
+
+### Request
+
+## URI Parameters
+
+projectId string: UUID The ID of the project. Use the Data Management API to retrieve the project ID. For more information, see the Retrieve a Project ID tutorial. You can provide the project ID with or without the â b. " prefix. Example with prefix: b.563a4c30-e30d-4869-ac02-2a18b6447abe Example without prefix: 563a4c30-e30d-4869-ac02-2a18b6447abe reviewId string: UUID The unique ID of the review. This must be the UUID, not the numeric sequence ID shown in the Reviews UI. To find the review ID, call GET reviews .
+
+Use the Data Management API to retrieve the project ID. For more information, see the Retrieve a Project ID tutorial. You can provide the project ID with or without the â b. " prefix.
+
+- Example with prefix: b.563a4c30-e30d-4869-ac02-2a18b6447abe
+
+- Example without prefix: 563a4c30-e30d-4869-ac02-2a18b6447abe
+
+This must be the UUID, not the numeric sequence ID shown in the Reviews UI.
+
+To find the review ID, call GET reviews .
+
+### Request
+
+## Query String Parameters
+
+limit int The maximum number of review-progress records to return. Valid range: 1â50 . Default: 50 . For example: limit=2 . offset int The zero-based index of the first record to return. Use with limit for pagination. Default: 0 . For example: offset=10 .
+
+### Response
+
+## HTTP Status Code Summary
+
+200 OK The review progress was retrieved successfully. 400 Bad Request Bad request. The input parameters were invalid. 403 Forbidden Forbidden. The user does not have permission to access this resource. 404 Not Found Not found. The resource does not exist or is inaccessible. 500 Internal Server Error An unexpected server error occurred.
+
+### Response
+
+## Body Structure (200)
+
+results array: object The list of review-progress records, returned in reverse chronological order. stepId string The ID of the review step this progress record relates to. stepName string The name of the review step this progress record relates to. claimedBy object Information about the user who claimed the step. autodeskId string The Autodesk ID of the user. To find details about the user, call GET users/:Id . name string The name of the user. actionBy object Information about the user recorded when the step status is SUBMITTED or VOID . In the Reviews UI, these statuses occur when a participant submits their decision or when a step is voided. autodeskId string The Autodesk ID of the user. To find details about the user, call GET users/:Id . name string The name of a user. candidates object Information about the users, roles, and companies who are eligible to take the next action in this step. roles array: object Project roles that can act in this step. autodeskId string The Autodesk ID of the role. name string The name of the role. users array: object Individual users who can act in this step. autodeskId string The Autodesk ID of the user. name string The name of the user. companies array: object Companies that can act in this step. autodeskId string The Autodesk ID of the company. name string The name of the company. endTime datetime: ISO 8601 The date and time when the step ended. This value is set when the step is completed, either by being submitted or voided. notes string Additional information recorded for this step in the reviewâs progress. status enum:string The current status of the step. Possible values: CLAIMED : A user has claimed the step. UNCLAIMED : No user has claimed the step. SUBMITTED : A user submitted the step (e.g., approved/rejected/custom). VOID : The step was voided. pagination object Metadata about the paginated results. limit int The maximum number of results returned per page. offset int The number of results skipped before the current page. Zero-based index. totalResults int The total number of results that match the query, regardless of pagination. nextUrl string The URL for the next page of results. If omitted, there are no more pages.
+
+- CLAIMED : A user has claimed the step.
+
+- UNCLAIMED : No user has claimed the step.
+
+- SUBMITTED : A user submitted the step (e.g., approved/rejected/custom).
+
+- VOID : The step was voided.
+
+## Example
+
+The review progress was retrieved successfully.
+
+### Request
+
+```
+curl -v 'https://developer.api.autodesk.com/construction/reviews/v1/projects/563a4c30-e30d-4869-ac02-2a18b6447abe/reviews/73c8b3ec-eea2-4240-9c69-f9563e2fec0c/progress?limit=2&offset=10' \ -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a'
+```
+
+### Response
+
+```
+{ "results" : [ { "stepId" : "Lane_uJtTI3vjaF" , "stepName" : "Reviewer" , "claimedBy" : { "autodeskId" : "HWUBNU689CRU" , "name" : "James Smith" }, "actionBy" : { "autodeskId" : "HWUBNU689CRU" , "name" : "James Smith" }, "candidates" : { "roles" : [ { "autodeskId" : "1473817" , "name" : "Architect" } ], "users" : [ { "autodeskId" : "HWUBNU689CRU" , "name" : "James Smith" } ], "companies" : [ { "autodeskId" : "26980302" , "name" : "Autodesk Co. Ltd." } ] }, "endTime" : "2024-11-19T01:38:27.306Z" , "notes" : "Please check all rebar annotations before approving. Include markup if changes are required." , "status" : "CLAIMED" } ], "pagination" : { "limit" : 10 , "offset" : 0 , "totalResults" : 100 , "nextUrl" : "https://developer.api.autodesk.com/construction/reviews/v1/projects/497f6eca-6276-4993-bfeb-53cbbbba6f08/reviews/73c8b3ec-eea2-4240-9c69-f9563e2fec0c/progress?limit=10&offset=10" } }
+```

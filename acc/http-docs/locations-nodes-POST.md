@@ -1,0 +1,97 @@
+# v2/projects/{projectId}/trees/{treeId}/nodes
+
+Source: https://aps.autodesk.com/en/docs/acc/reference/http/locations-nodes-POST/
+
+---
+
+# v2/projects/{projectId}/trees/{treeId}/nodes
+
+Creates a node in the specified locations tree. Note that creating the root node is not allowed because the root node is created automatically when the project is created.
+
+Nodes in a given tier of the tree have a defined sequence order. By default, new nodes are appended to the end of the sequence. To specify the sequence position of the new node, include targetNodeId and insertOption in the request.
+
+For more information about working with a locations tree, see the Configure a Locations Tree tutorial .
+
+For more details about the Locations API, see Locations API Field Guide .
+
+## Resource Information
+
+Method and URI POST https://developer.api.autodesk.com/construction/locations/v2/projects/:projectId/trees/:treeId/nodes Authentication Context user context required Required OAuth Scopes data:write Data Format JSON
+
+### Request
+
+## Headers
+
+Authorization * string Must be Bearer <token> , where <token> is obtained via a three-legged OAuth flow. Content-Type * string Must be application/json
+
+### Request
+
+## URI Parameters
+
+projectId string: UUID The identifier of the project that contains your locations tree. Use the Data Management API to retrieve the relevant ACC account and project IDs . treeId string Must be default . Currently a project can contain only the default tree.
+
+Use the Data Management API to retrieve the relevant ACC account and project IDs .
+
+### Request
+
+## Query String Parameters
+
+targetNodeId string: UUID Unique identifier of a node that will be the new nodeâs immediate sibling in the locations tree. The target nodeâs parentId must match the body.parentId field in the request. Note that nodes in a given tier of the tree have a defined sequence order. The new node will be created in the same tier, either before or after the target node. You specify the sequence position of the new node using the insertOption parameter. Note that this parameter is unavailable if this request is creating an existing nodeâs first child node. Required only when insertOption is also included in the request. insertOption enum:string Where to insert the new node relative to the target node that you specified with targetNodeId . The nodes in a given tier of the tree have a defined sequence order, and insertOption specifies whether the new node comes before or after the target node. Required only when targetNodeId is also included in the request.
+Possible values: After , Before
+
+Note that nodes in a given tier of the tree have a defined sequence order. The new node will be created in the same tier, either before or after the target node. You specify the sequence position of the new node using the insertOption parameter.
+
+Note that this parameter is unavailable if this request is creating an existing nodeâs first child node.
+
+Required only when insertOption is also included in the request.
+
+Required only when targetNodeId is also included in the request.
+Possible values: After , Before
+
+### Request
+
+## Body Structure
+
+parentId * string: UUID The identifier of the parent node of this LBS node. type * enum:string The type of this LBS node. Note that only Area is a currently supported request value.
+Possible values: Area , Level , Root name * string The name of this LBS node. Max length: 255 description string Not relevant barcode string The barcode that represents this LBS node. This value must be unique per project. Max length: 255
+
+Max length: 255
+
+Max length: 255
+
+### Response
+
+## HTTP Status Code Summary
+
+201 Created Node created 400 Bad Request Bad request 403 Forbidden Forbidden. The caller has no permission to perform this operation. 404 Not Found The specified project or tree was not found.
+
+### Response
+
+## Body Structure (201)
+
+id string: UUID The unique identifier of the new LBS node. parentId string: UUID The identifier of the parent node of this LBS node. type enum:string The type of this LBS node. Note that only Area is a currently supported request value.
+Possible values: Area , Level , Root name string The name of this LBS node. Max length: 255 description string Not relevant barcode string The barcode that represents this LBS node. This value must be unique per project. Max length: 255 order int This nodeâs position relative to its sibling nodes. Nodes with the same parent have a defined sequence order. A node with a lower order value will be positioned before a node with a higher order value. This is zero-based; for example, a node with an order value of 3 is the fourth node among its sibling nodes. If an existing sibling node has the same or higher order value, that value will be incremented to make room for the new node. documentCount int This field is reserved for future use.
+
+Max length: 255
+
+Max length: 255
+
+This is zero-based; for example, a node with an order value of 3 is the fourth node among its sibling nodes.
+
+If an existing sibling node has the same or higher order value, that value will be incremented to make room for the new node.
+
+## Example
+
+Node created
+
+### Request
+
+```
+curl -v 'https://developer.api.autodesk.com/construction/locations/v2/projects/:projectId/trees/:treeId/nodes' \ -X 'POST' \ -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a' \ -H 'Content-Type: application/json' \ -d '{ "parentId": "88e07ccb-4594-4dc5-8973-304412b8fa96", "type": "Area", "name": "Suite 205", "description": "The Suite 205 node", "barcode": "1234567890" }'
+```
+
+### Response
+
+```
+{ "id" : "de9aca33-5e0c-4668-85fa-f96273db4b35" , "parentId" : "88e07ccb-4594-4dc5-8973-304412b8fa96" , "type" : "Area" , "name" : "Suite 205" , "description" : null , "barcode" : "ABC123" , "order" : 0 }
+```

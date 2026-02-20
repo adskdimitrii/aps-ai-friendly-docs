@@ -1,0 +1,88 @@
+# v1/containers/{containerId}/change-orders/{changeOrder}/{id}
+
+Source: https://aps.autodesk.com/en/docs/acc/reference/http/cost-change-orders-changeOrder-id-GET/
+
+---
+
+# v1/containers/{containerId}/change-orders/{changeOrder}/{id}
+
+Retrieves the details of a change order specified by ID.
+
+## Resource Information
+
+Method and URI GET https://developer.api.autodesk.com/cost/v1/containers/:containerId/change-orders/:changeOrder/:id Authentication Context user context required Required OAuth Scopes data:read Data Format JSON
+
+### Request
+
+## Headers
+
+Authorization * string Must be Bearer <token> , where <token> is obtained via a three-legged OAuth flow. region string Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead. Possible values: country or region codes such as US or EMEA . For the full list of supported regions, see the ACC Regions page. To verify your projectâs region, refer to the Working with BIM 360 Services in Different Regions section on the API Basics page.
+
+By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.
+
+Possible values: country or region codes such as US or EMEA . For the full list of supported regions, see the ACC Regions page.
+
+To verify your projectâs region, refer to the Working with BIM 360 Services in Different Regions section on the API Basics page.
+
+### Request
+
+## URI Parameters
+
+containerId string: UUID The ID of the project (the container ID is the same as the project ID). To obtain the project ID, see GET projects . changeOrder enum:string The change order type. Possible values: pco , rfq , rco , oco , sco . id string: UUID The change orderâs ID.
+
+### Request
+
+## Query String Parameters
+
+include array: string Include nested resources in the response. For example, include=costItems will return the related cost items with the change order. include=attributes will return custom attributes which represents the âpropertiesâ in the response. Possible values: costItems , costItems[changeOrders] , attributes , comments .
+
+### Response
+
+## HTTP Status Code Summary
+
+200 OK Success. 400 Bad Request The parameters are invalid. 401 Unauthorized The provided bearer token is invalid. 403 Forbidden Forbidden. The user or service represented by the bearer token does not have permission to perform this operation. 404 Not Found The resource or endpoint cannot be found. 409 Conflict The request could not be completed due to a conflict with the current state of the resource. 429 Too Many Requests Rate limit exceeded. Retry your request after a few minutes. 500 Internal Server Error An unexpected error occurred on the server. 503 Service Unavailable Service unavailable.
+
+### Response
+
+## Body Structure (200)
+
+id string: UUID Unique identifier of a change order, auto generated. number string System-generated sequential number. Max length: 255 splitNumber object Not relevant prefix string Not relevant number string Not relevant postfix string Not relevant isFreeModify boolean Not relevant name string The name of the Change Order Max length: 1024 description string The detail description of the Change Order. Max length: 2048 type string,null The type of the change order. It is customizable by the project admin. scope enum:string The scope of the change order. Possible values: out , in , tbd , budgetOnly , contingency . creatorId string The ID of the change orderâs creator, a project user managed by BIM 360 Admin. ownerId string The ID of the change orderâs owner, a project user managed by BIM 360 Admin. changedBy string The ID of the person who lastly changed the change order, a project user managed by BIM 360 Admin. markupFormulaId string Not relevant appliedBy string,null Not relevant appliedAt string,null Not relevant budgetStatus string,null The budget status of the PCO, RCO or OCO: Possible PCO statuses: [draft, open, submitted, accepted, approved, revising, executed, rejected, void]. Possible RCO statuses: [draft, open, submitted, revising, accepted, approved, executed, rejected]. Possible OCO statuses: [draft, open, inReview, submitted, revising, approved, executed, rejected]. Empty for an RFQ or SCO. The status of the change order should not be updated directly, but set by an action working on the change order. costStatus string,null The cost status of the PCO, RFQ, or SCO: Possible PCO statuses: [draft, open, pricing, proposed, accepted, approved, executed, revising, rejected, void]. Possible RFQ statuses: [draft, open, pricing, proposed, accepted, revising, rejected]. Possible SCO statuses: [draft, open, inReview, sent, executed]. Empty for an RCO or OCO. The status of the change order should not be updated directly, but set by an action working on the change order. estimated number,string,null Rough estimate of this change order without a quotation. proposed number,string,null The quoted cost of the change order. submitted number,string,null The amount sent to the owner for approval. approved number,string,null The amount approved by the owner. committed number,string,null The amount committed to the supplier. quantity number,null Not relevant unit string Not relevant scopeOfWork string The scope of work of the change order. Tiptap formatted rich text ( https://tiptap.dev/introduction/ ). scheduleChange number,null The schedule change of the change order. proposedRevisedCompletionDate string,null The proposed revised completion date of the change order. note string The note to the change order. Tiptap formatted rich text ( https://tiptap.dev/introduction/ ). sourceId string,null The ID of the source of the RFQ, ususally the PCO ID. externalId string The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the itemâs ID in the external system. Max length: 255 externalSystem string The name of the external ERP system integrated with Cost Management. Use this name to identify and search for data within the integrated system. Max length: 255 externalMessage string A message generated by the external ERP system that explains the sync status of the integration. For example, common values include success or fail to indicate the result of the integration operation. Max length: 255 lastSyncTime datetime: ISO 8601 The date and time when the item was last synchronized with the external ERP system. This value is updated by the external system and is in ISO 8601 format. integrationState string,null The state of the item during the integration with the external ERP system (such as SignNow). An item can be a budget , contract , main contract , main contract item , cost item , expense , expense item , change order , or schedule of value . For more details, see Integrate with External System tutorial.
+Possible values: locked : the item is currently locked within the ERP system, preventing modifications until unlocked. To unlock and modify the item, use the relevant PATCH endpoint to set integrationState to null . For example, for a budget, call PATCH budgets . For a contract, call PATCH contracts . For more details, see the Help documentation . integrated : the item has been successfully added to the ERP system. failed : the item encountered an error during the integration process and was not successfully added to the ERP system. For example, if a user tries to integrate contracts from an ERP system and the updates fail, the integrationState can be set to failed . Retry the sync process or analyze the issue if it continues to fail. null : The item has not been integrated with the ERP system. This is default value. For more information regarding integrations within the Cost Management system, see Integrations in Cost Management . integrationStateChangedAt string,null The date and time that the itemâs integration status was last changed. integrationStateChangedBy string,null The user who last changed the integration status. This is the ID of a user managed by the BIM 360/ACC Admin. createdAt datetime: ISO 8601 The date and time that the item was created, in ISO 8601 format. updatedAt datetime: ISO 8601 The date and time that the item was last updated, in ISO 8601 format. properties array: object The custom attributes of the change order. name string Name of the custom attribute. Inherited from the custom attribute definition. builtIn boolean A flag to indicate whether this is a pre-defined attribute or not. Inherited from the custom attribute definition. position number The order of the custom attribute displayed in the BIM 360 Cost Management. Inherited from the custom attribute definition. propertyDefinitionId string: UUID The ID of the custom attribute definition. This is the ID from /properties . type string The type of the custom attribute. Inherited from the custom attribute definition. value string The value of the custom attribute. costItems array: object The cost items in the change order. id string The system ID of the cost item. includeMarkup boolean,null Used to indicate whether the cost items amounts estimated, proposed, submitted, approved, include the markups. variableMarkupFormulaItems array: object The variables when apply markup formula. id string The id of the markup formula item. amount number,string,null The amount of the markup formula item. companyId string,null The BIM360/ACC ID of the company. For RFQ & SCO itâs the supplier company. For OCO and OCO itâs the owner company. For PCO, when PCO acts as RFQ itâs the supplier company, when PCO asts as RCO itâs the owner company, otherwise itâs empty. companyUid string,null The unique ID (UUID) of the company in this account. Detailed company information can be retrieved using this UUID by calling GET companies/:company_id in the response. architectCompanyId string,null The BIM360/ACC ID of the architecture firm. architectCompanyUid string,null The unique ID (UUID) of the company in this account. Detailed company information can be retrieved using this UUID by calling GET companies/:company_id in the response. architectContactId string,null The BIM360/ACC ID of the primary contact at the architecture firm. additionalCollaborators array: object The additional collaborator company and contacts. companyId string The BIM360/ACC ID of the firm. companyUid string,null The unique ID (UUID) of the company in this account. Detailed company information can be retrieved using this UUID by calling GET companies/:company_id in the response. contactIds array: string The BIM360/ACC user ID of the contacts in the firm. contactId string,null Not relevant contacts array: string Not relevant sourceType string,null The type of entity from which the change order is created (e.g., RFI, Issue). comments array: object The list of comments associated with the change order. createdAt string The date and time when the comment was created, in ISO 8601 format. content string The text content of the comment. creatorId string The BIM 360/ACC user ID of the commentâs author. For details about the author, see GET users .
+
+Max length: 255
+
+Max length: 1024
+
+Max length: 2048
+
+Max length: 255
+
+Max length: 255
+
+Max length: 255
+
+locked : the item is currently locked within the ERP system, preventing modifications until unlocked. To unlock and modify the item, use the relevant PATCH endpoint to set integrationState to null . For example, for a budget, call PATCH budgets . For a contract, call PATCH contracts . For more details, see the Help documentation .
+
+integrated : the item has been successfully added to the ERP system.
+
+failed : the item encountered an error during the integration process and was not successfully added to the ERP system. For example, if a user tries to integrate contracts from an ERP system and the updates fail, the integrationState can be set to failed . Retry the sync process or analyze the issue if it continues to fail.
+
+null : The item has not been integrated with the ERP system. This is default value.
+
+For more information regarding integrations within the Cost Management system, see Integrations in Cost Management .
+
+## Example
+
+Success.
+
+### Request
+
+```
+curl -v 'https://developer.api.autodesk.com/cost/v1/containers/e94b9bc8-1775-4d76-9b1d-c613e120ccff/change-orders/pco/18d97ae0-9484-11e8-a7ec-7ddae203e404?include=include=costItems,attributes,comments' \ -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a'
+```
+
+### Response
+
+```
+{ "id" : "97363960-9483-11e8-a7ec-7ddae203e404" , "number" : 1 , "splitNumber" : { "prefix" : "INT-" , "number" : 1 , "postfix" : "-XYZ" , "isFreeModify" : false }, "name" : "Additional Slab Openings" , "description" : "Something about additional Slab Openings" , "type" : "Purchase Order" , "scope" : "in" , "creatorId" : "CED9LVTLHNXV" , "ownerId" : "CED9LVTLHNXV" , "changedBy" : "CED9LVTLHNXV" , "markupFormulaId" : "27634250-96df-11e8-bdd8-e9d2381ecf45" , "appliedBy" : "CED9LVTLHNXV" , "appliedAt" : "" , "budgetStatus" : "open" , "costStatus" : "open" , "estimated" : "1000.0000" , "proposed" : "1000.0000" , "submitted" : "1000.0000" , "approved" : "1000.0000" , "committed" : "1000.0000" , "quantity" : 1 , "unit" : "ls" , "scopeOfWork" : "" , "scheduleChange" : 0 , "proposedRevisedCompletionDate" : "2021-01-01" , "note" : "" , "sourceId" : "" , "externalId" : "10010-99-AB" , "externalSystem" : "Sage300" , "externalMessage" : "Success." , "lastSyncTime" : "2019-09-05T01:00:12.989Z" , "integrationState" : "locked" , "integrationStateChangedAt" : "2019-09-05T01:00:12.989Z" , "integrationStateChangedBy" : "CED9LVTLHNXV" , "createdAt" : "2019-01-06T01:24:22.678Z" , "updatedAt" : "2019-09-05T01:00:12.989Z" , "properties" : [ { "name" : "Source Type" , "builtIn" : true , "position" : 0 , "propertyDefinitionId" : "fc4a7581-7838-11e8-a467-7de33c3af32d" , "type" : "options" , "value" : "RFI" } ], "costItems" : [ { "id" : "9e027d30-9483-11e8-a7ec-7ddae203e404" , "includeMarkup" : "false" } ], "variableMarkupFormulaItems" : [ { "id" : "9e027d30-9483-11e8-a7ec-7ddae203e404" , "amount" : "1000.0000" } ], "companyId" : "GF8XKPKWM38E" , "companyUid" : "683904a0-47ce-4146-ac2d-a3840f00e0f4" , "architectCompanyId" : "GF8XKPKWM38E" , "architectCompanyUid" : "683904a0-47ce-4146-ac2d-a3840f00e0f4" , "architectContactId" : "CED9LVTLHNXV" , "additionalCollaborators" : [ { "companyId" : "GF8XKPKWM38E" , "companyUid" : "683904a0-47ce-4146-ac2d-a3840f00e0f4" , "contactIds" : [ "CED9LVTLHNXV" ] } ], "contactId" : "CED9LVTLHNXV" , "contacts" : [ "CED9LVTLHNXV" ], "sourceType" : "RFI" , "comments" : [ { "createdAt" : "2025-06-24T11:59:47.819Z" , "content" : "Please attach the revised structural drawings before approval." , "creatorId" : "CED9LVTLHNXV" } ] }
+```

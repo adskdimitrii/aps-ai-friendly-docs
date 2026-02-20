@@ -1,0 +1,78 @@
+# Open a Potential Change Order (PCO)
+
+Source: https://aps.autodesk.com/en/docs/acc/tutorials/cost/open-pco/
+
+---
+
+# Open a Potential Change Order (PCO)
+
+This tutorial demonstrates how to open a potential change order (PCO) through a workflow action.
+
+## Before You Begin
+
+- Register an app .
+
+- Acquire a 3-legged OAuth token with data:create data:read and data:write scopes.
+
+- Verify that you have access to the relevant BIM 360 account and BIM 360 project.
+
+- Retrieve the project ID for your project. To obtain a project ID, use GET projects .
+
+- Ensure that there is a PCO in the project. If there isnât a PCO in the project, see Create a Potential Change Order (PCO) to create one.
+
+## Step 1: Find a PCO in BIM 360 Cost Management
+
+Find the ID of the PCO by calling GET PCO . In this example, assume that the container ID is 18ece8b1-204d-11e8-ad71-d73b169f902a .
+
+### Request
+
+```
+curl 'https://developer.api.autodesk.com/cost/v1/containers/18ece8b1-204d-11e8-ad71-d73b169f902a/change-orders/pco?limit=100&offset=0' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsImtpZCI6Imp3dF9zeW1tZXRyaWNfa2V5In0'
+```
+
+### Response
+
+```
+{ "results" : [{ "id" : "55254a50-44d9-11e9-99d7-79aa05d3109e" , "..." : "..." , }], "pagination" : { "totalResults" : 1 , "limit" : 100 , "offset" : 0 } }
+```
+
+In this example, the PCO ID is in the first part of the response ( results[0].id ) which is 55254a50-44d9-11e9-99d7-79aa05d3109e . Youâll use it in the next step.
+
+## Step 2: Find the Available Actions For the PCO
+
+Use the PCO ID ( 55254a50-44d9-11e9-99d7-79aa05d3109e ) to call GET actions to get the available actions for the PCO.
+All the actions are associated to an items in Cost Management, for example change order, by the associationId and associationType. For a PCO, the associationId value is the PCO ID 55254a50-44d9-11e9-99d7-79aa05d3109e and the associationType value is FormInstance .
+
+### Request
+
+```
+curl 'https://developer.api.autodesk.com/cost/v1/containers/18ece8b1-204d-11e8-ad71-d73b169f902a/workflows/FormInstance/5254a50-44d9-11e9-99d7-79aa05d3109e/actions' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsImtpZCI6Imp3dF9zeW1tZXRyaWNfa2V5In0' -H 'Content-Type: application/json'
+```
+
+### Response
+
+```
+[{ "name" : "open" , "transforms" : [{ "key" : "budgetStatusId" , "to" : "open" }, { "key" : "costStatusId" , "to" : "open" } ], "rules" : [{ "key" : "budgetStatusId" , "only" : [ "draft" ] }, { "key" : "costStatusId" , "only" : [ "draft" ] } ] }]
+```
+
+The name open is the action we can perform on this PCO. The transforms are what the action will perform on the PCO in this action: setting budgetStatusId and costStatusId to``open``. The rules are the conditions required to perform the action. For example, we can only perform the open action when both the budgetStatus and costStatus are set to draft , otherwise the action will fail.
+
+## Step 3: Open the PCO
+
+Use the action open and the PCO ID to call POST cost/v1/containers/:containerId/workflows/actions
+
+### Request
+
+```
+curl -X POST 'https://developer.api.autodesk.com/cost/v1/containers/18ece8b1-204d-11e8-ad71-d73b169f902a/workflows/actions' \ -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsImtpZCI6Imp3dF9zeW1tZXRyaWNfa2V5In0' \ -H 'Content-Type: application/json' -d '[ { "action": "open", "associationId": "55254a50-44d9-11e9-99d7-79aa05d3109e", "associationType": "FormInstance", } ]'
+```
+
+### Response
+
+```
+[ { "action" : "open" , "associationId" : "55254a50-44d9-11e9-99d7-79aa05d3109e" , "associationType" : "FormInstance" , "errors" : [] } ]
+```
+
+If the action succeeded, the errors value in the response will be empty. If the action failed, the errors value will include details about why the action failed.
+
+Congratulations! You have opened the PCO and now can start using other change processes.
