@@ -1,4 +1,4 @@
-# APS Friendly Docs
+# APS AI Friendly Docs
 
 Lightweight, local Markdown mirror of Autodesk APS documentation.
 
