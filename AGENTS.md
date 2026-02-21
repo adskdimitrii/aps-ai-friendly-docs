@@ -1,23 +1,6 @@
 # AGENTS
 
-Guidance for coding agents working in this repository.
-
-## Python environment in this repo
-
-- Base image: `mcr.microsoft.com/devcontainers/python:2-3.12-bookworm`
-- Use `python3` and `pip3` (not `python`/`pip`).
-- Dependencies are installed at container creation via:
-  - `pip3 install --user -r requirements.txt`
-
-## Quick start
-
-From the repository root:
-
-```bash
-python3 --version
-pip3 --version
-python3 -m pip install --user -r requirements.txt
-```
+This repo runs in a dev container. See `.devcontainer/devcontainer.json`. When running python do not create a venv.
 
 ## Running scripts
 
@@ -37,18 +20,3 @@ find . -type f -name 'crawl_*.py' | sort | while IFS= read -r f; do
   python3 "$f"
 done
 ```
-
-## Working directory guidance
-
-- If a script uses paths based on `__file__`, it can be run from any directory.
-- Prefer running from repo root for consistency.
-
-## Troubleshooting
-
-- If imports fail, reinstall deps:
-
-```bash
-python3 -m pip install --user -r requirements.txt
-```
-
-- If a script fails on network calls, retry (these crawlers depend on external APS docs endpoints).
