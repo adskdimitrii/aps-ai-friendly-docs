@@ -7,6 +7,7 @@ This repository is organized into the following documentation domains:
 - `data/` — APS Data docs mirror and crawlers
 - `oauth/` — APS OAuth docs mirror and crawlers
 - `design-automation/` — APS Design Automation docs mirror and crawlers
+- `webhooks/` — APS Webhooks docs mirror and crawlers
 
 ## Prerequisites to Re-Crawl
 
@@ -26,6 +27,7 @@ Use the domain-specific READMEs for crawler commands and details:
 - [Data docs](data/README.md)
 - [OAuth docs](oauth/README.md)
 - [Design Automation docs](design-automation/README.md)
+- [Webhooks docs](webhooks/README.md)
 
 ## Output Format
 
