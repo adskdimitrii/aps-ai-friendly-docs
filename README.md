@@ -1,17 +1,13 @@
 # APS AI Friendly Docs
 
-Lightweight, local Markdown mirror of Autodesk APS documentation.
+Lightweight, local Markdown mirror of Autodesk APS documentation with scripts to re-crawl. An alternative to `https://aps.autodesk.com/llms-full.txt` that enables more targetted prompts that reduce token usage and increase AI agent performance.
 
-This repository is organized into two documentation domains:
+This repository is organized into three documentation domains:
 - `acc/` — APS ACC docs mirror and crawlers
+- `data/` — APS Data docs mirror and crawlers
 - `oauth/` — APS OAuth docs mirror and crawlers
 
-## Repository Structure
-
-- `acc/` — ACC crawlers, generated docs, and source URL indexes
-- `oauth/` — OAuth crawlers, generated docs, and source URL indexes
-
-## Prerequisites
+## Prerequisites to Re-Crawl
 
 - Python 3.10+
 - Internet access (scripts fetch live docs)
@@ -26,6 +22,7 @@ python -m pip install requests beautifulsoup4
 
 Use the domain-specific READMEs for crawler commands and details:
 - [ACC docs](acc/README.md)
+- [Data docs](data/README.md)
 - [OAuth docs](oauth/README.md)
 
 ## Output Format
