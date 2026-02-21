@@ -11,141 +11,292 @@ An AppBundle is a package of binaries and supporting files that make a Revit add
 By the end of this task you will be able to:
 
 - Put together an AppBundle.
-
 - Upload an AppBundle to the Automation Service.
-
 - Create an alias for the AppBundle.
-
 - Create a new version of the AppBundle.
-
 - Point the alias to the new version of the AppBundle.
 
 You will use the following operations to handle AppBundles in this task:
 
-HTTP Request Description POST /appbundles Registers a new AppBundle. POST /appbundles/{id}/aliases Creates a new alias for the AppBundle. POST /appbundles/{id}/versions Creates a new version of the AppBundle. PATCH /appbundles/{id}/aliases/{aliasId} Modify alias details.
+| HTTP Request | Description |
+| --- | --- |
+| [POST /appbundles](/en/docs/design-automation/v3/reference/http/appbundles-POST) | Registers a new AppBundle. |
+| [POST /appbundles/{id}/aliases](/en/docs/design-automation/v3/reference/http/appbundles-id-aliases-POST) | Creates a new alias for the AppBundle. |
+| [POST /appbundles/{id}/versions](/en/docs/design-automation/v3/reference/http/appbundles-id-versions-POST) | Creates a new version of the AppBundle. |
+| [PATCH /appbundles/{id}/aliases/{aliasId}](/en/docs/design-automation/v3/reference/http/appbundles-id-aliases-aliasId-DELETE) | Modify alias details. |
 
-## Step 1 - Understand the structure of an AppBundle
+## [Step 1 - Understand the structure of an AppBundle](#step-1-understand-the-structure-of-an-appbundle)
 
 A Revit AppBundle file is a zip file that contains specific contents stored according to a specific structure.
 
-Download the example AppBundle for this exercise, DeleteWallsApp.zip, from this repository .
+Download the example AppBundle for this exercise, DeleteWallsApp.zip, [from this repository](https://github.com/autodesk-platform-services/aps-tutorial-postman/tree/master/DA4Revit/walkthrough_data).
 
 The following code block shows the structure of the AppBundle DeleteWallsApp.zip.
 
 ```
-DeleteWallsApp.zip | -- DeleteWalls.bundle | | -- PackageContents.xml | | -- Contents | | | -- DeleteWalls.dll | | | -- DeleteWalls.addin
-```
-
-The top-level folder is named *.bundle . This folder contains a file named PackageContents.xml . This file contains the details of the AppBundle,  the relative path to its add-in file, and its runtime requirements, as shown in the following code block.
-
-```
-<?xml version="1.0" encoding="utf-8" ?> <ApplicationPackage> <Components Description= "Delete Walls" > <RuntimeRequirements OS= "Win64" Platform= "Revit" SeriesMin= "R2024" SeriesMax= "R2024" /> <ComponentEntry AppName= "DeleteWalls" Version= "1.0.0" ModuleName= "./Contents/DeleteWalls.addin" AppDescription= "Deletes walls" LoadOnCommandInvocation= "False" LoadOnRevitStartup= "True" /> </Components> </ApplicationPackage>
-```
-
-SeriesMin and SeriesMax both refer to Revit 2024 as R2024 . The Automation Service currently supports AppBundles that run on Revit versions R2018 through R2024 . For more information on PackageContents.xml , see PackageContents.xml Format Reference
-
-The *.bundle\Contents folder contains the add-in file, the application DLL, and its dependencies. The following code block shows the content of DeleteWalls.addin .
+DeleteWallsApp.zip
+|-- DeleteWalls.bundle
+|   |-- PackageContents.xml
+|   |-- Contents
+|   |   |-- DeleteWalls.dll
+|   |   |-- DeleteWalls.addin
 
 ```
-<?xml version="1.0" encoding="utf-8"?> <RevitAddIns> <AddIn Type= "DBApplication" > <Name> DeleteWalls </Name> <Assembly> .\DeleteWalls.dll </Assembly> <AddInId> d7fe1983-8f10-4983-98e2-c3cc332fc978 </AddInId> <FullClassName> DeleteWalls.DeleteWallsApp </FullClassName> <Description> "Walls Deleter" </Description> <VendorId> Autodesk </VendorId> <VendorDescription> </VendorDescription> </AddIn> </RevitAddIns>
+
+The top-level folder is named `*.bundle`. This folder contains a file named `PackageContents.xml`. This file contains the details of the AppBundle, the relative path to its add-in file, and its runtime requirements, as shown in the following code block.
+
+```
+<?xml version="1.0" encoding="utf-8" ?>
+<ApplicationPackage>
+  <Components Description="Delete Walls">
+    <RuntimeRequirements OS="Win64"
+                          Platform="Revit"
+                          SeriesMin="R2024"
+                          SeriesMax="R2024" />
+    <ComponentEntry AppName="DeleteWalls"
+                    Version="1.0.0"
+                    ModuleName="./Contents/DeleteWalls.addin"
+                    AppDescription="Deletes walls"
+                    LoadOnCommandInvocation="False"
+                    LoadOnRevitStartup="True" />
+  </Components>
+</ApplicationPackage>
+
 ```
 
-Notes:
+Show More
 
-- Type must be DBApplication . The Automation Service doesnât support applications that need Revitâs UI functionality. Assembly must be a relative path to the DLL. You can find examples of the bundle folder and PackageContent.xml file in the presentation on Autodesk Exchange Revit Apps in this presentation . You can use PackageContents.xml from any existing Autodesk Exchange Revit app with the Automation API. However, the Automation Service reads only the RuntimeRequirements and ComponentEntry blocks, which are circled in the image shown below.
+`SeriesMin` and `SeriesMax` both refer to Revit 2024 as `R2024`. The Automation Service currently supports AppBundles that run on Revit versions `R2018` through `R2024`. For more information on `PackageContents.xml`, see [PackageContents.xml Format Reference](https://help.autodesk.com/view/ACD/2024/ENU/?guid=GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0)
 
-You can find examples of the bundle folder and PackageContent.xml file in the presentation on Autodesk Exchange Revit Apps in this presentation .
+The `*.bundle\Contents` folder contains the add-in file, the application DLL, and its dependencies. The following code block shows the content of *DeleteWalls.addin*.
 
-You can use PackageContents.xml from any existing Autodesk Exchange Revit app with the Automation API. However, the Automation Service reads only the RuntimeRequirements and ComponentEntry blocks, which are circled in the image shown below.
+```
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="DBApplication">
+    <Name>DeleteWalls</Name>
+    <Assembly>.\DeleteWalls.dll</Assembly>
+    <AddInId>d7fe1983-8f10-4983-98e2-c3cc332fc978</AddInId>
+    <FullClassName>DeleteWalls.DeleteWallsApp</FullClassName>
+    <Description>"Walls Deleter"</Description>
+    <VendorId>Autodesk</VendorId>
+    <VendorDescription>
+    </VendorDescription>
+  </AddIn>
+</RevitAddIns>
+
+```
+
+Show More
+
+**Notes:**
+
+- `Type` must be `DBApplication`. The Automation Service doesnât support applications that need Revitâs UI functionality. `Assembly` must be a relative path to the DLL.
+    You can find examples of the *bundle* folder and *PackageContent.xml* file in the presentation on Autodesk Exchange Revit Apps in [this presentation](https://github.com/ADN-DevTech/typepad-migration-dump/raw/refs/heads/main/AEC/Blog/_data/_assets/3_20Autodesk_20Exchange_20Publish_20Revit_20Apps_20-_20Preparing_20Apps_20for_20the_20Store_Guidelines.pptx?download=).
+
+    You can use PackageContents.xml from any existing Autodesk Exchange Revit app with the Automation API. However, the Automation Service reads only the `RuntimeRequirements` and `ComponentEntry` blocks, which are circled in the image shown below.
+
+![PackageContents.xml](https://revitio.s3.amazonaws.com/documentation/PackageContentsXml.PNG)
 
 The source code and dependent library associated with this AppBundle are:
 
-- DeleteWalls sample
+- [DeleteWalls sample](https://github.com/autodesk-platform-services/aps-tutorial-postman/tree/master/DA4Revit/walkthrough_data)
+- [DesignAutomationBridge](https://www.nuget.org/packages/Autodesk.Forge.DesignAutomation.Revit)
 
-- DesignAutomationBridge
-
-## Step 2 - Register the AppBundle
+## [Step 2 - Register the AppBundle](#step-2-register-the-appbundle)
 
 Before you upload the AppBundle to the Automation Service, you must register the AppBundle.
 
-- Register an AppBundle named DeleteWallsApp as per the following example. It uses Revit 2018 as the target engine:
+- Register an AppBundle named `DeleteWallsApp` as per the following example. It uses Revit 2018 as the target engine:
 
 ### Request
 
 ```
-curl - X POST \ 'https://developer.api.autodesk.com/da/us-east/v3/appbundles' \ - H 'Authorization: Bearer <YOUR_ACCESS_TOKEN>' \ - H 'Content-Type: application/json' \ - d '{ "id": "DeleteWallsApp", "engine": "Autodesk.Revit+2024", "description": "Delete Walls AppBundle based on Revit 2024" }'
+curl -X POST \
+  'https://developer.api.autodesk.com/da/us-east/v3/appbundles' \
+  -H 'Authorization: Bearer <YOUR_ACCESS_TOKEN>' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "id": "DeleteWallsApp",
+  "engine": "Autodesk.Revit+2024",
+  "description": "Delete Walls AppBundle based on Revit 2024"
+}'
+
 ```
 
-Attribute Description id The name given to the AppBundle. engine The engine used by the AppBundle.
+Show More
+
+| Attribute | Description |
+| --- | --- |
+| `id` | The name given to the AppBundle. |
+| `engine` | The engine used by the AppBundle. |
 
 ### Response
 
 ```
-{ "uploadParameters" : { "endpointURL" : "https://dasprod-store.s3.amazonaws.com" , "formData" : { "key" : "apps/Revit/DeleteWallsApp/1" , "content-type" : "application/octet-stream" , "policy" : "eyJleHBpcmF0aW9uIjoiMjAxOC... (truncated)" , "success_action_status" : "200" , "success_action_redirect" : "" , "x-amz-signature" : "6c68268e23ecb8452... (truncated)" , "x-amz-credential" : "ASIAQ2W... (truncated)" , "x-amz-algorithm" : "AWS4-HMAC-SHA256" , "x-amz-date" : "20180810... (truncated)" , "x-amz-server-side-encryption" : "AES256" , "x-amz-security-token" : "FQoGZXIvYXdzEPj//////////wEaDHavu... (truncated)" } }, "engine" : "Autodesk.Revit+2018" , "description" : "Delete Walls AppBundle based on Revit 2018" , "version" : 1 , "id" : "YOUR_NICKNAME.DeleteWallsApp" }
+{
+    "uploadParameters": {
+        "endpointURL": "https://dasprod-store.s3.amazonaws.com",
+        "formData": {
+            "key": "apps/Revit/DeleteWallsApp/1",
+            "content-type": "application/octet-stream",
+            "policy": "eyJleHBpcmF0aW9uIjoiMjAxOC... (truncated)",
+            "success_action_status": "200",
+            "success_action_redirect": "",
+            "x-amz-signature": "6c68268e23ecb8452... (truncated)",
+            "x-amz-credential": "ASIAQ2W... (truncated)",
+            "x-amz-algorithm": "AWS4-HMAC-SHA256",
+            "x-amz-date": "20180810... (truncated)",
+            "x-amz-server-side-encryption": "AES256",
+            "x-amz-security-token": "FQoGZXIvYXdzEPj//////////wEaDHavu... (truncated)"
+        }
+    },
+    "engine": "Autodesk.Revit+2018",
+    "description": "Delete Walls AppBundle based on Revit 2018",
+    "version": 1,
+    "id": "YOUR_NICKNAME.DeleteWallsApp"
+}
+
 ```
 
-Attribute Description endpointURL This is the URL you must upload your AppBundle zip file to. version The version number for the AppBundle created by the POST request. For new AppBundles, the returned version is always 1 . formData The form data that needs to accompany your AppBundle upload. The formData expires in 3600 seconds.
+Show More
 
-## Step 3 - Upload the AppBundle
+| Attribute | Description |
+| --- | --- |
+| `endpointURL` | **This is the URL you must upload your AppBundle zip file to.** |
+| `version` | The version number for the AppBundle created by the POST request. For new AppBundles, the returned version is always `1`. |
+| `formData` | The form data that needs to accompany your AppBundle upload. The `formData` expires in `3600` seconds. |
 
-Upload the AppBundle to the signed URL returned by endpointURL in the previous step.
+## [Step 3 - Upload the AppBundle](#step-3-upload-the-appbundle)
 
-```
-curl - X POST \ 'https://dasprod-store.s3.amazonaws.com' \ - H 'Cache-Control: no-cache' \ - F 'key=apps/Revit/DeleteWallsApp/1' \ - F 'content-type=application/octet-stream' \ - F 'policy=eyJleHBpcmF0aW9uIjoiMjAxOC... (truncated)' \ - F 'success_action_status="200"' \ - F 'success_action_redirect=' \ - F 'x-amz-signature=6c68268e23ecb8452... (truncated)' \ - F 'x-amz-credential=ASIAQ2W... (truncated)' \ - F 'x-amz-algorithm=AWS4-HMAC-SHA256' \ - F 'x-amz-date=20180810... (truncated)' \ - F 'x-amz-server-side-encryption=AES256' \ - F 'x-amz-security-token=FQoGZXIvYXdzEPj//////////wEaDHavu... (truncated)' \ - F 'file=@path/to/your/app/zip'
-```
-
-Note: Ensure that all the form-data from the create AppBundle response is included in your request.
-
-## Step 4 - Create an alias for the AppBundle
-
-When you registered the AppBundle in step 2, it was registered as version 1 of the AppBundle. In this step, you create an alias named test to reference that version.
+Upload the AppBundle to the signed URL returned by `endpointURL` in the previous step.
 
 ```
-curl - X POST \ 'https://developer.api.autodesk.com/da/us-east/v3/appbundles/DeleteWallsApp/aliases' \ - H 'Content-Type: application/json' \ - H 'Authorization: Bearer <YOUR_ACCESS_TOKEN>' \ - d '{ "version": 1, "id": "test" }'
+curl -X POST \
+  'https://dasprod-store.s3.amazonaws.com' \
+  -H 'Cache-Control: no-cache' \
+  -F 'key=apps/Revit/DeleteWallsApp/1' \
+  -F 'content-type=application/octet-stream' \
+  -F 'policy=eyJleHBpcmF0aW9uIjoiMjAxOC... (truncated)' \
+  -F 'success_action_status="200"' \
+  -F 'success_action_redirect=' \
+  -F 'x-amz-signature=6c68268e23ecb8452... (truncated)' \
+  -F 'x-amz-credential=ASIAQ2W... (truncated)' \
+  -F 'x-amz-algorithm=AWS4-HMAC-SHA256' \
+  -F 'x-amz-date=20180810... (truncated)' \
+  -F 'x-amz-server-side-encryption=AES256' \
+  -F 'x-amz-security-token=FQoGZXIvYXdzEPj//////////wEaDHavu... (truncated)' \
+  -F 'file=@path/to/your/app/zip'
+
 ```
 
-## Step 5 - Update an existing AppBundle
+Show More
 
-To update an existing AppBundle, you must register a new version for the AppBundle and then upload the updated AppBundle for that version. If you try to overwrite an existing AppBundle, the Automation Service returns a 409 Conflict error.
+**Note:** Ensure that all the form-data from the [create AppBundle](#create-a-new-appbundle) response is included in your request.
+
+## [Step 4 - Create an alias for the AppBundle](#step-4-create-an-alias-for-the-appbundle)
+
+When you registered the AppBundle in step 2, it was registered as version 1 of the AppBundle. In this step, you create an alias named `test` to reference that version.
+
+```
+curl -X POST \
+  'https://developer.api.autodesk.com/da/us-east/v3/appbundles/DeleteWallsApp/aliases' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer <YOUR_ACCESS_TOKEN>' \
+  -d '{
+      "version": 1,
+      "id": "test"
+    }'
+
+```
+
+Show More
+
+## [Step 5 - Update an existing AppBundle](#step-5-update-an-existing-appbundle)
+
+To update an existing AppBundle, you must register a new version for the AppBundle and then upload the updated AppBundle for that version. If you try to overwrite an existing AppBundle, the Automation Service returns a `409 Conflict` error.
 
 To register a new version of the AppBundle DeleteWallsApp:
 
 ### Request
 
 ```
-curl - X POST \ 'https://developer.api.autodesk.com/da/us-east/v3/appbundles/DeleteWallsApp/versions' \ - H 'Content-Type: application/json' \ - H 'Authorization: Bearer <YOUR_ACCESS_TOKEN>' \ - d '{ "id": null, "engine": "Autodesk.Revit+2024", "description": "Delete Walls AppBundle based on Revit 2024" }'
+curl -X POST \
+  'https://developer.api.autodesk.com/da/us-east/v3/appbundles/DeleteWallsApp/versions'\
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer <YOUR_ACCESS_TOKEN>' \
+  -d '{
+      "id": null,
+      "engine": "Autodesk.Revit+2024",
+      "description": "Delete Walls AppBundle based on Revit 2024"
+    }'
+
 ```
 
-Note: You can omit id from the request body. If you include id in the request body, set it to null . If you donât set it to null , the Automation Service returns an error.
+Show More
+
+**Note:** You can omit `id` from the request body. If you include `id` in the request body, set it to `null`. If you donât set it to `null`, the Automation Service returns an error.
 
 ### Response
 
 ```
-{ "uploadParameters" : { "endpointURL" : "https://dasprod-store.s3.amazonaws.com" , "formData" : { "key" : "apps/Revit/DeleteWallsApp/2" , "content-type" : "application/octet-stream" , "policy" : "eyJleHBpcmF0aW9uIjoiMjAxOC... (truncated)" , "success_action_status" : "200" , "success_action_redirect" : "" , "x-amz-signature" : "6c68268e23ecb8452... (truncated)" , "x-amz-credential" : "ASIAQ2W... (truncated)" , "x-amz-algorithm" : "AWS4-HMAC-SHA256" , "x-amz-date" : "20180810... (truncated)" , "x-amz-server-side-encryption" : "AES256" , "x-amz-security-token" : "FQoGZXIvYXdzEPj//////////wEaDHavu... (truncated)" } }, "engine" : "Autodesk.Revit+2018" , "description" : "Delete Walls AppBundle based on Revit 2018" , "version" : 2 , "id" : "YOUR_NICKNAME.DeleteWallsApp" }
+{
+    "uploadParameters": {
+        "endpointURL": "https://dasprod-store.s3.amazonaws.com",
+        "formData": {
+            "key": "apps/Revit/DeleteWallsApp/2",
+            "content-type": "application/octet-stream",
+            "policy": "eyJleHBpcmF0aW9uIjoiMjAxOC... (truncated)",
+            "success_action_status": "200",
+            "success_action_redirect": "",
+            "x-amz-signature": "6c68268e23ecb8452... (truncated)",
+            "x-amz-credential": "ASIAQ2W... (truncated)",
+            "x-amz-algorithm": "AWS4-HMAC-SHA256",
+            "x-amz-date": "20180810... (truncated)",
+            "x-amz-server-side-encryption": "AES256",
+            "x-amz-security-token": "FQoGZXIvYXdzEPj//////////wEaDHavu... (truncated)"
+        }
+    },
+    "engine": "Autodesk.Revit+2018",
+    "description": "Delete Walls AppBundle based on Revit 2018",
+    "version": 2,
+    "id": "YOUR_NICKNAME.DeleteWallsApp"
+}
+
 ```
+
+Show More
 
 The response to the AppBundle version post includes:
 
-Attribute Description endpointURL This is the signed URL to which you must upload the updated AppBundle. version The new version number for the AppBundle created by the above POST request.
+| Attribute | Description |
+| --- | --- |
+| `endpointURL` | **This is the signed URL to which you must upload the updated AppBundle.** |
+| `version` | The new version number for the AppBundle created by the above POST request. |
 
-## Step 6 - Upload the updated AppBundle
+## [Step 6 - Upload the updated AppBundle](#step-6-upload-the-updated-appbundle)
 
-Follow the procedure outlined in Step 3 to upload the AppBundle to the signed URL returned by endpointURL .
+Follow the procedure outlined in Step 3 to upload the AppBundle to the signed URL returned by `endpointURL`.
 
-## Step 7 - Assign an existing alias to the updated AppBundle
+## [Step 7 - Assign an existing alias to the updated AppBundle](#step-7-assign-an-existing-alias-to-the-updated-appbundle)
 
-Currently, the alias test points to version 1 of the AppBundle.
+Currently, the alias *test* points to version 1 of the AppBundle.
 
-id alias version DeleteWallsApp test 1 DeleteWallsApp 2
+| id | alias | version |
+| --- | --- | --- |
+| DeleteWallsApp | test | 1 |
+| DeleteWallsApp |  | 2 |
 
-You can reassign the alias test to version 2 of the AppBundle DeleteWallsApp.
+You can reassign the alias *test* to version 2 of the AppBundle DeleteWallsApp.
 
-id alias version DeleteWallsApp 1 DeleteWallsApp test 2
+| id | alias | version |
+| --- | --- | --- |
+| DeleteWallsApp |  | 1 |
+| DeleteWallsApp | test | 2 |
 
 To reassign the alias, you can either:
 
 - Delete the existing alias and recreate it to point to the desired version.
-
 - Send a PATCH request.
 
 To send a PATCH request:
@@ -153,27 +304,37 @@ To send a PATCH request:
 ### Request
 
 ```
-curl - X PATCH \ 'https://developer.api.autodesk.com/da/us-east/v3/appbundles/DeleteWallsApp/aliases/test ''\ -H ' Content - Type : application / json ' \ -H ' Authorization : Bearer < YOUR_ACCESS_TOKEN > ' \ -d ' { "version" : 2 } '
+curl -X PATCH \
+'https://developer.api.autodesk.com/da/us-east/v3/appbundles/DeleteWallsApp/aliases/test ''\
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <YOUR_ACCESS_TOKEN>' \
+-d '{
+            "version": 2
+          }'
+
 ```
 
-Notes:
+**Notes:**
 
-- version - Refers to the version number the alias must point to.
-
+- `version` - Refers to the version number the alias must point to.
 - You can use this technique to make sure that an alias always points to the latest version of an AppBundle.
 
-## Additional notes
+## [Additional notes](#additional-notes)
 
-- Each AppBundle POST request specifies an engine on which the application runs. The following table shows the keywords to specify for the available Revit engines.
-
-- The engine must match the SeriesMin and SeriesMax settings specified in the AppBundleâs PackageContent.xml.
-
+- Each AppBundle POST request specifies an `engine` on which the application runs. The following table shows the keywords to specify for the available Revit engines.
+- The `engine` must match the `SeriesMin` and `SeriesMax` settings specified in the AppBundleâs PackageContent.xml.
 - The active engine version aliases are:
 
-Engine Description JSON in AppBundle post DesignAutomationBridge DLL Autodesk.Revit+2021 Revit 2021.1.7 âengineâ: âAutodesk.Revit+2021â DesignAutomationBridge.dll for 2021. Autodesk.Revit+2022 Revit 2022.1.3 âengineâ: âAutodesk.Revit+2022â DesignAutomationBridge.dll for 2022. Autodesk.Revit+2023 Revit 2023.1.1 âengineâ: âAutodesk.Revit+2023â DesignAutomationBridge.dll for 2023. Autodesk.Revit+2024 Revit 2024.0.0 âengineâ: âAutodesk.Revit+2024â DesignAutomationBridge.dll for 2024. Autodesk.Revit+2025 Revit 2025.3.0 âengineâ: âAutodesk.Revit+2025â DesignAutomationBridge.dll for 2025. Autodesk.Revit+2026 Revit 2026.3.0 âengineâ: âAutodesk.Revit+2026â DesignAutomationBridge.dll for 2026.
+| Engine | Description | JSON in AppBundle post | DesignAutomationBridge DLL |
+| --- | --- | --- | --- |
+| `Autodesk.Revit+2021` | Revit 2021.1.7 | âengineâ: âAutodesk.Revit+2021â | [DesignAutomationBridge.dll](https://www.nuget.org/packages/Autodesk.Forge.DesignAutomation.Revit/2021.0.2) for 2021. |
+| `Autodesk.Revit+2022` | Revit 2022.1.3 | âengineâ: âAutodesk.Revit+2022â | [DesignAutomationBridge.dll](https://www.nuget.org/packages/Autodesk.Forge.DesignAutomation.Revit/2022.0.1) for 2022. |
+| `Autodesk.Revit+2023` | Revit 2023.1.1 | âengineâ: âAutodesk.Revit+2023â | [DesignAutomationBridge.dll](https://www.nuget.org/packages/Autodesk.Forge.DesignAutomation.Revit/2023.0.2) for 2023. |
+| `Autodesk.Revit+2024` | Revit 2024.0.0 | âengineâ: âAutodesk.Revit+2024â | [DesignAutomationBridge.dll](https://www.nuget.org/packages/Autodesk.Forge.DesignAutomation.Revit/2024.0.2) for 2024. |
+| `Autodesk.Revit+2025` | Revit 2025.3.0 | âengineâ: âAutodesk.Revit+2025â | [DesignAutomationBridge.dll](https://www.nuget.org/packages/Autodesk.Forge.DesignAutomation.Revit/2025.0.1) for 2025. |
+| `Autodesk.Revit+2026` | Revit 2026.3.0 | âengineâ: âAutodesk.Revit+2026â | [DesignAutomationBridge.dll](https://www.nuget.org/packages/Autodesk.Forge.DesignAutomation.Revit/2026.0.0) for 2026. |
 
-Notes:
+**Notes:**
 
-- For the most current list of engines use the operation listed here .
-
-- If there is an error, refer the section on troubleshooting .
+- For the most current list of `engines` use the operation listed [here](en/docs/design-automation/v3/reference/http/#engines).
+- If there is an error, refer the section on [troubleshooting](/en/docs/design-automation/v3/developers_guide/troubleshooting).

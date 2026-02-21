@@ -4,116 +4,174 @@ Source: https://aps.autodesk.com/en/docs/acc/reference/http/cost-main-contracts-
 
 ---
 
+Main Contract Items
+
+POST
+
 # v1/containers/{containerId}/main-contracts/{mainContractId}/items
 
 Creates a main contract item in the given main contract.
 
-## Resource Information
+  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
-Method and URI POST https://developer.api.autodesk.com/cost/v1/containers/:containerId/main-contracts/:mainContractId/items Authentication Context user context required Required OAuth Scopes data:write Data Format JSON
+## [Resource Information](#resource-information)
 
-### Request
-
-## Headers
-
-Authorization * string Must be Bearer <token> , where <token> is obtained via a three-legged OAuth flow. Content-Type * string Must be application/json region string Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead. Possible values: country or region codes such as US or EMEA . For the full list of supported regions, see the ACC Regions page. To verify your projectâs region, refer to the Working with BIM 360 Services in Different Regions section on the API Basics page.
-
-By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.
-
-Possible values: country or region codes such as US or EMEA . For the full list of supported regions, see the ACC Regions page.
-
-To verify your projectâs region, refer to the Working with BIM 360 Services in Different Regions section on the API Basics page.
+| Method and URI | POST https://developer.api.autodesk.com/cost/v1/containers/:containerId/main-contracts/:mainContractId/items |
+| --- | --- |
+| Authentication Context | user context required |
+| Required OAuth Scopes | `data:write` |
+| Data Format | JSON |
 
 ### Request
 
-## URI Parameters
+## [Headers](#headers)
 
-containerId string: UUID The ID of the project (the container ID is the same as the project ID). To obtain the project ID, see GET projects . mainContractId string: UUID The ID of the main contract. To find the main contract ID, call GET main-contracts and inspect results.id in the response.
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| --- | --- |
+| Content-Type*   string | Must be `application/json` |
+| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](/en/docs/acc/v1/overview/acc-regions) page.<br>To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
+
+* Required
 
 ### Request
 
-## Body Structure
+## [URI Parameters](#uri-parameters)
+
+| containerId   string: UUID | The ID of the project (the container ID is the same as the project ID). To obtain the project ID, see [GET projects](/en/docs/bim360/v1/reference/http/admin-accounts-accountidprojects-GET/). |
+| --- | --- |
+| mainContractId   string: UUID | The ID of the main contract. To find the main contract ID, call [GET main-contracts](/en/docs/bim360/v1/reference/http/cost-main-contracts-GET/) and inspect `results.id` in the response. |
+
+### Request
+
+## [Body Structure](#body-structure)
 
 The main contract items.
 
-id string,null An ID for the main contract item. code * string A code for the main contract item. Max length: 255 name * string A name for the main contract item. Max length: 1024 description string A description of the main contract item. Max length: 2048 parentId string,null The ID of the parent item of the main contract item. This is used only when creating the main contract item. budgetId string,null The ID of a budget to link to the main contract item. unit string,null The unit of measure of the main contract item. Max length: 255 unitPrice number,string,null The unit price of the main contract item. quantity number,string,null The quantity of the main contract item. position int The position of the main contract item in its siblings of main contract items. externalId string The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the itemâs ID in the external system. Max length: 255 externalSystem string The name of the external ERP system integrated with Cost Management. Use this name to identify and search for data within the integrated system. Max length: 255 externalMessage string A message generated by the external ERP system that explains the sync status of the integration. For example, common values include success or fail to indicate the result of the integration operation. Max length: 255 lastSyncTime datetime: ISO 8601 The date and time when the item was last synchronized with the external ERP system. This value is updated by the external system and is in ISO 8601 format. integrationState string,null The state of the item during the integration with the external ERP system (such as SignNow). An item can be a budget , contract , main contract , main contract item , cost item , expense , expense item , change order , or schedule of value . For more details, see Integrate with External System tutorial.
-Possible values: locked : the item is currently locked within the ERP system, preventing modifications until unlocked. To unlock and modify the item, use the relevant PATCH endpoint to set integrationState to null . For example, for a budget, call PATCH budgets . For a contract, call PATCH contracts . For more details, see the Help documentation . integrated : the item has been successfully added to the ERP system. failed : the item encountered an error during the integration process and was not successfully added to the ERP system. For example, if a user tries to integrate contracts from an ERP system and the updates fail, the integrationState can be set to failed . Retry the sync process or analyze the issue if it continues to fail. null : The item has not been integrated with the ERP system. This is default value. For more information regarding integrations within the Cost Management system, see Integrations in Cost Management .
+| id   string,null | An ID for the main contract item. |
+| --- | --- |
+| code*   string | A code for the main contract item. <br>Max length: 255 |
+| name*   string | A name for the main contract item. <br>Max length: 1024 |
+| description   string | A description of the main contract item. <br>Max length: 2048 |
+| parentId   string,null | The ID of the parent item of the main contract item. This is used only when creating the main contract item. |
+| budgetId   string,null | The ID of a budget to link to the main contract item. |
+| unit   string,null | The unit of measure of the main contract item. <br>Max length: 255 |
+| unitPrice   number,string,null | The unit price of the main contract item. |
+| quantity   number,string,null | The quantity of the main contract item. |
+| position   int | The position of the main contract item in its siblings of main contract items. |
+| externalId   string | The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the itemâs ID in the external system. <br>Max length: 255 |
+| externalSystem   string | The name of the external ERP system integrated with Cost Management. Use this name to identify and search for data within the integrated system. <br>Max length: 255 |
+| externalMessage   string | A message generated by the external ERP system that explains the sync status of the integration. For example, common values include `success` or `fail` to indicate the result of the integration operation. <br>Max length: 255 |
+| lastSyncTime   datetime: ISO 8601 | The date and time when the item was last synchronized with the external ERP system. This value is updated by the external system and is in ISO 8601 format. |
+| integrationState   string,null | The state of the item during the integration with the external ERP system (such as SignNow). An item can be a `budget`, `contract`, `main contract`, `main contract item`, `cost item`, `expense`, `expense item`, `change order`, or `schedule of value`. For more details, see [Integrate with External System](/en/docs/acc/v1/tutorials/cost/integrate-with-external-system/) tutorial. Possible values: <br>`locked`: the item is currently locked within the ERP system, preventing modifications until unlocked. To unlock and modify the item, use the relevant PATCH endpoint to set `integrationState` to `null`. For example, for a budget, call [PATCH budgets](en/docs/bim360/v1/reference/http/cost-budgets-budgetId-PATCH/). For a contract, call [PATCH contracts](en/docs/bim360/v1/reference/http/cost-contracts-contractId-PATCH/). For more details, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Integrated_and_Locked).<br>`integrated`: the item has been successfully added to the ERP system.<br>`failed`: the item encountered an error during the integration process and was not successfully added to the ERP system. For example, if a user tries to integrate `contracts` from an ERP system and the updates fail, the `integrationState` can be set to `failed`. Retry the sync process or analyze the issue if it continues to fail.<br>`null`: The item has not been integrated with the ERP system. This is default value.<br>For more information regarding integrations within the Cost Management system, see [Integrations in Cost Management](https://help.autodesk.com/view/BUILD/ENU/?guid=Cost_Integrations). |
 
-Max length: 255
-
-Max length: 1024
-
-Max length: 2048
-
-Max length: 255
-
-Max length: 255
-
-Max length: 255
-
-Max length: 255
-
-locked : the item is currently locked within the ERP system, preventing modifications until unlocked. To unlock and modify the item, use the relevant PATCH endpoint to set integrationState to null . For example, for a budget, call PATCH budgets . For a contract, call PATCH contracts . For more details, see the Help documentation .
-
-integrated : the item has been successfully added to the ERP system.
-
-failed : the item encountered an error during the integration process and was not successfully added to the ERP system. For example, if a user tries to integrate contracts from an ERP system and the updates fail, the integrationState can be set to failed . Retry the sync process or analyze the issue if it continues to fail.
-
-null : The item has not been integrated with the ERP system. This is default value.
-
-For more information regarding integrations within the Cost Management system, see Integrations in Cost Management .
+* Required
 
 ### Response
 
-## HTTP Status Code Summary
+## [HTTP Status Code Summary](#http-status-code-summary)
 
-201 Created Success 400 Bad Request The parameters are invalid. 401 Unauthorized The provided bearer token is invalid. 403 Forbidden Forbidden. The user or service represented by the bearer token does not have permission to perform this operation. 404 Not Found The resource or endpoint cannot be found. 409 Conflict The request could not be completed due to a conflict with the current state of the resource. 429 Too Many Requests Rate limit exceeded. Retry your request after a few minutes. 500 Internal Server Error An unexpected error occurred on the server. 503 Service Unavailable Service unavailable.
+| 201   Created | Success |
+| --- | --- |
+| 400   Bad Request | The parameters are invalid. |
+| 401   Unauthorized | The provided bearer token is invalid. |
+| 403   Forbidden | Forbidden. The user or service represented by the bearer token does not have permission to perform this operation. |
+| 404   Not Found | The resource or endpoint cannot be found. |
+| 409   Conflict | The request could not be completed due to a conflict with the current state of the resource. |
+| 429   Too Many Requests | Rate limit exceeded. Retry your request after a few minutes. |
+| 500   Internal Server Error | An unexpected error occurred on the server. |
+| 503   Service Unavailable | Service unavailable. |
 
 ### Response
 
-## Body Structure (201)
+## [Body Structure (201)](#body-structure-201)
 
-id string The ID of the main contract item. budgetId string,null The ID of the budget linked to the main contract item. containerId string,null The ID of the cost container for the project. Each project is assigned a container that stores all of the cost data for the project. parentId string,null The ID of the parent item of the returned main contract item. This is used only when creating a main contract item. mainContractId string,null The ID of the main contract that contains the returned main contract item. This is used only when creating a main contract item. code string The code of the main contract item. Max length: 255 name string The name of the main contract item. Max length: 1024 description string A description of the main contract item. Max length: 2048 unit string,null The unit of measure of the main contract item. Max length: 255 unitPrice number,string,null The unit price of the main contract item. quantity number,string,null The quantity of the main contract item. amount number,string,null The total price of the main contract item. createdAt datetime: ISO 8601 The date and time when the main contract item was created, in ISO 8601 format. updatedAt datetime: ISO 8601 The date and time when the main contract item was last updated, in ISO 8601 format. isPrivate boolean,null true : The main contract item is private. false : The main contract item is not private. position int The position of the main contract item in its siblings of main contract items. externalId string The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the itemâs ID in the external system. Max length: 255 externalSystem string The name of the external ERP system integrated with Cost Management. Use this name to identify and search for data within the integrated system. Max length: 255 externalMessage string A message generated by the external ERP system that explains the sync status of the integration. For example, common values include success or fail to indicate the result of the integration operation. Max length: 255 lastSyncTime datetime: ISO 8601 The date and time when the item was last synchronized with the external ERP system. This value is updated by the external system and is in ISO 8601 format. integrationState string,null The state of the item during the integration with the external ERP system (such as SignNow). An item can be a budget , contract , main contract , main contract item , cost item , expense , expense item , change order , or schedule of value . For more details, see Integrate with External System tutorial.
-Possible values: locked : the item is currently locked within the ERP system, preventing modifications until unlocked. To unlock and modify the item, use the relevant PATCH endpoint to set integrationState to null . For example, for a budget, call PATCH budgets . For a contract, call PATCH contracts . For more details, see the Help documentation . integrated : the item has been successfully added to the ERP system. failed : the item encountered an error during the integration process and was not successfully added to the ERP system. For example, if a user tries to integrate contracts from an ERP system and the updates fail, the integrationState can be set to failed . Retry the sync process or analyze the issue if it continues to fail. null : The item has not been integrated with the ERP system. This is default value. For more information regarding integrations within the Cost Management system, see Integrations in Cost Management . integrationStateChangedAt string,null The date and time that the itemâs integration status was last changed. integrationStateChangedBy string,null The user who last changed the integration status. This is the ID of a user managed by the BIM 360/ACC Admin.
+| id   string | The ID of the main contract item. |
+| --- | --- |
+| budgetId   string,null | The ID of the budget linked to the main contract item. |
+| containerId   string,null | The ID of the cost container for the project. Each project is assigned a container that stores all of the cost data for the project. |
+| parentId   string,null | The ID of the parent item of the returned main contract item. This is used only when creating a main contract item. |
+| mainContractId   string,null | The ID of the main contract that contains the returned main contract item. This is used only when creating a main contract item. |
+| code   string | The code of the main contract item. <br>Max length: 255 |
+| name   string | The name of the main contract item. <br>Max length: 1024 |
+| description   string | A description of the main contract item. <br>Max length: 2048 |
+| unit   string,null | The unit of measure of the main contract item. <br>Max length: 255 |
+| unitPrice   number,string,null | The unit price of the main contract item. |
+| quantity   number,string,null | The quantity of the main contract item. |
+| amount   number,string,null | The total price of the main contract item. |
+| createdAt   datetime: ISO 8601 | The date and time when the main contract item was created, in ISO 8601 format. |
+| updatedAt   datetime: ISO 8601 | The date and time when the main contract item was last updated, in ISO 8601 format. |
+| isPrivate   boolean,null | `true`: The main contract item is private. <br>`false`: The main contract item is not private. |
+| position   int | The position of the main contract item in its siblings of main contract items. |
+| externalId   string | The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the itemâs ID in the external system. <br>Max length: 255 |
+| externalSystem   string | The name of the external ERP system integrated with Cost Management. Use this name to identify and search for data within the integrated system. <br>Max length: 255 |
+| externalMessage   string | A message generated by the external ERP system that explains the sync status of the integration. For example, common values include `success` or `fail` to indicate the result of the integration operation. <br>Max length: 255 |
+| lastSyncTime   datetime: ISO 8601 | The date and time when the item was last synchronized with the external ERP system. This value is updated by the external system and is in ISO 8601 format. |
+| integrationState   string,null | The state of the item during the integration with the external ERP system (such as SignNow). An item can be a `budget`, `contract`, `main contract`, `main contract item`, `cost item`, `expense`, `expense item`, `change order`, or `schedule of value`. For more details, see [Integrate with External System](/en/docs/acc/v1/tutorials/cost/integrate-with-external-system/) tutorial. Possible values: <br>`locked`: the item is currently locked within the ERP system, preventing modifications until unlocked. To unlock and modify the item, use the relevant PATCH endpoint to set `integrationState` to `null`. For example, for a budget, call [PATCH budgets](en/docs/bim360/v1/reference/http/cost-budgets-budgetId-PATCH/). For a contract, call [PATCH contracts](en/docs/bim360/v1/reference/http/cost-contracts-contractId-PATCH/). For more details, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Integrated_and_Locked).<br>`integrated`: the item has been successfully added to the ERP system.<br>`failed`: the item encountered an error during the integration process and was not successfully added to the ERP system. For example, if a user tries to integrate `contracts` from an ERP system and the updates fail, the `integrationState` can be set to `failed`. Retry the sync process or analyze the issue if it continues to fail.<br>`null`: The item has not been integrated with the ERP system. This is default value.<br>For more information regarding integrations within the Cost Management system, see [Integrations in Cost Management](https://help.autodesk.com/view/BUILD/ENU/?guid=Cost_Integrations). |
+| integrationStateChangedAt   string,null | The date and time that the itemâs integration status was last changed. |
+| integrationStateChangedBy   string,null | The user who last changed the integration status. This is the ID of a user managed by the BIM 360/ACC Admin. |
 
-Max length: 255
-
-Max length: 1024
-
-Max length: 2048
-
-Max length: 255
-
-false : The main contract item is not private.
-
-Max length: 255
-
-Max length: 255
-
-Max length: 255
-
-locked : the item is currently locked within the ERP system, preventing modifications until unlocked. To unlock and modify the item, use the relevant PATCH endpoint to set integrationState to null . For example, for a budget, call PATCH budgets . For a contract, call PATCH contracts . For more details, see the Help documentation .
-
-integrated : the item has been successfully added to the ERP system.
-
-failed : the item encountered an error during the integration process and was not successfully added to the ERP system. For example, if a user tries to integrate contracts from an ERP system and the updates fail, the integrationState can be set to failed . Retry the sync process or analyze the issue if it continues to fail.
-
-null : The item has not been integrated with the ERP system. This is default value.
-
-For more information regarding integrations within the Cost Management system, see Integrations in Cost Management .
-
-## Example
+## [Example](#example)
 
 Success
 
 ### Request
 
 ```
-curl -v 'https://developer.api.autodesk.com/cost/v1/containers/e94b9bc8-1775-4d76-9b1d-c613e120ccff/main-contracts/f6445638-ca68-4e3c-9160-15864de6b818/items' \ -X 'POST' \ -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a' \ -H 'Content-Type: application/json' \ -d '{ "id": "1df59db0-9484-11e8-a7ec-7ddae203e404", "code": 1011, "name": "Site Management Staff", "description": "Site Management Staff", "parentId": "36d8d230-0030-4bd6-a57c-ac4be8a891c9", "budgetId": "fc1f46d3-7838-11e8-a467-7de33c3af32d", "unit": "ea", "unitPrice": "1000.0000", "quantity": "1000.0000", "position": 1, "externalId": "10010-99-AB", "externalSystem": "Sage300", "externalMessage": "Success.", "lastSyncTime": "2019-09-05T01:00:12.989Z", "integrationState": "locked" }'
+curl -v 'https://developer.api.autodesk.com/cost/v1/containers/e94b9bc8-1775-4d76-9b1d-c613e120ccff/main-contracts/f6445638-ca68-4e3c-9160-15864de6b818/items' \
+  -X 'POST' \
+  -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a' \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "id": "1df59db0-9484-11e8-a7ec-7ddae203e404",
+        "code": 1011,
+        "name": "Site Management Staff",
+        "description": "Site Management Staff",
+        "parentId": "36d8d230-0030-4bd6-a57c-ac4be8a891c9",
+        "budgetId": "fc1f46d3-7838-11e8-a467-7de33c3af32d",
+        "unit": "ea",
+        "unitPrice": "1000.0000",
+        "quantity": "1000.0000",
+        "position": 1,
+        "externalId": "10010-99-AB",
+        "externalSystem": "Sage300",
+        "externalMessage": "Success.",
+        "lastSyncTime": "2019-09-05T01:00:12.989Z",
+        "integrationState": "locked"
+      }'
+
 ```
+
+Show More
 
 ### Response
 
 ```
-{ "id" : "1df59db0-9484-11e8-a7ec-7ddae203e404" , "budgetId" : "fc1f46d3-7838-11e8-a467-7de33c3af32d" , "containerId" : "e94b9bc8-1775-4d76-9b1d-c613e120ccff" , "parentId" : "36d8d230-0030-4bd6-a57c-ac4be8a891c9" , "mainContractId" : "f6445638-ca68-4e3c-9160-15864de6b818" , "code" : 1011 , "name" : "Site Management Staff" , "description" : "Site Management Staff" , "unit" : "ea" , "unitPrice" : "1000.0000" , "quantity" : "1000.0000" , "amount" : "1000.0000" , "createdAt" : "2019-08-22" , "updatedAt" : "2019-08-22" , "isPrivate" : true , "position" : 1 , "externalId" : "10010-99-AB" , "externalSystem" : "Sage300" , "externalMessage" : "Success." , "lastSyncTime" : "2019-09-05T01:00:12.989Z" , "integrationState" : "locked" , "integrationStateChangedAt" : "2019-09-05T01:00:12.989Z" , "integrationStateChangedBy" : "CED9LVTLHNXV" }
+{
+  "id": "1df59db0-9484-11e8-a7ec-7ddae203e404",
+  "budgetId": "fc1f46d3-7838-11e8-a467-7de33c3af32d",
+  "containerId": "e94b9bc8-1775-4d76-9b1d-c613e120ccff",
+  "parentId": "36d8d230-0030-4bd6-a57c-ac4be8a891c9",
+  "mainContractId": "f6445638-ca68-4e3c-9160-15864de6b818",
+  "code": 1011,
+  "name": "Site Management Staff",
+  "description": "Site Management Staff",
+  "unit": "ea",
+  "unitPrice": "1000.0000",
+  "quantity": "1000.0000",
+  "amount": "1000.0000",
+  "createdAt": "2019-08-22",
+  "updatedAt": "2019-08-22",
+  "isPrivate": true,
+  "position": 1,
+  "externalId": "10010-99-AB",
+  "externalSystem": "Sage300",
+  "externalMessage": "Success.",
+  "lastSyncTime": "2019-09-05T01:00:12.989Z",
+  "integrationState": "locked",
+  "integrationStateChangedAt": "2019-09-05T01:00:12.989Z",
+  "integrationStateChangedBy": "CED9LVTLHNXV"
+}
+
 ```
+
+Show More

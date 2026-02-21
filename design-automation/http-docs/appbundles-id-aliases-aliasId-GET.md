@@ -4,50 +4,74 @@ Source: https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/app
 
 ---
 
+GET
+
 # appbundles/:id/aliases/:aliasId
 
 Get alias details.
 
-## Resource Information
+## [Resource Information](#resource-information)
 
-Method and URI GET https://developer.api.autodesk.com/da/us-east/v3/appbundles/:id/aliases/:aliasId Authentication Context app only Required OAuth Scopes code:all Data Format JSON
-
-### Request
-
-## Headers
-
-Authorization * string Must be Bearer <token> , where <token> is obtained via OAuth
+| Method and URI | GET https://developer.api.autodesk.com/da/us-east/v3/appbundles/:id/aliases/:aliasId |
+| --- | --- |
+| Authentication Context | app only |
+| Required OAuth Scopes | `code:all` |
+| Data Format | JSON |
 
 ### Request
 
-## URI Parameters
+## [Headers](#headers)
 
-id string Name of AppBundle (unqualified). aliasId string Name of alias.
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [OAuth](/en/docs/oauth/v2/reference/http/gettoken-POST) |
+| --- | --- |
+
+* Required
+
+### Request
+
+## [URI Parameters](#uri-parameters)
+
+| id   string | Name of AppBundle (unqualified). |
+| --- | --- |
+| aliasId   string | Name of alias. |
 
 ### Response
 
-## HTTP Status Code Summary
+## [HTTP Status Code Summary](#http-status-code-summary)
 
-200 OK Successfully get the details of an AppBundleâs alias. 403 Forbidden Unauthorized 404 Not Found Not found. 500 Internal Server Error Unknown error.
+| 200   OK | Successfully get the details of an AppBundleâs alias. |
+| --- | --- |
+| 403   Forbidden | Unauthorized |
+| 404   Not Found | Not found. |
+| 500   Internal Server Error | Unknown error. |
 
 ### Response
 
-## Body Structure (200)
+## [Body Structure (200)](#body-structure-200)
 
-version int The version that this alias refers to. receiver string or array: string The user(s) to share the alias with. id string The alias id.
+| version   int | The version that this alias refers to. |
+| --- | --- |
+| receiver   string or array: string | The user(s) to share the alias with. |
+| id   string | The alias id. |
 
-## Example
+## [Example](#example)
 
 Successfully get the details of an AppBundleâs alias.
 
 ### Request
 
 ```
-curl - v 'https://developer.api.autodesk.com/da/us-east/v3/appbundles/:id/aliases/:aliasId' \ - H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a'
+curl -v 'https://developer.api.autodesk.com/da/us-east/v3/appbundles/:id/aliases/:aliasId' \
+  -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a'
+
 ```
 
 ### Response
 
 ```
-{ "version" : 1 , "id" : "prod" }
+{
+  "version": 1,
+  "id": "prod"
+}
+
 ```

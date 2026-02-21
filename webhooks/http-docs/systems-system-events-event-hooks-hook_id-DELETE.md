@@ -4,75 +4,77 @@ Source: https://aps.autodesk.com/en/docs/webhooks/reference/http/webhooks/system
 
 ---
 
+DELETE
+
 # systems/:system/events/:event/hooks/:hook_id
 
 Deletes a webhook based on webhook ID
 
-## Resource Information
+## [Resource Information](#resource-information)
 
-Method and URI DELETE https://developer.api.autodesk.com/webhooks/v1/systems/:system/events/:event/hooks/:hook_id Authentication Context app only/ user context required Required OAuth Scopes data:read data:write
-
-### Request
-
-## Headers
-
-Authorization * string Must be Bearer <token> , where <token> is obtained via OAuth Content-Type * string application/json x-ads-region string Specifies the geographical location (region) of the server that the request is executed on. Supported values are the following, but the default value is US : US : (Default) Removes the webhook that was previously registered in a data center dedicated to serve the United States. EMEA : Removes the webhook that was previously registered in a data center dedicated to serve the European Union, Middle East, and Africa. AUS : (Beta) Removes the webhook that was previously registered in a data center dedicated to serve Australia. GBR : Removes the webhook that was previously registered in a data center dedicated to serve United Kingdom. JPN : Removes the webhook that was previously registered in a data center dedicated to serve Japan. DEU : Removes the webhook that was previously registered in a data center dedicated to serve Germany. CAN : Removes the webhook that was previously registered in a data center dedicated to serve Canada. IND : Removes the webhook that was previously registered in a data center dedicated to serve India.
-
-- US : (Default) Removes the webhook that was previously registered in a data center dedicated to serve the United States.
-
-- EMEA : Removes the webhook that was previously registered in a data center dedicated to serve the European Union, Middle East, and Africa.
-
-- AUS : (Beta) Removes the webhook that was previously registered in a data center dedicated to serve Australia.
-
-- GBR : Removes the webhook that was previously registered in a data center dedicated to serve United Kingdom.
-
-- JPN : Removes the webhook that was previously registered in a data center dedicated to serve Japan.
-
-- DEU : Removes the webhook that was previously registered in a data center dedicated to serve Germany.
-
-- CAN : Removes the webhook that was previously registered in a data center dedicated to serve Canada.
-
-- IND : Removes the webhook that was previously registered in a data center dedicated to serve India.
+| Method and URI | DELETE https://developer.api.autodesk.com/webhooks/v1/systems/:system/events/:event/hooks/:hook_id |
+| --- | --- |
+| Authentication Context | app only/ user context required |
+| Required OAuth Scopes | `data:read` `data:write` |
 
 ### Request
 
-## URI Parameters
+## [Headers](#headers)
 
-system string A system for example: data for Data Management event string Type of event. See Supported Events hook_id string Webhook ID to delete
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [OAuth](/en/docs/oauth/v2/reference/http/gettoken-POST) |
+| --- | --- |
+| Content-Type*   string | `application/json` |
+| x-ads-region   string | Specifies the geographical location (region) of the server that the request is executed on. Supported values are the following, but the default value is `US`: <br>`US` : (Default) Removes the webhook that was previously registered in a data center dedicated to serve the United States.`EMEA` : Removes the webhook that was previously registered in a data center dedicated to serve the European Union, Middle East, and Africa.`AUS` : (Beta) Removes the webhook that was previously registered in a data center dedicated to serve Australia.`GBR` : Removes the webhook that was previously registered in a data center dedicated to serve United Kingdom.`JPN` : Removes the webhook that was previously registered in a data center dedicated to serve Japan.`DEU` : Removes the webhook that was previously registered in a data center dedicated to serve Germany.`CAN` : Removes the webhook that was previously registered in a data center dedicated to serve Canada.`IND` : Removes the webhook that was previously registered in a data center dedicated to serve India. |
+
+* Required
 
 ### Request
 
-## Query String Parameters
+## [URI Parameters](#uri-parameters)
 
-region string Specifies the geographical location (region) of the server that the request is executed on. Supported values are the following, but the default value is US : US : (Default) Processes request in a data center dedicated to serve the United States. EMEA : Processes request in a data center dedicated to serve the European Union, Middle East, and Africa. AUS : (Beta) Processes request in a data center dedicated to serve Australia. The x-ads-region header also specifies the region.  If you specify both, x-ads-region has precedence.
+| system   string | A system for example: `data`   for Data Management |
+| --- | --- |
+| event   string | Type of event. See [Supported Events](/en/docs/webhooks/v1/reference/events) |
+| hook_id   string | Webhook ID to delete |
 
-- US : (Default) Processes request in a data center dedicated to serve the United States.
+### Request
 
-- EMEA : Processes request in a data center dedicated to serve the European Union, Middle East, and Africa.
+## [Query String Parameters](#query-string-parameters)
 
-- AUS : (Beta) Processes request in a data center dedicated to serve Australia.
-
-The x-ads-region header also specifies the region.  If you specify both, x-ads-region has precedence.
+| region   string | Specifies the geographical location (region) of the server that the request is executed on. Supported values are the following, but the default value is `US`: <br>`US` : (Default) Processes request in a data center dedicated to serve the United States.`EMEA` : Processes request in a data center dedicated to serve the European Union, Middle East, and Africa.`AUS` : (Beta) Processes request in a data center dedicated to serve Australia.<br>The `x-ads-region` header also specifies the region. If you specify both, `x-ads-region` has precedence. |
+| --- | --- |
 
 ### Response
 
-## HTTP Status Code Summary
+## [HTTP Status Code Summary](#http-status-code-summary)
 
-204 OK Delete operation is successful. 400 BAD REQUEST The request is invalid. 401 UNAUTHORIZED Invalid authorization header. 403 FORBIDDEN Access denied regardless of authorization status. 404 NOT FOUND The specified resource was not found. 500 INTERNAL SERVICE ERROR Unexpected service interruption
+| 204   OK | Delete operation is successful. |
+| --- | --- |
+| 400   BAD REQUEST | The request is invalid. |
+| 401   UNAUTHORIZED | Invalid authorization header. |
+| 403   FORBIDDEN | Access denied regardless of authorization status. |
+| 404   NOT FOUND | The specified resource was not found. |
+| 500   INTERNAL SERVICE ERROR | Unexpected service interruption |
 
-## Examples
+## [Examples](#examples)
 
 Successful Deletion of a webhook (204):
 
 ### Request
 
 ```
-curl -X DELETE \ -v 'https://developer.api.autodesk.com/webhooks/v1/systems/data/events/dm.version.added/hooks/0f60f6a0-996c-11e7-abf3-51d68cff984c' \ -H 'Authorization: Bearer bNU4P0trbQKNSzxWksLPTzSbbmUz'
+curl -X DELETE\
+     -v 'https://developer.api.autodesk.com/webhooks/v1/systems/data/events/dm.version.added/hooks/0f60f6a0-996c-11e7-abf3-51d68cff984c'\
+     -H 'Authorization: Bearer bNU4P0trbQKNSzxWksLPTzSbbmUz'
+
 ```
 
 ### Response
 
 ```
-HTTP/1.1 204 Date: Fri, 15 Sep 2017 16 :26:40 GMT
-Content-Length: 0 Connection: keep-alive
+HTTP/1.1 204
+Date: Fri, 15 Sep 2017 16:26:40 GMT
+Content-Length: 0
+Connection: keep-alive
+
 ```

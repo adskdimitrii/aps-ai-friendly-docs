@@ -16,23 +16,28 @@ By the end of this task, you will know how to create a nickname to reference an 
 
 You will use the following API endpoint in this task:
 
-HTTP Request Description PATCH /forgeapps/{id} Creates/updates the nickname for the current app.
+| HTTP Request | Description |
+| --- | --- |
+| [PATCH /forgeapps/{id}](/en/docs/design-automation/v3/reference/http/forgeapps-id-PATCH/) | Creates/updates the nickname for the current app. |
 
-## Step 1 - Create a nickname
+## [Step 1 - Create a nickname](#step-1-create-a-nickname)
 
 ### Request
 
 ```
-curl - X PATCH \ 'https://developer.api.autodesk.com/da/us-east/v3/forgeapps/me' \ - H 'Authorization: Bearer <YOUR_ACCESS_TOKEN>' \ - H 'Content-Type: application/json' \ - d ' {"nickname": "<YOUR_NICKNAME>"}'
+curl -X PATCH \
+  'https://developer.api.autodesk.com/da/us-east/v3/forgeapps/me' \
+  -H 'Authorization: Bearer <YOUR_ACCESS_TOKEN>' \
+  -H 'Content-Type: application/json' \
+  -d ' {"nickname": "<YOUR_NICKNAME>"}'
+
 ```
 
-Notes:
+**Notes:**
 
-- <YOUR_ACCESS_TOKEN> is the Access Token returned by the authentication request in the previous task.
-
-- If your app doesnât have any data, you can map the app to another Nickname. The new nickname will overwrite the old one. If your app has data, you cannot PATCH a Nickname for your app anymore. This is true even if you have not yet assigned a Nickname for the app. The only way you can assign a Nickname to an app with data is by first calling [DELETE] /forgeapps/me . This deletes all data associated with that app, including the Nickname.
-
-- Nicknames must be globally unique.  If the Nickname you provided is already in use, even by someone else, the PATCH request will return a 409 Conflict error.
+- `<YOUR_ACCESS_TOKEN>` is the Access Token returned by the authentication request in the previous task.
+- If your app doesnât have any data, you can map the app to another Nickname. The new nickname will overwrite the old one. If your app has data, you cannot `PATCH` a Nickname for your app anymore. This is true even if you have not yet assigned a Nickname for the app. The only way you can assign a Nickname to an app with data is by first calling [[DELETE] /forgeapps/me](/en/docs/design-automation/v3/reference/http/forgeapps-id-DELETE). This deletes all data associated with that app, including the Nickname.
+- Nicknames must be globally unique. If the Nickname you provided is already in use, even by someone else, the PATCH request will return a `409 Conflict` error.
 
 ### Response
 
@@ -48,4 +53,7 @@ X-Amzn-Trace-Id âRoot=1-5d3196a3-e2043246cf1cfa27b9d85aee
 X-Cache âMiss from cloudfront
 Content-Length â0
 Connection âkeep-alive
+
 ```
+
+Show More

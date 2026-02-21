@@ -4,62 +4,130 @@ Source: https://aps.autodesk.com/en/docs/acc/reference/http/projects-:project_id
 
 ---
 
+Companies
+
+GET
+
 # projects/:project_id/companies
 
 Query all the partner companies in a specific BIM 360 project.
 
-To query all the partner companies in the account, see GET companies .
+To query all the partner companies in the account, see [GET companies](/en/docs/bim360/v1/reference/http/companies-GET/).
 
-## Resource Information
+  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
-Method and URI GET https://developer.api.autodesk.com/hq/v1/accounts/:account_id/projects/:project_id/companies Method and URI (Legacy) GET https://developer.api.autodesk.com/hq/v1/regions/eu/accounts/:account_id/projects/:project_id/companies Authentication Context app only Required OAuth Scopes account:read Data Format JSON
+## [Resource Information](#resource-information)
 
-### Request
-
-## Headers
-
-Authorization yes Must be Bearer <token> , where <token> is obtained via a two-legged OAuth flow. Region no Specifies the region where the service is located.                                                                                                        Possible values: US , EMEA . For the full list of supported regions, see the Regions page.
-
-### Request
-
-## URI Parameters
-
-account_id string: UUID The account ID of the project. This corresponds to hub ID in the Data Management API . To convert a hub ID into an account ID you need to remove the â b. " prefix. For example, a hub ID of b. c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. project_id string: UUID The ID of the project. This corresponds to project ID in the Data Management API . To convert a project ID in the Data Management API into a project ID in the BIM 360 API you need to remove the â b. " prefix. For example, a project ID of b. a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+| Method and URI | GET https://developer.api.autodesk.com/hq/v1/accounts/:account_id/projects/:project_id/companies |
+| --- | --- |
+| Method and URI (Legacy) | GET https://developer.api.autodesk.com/hq/v1/regions/eu/accounts/:account_id/projects/:project_id/companies |
+| Authentication Context | app only |
+| Required OAuth Scopes | `account:read` |
+| Data Format | JSON |
 
 ### Request
 
-## Query String Parameters
+## [Headers](#headers)
 
-limit int Response arrayâs size Default value: 10 Max limit: 100 offset int Offset of response array Default value: 0 sort string Comma-separated fields to sort by in ascending order Prepending a field with - sorts in descending order Invalid fields and whitespaces will be ignored field string Comma-separated fields to include in response id will always be returned Invalid fields will be ignored
+| Authorization   yes | Must be `Bearer <token>`, where `<token>` is obtained via a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) OAuth flow. |
+| --- | --- |
+| Region   no | Specifies the region where the service is located. Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](/en/docs/acc/v1/overview/acc-regions) page. |
+
+### Request
+
+## [URI Parameters](#uri-parameters)
+
+| account_id   string: UUID | The account ID of the project. This corresponds to hub ID in the [Data Management API](/en/docs/data/v2/). To convert a hub ID into an account ID you need to remove the â**b.**" prefix. For example, a hub ID of **b.**c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. |
+| --- | --- |
+| project_id   string: UUID | The ID of the project. This corresponds to project ID in the [Data Management API](/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the BIM 360 API you need to remove the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+
+### Request
+
+## [Query String Parameters](#query-string-parameters)
+
+| limit   int | Response arrayâs size   Default value: `10`   Max limit: `100` |
+| --- | --- |
+| offset   int | Offset of response array   Default value: `0` |
+| sort   string | Comma-separated fields to sort by in ascending order       Prepending a field with `-` sorts in descending order   Invalid fields and whitespaces will be ignored |
+| field   string | Comma-separated fields to include in response       `id` will always be returned   Invalid fields will be ignored |
 
 ### Response
 
-## HTTP Status Code Summary
+## [HTTP Status Code Summary](#http-status-code-summary)
 
-200 OK The request has succeeded 400 Bad Request The request could not be understood by the server due to malformed syntax 403 Forbidden Unauthorized 404 Not Found The resource cannot be found 409 Conflict The request could not be completed due to a conflict with the current state of the resource 422 Unprocessable Entity The request was unable to be followed due to restrictions 500 Internal Server Error An unexpected error occurred on the server
+| 200   OK | The request has succeeded |
+| --- | --- |
+| 400   Bad Request | The request could not be understood by the server due to malformed syntax |
+| 403   Forbidden | Unauthorized |
+| 404   Not Found | The resource cannot be found |
+| 409   Conflict | The request could not be completed due to a conflict with the current state of the resource |
+| 422   Unprocessable Entity | The request was unable to be followed due to restrictions |
+| 500   Internal Server Error | An unexpected error occurred on the server |
 
 ### Response
 
-## Body Structure (200)
+## [Body Structure (200)](#body-structure-200)
 
 A successful response is an array of companies, flat JSON objects with the following attributes:
 
-id string: UUID Company ID account_id string: UUID Account ID project_id string: UUID Project ID name string Company name should be unique under an account Max length: 255 trade string Trade type based on specialization Refer to the trade list in the Parameters guide. address_line_1 string Company address line 1 Max length: 255 address_line_2 string Company address line 2 Max length: 255 city string City in which company is located Max length: 255 state_or_province enum: string State or province in which company is located Max length: 255 Note that the state_or_province value depends on the selected country value;
-see the valid values in the state_or_province list in
-the Parameters guide. postal_code string Postal code for the company location Max length: 255 country enum: string Country for this company Refer to the country list in the Parameters guide. phone string Business phone number for the company Max length: 255 website_url string Company website Max length: 255 description string Short description or overview for company Max length: 255 erp_id string Used to associate a company in BIM 360 with the company data in an ERP system tax_id string Used to associate a company in BIM 360 with the company data from public and industry sources member_group_id string The Autodesk ID of the company; used to identify which company is assigned to an RFI or Issue.
+| id   string: UUID | Company ID |
+| --- | --- |
+| account_id   string: UUID | Account ID |
+| project_id   string: UUID | Project ID |
+| name   string | Company name should be unique under an account       Max length: 255 |
+| trade   string | Trade type based on specialization       Refer to the `trade` list in the [Parameters](/en/docs/bim360/v1/overview/parameters) guide. |
+| address_line_1   string | Company address line 1       Max length: 255 |
+| address_line_2   string | Company address line 2       Max length: 255 |
+| city   string | City in which company is located       Max length: 255 |
+| state_or_province   enum: string | State or province in which company is located       Max length: 255       Note that the `state_or_province` value depends on the selected `country` value; see the valid values in the `state_or_province` list in the [Parameters](/en/docs/bim360/v1/overview/parameters) guide. |
+| postal_code   string | Postal code for the company location       Max length: 255 |
+| country   enum: string | Country for this company       Refer to the `country` list in the [Parameters](/en/docs/bim360/v1/overview/parameters) guide. |
+| phone   string | Business phone number for the company       Max length: 255 |
+| website_url   string | Company website       Max length: 255 |
+| description   string | Short description or overview for company       Max length: 255 |
+| erp_id   string | Used to associate a company in BIM 360 with the company data in an ERP system |
+| tax_id   string | Used to associate a company in BIM 360 with the company data from public and industry sources |
+| member_group_id   string | The Autodesk ID of the company; used to identify which company is assigned to an RFI or Issue. |
 
-## Example
+## [Example](#example)
 
 Successful Listing of Companies in an Account (200)
 
 ### Request
 
 ```
-curl -v 'https://developer.api.autodesk.com/hq/v1/accounts/80793a28-f9b1-4888-9533-5f00cddcd6fb/projects/1e4bdc48-1bd7-4a4f-a91f-bd238cce5830/companies?limit=1&offset=0' \ -H 'Authorization: Bearer 07YyCEjv3qs8FA7ysntmsuErYXHv'
+curl -v 'https://developer.api.autodesk.com/hq/v1/accounts/80793a28-f9b1-4888-9533-5f00cddcd6fb/projects/1e4bdc48-1bd7-4a4f-a91f-bd238cce5830/companies?limit=1&offset=0' \
+  -H 'Authorization: Bearer 07YyCEjv3qs8FA7ysntmsuErYXHv'
+
 ```
 
 ### Response
 
 ```
-[ { "id" : "fc830fd8-f1ef-4cd6-9163-fb115dc698d7" , "account_id" : "80793a28-f9b1-4888-9533-5f00cddcd6fb" , "project_id" : "1e4bdc48-1bd7-4a4f-a91f-bd238cce5830" , "name" : "Autodesk" , "trade" : "Concrete" , "address_line_1" : "The Fifth Avenue" , "address_line_2" : "#301" , "city" : "New York" , "postal_code" : "10011" , "state_or_province" : "New York" , "country" : "United States" , "phone" : "(503)623-1525" , "website_url" : "http://www.autodesk.com" , "description" : "Autodesk, Inc., is a leader in 3D design, engineering and entertainment software." , "created_at" : "2016-05-20T02:24:21.400Z" , "updated_at" : "2016-05-20T02:24:21.400Z" , "erp_id" : "c79bf096-5a3e-41a4-aaf8-a771ed329047" , "tax_id" : "213-73-8867" , "member_group_id" : "764893" } ]
+[
+  {
+    "id": "fc830fd8-f1ef-4cd6-9163-fb115dc698d7",
+    "account_id": "80793a28-f9b1-4888-9533-5f00cddcd6fb",
+    "project_id": "1e4bdc48-1bd7-4a4f-a91f-bd238cce5830",
+    "name": "Autodesk",
+    "trade": "Concrete",
+    "address_line_1": "The Fifth Avenue",
+    "address_line_2": "#301",
+    "city": "New York",
+    "postal_code": "10011",
+    "state_or_province": "New York",
+    "country": "United States",
+    "phone": "(503)623-1525",
+    "website_url": "http://www.autodesk.com",
+    "description": "Autodesk, Inc., is a leader in 3D design, engineering and entertainment software.",
+    "created_at": "2016-05-20T02:24:21.400Z",
+    "updated_at": "2016-05-20T02:24:21.400Z",
+    "erp_id": "c79bf096-5a3e-41a4-aaf8-a771ed329047",
+    "tax_id": "213-73-8867",
+    "member_group_id": "764893"
+  }
+]
+
 ```
+
+Show More

@@ -5,6 +5,7 @@ from pathlib import Path
 
 import requests
 from bs4 import BeautifulSoup
+from html_to_markdown import ConversionOptions, convert
 
 ROOT_URL = "https://aps.autodesk.com/en/docs/data/v2/tutorials/"
 CUSTOM_JS_URL = "https://aps.autodesk.com/params/custom.js"
@@ -83,28 +84,11 @@ def extract_main_markdown(html: str, doc_url: str, display_name: str) -> str:
 
     container = soup.find("main") or soup.find("article") or soup.body or soup
 
-    lines = []
-    for element in container.find_all(["h1", "h2", "h3", "h4", "p", "li", "pre", "table"]):
-        text = element.get_text(" ", strip=True)
-        if not text:
-            continue
-        name = element.name
-        if name == "h1":
-            lines.append(f"# {text}")
-        elif name == "h2":
-            lines.append(f"## {text}")
-        elif name == "h3":
-            lines.append(f"### {text}")
-        elif name == "h4":
-            lines.append(f"#### {text}")
-        elif name == "li":
-            lines.append(f"- {text}")
-        elif name == "pre":
-            lines.append(f"```\n{text}\n```")
-        else:
-            lines.append(text)
-
-    body = "\n\n".join(lines)
+    options = ConversionOptions(
+        heading_style="atx",
+        list_indent_width=2,
+    )
+    body = convert(str(container), options)
     body = re.sub(r"\n{3,}", "\n\n", body).strip()
 
     return f"# {title}\n\nSource: {doc_url}\n\n---\n\n{body}\n"

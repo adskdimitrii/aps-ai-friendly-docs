@@ -4,52 +4,125 @@ Source: https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketK
 
 ---
 
+Buckets
+
+GET
+
 # buckets/:bucketKey/details
 
 Return bucket details in JSON format if the caller is the owner of the bucket. A request by any other application will result in a response of 403 Forbidden.
 
-## Resource Information
+## [Resource Information](#resource-information)
 
-Method and URI GET https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey/details Authentication Context app-only Required OAuth Scopes bucket:read Data Format JSON
-
-### Request
-
-## Headers
-
-Authorization * string Must be âBearer <token> â, where <token> is obtained
-via POST token .
+| Method and URI | GET https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey/details |
+| --- | --- |
+| Authentication Context | app-only |
+| Required OAuth Scopes | `bucket:read` |
+| Data Format | JSON |
 
 ### Request
 
-## URI Parameters
+## [Headers](#headers)
 
-bucketKey * string URL-encoded bucket key for which to get details
+| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](/en/docs/oauth/v2/reference/http/gettoken-POST). |
+| --- | --- |
+
+* Required
+
+### Request
+
+## [URI Parameters](#uri-parameters)
+
+| bucketKey*   string | URL-encoded bucket key for which to get details |
+| --- | --- |
+
+* Required
 
 ### Response
 
-## HTTP Status Code Summary
+## [HTTP Status Code Summary](#http-status-code-summary)
 
-200 OK Get bucket details was successful. 400 BAD REQUEST The request could not be understood by the server due to malformed syntax or missing request headers. The client SHOULD NOT repeat the request without modifications.
-The response body may give an indication of what is wrong with the request. 401 UNAUTHORIZED The supplied Authorization header was not valid or the supplied token scope was not acceptable. Verify Authentication and try again. 403 FORBIDDEN The Authorization was successfully validated but permission is not granted. Donât try again unless you solve permissions first. 404 NOT FOUND The specified bucket does not exist. 500 INTERNAL SERVER ERROR Internal failure while processing the request, reason depends on error.
+| 200   OK | Get bucket details was successful. |
+| --- | --- |
+| 400   BAD REQUEST | The request could not be understood by the server due to malformed syntax or missing request headers. The client SHOULD NOT repeat the request without modifications. The response body may give an indication of what is wrong with the request. |
+| 401   UNAUTHORIZED | The supplied Authorization header was not valid or the supplied token scope was not acceptable. Verify Authentication and try again. |
+| 403   FORBIDDEN | The Authorization was successfully validated but permission is not granted. Donât try again unless you solve permissions first. |
+| 404   NOT FOUND | The specified bucket does not exist. |
+| 500   INTERNAL SERVER ERROR | Internal failure while processing the request, reason depends on error. |
 
 ### Response
 
-## Body Structure (200)
+## [Body Structure (200)](#body-structure-200)
 
 ```
-{ "$schema" : "http://json-schema.org/draft-04/schema#" , "type" : "object" , "properties" : { "bucketKey" : { "required" : true , "type" : "string" }, "bucketOwner" : { "required" : true , "type" : "string" }, "createdDate" : { "required" : true , "type" : "integer" }, "permissions" : { "required" : true , "type" : "array" , "items" : { "type" : [ "object" , "null" ], "properties" : { "authId" : { "required" : true , "type" : "string" }, "access" : { "required" : true , "type" : "string" } } } }, "policyKey" : { "required" : true , "type" : "string" } } }
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "bucketKey": {
+      "required": true,
+      "type": "string"
+    },
+    "bucketOwner": {
+      "required": true,
+      "type": "string"
+    },
+    "createdDate": {
+      "required": true,
+      "type": "integer"
+    },
+    "permissions": {
+      "required": true,
+      "type": "array",
+      "items": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "authId": {
+            "required": true,
+            "type": "string"
+          },
+          "access": {
+            "required": true,
+            "type": "string"
+          }
+        }
+      }
+    },
+    "policyKey": {
+      "required": true,
+      "type": "string"
+    }
+  }
+}
+
 ```
 
-bucketKey string Bucket key bucketOwner string Bucket owner createdDate long Timestamp in epoch time permissions array Representing applications with access granted at create time authId string Application to grant access to access enum Access values: full , read policyKey string Policy values: transient , temporary , persisten
+Show More
 
-## Example 1
+| bucketKey   string | Bucket key |
+| --- | --- |
+| bucketOwner   string | Bucket owner |
+| createdDate   long | Timestamp in epoch time |
+| permissions   array | Representing applications with access granted at create time |
+| authId   string | Application to grant access to |
+| access   enum | Access values: `full`, `read` |
+| policyKey   string | Policy values: `transient`, `temporary`, `persisten` |
+
+## [Example 1](#example-1)
 
 Successful Bucket Details (200)
 
 ### Request
 
 ```
-curl -v "https://developer.api.autodesk.com/oss/v2/buckets/apptestbucket/details" -X GET -H "Authorization: Bearer efxXBK0aTv3MjSSQ6HbDsjnYRmCU" -H "Content-Type: application/json"
+curl -v "https://developer.api.autodesk.com/oss/v2/buckets/apptestbucket/details"
+  -X GET
+  -H "Authorization: Bearer efxXBK0aTv3MjSSQ6HbDsjnYRmCU"
+  -H "Content-Type: application/json"
+
 ```
 
 ### Response
@@ -78,18 +151,25 @@ Connection: keep-alive
   ],
   "policyKey":"transient"
 }
+
 ```
 
-## Example 2
+Show More
+
+## [Example 2](#example-2)
 
 Get Bucket Details - Forbidden (403)
 
-If the bucket was created by Application A, and details were requested with a token for Application B, the response will be 403 Forbidden.  In this case the token was generated by a different application than the other examples.
+If the bucket was created by Application A, and details were requested with a token for Application B, the response will be 403 Forbidden. In this case the token was generated by a different application than the other examples.
 
 ### Request
 
 ```
-curl -v "https://developer.api.autodesk.com/oss/v2/buckets/apptestbucket/details" -X GET -H "Authorization: Bearer u3Iu4XFKCMAqRguIxVGrHYiCfw4d" -H "Content-Type: application/json"
+curl -v "https://developer.api.autodesk.com/oss/v2/buckets/apptestbucket/details"
+  -X GET
+  -H "Authorization: Bearer u3Iu4XFKCMAqRguIxVGrHYiCfw4d"
+  -H "Content-Type: application/json"
+
 ```
 
 ### Response
@@ -104,16 +184,23 @@ Date: Tue, 24 May 2016 20:57:40 GMT
 Server: Apigee Router
 Content-Length: 0
 Connection: keep-alive
+
 ```
 
-## Example 3
+Show More
+
+## [Example 3](#example-3)
 
 Get Bucket Details - Bucket Not Found (404)
 
 ### Request
 
 ```
-curl -v "https://developer.api.autodesk.com/oss/v2/buckets/app2testbucket/details" -X GET -H "Authorization: Bearer kgEJWMJitdYbhfxghap8SbZqXMoS" -H "Content-Type: application/json"
+curl -v "https://developer.api.autodesk.com/oss/v2/buckets/app2testbucket/details"
+  -X GET
+  -H "Authorization: Bearer kgEJWMJitdYbhfxghap8SbZqXMoS"
+  -H "Content-Type: application/json"
+
 ```
 
 ### Response
@@ -133,4 +220,7 @@ Connection: keep-alive
 {
   "reason":"Bucket not found"
 }
+
 ```
+
+Show More

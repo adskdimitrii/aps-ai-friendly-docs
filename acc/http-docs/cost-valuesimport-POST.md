@@ -4,78 +4,135 @@ Source: https://aps.autodesk.com/en/docs/acc/reference/http/cost-valuesimport-PO
 
 ---
 
+Budget Code Segment Values
+
+POST
+
 # v1/containers/{containerId}/segments/{segmentId}/values:import
 
 Imports segment value definitions for use in a specific segment of a budget code template.
 
-## Resource Information
+  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
-Method and URI POST https://developer.api.autodesk.com/cost/v1/containers/:containerId/segments/:segmentId/values:import Authentication Context user context required Required OAuth Scopes data:write Data Format JSON
+## [Resource Information](#resource-information)
 
-### Request
-
-## Headers
-
-Authorization * string Must be Bearer <token> , where <token> is obtained via a three-legged OAuth flow. Content-Type * string Must be application/json region string Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead. Possible values: country or region codes such as US or EMEA . For the full list of supported regions, see the ACC Regions page. To verify your projectâs region, refer to the Working with BIM 360 Services in Different Regions section on the API Basics page.
-
-By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.
-
-Possible values: country or region codes such as US or EMEA . For the full list of supported regions, see the ACC Regions page.
-
-To verify your projectâs region, refer to the Working with BIM 360 Services in Different Regions section on the API Basics page.
+| Method and URI | POST https://developer.api.autodesk.com/cost/v1/containers/:containerId/segments/:segmentId/values:import |
+| --- | --- |
+| Authentication Context | user context required |
+| Required OAuth Scopes | `data:write` |
+| Data Format | JSON |
 
 ### Request
 
-## URI Parameters
+## [Headers](#headers)
 
-containerId string: UUID The ID of the project (the container ID is the same as the project ID). To obtain the project ID, see GET projects . segmentId string: UUID The segment ID. To obtain a segment ID, use GET templates/:templateId/segments .
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| --- | --- |
+| Content-Type*   string | Must be `application/json` |
+| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](/en/docs/acc/v1/overview/acc-regions) page.<br>To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
+
+* Required
 
 ### Request
 
-## Body Structure
+## [URI Parameters](#uri-parameters)
+
+| containerId   string: UUID | The ID of the project (the container ID is the same as the project ID). To obtain the project ID, see [GET projects](/en/docs/bim360/v1/reference/http/admin-accounts-accountidprojects-GET/). |
+| --- | --- |
+| segmentId   string: UUID | The segment ID. To obtain a segment ID, use [GET templates/:templateId/segments](/en/docs/bim360/v1/reference/http/cost-segments-GET/). |
+
+### Request
+
+## [Body Structure](#body-structure)
 
 The segment values.
 
-data * array: object A list of segment values. id string: UUID The ID of the code. parentId string,null The parent ID of this code if it is the sub item of another code. code * string The display code. Max length: 255 originalCode string The original value of the code before the delimiters are removed. Max length: 255 description * string The description of the code. Max length: 2048 append boolean true append the imported segment values to the existing values. false purge the existing segment values and replace them with the imported values.
+Expand all
 
-Max length: 255
+| data*   array: object | A list of segment values. |
+| --- | --- |
+| id   string: UUID | The ID of the code. |
+| parentId   string,null | The parent ID of this code if it is the sub item of another code. |
+| code*   string | The display code. <br>Max length: 255 |
+| originalCode   string | The original value of the code before the delimiters are removed. <br>Max length: 255 |
+| description*   string | The description of the code. <br>Max length: 2048 |
+| append   boolean | `true` append the imported segment values to the existing values. <br>`false` purge the existing segment values and replace them with the imported values. |
 
-Max length: 255
-
-Max length: 2048
-
-false purge the existing segment values and replace them with the imported values.
-
-### Response
-
-## HTTP Status Code Summary
-
-200 OK Success 400 Bad Request The parameters are invalid. 401 Unauthorized The provided bearer token is invalid. 403 Forbidden Forbidden. The user or service represented by the bearer token does not have permission to perform this operation. 404 Not Found The resource or endpoint cannot be found. 409 Conflict The request could not be completed due to a conflict with the current state of the resource. 429 Too Many Requests Rate limit exceeded. Retry your request after a few minutes. 500 Internal Server Error An unexpected error occurred on the server. 503 Service Unavailable Service unavailable.
+* Required
 
 ### Response
 
-## Body Structure (200)
+## [HTTP Status Code Summary](#http-status-code-summary)
 
-id string: UUID The ID of the code. segmentId string: UUID The ID of the segment this code belongs to. parentId string,null The parent ID of this code if it is the sub item of another code. code string The display code. Max length: 255 originalCode string The original value of the code before the delimiters are removed. Max length: 255 description string The description of the code. Max length: 2048 createdAt datetime: ISO 8601 The date and time that the item was created, in ISO 8601 format. updatedAt datetime: ISO 8601 The date and time that the item was last updated, in ISO 8601 format.
+| 200   OK | Success |
+| --- | --- |
+| 400   Bad Request | The parameters are invalid. |
+| 401   Unauthorized | The provided bearer token is invalid. |
+| 403   Forbidden | Forbidden. The user or service represented by the bearer token does not have permission to perform this operation. |
+| 404   Not Found | The resource or endpoint cannot be found. |
+| 409   Conflict | The request could not be completed due to a conflict with the current state of the resource. |
+| 429   Too Many Requests | Rate limit exceeded. Retry your request after a few minutes. |
+| 500   Internal Server Error | An unexpected error occurred on the server. |
+| 503   Service Unavailable | Service unavailable. |
 
-Max length: 255
+### Response
 
-Max length: 255
+## [Body Structure (200)](#body-structure-200)
 
-Max length: 2048
+| id   string: UUID | The ID of the code. |
+| --- | --- |
+| segmentId   string: UUID | The ID of the segment this code belongs to. |
+| parentId   string,null | The parent ID of this code if it is the sub item of another code. |
+| code   string | The display code. <br>Max length: 255 |
+| originalCode   string | The original value of the code before the delimiters are removed. <br>Max length: 255 |
+| description   string | The description of the code. <br>Max length: 2048 |
+| createdAt   datetime: ISO 8601 | The date and time that the item was created, in ISO 8601 format. |
+| updatedAt   datetime: ISO 8601 | The date and time that the item was last updated, in ISO 8601 format. |
 
-## Example
+## [Example](#example)
 
 Success
 
 ### Request
 
 ```
-curl -v 'https://developer.api.autodesk.com/cost/v1/containers/e94b9bc8-1775-4d76-9b1d-c613e120ccff/segments/87256c07-5c03-42cd-b4dc-e9d06411c0cc/values:import' \ -X 'POST' \ -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a' \ -H 'Content-Type: application/json' \ -d '{ "data": [ { "id": "229d3420-9481-11e8-87fb-215990a8aeb3", "parentId": "null", "code": 6656, "originalCode": "01 50 00", "description": "Temporary Facilities and Controls" } ], "append": false }'
+curl -v 'https://developer.api.autodesk.com/cost/v1/containers/e94b9bc8-1775-4d76-9b1d-c613e120ccff/segments/87256c07-5c03-42cd-b4dc-e9d06411c0cc/values:import' \
+  -X 'POST' \
+  -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a' \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "data": [
+          {
+            "id": "229d3420-9481-11e8-87fb-215990a8aeb3",
+            "parentId": "null",
+            "code": 6656,
+            "originalCode": "01 50 00",
+            "description": "Temporary Facilities and Controls"
+          }
+        ],
+        "append": false
+      }'
+
 ```
+
+Show More
 
 ### Response
 
 ```
-[ { "id" : "229d3420-9481-11e8-87fb-215990a8aeb3" , "segmentId" : "87256c07-5c03-42cd-b4dc-e9d06411c0cc" , "parentId" : "null" , "code" : 6656 , "originalCode" : "01 50 00" , "description" : "Temporary Facilities and Controls" , "createdAt" : "2019-01-06T01:24:22.678Z" , "updatedAt" : "2019-09-05T01:00:12.989Z" } ]
+[
+  {
+    "id": "229d3420-9481-11e8-87fb-215990a8aeb3",
+    "segmentId": "87256c07-5c03-42cd-b4dc-e9d06411c0cc",
+    "parentId": "null",
+    "code": 6656,
+    "originalCode": "01 50 00",
+    "description": "Temporary Facilities and Controls",
+    "createdAt": "2019-01-06T01:24:22.678Z",
+    "updatedAt": "2019-09-05T01:00:12.989Z"
+  }
+]
+
 ```
+
+Show More

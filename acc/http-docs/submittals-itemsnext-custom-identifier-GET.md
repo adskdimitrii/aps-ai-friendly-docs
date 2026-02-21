@@ -4,74 +4,94 @@ Source: https://aps.autodesk.com/en/docs/acc/reference/http/submittals-itemsnext
 
 ---
 
+Items
+
+GET
+
 # projects/{projectId}/items:next-custom-identifier
 
 Retrieves the next available custom identifier for a submittal item in a project. The identifier is generated based on specific rules:
 
 - Sequentially increments the last created itemâs number, relative to either the whole project for a global sequence or the specific spec for a spec sequence.
-
 - Skips numbers already in use.
-
 - Reuses deleted or cleared numbers.
-
 - Increments digits appropriately, and manages leading zeros without increasing character count unless necessary.
 
-For information about custom numbering in Submittals, see the Help documentation .
+For information about custom numbering in Submittals, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Submittal_Custom_Numbering).
 
-For details on using custom identifiers in the Submittal workflow, see the Create Submittal Item tutorial.
+For details on using custom identifiers in the Submittal workflow, see the [Create Submittal Item](/en/docs/acc/v1/tutorials/submittals/create-submittal-item) tutorial.
 
-## Resource Information
+Note that this endpoint is not compatible with BIM 360 projects.
 
-Method and URI GET https://developer.api.autodesk.com/construction/submittals/v2/projects/:projectId/items:next-custom-identifier Authentication Context user context required Required OAuth Scopes data:read Data Format JSON
+## [Resource Information](#resource-information)
 
-### Request
-
-## Headers
-
-Authorization * string Must be Bearer <token> , where <token> is obtained via a three-legged OAuth flow.
-
-### Request
-
-## URI Parameters
-
-projectId string: UUID The ID of the project. Use the Data Management API to retrieve the project ID. For more information, see the Retrieve a Project ID tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â b. " prefix. For example, a project ID of b. a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
-
-Use the Data Management API to retrieve the project ID. For more information, see the Retrieve a Project ID tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â b. " prefix. For example, a project ID of b. a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+| Method and URI | GET https://developer.api.autodesk.com/construction/submittals/v2/projects/:projectId/items:next-custom-identifier |
+| --- | --- |
+| Authentication Context | user context required |
+| Required OAuth Scopes | `data:read` |
+| Data Format | JSON |
 
 ### Request
 
-## Query String Parameters
+## [Headers](#headers)
 
-specId string: UUID The item spec ID. This parameter is only required when the project is in spec sequence type (as opposed to global sequence). To verify the sequence type, call GET metadata , and check customIdentifierSequenceType . To get the spec ID, call GET specs , and select the relevant ID ( id ).
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| --- | --- |
 
-To verify the sequence type, call GET metadata , and check customIdentifierSequenceType .
+* Required
 
-To get the spec ID, call GET specs , and select the relevant ID ( id ).
+### Request
+
+## [URI Parameters](#uri-parameters)
+
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| --- | --- |
+
+### Request
+
+## [Query String Parameters](#query-string-parameters)
+
+| specId   string: UUID | The item spec ID. This parameter is only required when the project is in spec sequence type (as opposed to global sequence). <br>To verify the sequence type, call [GET metadata](/en/docs/acc/v1/reference/http/submittals-metadata-GET/), and check `customIdentifierSequenceType`.<br>To get the spec ID, call [GET specs](/en/docs/acc/v1/reference/http/submittals-specs-GET/), and select the relevant ID (`id`). |
+| --- | --- |
 
 ### Response
 
-## HTTP Status Code Summary
+## [HTTP Status Code Summary](#http-status-code-summary)
 
-200 OK Details of the last created and the next available custom identifiers. 400 Bad Request The request could not be understood by the server due to malformed syntax or missing request headers. 401 Unauthorized Invalid or missing authorization header. Verify the Bearer token and try again. 403 Forbidden The user is not authorized to perform this action. 404 Not Found The specified resource was not found. 500 Internal Server Error An unexpected error occurred on the server while processing the request.
+| 200   OK | Details of the last created and the next available custom identifiers. |
+| --- | --- |
+| 400   Bad Request | The request could not be understood by the server due to malformed syntax or missing request headers. |
+| 401   Unauthorized | Invalid or missing authorization header. Verify the Bearer token and try again. |
+| 403   Forbidden | The user is not authorized to perform this action. |
+| 404   Not Found | The specified resource was not found. |
+| 500   Internal Server Error | An unexpected error occurred on the server while processing the request. |
 
 ### Response
 
-## Body Structure (200)
+## [Body Structure (200)](#body-structure-200)
 
-previousCustomIdentifier string The last created custom identifier. nextCustomIdentifier string The next available custom identifier for the project.
+| previousCustomIdentifier   string | The last created custom identifier. |
+| --- | --- |
+| nextCustomIdentifier   string | The next available custom identifier for the project. |
 
-## Example
+## [Example](#example)
 
 Details of the last created and the next available custom identifiers.
 
 ### Request
 
 ```
-curl -v 'https://developer.api.autodesk.com/construction/submittals/v2/projects/9eae7d59-1469-4389-bfb2-4114e2ba5545/items:next-custom-identifier' \ -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a'
+curl -v 'https://developer.api.autodesk.com/construction/submittals/v2/projects/9eae7d59-1469-4389-bfb2-4114e2ba5545/items:next-custom-identifier' \
+  -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a'
+
 ```
 
 ### Response
 
 ```
-{ "previousCustomIdentifier" : "0001" , "nextCustomIdentifier" : "0002" }
+{
+  "previousCustomIdentifier": "0001",
+  "nextCustomIdentifier": "0002"
+}
+
 ```

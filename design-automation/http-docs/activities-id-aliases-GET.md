@@ -4,56 +4,96 @@ Source: https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/act
 
 ---
 
+GET
+
 # activities/:id/aliases
 
 Lists all aliases for the specified Activity.
 
-## Resource Information
+## [Resource Information](#resource-information)
 
-Method and URI GET https://developer.api.autodesk.com/da/us-east/v3/activities/:id/aliases Authentication Context app only Required OAuth Scopes code:all Data Format JSON
-
-### Request
-
-## Headers
-
-Authorization * string Must be Bearer <token> , where <token> is obtained via OAuth
+| Method and URI | GET https://developer.api.autodesk.com/da/us-east/v3/activities/:id/aliases |
+| --- | --- |
+| Authentication Context | app only |
+| Required OAuth Scopes | `code:all` |
+| Data Format | JSON |
 
 ### Request
 
-## URI Parameters
+## [Headers](#headers)
 
-id string Name of Activity (unqualified).
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [OAuth](/en/docs/oauth/v2/reference/http/gettoken-POST) |
+| --- | --- |
+
+* Required
 
 ### Request
 
-## Query String Parameters
+## [URI Parameters](#uri-parameters)
 
-page string Access an additional âpageâ of data when necessary, based on the âpaginationTokenâ returned from a previous invocation.
+| id   string | Name of Activity (unqualified). |
+| --- | --- |
+
+### Request
+
+## [Query String Parameters](#query-string-parameters)
+
+| page   string | Access an additional âpageâ of data when necessary, based on the âpaginationTokenâ returned from a previous invocation. |
+| --- | --- |
 
 ### Response
 
-## HTTP Status Code Summary
+## [HTTP Status Code Summary](#http-status-code-summary)
 
-200 OK Successfully list all aliases for an Activity. 400 Bad Request The request is invalid. 403 Forbidden Unauthorized 404 Not Found Not found. 500 Internal Server Error Unknown error.
+| 200   OK | Successfully list all aliases for an Activity. |
+| --- | --- |
+| 400   Bad Request | The request is invalid. |
+| 403   Forbidden | Unauthorized |
+| 404   Not Found | Not found. |
+| 500   Internal Server Error | Unknown error. |
 
 ### Response
 
-## Body Structure (200)
+## [Body Structure (200)](#body-structure-200)
 
-paginationToken string data array: object version int The version that this alias refers to. receiver string or array: string The user(s) to share the alias with. id string
+Expand all
 
-## Example
+| paginationToken   string |  |
+| --- | --- |
+| data   array: object |  |
+| version   int | The version that this alias refers to. |
+| receiver   string or array: string | The user(s) to share the alias with. |
+| id   string |  |
+
+## [Example](#example)
 
 Successfully list all aliases for an Activity.
 
 ### Request
 
 ```
-curl - v 'https://developer.api.autodesk.com/da/us-east/v3/activities/:id/aliases' \ - H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a'
+curl -v 'https://developer.api.autodesk.com/da/us-east/v3/activities/:id/aliases' \
+  -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a'
+
 ```
 
 ### Response
 
 ```
-{ "paginationToken" : "" , "data" : [ { "version" : 1 , "id" : "prod" }, { "version" : 1 , "id" : "$LATEST" } ] }
+{
+  "paginationToken": "",
+  "data": [
+    {
+      "version": 1,
+      "id": "prod"
+    },
+    {
+      "version": 1,
+      "id": "$LATEST"
+    }
+  ]
+}
+
 ```
+
+Show More

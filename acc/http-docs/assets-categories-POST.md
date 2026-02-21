@@ -4,6 +4,10 @@ Source: https://aps.autodesk.com/en/docs/acc/reference/http/assets-categories-PO
 
 ---
 
+Categories
+
+POST
+
 # categories
 
 Creates a new category.
@@ -12,84 +16,140 @@ This endpoint creates a new category within a projectâs category tree. The 
 of an existing category within the tree. This endpoint does not explicitly associate a status set or Asset
 custom attributes with the new category.
 
-To assign a status set to a category, use PUT categories/:categoryId/status-step-set/:statusStepSetId .
-To assign an Asset custom attribute to a category, use PUT categories/:categoryId/custom-attributes/:customAttributeId .
+To assign a status set to a category, use [PUT categories/:categoryId/status-step-set/:statusStepSetId](/en/docs/acc/v1/reference/http/assets-categories-category-id-status-step-set-status-step-set-id-PUT/).
+To assign an Asset custom attribute to a category, use [PUT categories/:categoryId/custom-attributes/:customAttributeId](/en/docs/acc/v1/reference/http/assets-categories-category-id-custom-attributes-custom-attribute-id-PUT/).
 
 Note that the new category will inherit a status set and any existing custom attributes from its parent
 
 category. The status set may be overridden; the custom attributes may be added to.
 
-To understand the basics of categories, category inheritance, and the Assets settings that define them, see the Assets Field Guide .
+To understand the basics of categories, category inheritance, and the Assets settings that define them, see the [Assets Field Guide](/en/docs/acc/v1/overview/field-guide/assets/).
 
-## Resource Information
+  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
-Method and URI POST https://developer.api.autodesk.com/construction/assets/v1/projects/{projectId}/categories Authentication Context user context required Required OAuth Scopes data:write data:create Data Format JSON
+## [Resource Information](#resource-information)
 
-### Request
-
-## Headers
-
-Authorization * string Must be Bearer <token> , where <token> is obtained via a three-legged OAuth flow. Content-Type * string Must be application/json
-
-### Request
-
-## URI Parameters
-
-projectId string The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form âb.{UUID}â.
+| Method and URI | POST https://developer.api.autodesk.com/construction/assets/v1/projects/{projectId}/categories |
+| --- | --- |
+| Authentication Context | user context required |
+| Required OAuth Scopes | `data:write` `data:create` |
+| Data Format | JSON |
 
 ### Request
 
-## Query String Parameters
+## [Headers](#headers)
 
-includeUid boolean If provided, and set to true , the globally-unique category uid field will be present in the response.
-The globally unique category ID is used with the (upcoming) v3 category APIs. The option to include the
-globally-unique ID with the v1 category APIs is to help consumers transition to the new IDs.
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| --- | --- |
+| Content-Type*   string | Must be `application/json` |
+
+* Required
 
 ### Request
 
-## Body Structure
+## [URI Parameters](#uri-parameters)
 
-name * string The name of the category. Must be unique among children of the same parent category. This name is displayed
-for the category in the Assets user interface where a user chooses categories. description string A description of the category. parentId * string The ID of the new categoryâs parent category.
+| projectId   string | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form âb.{UUID}â. |
+| --- | --- |
+
+### Request
+
+## [Query String Parameters](#query-string-parameters)
+
+| includeUid   boolean | If provided, and set to `true`, the globally-unique category `uid` field will be present in the response. The globally unique category ID is used with the (upcoming) `v3` category APIs. The option to include the globally-unique ID with the `v1` category APIs is to help consumers transition to the new IDs. |
+| --- | --- |
+
+### Request
+
+## [Body Structure](#body-structure)
+
+| name*   string | The name of the category. Must be unique among children of the same parent category. This name is displayed for the category in the Assets user interface where a user chooses categories. |
+| --- | --- |
+| description   string | A description of the category. |
+| parentId*   string | The ID of the new categoryâs parent category. |
+
+* Required
 
 ### Response
 
-## HTTP Status Code Summary
+## [HTTP Status Code Summary](#http-status-code-summary)
 
-201 Created Successfully created a new category. 400 Bad Request The request could not be understood by the server due to malformed syntax or missing request header 401 Unauthorized The request was not accepted because it lacked valid authentication credentials 403 Forbidden The request was not accepted because the client is authenticated, but is not authorized to access the target resource 404 Not Found The resource cannot be found 409 Conflict The request could not be completed due to a conflict with the current state of the target resource 429 Too Many Requests The request was not accepted because the rate limit was exceeded due to too many requests being made. 500 Internal Server Error An unexpected error occurred on the server
+| 201   Created | Successfully created a new category. |
+| --- | --- |
+| 400   Bad Request | The request could not be understood by the server due to malformed syntax or missing request header |
+| 401   Unauthorized | The request was not accepted because it lacked valid authentication credentials |
+| 403   Forbidden | The request was not accepted because the client is authenticated, but is not authorized to access the target resource |
+| 404   Not Found | The resource cannot be found |
+| 409   Conflict | The request could not be completed due to a conflict with the current state of the target resource |
+| 429   Too Many Requests | The request was not accepted because the rate limit was exceeded due to too many requests being made. |
+| 500   Internal Server Error | An unexpected error occurred on the server |
 
 ### Response
 
-## Body Structure (201)
+## [Body Structure (201)](#body-structure-201)
 
-id string The ID of the category. This is a numeric string for v1 category APIs. createdAt string The time when the component was created (ISO8601 Date time format in UTC). createdBy string The actor that created the component. This is an Autodesk / Oxygen ID. updatedAt string The time when the component was last updated (ISO8601 Date time format in UTC). updatedBy string The actor that last updated the component. This is an Autodesk / Oxygen ID. deletedAt string The time when the component was deleted at (ISO8601 Date time format in UTC). deletedBy string The actor that deleted the component. This is an Autodesk / Oxygen ID. isActive boolean A flag indicating whether the component is active or inactive ( isActive is true if-and-only-if deletedAt is empty). name string The name of the category. Must be unique among children of the same parent category. This name is displayed
-for the category in the Assets user interface where a user chooses categories. description string A description of the category. uid string The globally-unique ID of a Category from the v3 (upcoming) Category APIs. This is provided
-for interoperability with other APIs that use the globally-unique category ID. Only included if the includeUid=true query param is included. parentId string The ID of the categoryâs parent category. isRoot boolean Whether or not this category is the root category of the category tree. If true , itâs the root; if false , itâs not. There will only ever be one (immutable) root category for a project, which is created
-automatically when the project is created. isLeaf boolean Whether or not this category is a leaf category of the category tree. If true , itâs a leaf; if false ,
-itâs not. Note that this is a derived field and should not be persisted as this field may be updated without
-updating the category itself. subcategoryIds array: string An array of category IDs of this categoryâs child categories. Note that this is a derived field and should not be persisted as this field may be updated without
-updating the category itself. As such, it is highly recommended to use the parentId field to
-construct the tree locally instead of subcategoryIds .
+| id   string | The ID of the category. This is a numeric string for `v1` category APIs. |
+| --- | --- |
+| createdAt   string | The time when the component was created (ISO8601 Date time format in UTC). |
+| createdBy   string | The actor that created the component. This is an Autodesk / Oxygen ID. |
+| updatedAt   string | The time when the component was last updated (ISO8601 Date time format in UTC). |
+| updatedBy   string | The actor that last updated the component. This is an Autodesk / Oxygen ID. |
+| deletedAt   string | The time when the component was deleted at (ISO8601 Date time format in UTC). |
+| deletedBy   string | The actor that deleted the component. This is an Autodesk / Oxygen ID. |
+| isActive   boolean | A flag indicating whether the component is active or inactive (`isActive` is `true` if-and-only-if `deletedAt` is empty). |
+| name   string | The name of the category. Must be unique among children of the same parent category. This name is displayed for the category in the Assets user interface where a user chooses categories. |
+| description   string | A description of the category. |
+| uid   string | The globally-unique ID of a `Category` from the `v3` (upcoming) Category APIs. This is provided for interoperability with other APIs that use the globally-unique category ID. Only included if the `includeUid=true` query param is included. |
+| parentId   string | The ID of the categoryâs parent category. |
+| isRoot   boolean | Whether or not this category is the root category of the category tree. If `true`, itâs the root; if `false`, itâs not. There will only ever be one (immutable) root category for a project, which is created automatically when the project is created. |
+| isLeaf   boolean | Whether or not this category is a leaf category of the category tree. If `true`, itâs a leaf; if `false`, itâs not. <br>Note that this is a derived field and should not be persisted as this field may be updated without updating the category itself. |
+| subcategoryIds   array: string | An array of category IDs of this categoryâs child categories. <br>Note that this is a derived field and should not be persisted as this field may be updated without updating the category itself. As such, it is highly recommended to use the `parentId` field to construct the tree locally instead of `subcategoryIds`. |
 
-Note that this is a derived field and should not be persisted as this field may be updated without
-updating the category itself.
-
-Note that this is a derived field and should not be persisted as this field may be updated without
-updating the category itself. As such, it is highly recommended to use the parentId field to
-construct the tree locally instead of subcategoryIds .
-
-## Example
+## [Example](#example)
 
 Successfully created a new category.
 
 ### Request
 
 ```
-curl -v 'https://developer.api.autodesk.com/construction/assets/v1/projects/:projectId/categories?includeUid=true' \ -X 'POST' \ -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a' \ -H 'Content-Type: application/json' \ -d '{ "name": "Electrical", "description": "Electrical Outlets", "parentId": "122" }'
+curl -v 'https://developer.api.autodesk.com/construction/assets/v1/projects/:projectId/categories?includeUid=true' \
+  -X 'POST' \
+  -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a' \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "name": "Electrical",
+        "description": "Electrical Outlets",
+        "parentId": "122"
+      }'
+
 ```
+
+Show More
 
 ### Response
 
 ```
-{ "id" : "123" , "createdAt" : "2020-05-01T06:00:00.000Z" , "createdBy" : "LA7ZL85MU7ML" , "updatedAt" : "2020-05-01T06:00:00.000Z" , "updatedBy" : "LA7ZL85MU7ML" , "deletedAt" : "2020-05-01T06:00:00.000Z" , "deletedBy" : "LA7ZL85MU7ML" , "isActive" : true , "name" : "Electrical" , "description" : "Electrical Outlets" , "uid" : "b4511bcd-e141-4253-8607-26b194de4ae3" , "parentId" : "122" , "isRoot" : false , "isLeaf" : false , "subcategoryIds" : [ "124" , "125" ] }
+{
+  "id": "123",
+  "createdAt": "2020-05-01T06:00:00.000Z",
+  "createdBy": "LA7ZL85MU7ML",
+  "updatedAt": "2020-05-01T06:00:00.000Z",
+  "updatedBy": "LA7ZL85MU7ML",
+  "deletedAt": "2020-05-01T06:00:00.000Z",
+  "deletedBy": "LA7ZL85MU7ML",
+  "isActive": true,
+  "name": "Electrical",
+  "description": "Electrical Outlets",
+  "uid": "b4511bcd-e141-4253-8607-26b194de4ae3",
+  "parentId": "122",
+  "isRoot": false,
+  "isLeaf": false,
+  "subcategoryIds": [
+    "124",
+    "125"
+  ]
+}
+
 ```
+
+Show More

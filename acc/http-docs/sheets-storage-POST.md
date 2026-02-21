@@ -4,70 +4,92 @@ Source: https://aps.autodesk.com/en/docs/acc/reference/http/sheets-storage-POST/
 
 ---
 
+Uploads
+
+POST
+
 # projects/{projectId}/storage
 
-Creates a storage location in the Object Storage Service (OSS) for you to upload the file to. This endpoint is typically used during the process of uploading files to the ACC Sheets tool .
+Creates a storage location in the Object Storage Service (OSS) for you to upload the file to. This endpoint is typically used during the process of uploading files to the [ACC Sheets tool](https://help.autodesk.com/view/BUILD/ENU/?guid=Upload_And_Publish_Sheets).
 
-For more details, see the Upload Sheets tutorial.
+For more details, see the [Upload Sheets](/en/docs/acc/v1/tutorials/upload-sheets/) tutorial.
 
-## Resource Information
+Note that this endpoint is not compatible with BIM 360 projects.
 
-Method and URI POST https://developer.api.autodesk.com/construction/sheets/v1/projects/{projectId}/storage Authentication Context user context optional Required OAuth Scopes data:write Data Format JSON
+## [Resource Information](#resource-information)
 
-### Request
-
-## Headers
-
-Authorization * string Must be Bearer <token> , where <token> is obtained via either a two-legged or three-legged OAuth flow. x-user-id string The ID of the user on whose behalf the API request is made. This header is optional when using a 2-legged OAuth2, but required if using 2-legged OAuth2 with user impersonation. When using 2-legged OAuth2 without user impersonation, your app has access to all users defined by the administrator in the SaaS integrations UI. However, when user impersonation is enabled, the API call is restricted to act only on behalf of the specified user. This header is not relevant for 3-legged OAuth2. You can use either the userâs ACC ID (id), or their Autodesk ID (autodeskId). Content-Type * string Must be application/json
-
-When using 2-legged OAuth2 without user impersonation, your app has access to all users defined by the administrator in the SaaS integrations UI. However, when user impersonation is enabled, the API call is restricted to act only on behalf of the specified user. This header is not relevant for 3-legged OAuth2.
-
-You can use either the userâs ACC ID (id), or their Autodesk ID (autodeskId).
+| Method and URI | POST https://developer.api.autodesk.com/construction/sheets/v1/projects/{projectId}/storage |
+| --- | --- |
+| Authentication Context | user context optional |
+| Required OAuth Scopes | `data:write` |
+| Data Format | JSON |
 
 ### Request
 
-## URI Parameters
+## [Headers](#headers)
 
-projectId string: UUID The ID of the project. Use the Data Management API to retrieve the project ID. For more information, see the Retrieve a Project ID tutorial . You can use a project ID either with a âb.â prefix or without a âb.â prefix. For instance, a project ID of âb.a4be0c34a-4ab7â can also be referred to as âa4be0c34a-4ab7â.
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| --- | --- |
+| x-user-id   string | The ID of the user on whose behalf the API request is made. This header is optional when using a 2-legged OAuth2, but required if using 2-legged OAuth2 with user impersonation. <br>When using 2-legged OAuth2 without user impersonation, your app has access to all users defined by the administrator in the SaaS integrations UI. However, when user impersonation is enabled, the API call is restricted to act only on behalf of the specified user. This header is not relevant for 3-legged OAuth2.<br>You can use either the userâs ACC ID (id), or their Autodesk ID (autodeskId). |
+| Content-Type*   string | Must be `application/json` |
+
+* Required
 
 ### Request
 
-## Body Structure
+## [URI Parameters](#uri-parameters)
 
-fileName string The name of the file. Currently Sheets tool only supports PDF files. Max length: 255
+| projectId   string: UUID | The ID of the project. Use the [Data Management API](/en/docs/data/v2/developers_guide/overview/) to retrieve the project ID. For more information, see the [Retrieve a Project ID tutorial](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/). You can use a project ID either with a âb.â prefix or without a âb.â prefix. For instance, a project ID of âb.a4be0c34a-4ab7â can also be referred to as âa4be0c34a-4ab7â. |
+| --- | --- |
 
-Currently Sheets tool only supports PDF files.
+### Request
 
-Max length: 255
+## [Body Structure](#body-structure)
+
+| fileName   string | The name of the file. <br>Currently Sheets tool only supports PDF files.<br>Max length: 255 |
+| --- | --- |
 
 ### Response
 
-## HTTP Status Code Summary
+## [HTTP Status Code Summary](#http-status-code-summary)
 
-201 Created Successfully created a storage object. 400 Bad Request The parameters of the requested operation are invalid. 403 Forbidden The user or client represented by the bearer token does not have permission to perform this operation. 404 Not Found The requested resource cannot be found. 429 Too Many Requests The server has received too many requests. 500 Internal Server Error An unexpected error occurred on the server.
+| 201   Created | Successfully created a storage object. |
+| --- | --- |
+| 400   Bad Request | The parameters of the requested operation are invalid. |
+| 403   Forbidden | The user or client represented by the bearer token does not have permission to perform this operation. |
+| 404   Not Found | The requested resource cannot be found. |
+| 429   Too Many Requests | The server has received too many requests. |
+| 500   Internal Server Error | An unexpected error occurred on the server. |
 
 ### Response
 
-## Body Structure (201)
+## [Body Structure (201)](#body-structure-201)
 
-urn string The URN of the storage. Note that in Sheets each project has its own OSS bucket,
-it is recommended to extract bucket key from storage URN every time before you call OSS APIs.
+| urn   string | The URN of the storage. <br>Note that in Sheets each project has its own OSS bucket, it is recommended to extract bucket key from storage URN every time before you call OSS APIs. |
+| --- | --- |
 
-Note that in Sheets each project has its own OSS bucket,
-it is recommended to extract bucket key from storage URN every time before you call OSS APIs.
-
-## Example
+## [Example](#example)
 
 Successfully created a storage object.
 
 ### Request
 
 ```
-curl -v 'https://developer.api.autodesk.com/construction/sheets/v1/projects/9ba6681e-1952-4d54-aac4-9de6d9858dd4/storage' \ -X 'POST' \ -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a' \ -H 'Content-Type: application/json' \ -d '{ "fileName": "example.pdf" }'
+curl -v 'https://developer.api.autodesk.com/construction/sheets/v1/projects/9ba6681e-1952-4d54-aac4-9de6d9858dd4/storage' \
+  -X 'POST' \
+  -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a' \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "fileName": "example.pdf"
+      }'
+
 ```
 
 ### Response
 
 ```
-{ "urn" : "urn:adsk.objects:os.object:bimdocs.9ba6681e-1952-4d54-aac4-9de6d9858dd4/67a2d96a-b1d7-474f-86ba-9e01a5c0f5be.pdf" }
+{
+  "urn": "urn:adsk.objects:os.object:bimdocs.9ba6681e-1952-4d54-aac4-9de6d9858dd4/67a2d96a-b1d7-474f-86ba-9e01a5c0f5be.pdf"
+}
+
 ```

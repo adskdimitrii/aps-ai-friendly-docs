@@ -4,95 +4,165 @@ Source: https://aps.autodesk.com/en/docs/acc/reference/http/cost-budgetsimport-P
 
 ---
 
+Budgets
+
+POST
+
 # v1/containers/{containerId}/budgets:import
 
 Imports a list of budgets into a project chunk by chunk. The maximum number of budgets per chunk is 50.
 
-## Resource Information
+  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
-Method and URI POST https://developer.api.autodesk.com/cost/v1/containers/:containerId/budgets:import Authentication Context user context required Required OAuth Scopes data:write Data Format JSON
+## [Resource Information](#resource-information)
 
-### Request
-
-## Headers
-
-Authorization * string Must be Bearer <token> , where <token> is obtained via a three-legged OAuth flow. Content-Type * string Must be application/json region string Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead. Possible values: country or region codes such as US or EMEA . For the full list of supported regions, see the ACC Regions page. To verify your projectâs region, refer to the Working with BIM 360 Services in Different Regions section on the API Basics page.
-
-By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.
-
-Possible values: country or region codes such as US or EMEA . For the full list of supported regions, see the ACC Regions page.
-
-To verify your projectâs region, refer to the Working with BIM 360 Services in Different Regions section on the API Basics page.
+| Method and URI | POST https://developer.api.autodesk.com/cost/v1/containers/:containerId/budgets:import |
+| --- | --- |
+| Authentication Context | user context required |
+| Required OAuth Scopes | `data:write` |
+| Data Format | JSON |
 
 ### Request
 
-## URI Parameters
+## [Headers](#headers)
 
-containerId string: UUID The ID of the project (the container ID is the same as the project ID). To obtain the project ID, see GET projects .
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| --- | --- |
+| Content-Type*   string | Must be `application/json` |
+| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](/en/docs/acc/v1/overview/acc-regions) page.<br>To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
 
-### Request
-
-## Query String Parameters
-
-force boolean true : This request forces an override of locked budgeting so the request can succeed. The ability to create, update, or delete budgets can be locked at the project level, and force enables administrators to override the lock. A locked budget. Only a project administrator is allowed to update, create, or delete budgets when locked. false : This request does not override locked budgeting.
-
-false : This request does not override locked budgeting.
+* Required
 
 ### Request
 
-## Body Structure
+## [URI Parameters](#uri-parameters)
+
+| containerId   string: UUID | The ID of the project (the container ID is the same as the project ID). To obtain the project ID, see [GET projects](/en/docs/bim360/v1/reference/http/admin-accounts-accountidprojects-GET/). |
+| --- | --- |
+
+### Request
+
+## [Query String Parameters](#query-string-parameters)
+
+| force   boolean | `true`: This request forces an override of locked budgeting so the request can succeed. The ability to create, update, or delete budgets can be locked at the project level, and `force` enables administrators to override the lock. A locked budget. Only a project administrator is allowed to update, create, or delete budgets when locked. <br>`false`: This request does not override locked budgeting. |
+| --- | --- |
+
+### Request
+
+## [Body Structure](#body-structure)
 
 Budget list
 
-data * array: object A list of budget. parentId string,null ID of the parent budget, used only when creating sub budgets. code * string Unique code compliant with the budget code template defined by the project admin. Ignored if segmentCodeMap is defined. Max length: 255 scope enum:string The scope of the budget. Possible values are budgetOnly and budgetAndCost . segmentCodeMap object Map of budget code segments to be used in the budget code, required when updating root budget code with variable length segment. Key is the budget code segment ID, value is the code for the segment. * string Max length: 255 name * string Name of the budget. Max length: 1024 quantity number The quantity of labor, material, and other items planned for the budget. inputQuantity number,null The input quantity planned for the budget. description string Detail description of the budget. unitPrice number,string,null Unit price of a budget. costUnitPrice number,string,null Not relevant unit string Unit of measures used in the budget. mainContractAmountSource enum:string Not relevant mainContractId string: UUID Not relevant locations array,null A list of the IDs of the project locations where this item applies. For more information, see the Locations Help documentation help. plannedStartDate string,null Not relevant plannedEndDate string,null Not relevant actualStartDate string,null Not relevant actualEndDate string,null Not relevant durationDays number Not relevant externalId string The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the itemâs ID in the external system. Max length: 255 externalSystem string The name of the external ERP system integrated with Cost Management. Use this name to identify and search for data within the integrated system. Max length: 255 externalMessage string A message generated by the external ERP system that explains the sync status of the integration. For example, common values include success or fail to indicate the result of the integration operation. Max length: 255 lastSyncTime datetime: ISO 8601 The date and time when the item was last synchronized with the external ERP system. This value is updated by the external system and is in ISO 8601 format. integrationState string,null The state of the item during the integration with the external ERP system (such as SignNow). An item can be a budget , contract , main contract , main contract item , cost item , expense , expense item , change order , or schedule of value . For more details, see Integrate with External System tutorial.
-Possible values: locked : the item is currently locked within the ERP system, preventing modifications until unlocked. To unlock and modify the item, use the relevant PATCH endpoint to set integrationState to null . For example, for a budget, call PATCH budgets . For a contract, call PATCH contracts . For more details, see the Help documentation . integrated : the item has been successfully added to the ERP system. failed : the item encountered an error during the integration process and was not successfully added to the ERP system. For example, if a user tries to integrate contracts from an ERP system and the updates fail, the integrationState can be set to failed . Retry the sync process or analyze the issue if it continues to fail. null : The item has not been integrated with the ERP system. This is default value. For more information regarding integrations within the Cost Management system, see Integrations in Cost Management . append boolean true if you want to append the new budgets to the project. false if you want to purge existing budgets before importing the new budgets.
+Expand all
 
-Max length: 255
+| data*   array: object | A list of budget. |
+| --- | --- |
+| parentId   string,null | ID of the parent budget, used only when creating sub budgets. |
+| code*   string | Unique code compliant with the budget code template defined by the project admin. Ignored if `segmentCodeMap` is defined. <br>Max length: 255 |
+| scope   enum:string | The scope of the budget. Possible values are `budgetOnly` and `budgetAndCost`. |
+| segmentCodeMap   object | Map of budget code segments to be used in the budget code, required when updating root budget code with variable length segment. Key is the budget code segment ID, value is the code for the segment. |
+| *   string | Max length: 255 |
+| name*   string | Name of the budget. <br>Max length: 1024 |
+| quantity   number | The quantity of labor, material, and other items planned for the budget. |
+| inputQuantity   number,null | The input quantity planned for the budget. |
+| description   string | Detail description of the budget. |
+| unitPrice   number,string,null | Unit price of a budget. |
+| costUnitPrice   number,string,null | Not relevant |
+| unit   string | Unit of measures used in the budget. |
+| mainContractAmountSource   enum:string | Not relevant |
+| mainContractId   string: UUID | Not relevant |
+| locations   array,null | A list of the IDs of the project locations where this item applies. <br>For more information, see the Locations [Help documentation](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/locations-nodes-GET/) help. |
+| plannedStartDate   string,null | Not relevant |
+| plannedEndDate   string,null | Not relevant |
+| actualStartDate   string,null | Not relevant |
+| actualEndDate   string,null | Not relevant |
+| durationDays   number | Not relevant |
+| externalId   string | The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the itemâs ID in the external system. <br>Max length: 255 |
+| externalSystem   string | The name of the external ERP system integrated with Cost Management. Use this name to identify and search for data within the integrated system. <br>Max length: 255 |
+| externalMessage   string | A message generated by the external ERP system that explains the sync status of the integration. For example, common values include `success` or `fail` to indicate the result of the integration operation. <br>Max length: 255 |
+| lastSyncTime   datetime: ISO 8601 | The date and time when the item was last synchronized with the external ERP system. This value is updated by the external system and is in ISO 8601 format. |
+| integrationState   string,null | The state of the item during the integration with the external ERP system (such as SignNow). An item can be a `budget`, `contract`, `main contract`, `main contract item`, `cost item`, `expense`, `expense item`, `change order`, or `schedule of value`. For more details, see [Integrate with External System](/en/docs/acc/v1/tutorials/cost/integrate-with-external-system/) tutorial. Possible values: <br>`locked`: the item is currently locked within the ERP system, preventing modifications until unlocked. To unlock and modify the item, use the relevant PATCH endpoint to set `integrationState` to `null`. For example, for a budget, call [PATCH budgets](en/docs/bim360/v1/reference/http/cost-budgets-budgetId-PATCH/). For a contract, call [PATCH contracts](en/docs/bim360/v1/reference/http/cost-contracts-contractId-PATCH/). For more details, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Integrated_and_Locked).<br>`integrated`: the item has been successfully added to the ERP system.<br>`failed`: the item encountered an error during the integration process and was not successfully added to the ERP system. For example, if a user tries to integrate `contracts` from an ERP system and the updates fail, the `integrationState` can be set to `failed`. Retry the sync process or analyze the issue if it continues to fail.<br>`null`: The item has not been integrated with the ERP system. This is default value.<br>For more information regarding integrations within the Cost Management system, see [Integrations in Cost Management](https://help.autodesk.com/view/BUILD/ENU/?guid=Cost_Integrations). |
+| append   boolean | `true` if you want to append the new budgets to the project. `false` if you want to purge existing budgets before importing the new budgets. |
 
-Max length: 1024
-
-For more information, see the Locations Help documentation help.
-
-Max length: 255
-
-Max length: 255
-
-Max length: 255
-
-locked : the item is currently locked within the ERP system, preventing modifications until unlocked. To unlock and modify the item, use the relevant PATCH endpoint to set integrationState to null . For example, for a budget, call PATCH budgets . For a contract, call PATCH contracts . For more details, see the Help documentation .
-
-integrated : the item has been successfully added to the ERP system.
-
-failed : the item encountered an error during the integration process and was not successfully added to the ERP system. For example, if a user tries to integrate contracts from an ERP system and the updates fail, the integrationState can be set to failed . Retry the sync process or analyze the issue if it continues to fail.
-
-null : The item has not been integrated with the ERP system. This is default value.
-
-For more information regarding integrations within the Cost Management system, see Integrations in Cost Management .
+* Required
 
 ### Response
 
-## HTTP Status Code Summary
+## [HTTP Status Code Summary](#http-status-code-summary)
 
-204 No Content Success 400 Bad Request The parameters are invalid. 401 Unauthorized The provided bearer token is invalid. 403 Forbidden Forbidden. The user or service represented by the bearer token does not have permission to perform this operation. 404 Not Found The resource or endpoint cannot be found. 409 Conflict The request could not be completed due to a conflict with the current state of the resource. 429 Too Many Requests Rate limit exceeded. Retry your request after a few minutes. 500 Internal Server Error An unexpected error occurred on the server. 503 Service Unavailable Service unavailable.
+| 204   No Content | Success |
+| --- | --- |
+| 400   Bad Request | The parameters are invalid. |
+| 401   Unauthorized | The provided bearer token is invalid. |
+| 403   Forbidden | Forbidden. The user or service represented by the bearer token does not have permission to perform this operation. |
+| 404   Not Found | The resource or endpoint cannot be found. |
+| 409   Conflict | The request could not be completed due to a conflict with the current state of the resource. |
+| 429   Too Many Requests | Rate limit exceeded. Retry your request after a few minutes. |
+| 500   Internal Server Error | An unexpected error occurred on the server. |
+| 503   Service Unavailable | Service unavailable. |
 
 ### Response
 
-## Body Structure (204)
+## [Body Structure (204)](#body-structure-204)
 
 Response for 204 has no body.
 
-## Example
+## [Example](#example)
 
 Success
 
 ### Request
 
 ```
-curl -v 'https://developer.api.autodesk.com/cost/v1/containers/e94b9bc8-1775-4d76-9b1d-c613e120ccff/budgets:import' \ -X 'POST' \ -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a' \ -H 'Content-Type: application/json' \ -d '{ "data": [ { "parentId": "null", "code": "84720010130000GEN", "scope": "budgetAndCost", "segmentCodeMap": { "42905750-8c20-11eb-b691-9d0026ec3ddc": "8472", "4299f440-8c20-11eb-b691-9d0026ec3ddc": "0010130000", "42927a30-8c20-11eb-b691-9d0026ec3ddc": "GEN" }, "name": "Contingency", "quantity": 50, "inputQuantity": 50, "description": "Reserved for contingency", "unitPrice": "1000.0000", "costUnitPrice": "1000.0000", "unit": "LS", "mainContractAmountSource": "forecastFinalCost", "mainContractId": "f6445638-ca68-4e3c-9160-15864de6b818", "locations": [ "683904a0-47ce-4146-ac2d-a3840f00e0f4" ], "plannedStartDate": "2019-01-06", "plannedEndDate": "2020-01-06", "actualStartDate": "2019-01-06", "actualEndDate": "2020-02-10", "durationDays": 90, "externalId": "10010-99-AB", "externalSystem": "Sage300", "externalMessage": "Success.", "lastSyncTime": "2019-09-05T01:00:12.989Z", "integrationState": "locked" } ], "append": false }'
+curl -v 'https://developer.api.autodesk.com/cost/v1/containers/e94b9bc8-1775-4d76-9b1d-c613e120ccff/budgets:import' \
+  -X 'POST' \
+  -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a' \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "data": [
+          {
+            "parentId": "null",
+            "code": "84720010130000GEN",
+            "scope": "budgetAndCost",
+            "segmentCodeMap": {
+              "42905750-8c20-11eb-b691-9d0026ec3ddc": "8472",
+              "4299f440-8c20-11eb-b691-9d0026ec3ddc": "0010130000",
+              "42927a30-8c20-11eb-b691-9d0026ec3ddc": "GEN"
+            },
+            "name": "Contingency",
+            "quantity": 50,
+            "inputQuantity": 50,
+            "description": "Reserved for contingency",
+            "unitPrice": "1000.0000",
+            "costUnitPrice": "1000.0000",
+            "unit": "LS",
+            "mainContractAmountSource": "forecastFinalCost",
+            "mainContractId": "f6445638-ca68-4e3c-9160-15864de6b818",
+            "locations": [
+              "683904a0-47ce-4146-ac2d-a3840f00e0f4"
+            ],
+            "plannedStartDate": "2019-01-06",
+            "plannedEndDate": "2020-01-06",
+            "actualStartDate": "2019-01-06",
+            "actualEndDate": "2020-02-10",
+            "durationDays": 90,
+            "externalId": "10010-99-AB",
+            "externalSystem": "Sage300",
+            "externalMessage": "Success.",
+            "lastSyncTime": "2019-09-05T01:00:12.989Z",
+            "integrationState": "locked"
+          }
+        ],
+        "append": false
+      }'
+
 ```
+
+Show More
 
 ### Response
 
 ```
 204 No Content
+
 ```

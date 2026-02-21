@@ -4,67 +4,160 @@ Source: https://aps.autodesk.com/en/docs/data/v2/reference/http/projects-project
 
 ---
 
+Projects
+
+POST
+
 # projects/:project_id/downloads
 
-Request the creation of a new download for a specific and supported file type .
-The fileType specified in the POST body needs to be contained in the list of
-supported file types returned by the GET projects/:project_id/versions/:version_id/downloadFormats endpoint for the specified version_id .
+Request the creation of a new `download` for a specific and supported `file type`.
+The `fileType` specified in the POST body needs to be contained in the list of
+supported file types returned by the [GET projects/:project_id/versions/:version_id/downloadFormats](en/docs/data/v2/reference/http/projects-project_id-versions-version_id-downloadFormats-GET/) endpoint for the specified `version_id`.
 
-## Resource Information
+## [Resource Information](#resource-information)
 
-Method and URI POST https://developer.api.autodesk.com/data/v1/projects/:project_id/downloads Authentication Context user context optional Required OAuth Scopes data:create Data Format JSON
-
-### Request
-
-## Headers
-
-Authorization * string Must be Bearer <token> , where <token> is obtained via either a two-legged or three-legged OAuth flow. Content-Type * string Must be application/vnd.api+json x-user-id string In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified.
+| Method and URI | POST https://developer.api.autodesk.com/data/v1/projects/:project_id/downloads |
+| --- | --- |
+| Authentication Context | user context optional |
+| Required OAuth Scopes | `data:create` |
+| Data Format | JSON |
 
 ### Request
 
-## URI Parameters
+## [Headers](#headers)
 
-project_id string The unique identifier of a project. For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a â b. " prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of b. c8b0c73d-3ae9.
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| --- | --- |
+| Content-Type*   string | Must be `application/vnd.api+json` |
+| x-user-id   string | In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified. |
 
-For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a â b. " prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of b. c8b0c73d-3ae9.
+* Required
 
 ### Request
 
-## Body Structure
+## [URI Parameters](#uri-parameters)
+
+| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a â**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
+| --- | --- |
+
+### Request
+
+## [Body Structure](#body-structure)
 
 describe the download to be created.
 
-jsonapi * object The JSON API object. version * enum:string The version of JSON API. Will always be: 1.0 data * object The data object. type * enum:string The type of this resource. Will always be: downloads attributes * object The attributes of the data object. format * object The object containing information on the format of the download. fileType * string The given file-type needs to match one of the supported file-types for the given version relationships * object The resources that share a relationship with this resource. source * object Information on the source where the download is coming from. data * object The data object. type * enum:string The type of this resource. Will always be: versions id * string The id of the resource.
+Expand all
+
+| jsonapi*   object | The JSON API object. |
+| --- | --- |
+| version*   enum:string | The version of JSON API. Will always be: `1.0` |
+| data*   object | The data object. |
+| type*   enum:string | The type of this resource. Will always be: `downloads` |
+| attributes*   object | The attributes of the data object. |
+| format*   object | The object containing information on the format of the download. |
+| fileType*   string | The given file-type needs to match one of the supported file-types for the given `version` |
+| relationships*   object | The resources that share a relationship with this resource. |
+| source*   object | Information on the source where the download is coming from. |
+| data*   object | The data object. |
+| type*   enum:string | The type of this resource. Will always be: `versions` |
+| id*   string | The id of the resource. |
+
+* Required
 
 ### Response
 
-## HTTP Status Code Summary
+## [HTTP Status Code Summary](#http-status-code-summary)
 
-202 Accepted Successful creation of a job. 400 Bad Request The request could not be understood by the server due to malformed syntax or missing request headers.
-The client SHOULD NOT repeat the request without modifications. The response body may give an indication
-of what is wrong with the request. 403 Forbidden The request was successfully validated but permission is not granted or the
-application has not been white-listed.
-Do not try again unless you solve permissions first. 404 Not Found The specified resource was not found.
+| 202   Accepted | Successful creation of a job. |
+| --- | --- |
+| 400   Bad Request | The request could not be understood by the server due to malformed syntax or missing request headers. The client SHOULD NOT repeat the request without modifications. The response body may give an indication of what is wrong with the request. |
+| 403   Forbidden | The request was successfully validated but permission is not granted or the application has not been white-listed. Do not try again unless you solve permissions first. |
+| 404   Not Found | The specified resource was not found. |
 
 ### Response
 
-## Body Structure (202)
+## [Body Structure (202)](#body-structure-202)
 
-jsonapi object The JSON API object. version enum:string The version of JSON API. Will always be: 1.0 links object Information on links to this resource. self object An object containing an API link property. href string A hyperlink reference to this resource. data object The object containing information on the task job. type enum:string The type of this resource. Will always be: jobs id string The id of the resource. attributes object The attributes of the task job. status enum:string The type of this resource.
-Possible values: queued , finished , failed , processing links object Information on links to this resource. self object An object containing an API link property. href string A hyperlink reference to this resource.
+Expand all
 
-## Example
+| jsonapi   object | The JSON API object. |
+| --- | --- |
+| version   enum:string | The version of JSON API. Will always be: `1.0` |
+| links   object | Information on links to this resource. |
+| self   object | An object containing an API link property. |
+| href   string | A hyperlink reference to this resource. |
+| data   object | The object containing information on the task job. |
+| type   enum:string | The type of this resource. Will always be: `jobs` |
+| id   string | The id of the resource. |
+| attributes   object | The attributes of the task job. |
+| status   enum:string | The type of this resource. Possible values: `queued`, `finished`, `failed`, `processing` |
+| links   object | Information on links to this resource. |
+| self   object | An object containing an API link property. |
+| href   string | A hyperlink reference to this resource. |
+
+## [Example](#example)
 
 Successful creation of a job.
 
 ### Request
 
 ```
-curl -v 'https://developer.api.autodesk.com/data/v1/projects/:project_id/downloads' \ -X 'POST' \ -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a' \ -H 'Content-Type: application/vnd.api+json' \ -d '{ "jsonapi": { "version": "1.0" }, "data": { "type": "downloads", "attributes": { "format": { "fileType": "dwf" } }, "relationships": { "source": { "data": { "type": "versions", "id": "{version_id}" } } } } }'
+curl -v 'https://developer.api.autodesk.com/data/v1/projects/:project_id/downloads' \
+  -X 'POST' \
+  -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a' \
+  -H 'Content-Type: application/vnd.api+json' \
+  -d '{
+        "jsonapi": {
+          "version": "1.0"
+        },
+        "data": {
+          "type": "downloads",
+          "attributes": {
+            "format": {
+              "fileType": "dwf"
+            }
+          },
+          "relationships": {
+            "source": {
+              "data": {
+                "type": "versions",
+                "id": "{version_id}"
+              }
+            }
+          }
+        }
+      }'
+
 ```
+
+Show More
 
 ### Response
 
 ```
-{ "jsonapi" : { "version" : "1.0" }, "links" : { "self" : { "href" : "/data/v1/projects/{project_id}/jobs/{job_id}" } }, "data" : { "type" : "jobs" , "id" : "{job_id}" , "attributes" : { "status" : "queued" }, "links" : { "self" : { "href" : "/data/v1/projects/{project_id}/jobs/{job_id}" } } } }
+{
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "links": {
+    "self": {
+      "href": "/data/v1/projects/{project_id}/jobs/{job_id}"
+    }
+  },
+  "data": {
+    "type": "jobs",
+    "id": "{job_id}",
+    "attributes": {
+      "status": "queued"
+    },
+    "links": {
+      "self": {
+        "href": "/data/v1/projects/{project_id}/jobs/{job_id}"
+      }
+    }
+  }
+}
+
 ```
+
+Show More

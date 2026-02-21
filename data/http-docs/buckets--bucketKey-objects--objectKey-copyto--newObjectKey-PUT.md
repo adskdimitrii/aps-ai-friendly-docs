@@ -4,52 +4,111 @@ Source: https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketK
 
 ---
 
+Objects
+
+PUT
+
 # buckets/:bucketKey/objects/:objectKey/copyto/:newObjectKey
 
 Copies an object to another object key in the same bucket.
 
-## Resource Information
+## [Resource Information](#resource-information)
 
-Method and URI PUT https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey/objects/:objectKey/copyto/:newObjectKey Authentication Context app-only Required OAuth Scopes data:write or data:create ( data:write allows overwriting existing objects) Data Format JSON
-
-### Request
-
-## Headers
-
-Authorization * string Must be âBearer <token> â, where <token> is obtained
-via POST token .
+| Method and URI | PUT https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey/objects/:objectKey/copyto/:newObjectKey |
+| --- | --- |
+| Authentication Context | app-only |
+| Required OAuth Scopes | `data:write` or `data:create` (`data:write` allows overwriting existing objects) |
+| Data Format | JSON |
 
 ### Request
 
-## URI Parameters
+## [Headers](#headers)
 
-bucketKey * string URL-encoded bucket key where object was uploaded into objectKey * string URL-encoded object key to be use as the copy source newObjectKey * string URL-encoded object key to use as the destination
+| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](/en/docs/oauth/v2/reference/http/gettoken-POST). |
+| --- | --- |
+
+* Required
+
+### Request
+
+## [URI Parameters](#uri-parameters)
+
+| bucketKey*   string | URL-encoded bucket key where object was uploaded into |
+| --- | --- |
+| objectKey*   string | URL-encoded object key to be use as the copy source |
+| newObjectKey*   string | URL-encoded object key to use as the destination |
+
+* Required
 
 ### Response
 
-## HTTP Status Code Summary
+## [HTTP Status Code Summary](#http-status-code-summary)
 
-200 OK Successful copy operation. 400 BAD REQUEST The request could not be understood by the server due to malformed syntax or missing request headers. The client SHOULD NOT repeat the request without modifications.
-The response body may give an indication of what is wrong with the request. 401 UNAUTHORIZED The supplied Authorization header was not valid or the supplied token scope was not acceptable. Verify Authentication and try again. 403 FORBIDDEN The Authorization was successfully validated but permission is not granted. Donât try again unless you solve permissions first. 404 NOT FOUND The specified bucket does not exist. 500 INTERNAL SERVER ERROR Internal failure while processing the request, reason depends on error.
+| 200   OK | Successful copy operation. |
+| --- | --- |
+| 400   BAD REQUEST | The request could not be understood by the server due to malformed syntax or missing request headers. The client SHOULD NOT repeat the request without modifications. The response body may give an indication of what is wrong with the request. |
+| 401   UNAUTHORIZED | The supplied Authorization header was not valid or the supplied token scope was not acceptable. Verify Authentication and try again. |
+| 403   FORBIDDEN | The Authorization was successfully validated but permission is not granted. Donât try again unless you solve permissions first. |
+| 404   NOT FOUND | The specified bucket does not exist. |
+| 500   INTERNAL SERVER ERROR | Internal failure while processing the request, reason depends on error. |
 
 ### Response
 
-## Body Structure (200)
+## [Body Structure (200)](#body-structure-200)
 
 ```
-{ "$schema" : "http://json-schema.org/draft-04/schema#" , "type" : "object" , "properties" : { "bucketKey" : { "type" : "string" }, "objectId" : { "type" : "string" }, "objectKey" : { "type" : "string" }, "sha1" : { "type" : "string" }, "size" : { "type" : "integer" }, "contentType" : { "type" : "string" }, "location" : { "type" : "string" } } }
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "bucketKey": {
+      "type": "string"
+    },
+    "objectId": {
+      "type": "string"
+    },
+    "objectKey": {
+      "type": "string"
+    },
+    "sha1": {
+      "type": "string"
+    },
+    "size": {
+      "type": "integer"
+    },
+    "contentType": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    }
+  }
+}
+
 ```
 
-bucketKey string Bucket Key objectId string Object URN objectKey string Object Key sha1 string Object SHA1 size integer Object size contentType string Object content-type location string URL to download the object
+Show More
 
-## Example
+| bucketKey   string | Bucket Key |
+| --- | --- |
+| objectId   string | Object URN |
+| objectKey   string | Object Key |
+| sha1   string | Object SHA1 |
+| size   integer | Object size |
+| contentType   string | Object content-type |
+| location   string | URL to download the object |
+
+## [Example](#example)
 
 Successful Copy Object (200)
 
 ### Request
 
 ```
-curl -v "https://developer.api.autodesk.com/oss/v2/buckets/bucketexamplekey/objects/testobject/copyto/copyoftestobject" -X PUT -H "Authorization=Bearer 1B6FU8z9S2x1PrjADDfPCzSGrXmI"
+curl -v "https://developer.api.autodesk.com/oss/v2/buckets/bucketexamplekey/objects/testobject/copyto/copyoftestobject"
+  -X PUT
+  -H "Authorization=Bearer 1B6FU8z9S2x1PrjADDfPCzSGrXmI"
+
 ```
 
 ### Response
@@ -74,4 +133,7 @@ Connection: keep-alive
   "contentType" : "text/plain; charset=UTF-8",
   "location" : "https://developer.api.autodesk.com/oss/v2/buckets/bucketexamplekey/objects/copyoftestobject"
 }
+
 ```
+
+Show More

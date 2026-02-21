@@ -4,85 +4,179 @@ Source: https://aps.autodesk.com/en/docs/acc/reference/http/takeoff-projects-pro
 
 ---
 
+Takeoff Items
+
+GET
+
 # projects/{projectId}/packages/{packageId}/takeoff-items
 
 Retrieves the takeoff items for a package.
 
-For more information about takeoff items, see the ACC Takeoff help documentation.
+For more information about takeoff items, see the [ACC Takeoff](https://help.autodesk.com/view/TAKEOFF/ENU/?guid=Takeoff_Types) help documentation.
 
-To learn how this endpoint is used, see the Takeoff Extract Inventory tutorial.
+To learn how this endpoint is used, see the [Takeoff Extract Inventory](/en/docs/acc/v1/tutorials/takeoff/takeoff-extract-inventory) tutorial.
 
-## Resource Information
+Note that this endpoint is not compatible with BIM 360 projects.
 
-Method and URI GET https://developer.api.autodesk.com/construction/takeoff/v1/projects/{projectId}/packages/{packageId}/takeoff-items Authentication Context user context required Required OAuth Scopes data:read Data Format JSON
+## [Resource Information](#resource-information)
 
-### Request
-
-## Headers
-
-Authorization * string Must be Bearer <token> , where <token> is obtained via a three-legged OAuth flow. region string Specifies the region where the service is located. Possible values: US , EMEA . For the full list of supported regions, see the Regions page.
-
-Possible values: US , EMEA . For the full list of supported regions, see the Regions page.
+| Method and URI | GET https://developer.api.autodesk.com/construction/takeoff/v1/projects/{projectId}/packages/{packageId}/takeoff-items |
+| --- | --- |
+| Authentication Context | user context required |
+| Required OAuth Scopes | `data:read` |
+| Data Format | JSON |
 
 ### Request
 
-## URI Parameters
+## [Headers](#headers)
 
-projectId string: UUID The ID of the project. This corresponds to project ID in the Data Management API , and can be specified in the form of âUUIDâ or b.âUUIDâ. To learn how to find the project ID, see the Retrieve ACC Account and project ID tutorial. packageId string: UUID The takeoff package ID. To find the ID, call GET packages .
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| --- | --- |
+| region   string | Specifies the region where the service is located. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](/en/docs/acc/v1/overview/acc-regions) page. |
 
-This corresponds to project ID in the Data Management API , and can be specified in the form of âUUIDâ or b.âUUIDâ.
-
-To learn how to find the project ID, see the Retrieve ACC Account and project ID tutorial.
-
-To find the ID, call GET packages .
+* Required
 
 ### Request
 
-## Query String Parameters
+## [URI Parameters](#uri-parameters)
 
-offset int The takeoff item index from which the pagination starts. This is zero-based. limit int The maximum number of takeoff items per page. Acceptable values: 1-10000 . Default value: 1000 .
+- projectIdstring: UUID The ID of the project. This corresponds to project ID in the [Data Management API](/en/docs/data/v2/), and can be specified in the form of âUUIDâ or b.âUUIDâ.To learn how to find the project ID, see the [Retrieve ACC Account and project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial.
+- packageIdstring: UUID The takeoff package ID. To find the ID, call [GET packages](/en/docs/acc/v1/reference/http/takeoff-projects-project_id-packages-GET/).
 
-Acceptable values: 1-10000 .
+### Request
 
-Default value: 1000 .
+## [Query String Parameters](#query-string-parameters)
+
+| offset   int | The takeoff item index from which the pagination starts. This is zero-based. |
+| --- | --- |
+| limit   int | The maximum number of takeoff items per page. <br>Acceptable values: `1-10000`.<br>Default value: `1000`. |
 
 ### Response
 
-## HTTP Status Code Summary
+## [HTTP Status Code Summary](#http-status-code-summary)
 
-200 OK Successfully retrieved the takeoff items. 400 Bad Request The parameters of the requested operation are invalid. 401 Unauthorized The provided bearer token is not valid. 403 Forbidden The user or service represented by the bearer token does not have permission to perform this operation. 404 Not Found The requested resource could not be found. 429 Too Many Requests Rate limit exceeded; wait some time before retrying. The âRetry-Afterâ header might provide the amount of the time to wait. 500 Internal Server Error An unknown error occurred on the server.
+| 200   OK | Successfully retrieved the takeoff items. |
+| --- | --- |
+| 400   Bad Request | The parameters of the requested operation are invalid. |
+| 401   Unauthorized | The provided bearer token is not valid. |
+| 403   Forbidden | The user or service represented by the bearer token does not have permission to perform this operation. |
+| 404   Not Found | The requested resource could not be found. |
+| 429   Too Many Requests | Rate limit exceeded; wait some time before retrying. The âRetry-Afterâ header might provide the amount of the time to wait. |
+| 500   Internal Server Error | An unknown error occurred on the server. |
 
 ### Response
 
-## Body Structure (200)
+## [Body Structure (200)](#body-structure-200)
 
-pagination object The pagination object. limit int The maximum number of objects per page. nextUrl string The URL path that returns the next page of data. offset int The object number from which the pagination starts. This is zero-based. results array: object A list of takeoff items for the package. id string: UUID The takeoff item ID. takeoffTypeId string: UUID The takeoff type ID. type enum:string The takeoff type method. Possible values: COUNT , DISTANCE , AREA , SELECT . Corresponding UI names: COUNT , LINEAR , AREA , BIM . objectName string The name of the takeoff type that the item is derived from. geometry string The geometry of a 2D takeoff item specified in SVG. This property is not returned for a 3D takeoff item. objectId int The ID of the selected BIM model element in the viewing model. propertyValues array: object A list of takeoff item properties used to calculate quantity. name string Name of the property. unitOfMeasure enum:string The unit of measurement. Possible values: EA , IN , LF , YD , SI , SF , SY , CI , CF , CY , LBS , TON , MM , M , M2 , M3 , KG , T . source enum:string Specifies how a takeoff property value was obtained.
-Possible values: MANUAL_ENTRY , BIM_PROPERTY , MEASUREMENT value The value of a takeoff instance. anyOf The value of a takeoff instance. 0 number A number representation of the property value. 1 string A string representation of the property value. primaryQuantity object The quantity of a takeoff. outputName string A custom output name from the user. classificationCodeOne string The classification code selected from the first classification system. classificationCodeTwo string The classification code selected from the second classification system. quantity number The quantity of the takeoff. unitOfMeasure enum:string The unit of measurement. Possible values: EA , IN , LF , YD , SI , SF , SY , CI , CF , CY , LBS , TON , MM , M , M2 , M3 , KG , T . secondaryQuantities array: object A list of secondary takeoff quantities. outputName string A custom output name from the user. classificationCodeOne string The classification code selected from the first classification system. classificationCodeTwo string The classification code selected from the second classification system. quantity number The quantity of the takeoff. unitOfMeasure enum:string The unit of measurement. Possible values: EA , IN , LF , YD , SI , SF , SY , CI , CF , CY , LBS , TON , MM , M , M2 , M3 , KG , T . contentView object The content view reference that this item is associated with. id string: UUID The content view ID. version one of The content view version. Model identifier string The 3D model ID. Sheet identifier string: UUID The 2D sheet ID. locationId string: UUID The location ID associated with the takeoff item. For more information about the location, see GET nodes . createdAt datetime: ISO 8601 The date and time when the resource was created, in the following format: YYYY-MM-DDThh:mm:ssZ . updatedAt datetime: ISO 8601 The date and time when the resource was last updated, in the following format: YYYY-MM-DDThh:mm:ssZ . updatedByName string The name of the user who last updated the resource.
+Expand all
 
-Possible values: COUNT , DISTANCE , AREA , SELECT .
+| pagination   object | The pagination object. |
+| --- | --- |
+| limit   int | The maximum number of objects per page. |
+| nextUrl   string | The URL path that returns the next page of data. |
+| offset   int | The object number from which the pagination starts. This is zero-based. |
+| results   array: object | A list of takeoff items for the package. |
+| id   string: UUID | The takeoff item ID. |
+| takeoffTypeId   string: UUID | The takeoff type ID. |
+| type   enum:string | The takeoff type method. <br>Possible values: `COUNT`, `DISTANCE`, `AREA`, `SELECT`.<br>Corresponding UI names: `COUNT`, `LINEAR`, `AREA`, `BIM`. |
+| objectName   string | The name of the takeoff type that the item is derived from. |
+| geometry   string | The geometry of a 2D takeoff item specified in SVG. This property is not returned for a 3D takeoff item. |
+| objectId   int | The ID of the selected BIM model element in the viewing model. |
+| propertyValues   array: object | A list of takeoff item properties used to calculate quantity. |
+| name   string | Name of the property. |
+| unitOfMeasure   enum:string | The unit of measurement. <br>Possible values: `EA`, `IN`, `LF`, `YD`, `SI`, `SF`, `SY`, `CI`, `CF`, `CY`, `LBS`, `TON`, `MM`, `M`, `M2`, `M3`, `KG`, `T`. |
+| source   enum:string | Specifies how a takeoff property value was obtained. Possible values: `MANUAL_ENTRY`, `BIM_PROPERTY`, `MEASUREMENT` |
+| value | The value of a takeoff instance. |
+| anyOf | The value of a takeoff instance. |
+| 0   number | A number representation of the property value. |
+| 1   string | A string representation of the property value. |
+| primaryQuantity   object | The quantity of a takeoff. |
+| outputName   string | A custom output name from the user. |
+| classificationCodeOne   string | The classification code selected from the first classification system. |
+| classificationCodeTwo   string | The classification code selected from the second classification system. |
+| quantity   number | The quantity of the takeoff. |
+| unitOfMeasure   enum:string | The unit of measurement. <br>Possible values: `EA`, `IN`, `LF`, `YD`, `SI`, `SF`, `SY`, `CI`, `CF`, `CY`, `LBS`, `TON`, `MM`, `M`, `M2`, `M3`, `KG`, `T`. |
+| secondaryQuantities   array: object | A list of secondary takeoff quantities. |
+| outputName   string | A custom output name from the user. |
+| classificationCodeOne   string | The classification code selected from the first classification system. |
+| classificationCodeTwo   string | The classification code selected from the second classification system. |
+| quantity   number | The quantity of the takeoff. |
+| unitOfMeasure   enum:string | The unit of measurement. <br>Possible values: `EA`, `IN`, `LF`, `YD`, `SI`, `SF`, `SY`, `CI`, `CF`, `CY`, `LBS`, `TON`, `MM`, `M`, `M2`, `M3`, `KG`, `T`. |
+| contentView   object | The content view reference that this item is associated with. |
+| id   string: UUID | The content view ID. |
+| version   one of | The content view version. |
+| Model identifier   string | The 3D model ID. |
+| Sheet identifier   string: UUID | The 2D sheet ID. |
+| locationId   string: UUID | The location ID associated with the takeoff item. <br>For more information about the location, see [GET nodes](/en/docs/acc/v1/reference/http/locations-nodes-GET/). |
+| createdAt   datetime: ISO 8601 | The date and time when the resource was created, in the following format: `YYYY-MM-DDThh:mm:ssZ`. |
+| updatedAt   datetime: ISO 8601 | The date and time when the resource was last updated, in the following format: `YYYY-MM-DDThh:mm:ssZ`. |
+| updatedByName   string | The name of the user who last updated the resource. |
 
-Corresponding UI names: COUNT , LINEAR , AREA , BIM .
-
-Possible values: EA , IN , LF , YD , SI , SF , SY , CI , CF , CY , LBS , TON , MM , M , M2 , M3 , KG , T .
-
-Possible values: EA , IN , LF , YD , SI , SF , SY , CI , CF , CY , LBS , TON , MM , M , M2 , M3 , KG , T .
-
-Possible values: EA , IN , LF , YD , SI , SF , SY , CI , CF , CY , LBS , TON , MM , M , M2 , M3 , KG , T .
-
-For more information about the location, see GET nodes .
-
-## Example
+## [Example](#example)
 
 Successfully retrieved the takeoff items.
 
 ### Request
 
 ```
-curl -v 'https://developer.api.autodesk.com/construction/takeoff/v1/projects/:projectId/packages/:packageId/takeoff-items?limit=1000' \ -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a'
+curl -v 'https://developer.api.autodesk.com/construction/takeoff/v1/projects/:projectId/packages/:packageId/takeoff-items?limit=1000' \
+  -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a'
+
 ```
 
 ### Response
 
 ```
-{ "pagination" : { "limit" : 100 , "nextUrl" : "https://developer.api.autodesk.com/construction/takeoff/v1/resources?limit=100&offset=200" , "offset" : 100 }, "results" : [ { "id" : "497f6eca-6276-4993-bfeb-53cbbbba6f08" , "takeoffTypeId" : "b9380176-9ac2-454d-acdd-fdfd988b9702" , "type" : "COUNT" , "objectName" : "36\" x 48\"" , "geometry" : "<path fill=\"none\" stroke=\"red\" d=\"M 10,10 h 10 m 0,10 h 10 m 0,10 h 10\">" , "objectId" : 1 , "propertyValues" : [ { "name" : "Perimeter" , "unitOfMeasure" : "LF" , "source" : "MEASUREMENT" , "value" : 3 } ], "primaryQuantity" : { "outputName" : "Bedroom Wall" , "classificationCodeOne" : "085113" , "classificationCodeTwo" : "011223" , "quantity" : 15 , "unitOfMeasure" : "EA" }, "secondaryQuantities" : [ { "outputName" : "Wall Paint" , "classificationCodeOne" : "098732" , "classificationCodeTwo" : "011665" , "quantity" : 45 , "unitOfMeasure" : "LF" } ], "contentView" : { "id" : "497f6eca-6276-4993-bfeb-53cbbbba6f08" , "version" : "urn:adsk.wipstg:fs.file:vf.oeSywgLpSkONo9O6CUZvkQ?version=3" }, "locationId" : "ff7f6eb4-6276-4993-bfeb-34cbbbba3a17" , "createdAt" : "2019-08-24T14:15:22Z" , "updatedAt" : "2020-11-11T12:32:45Z" , "updatedByName" : "Jane Johnson" } ] }
+{
+  "pagination": {
+    "limit": 100,
+    "nextUrl": "https://developer.api.autodesk.com/construction/takeoff/v1/resources?limit=100&offset=200",
+    "offset": 100
+  },
+  "results": [
+    {
+      "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+      "takeoffTypeId": "b9380176-9ac2-454d-acdd-fdfd988b9702",
+      "type": "COUNT",
+      "objectName": "36\" x 48\"",
+      "geometry": "<path fill=\"none\" stroke=\"red\" d=\"M 10,10 h 10 m 0,10 h 10 m 0,10 h 10\">",
+      "objectId": 1,
+      "propertyValues": [
+        {
+          "name": "Perimeter",
+          "unitOfMeasure": "LF",
+          "source": "MEASUREMENT",
+          "value": 3
+        }
+      ],
+      "primaryQuantity": {
+        "outputName": "Bedroom Wall",
+        "classificationCodeOne": "085113",
+        "classificationCodeTwo": "011223",
+        "quantity": 15,
+        "unitOfMeasure": "EA"
+      },
+      "secondaryQuantities": [
+        {
+          "outputName": "Wall Paint",
+          "classificationCodeOne": "098732",
+          "classificationCodeTwo": "011665",
+          "quantity": 45,
+          "unitOfMeasure": "LF"
+        }
+      ],
+      "contentView": {
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "version": "urn:adsk.wipstg:fs.file:vf.oeSywgLpSkONo9O6CUZvkQ?version=3"
+      },
+      "locationId": "ff7f6eb4-6276-4993-bfeb-34cbbbba3a17",
+      "createdAt": "2019-08-24T14:15:22Z",
+      "updatedAt": "2020-11-11T12:32:45Z",
+      "updatedByName": "Jane Johnson"
+    }
+  ]
+}
+
 ```
+
+Show More

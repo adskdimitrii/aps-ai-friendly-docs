@@ -1,0 +1,5 @@
+/.run-logs
+*.pyc
+__pycache__
+*.log
+*.tmp
