@@ -1,5 +1,52 @@
 /.run-logs
+# Byte-compiled / optimized / DLL files
 *.pyc
-__pycache__
+*.pyo
+*.pyd
+*$py.class
+__pycache__/
+
+# Distribution / packaging
+.Python
+build/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Type checker / linters / test caches
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.pyre/
+.tox/
+.nox/
+.hypothesis/
+.coverage
+.coverage.*
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editors / OS
+.DS_Store
+
+# Logs / temp
 *.log
 *.tmp
