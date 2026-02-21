@@ -1,6 +1,6 @@
 # APS Webhooks Friendly Docs
 
-Lightweight, local Markdown mirror of Autodesk APS Webhooks documentation.
+This document does not link to all references. If you can't find what you're looking for here, look in the `./http-docs/` to see ALL API endpoints.
 
 <!-- GENERATED:CONTENT_SUMMARY:START -->
 ## Content Summary
