@@ -10,17 +10,6 @@ This repository is organized into the following documentation domains:
 - `design-automation/` — APS Design Automation docs mirror and crawlers
 - `webhooks/` — APS Webhooks docs mirror and crawlers
 
-## Prerequisites to Re-Crawl
-
-- Python 3.10+
-- Internet access (scripts fetch live docs)
-
-Install dependencies:
-
-```bash
-python -m pip install requests beautifulsoup4
-```
-
 ## Usage
 
 Use the domain-specific READMEs for crawler commands and details:
@@ -31,15 +20,29 @@ Use the domain-specific READMEs for crawler commands and details:
 - [Design Automation docs](design-automation/README.md)
 - [Webhooks docs](webhooks/README.md)
 
-## Output Format
+## Run in Dev Container
 
-Each generated Markdown file includes:
-- Page title
-- Original APS source URL
-- Extracted page content (headings, paragraphs, lists, code blocks, tables-as-text)
+This repo includes a VS Code dev container configuration in `.devcontainer/devcontainer.json`.
 
-## Notes
+1. Open this folder in VS Code.
+2. Run **Dev Containers: Reopen in Container**.
+3. Wait for container setup to finish. On first create, dependencies are installed automatically via:
 
-- Generated filenames are slugified from APS URL paths.
-- If two pages would produce the same filename, the crawler falls back to a full-path slug.
-- Some pages may be skipped if source fetch/parsing fails; the scripts print warnings and a final summary.
+	 ```bash
+	 pip3 install --user -r requirements.txt
+	 ```
+
+No virtual environment is required inside this dev container.
+
+## Re-crawl Docs with a Coding Agent
+
+Instead of running commands manually, you can ask your coding agent to run the crawlers for you.
+
+Example prompts:
+
+- Re-crawl one domain and doc type:
+
+	```text
+	Re-crawl ACC how-to docs.
+	```
+
