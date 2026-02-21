@@ -69,6 +69,12 @@ def slug_from_path(path_value: str) -> str:
     return slug or "index"
 
 
+def output_slug_from_full_path(full_path: str) -> str:
+    parts = full_path.split("/", 2)
+    relative_path = parts[2] if len(parts) == 3 else full_path
+    return slug_from_path(relative_path)
+
+
 def extract_main_markdown(html: str, doc_url: str, display_name: str) -> str:
     soup = BeautifulSoup(html, "html.parser")
     for tag in soup(["script", "style", "noscript"]):
@@ -91,6 +97,9 @@ def extract_main_markdown(html: str, doc_url: str, display_name: str) -> str:
 
 def main() -> None:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    for existing_markdown in OUTPUT_DIR.glob("*.md"):
+        existing_markdown.unlink()
 
     config_base, docs_base = get_doc_bases()
     config_url = config_base + CONFIG_FILENAME
@@ -121,7 +130,7 @@ def main() -> None:
             skipped += 1
             continue
 
-        slug = slug_from_path(node["url_path"])
+        slug = output_slug_from_full_path(node["full_path"])
         out_file = OUTPUT_DIR / f"{slug}.md"
 
         if out_file.name in seen_filenames:
