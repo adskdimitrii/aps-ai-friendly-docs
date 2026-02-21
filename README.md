@@ -27,4 +27,6 @@ Create a solution design Markdown document for the following app. Include a deta
 ACC User Clean Up Tool
 
 This is a python script that will run on a weekly schedule that deactivates ACC users if they have not signed in for 3 months.
+
+This script will run in Azure as a Function. Create a deploy, and update shell script using Azure CLI.
 ```
