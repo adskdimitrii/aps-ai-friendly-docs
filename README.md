@@ -1,11 +1,12 @@
 # APS AI Friendly Docs
 
-Lightweight, local Markdown mirror of Autodesk APS documentation with scripts to re-crawl. An alternative to `https://aps.autodesk.com/llms-full.txt` that enables more targetted prompts that reduce token usage and increase AI agent performance.
+Local Markdown mirror of Autodesk APS documentation with scripts to re-crawl. An alternative to `https://aps.autodesk.com/llms-full.txt` that enables more targetted prompts that reduce token usage and increase AI agent performance.
 
-This repository is organized into three documentation domains:
+This repository is organized into the following documentation domains:
 - `acc/` — APS ACC docs mirror and crawlers
 - `data/` — APS Data docs mirror and crawlers
 - `oauth/` — APS OAuth docs mirror and crawlers
+- `design-automation/` — APS Design Automation docs mirror and crawlers
 
 ## Prerequisites to Re-Crawl
 
@@ -24,6 +25,7 @@ Use the domain-specific READMEs for crawler commands and details:
 - [ACC docs](acc/README.md)
 - [Data docs](data/README.md)
 - [OAuth docs](oauth/README.md)
+- [Design Automation docs](design-automation/README.md)
 
 ## Output Format
 
