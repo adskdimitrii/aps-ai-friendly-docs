@@ -6,6 +6,7 @@ This repository is organized into the following documentation domains:
 - `acc/` — APS ACC docs mirror and crawlers
 - `data/` — APS Data docs mirror and crawlers
 - `oauth/` — APS OAuth docs mirror and crawlers
+- `viewer/` — APS Viewer v7 docs mirror and crawlers
 - `design-automation/` — APS Design Automation docs mirror and crawlers
 - `webhooks/` — APS Webhooks docs mirror and crawlers
 
@@ -26,6 +27,7 @@ Use the domain-specific READMEs for crawler commands and details:
 - [ACC docs](acc/README.md)
 - [Data docs](data/README.md)
 - [OAuth docs](oauth/README.md)
+- [Viewer v7 docs](viewer/README.md)
 - [Design Automation docs](design-automation/README.md)
 - [Webhooks docs](webhooks/README.md)
 
