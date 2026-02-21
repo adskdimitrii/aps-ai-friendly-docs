@@ -1,6 +1,6 @@
 # APS AI Friendly Docs
 
-Local Markdown mirror of Autodesk APS documentation with scripts to re-crawl. An alternative to `https://aps.autodesk.com/llms-full.txt` that enables more targetted prompts that reduce token usage and increase AI agent performance.
+Local Markdown mirror of Autodesk APS documentation with scripts to re-crawl. An alternative to `https://aps.autodesk.com/llms-full.txt` that enables more targetted prompts that reduce token usage, speed up agent discovery to increase AI agent performance on complex tasks.
 
 This repository is organized into the following documentation domains:
 - `acc/` — APS ACC docs mirror and crawlers
