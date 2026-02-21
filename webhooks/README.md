@@ -2,35 +2,47 @@
 
 Lightweight, local Markdown mirror of Autodesk APS Webhooks documentation.
 
-This folder contains:
-- Crawled **How-to/Tutorial** docs from `https://aps.autodesk.com/en/docs/webhooks/v1/tutorials/`
-- Crawled **HTTP Reference** docs from `https://aps.autodesk.com/en/docs/webhooks/v1/reference/http/`
-- URL index files for traceability back to source pages
+<!-- GENERATED:CONTENT_SUMMARY:START -->
+## Content Summary
 
-## Structure
+The Webhooks documentation covers creating, managing, and consuming webhook notifications across various APS services. It includes 22 files spanning API endpoints and practical how-to guides.
 
-- `crawl_howto_docs.py` — crawler for Webhooks how-to/tutorial docs
-- `crawl_http_docs.py` — crawler for Webhooks HTTP reference docs
-- `how-to-docs/` — generated Markdown files for Webhooks how-to/tutorial pages
-- `http-docs/` — generated Markdown files for Webhooks HTTP reference pages
-- `how-to-docs/_url_index.md` — list of source Webhooks how-to/tutorial URLs
-- `http-docs/_url_index.md` — list of source Webhooks HTTP doc URLs
+### Webhook Management API (12 files)
 
-## Usage
+Core REST API for managing webhook subscriptions. Endpoints cover the full lifecycle of hooks — creating, listing, updating, and deleting — scoped by system and event type.
 
-From the repository root:
+- **Create hooks:** [POST hook by system/event](http-docs/http-webhooks-systems-system-events-event-hooks-POST.md), [POST hook by system](http-docs/http-webhooks-systems-system-hooks-POST.md)
+- **List hooks:** [GET all app hooks](http-docs/http-webhooks-app-hooks-GET.md), [GET all hooks](http-docs/http-webhooks-hooks-GET.md), [GET hooks by system](http-docs/http-webhooks-systems-system-hooks-GET.md), [GET hooks by system/event](http-docs/http-webhooks-systems-system-events-event-hooks-GET.md)
+- **Single hook operations:** [GET hook by ID](http-docs/http-webhooks-systems-system-events-event-hooks-hook_id-GET.md), [PATCH hook](http-docs/http-webhooks-systems-system-events-event-hooks-hook_id-PATCH.md), [DELETE hook](http-docs/http-webhooks-systems-system-events-event-hooks-hook_id-DELETE.md)
 
-### Refresh Webhooks how-to docs
+### Webhook Tokens API (3 files)
 
-```bash
-python webhooks/crawl_howto_docs.py
-```
+Manage authentication tokens used for webhook callback verification.
 
-### Refresh Webhooks HTTP reference docs
+- [POST create token](http-docs/http-tokens-tokens-POST.md)
+- [PUT update token](http-docs/http-tokens-tokens-me-PUT.md)
+- [DELETE token](http-docs/http-tokens-tokens-me-DELETE.md)
 
-```bash
-python webhooks/crawl_http_docs.py
-```
+### Creating Hooks by Service (6 files)
+
+Step-by-step guides for setting up webhooks for specific APS services:
+
+- [Data Management](how-to-docs/create-a-hook-data-management.md) — file/folder events in BIM 360 and ACC
+- [Model Derivative](how-to-docs/create-a-hook-model-derivative.md) — translation job events
+- [Cost Management](how-to-docs/create-a-hook-cost-management.md) — cost-related events
+- [Issues](how-to-docs/create-a-hook-issues.md) — issue creation/update events
+- [Reviews](how-to-docs/create-a-hook-reviews.md) — review workflow events
+- [BuildingConnected](how-to-docs/create-a-hook-buildingconnected.md) — BuildingConnected events
+
+### Hook Lifecycle & Security (4 files)
+
+Guides for managing hooks and securing webhook payloads:
+
+- [Configure your server](how-to-docs/configuring-your-server.md) — setting up a callback endpoint
+- [Verify payload signature](how-to-docs/how-to-verify-payload-signature.md) — validating webhook authenticity
+- [Retrieve list of hooks](how-to-docs/retrieve-list-of-hooks.md) — querying existing subscriptions
+- [Delete a hook](how-to-docs/delete-a-hook.md) — removing webhook subscriptions
+<!-- GENERATED:CONTENT_SUMMARY:END -->
 
 ## Source
 
