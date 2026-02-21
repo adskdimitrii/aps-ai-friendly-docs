@@ -8,37 +8,43 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/getting-started/manage-ac
 
 This walkthrough explains how to enable API access for an application in Autodesk Construction Cloud (ACC). Provisioning API access allows your app to interact with ACC services.
 
-## Before You Begin
+## [Before You Begin](#before-you-begin)
 
 Verify that you have Admin access to an Autodesk Construction Cloud (ACC) account.
-- Register an app , and note the client ID .
+- [Register an app](/en/docs/oauth/v2/tutorials/create-app), and note the [client ID](/myapps).
 
-## Step 1: Access Account Administration
+## [Step 1: Access Account Administration](#step-1-access-account-administration)
 
-Log in to your ACC account , and go to Account Admin .
+Log in to your **ACC account**, and go to **Account Admin**.
 
-The Projects screen appears.
+![../../../_images/acc-account.jpg](../../../_images/acc-account.jpg)
 
-## Step 2: Open Custom Integrations
+The **Projects** screen appears.
 
-From the left navigation, select Custom Integrations .
+## [Step 2: Open Custom Integrations](#step-2-open-custom-integrations)
 
-Select the Add custom integration button.
+From the left navigation, select **Custom Integrations**.
 
-## Step 3: Enter App Details
+![../../../_images/acc-integrations.jpg](../../../_images/acc-integrations.jpg)
+
+Select the **Add custom integration** button.
+
+![../../../_images/acc-add-integration.jpg](../../../_images/acc-add-integration.jpg)
+
+## [Step 3: Enter App Details](#step-3-enter-app-details)
 
 Enter the following information:
 
-- APS Client ID (from APS registration).
+- **APS Client ID** (from APS registration).
+- **Custom Integration Name**.
+- *(Optional)* **Description** for clarity.
 
-- Custom Integration Name .
+Note that the **APS Client ID** must match the [client ID](/myapps) generated when you created the app. The **Custom Integration Name** does not need to match the original app name.
 
-- (Optional) Description for clarity.
+![../../../_images/acc-add-custom-integration.jpg](../../../_images/acc-add-custom-integration.jpg)
 
-Note that the APS Client ID must match the client ID generated when you created the app. The Custom Integration Name does not need to match the original app name.
+## [Step 4: Save and Confirm](#step-4-save-and-confirm)
 
-## Step 4: Save and Confirm
+Click **âAddâ** to finalize the integration.
 
-Click âAddâ to finalize the integration.
-
-The name of the app will appear in the Custom integrations screen.
+The name of the app will appear in the **Custom integrations** screen.

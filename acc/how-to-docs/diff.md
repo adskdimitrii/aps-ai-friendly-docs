@@ -8,23 +8,36 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/model-properties/diff/
 
 This step-by-step tutorial describes how to create and query a diff.
 
-## Step 1: Specify the diff index
+## [Step 1: Specify the diff index](#step-1-specify-the-diff-index)
 
-To create a basic diff index, call the batch status method .
+To create a basic diff index, call the [batch status method](/en/docs/acc/v1/reference/http/index-v2-diff-jobs-batch-status-post/).
 
 ### Example Request
 
-In the request below, a POST is made to the diff batch status endpoint . Index resources will be created for each pair of files in the payload. There are no query or columns properties set in the payload, so no query results will be generated in response to this operation.
+In the request below, a `POST` is made to the [diff batch status endpoint](/en/docs/acc/v1/reference/http/index-v2-diff-jobs-batch-status-post/). Index resources will be created for each pair of files in the payload. There are no `query` or `columns` properties set in the payload, so no query results will be generated in response to this operation.
 
 ```
-curl --request POST 'https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs:batch-status' \ --header 'Authorization: Bearer ****' \ --header 'Content-Type: application/json' \ --data-raw '{ "diffs": [ { "prevVersionUrn": "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=1", "curVersionUrn": "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=2" } ] }'
+curl --request POST 'https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs:batch-status' \
+     --header 'Authorization: Bearer ****' \
+     --header 'Content-Type: application/json' \
+     --data-raw '{
+         "diffs": [
+             {
+                 "prevVersionUrn": "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=1",
+                 "curVersionUrn": "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=2"
+             }
+         ]
+     }'
+
 ```
+
+Show More
 
 ### Example Response
 
-The response to the above request returns an array of index status objects, one per pair of files compared. In the example above we would only expect a single element to be returned in this array. The diffId on the status object is the unique identifier for the diff index and can be used in subsequent calls to track the progress of the indexing job(s) and to later download the resources associated with the index(s). Calling the batch status endpoint multiple times will not result in multiple, duplicate indexes as long as the input parameters of the request do not change. Provided the array of objects in the diffs set, query and optionally columns properties passed to the endpoints remain unchanged, the caller will always be returned the same diffId .
+The response to the above request returns an array of index status objects, one per pair of files compared. In the example above we would only expect a single element to be returned in this array. The `diffId` on the status object is the unique identifier for the diff index and can be used in subsequent calls to track the progress of the indexing job(s) and to later download the resources associated with the index(s). Calling the batch status endpoint multiple times will not result in multiple, duplicate indexes as long as the input parameters of the request do not change. Provided the array of objects in the `diffs` set, `query` and optionally `columns` properties passed to the endpoints remain unchanged, the caller will always be returned the same `diffId`.
 
-In addition to the diffId , the status response object contains the status of the indexing job. Once calculated, indexes are cached for 30 days on a rolling event horizon that is incremented every time the index is accessed. If an index is not accessed for 30 days it will fall out of the cache and will need to be subsequently recalculated. A status of PROCESSING indicates that the service is building the index. This could include waiting for SVF2 translation to complete. When the service has successfully created an index, the status will be set to FINISHED . This indicates that the index and all its resources are available for download. The contract returned by the index service in response to an index status request also includes a suggested retryAt timestamp, which can be used to regulate status polling frequency. The example response below is simplified to show an single status object. In reality, three would have been returned in response to the request above.
+In addition to the `diffId`, the status response object contains the status of the indexing job. Once calculated, indexes are cached for 30 days on a rolling event horizon that is incremented every time the index is accessed. If an index is not accessed for 30 days it will fall out of the cache and will need to be subsequently recalculated. A status of `PROCESSING` indicates that the service is building the index. This could include waiting for SVF2 translation to complete. When the service has successfully created an index, the status will be set to `FINISHED`. This indicates that the index and all its resources are available for download. The contract returned by the index service in response to an index status request also includes a suggested `retryAt` timestamp, which can be used to regulate status polling frequency. The example response below is simplified to show an single status object. In reality, three would have been returned in response to the request above.
 
 ```
 [
@@ -49,85 +62,190 @@ In addition to the diffId , the status response object contains the status of th
     },
     ...
 ]
+
 ```
+
+Show More
 
 The properties returned by this endpoint are as follows:
 
-Property Description projectId The project GUID diffId The unique ID for the diff index type The type of index, INDEX (standard) or DIFF state The status of the indexing job (PROCESSING, FINISHED, FAILED) selfUrl The URL to this index job prevVersionUrns | The array of previous file version URNs passed to the indexing job curVersionUrns | The array of current file version URNs passed to the indexing job updatedAt The date time the status of this job was last refreshed retryAt The suggested date time at which callers should poll for an updated status stats If the index state is FINISHED, the statistics for this index in terms of the number of
-objects added, removed, or changed manifestUrl If the index state is FINISHED, the URL to the manifest for this index, otherwise null fieldsUrl If the index state is FINISHED, the URL to the fields for this index, otherwise null propertiesUrl If the index state is FINISHED, the URL to the properties for this index, otherwise null queryResultsUrl If a query was passed in the index specification, the results of this query when state is FINISHED
+| Property | Description |
+| --- | --- |
+| `projectId` | | The project GUID |
+| `diffId` | | The unique ID for the diff index |
+| `type` | | The type of index, INDEX (standard) or DIFF |
+| `state` | | The status of the indexing job (PROCESSING, FINISHED, FAILED) |
+| `selfUrl` | | The URL to this index job |
+| `prevVersionUrns` \| The array of previous file version URNs passed to the indexing job | | |
+| `curVersionUrns` \| The array of current file version URNs passed to the indexing job | | |
+| `updatedAt` | | The date time the status of this job was last refreshed |
+| `retryAt` | | The suggested date time at which callers should poll for an updated status |
+| `stats` | | If the index state is FINISHED, the statistics for this index in terms of the number of objects added, removed, or changed |
+| `manifestUrl` | | If the index state is FINISHED, the URL to the manifest for this index, otherwise null |
+| `fieldsUrl` | | If the index state is FINISHED, the URL to the fields for this index, otherwise null |
+| `propertiesUrl` | | If the index state is FINISHED, the URL to the properties for this index, otherwise null |
+| `queryResultsUrl` | | If a query was passed in the index specification, the results of this query when state is FINISHED |
 
-projectId
+## [Step 2: Poll for progress](#step-2-poll-for-progress)
 
-diffId
-
-type
-
-state
-
-selfUrl
-
-prevVersionUrns | The array of previous file version URNs passed to the indexing job
-
-curVersionUrns | The array of current file version URNs passed to the indexing job
-
-updatedAt
-
-retryAt
-
-stats
-
-manifestUrl
-
-fieldsUrl
-
-propertiesUrl
-
-queryResultsUrl
-
-## Step 2: Poll for progress
-
-To track the progress of an indexing request send a GET request to the diff index status endpoint using the diffId obtained in the request. When the index has a status of FINISHED processing, the index is available for querying and downloading.
+To track the progress of an indexing request send a `GET` request to the [diff index status endpoint](/en/docs/acc/v1/reference/http/index-v2-diff-status-get/) using the `diffId` obtained in the request. When the index has a status of `FINISHED` processing, the index is available for querying and downloading.
 
 ### Example Request
 
 ```
-curl --request GET 'https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA' \ --header 'Authorization: Bearer ****'
+curl --request GET 'https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA' \
+     --header 'Authorization: Bearer ****'
+
 ```
 
 ### Example Response
 
 ```
-{ "projectId" : "f83cef12-deef-4771-9feb-4f85643e3c46" , "diffId" : "_ukKZbcA8TN9CLMgLchgnA" , "type" : "DIFF" , "state" : "FINISHED" , "selfUrl" : "https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA" , "prevVersionUrns" : [ "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=1" ], "curVersionUrns" : [ "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=2" ], "updatedAt" : "2021-08-23T08:43:19.211855+00:00" , "retryAt" : "2021-08-27T16:42:30.3967772+00:00" , "stats" : { "added" : 64 , "removed" : 57 , "modified" : 284 }, "manifestUrl" : "https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/manifest" , "fieldsUrl" : "https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/fields" , "propertiesUrl" : "https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/properties" }
+{
+    "projectId": "f83cef12-deef-4771-9feb-4f85643e3c46",
+    "diffId": "_ukKZbcA8TN9CLMgLchgnA",
+    "type": "DIFF",
+    "state": "FINISHED",
+    "selfUrl": "https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA",
+    "prevVersionUrns": [
+        "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=1"
+    ],
+    "curVersionUrns": [
+        "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=2"
+    ],
+    "updatedAt": "2021-08-23T08:43:19.211855+00:00",
+    "retryAt": "2021-08-27T16:42:30.3967772+00:00",
+    "stats": {
+        "added": 64,
+        "removed": 57,
+        "modified": 284
+    },
+    "manifestUrl": "https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/manifest",
+    "fieldsUrl": "https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/fields",
+    "propertiesUrl": "https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/properties"
+}
+
 ```
 
-When an index has been successfully created ( state equals FINISHED ), it contains three downloadable json.gz resources: a manifest describing the files and SVF2 database resources that were used to create the index, a list of fields (dimensions) in the index, and the index property data. Each of these resources has a URL that can be used to fetch the corresponding resource. The response JSON is identical to the response returned by the POST to the batch status endpoint (Step 1 above). If an optional query was passed during the index specification, the the results of this query will be available for download (Step 7).
+Show More
 
-## Step 3: (Optional) Download the manifest
+When an index has been successfully created (`state` equals `FINISHED`), it contains three downloadable json.gz resources: a manifest describing the files and SVF2 database resources that were used to create the index, a list of fields (dimensions) in the index, and the index property data. Each of these resources has a URL that can be used to fetch the corresponding resource. The response JSON is identical to the response returned by the `POST` to the batch status endpoint (Step 1 above). If an optional query was passed during the index specification, the the results of this query will be available for download (Step 7).
 
-To retrieve the diff index manifest, make a GET to the manifest endpoint , the format of which is described in the field guide .
+## [Step 3: (Optional) Download the manifest](#step-3-optional-download-the-manifest)
+
+To retrieve the diff index manifest, make a `GET` to the [manifest endpoint](/en/docs/acc/v1/reference/http/index-v2-diff-manifest-get/), the format of which is described in the [field guide](/en/docs/acc/v1/overview/field-guide/model-properties).
 
 ### Example Request
 
 ```
-curl --request GET 'https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/manifest' \ --header 'Authorization: Bearer ****'
+curl --request GET 'https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/manifest' \
+     --header 'Authorization: Bearer ****'
+
 ```
 
 ### Example Response
 
 ```
-{ "schema" : "2.0.0" , "projectId" : "f83cef12-deef-4771-9feb-4f85643e3c46" , "status" : "Succeeded" , "createdAt" : "2021-08-04T08:22:37.9253493+00:00" , "prev" : [ { "lineageId" : "b28c3429" , "lineageUrn" : "urn:adsk.wipprod:dm.lineage:R2CfQt3AS6WL0Bmmnld3uQ" , "versionUrn" : "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=1" , "databases" : [ { "id" : "936acb06" , "offsets" : "urn:adsk.viewing:fs.file:dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLlIyQ2ZRdDNBUzZXTDBCbW1ubGQzdVE_dmVyc2lvbj0x/output/Resource/objects_offs.json.gz" , "attributes" : "urn:adsk.viewing:fs.file:dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLlIyQ2ZRdDNBUzZXTDBCbW1ubGQzdVE_dmVyc2lvbj0x/output/Resource/objects_attrs.json.gz" , "values" : "urn:adsk.viewing:fs.file:dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLlIyQ2ZRdDNBUzZXTDBCbW1ubGQzdVE_dmVyc2lvbj0x/output/Resource/objects_vals.json.gz" , "mapping" : "urn:adsk.viewing:fs.file:dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLlIyQ2ZRdDNBUzZXTDBCbW1ubGQzdVE_dmVyc2lvbj0x/output/Resource/objects_avs.json.gz" , "ids" : "urn:adsk.viewing:fs.file:dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLlIyQ2ZRdDNBUzZXTDBCbW1ubGQzdVE_dmVyc2lvbj0x/output/Resource/objects_ids.json.gz" } ], "views" : [ { "id" : "f109b687" , "urn" : "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=1" , "is3d" : true , "viewableName" : "{3D}" , "viewableId" : "24bb580c-5e74-4a65-bcae-e97c21424529-00027e16" , "viewableGuid" : "a3186f12-7750-fa47-f60a-610a779ba5ac" }, { "id" : "8e525582" , "urn" : "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=1" , "is3d" : true , "viewableName" : "New Construction" , "viewableId" : "c884ae1b-61e7-4f9d-0001-719e20b22d0b-00121ed3" , "viewableGuid" : "38c10754-d1f9-5bf6-2546-4bac2d3dab5b" } ] } ], "seedFiles" : [ { "lineageId" : "2b856593" , "lineageUrn" : "urn:adsk.wipprod:dm.lineage:R2CfQt3AS6WL0Bmmnld3uQ" , "versionUrn" : "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=2" , "databases" : [ { "id" : "3d0bd846" , "offsets" : "urn:adsk.viewing:fs.file:dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLlIyQ2ZRdDNBUzZXTDBCbW1ubGQzdVE_dmVyc2lvbj0y/output/Resource/objects_offs.json.gz" , "attributes" : "urn:adsk.viewing:fs.file:dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLlIyQ2ZRdDNBUzZXTDBCbW1ubGQzdVE_dmVyc2lvbj0y/output/Resource/objects_attrs.json.gz" , "values" : "urn:adsk.viewing:fs.file:dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLlIyQ2ZRdDNBUzZXTDBCbW1ubGQzdVE_dmVyc2lvbj0y/output/Resource/objects_vals.json.gz" , "mapping" : "urn:adsk.viewing:fs.file:dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLlIyQ2ZRdDNBUzZXTDBCbW1ubGQzdVE_dmVyc2lvbj0y/output/Resource/objects_avs.json.gz" , "ids" : "urn:adsk.viewing:fs.file:dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLlIyQ2ZRdDNBUzZXTDBCbW1ubGQzdVE_dmVyc2lvbj0y/output/Resource/objects_ids.json.gz" } ], "views" : [ { "id" : "f109b687" , "urn" : "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=2" , "is3d" : true , "viewableName" : "{3D}" , "viewableId" : "24bb580c-5e74-4a65-bcae-e97c21424529-00027e16" , "viewableGuid" : "a3186f12-7750-fa47-f60a-610a779ba5ac" }, { "id" : "f24d458" , "urn" : "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=2" , "is3d" : true , "viewableName" : "New Construction" , "viewableId" : "c884ae1b-61e7-4f9d-0001-719e20b22d0b-001225ae" , "viewableGuid" : "b6e42cf6-432d-5c76-aa05-8909a2cc35c0" } ] } ], "errors" : [], "stats" : { "addedObjects" : 64 , "removedObjects" : 57 , "changedObjects" : 284 , "contentLength" : 93478 } }
+{
+    "schema": "2.0.0",
+    "projectId": "f83cef12-deef-4771-9feb-4f85643e3c46",
+    "status": "Succeeded",
+    "createdAt": "2021-08-04T08:22:37.9253493+00:00",
+    "prev": [
+        {
+            "lineageId": "b28c3429",
+            "lineageUrn": "urn:adsk.wipprod:dm.lineage:R2CfQt3AS6WL0Bmmnld3uQ",
+            "versionUrn": "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=1",
+            "databases": [
+                {
+                    "id": "936acb06",
+                    "offsets": "urn:adsk.viewing:fs.file:dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLlIyQ2ZRdDNBUzZXTDBCbW1ubGQzdVE_dmVyc2lvbj0x/output/Resource/objects_offs.json.gz",
+                    "attributes": "urn:adsk.viewing:fs.file:dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLlIyQ2ZRdDNBUzZXTDBCbW1ubGQzdVE_dmVyc2lvbj0x/output/Resource/objects_attrs.json.gz",
+                    "values": "urn:adsk.viewing:fs.file:dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLlIyQ2ZRdDNBUzZXTDBCbW1ubGQzdVE_dmVyc2lvbj0x/output/Resource/objects_vals.json.gz",
+                    "mapping": "urn:adsk.viewing:fs.file:dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLlIyQ2ZRdDNBUzZXTDBCbW1ubGQzdVE_dmVyc2lvbj0x/output/Resource/objects_avs.json.gz",
+                    "ids": "urn:adsk.viewing:fs.file:dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLlIyQ2ZRdDNBUzZXTDBCbW1ubGQzdVE_dmVyc2lvbj0x/output/Resource/objects_ids.json.gz"
+                }
+            ],
+            "views": [
+                {
+                    "id": "f109b687",
+                    "urn": "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=1",
+                    "is3d": true,
+                    "viewableName": "{3D}",
+                    "viewableId": "24bb580c-5e74-4a65-bcae-e97c21424529-00027e16",
+                    "viewableGuid": "a3186f12-7750-fa47-f60a-610a779ba5ac"
+                },
+                {
+                    "id": "8e525582",
+                    "urn": "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=1",
+                    "is3d": true,
+                    "viewableName": "New Construction",
+                    "viewableId": "c884ae1b-61e7-4f9d-0001-719e20b22d0b-00121ed3",
+                    "viewableGuid": "38c10754-d1f9-5bf6-2546-4bac2d3dab5b"
+                }
+            ]
+        }
+    ],
+    "seedFiles": [
+        {
+            "lineageId": "2b856593",
+            "lineageUrn": "urn:adsk.wipprod:dm.lineage:R2CfQt3AS6WL0Bmmnld3uQ",
+            "versionUrn": "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=2",
+            "databases": [
+                {
+                    "id": "3d0bd846",
+                    "offsets": "urn:adsk.viewing:fs.file:dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLlIyQ2ZRdDNBUzZXTDBCbW1ubGQzdVE_dmVyc2lvbj0y/output/Resource/objects_offs.json.gz",
+                    "attributes": "urn:adsk.viewing:fs.file:dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLlIyQ2ZRdDNBUzZXTDBCbW1ubGQzdVE_dmVyc2lvbj0y/output/Resource/objects_attrs.json.gz",
+                    "values": "urn:adsk.viewing:fs.file:dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLlIyQ2ZRdDNBUzZXTDBCbW1ubGQzdVE_dmVyc2lvbj0y/output/Resource/objects_vals.json.gz",
+                    "mapping": "urn:adsk.viewing:fs.file:dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLlIyQ2ZRdDNBUzZXTDBCbW1ubGQzdVE_dmVyc2lvbj0y/output/Resource/objects_avs.json.gz",
+                    "ids": "urn:adsk.viewing:fs.file:dXJuOmFkc2sud2lwcHJvZDpmcy5maWxlOnZmLlIyQ2ZRdDNBUzZXTDBCbW1ubGQzdVE_dmVyc2lvbj0y/output/Resource/objects_ids.json.gz"
+                }
+            ],
+            "views": [
+                {
+                    "id": "f109b687",
+                    "urn": "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=2",
+                    "is3d": true,
+                    "viewableName": "{3D}",
+                    "viewableId": "24bb580c-5e74-4a65-bcae-e97c21424529-00027e16",
+                    "viewableGuid": "a3186f12-7750-fa47-f60a-610a779ba5ac"
+                },
+                {
+                    "id": "f24d458",
+                    "urn": "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=2",
+                    "is3d": true,
+                    "viewableName": "New Construction",
+                    "viewableId": "c884ae1b-61e7-4f9d-0001-719e20b22d0b-001225ae",
+                    "viewableGuid": "b6e42cf6-432d-5c76-aa05-8909a2cc35c0"
+                }
+            ]
+        }
+    ],
+    "errors": [],
+    "stats": {
+        "addedObjects": 64,
+        "removedObjects": 57,
+        "changedObjects": 284,
+        "contentLength": 93478
+    }
+}
+
 ```
 
-The structure of the manifest resource returned by this endpoint is described in the field guide page.
+Show More
 
-## Step 4: (Optional) Download the fields
+The structure of the manifest resource returned by this endpoint is described in the [field guide](/en/docs/acc/v1/overview/field-guide/model-properties) page.
 
-In order to query a diff index, first download the fields resource , which describes the columns available in the index. The index fields are obtained by a call to the fieldsUrl returned either by a call to the status endpoint (Step 1) or by polling the state of a running indexing job (Step 2). Skip this step if you already know the field keys you require for your query.
+## [Step 4: (Optional) Download the fields](#step-4-optional-download-the-fields)
+
+In order to query a diff index, first [download the fields resource](/en/docs/acc/v1/reference/http/index-v2-diff-fields-get/), which describes the columns available in the index. The index fields are obtained by a call to the `fieldsUrl` returned either by a call to the status endpoint (Step 1) or by polling the state of a running indexing job (Step 2). Skip this step if you already know the field keys you require for your query.
 
 ### Example Request
 
 ```
-curl --request GET 'https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/fields' \ --header 'Authorization: Bearer ****'
+curl --request GET 'https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/fields' \
+     --header 'Authorization: Bearer ****'
+
 ```
 
 ### Example Response
@@ -146,18 +264,23 @@ curl --request GET 'https://developer.api.autodesk.com/construction/index/v2/pro
 {"key":"p93e93af5","category":"__parent__","type":"DbKey","name":"parent","uom":null}
 {"key":"pdf1348b1","category":"Constraints","type":"Double","name":"Elevation","uom":"ft"}
 TRUNCATED
+
 ```
 
-The structure of the fields resource returned by this endpoint is described in the field guide page.
+Show More
 
-## Step 5: (Optional) Download the raw index
+The structure of the fields resource returned by this endpoint is described in the [field guide](/en/docs/acc/v1/tutorials/model-properties/overview/) page.
 
-While the indexing service is designed to run SQL-like queries targeting the fields contained within the indexes it hosts, it is possible to download raw indexes created by the service in their entirety. The raw index properties are obtained by a call to the propertiesUrl returned either by a call to the status endpoint (Step 1) or by polling the state of a running indexing job (Step 2).
+## [Step 5: (Optional) Download the raw index](#step-5-optional-download-the-raw-index)
+
+While the indexing service is designed to run SQL-like queries targeting the fields contained within the indexes it hosts, it is possible to download raw indexes created by the service in their entirety. The raw index properties are obtained by a call to the `propertiesUrl` returned either by a call to the status endpoint (Step 1) or by polling the state of a running indexing job (Step 2).
 
 ### Example Request
 
 ```
-curl --request GET 'https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/properties' \ --header 'Authorization: Bearer ****'
+curl --request GET 'https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/properties' \
+     --header 'Authorization: Bearer ****'
+
 ```
 
 ### Example Response
@@ -175,62 +298,240 @@ curl --request GET 'https://developer.api.autodesk.com/construction/index/v2/pro
 {"type":"OBJECT_CHANGED","svf2Id":160,"externalId":"552d2a83-4642-4d5c-8e7f-5de799129097-000d047a","lmvId":2699,"lineageId":"2b856593","databaseId":"3d0bd846","props":{"p002932a2":0.0,"p01bbdcf2":"Arch-FIRST FLOOR","p0337db30":true,"p09faf620":"45 Degree","p13b6b3a0":"45 Degree","p153cb174":"Round Transition - Angle [853114]","p163279c5":0.9999999999999983,"p1b2aabe1":10.018420219779415,"p20d8441e":"Duct Fittings","p240c30c1":"Coefficient from ASHRAE Table","p2508403c":"12\"Ã¸-10\"Ã¸","p2bb5b46f":0.999999999999999,"p2c0bde18":"Supply Air","p30db51f9":"Round Transition - Angle","p3c57b64e":"New Construction","p3caeb85d":119.99999999999999,"p440a5662":0.9999999999999991,"p4709f0b8":"12\"Ã¸-10\"Ã¸","p512a7a70":0.0,"p56cded73":5.999999999999999,"p5eddc473":"Revit Duct Fittings","p62b7a906":5.999999999999999,"p6de3a8d7":5.999999999999999,"p6e985a38":0.0,"p73d90dae":0.0,"p75e24cff":0.9999999999999991,"p7f055981":5.0,"p86cd967d":0.0,"p875a6521":"12\"Ã¸-10\"Ã¸","p8d70f1c5":"339","p8f7dfe92":0.0,"p92dc256f":0.041666666666666664,"p9d8824be":0.041666666666666664,"pa7275c45":-2008010,"pab5862eb":"Supply Air","pb0457271":2.414213562373096,"pb257d26e":0.999999999999999,"pc9829743":"Air Ductwork","pd395474b":1.9999999999999982,"pdbb511ef":"SA","pdbc25565":"23.75.70.14","pe36ff9a6":"Mechanical Supply Air 2","pe49040a7":119.99999999999999,"pe5bcb794":45.0,"pe61a57c3":0.0,"pe62902c4":0.999999999999999,"peda7f9c8":2.4142135623730954,"pee815a7f":"None"},"propsHash":"66a75c85","propsIgnored":{"p6a81eafd":2545,"p93e93af5":2546},"geomHash":"6w/Zb+NZyMwH6LwMwGKZyw","bbox":{"min":[-66.71750224550539,-41.69105671207991,109.52350953221315],"max":[-65.70109472961622,-41.21871389142671,110.51333093643183]},"views":["f109b687","f24d458"],"prev":{"lmvId":2699,"lineageId":"b28c3429","databaseId":"936acb06","props":{"p1b2aabe1":10.5},"propsHash":"ad9828df","propsIgnored":{"p6a81eafd":2545,"p93e93af5":2546},"geomHash":"4s1yfJZdOhnBu2DdFL4HEw","bbox":{"min":[-66.71750224550539,-41.69105671207991,110.00508928298945],"max":[-65.70109472961622,-41.21871389142671,110.99491074681276]},"views":["f109b687","8e525582"]}}
 {"type":"OBJECT_REMOVED","svf2Id":161,"externalId":"552d2a83-4642-4d5c-8e7f-5de799129097-000d04d3","lmvId":null,"lineageId":"b28c3429","databaseId":null,"props":null,"propsHash":null,"prev":{"lmvId":2703,"lineageId":"b28c3429","databaseId":"936acb06","props":{"p002932a2":0.0,"p01bbdcf2":"Arch-FIRST FLOOR","p0337db30":true,"p07bfebb5":4.0,"p09faf620":"1 D","p13b6b3a0":"1 D","p153cb174":"Round Elbow [853203]","p1b2aabe1":10.5,"p20d8441e":"Duct Fittings","p240c30c1":"Coefficient from ASHRAE Table","p2508403c":"4\"Ã¸-4\"Ã¸","p271e8080":90.00000000000011,"p2c0bde18":"Supply Air","p30db51f9":"Round Elbow","p3c57b64e":"New Construction","p40adfd90":4.000000000000002,"p4709f0b8":"4\"Ã¸-4\"Ã¸","p512a7a70":0.0,"p52f36fef":2.0,"p5eddc473":"Revit Duct Fittings","p86cd967d":0.0,"p875a6521":"4\"Ã¸-4\"Ã¸","p8d70f1c5":"379","p8f7dfe92":0.0,"pa7275c45":-2008010,"pab5862eb":"Supply Air","pc9829743":"Air Ductwork","pccae2592":1.0,"pdbb511ef":"SA","pdbc25565":"23.75.70.14","pe36ff9a6":"Mechanical Supply Air 2","pe61a57c3":0.0,"pee815a7f":"None"},"propsHash":"ec1bfe85","propsIgnored":{"p6a81eafd":2588,"p93e93af5":2589},"geomHash":"RAQtOxk1ksJpU9e3PmSTag","bbox":{"min":[-79.6793903268984,-82.33074688402132,110.33333332836627],"max":[-79.06160829005783,-81.68920087938646,110.66666668653482]},"views":["f109b687","8e525582"]}}
 TRUNCATED
+
 ```
+
+Show More
 
 Diff index rows are returned as compressed (gzip) line delimited JSON. The following is an example viewable diff index row, formatted as a single JSON document to make reading the property description table below easier.
 
 ```
-{ "type" : "OBJECT_CHANGED" , "svf2Id" : 160 , "externalId" : "552d2a83-4642-4d5c-8e7f-5de799129097-000d047a" , "lmvId" : 2699 , "lineageId" : "2b856593" , "databaseId" : "3d0bd846" , "props" : { "p002932a2" : 0.0 , "p01bbdcf2" : "Arch-FIRST FLOOR" , "p0337db30" : true , "p09faf620" : "45 Degree" , "p13b6b3a0" : "45 Degree" , "p153cb174" : "Round Transition - Angle [853114]" , "p163279c5" : 0.9999999999999983 , "p1b2aabe1" : 10.018420219779415 , "p20d8441e" : "Duct Fittings" , "p240c30c1" : "Coefficient from ASHRAE Table" , "p2508403c" : "12\"Ã¸-10\"Ã¸" , "p2bb5b46f" : 0.999999999999999 , "p2c0bde18" : "Supply Air" , "p30db51f9" : "Round Transition - Angle" , "p3c57b64e" : "New Construction" , "p3caeb85d" : 119.99999999999999 , "p440a5662" : 0.9999999999999991 , "p4709f0b8" : "12\"Ã¸-10\"Ã¸" , "p512a7a70" : 0.0 , "p56cded73" : 5.999999999999999 , "p5eddc473" : "Revit Duct Fittings" , "p62b7a906" : 5.999999999999999 , "p6de3a8d7" : 5.999999999999999 , "p6e985a38" : 0.0 , "p73d90dae" : 0.0 , "p75e24cff" : 0.9999999999999991 , "p7f055981" : 5.0 , "p86cd967d" : 0.0 , "p875a6521" : "12\"Ã¸-10\"Ã¸" , "p8d70f1c5" : "339" , "p8f7dfe92" : 0.0 , "p92dc256f" : 0.041666666666666664 , "p9d8824be" : 0.041666666666666664 , "pa7275c45" : -2008010 , "pab5862eb" : "Supply Air" , "pb0457271" : 2.414213562373096 , "pb257d26e" : 0.999999999999999 , "pc9829743" : "Air Ductwork" , "pd395474b" : 1.9999999999999982 , "pdbb511ef" : "SA" , "pdbc25565" : "23.75.70.14" , "pe36ff9a6" : "Mechanical Supply Air 2" , "pe49040a7" : 119.99999999999999 , "pe5bcb794" : 45.0 , "pe61a57c3" : 0.0 , "pe62902c4" : 0.999999999999999 , "peda7f9c8" : 2.4142135623730954 , "pee815a7f" : "None" }, "propsHash" : "66a75c85" , "propsIgnored" : { "p6a81eafd" : 2545 , "p93e93af5" : 2546 }, "geomHash" : "6w/Zb+NZyMwH6LwMwGKZyw" , "bboxMin" : { "x" : -1413565004170512e-13 , "y" : -5410244931321833e-14 , "z" : 10000000002097008e-14 }, "bboxMax" : { "x" : -16063352214982766e-14 , "y" : -53379471045994805e-15 , "z" : 13401965298365471e-14 }, "views" : [ "f109b687" , "f24d458" ], "prev" : { "lmvId" : 2699 , "lineageId" : "b28c3429" , "databaseId" : "936acb06" , "props" : { "p1b2aabe1" : 10.5 }, "propsHash" : "ad9828df" , "propsIgnored" : { "p6a81eafd" : 2545 , "p93e93af5" : 2546 }, "geomHash" : "4s1yfJZdOhnBu2DdFL4HEw" , "bboxMin" : { "x" : -1413565004170512e-13 , "y" : -5410244931321833e-14 , "z" : 10000000002097008e-14 }, "bboxMax" : { "x" : -14063352214982766e-14 , "y" : -53379471045994805e-15 , "z" : 11101965298365471e-14 }, "views" : [ "f109b687" , "8e525582" ] } }
+{
+    "type": "OBJECT_CHANGED",
+    "svf2Id": 160,
+    "externalId": "552d2a83-4642-4d5c-8e7f-5de799129097-000d047a",
+    "lmvId": 2699,
+    "lineageId": "2b856593",
+    "databaseId": "3d0bd846",
+    "props": {
+        "p002932a2": 0.0,
+        "p01bbdcf2": "Arch-FIRST FLOOR",
+        "p0337db30": true,
+        "p09faf620": "45 Degree",
+        "p13b6b3a0": "45 Degree",
+        "p153cb174": "Round Transition - Angle [853114]",
+        "p163279c5": 0.9999999999999983,
+        "p1b2aabe1": 10.018420219779415,
+        "p20d8441e": "Duct Fittings",
+        "p240c30c1": "Coefficient from ASHRAE Table",
+        "p2508403c": "12\"Ã¸-10\"Ã¸",
+        "p2bb5b46f": 0.999999999999999,
+        "p2c0bde18": "Supply Air",
+        "p30db51f9": "Round Transition - Angle",
+        "p3c57b64e": "New Construction",
+        "p3caeb85d": 119.99999999999999,
+        "p440a5662": 0.9999999999999991,
+        "p4709f0b8": "12\"Ã¸-10\"Ã¸",
+        "p512a7a70": 0.0,
+        "p56cded73": 5.999999999999999,
+        "p5eddc473": "Revit Duct Fittings",
+        "p62b7a906": 5.999999999999999,
+        "p6de3a8d7": 5.999999999999999,
+        "p6e985a38": 0.0,
+        "p73d90dae": 0.0,
+        "p75e24cff": 0.9999999999999991,
+        "p7f055981": 5.0,
+        "p86cd967d": 0.0,
+        "p875a6521": "12\"Ã¸-10\"Ã¸",
+        "p8d70f1c5": "339",
+        "p8f7dfe92": 0.0,
+        "p92dc256f": 0.041666666666666664,
+        "p9d8824be": 0.041666666666666664,
+        "pa7275c45": -2008010,
+        "pab5862eb": "Supply Air",
+        "pb0457271": 2.414213562373096,
+        "pb257d26e": 0.999999999999999,
+        "pc9829743": "Air Ductwork",
+        "pd395474b": 1.9999999999999982,
+        "pdbb511ef": "SA",
+        "pdbc25565": "23.75.70.14",
+        "pe36ff9a6": "Mechanical Supply Air 2",
+        "pe49040a7": 119.99999999999999,
+        "pe5bcb794": 45.0,
+        "pe61a57c3": 0.0,
+        "pe62902c4": 0.999999999999999,
+        "peda7f9c8": 2.4142135623730954,
+        "pee815a7f": "None"
+    },
+    "propsHash": "66a75c85",
+    "propsIgnored": {
+        "p6a81eafd": 2545,
+        "p93e93af5": 2546
+    },
+    "geomHash": "6w/Zb+NZyMwH6LwMwGKZyw",
+    "bboxMin": {
+        "x": -1413565004170512e-13,
+        "y": -5410244931321833e-14,
+        "z": 10000000002097008e-14
+    },
+    "bboxMax": {
+        "x": -16063352214982766e-14,
+        "y": -53379471045994805e-15,
+        "z": 13401965298365471e-14
+    },
+    "views": [
+        "f109b687",
+        "f24d458"
+    ],
+    "prev": {
+        "lmvId": 2699,
+        "lineageId": "b28c3429",
+        "databaseId": "936acb06",
+        "props": {
+            "p1b2aabe1": 10.5
+        },
+        "propsHash": "ad9828df",
+        "propsIgnored": {
+            "p6a81eafd": 2545,
+            "p93e93af5": 2546
+        },
+        "geomHash": "4s1yfJZdOhnBu2DdFL4HEw",
+        "bboxMin": {
+            "x": -1413565004170512e-13,
+            "y": -5410244931321833e-14,
+            "z": 10000000002097008e-14
+        },
+        "bboxMax": {
+            "x": -14063352214982766e-14,
+            "y": -53379471045994805e-15,
+            "z": 11101965298365471e-14
+        },
+        "views": [
+            "f109b687",
+            "8e525582"
+        ]
+    }
+}
+
 ```
 
-The structure of the properties resource returned by this endpoint is described in the field guide page.
+Show More
 
-## Step 6: Build and run a query
+The structure of the properties resource returned by this endpoint is described in the [field guide](/en/docs/acc/v1/tutorials/model-properties/overview/) page.
 
-Once an index has been successfully created it can be queried using the queries endpoint for the index via the diffId which can be obtained by a call to the status tracking endpoints (Steps 1 or 2 above). Index diff queries are described using a custom JSON schema which is converted to a filter expression and applied line by line to to the index. This documentation includes a comprehensive query language reference which describes how to form index and diff queries by example using this JSON schema.
+## [Step 6: Build and run a query](#step-6-build-and-run-a-query)
+
+Once an index has been successfully created it can be queried using the `queries` endpoint for the index via the `diffId` which can be obtained by a call to the status tracking endpoints (Steps 1 or 2 above). Index diff queries are described using a custom JSON schema which is converted to a filter expression and applied line by line to to the index. This documentation includes a [comprehensive query language reference](/en/docs/acc/v1/tutorials/model-properties/query-ref) which describes how to form index and diff queries by example using this JSON schema.
 
 ### Example Request
 
-The query schema targets the structure of the JSON index rows. In the example POST to the queries endpoint below, the $ne operator is used to return rows where value for index field p1b2aabe1 is different between the current version of the object ( s.props.p1b2aabe1 ) and the previous version of the object ( s.prev.props.p1b2aabe1 ).
+The query schema targets the structure of the JSON index rows. In the example `POST` to the `queries` endpoint below, the `$ne` operator is used to return rows where value for index field `p1b2aabe1` is different between the current version of the object (`s.props.p1b2aabe1`) and the previous version of the object (`s.prev.props.p1b2aabe1`).
 
 ```
-curl --request POST 'https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/queries' \ --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IlU3c0dGRldUTzlBekNhSzBqZURRM2dQZXBURVdWN2VhIn0.eyJzY29wZSI6WyJkYXRhOnJlYWQiLCJkYXRhOndyaXRlIl0sImNsaWVudF9pZCI6InVpb1VpRmplOXU4WWdiM3VkQWhPenJuU1RwNDdKWmRvIiwiYXVkIjoiaHR0cHM6Ly9hdXRvZGVzay5jb20vYXVkL2Fqd3RleHA2MCIsImp0aSI6IjVnRE5Ja1N1TGk0Ull3dzBtQ2FIeG1UQ1pHaGtTTlRQR0Noem1rRlJ4QlZWdWtnN0VhZzIxZnBqdzR6bmNCeE8iLCJ1c2VyaWQiOiI3RVJCTUJSOUVBNEEiLCJleHAiOjE2MzAwODU0ODV9.cLob9XKmce84_c0_QsIf0V8QXx-FNp_l3icOUcfxJhmICrMpAc3RUw4LRPoqSjjvQqrqYypGmXyi82ed5GSH_500AghnB-zBfVYzatMUfXAUVzdubIHfNVeKPQYc3n39WGKbRlkjRPB_--2HRflk9IbPPHP0IEefOidcgS62RQkMksFhJiNpqc8gDbqCPJt26b5uQ4jKJqjMYO2h6pzryG0v32qw0GrW4GVBsGzf4PrI95ezIgtagDKqy9od2IWX_K5ynRnodn9P2XOHQ5nRgDvewMBWrxQDcAzhHeCTfjL93cNQOqYKMKgvcYfvnKUWA_SYzOnWV333U-BQHW4rzg' \ --header 'Content-Type: application/json' \ --data-raw '{ "query": { "$ne": [ "s.props.p1b2aabe1", "s.prev.props.p1b2aabe1" ] } }'
+curl --request POST 'https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/queries' \
+     --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IlU3c0dGRldUTzlBekNhSzBqZURRM2dQZXBURVdWN2VhIn0.eyJzY29wZSI6WyJkYXRhOnJlYWQiLCJkYXRhOndyaXRlIl0sImNsaWVudF9pZCI6InVpb1VpRmplOXU4WWdiM3VkQWhPenJuU1RwNDdKWmRvIiwiYXVkIjoiaHR0cHM6Ly9hdXRvZGVzay5jb20vYXVkL2Fqd3RleHA2MCIsImp0aSI6IjVnRE5Ja1N1TGk0Ull3dzBtQ2FIeG1UQ1pHaGtTTlRQR0Noem1rRlJ4QlZWdWtnN0VhZzIxZnBqdzR6bmNCeE8iLCJ1c2VyaWQiOiI3RVJCTUJSOUVBNEEiLCJleHAiOjE2MzAwODU0ODV9.cLob9XKmce84_c0_QsIf0V8QXx-FNp_l3icOUcfxJhmICrMpAc3RUw4LRPoqSjjvQqrqYypGmXyi82ed5GSH_500AghnB-zBfVYzatMUfXAUVzdubIHfNVeKPQYc3n39WGKbRlkjRPB_--2HRflk9IbPPHP0IEefOidcgS62RQkMksFhJiNpqc8gDbqCPJt26b5uQ4jKJqjMYO2h6pzryG0v32qw0GrW4GVBsGzf4PrI95ezIgtagDKqy9od2IWX_K5ynRnodn9P2XOHQ5nRgDvewMBWrxQDcAzhHeCTfjL93cNQOqYKMKgvcYfvnKUWA_SYzOnWV333U-BQHW4rzg' \
+     --header 'Content-Type: application/json' \
+     --data-raw '{
+         "query": {
+             "$ne": [
+                 "s.props.p1b2aabe1",
+                 "s.prev.props.p1b2aabe1"
+             ]
+         }
+     }'
+
+```
+
+Show More
+
+### Example Response
+
+The response from the `queries` endpoint is very similar to the response from the index status polling endpoints. The only additional property returned by this endpoint is a `queryId` value. This `queryId` is a unique identifier for the query execution and can be used to poll the progress of the query job. As with index operations a query is successful when its `state` is set to `FINISHED`. Index queries also have the standard `manifestUrl`, `fieldsUrl` and `propertiesUrl` values that point to the index resources used when performing the query. In addition the `queries` endpoint also returns a `queryResultsUrl` property that points to a gzipâd, line-delimited JSON resource that contains the filtered index rows matching the query filter expression when the query reaches the `FINISHED` state.
+
+```
+{
+    "projectId": "f83cef12-deef-4771-9feb-4f85643e3c46",
+    "diffId": "_ukKZbcA8TN9CLMgLchgnA",
+    "queryId": "gcUcnanaZbk3rPWnZ_cjmQ",
+    "type": "DIFF",
+    "state": "PROCESSING",
+    "selfUrl": "https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/queries/gcUcnanaZbk3rPWnZ_cjmQ",
+    "prevVersionUrns": [
+        "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=1"
+    ],
+    "curVersionUrns": [
+        "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=2"
+    ],
+    "updatedAt": "2021-08-23T08:45:23.1892666+00:00",
+    "retryAt": "2021-08-27T16:59:08.4837659+00:00",
+    "stats": null,
+    "manifestUrl": null,
+    "fieldsUrl": null,
+    "propertiesUrl": null,
+    "queryResultsUrl": null
+}
+
+```
+
+Show More
+
+## [Step 7: Poll for query progress](#step-7-poll-for-query-progress)
+
+The diff index `queries` endpoint follows the same pattern as the status endpoint. The `queryId` obtained in the `POST` to the `queries` endpoint can be used to poll the progress of the query.
+
+### Example Request
+
+```
+curl --request GET 'https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/queries/gcUcnanaZbk3rPWnZ_cjmQ' \
+     --header 'Authorization: Bearer ****'
+
 ```
 
 ### Example Response
 
-The response from the queries endpoint is very similar to the response from the index status polling endpoints. The only additional property returned by this endpoint is a queryId value. This queryId is a unique identifier for the query execution and can be used to poll the progress of the query job. As with index operations a query is successful when its state is set to FINISHED . Index queries also have the standard manifestUrl , fieldsUrl and propertiesUrl values that point to the index resources used when performing the query. In addition the queries endpoint also returns a queryResultsUrl property that points to a gzipâd, line-delimited JSON resource that contains the filtered index rows matching the query filter expression when the query reaches the FINISHED state.
+The response to this status `GET` is identical to the response returned by the `POST` to the `queries` endpoint. In the example below the query `state` is set to `FINISHED` and the `queryResultsUrl` is not null, indicating that the query has been completed successfully and the results are available for download.
 
 ```
-{ "projectId" : "f83cef12-deef-4771-9feb-4f85643e3c46" , "diffId" : "_ukKZbcA8TN9CLMgLchgnA" , "queryId" : "gcUcnanaZbk3rPWnZ_cjmQ" , "type" : "DIFF" , "state" : "PROCESSING" , "selfUrl" : "https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/queries/gcUcnanaZbk3rPWnZ_cjmQ" , "prevVersionUrns" : [ "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=1" ], "curVersionUrns" : [ "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=2" ], "updatedAt" : "2021-08-23T08:45:23.1892666+00:00" , "retryAt" : "2021-08-27T16:59:08.4837659+00:00" , "stats" : null , "manifestUrl" : null , "fieldsUrl" : null , "propertiesUrl" : null , "queryResultsUrl" : null }
+{
+    "projectId": "f83cef12-deef-4771-9feb-4f85643e3c46",
+    "diffId": "_ukKZbcA8TN9CLMgLchgnA",
+    "queryId": "gcUcnanaZbk3rPWnZ_cjmQ",
+    "type": "DIFF",
+    "state": "FINISHED",
+    "selfUrl": "https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/queries/gcUcnanaZbk3rPWnZ_cjmQ",
+    "prevVersionUrns": [
+        "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=1"
+    ],
+    "curVersionUrns": [
+        "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=2"
+    ],
+    "updatedAt": "2021-08-23T08:45:23.1892666+00:00",
+    "retryAt": "2021-08-27T17:00:10.6226904+00:00",
+    "stats": {
+        "added": 0,
+        "removed": 0,
+        "modified": 119
+    },
+    "manifestUrl": "https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/manifest",
+    "fieldsUrl": "https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/fields",
+    "propertiesUrl": "https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/properties",
+    "queryResultsUrl": "https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/queries/gcUcnanaZbk3rPWnZ_cjmQ/properties"
+}
+
 ```
 
-## Step 7: Poll for query progress
+Show More
 
-The diff index queries endpoint follows the same pattern as the status endpoint. The queryId obtained in the POST to the queries endpoint can be used to poll the progress of the query.
+## [Step 8: Download query results](#step-8-download-query-results)
+
+The final step in the process is to use the `queryResultsUrl` to download the index rows that match the submitted query expression. These line delimited JSON result rows are a subset of the property diff index rows and have exactly the same format.
 
 ### Example Request
 
 ```
-curl --request GET 'https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/queries/gcUcnanaZbk3rPWnZ_cjmQ' \ --header 'Authorization: Bearer ****'
-```
+curl --request GET 'https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/queries/gcUcnanaZbk3rPWnZ_cjmQ/properties' \
+     --header 'Authorization: Bearer ****'
 
-### Example Response
-
-The response to this status GET is identical to the response returned by the POST to the queries endpoint. In the example below the query state is set to FINISHED and the queryResultsUrl is not null, indicating that the query has been completed successfully and the results are available for download.
-
-```
-{ "projectId" : "f83cef12-deef-4771-9feb-4f85643e3c46" , "diffId" : "_ukKZbcA8TN9CLMgLchgnA" , "queryId" : "gcUcnanaZbk3rPWnZ_cjmQ" , "type" : "DIFF" , "state" : "FINISHED" , "selfUrl" : "https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/queries/gcUcnanaZbk3rPWnZ_cjmQ" , "prevVersionUrns" : [ "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=1" ], "curVersionUrns" : [ "urn:adsk.wipprod:fs.file:vf.R2CfQt3AS6WL0Bmmnld3uQ?version=2" ], "updatedAt" : "2021-08-23T08:45:23.1892666+00:00" , "retryAt" : "2021-08-27T17:00:10.6226904+00:00" , "stats" : { "added" : 0 , "removed" : 0 , "modified" : 119 }, "manifestUrl" : "https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/manifest" , "fieldsUrl" : "https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/fields" , "propertiesUrl" : "https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/properties" , "queryResultsUrl" : "https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/queries/gcUcnanaZbk3rPWnZ_cjmQ/properties" }
-```
-
-## Step 8: Download query results
-
-The final step in the process is to use the queryResultsUrl to download the index rows that match the submitted query expression. These line delimited JSON result rows are a subset of the property diff index rows and have exactly the same format.
-
-### Example Request
-
-```
-curl --request GET 'https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs/_ukKZbcA8TN9CLMgLchgnA/queries/gcUcnanaZbk3rPWnZ_cjmQ/properties' \ --header 'Authorization: Bearer ****'
 ```
 
 ### Example Response
@@ -247,4 +548,7 @@ curl --request GET 'https://developer.api.autodesk.com/construction/index/v2/pro
 {"type":"OBJECT_CHANGED","svf2Id":288,"externalId":"e5bc3c7c-26c8-4ae9-9c18-c49a4febee33-000de91f","lmvId":3011,"lineageId":"2b856593","databaseId":"3d0bd846","props":{"p002932a2":0e0,"p01bbdcf2":"Arch-FIRST FLOOR","p0337db30":true,"p09faf620":"45 Degree","p13b6b3a0":"45 Degree","p153cb174":"Round Transition - Angle [911647]","p163279c5":9999999999999983e-16,"p1b2aabe1":10018420219779372e-15,"p20d8441e":"Duct Fittings","p240c30c1":"Coefficient from ASHRAE Table","p2508403c":"10\"Ã¸-4\"Ã¸","p2bb5b46f":3000000000000511e-15,"p2c0bde18":"Supply Air","p30db51f9":"Round Transition - Angle","p3c57b64e":"New Construction","p3caeb85d":1200000000000005e-13,"p440a5662":30000000000005116e-16,"p4709f0b8":"10\"Ã¸-4\"Ã¸","p512a7a70":0e0,"p56cded73":2e0,"p5eddc473":"Revit Duct Fittings","p62b7a906":20000000000005107e-16,"p6de3a8d7":20000000000008527e-16,"p6e985a38":8526512829121201e-28,"p73d90dae":5109246359324969e-28,"p75e24cff":29999999999994897e-16,"p7f055981":5e0,"p86cd967d":0e0,"p875a6521":"10\"Ã¸-4\"Ã¸","p8d70f1c5":"1298","p8f7dfe92":0e0,"p92dc256f":13888888888894812e-18,"p9d8824be":13888888888892439e-18,"pa7275c45":-2008010,"pab5862eb":"Supply Air","pb0457271":7242640687119296e-15,"pb257d26e":29999999999994893e-16,"pc9829743":"Air Ductwork","pd395474b":6000000000000002e-15,"pdbb511ef":"SA","pdbc25565":"23.75.70.14","pe36ff9a6":"Mechanical Supply Air 2","pe49040a7":11999999999999913e-14,"pe5bcb794":45e0,"pe61a57c3":0e0,"pe62902c4":30000000000000004e-16,"peda7f9c8":72426406871192945e-16,"pee815a7f":"None"},"propsHash":"7f73e03e","propsIgnored":{"p6a81eafd":2545,"p93e93af5":2546},"geomHash":"YGHjl1DyonOf7Uqe82JGcw","bbox":{"min":[-7328578474166261e-14,-6333368466362229e-14,10960175356268877e-14],"max":[-7230989914555587e-14,-6249329220149876e-14,11043508687615389e-14]},"views":["f109b687","f24d458"],"prev":{"lmvId":3013,"lineageId":"b28c3429","databaseId":"936acb06","props":{"p1b2aabe1":10.5e0},"propsHash":"9421cf54","propsIgnored":{"p6a81eafd":2545,"p93e93af5":2546},"geomHash":"W0Y57b6H7u68nM093/3yWg","bbox":{"min":[-7328578474166261e-14,-6333368466362229e-14,11008333334326738e-14],"max":[-7230989914555587e-14,-6249329220149876e-14,1109166666567325e-13]},"views":["f109b687","8e525582"]}}
 {"type":"OBJECT_CHANGED","svf2Id":289,"externalId":"e5bc3c7c-26c8-4ae9-9c18-c49a4febee33-000de921","lmvId":3012,"lineageId":"2b856593","databaseId":"3d0bd846","props":{"p002932a2":0e0,"p01bbdcf2":"Arch-FIRST FLOOR","p0337db30":true,"p07bfebb5":10e0,"p09faf620":"1 D","p13b6b3a0":"1 D","p153cb174":"Round Elbow [911649]","p1b2aabe1":10018420219779443e-15,"p20d8441e":"Duct Fittings","p240c30c1":"Coefficient from ASHRAE Table","p2508403c":"10\"Ã¸-10\"Ã¸","p271e8080":3000000000000946e-15,"p2c0bde18":"Supply Air","p30db51f9":"Round Elbow","p3c57b64e":"New Construction","p40adfd90":26185921569195164e-17,"p4709f0b8":"10\"Ã¸-10\"Ã¸","p512a7a70":0e0,"p52f36fef":5e0,"p5eddc473":"Revit Duct Fittings","p86cd967d":0e0,"p875a6521":"10\"Ã¸-10\"Ã¸","p8d70f1c5":"1299","p8f7dfe92":0e0,"pa7275c45":-2008010,"pab5862eb":"Supply Air","pc9829743":"Air Ductwork","pccae2592":1e0,"pdbb511ef":"SA","pdbc25565":"23.75.70.14","pe36ff9a6":"Mechanical Supply Air 2","pe61a57c3":0e0,"pee815a7f":"None"},"propsHash":"7572efbf","propsIgnored":{"p6a81eafd":2588,"p93e93af5":2589},"geomHash":"5giOYtBN814LzXtbWhlAhg","bbox":{"min":[-7101401930197531e-14,-5672036069775254e-14,10960175356268877e-14],"max":[-7019500399069229e-14,-5642475171362191e-14,11043508687615389e-14]},"views":["f109b687","f24d458"],"prev":{"lmvId":3014,"lineageId":"b28c3429","databaseId":"936acb06","props":{"p1b2aabe1":10500000000000057e-15},"propsHash":"f8bcbe0e","propsIgnored":{"p6a81eafd":2588,"p93e93af5":2589},"geomHash":"IBpMBHllFHB6bsrt2uLKOg","bbox":{"min":[-7101401930197531e-14,-5672036069775254e-14,11008333334326738e-14],"max":[-7019500399069229e-14,-5642475171362191e-14,1109166666567325e-13]},"views":["f109b687","8e525582"]}}
 TRUNCATED
+
 ```
+
+Show More

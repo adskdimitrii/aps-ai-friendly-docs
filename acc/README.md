@@ -20,6 +20,12 @@ This folder contains:
 
 From the repository root:
 
+Install dependencies:
+
+```bash
+pip install requests beautifulsoup4 html-to-markdown
+```
+
 ### Refresh ACC how-to docs
 
 ```bash
