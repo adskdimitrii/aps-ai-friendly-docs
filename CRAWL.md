@@ -1,3 +1,7 @@
+# Crawl
+
+How to re-crawl the docs.
+
 ## Run in Dev Container
 
 This repo includes a VS Code dev container configuration in `.devcontainer/devcontainer.json`.
@@ -6,9 +10,9 @@ This repo includes a VS Code dev container configuration in `.devcontainer/devco
 2. Run **Dev Containers: Reopen in Container**.
 3. Wait for container setup to finish. On first create, dependencies are installed automatically via:
 
-	 ```bash
-	 pip3 install --user -r requirements.txt
-	 ```
+	```bash
+	pip3 install --user -r requirements.txt
+	```
 
 No virtual environment is required inside this dev container.
 
@@ -50,15 +54,15 @@ done
 Prerequisites:
 
 - Run from the repo root.
-- Install and authenticate the `claude` CLI, and ensure `claude` is available in your `PATH`.
-- Make the script executable if needed:
+- Install and authenticate the `claude` CLI, and ensure it is available in your `PATH`.
+- Make the script executable, if needed.
 
 Then run:
 
 ```bash
 # run a specific folder
-  ./generate_readme_summary.sh oauth
+./generate_readme_summary.sh oauth
 
 # run all
-  ./generate_readme_summary.sh --all
+./generate_readme_summary.sh --all
 ```

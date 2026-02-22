@@ -1,10 +1,10 @@
 # APS AI Friendly Docs
 
-Local Markdown mirror of Autodesk APS documentation with scripts to re-crawl. It is an alternative to `https://aps.autodesk.com/llms-full.txt` that enables more targeted prompts, reduces token usage, and speeds up agent discovery to improve AI agent performance on complex tasks.
+Local Markdown mirror of Autodesk APS documentation with scripts to re-crawl. This is an alternative to [https://aps.autodesk.com/llms.txt](https://aps.autodesk.com/llms.txt) that enables more targeted prompts, reduces token usage, tool usage and speeds up agent discovery to improve performance on complex tasks.
 
-## Usage
+## Where to Find Things
 
-Use the domain-specific READMEs for details:
+Use the domain-specific READMEs for more details:
 - [ACC docs](acc/README.md)
 - [Data docs](data/README.md)
 - [OAuth docs](oauth/README.md)
@@ -12,21 +12,6 @@ Use the domain-specific READMEs for details:
 - [Design Automation docs](design-automation/README.md)
 - [Webhooks docs](webhooks/README.md)
 
+## Humans
 
-## How to Use This Repo
-
-This repo has mainly been tested with Claude Code, but it should also work with other agents, such as Microsoft VS Code Copilot, Cursor, etc...
-
-### Helps Create Solutions
-
-```txt
-Clone the APS docs https://github.com/adskdimitrii/aps-ai-friendly-docs and help me design an app.
-
-Create a solution design Markdown document for the following app. Include a detailed implementation plan that will be used by an agent to create this app. Phase the implementation.
-
-ACC User Clean Up Tool
-
-This is a python script that will run on a weekly schedule that deactivates ACC users if they have not signed in for 3 months.
-
-This script will run in Azure as a Function. Create a deploy, update and destroy shell script using Azure CLI.
-```
+See [HUMANS.md](HUMANS.md)
