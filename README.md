@@ -5,10 +5,10 @@ Local Markdown mirror of Autodesk Platform Services (APS) documentation with scr
 ## Where to Find Things
 
 Use the domain-specific READMEs for more details:
+- [OAuth Docs](oauth/README.md) - ALL APIs Require OAuth
 - [ACC Docs](acc/README.md) - Autodesk Constructions Cloud APIs
 - [Data Docs](data/README.md) - OSS, Core Data Managment
 - [Model Derivative Docs](model-derivative/README.md) - Extract Data from Files, Convert, Export
-- [OAuth Docs](oauth/README.md)
 - [Viewer v7 Docs](viewer/README.md) - Web Viewer
 - [Design Automation Docs](design-automation/README.md) - Also Known as `Automation APIs`
 - [Webhooks Docs](webhooks/README.md)
