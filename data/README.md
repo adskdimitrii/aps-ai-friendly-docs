@@ -5,57 +5,112 @@ This document does not link to all references. If you can't find what you're loo
 <!-- GENERATED:CONTENT_SUMMARY:START -->
 ## Content Summary
 
-This folder contains documentation for the **APS Data Management** and **Object Storage Service (OSS)** APIs, covering file storage, project/hub navigation, and model publishing. It includes 69 HTTP endpoint references and 6 how-to guides.
+### How-To Guides — Data & File Operations
 
-### Buckets & Object Storage (OSS) (~23 endpoints, 4 guides)
+Practical tutorials for common data workflows using the APS Data Management and OSS APIs. Covers the full file lifecycle: creating app-managed buckets, uploading, downloading, attaching files, and publishing models to BIM 360/ACC.
 
-Core object storage operations: create and manage buckets, upload/download objects, generate S3-signed URLs, and perform batch operations.
+- [App-Managed Bucket](how-to-docs/app-managed-bucket.md)
+- [Upload File](how-to-docs/upload-file.md)
+- [Download File](how-to-docs/download-file.md)
+- [Create Attachment](how-to-docs/create-attachment.md)
+- [Delete and Restore File](how-to-docs/delete-and-restore-file.md)
+- [Publish Model](how-to-docs/publish-model.md)
 
-- **Bucket management:** [Create Bucket](http-docs/http-buckets-POST.md), [List Buckets](http-docs/http-buckets-GET.md), [Get Bucket Details](http-docs/http-buckets--bucketKey-details-GET.md), [Delete Bucket](http-docs/http-buckets--bucketKey-DELETE.md)
-- **Object operations:** [Upload Object](http-docs/http-buckets--bucketKey-objects--objectKey-PUT.md), [Download Object](http-docs/http-buckets--bucketKey-objects--objectKey-GET.md), [Delete Object](http-docs/http-buckets--bucketKey-objects--objectKey-DELETE.md), [Object Details](http-docs/http-buckets--bucketKey-objects--objectKey-details-GET.md), [Copy Object](http-docs/http-buckets--bucketKey-objects--objectKey-copyto--newObjectKey-PUT.md), [List Objects](http-docs/http-buckets--bucketKey-objects-GET.md)
-- **S3-signed uploads/downloads:** [Signed S3 Upload (GET)](http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md), [Signed S3 Upload (POST)](http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-POST.md), [Batch Complete Upload](http-docs/http-buckets--bucketKey-objects--objectKey-batchcompleteupload-POST.md), [Signed S3 Download](http-docs/http-buckets--bucketKey-objects--objectKey-signeds3download-GET.md), [Batch Signed Download](http-docs/http-buckets--bucketKey-objects-batchsigneds3download-POST.md)
-- **Resumable upload:** [Resumable PUT](http-docs/http-buckets--bucketKey-objects--objectKey-resumable-PUT.md), [Upload Status](http-docs/http-buckets--bucketKey-objects--objectKey-status--sessionId-GET.md)
-- **Signed resources:** [GET](http-docs/http-signedresources--id-GET.md), [PUT](http-docs/http-signedresources--id-PUT.md), [DELETE](http-docs/http-signedresources--id-DELETE.md), [Resumable PUT](http-docs/http-signedresources--id-resumable-PUT.md)
-- **How-to:** [Upload File](how-to-docs/upload-file.md), [Download File](how-to-docs/download-file.md), [Delete & Restore File](how-to-docs/delete-and-restore-file.md), [App-Managed Bucket](how-to-docs/app-managed-bucket.md)
+---
 
-### Hubs & Projects (~6 endpoints)
+### OSS — Buckets & Objects
 
-Navigate the Data Management hierarchy: list hubs, browse projects within hubs, and retrieve top-level folders.
+HTTP reference for the Object Storage Service (OSS) API. Covers full CRUD on buckets and objects, S3-accelerated upload/download flows (signed URLs, batch operations, resumable uploads), and object copy/status endpoints. 23 files total.
 
-- [List Hubs](http-docs/http-hubs-GET.md), [Get Hub](http-docs/http-hubs-hub_id-GET.md), [List Projects](http-docs/http-hubs-hub_id-projects-GET.md), [Get Project](http-docs/http-hubs-hub_id-projects-project_id-GET.md), [Get Project Hub](http-docs/http-hubs-hub_id-projects-project_id-hub-GET.md), [Top Folders](http-docs/http-hubs-hub_id-projects-project_id-topFolders-GET.md)
+- [GET /buckets](http-docs/http-buckets-GET.md) — list buckets
+- [POST /buckets](http-docs/http-buckets-POST.md) — create bucket
+- [DELETE /buckets/:bucketKey](http-docs/http-buckets--bucketKey-DELETE.md)
+- [PUT /buckets/:bucketKey/objects/:objectKey](http-docs/http-buckets--bucketKey-objects--objectKey-PUT.md)
+- [GET /buckets/:bucketKey/objects/:objectKey/signeds3download](http-docs/http-buckets--bucketKey-objects--objectKey-signeds3download-GET.md)
+- [POST /buckets/:bucketKey/objects/:objectKey/batchsigneds3upload](http-docs/http-buckets--bucketKey-objects--objectKey-batchsigneds3upload-POST.md)
+- [POST /buckets/:bucketKey/objects/:objectKey/batchcompleteupload](http-docs/http-buckets--bucketKey-objects--objectKey-batchcompleteupload-POST.md)
+- Plus 16 additional object/bucket endpoints (details, resumable, copy, status, signed resources)
 
-### Folders (~10 endpoints)
+---
 
-Full CRUD and relationship management for project folders, including content listing and search.
+### OSS — Signed Resources
 
-- [Create Folder](http-docs/http-projects-project_id-folders-POST.md), [Get Folder](http-docs/http-projects-project_id-folders-folder_id-GET.md), [Update Folder](http-docs/http-projects-project_id-folders-folder_id-PATCH.md), [Folder Contents](http-docs/http-projects-project_id-folders-folder_id-contents-GET.md), [Search Folder](http-docs/http-projects-project_id-folders-folder_id-search-GET.md), [Folder Parent](http-docs/http-projects-project_id-folders-folder_id-parent-GET.md)
-- Plus 4 more endpoints for refs and relationship links.
+HTTP reference for managing public signed resource URLs (GET, PUT, DELETE, resumable PUT). 4 files.
 
-### Items (~12 endpoints, 1 guide)
+- [GET /signedresources/:id](http-docs/http-signedresources--id-GET.md)
+- [PUT /signedresources/:id](http-docs/http-signedresources--id-PUT.md)
+- [DELETE /signedresources/:id](http-docs/http-signedresources--id-DELETE.md)
+- [PUT /signedresources/:id/resumable](http-docs/http-signedresources--id-resumable-PUT.md)
 
-Manage items (files) within projects: CRUD operations, version history, relationships, and tip versions.
+---
 
-- [Create Item](http-docs/http-projects-project_id-items-POST.md), [Get Item](http-docs/http-projects-project_id-items-item_id-GET.md), [Update Item](http-docs/http-projects-project_id-items-item_id-PATCH.md), [Item Tip](http-docs/http-projects-project_id-items-item_id-tip-GET.md), [Item Versions](http-docs/http-projects-project_id-items-item_id-versions-GET.md), [List Items](http-docs/http-ListItems.md), [List Refs](http-docs/http-ListRefs.md)
-- Plus 5 more endpoints for parent, refs, and relationships.
-- **How-to:** [Create Attachment](how-to-docs/create-attachment.md)
+### Data Management — Hubs & Projects
 
-### Versions (~10 endpoints)
+HTTP reference for navigating the hub/project hierarchy. Lists hubs, retrieves project details, and fetches top-level folders. 6 files.
 
-Version management: create new versions, retrieve download formats, and manage version relationships.
+- [GET /hubs](http-docs/http-hubs-GET.md)
+- [GET /hubs/:hub_id/projects](http-docs/http-hubs-hub_id-projects-GET.md)
+- [GET /hubs/:hub_id/projects/:project_id](http-docs/http-hubs-hub_id-projects-project_id-GET.md)
+- [GET /hubs/:hub_id/projects/:project_id/topFolders](http-docs/http-hubs-hub_id-projects-project_id-topFolders-GET.md)
 
-- [Create Version](http-docs/http-projects-project_id-versions-POST.md), [Get Version](http-docs/http-projects-project_id-versions-version_id-GET.md), [Update Version](http-docs/http-projects-project_id-versions-version_id-PATCH.md), [Version Item](http-docs/http-projects-project_id-versions-version_id-item-GET.md), [Download Formats](http-docs/http-projects-project_id-versions-version_id-downloadFormats-GET.md), [Version Downloads](http-docs/http-projects-project_id-versions-version_id-downloads-GET.md)
-- Plus 4 more endpoints for refs and relationships.
+---
 
-### Downloads, Storage & Jobs (~4 endpoints)
+### Data Management — Folders
 
-Create storage locations for file uploads, initiate downloads, and check job status.
+HTTP reference for folder operations within a project: create, read, update, list contents, search, navigate to parent, and manage refs/relationships. 10 files.
 
-- [Create Storage](http-docs/http-projects-project_id-storage-POST.md), [Create Download](http-docs/http-projects-project_id-downloads-POST.md), [Get Download](http-docs/http-projects-project_id-downloads-download_id-GET.md), [Get Job](http-docs/http-projects-project_id-jobs-job_id-GET.md)
+- [POST /projects/:project_id/folders](http-docs/http-projects-project_id-folders-POST.md)
+- [GET /projects/:project_id/folders/:folder_id/contents](http-docs/http-projects-project_id-folders-folder_id-contents-GET.md)
+- [GET /projects/:project_id/folders/:folder_id/search](http-docs/http-projects-project_id-folders-folder_id-search-GET.md)
+- [POST /projects/:project_id/folders/:folder_id/relationships/refs](http-docs/http-projects-project_id-folders-folder_id-relationships-refs-POST.md)
+- Plus 6 additional folder relationship, parent, refs, and links endpoints
 
-### Model Publishing (~4 endpoints, 1 guide)
+---
 
-Publish models to make them available across APS services and check publishing permissions.
+### Data Management — Items
 
-- [Publish Model](http-docs/http-PublishModel.md), [Publish Without Links](http-docs/http-PublishWithoutLinks.md), [Get Publish Job](http-docs/http-GetPublishModelJob.md), [Check Permission](http-docs/http-CheckPermission.md)
-- **How-to:** [Publish Model](how-to-docs/publish-model.md)
+HTTP reference for item (file node) operations: create, read, update, navigate to parent/tip version, list versions, and manage refs/relationships. 10 files.
+
+- [POST /projects/:project_id/items](http-docs/http-projects-project_id-items-POST.md)
+- [GET /projects/:project_id/items/:item_id](http-docs/http-projects-project_id-items-item_id-GET.md)
+- [PATCH /projects/:project_id/items/:item_id](http-docs/http-projects-project_id-items-item_id-PATCH.md)
+- [GET /projects/:project_id/items/:item_id/tip](http-docs/http-projects-project_id-items-item_id-tip-GET.md)
+- [GET /projects/:project_id/items/:item_id/versions](http-docs/http-projects-project_id-items-item_id-versions-GET.md)
+- Plus 5 additional refs, relationships, and parent endpoints
+
+---
+
+### Data Management — Versions
+
+HTTP reference for version operations: create, read, update, retrieve download formats, list downloads, navigate to parent item, and manage refs/relationships. 10 files.
+
+- [POST /projects/:project_id/versions](http-docs/http-projects-project_id-versions-POST.md)
+- [GET /projects/:project_id/versions/:version_id](http-docs/http-projects-project_id-versions-version_id-GET.md)
+- [GET /projects/:project_id/versions/:version_id/downloadFormats](http-docs/http-projects-project_id-versions-version_id-downloadFormats-GET.md)
+- [GET /projects/:project_id/versions/:version_id/item](http-docs/http-projects-project_id-versions-version_id-item-GET.md)
+- Plus 6 additional download, refs, and relationship endpoints
+
+---
+
+### Data Management — Downloads & Storage
+
+HTTP reference for initiating file downloads, polling download job status, creating storage locations, and retrieving job status. 4 files.
+
+- [POST /projects/:project_id/downloads](http-docs/http-projects-project_id-downloads-POST.md)
+- [GET /projects/:project_id/downloads/:download_id](http-docs/http-projects-project_id-downloads-download_id-GET.md)
+- [POST /projects/:project_id/storage](http-docs/http-projects-project_id-storage-POST.md)
+- [GET /projects/:project_id/jobs/:job_id](http-docs/http-projects-project_id-jobs-job_id-GET.md)
+
+---
+
+### Model Publishing (ACC / BIM 360)
+
+HTTP reference for the model publishing workflow in ACC/BIM 360: check permissions, publish models (with or without links), list items and refs, and poll publish job status. 6 files.
+
+- [POST /publish (PublishModel)](http-docs/http-PublishModel.md)
+- [POST /publish (PublishWithoutLinks)](http-docs/http-PublishWithoutLinks.md)
+- [GET /publish job status](http-docs/http-GetPublishModelJob.md)
+- [GET /checkPermission](http-docs/http-CheckPermission.md)
+- [GET /listItems](http-docs/http-ListItems.md)
+- [GET /listRefs](http-docs/http-ListRefs.md)
 <!-- GENERATED:CONTENT_SUMMARY:END -->

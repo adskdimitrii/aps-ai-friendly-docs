@@ -230,8 +230,18 @@ process_domain() {
 
   # Call Claude CLI
   echo "  Calling Claude CLI to generate summary..."
-  local summary
-  summary="$(echo "$prompt" | claude -p --output-format text 2>/dev/null)" || die "Claude CLI call failed for '$domain_name'."
+  local summary tmp_stderr claude_exit_code stderr_output
+  tmp_stderr="$(mktemp)"
+  summary="$(echo "$prompt" | claude -p --output-format text 2>"$tmp_stderr")"
+  claude_exit_code=$?
+  stderr_output="$(cat "$tmp_stderr")"
+  rm -f "$tmp_stderr"
+  if [ $claude_exit_code -ne 0 ]; then
+    if echo "$stderr_output" | grep -qiE '(not logged in|sign in|log in|login|authenticate|unauthorized|401|api key|account)'; then
+      die "Claude authentication required. Please sign in by running 'claude' interactively and completing the login flow, then re-run this script."
+    fi
+    die "Claude CLI call failed for '$domain_name'.${stderr_output:+ Error: $stderr_output}"
+  fi
 
   # Validate output
   [ -n "$summary" ] || die "Claude returned empty output for '$domain_name'."

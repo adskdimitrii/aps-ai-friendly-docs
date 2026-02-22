@@ -5,43 +5,45 @@ This document does not link to all references. If you can't find what you're loo
 <!-- GENERATED:CONTENT_SUMMARY:START -->
 ## Content Summary
 
-The Webhooks documentation covers creating, managing, and consuming webhook notifications across various APS services. It includes 22 files spanning API endpoints and practical how-to guides.
+### Hook Management (How-To Guides)
 
-### Webhook Management API (12 files)
+Tutorials for creating, retrieving, and deleting webhooks across various APS services. Covers setup for specific platforms and event types.
 
-Core REST API for managing webhook subscriptions. Endpoints cover the full lifecycle of hooks — creating, listing, updating, and deleting — scoped by system and event type.
+- [Create a Hook – Data Management](how-to-docs/create-a-hook-data-management.md)
+- [Create a Hook – Model Derivative](how-to-docs/create-a-hook-model-derivative.md)
+- [Create a Hook – Issues](how-to-docs/create-a-hook-issues.md)
+- [Create a Hook – Cost Management](how-to-docs/create-a-hook-cost-management.md)
+- [Create a Hook – BIM 360 Reviews](how-to-docs/create-a-hook-reviews.md)
+- [Create a Hook – BuildingConnected](how-to-docs/create-a-hook-buildingconnected.md)
+- [Retrieve List of Hooks](how-to-docs/retrieve-list-of-hooks.md)
+- [Delete a Hook](how-to-docs/delete-a-hook.md)
 
-- **Create hooks:** [POST hook by system/event](http-docs/http-webhooks-systems-system-events-event-hooks-POST.md), [POST hook by system](http-docs/http-webhooks-systems-system-hooks-POST.md)
-- **List hooks:** [GET all app hooks](http-docs/http-webhooks-app-hooks-GET.md), [GET all hooks](http-docs/http-webhooks-hooks-GET.md), [GET hooks by system](http-docs/http-webhooks-systems-system-hooks-GET.md), [GET hooks by system/event](http-docs/http-webhooks-systems-system-events-event-hooks-GET.md)
-- **Single hook operations:** [GET hook by ID](http-docs/http-webhooks-systems-system-events-event-hooks-hook_id-GET.md), [PATCH hook](http-docs/http-webhooks-systems-system-events-event-hooks-hook_id-PATCH.md), [DELETE hook](http-docs/http-webhooks-systems-system-events-event-hooks-hook_id-DELETE.md)
+### Security & Payload Verification (How-To Guides)
 
-### Webhook Tokens API (3 files)
+- [How to Verify Payload Signature](how-to-docs/how-to-verify-payload-signature.md) — guidance on validating webhook payload authenticity using signatures.
+- [Configure Your Server](how-to-docs/configuring-your-server.md) — server setup requirements for receiving webhook events.
 
-Manage authentication tokens used for webhook callback verification.
+### Webhook API Reference (HTTP Endpoints)
 
-- [POST create token](http-docs/http-tokens-tokens-POST.md)
-- [PUT update token](http-docs/http-tokens-tokens-me-PUT.md)
-- [DELETE token](http-docs/http-tokens-tokens-me-DELETE.md)
+Full HTTP reference for the Webhooks API, covering hook CRUD operations scoped by system and event.
 
-### Creating Hooks by Service (6 files)
+- [GET /app/hooks](http-docs/http-webhooks-app-hooks-GET.md) — list all hooks for the current app
+- [GET /hooks](http-docs/http-webhooks-hooks-GET.md) — list all hooks
+- [GET /systems/{system}/hooks](http-docs/http-webhooks-systems-system-hooks-GET.md) — list hooks for a system
+- [POST /systems/{system}/hooks](http-docs/http-webhooks-systems-system-hooks-POST.md) — create a system-level hook
+- [GET /systems/{system}/events/{event}/hooks](http-docs/http-webhooks-systems-system-events-event-hooks-GET.md) — list hooks for a specific event
+- [POST /systems/{system}/events/{event}/hooks](http-docs/http-webhooks-systems-system-events-event-hooks-POST.md) — create an event-scoped hook
+- [GET /systems/{system}/events/{event}/hooks/{hook_id}](http-docs/http-webhooks-systems-system-events-event-hooks-hook_id-GET.md)
+- [PATCH /systems/{system}/events/{event}/hooks/{hook_id}](http-docs/http-webhooks-systems-system-events-event-hooks-hook_id-PATCH.md)
+- [DELETE /systems/{system}/events/{event}/hooks/{hook_id}](http-docs/http-webhooks-systems-system-events-event-hooks-hook_id-DELETE.md)
 
-Step-by-step guides for setting up webhooks for specific APS services:
+### Webhook Tokens API (HTTP Endpoints)
 
-- [Data Management](how-to-docs/create-a-hook-data-management.md) — file/folder events in BIM 360 and ACC
-- [Model Derivative](how-to-docs/create-a-hook-model-derivative.md) — translation job events
-- [Cost Management](how-to-docs/create-a-hook-cost-management.md) — cost-related events
-- [Issues](how-to-docs/create-a-hook-issues.md) — issue creation/update events
-- [Reviews](how-to-docs/create-a-hook-reviews.md) — review workflow events
-- [BuildingConnected](how-to-docs/create-a-hook-buildingconnected.md) — BuildingConnected events
+Endpoints for managing webhook secret tokens used for payload signature verification.
 
-### Hook Lifecycle & Security (4 files)
-
-Guides for managing hooks and securing webhook payloads:
-
-- [Configure your server](how-to-docs/configuring-your-server.md) — setting up a callback endpoint
-- [Verify payload signature](how-to-docs/how-to-verify-payload-signature.md) — validating webhook authenticity
-- [Retrieve list of hooks](how-to-docs/retrieve-list-of-hooks.md) — querying existing subscriptions
-- [Delete a hook](how-to-docs/delete-a-hook.md) — removing webhook subscriptions
+- [POST /tokens](http-docs/http-tokens-tokens-POST.md) — create a new token
+- [PUT /tokens/me](http-docs/http-tokens-tokens-me-PUT.md) — update the current token
+- [DELETE /tokens/me](http-docs/http-tokens-tokens-me-DELETE.md) — delete the current token
 <!-- GENERATED:CONTENT_SUMMARY:END -->
 
 ## Source
