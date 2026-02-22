@@ -6,6 +6,14 @@ Not for agents.
 
 This repo has mainly been tested with Claude Code, but it should also work with other agents, such as Microsoft VS Code Copilot, Cursor, etc.
 
+### Ask Questions
+
+```txt
+Clone the APS docs https://github.com/adskdimitrii/aps-ai-friendly-docs to help me answer some questions.
+
+Can I use APS to automate the creation of PDF files from Revit files? How does this work, and what are the limitations?
+```
+
 ### Helps Create Solutions
 
 ```txt
@@ -15,14 +23,22 @@ Create a solution design Markdown document for the following app. Include a deta
 
 ACC User Clean Up Tool
 
-This is a Python script that will run on a weekly schedule and deactivate ACC users if they have not signed in for 3 months.
+This is a Python script that will run on a weekly schedule and deactivate ACC users if they have not signed in for three months.
 
 This script will run in Azure as a Function. Create deploy, update, and destroy shell scripts using Azure CLI.
 ```
 
-## How to Create APS Other Docs Contribute
+### Work on Complex Coding Tasks
 
-Not all docs have been mirrored. If you want to add a doc, I recommend the following prompt:
+```txt
+Clone the APS docs https://github.com/adskdimitrii/aps-ai-friendly-docs and help me implement the following feature.
+
+Implement APS Auth into my desktop app.
+```
+
+## How to Contribute Other APS Docs
+
+Not all docs have been mirrored. If you want to add a doc, I recommend using the following prompt:
 
 ```txt
 Use the implementation of `./oauth/**/*` as a template to create docs for the following documentation:

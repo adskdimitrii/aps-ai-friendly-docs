@@ -1,10 +1,9 @@
 # APS AI Friendly Docs
 
-Local Markdown mirror of Autodesk Platform Services (APS) documentation with scripts to re-crawl. This is an alternative to [https://aps.autodesk.com/llms.txt](https://aps.autodesk.com/llms.txt) that enables more targeted prompts, reduces token usage, tool usage and speeds up agent discovery to improve performance on complex tasks.
+Local markdown mirror of Autodesk Platform Services (APS) documentation with scripts to re-crawl. This is an alternative to [https://aps.autodesk.com/llms.txt](https://aps.autodesk.com/llms.txt) that enables more targeted prompts, reduces token usage, tool usage and speeds up agent discovery to improve performance on complex tasks.
 
 ## Where to Find Things
 
-Use the domain-specific READMEs for more details:
 - [OAuth Docs](oauth/README.md) - ALL APIs Require OAuth
 - [ACC Docs](acc/README.md) - Autodesk Constructions Cloud APIs
 - [Data Docs](data/README.md) - OSS, Core Data Managment
