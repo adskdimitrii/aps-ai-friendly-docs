@@ -6,6 +6,7 @@ Local markdown mirror of Autodesk Platform Services (APS) documentation with scr
 
 - [OAuth Docs](oauth/README.md) - ALL APIs Require OAuth
 - [ACC Docs](acc/README.md) - Autodesk Constructions Cloud APIs
+- [ACC Data Connector Schema Docs](acc-dataconnector/README.md) - ACC Data Connector schema documentation
 - [Data Docs](data/README.md) - OSS, Core Data Managment
 - [Model Derivative Docs](model-derivative/README.md) - Extract Data from Files, Convert, Export
 - [Viewer v7 Docs](viewer/README.md) - Web Viewer

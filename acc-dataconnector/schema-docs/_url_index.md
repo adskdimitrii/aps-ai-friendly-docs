@@ -1,0 +1,55 @@
+# ACC Data Connector Schema Doc URLs
+
+Index page: https://developer.api.autodesk.com/data-connector/v1/doc
+
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=activities&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=activities_admin_verb_column_details&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=activities_assets_verb_column_details&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=activities_bridge_verb_column_details&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=activities_cost_verb_column_details&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=activities_docs_verb_column_details&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=activities_issues_verb_column_details&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=activities_rfis_verb_column_details&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=activities_sheets_verb_column_details&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=activities_submittals_verb_column_details&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=admin&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=assets&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=cdcadmin&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=cdccost&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=cdciq&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=cdcissues&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=cdclocations&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=cdcmarkups&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=cdcmeetingminutes&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=cdcrelationships&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=cdcrfis&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=cdcschedule&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=cdcsheets&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=cdcsubmittalsacc&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=cdctransmittals&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=cdcv2admin&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=changes&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=checklists&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=clashes&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=classifications&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=cost&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=dailylogs&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=estimates&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=forms&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=iq&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=issues&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=issuesbim360&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=locations&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=markups&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=meetingminutes&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=packages&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=photos&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=relationships&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=reviews&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=rfis&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=schedule&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=sheets&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=submittals&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=submittalsacc&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=takeoff&format=html
+- https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=transmittals&format=html
