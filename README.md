@@ -13,6 +13,10 @@ Local markdown mirror of Autodesk Platform Services (APS) documentation with scr
 - [Design Automation Docs](design-automation/README.md) - Also Known as `Automation APIs`
 - [Webhooks Docs](webhooks/README.md)
 
+## Re-Crawl
+
+See [CRAWL.md](CRAWL.md) - How to run crawlers and post-process tools.
+
 ## Humans
 
 See [HUMANS.md](HUMANS.md)
