@@ -8,13 +8,9 @@ This repo includes a VS Code dev container configuration in `.devcontainer/devco
 
 1. Open this folder in VS Code.
 2. Run **Dev Containers: Reopen in Container**.
-3. Wait for container setup to finish. On first create, dependencies are installed automatically via:
+3. Authenticate claude cli
 
-	```bash
-	pip3 install --user -r requirements.txt
-	```
-
-No virtual environment is required inside this dev container.
+No virtual environment is required to run python inside this dev container.
 
 ## Run Crawler Scripts
 
@@ -89,9 +85,7 @@ Recommended order:
 
 Prerequisites:
 
-- Run from the repo root.
-- Install and authenticate the `claude` CLI, and ensure it is available in your `PATH`.
-- Make the script executable, if needed.
+- Authenticate claude cli
 
 Then run:
 
