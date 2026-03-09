@@ -11,13 +11,13 @@ This tutorial demonstrates how to create an RFI item for an Autodesk Constructio
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:write` `account:read` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:write` `account:read` scopes.
 - Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to create an RFI in by following the [Retrieve an Account ID and Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. In this example, assume the account ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`, and the project ID is `ce8edd30-ef28-467c-8d99-7d7051097ee0`.
+- Find the relevant project ID for the project you want to create an RFI in by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the account ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`, and the project ID is `ce8edd30-ef28-467c-8d99-7d7051097ee0`.
 
 ## [Step 1: Verify the Userâs Permissions](#step-1-verify-the-user-s-permissions)
 
-To check if the user has permission to create RFIs, call [GET users/me](/en/docs/acc/v1/reference/http/rfis-v3-users-me-GET/).
+To check if the user has permission to create RFIs, call [GET users/me](https://aps.autodesk.com/en/docs/acc/v1/reference/http/rfis-v3-users-me-GET/).
 
 If the `permittedActions.createRfi` object appears in the response, the user has permission to create RFIs. This object includes a list of allowed initial statuses (`permittedStatuses`), each with its own required and optional attributes. It also specifies which users the RFI can be assigned to.
 
@@ -630,7 +630,7 @@ In the next step, youâll use these values to build the request body. Make s
 
 To create an RFI, you must include the RFI type ID (`rfiTypeId`) in the request body.
 
-To retrieve a list of available RFI types for the project, call [GET rfi-types](/en/docs/acc/v1/reference/http/rfis-V3-types-GET/) using the project ID (`ce8edd30-ef28-467c-8d99-7d7051097ee0`).
+To retrieve a list of available RFI types for the project, call [GET rfi-types](https://aps.autodesk.com/en/docs/acc/v1/reference/http/rfis-V3-types-GET/) using the project ID (`ce8edd30-ef28-467c-8d99-7d7051097ee0`).
 
 ### Request
 
@@ -705,7 +705,7 @@ Find the RFI type (`rfiType`) - `results[rfiTypes.[name]]` (`My_rfi_type`), and 
 
 ## [Step 3: (Optional) Find Next Custom Identifier](#step-3-optional-find-next-custom-identifier)
 
-If your project uses custom identifiers for RFIs, you can retrieve the next available value by calling [GET custom-identifier](/en/docs/acc/v1/reference/http/rfis-V3-customidentifier-GET/).
+If your project uses custom identifiers for RFIs, you can retrieve the next available value by calling [GET custom-identifier](https://aps.autodesk.com/en/docs/acc/v1/reference/http/rfis-V3-customidentifier-GET/).
 
 Use the project ID (`ce8edd30-ef28-467c-8d99-7d7051097ee0`) in the request.
 
@@ -731,7 +731,7 @@ Use the `next` value (e.g., `G30ww16r8`) as the `customIdentifier` when creating
 
 ## [Step 4: (Optional) Find Custom Attribute Definitions](#step-4-optional-find-custom-attribute-definitions)
 
-If your project uses custom attributes, you must first retrieve their definitions before assigning values. Call [GET attributes](/en/docs/acc/v1/reference/http/rfis-V3-attributes-GET/) using the project ID (`ce8edd30-ef28-467c-8d99-7d7051097ee0`).
+If your project uses custom attributes, you must first retrieve their definitions before assigning values. Call [GET attributes](https://aps.autodesk.com/en/docs/acc/v1/reference/http/rfis-V3-attributes-GET/) using the project ID (`ce8edd30-ef28-467c-8d99-7d7051097ee0`).
 
 ### Request
 
@@ -808,11 +808,11 @@ Search for the custom attribute mapping IDs and check the data in the correspond
 
 ## [Step 5: (Optional) Find the ID of the Assignee](#step-5-optional-find-the-id-of-the-assignee)
 
-To find the ID of the assignee, use the [GET projects/users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET/) from the Admin API.
+To find the ID of the assignee, use the [GET projects/users](../http-docs/http-admin-projectsprojectId-users-GET.md) from the Admin API.
 
 ## [Step 6: Create the RFI](#step-6-create-the-rfi)
 
-Call [POST rfis](/en/docs/acc/v1/reference/http/rfis-V3-rfi-POST/) using the project ID (`ce8edd30-ef28-467c-8d99-7d7051097ee0`), the RFI type (`rfiTypeId`) ID (`294f293c-aad0-43db-ba2b-c7eed815bbb7`), and the custom identifier (`G30ww16r8`) the custom attribute ID (`09b37029-bf1b-47b6-b9f1-c56735b2fc52`) and the custom attribute value (`1252`).
+Call [POST rfis](https://aps.autodesk.com/en/docs/acc/v1/reference/http/rfis-V3-rfi-POST/) using the project ID (`ce8edd30-ef28-467c-8d99-7d7051097ee0`), the RFI type (`rfiTypeId`) ID (`294f293c-aad0-43db-ba2b-c7eed815bbb7`), and the custom identifier (`G30ww16r8`) the custom attribute ID (`09b37029-bf1b-47b6-b9f1-c56735b2fc52`) and the custom attribute value (`1252`).
 
 ### Request
 

@@ -15,15 +15,15 @@ Before using this command you need to:
 - [Initiate collaboration through Revit](https://knowledge.autodesk.com/support/collaboration-for-revit), and select BIM 360 Docs. This creates the first version in BIM 360 Docs.
 - Modify the model locally, and [synchronize the changes with the central model](https://knowledge.autodesk.com/support/collaboration-for-revit/learn-explore/caas/video/youtube/watch-v-RMlxaygDaU8.html).
 
-Every time you synchronize the current model with the central model, it sets the `data` attribute to `null`. When you publish the latest version to BIM 360 Docs (using the [PublishModel](/en/docs/data/v2/reference/http/PublishModel) command), it sets the status to `processing` or `complete`.
+Every time you synchronize the current model with the central model, it sets the `data` attribute to `null`. When you publish the latest version to BIM 360 Docs (using the [PublishModel](http-PublishModel.md) command), it sets the status to `processing` or `complete`.
 
-To publish the model to BIM 360 Docs, use the the [PublishModel](/en/docs/data/v2/reference/http/PublishModel) command.
+To publish the model to BIM 360 Docs, use the the [PublishModel](http-PublishModel.md) command.
 
-For more details about the workflow for using the GetPublishModelJob command, see the [Publish a C4R Model to BIM 360 Docs](/en/docs/data/v2/tutorials/publish-model) tutorial.
+For more details about the workflow for using the GetPublishModelJob command, see the [Publish a C4R Model to BIM 360 Docs](../how-to-docs/publish-model.md) tutorial.
 
-Note that GetPublishModelJob is a Data Management command. Commands enable you to perform complex operations on multiple resources rather than standard CRUD operations. For more details about commands, see the[Commands](/en/docs/data/v2/overview/commands) overview section.
+Note that GetPublishModelJob is a Data Management command. Commands enable you to perform complex operations on multiple resources rather than standard CRUD operations. For more details about commands, see the[Commands](https://aps.autodesk.com/en/docs/data/v2/overview/commands/) overview section.
 
-**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](/en/docs/acc/v1/overview/).
+**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/).
 
 ## [Resource Information](#resource-information)
 
@@ -37,7 +37,7 @@ Note that GetPublishModelJob is a Data Management command. Commands enable you t
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. Note that it will not accept a two-legged token, unless you add the `x-user-id` header. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. Note that it will not accept a two-legged token, unless you add the `x-user-id` header. |
 | --- | --- |
 | x-user-id   string | In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified. |
 | Content-Type*   string | Must be `application/vnd.api+json`. |
@@ -73,7 +73,7 @@ Expand all
 | relationships*   object | An object that represents related resources.   In this case, it is used for listing the resources to be published. |
 | resources*   object | An object that represents related resources.   In this case, it is used for listing the resources to be published. |
 | data*   array:object | The list of resources you want to get the publish status for. |
-| id*   string | The URN of the resource; for details about finding the URN, follow the initial steps in the [Publish a C4R Model to BIM 360 Docs](/en/docs/data/v2/tutorials/publish-model) tutorial. |
+| id*   string | The URN of the resource; for details about finding the URN, follow the initial steps in the [Publish a C4R Model to BIM 360 Docs](../how-to-docs/publish-model.md) tutorial. |
 | type*   string | The type of resource. Will always be: `items` |
 
 * Required

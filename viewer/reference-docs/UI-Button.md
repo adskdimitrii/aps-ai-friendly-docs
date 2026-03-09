@@ -7,7 +7,7 @@ Source: https://aps.autodesk.com/en/docs/viewer/v7/reference/UI/Button/
 Autodesk.Viewing.UI
 
 # Button
-> Extends [Autodesk.Viewing.UI.Control](/en/docs/viewer/v7/reference/UI/Control)
+> Extends [Autodesk.Viewing.UI.Control](UI-Control.md)
 
 ## [new Button(id, options)](#new-button-id-options)
 
@@ -35,7 +35,7 @@ Sets the state of this button.
 
 ### Parameters
 
-| state*   [Autodesk.Viewing.UI.Button.State](/en/docs/viewer/v7/reference/UI/Button/#State/) | The state. |
+| state*   [Autodesk.Viewing.UI.Button.State](UI-Button.md#State/) | The state. |
 | --- | --- |
 
 * Required
@@ -65,7 +65,7 @@ Returns the state of this button.
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.UI.Button.State](/en/docs/viewer/v7/reference/UI/Button/#State/) | The state of the button. |
+| [Autodesk.Viewing.UI.Button.State](UI-Button.md#State/) | The state of the button. |
 
 ## [onClick(event)](#onclick-event)
 
@@ -274,7 +274,7 @@ Event fired when state of the button changes.
 
 | buttonId   string | The ID of the button that fired this event. |
 | --- | --- |
-| state   [Autodesk.Viewing.UI.Button.State](/en/docs/viewer/v7/reference/UI/Button/#State/) | The new state of the button. |
+| state   [Autodesk.Viewing.UI.Button.State](UI-Button.md#State/) | The new state of the button. |
 
 ## [VISIBILITY_CHANGED](#visibility-changed)
 

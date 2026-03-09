@@ -39,7 +39,7 @@ Invoked by the viewer when the toolbar UI is available.
 
 ### Parameters
 
-| toolbar*   [Autodesk.Viewing.UI.ToolBar](/en/docs/viewer/v7/reference/UI/ToolBar/) | toolbar instance. |
+| toolbar*   [Autodesk.Viewing.UI.ToolBar](UI-ToolBar.md) | toolbar instance. |
 | --- | --- |
 
 * Required

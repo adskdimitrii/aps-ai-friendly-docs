@@ -20,10 +20,10 @@ You will use the following operations to handle AppBundles in this task:
 
 | HTTP Request | Description |
 | --- | --- |
-| [POST /appbundles](/en/docs/design-automation/v3/reference/http/appbundles-POST) | Registers a new AppBundle. |
-| [POST /appbundles/{id}/aliases](/en/docs/design-automation/v3/reference/http/appbundles-id-aliases-POST) | Creates a new alias for the AppBundle. |
-| [POST /appbundles/{id}/versions](/en/docs/design-automation/v3/reference/http/appbundles-id-versions-POST) | Creates a new version of the AppBundle. |
-| [PATCH /appbundles/{id}/aliases/{aliasId}](/en/docs/design-automation/v3/reference/http/appbundles-id-aliases-aliasId-DELETE) | Modify alias details. |
+| [POST /appbundles](../http-docs/http-appbundles-POST.md) | Registers a new AppBundle. |
+| [POST /appbundles/{id}/aliases](../http-docs/http-appbundles-id-aliases-POST.md) | Creates a new alias for the AppBundle. |
+| [POST /appbundles/{id}/versions](../http-docs/http-appbundles-id-versions-POST.md) | Creates a new version of the AppBundle. |
+| [PATCH /appbundles/{id}/aliases/{aliasId}](../http-docs/http-appbundles-id-aliases-aliasId-DELETE.md) | Modify alias details. |
 
 ## [Step 1 - Understand the structure of an AppBundle](#step-1-understand-the-structure-of-an-appbundle)
 
@@ -337,4 +337,4 @@ curl -X PATCH \
 **Notes:**
 
 - For the most current list of `engines` use the operation listed [here](en/docs/design-automation/v3/reference/http/#engines).
-- If there is an error, refer the section on [troubleshooting](/en/docs/design-automation/v3/developers_guide/troubleshooting).
+- If there is an error, refer the section on [troubleshooting](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/troubleshooting/).

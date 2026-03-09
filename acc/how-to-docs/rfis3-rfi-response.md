@@ -11,13 +11,13 @@ This tutorial demonstrates how to submit a response to an RFI in an Autodesk Con
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:write` `account:read` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:write` `account:read` scopes.
 - Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to create an RFI in by following the [Retrieve an Account ID and Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. In this example, assume the account ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`, the project ID is `ce8edd30-ef28-467c-8d99-7d7051097ee0` and the RFI ID is `a1d12f69-3c02-4bba-936d-cccd73f001ee`.
+- Find the relevant project ID for the project you want to create an RFI in by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the account ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`, the project ID is `ce8edd30-ef28-467c-8d99-7d7051097ee0` and the RFI ID is `a1d12f69-3c02-4bba-936d-cccd73f001ee`.
 
 ## [Step 1: Check if the User Can Submit a Response](#step-1-check-if-the-user-can-submit-a-response)
 
-We recommend calling [GET rfis/:rfiId](/en/docs/acc/v1/reference/http/rfis-V3-rfisrfiid-GET/) to check whether the user has permission to submit a response to the RFI.
+We recommend calling [GET rfis/:rfiId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/rfis-V3-rfisrfiid-GET/) to check whether the user has permission to submit a response to the RFI.
 A user can submit a response if either `permittedActions.createResponse` or `permittedActions.createResponseOnBehalf` is set to `true`.
 
 ### Request
@@ -398,7 +398,7 @@ If `createResponseOnBehalf` is `true`, you must include the `onBehalf` field whe
 ## [Step 2: (Optional) Attach Files to the RFI Response](#step-2-optional-attach-files-to-the-rfi-response)
 
 You can include one or more file attachments as part of the RFI response.
-To do this, upload each file to the `virtual folder` associated with the RFI using the steps described in the [Upload Attachments to RFIs](/en/docs/acc/v1/tutorials/upload-document-rfis/) tutorial.
+To do this, upload each file to the `virtual folder` associated with the RFI using the steps described in the [Upload Attachments to RFIs](https://aps.autodesk.com/en/docs/acc/v1/tutorials/upload-document-rfis/) tutorial.
 
 After uploading a file, collect the following values for each attachment. These values are required when creating the RFI response payload.
 
@@ -419,7 +419,7 @@ After uploading a file, collect the following values for each attachment. These 
 
 Once youâve verified that the user has the required permissions and optionally uploaded attachments, you can create the RFI response.
 
-Call [POST response](/en/docs/acc/v1/reference/http/rfis-V3-response-POST/) using the project ID (`ce8edd30-ef28-467c-8d99-7d7051097ee0`), the RFI ID (`rfiId`) (`a1d12f69-3c02-4bba-936d-cccd73f001ee`). Include the response text, and if applicable, the `onBehalf` field and attachments.
+Call [POST response](https://aps.autodesk.com/en/docs/acc/v1/reference/http/rfis-V3-response-POST/) using the project ID (`ce8edd30-ef28-467c-8d99-7d7051097ee0`), the RFI ID (`rfiId`) (`a1d12f69-3c02-4bba-936d-cccd73f001ee`). Include the response text, and if applicable, the `onBehalf` field and attachments.
 
 ### Important Request Fields
 

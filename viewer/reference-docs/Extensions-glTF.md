@@ -22,7 +22,7 @@ Autodesk.glTFExtension constructor
 
 Expand all
 
-| viewer*   [Autodesk.Viewing.Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) | Viewer instance. |
+| viewer*   [Autodesk.Viewing.Viewer3D](Viewing-Viewer3D.md) | Viewer instance. |
 | --- | --- |
 | options   Object | Options for the glTFExtension |
 | someOption   boolean | This is how options should be documented |

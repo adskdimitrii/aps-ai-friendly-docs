@@ -16,11 +16,11 @@ Extension that allows end users to draw 2D markups on top of 2D and 3D models.
 
 Expand all
 
-| viewer*   [Autodesk.Viewing.Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) | Viewer instance used to operate on. |
+| viewer*   [Autodesk.Viewing.Viewer3D](Viewing-Viewer3D.md) | Viewer instance used to operate on. |
 | --- | --- |
-| options*   object | Same Dictionary object passed into [Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/)âs constructor. |
+| options*   object | Same Dictionary object passed into [Viewer3D](Viewing-Viewer3D.md)âs constructor. |
 | markupDisableHotkeys   boolean | Disables hotkeys for copy, cut, paste, duplicate, undo, redo and deselect. |
-| markupToolClass   [Autodesk.Viewing.ToolInterface](/en/docs/viewer/v7/reference/Viewing/ToolInterface/) | Class override for input handling. Use it to override/extend default hotkeys and/or mouse/gesture input. |
+| markupToolClass   [Autodesk.Viewing.ToolInterface](Viewing-ToolInterface.md) | Class override for input handling. Use it to override/extend default hotkeys and/or mouse/gesture input. |
 
 * Required
 
@@ -30,9 +30,9 @@ Expand all
 
 Enables mouse interactions and mobile device gestures over the Viewer canvas to create or draw markups.
 
-Exit Edit mode by calling [leaveEditMode()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#leaveeditmode-1/).
+Exit Edit mode by calling [leaveEditMode()](Extensions-MarkupsCore.md#leaveeditmode-1/).
 
-See also [show()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#show/)
+See also [show()](Extensions-MarkupsCore.md#show/)
 
 ### Parameters
 
@@ -51,7 +51,7 @@ See also [show()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#show/)
 
 Exits Edit mode.
 
-See also [enterEditMode()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#entereditmode-layerid/).
+See also [enterEditMode()](Extensions-MarkupsCore.md#entereditmode-layerid/).
 
 ### Returns
 
@@ -65,9 +65,9 @@ Toggle between visible markups, i.e., show() and hidden markups, i.e., hide().
 
 ## [show()](#id4)
 
-Enables loading of previously saved markups. Exit Edit mode by calling [hide()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#hide/).
+Enables loading of previously saved markups. Exit Edit mode by calling [hide()](Extensions-MarkupsCore.md#hide/).
 
-See also [enterEditMode()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#entereditmode-layerid/).
+See also [enterEditMode()](Extensions-MarkupsCore.md#entereditmode-layerid/).
 
 ### Returns
 
@@ -79,7 +79,7 @@ See also [enterEditMode()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#
 
 Removes any markup currently overlaid on the viewer. It exits Edit mode if it is active.
 
-See also [show()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#show/)
+See also [show()](Extensions-MarkupsCore.md#show/)
 
 ### Returns
 
@@ -91,13 +91,13 @@ See also [show()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#show/)
 
 Removes newly created markups in the current editing layer. Markups that were created in a specific layer will not be removed.
 
-Markups should have been added while in [enterEditMode()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#entereditmode-layerid/).
+Markups should have been added while in [enterEditMode()](Extensions-MarkupsCore.md#entereditmode-layerid/).
 
 ## [generateData()](#generatedata)
 
-Returns an SVG string with the markups created so far. The SVG string can be reloaded using [loadMarkups()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#loadmarkups-markupstring-layerid/).
+Returns an SVG string with the markups created so far. The SVG string can be reloaded using [loadMarkups()](Extensions-MarkupsCore.md#loadmarkups-markupstring-layerid/).
 
-Markups should have been added while in [enterEditMode()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#entereditmode-layerid/).
+Markups should have been added while in [enterEditMode()](Extensions-MarkupsCore.md#entereditmode-layerid/).
 
 ### Returns
 
@@ -107,7 +107,7 @@ Markups should have been added while in [enterEditMode()](/en/docs/viewer/v7/ref
 
 ## [changeEditMode(editMode)](#changeeditmode-editmode)
 
-Changes the active drawing tool. For example, from the Arrow drawing tool to the Rectangle drawing tool. Only applicable while in [Edit Mode](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#entereditmode-layerid/).
+Changes the active drawing tool. For example, from the Arrow drawing tool to the Rectangle drawing tool. Only applicable while in [Edit Mode](Extensions-MarkupsCore.md#entereditmode-layerid/).
 
 Supported values are:
 
@@ -137,11 +137,11 @@ Check whether a user can perform camera navigation operations on the current loa
 
 | type | description |
 | --- | --- |
-| boolean | Whether [allowNavigation()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#allownavigation-allow/) can succeed. |
+| boolean | Whether [allowNavigation()](Extensions-MarkupsCore.md#allownavigation-allow/) can succeed. |
 
 ## [allowNavigation(allow)](#allownavigation-allow)
 
-Enables click, tap, and swipe behavior to allow camera zoom and panning operations. It is only available in [Edit mode](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#entereditmode-layerid/).
+Enables click, tap, and swipe behavior to allow camera zoom and panning operations. It is only available in [Edit mode](Extensions-MarkupsCore.md#entereditmode-layerid/).
 
 ### Parameters
 
@@ -152,7 +152,7 @@ Enables click, tap, and swipe behavior to allow camera zoom and panning operatio
 
 ## [disableMarkupInteractions(disable)](#disablemarkupinteractions-disable)
 
-Sets mouse interactions and mobile device gestures with markups. Only applicable in [Edit mode](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#entereditmode-layerid/).
+Sets mouse interactions and mobile device gestures with markups. Only applicable in [Edit mode](Extensions-MarkupsCore.md#entereditmode-layerid/).
 
 ### Parameters
 
@@ -164,32 +164,32 @@ Sets mouse interactions and mobile device gestures with markups. Only applicable
 ## [copy()](#copy)
 
 Standard copy operation. Applies to any selected markup.
-See also [cut()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#cut-1/) and [paste()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#paste-2/).
+See also [cut()](Extensions-MarkupsCore.md#cut-1/) and [paste()](Extensions-MarkupsCore.md#paste-2/).
 
 ## [cut()](#id19)
 
 Standard cut operation. Applies to any selected markup, which gets removed from the screen at call time.
-See also [copy()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#copy/) and [paste()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#paste-2/).
+See also [copy()](Extensions-MarkupsCore.md#copy/) and [paste()](Extensions-MarkupsCore.md#paste-2/).
 
 ## [paste()](#id22)
 
 Standard paste operation. This function will paste any previously copied or cut markup. Can be called repeatedly after a single copy or cut operation.
-See also [copy()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#copy/) and [cut()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#cut-1/).
+See also [copy()](Extensions-MarkupsCore.md#copy/) and [cut()](Extensions-MarkupsCore.md#cut-1/).
 
 ## [undo()](#undo)
 
 Will undo the previous operation.
 The Undo/Redo stacks will track any change done to the existing markups.
-See also [redo()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#redo-1/) and [isUndoStackEmpty()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#isUndoStackEmpty/).
+See also [redo()](Extensions-MarkupsCore.md#redo-1/) and [isUndoStackEmpty()](Extensions-MarkupsCore.md#isUndoStackEmpty/).
 
 ## [redo()](#id25)
 
 Will redo any previously undo operation.
-See also [undo()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#undo/), [isRedoStackEmpty()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#isRedoStackEmpty/).
+See also [undo()](Extensions-MarkupsCore.md#undo/), [isRedoStackEmpty()](Extensions-MarkupsCore.md#isRedoStackEmpty/).
 
 ## [isUndoStackEmpty()](#id27)
 
-Returns true when [undo()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#undo/) produces no changes.
+Returns true when [undo()](Extensions-MarkupsCore.md#undo/) produces no changes.
 
 ### Returns
 
@@ -199,7 +199,7 @@ Returns true when [undo()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#
 
 ## [isRedoStackEmpty()](#id30)
 
-Returns true when [redo()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#redo-1/) produces no changes.
+Returns true when [redo()](Extensions-MarkupsCore.md#redo-1/) produces no changes.
 
 ### Returns
 
@@ -220,7 +220,7 @@ Helper function for generating unique markup ids.
 ## [getMarkup(id)](#getmarkup-id)
 
 Returns a markup with the specified ID. Returns null when not found. The ID can be retrieved from the return value of getSelection().
-See also [getSelection()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#getselection-1/).
+See also [getSelection()](Extensions-MarkupsCore.md#getselection-1/).
 
 ### Parameters
 
@@ -238,7 +238,7 @@ See also [getSelection()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#g
 ## [selectMarkup(markup)](#selectmarkup-markup)
 
 Selects or deselects a markup. A selected markup gets an overlayed UI that allows you to perform transformations such as resizing, rotations, and translations. To deselect a markup, send a null value.
-See also [getMarkup()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#getmarkup-id/).
+See also [getMarkup()](Extensions-MarkupsCore.md#getmarkup-id/).
 
 ### Parameters
 
@@ -250,7 +250,7 @@ See also [getMarkup()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#getm
 ## [getSelection()](#id37)
 
 Returns the currently selected markup. A selected markup has a custom UI overlayed that allows you to perform resizing, rotations and translations.
-See also [selectMarkup()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#selectmarkup-markup/).
+See also [selectMarkup()](Extensions-MarkupsCore.md#selectmarkup-markup/).
 
 ### Returns
 
@@ -260,13 +260,13 @@ See also [selectMarkup()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#s
 
 ## [deleteMarkup(markup, dontAddToHistory)](#deletemarkup-markup-dontaddtohistory)
 
-Deletes a markup from the canvas. Only applies while in [Edit mode](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#entereditmode-layerid/).
+Deletes a markup from the canvas. Only applies while in [Edit mode](Extensions-MarkupsCore.md#entereditmode-layerid/).
 
 ### Parameters
 
 | markup*   Autodesk.Viewing.Extensions.Markups.Core.Markup | Markup object. |
 | --- | --- |
-| dontAddToHistory   boolean | Whether delete action can be [undone](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#undo/). |
+| dontAddToHistory   boolean | Whether delete action can be [undone](Extensions-MarkupsCore.md#undo/). |
 
 * Required
 
@@ -274,11 +274,11 @@ Deletes a markup from the canvas. Only applies while in [Edit mode](/en/docs/vie
 
 Loads data (SVG string) for all markups in a specified layer (layerId) to the Viewerâs canvas.
 
-See also [unloadMarkups()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#unloadmarkups-layerid/), and [hideMarkups()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#hidemarkups-layerid/).
+See also [unloadMarkups()](Extensions-MarkupsCore.md#unloadmarkups-layerid/), and [hideMarkups()](Extensions-MarkupsCore.md#hidemarkups-layerid/).
 
 ### Parameters
 
-| markupString*   string | SVG string with markups. See also [generateData()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#generatedata/). |
+| markupString*   string | SVG string with markups. See also [generateData()](Extensions-MarkupsCore.md#generatedata/). |
 | --- | --- |
 | layerId*   string | Identifier for the layer where the markup should be loaded to. Example âLayer1â. |
 
@@ -294,7 +294,7 @@ See also [unloadMarkups()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#
 
 Revert any changes made to the specific layer.
 
-See also [loadMarkups()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#loadmarkups-markupstring-layerid/) and [enterEditMode()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#entereditmode-layerid/).
+See also [loadMarkups()](Extensions-MarkupsCore.md#loadmarkups-markupstring-layerid/) and [enterEditMode()](Extensions-MarkupsCore.md#entereditmode-layerid/).
 
 ### Parameters
 
@@ -313,7 +313,7 @@ See also [loadMarkups()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#lo
 
 Removes markups from the DOM (Document Object Model). This is helpful for freeing up memory.
 
-See also [loadMarkups()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#loadmarkups-markupstring-layerid/), [unloadMarkupsAllLayers()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#unloadmarkupsalllayers-1/), [clear()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#clear/), [hide()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#hide-1/), and [hideMarkups()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#hidemarkups-layerid/).
+See also [loadMarkups()](Extensions-MarkupsCore.md#loadmarkups-markupstring-layerid/), [unloadMarkupsAllLayers()](Extensions-MarkupsCore.md#unloadmarkupsalllayers-1/), [clear()](Extensions-MarkupsCore.md#clear/), [hide()](Extensions-MarkupsCore.md#hide-1/), and [hideMarkups()](Extensions-MarkupsCore.md#hidemarkups-layerid/).
 
 ### Parameters
 
@@ -332,13 +332,13 @@ See also [loadMarkups()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#lo
 
 Removes all markups loaded so far. Great for freeing up memory.
 
-See also [loadMarkups()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#loadmarkups-markupstring-layerid/), [unloadMarkups()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#unloadmarkups-layerid/), [clear()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#clear/), [hide()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#hide-1/), and [hideMarkups()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#hidemarkups-layerid/).
+See also [loadMarkups()](Extensions-MarkupsCore.md#loadmarkups-markupstring-layerid/), [unloadMarkups()](Extensions-MarkupsCore.md#unloadmarkups-layerid/), [clear()](Extensions-MarkupsCore.md#clear/), [hide()](Extensions-MarkupsCore.md#hide-1/), and [hideMarkups()](Extensions-MarkupsCore.md#hidemarkups-layerid/).
 
 ## [hideMarkups(layerId)](#hidemarkups-layerid)
 
-Hides all markups in a specified layer. Note that hidden markups will not be unloaded. Use the [showMarkups()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#showmarkups-layerid/) method to make them visible again; no additional parsing is required.
+Hides all markups in a specified layer. Note that hidden markups will not be unloaded. Use the [showMarkups()](Extensions-MarkupsCore.md#showmarkups-layerid/) method to make them visible again; no additional parsing is required.
 
-See also [showMarkups()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#showmarkups-layerid/), [unloadMarkups()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#unloadmarkups-layerid/), and [loadMarkups()](/en/docs/viewer/v7/reference/Extensions/MarkupsCore/#loadmarkups-markupstring-layerid/).
+See also [showMarkups()](Extensions-MarkupsCore.md#showmarkups-layerid/), [unloadMarkups()](Extensions-MarkupsCore.md#unloadmarkups-layerid/), and [loadMarkups()](Extensions-MarkupsCore.md#loadmarkups-markupstring-layerid/).
 
 ### Parameters
 
@@ -403,7 +403,7 @@ Fired whenever a new undo or redo action is available.
 
 ### Properties
 
-| data   [EventHistoryChangedData](/en/docs/viewer/v7/reference/globals/TypeDefs/EventHistoryChangedData/) | The event data to identify the action and target |
+| data   [EventHistoryChangedData](globals-TypeDefs-EventHistoryChangedData.md) | The event data to identify the action and target |
 | --- | --- |
 
 ## [EVENT_EDITMODE_CREATION_BEGIN](#event-editmode-creation-begin)

@@ -16,7 +16,7 @@ You will use the following operation in this task:
 
 | HTTP Request | Description |
 | --- | --- |
-| [GET /buckets/{bucketKey}/objects/{objectKey}/signeds3download](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3download-GET/) | Creates a signed URL to an object in an OSS bucket. |
+| [GET /buckets/{bucketKey}/objects/{objectKey}/signeds3download](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3download-GET.md) | Creates a signed URL to an object in an OSS bucket. |
 
 ## [Step 1 - Get a S3 download URL for resized IPT file](#step-1-get-a-s3-download-url-for-resized-ipt-file)
 

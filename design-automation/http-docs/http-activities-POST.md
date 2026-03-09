@@ -10,10 +10,10 @@ POST
 
 Creates a new Activity.
 
-It is highly recommended to [create nickname](/en/docs/design-automation/v3/reference/http/forgeapps-id-PATCH/) before creating Activity. The nickname is used as a clearer alternative name when identifying AppBundles and Activities, as compared to using the Client ID.
+It is highly recommended to [create nickname](http-forgeapps-id-PATCH.md) before creating Activity. The nickname is used as a clearer alternative name when identifying AppBundles and Activities, as compared to using the Client ID.
 > Limits (varies by Engine):
 >
-> 1. Number of Activities that can be created. See [Activity and AppBundle Quotas](/en/docs/design-automation/v3/developers_guide/rate-limits/da-rate-limits/).
+> 1. Number of Activities that can be created. See [Activity and AppBundle Quotas](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/rate-limits/da-rate-limits/).
 
 ## [Resource Information](#resource-information)
 
@@ -27,7 +27,7 @@ It is highly recommended to [create nickname](/en/docs/design-automation/v3/refe
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [OAuth](/en/docs/oauth/v2/reference/http/gettoken-POST) |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [OAuth](../../oauth/http-docs/http-gettoken-POST.md) |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 
@@ -39,7 +39,7 @@ It is highly recommended to [create nickname](/en/docs/design-automation/v3/refe
 
 Expand all
 
-- commandLine*array: string Path to Engine executable with arguments. [Activity command line](/en/docs/design-automation/v3/developers_guide/field-guide#command-lines).
+- commandLine*array: string Path to Engine executable with arguments. [Activity command line](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/field-guide/#command-lines).
 - parametersobject Each parameter represents an input or output file. Inputs can be files or simply values to be read (string or json), if the read verb is used. Named parameters of an Activity have corresponding named arguments of a WorkItem.
 - *object Type: dictionary<string, [*](#id2)>
 - zipboolean This attribute together with the XrefTreeArgumentBase.PathInZip attribute determine how zip files are handled.
@@ -101,7 +101,7 @@ Amazon Simple Storage Service (S3):
 
 Expand all
 
-- commandLinearray: string Path to Engine executable with arguments. [Activity command line](/en/docs/design-automation/v3/developers_guide/field-guide#command-lines).
+- commandLinearray: string Path to Engine executable with arguments. [Activity command line](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/field-guide/#command-lines).
 - parametersobject Each parameter represents an input or output file. Named parameters of an Activity have corresponding named arguments of a WorkItem.
 - *object Type: dictionary<string, [*](#id12)>
 - zipboolean This attribute together with the XrefTreeArgumentBase.PathInZip attribute determine how zip files are handled.
@@ -155,7 +155,7 @@ You can use `adskusereportzip` key in the `settings` section of the request body
 
 ```
 
-The service automatically zips all files in the working directory (top level only) that match the pattern `report*.log` and makes resulting zip file available for download via the `reportUrl` that is returned in [GET workitems/:id](/en/docs/design-automation/v3/reference/workitems-id-GET)
+The service automatically zips all files in the working directory (top level only) that match the pattern `report*.log` and makes resulting zip file available for download via the `reportUrl` that is returned in [GET workitems/:id](https://aps.autodesk.com/en/docs/design-automation/v3/reference/workitems-id-GET/)
 
 ## [Example](#example)
 

@@ -14,13 +14,13 @@ For more information about working with submittals, see the [Help documentation]
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:read` `data:write` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` `data:write` scopes.
 - Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to create an item in by following the [Retrieve an Account ID and Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. In this example, assume the project ID is `91b5ea71-e3ea-495b-999d-57443a8af6a4`.
+- Find the relevant project ID for the project you want to create an item in by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `91b5ea71-e3ea-495b-999d-57443a8af6a4`.
 - Ensure you have assigned manager-level permissions to at least one user for the project via the UI. You will need to assign the submittal item to a user with manager-level permissions during the tutorial. For instructions on setting up roles and permissions see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Submittals_Permissions).
-- This tutorial assumes an item was created in Submit state `sbc-1` by a user with manager permissions. For more information on creating a submittal item, see the [Create a Submittal Item](/en/docs/acc/v1/tutorials/submittals/create-submittal-item/) tutorial.
-- This tutorial assumes that a review workflow has already been added to the item and that the workflow includes one step with one required task. Currently, the Submittals API does not support creating custom steps or tasks directly. The recommended approach is to associate the submittal item with a review template that already includes predefined steps and tasks. See the [Create Submittal Items](/en/docs/acc/v1/tutorials/submittals/create-submittal-item/#step-6-get-review-templates-optional) tutorial (step 6) for more details.
-- Some transitions, such as transitioning to the Review (`rev`) state, require a custom identifier. For more information on custom numbering and retrieving the next sequential identifier, see Step 4 of the [Create a Submittal Item Tutorial](/en/docs/acc/v1/tutorials/submittals/create-submittal-item/).
+- This tutorial assumes an item was created in Submit state `sbc-1` by a user with manager permissions. For more information on creating a submittal item, see the [Create a Submittal Item](submittals-create-submittal-item.md) tutorial.
+- This tutorial assumes that a review workflow has already been added to the item and that the workflow includes one step with one required task. Currently, the Submittals API does not support creating custom steps or tasks directly. The recommended approach is to associate the submittal item with a review template that already includes predefined steps and tasks. See the [Create Submittal Items](submittals-create-submittal-item.md#step-6-get-review-templates-optional) tutorial (step 6) for more details.
+- Some transitions, such as transitioning to the Review (`rev`) state, require a custom identifier. For more information on custom numbering and retrieving the next sequential identifier, see Step 4 of the [Create a Submittal Item Tutorial](submittals-create-submittal-item.md).
 - The Submittal Item workflow progresses through several sequential states. Below are the states in the UI and their equivalent API names:
     | UI State | API Name |
     | --- | --- |
@@ -32,7 +32,7 @@ For more information about working with submittals, see the [Help documentation]
 
 ## [Step 1: Verify User Permissions](#step-1-verify-user-permissions)
 
-Call [GET item](/en/docs/acc/v1/reference/http/submittals-items-itemId-GET/) using the project ID (`2570d4e5-9aef-4b41-8e45-a454f2f3fd65`) and the item ID (`2ae22463-83d2-4f1a-9b2f-6898e616bfc3`) to retrieve the relevant permissions for the user for the submttal item in Submit (`sbc-1`) state.
+Call [GET item](../http-docs/http-submittals-items-itemId-GET.md) using the project ID (`2570d4e5-9aef-4b41-8e45-a454f2f3fd65`) and the item ID (`2ae22463-83d2-4f1a-9b2f-6898e616bfc3`) to retrieve the relevant permissions for the user for the submttal item in Submit (`sbc-1`) state.
 
 - Look for the `permittedActions` array in the response.
 - Verify that the user can transition the submittal item by checking that the object with `id: "Item::wf_transition"` appears in this array.
@@ -42,7 +42,7 @@ Call [GET item](/en/docs/acc/v1/reference/http/submittals-items-itemId-GET/) usi
 > * General mandatory fields: These are listed under `"mandatoryFields"` in the object with `id: "Item::wf_transition"`.
 > * Specific mandatory fields: These are listed under `"mandatoryFields"` in the `transitions` array for the specific transition (e.g., `"sbc-1::mgr-1"`).
 
-Note that calling [GET item](/en/docs/acc/v1/reference/http/submittals-items-itemId-GET/) at any stage in the workflow will return the permitted actions for the user at that point in the workflow for that submittal item.
+Note that calling [GET item](../http-docs/http-submittals-items-itemId-GET.md) at any stage in the workflow will return the permitted actions for the user at that point in the workflow for that submittal item.
 
 ### Request
 
@@ -431,7 +431,7 @@ Show More
 
 ## [Step 2: Transition the Submittal Item to Prepare for Review (mgr-1) State](#step-2-transition-the-submittal-item-to-prepare-for-review-mgr-1-state)
 
-To promote the submittal item in the workflow and transition it from Submit (`sbc-1`) state to Prepare for Review (`mgr-1`) state, use [POST item:transition](/en/docs/acc/v1/reference/http/submittals-items-itemIdtransition-POST/).
+To promote the submittal item in the workflow and transition it from Submit (`sbc-1`) state to Prepare for Review (`mgr-1`) state, use [POST item:transition](../http-docs/http-submittals-items-itemIdtransition-POST.md).
 
 Use the following mandatory values collected in Step 1:
 
@@ -863,7 +863,7 @@ The submittal item has transitioned to `mgr-1` state.
 
 ## [Step 3: Retrieve Details for Transition to Review (rev) State](#step-3-retrieve-details-for-transition-to-review-rev-state)
 
-Before transitioning from Prepare for Review (`mgr-1`) state to Review (`rev`) state, you need to use the project ID and item ID to call [GET item](/en/docs/acc/v1/reference/http/submittals-items-itemId-GET/) to retrieve the information necessary for the transition (`mgr-1::rev`).
+Before transitioning from Prepare for Review (`mgr-1`) state to Review (`rev`) state, you need to use the project ID and item ID to call [GET item](../http-docs/http-submittals-items-itemId-GET.md) to retrieve the information necessary for the transition (`mgr-1::rev`).
 
 - Look for the `permittedActions` array in the response.
 - Verify that the user can transition the submittal item by checking that the transition object appears (`id: Item::wf_transition`).
@@ -941,7 +941,7 @@ Note the following values from the response, located within the `Item::wf_transi
 
 ## [Step 4: Transition to Review (rev) State](#step-4-transition-to-review-rev-state)
 
-Use [POST item:transition](/en/docs/acc/v1/reference/http/submittals-items-itemIdtransition-POST/) to transition the submittal item to Review (`rev`) state, using the values retrieved in Step 3:
+Use [POST item:transition](../http-docs/http-submittals-items-itemIdtransition-POST.md) to transition the submittal item to Review (`rev`) state, using the values retrieved in Step 3:
 
 - `stateId`: The target state ID (`rev`).
 - `customIdentifier`: A unique identifier for the item. You can set it either before or as part of the transition request. In this example, it was set beforehand when creating the item.
@@ -1324,7 +1324,7 @@ Once transitioned to the Review (`rev`) state, the first review step and task wi
 
 In submittals, a task represents a specific review action within a step. Each task corresponds to a review being carried out, with details about the assigned reviewer provided for context. The main objective of this step is to retrieve the Step ID and Task ID required to perform actions in later steps (e.g., submitting the reviewerâs review in Step 7).
 
-Additionally, the API identifies `Task::close` in the `permittedActions` array, defining the allowed action for submitting the reviewerâs review. This action requires specific fields, such as `responseId`, to be provided in [POST task/:id:close](/en/docs/acc/v1/reference/http/submittals-tasks-taskIdclose-POST/), ensuring the review is submitted and the workflow progresses.
+Additionally, the API identifies `Task::close` in the `permittedActions` array, defining the allowed action for submitting the reviewerâs review. This action requires specific fields, such as `responseId`, to be provided in [POST task/:id:close](../http-docs/http-submittals-tasks-taskIdclose-POST.md), ensuring the review is submitted and the workflow progresses.
 
 ### Request
 
@@ -1508,7 +1508,7 @@ Note the following:
 
 ## [Step 6: Retrieve the List of Possible Responses](#step-6-retrieve-the-list-of-possible-responses)
 
-To complete the review, the reviewer must submit a response. Use [GET responses](/en/docs/acc/v1/reference/http/submittals-responses-GET/) to fetch the available options.
+To complete the review, the reviewer must submit a response. Use [GET responses](../http-docs/http-submittals-responses-GET.md) to fetch the available options.
 
 ### Request
 
@@ -1609,7 +1609,7 @@ Select the appropriate Response ID (`results.id`) to complete the review in the 
 
 ## [Step 7: Submit the Reviewerâs Review](#step-7-submit-the-reviewers-review)
 
-The reviewer submits a review by adding the selected response using [POST task/:id:close](/en/docs/acc/v1/reference/http/submittals-tasks-taskIdclose-POST/).
+The reviewer submits a review by adding the selected response using [POST task/:id:close](../http-docs/http-submittals-tasks-taskIdclose-POST.md).
 
 As seen in Step 5, the `Task::close` permitted action requires the `responseId` field, and optionally, a `responseComment` can be included. When the last required task in a review step is submitted, the item transitions to the next step. If this is the final review step in the Review (`rev`) state, the workflow automatically advances to the Close and Distribute (`mgr-2`) state.
 
@@ -1682,7 +1682,7 @@ Note that the `status` field in the Task model is now updated to `completed`, in
 
 After each reviewer completes their assigned task (representing their review), the system transitions the workflow automatically to the Close and Distribute (`mgr-2`) state. To confirm the transition or check for additional tasks or steps, start by calling [GET steps](en/docs/acc/v1/reference/http/submittals-steps-GET/). This will verify whether there are any remaining tasks or review steps.
 
-Once you confirm that all tasks and review steps are complete, use [GET item](/en/docs/acc/v1/reference/http/submittals-items-itemId-GET/) to verify the submittalâs overall state and retrieve the permitted actions required for transitioning to the Closed (`sbc-2`) state.
+Once you confirm that all tasks and review steps are complete, use [GET item](../http-docs/http-submittals-items-itemId-GET.md) to verify the submittalâs overall state and retrieve the permitted actions required for transitioning to the Closed (`sbc-2`) state.
 
 ### Request
 
@@ -2050,7 +2050,7 @@ Note the following:
 
 ## [Step 9: Close the Submittal Item](#step-9-close-the-submittal-item)
 
-To close the submittal item, transition it to the Closed (`sbc-2`) state using [POST item:transition](/en/docs/acc/v1/reference/http/submittals-items-itemIdtransition-POST/). See Step 6 for the required `responseId`.
+To close the submittal item, transition it to the Closed (`sbc-2`) state using [POST item:transition](../http-docs/http-submittals-items-itemIdtransition-POST.md). See Step 6 for the required `responseId`.
 
 ### Request
 

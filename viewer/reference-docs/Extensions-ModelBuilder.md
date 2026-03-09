@@ -8,17 +8,17 @@ Autodesk.Viewing.Extensions
 
 # ModelBuilder
 
-Class that implements the API for building models dynamically. An instance of this class can be obtained after the Promise returned by [Autodesk.Viewing.Extensions.SceneBuilder#addNewModel](/en/docs/viewer/v7/reference/Extensions/SceneBuilder/#addNewModel/) is resolved.
+Class that implements the API for building models dynamically. An instance of this class can be obtained after the Promise returned by [Autodesk.Viewing.Extensions.SceneBuilder#addNewModel](Extensions-SceneBuilder.md#addNewModel/) is resolved.
 
 ## [new ModelBuilder(model, options)](#new-modelbuilder-model-options)
 
-The constructor is invoked automatically by [Autodesk.Viewing.Extensions.SceneBuilder](/en/docs/viewer/v7/reference/Extensions/SceneBuilder/).
+The constructor is invoked automatically by [Autodesk.Viewing.Extensions.SceneBuilder](Extensions-SceneBuilder.md).
 
 ### Parameters
 
 Expand all
 
-| model*   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | The model this build works on |
+| model*   [Autodesk.Viewing.Model](Viewing-Model.md) | The model this build works on |
 | --- | --- |
 | options   object | Options for the ModelBuilder |
 | conserveMemory   boolean | Set to true to turn on memory conservation mode. In this mode [addMesh()]`Autodesk.Viewing.Extensions.ModelBuilder#addMesh </en/docs/viewer/v7/reference/Extensions/ModelBuilder/#addMesh/>`_ is not available because a single mesh is shared among all of the fragments in the model. |
@@ -189,7 +189,7 @@ Remove a material from the model. The caller should dispose the material if need
 
 ## [addMesh(mesh)](#addmesh-mesh)
 
-Add a fragment to the model using a mesh. Meshes can only be added to the model when [Autodesk.Viewing.Extensions.ModelBuilder#isConservingMemory](/en/docs/viewer/v7/reference/Extensions/ModelBuilder/#isConservingMemory/) is false. Note the following restrictions:
+Add a fragment to the model using a mesh. Meshes can only be added to the model when [Autodesk.Viewing.Extensions.ModelBuilder#isConservingMemory](Extensions-ModelBuilder.md#isConservingMemory/) is false. Note the following restrictions:
 
 - A mesh cannot be used multiple times.
 - The geometry for a mesh cannot be used in different models.
@@ -206,7 +206,7 @@ Expand all
 | isPoint   boolean | Optional bool to mark point geometry |
 | fragId   number | The fragment id for the mesh. This must not be defined when addMesh() is called and the Viewer sets this property to the new fragment id. |
 | modeId   number | The id of the model. This must not be defined when addMesh() is called and the Viewer will set this to the id of the model for this ModelBuilder. |
-| dbId   number | An optional object id for the mesh. Meshes with the same object id are selected as a unit. Internal tables are maintained to link fragments and dbIds. If a mesh is in the scene you shouldnât change this value direcly. Call [Autodesk.Viewing.Extensions.ModelBuilder#changeFragmentsDbId](/en/docs/viewer/v7/reference/Extensions/ModelBuilder/#changeFragmentsDbId/) to change it to insure the tables are updated. |
+| dbId   number | An optional object id for the mesh. Meshes with the same object id are selected as a unit. Internal tables are maintained to link fragments and dbIds. If a mesh is in the scene you shouldnât change this value direcly. Call [Autodesk.Viewing.Extensions.ModelBuilder#changeFragmentsDbId](Extensions-ModelBuilder.md#changeFragmentsDbId/) to change it to insure the tables are updated. |
 
 * Required
 
@@ -218,7 +218,7 @@ Expand all
 
 ## [removeMesh(meshes)](#removemesh-meshes)
 
-Remove a mesh from the model. Meshes can only be removed from the model when [Autodesk.Viewing.Extensions.ModelBuilder#isConservingMemory](/en/docs/viewer/v7/reference/Extensions/ModelBuilder/#isConservingMemory/) is false.
+Remove a mesh from the model. Meshes can only be removed from the model when [Autodesk.Viewing.Extensions.ModelBuilder#isConservingMemory](Extensions-ModelBuilder.md#isConservingMemory/) is false.
 
 ### Parameters
 
@@ -272,7 +272,7 @@ Add a fragment to a model. A fragment is the combination of a geometry, a materi
 | --- | --- |
 | material*   string, THREE.material | The material or the name of the material instance for the fragment. A material name must be used by a material in the model, but a material will be added to the model if it hasnât already. |
 | transform   THREE.Matrix, Array.<number> | The transform for the fragment. Default is the identity transform. If an array is used it is a 4x3 matrix in column major order. |
-| bbox   THREE.Box3, Array.<number> | Bounding box for the fragment. Default is calculated from the geometry bounding box and the transform. When [Autodesk.Viewing.Extensions.ModelBuilder#isConservingMemory](/en/docs/viewer/v7/reference/Extensions/ModelBuilder/#isConservingMemory/) is true then this argument is ignored and the default is used. If an array is used it contains the minimum x, y, z followed by the maximum x, y, z. |
+| bbox   THREE.Box3, Array.<number> | Bounding box for the fragment. Default is calculated from the geometry bounding box and the transform. When [Autodesk.Viewing.Extensions.ModelBuilder#isConservingMemory](Extensions-ModelBuilder.md#isConservingMemory/) is true then this argument is ignored and the default is used. If an array is used it contains the minimum x, y, z followed by the maximum x, y, z. |
 
 * Required
 
@@ -292,7 +292,7 @@ Change the geometry and transform for a fragment.
 | --- | --- |
 | geometry*   number, THREE.BufferGeometry | The geometry or the id of the geometry for the fragment. Use a falsey value if the geometry for the fragment isnât ready. If the geometry hasnât been added to the model, this method will add it. Geometry must not be used in a different model. |
 | transform   THREE.Matrix, Array.<number> | The transform for the fragment. If not present the transform isnât changed. If an array is used it is a 4x3 matrix in column major order. |
-| bbox   THREE.Box3, Array.<number> | Bounding box for the fragment. Default is calculated from the geometry bounding box and the transform. When [Autodesk.Viewing.Extensions.ModelBuilder#isConservingMemory](/en/docs/viewer/v7/reference/Extensions/ModelBuilder/#isConservingMemory/) is true then this argument is ignored and the default is used. If an array is used it contains the minimum x, y, z followed by the maximum x, y, z. |
+| bbox   THREE.Box3, Array.<number> | Bounding box for the fragment. Default is calculated from the geometry bounding box and the transform. When [Autodesk.Viewing.Extensions.ModelBuilder#isConservingMemory](Extensions-ModelBuilder.md#isConservingMemory/) is true then this argument is ignored and the default is used. If an array is used it contains the minimum x, y, z followed by the maximum x, y, z. |
 
 * Required
 
@@ -329,7 +329,7 @@ Change the transform for a fragment.
 | fragment*   number, THREE.Mesh | The mesh or fragment id whose material is to be set. |
 | --- | --- |
 | transform*   THREE.Matrix, Array.<number> | The transform for the fragment. If an array is used it is a 4x3 matrix in column major order. |
-| bbox   THREE.Box3, Array.<number> | [bbox] Bounding box for the fragment. Default is calculated from the geometry bounding box and the transform. When [Autodesk.Viewing.Extensions.ModelBuilder#isConservingMemory](/en/docs/viewer/v7/reference/Extensions/ModelBuilder/#isConservingMemory/) is true then this argument is ignored and the default is used. If an array is used it contains the minimum x, y, z followed by the maximum x, y, z. |
+| bbox   THREE.Box3, Array.<number> | [bbox] Bounding box for the fragment. Default is calculated from the geometry bounding box and the transform. When [Autodesk.Viewing.Extensions.ModelBuilder#isConservingMemory](Extensions-ModelBuilder.md#isConservingMemory/) is true then this argument is ignored and the default is used. If an array is used it contains the minimum x, y, z followed by the maximum x, y, z. |
 
 * Required
 
@@ -376,7 +376,7 @@ Remove fragments from the model
 
 ## [packNormals(geometry)](#packnormals-geometry)
 
-Pack normals for geometry. Utility method automatically used when [Autodesk.Viewing.Extensions.ModelBuilder#isConservingMemory](/en/docs/viewer/v7/reference/Extensions/ModelBuilder/#isConservingMemory/) is true.
+Pack normals for geometry. Utility method automatically used when [Autodesk.Viewing.Extensions.ModelBuilder#isConservingMemory](Extensions-ModelBuilder.md#isConservingMemory/) is true.
 
 ### Parameters
 

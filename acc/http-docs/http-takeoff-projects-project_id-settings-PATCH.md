@@ -16,7 +16,7 @@ For more information about measurement system settings, see the [ACC Configure T
 
 Note that settings for Takeoff cannot be changed once takeoff types and items have been created in the project.
 
-To check if a project contains takeoff types and items, call [GET packages](/en/docs/acc/v1/reference/http/takeoff-projects-project_id-packages-GET) and use the package IDs (`results[i].id`) to call [GET takeoff-types](/en/docs/acc/v1/reference/http/takeoff-projects-project_id-packages-package_id-takeoff-types-GET).
+To check if a project contains takeoff types and items, call [GET packages](http-takeoff-projects-project_id-packages-GET.md) and use the package IDs (`results[i].id`) to call [GET takeoff-types](http-takeoff-projects-project_id-packages-package_id-takeoff-types-GET.md).
 
 Note that this endpoint is not compatible with BIM 360 projects.
 
@@ -32,9 +32,9 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
-| region   string | Specifies the region where the service is located. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](/en/docs/acc/v1/overview/acc-regions) page. |
+| region   string | Specifies the region where the service is located. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
 | Content-Type*   string | Must be `application/json` |
 
 * Required
@@ -43,7 +43,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>This corresponds to project ID in the [Data Management API](/en/docs/data/v2/), and can be specified in the form of âUUIDâ or b.âUUIDâ.<br>To learn how to find the project ID, see the [Retrieve ACC Account and project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. |
+| projectId   string: UUID | The ID of the project. <br>This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/), and can be specified in the form of âUUIDâ or b.âUUIDâ.<br>To learn how to find the project ID, see the [Retrieve ACC Account and project ID](../how-to-docs/getting-started-retrieve-account-and-project-id.md) tutorial. |
 | --- | --- |
 
 ### Request

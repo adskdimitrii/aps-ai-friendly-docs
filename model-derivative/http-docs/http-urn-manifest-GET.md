@@ -16,7 +16,7 @@ The manifest is a JSON file containing information about all the derivatives tra
 
 The first time you translate a source design, the Model Derivative service creates a manifest for that design. Thereafter, every time you translate that source design, even to a different format, the Model Derivative service updates the same manifest rather than creating a new one. The manifest acts as a central registry for all the derivatives of your source design created through the Model Derivative service.
 
-When the Model Derivative service starts a translation job (as a result of a request you make using [Create Translation Job](/en/docs/model-derivative/v2/reference/http/jobs/job-POST/)), it updates the manifest at regular intervals. You can use the manifest to check the status and progress of each derivative being generated. When multiple derivatives have been requested, each may complete at a different time. Each derivative has its own `status` attribute. The manifest also contains an overall `status` attribute. The overall `status` becomes `complete` when the `status` of all individual derivatives become complete.
+When the Model Derivative service starts a translation job (as a result of a request you make using [Create Translation Job](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/http/jobs/job-POST/)), it updates the manifest at regular intervals. You can use the manifest to check the status and progress of each derivative being generated. When multiple derivatives have been requested, each may complete at a different time. Each derivative has its own `status` attribute. The manifest also contains an overall `status` attribute. The overall `status` becomes `complete` when the `status` of all individual derivatives become complete.
 
 Once the translation status of a derivative is `complete`, you can download the derivative.
 
@@ -34,7 +34,7 @@ Once the translation status of a derivative is `complete`, you can download the 
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](/en/docs/oauth/v2/tutorials/get-2-legged-token/), or a three-legged access token obtained via an [Authorization Code flow](/en/docs/oauth/v2/tutorials/get-3-legged-token/) or a [Secure Service Account flow](/en/docs/ssa/v1/tutorials/getting-started-with-ssa/task3-generate-3-legged-access-token/). The Secure Service Account flow generates tokens without user interaction but maintains user context for headless server-to-server operations. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account flow](https://aps.autodesk.com/en/docs/ssa/v1/tutorials/getting-started-with-ssa/task3-generate-3-legged-access-token/). The Secure Service Account flow generates tokens without user interaction but maintains user context for headless server-to-server operations. |
 | --- | --- |
 | Accept-Encoding   string | A comma separated list of the algorithms you want the response to be encoded in, specified in the order of preference. <br>If you specify `gzip` or `*`, content is compressed and returned in gzip format. |
 | region   string | Specifies the data center where the manifest and derivatives of the specified source design are stored. Possible values are: <br>`US` - (Default) Data center for the US region.`EMEA` - Data center for the European Union, Middle East, and Africa.`AUS` - Data center for the Australia region.`CAN` - Data center for the Canada region.`DEU` - Data center for the Germany region.`IND` - Data center for the India region.`JPN` - Data center for the Japan region.`GBR` - Data center for the United Kingdom region. |
@@ -118,7 +118,7 @@ Expand all
 
 Hint:
 
-The following examples return raw HTTP headers and JSON objects. For a more developer-friendly experience, consider using our [TypeScript SDK](/en/docs/model-derivative/v2/reference/typescript-sdk/) or [.NET SDK](/en/docs/model-derivative/v2/reference/dot-net-sdk). Both provide strongly typed data with IntelliSense support, offering code completion, error checking, and tooltips that reduce the need to reference JSON schemas.
+The following examples return raw HTTP headers and JSON objects. For a more developer-friendly experience, consider using our [TypeScript SDK](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/typescript-sdk/) or [.NET SDK](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/dot-net-sdk/). Both provide strongly typed data with IntelliSense support, offering code completion, error checking, and tooltips that reduce the need to reference JSON schemas.
 
  
 

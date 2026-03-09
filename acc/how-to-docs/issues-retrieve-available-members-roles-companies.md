@@ -10,27 +10,27 @@ This tutorial demonstrates how to determine the members of a project. This is im
 
 In addition, the tutorial shows how to verify the company that was assigned to each user within the project. This information is important when the person assigning an issue has *Create for my company* permissions or when adding or removing a watcher who has *Create for my company* permissions. This is because an assigner with *Create for my company* permissions can only assign an issue to someone who is a member of the same company.
 
-This workflow uses the [Data Connector](/en/docs/bim360/v1/overview/field-guide/data-connector/) API to extract project user and user company data in CSV files.
+This workflow uses the [Data Connector](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/data-connector/) API to extract project user and user company data in CSV files.
 
 Note that this workflow is a temporary method for determining permissions, and we will be releasing endpoints that directly retrieve project users by companies in the near future.
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with the `data:read` scope.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:read` scope.
 - Verify that you have project admin or executive overview permissions.
 - Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to retrieve users for by following the [Retrieve an Account ID and Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. In this example, assume the account ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`, and the project ID is `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`.
+- Find the relevant project ID for the project you want to retrieve users for by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the account ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`, and the project ID is `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`.
 
 ## [Step 1: Submit a Data Request](#step-1-submit-a-data-request)
 
-Submit a data request by calling [POST requests](/en/docs/acc/v1/reference/http/data-connector-requests-POST) using the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to retrieve the data about the project including the members of the project and the companies associated with the users. Specify the `admin` service group to get information about users and companies.
+Submit a data request by calling [POST requests](../http-docs/http-data-connector-requests-POST.md) using the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to retrieve the data about the project including the members of the project and the companies associated with the users. Specify the `admin` service group to get information about users and companies.
 
-In this tutorial we will use a callback URL to retrieve the data. For details about the workflow for polling the data see the [Data Connector](/en/docs/bim360/v1/tutorials/data-connector/) tutorials.
+In this tutorial we will use a callback URL to retrieve the data. For details about the workflow for polling the data see the [Data Connector](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/data-connector/) tutorials.
 
 Note that the data extraction process can take time depending on the amount of data that you are retrieving.
 
-We recommend that you set up the workflow to extract data once a day (`DAY`) so you can update your database every day. For more details about different data extraction interval options, see [POST requests](/en/docs/bim360/v1/reference/http/data-connector-requests-POST/). Note that the user needs to have project admin or executive overview permissions.
+We recommend that you set up the workflow to extract data once a day (`DAY`) so you can update your database every day. For more details about different data extraction interval options, see [POST requests](../http-docs/http-data-connector-requests-POST.md). Note that the user needs to have project admin or executive overview permissions.
 
 ### Request
 
@@ -196,7 +196,7 @@ The files contain data about the project, including information about project me
 
 ## [Step 4: Download the Files from the Data Extract](#step-4-download-the-files-from-the-data-extract)
 
-To dowload project data call [GET jobs/:jobId/data/:name](/en/docs/acc/v1/reference/http/data-connector-jobs-jobId-data-name-GET) specifying the relevant files:
+To dowload project data call [GET jobs/:jobId/data/:name](../http-docs/http-data-connector-jobs-jobId-data-name-GET.md) specifying the relevant files:
 
 - `admin_users.csv`
 - `admin_companies.csv`

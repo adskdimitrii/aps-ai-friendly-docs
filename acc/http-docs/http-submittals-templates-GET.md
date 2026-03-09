@@ -10,11 +10,11 @@ GET
 
 # projects/{projectId}/templates
 
-Retrieves a list of review templates available for a project. Each review template contains predefined steps and tasks that streamline the review workflow and can be applied to submittal items during their creation using [POST items](/en/docs/acc/v1/reference/http/submittals-items-POST/).
+Retrieves a list of review templates available for a project. Each review template contains predefined steps and tasks that streamline the review workflow and can be applied to submittal items during their creation using [POST items](http-submittals-items-POST.md).
 
 Currently, review templates must be created in the UI. For instructions on creating review templates, see the [Submittal Review Templates Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Submittal_Review_Templates).
 
-For a detailed overview of the submittal workflow, see the [Manage Submittal Item Transitions tutorial](/en/docs/acc/v1/tutorials/submittals/submittal-transitions.rst/).
+For a detailed overview of the submittal workflow, see the [Manage Submittal Item Transitions tutorial](../how-to-docs/submittals-submittal-transitions.rst.md).
 
 ## [Resource Information](#resource-information)
 
@@ -28,7 +28,7 @@ For a detailed overview of the submittal workflow, see the [Manage Submittal Ite
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 
 * Required
@@ -37,7 +37,7 @@ For a detailed overview of the submittal workflow, see the [Manage Submittal Ite
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Request
@@ -90,7 +90,7 @@ Expand all
 | updatedAt   datetime: ISO 8601 | The date and time when the template was last updated, formatted as YYYY-MM-DDTHH:mm:ss.SSSSSSZ (ISO 8601) in UTC. For example, `2025-01-20T12:00:00.198466Z`. |
 | updatedBy   string | The Autodesk ID of the user that last updated the template. |
 | watchers   array: object | A list of project watchers, who can be individual users, roles, or companies. |
-| id   string | The Autodesk ID of the watcher. The watcher can be a user (`autodeskId`), role (`memberGroupId`), or company (`memberGroupId`). <br>To find details about users, call [GET users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/). Note that we do not currently support finding details about roles for a project. |
+| id   string | The Autodesk ID of the watcher. The watcher can be a user (`autodeskId`), role (`memberGroupId`), or company (`memberGroupId`). <br>To find details about users, call [GET users](http-admin-projectsprojectId-users-GET.md), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/). Note that we do not currently support finding details about roles for a project. |
 | userType   object | The type of watcher assigned to the submittal item. <br>Possible values:<br>`1` (user)`2` (company)`3` (role) |
 
 ## [Example](#example)

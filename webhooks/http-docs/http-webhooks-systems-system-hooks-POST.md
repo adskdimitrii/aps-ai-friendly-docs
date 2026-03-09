@@ -22,7 +22,7 @@ Add new webhooks to receive the notification on all the events.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [OAuth](/en/docs/oauth/v2/reference/http/gettoken-POST) |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [OAuth](../../oauth/http-docs/http-gettoken-POST.md) |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 | x-ads-region   string | Specifies the geographical location (region) of the server that the request is executed on. Supported values are the following, but the default value is `US`: <br>`US` : (Default) Register new webhooks in a data center dedicated to serve the United States.`EMEA` : Register new webhooks in a data center dedicated to serve the European Union, Middle East, and Africa.`AUS` : (Beta) Register new webhooks in a data center dedicated to serve Australia.`GBR` : Register new webhooks in a data center dedicated to serve United Kingdom.`JPN` : Register new webhooks in a data center dedicated to serve Japan.`DEU` : Register new webhooks in a data center dedicated to serve Germany.`CAN` : Register new webhooks in a data center dedicated to serve Canada.`IND` : Register new webhooks in a data center dedicated to serve India. |
@@ -43,13 +43,13 @@ Add new webhooks to receive the notification on all the events.
 
 | callbackUrl*   string | Callback URL registered for the webhook |
 | --- | --- |
-| scope*   object | An object that represents the extent to where the event is monitored. For example, if the scope is folder, the webhooks service generates a notification for the specified event occurring in any sub folder or item within that folder. Please refer to the individual event specification pages for valid scopes. For example, [Data Management events](/en/docs/webhooks/v1/reference/events/data_management_events). |
+| scope*   object | An object that represents the extent to where the event is monitored. For example, if the scope is folder, the webhooks service generates a notification for the specified event occurring in any sub folder or item within that folder. Please refer to the individual event specification pages for valid scopes. For example, [Data Management events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/data_management_events/). |
 | hookAttribute   object | A user-defined JSON object, which you can use to store/set some custom information. The maximum size of the JSON object (content) should be less than 1KB |
 | filter   string | JsonPath expression that can be used by you to filter the callbacks you receive. |
 | hubId   string | Optional field which should be provided if the user is a member of a large number of projects. This hub ID corresponds to an account ID in the BIM 360 API, prefixed by âb.â |
 | projectId   string | Optional field which should be provided if the user is a member of a large number of projects. This project ID corresponds to the project ID in the BIM 360 API, prefixed by âb.â |
 | tenant   string | The tenant that the event is from. If the tenant is specified on the hook, then either the tenant or the scopeValue of the event must match the tenant of the hook. |
-| autoReactivateHook   boolean | Optional. Flag to enable the hook for the automatic reactivation flow. Please see [Event Delivery Guarantees](/en/docs/webhooks/v1/developers_guide/event-delivery-guarantees) for more details. |
+| autoReactivateHook   boolean | Optional. Flag to enable the hook for the automatic reactivation flow. Please see [Event Delivery Guarantees](https://aps.autodesk.com/en/docs/webhooks/v1/developers_guide/event-delivery-guarantees/) for more details. |
 | hookExpiry   string | Optional. ISO8601 formatted date and time when the hook should expire and automatically be deleted. Not providing this parameter means the hook never expires. |
 | callbackWithEventPayloadOnly   boolean | Optional. If âtrueâ, the callback request payload only contains the event payload, without additional information on the hook. Hook attributes will not be accessible if this is âtrueâ. Defaults to âfalseâ. |
 
@@ -80,8 +80,8 @@ Add new webhooks to receive the notification on all the events.
 | hooks.hooks[i].createdDate   date | Date and time when webhook was created |
 | hooks.hooks[i].event   string | Type of event that is being monitored. Wildcard values can potentially represent more than one event being monitored depending on the matching pattern. |
 | hooks.hooks[i].scope   object | An object that represents the extent to where the event is monitored. For example, if the scope is folder, the webhooks service generates a notification for the specified event occurring in any sub folder or item within that folder |
-| hooks.hooks[i].scope.folder   string | Data Management event scope, see [here](/en/docs/webhooks/v1/tutorials/create-a-hook-data-management/) for more information |
-| hooks.hooks[i].scope.workflow   string | Model Derivative event scope, see [here](/en/docs/webhooks/v1/tutorials/create-a-hook-model-derivative/) for more information. |
+| hooks.hooks[i].scope.folder   string | Data Management event scope, see [here](../how-to-docs/create-a-hook-data-management.md) for more information |
+| hooks.hooks[i].scope.workflow   string | Model Derivative event scope, see [here](../how-to-docs/create-a-hook-model-derivative.md) for more information. |
 | hooks.hooks[i].status   string | `active` if webhook is active; otherwise `inactive` |
 | hooks.hooks[i].urn   string | URN of the webhook |
 | hooks.hooks[i].hookExpiry   string | Optional: ISO8601 formatted date and time when the hook should expire and automatically be deleted. `null` or not present means the hook never expires. |

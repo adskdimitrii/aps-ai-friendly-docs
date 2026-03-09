@@ -17,14 +17,14 @@ The steps of the walkthrough include finding the ID of the model that you want t
 
 - Acquire a subscription to [BIM 360 Design](https://info.bim360.autodesk.com/bim-360-design). Note that anyone subscribed to Revit Collaboration Suite is automatically granted access to BIM 360 Design.
 - [Register an app](/myapps), and select the Data Management, BIM 360, and Webhooks APIs.
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token) with `data:create` `data:read` and `data:write` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create` `data:read` and `data:write` scopes.
 - Verify that you have access to the relevant BIM 360 Docs folder.
 
 ## [Step 1: Find the Hub ID for the BIM 360 Account](#step-1-find-the-hub-id-for-the-bim-360-account)
 
 The first few steps of the walkthrough demonstrate how to iterate through several Data Management endpoints to find the ID of the cloud workshared Revit model you want to update.
 
-Call [GET hubs](/en/docs/data/v2/reference/http/hubs-GET) to find the hub ID for the BIM 360 account that contains the model you want to update .
+Call [GET hubs](../http-docs/http-hubs-GET.md) to find the hub ID for the BIM 360 account that contains the model you want to update .
 
 In this example, assume that the model you want to update is in a hub called `DemoAccount`.
 
@@ -76,7 +76,7 @@ Find the hub (`data.attributes.name`), and note the hub ID - `b.ddde928d-b610-4b
 
 ## [Step 2: Find the project ID](#step-2-find-the-project-id)
 
-Use the hub ID (`b.ddde928d-b610-4b18-b43d-2915ad438a84`) to call [GET hubs/:hub_id/projects](/en/docs/data/v2/reference/http/hubs-hub_id-projects-GET) to get the ID of the project that contains the model you want to update.
+Use the hub ID (`b.ddde928d-b610-4b18-b43d-2915ad438a84`) to call [GET hubs/:hub_id/projects](../http-docs/http-hubs-hub_id-projects-GET.md) to get the ID of the project that contains the model you want to update.
 
 In this example, assume that the model you want to update is in a project called `DemoProject`.
 
@@ -126,7 +126,7 @@ Find the project (`data.attributes.name`), and note the project ID (`data.id`) -
 
 ## [Step 3: Find the Project Files Folder ID](#step-3-find-the-project-files-folder-id)
 
-Use the hub ID (`b.ddde928d-b610-4b18-b43d-2915ad438a84`) and the project ID (`b.c8112490-4e08-435c-994b-64fe60fea507`) to call [GET hubs/:hub_id/projects/:project_id/topFolders](/en/docs/data/v2/reference/http/hubs-hub_id-projects-project_id-topFolders-GET) to get the Project Files folder ID.
+Use the hub ID (`b.ddde928d-b610-4b18-b43d-2915ad438a84`) and the project ID (`b.c8112490-4e08-435c-994b-64fe60fea507`) to call [GET hubs/:hub_id/projects/:project_id/topFolders](../http-docs/http-hubs-hub_id-projects-project_id-topFolders-GET.md) to get the Project Files folder ID.
 
 Note that you can only publish the latest synchronized cloud workshared Revit models to the BIM 360 Project Files folder or to a folder nested under the Project Files folder.
 
@@ -180,11 +180,11 @@ Find the Project Files folder (`data.attributes.name`), and note the folder ID (
 
 In this example, assume that the model you want to update is in the Project Files folder.
 
-Note that if you want to publish the document to a folder nested under the Project Files folder, you need to call [GET projects/:project_id/folders/:folder_id/contents](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-contents-GET) repeatedly through the hierarchy of folders until you find the Folder ID of the folder that contains the model you want to update. For the first iteration, use the Project Files ID (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`).
+Note that if you want to publish the document to a folder nested under the Project Files folder, you need to call [GET projects/:project_id/folders/:folder_id/contents](../http-docs/http-projects-project_id-folders-folder_id-contents-GET.md) repeatedly through the hierarchy of folders until you find the Folder ID of the folder that contains the model you want to update. For the first iteration, use the Project Files ID (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`).
 
 ## [Step 4: Find the Item ID of the Cloud Workshared Model](#step-4-find-the-item-id-of-the-cloud-workshared-model)
 
-Use the project ID (`b.c8112490-4e08-435c-994b-64fe60fea507`) and the folder ID (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`) to call [GET projects/:project_id/folders/:folder_id/contents](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-contents-GET) to get the ID of the model (item) you want to update.
+Use the project ID (`b.c8112490-4e08-435c-994b-64fe60fea507`) and the folder ID (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`) to call [GET projects/:project_id/folders/:folder_id/contents](../http-docs/http-projects-project_id-folders-folder_id-contents-GET.md) to get the ID of the model (item) you want to update.
 
 Use the `items:autodesk.bim360:C4RModel` filter to filter out non-cloud workshared Revit files.
 
@@ -270,9 +270,9 @@ Find the model (`data[i].attributes.displayName`), and note the item ID (`data.i
 
 ## [Step 5: (Optional) Verify Whether a Model Needs to Be Published](#step-5-optional-verify-whether-a-model-needs-to-be-published)
 
-Use the project ID (`b.c8112490-4e08-435c-994b-64fe60fea507`) and item ID of the model (`urn:adsk.wipprod:dm.lineage:hPW2BlBbQG2L5HjCOh7Z8Q`) to call the [GetPublishModelJob](/en/docs/data/v2/reference/http/GetPublishModelJob) command to verify whether a model needs to be published.
+Use the project ID (`b.c8112490-4e08-435c-994b-64fe60fea507`) and item ID of the model (`urn:adsk.wipprod:dm.lineage:hPW2BlBbQG2L5HjCOh7Z8Q`) to call the [GetPublishModelJob](../http-docs/http-GetPublishModelJob.md) command to verify whether a model needs to be published.
 
-Every time you [synchronize the current model](https://knowledge.autodesk.com/support/collaboration-for-revit/learn-explore/caas/video/youtube/watch-v-RMlxaygDaU8.html) with the central model, it sets the `data` attribute of the [GetPublishModelJob](/en/docs/data/v2/reference/http/GetPublishModelJob) command to `null`. When you publish the latest version to BIM 360 Docs (using the [PublishModel](/en/docs/data/v2/reference/http/PublishModel) command or the [PublishWithoutLinks](/en/docs/data/v2/reference/http/PublishWithoutLinks) command), it sets the status to `processing` or `complete`.
+Every time you [synchronize the current model](https://knowledge.autodesk.com/support/collaboration-for-revit/learn-explore/caas/video/youtube/watch-v-RMlxaygDaU8.html) with the central model, it sets the `data` attribute of the [GetPublishModelJob](../http-docs/http-GetPublishModelJob.md) command to `null`. When you publish the latest version to BIM 360 Docs (using the [PublishModel](../http-docs/http-PublishModel.md) command or the [PublishWithoutLinks](../http-docs/http-PublishWithoutLinks.md) command), it sets the status to `processing` or `complete`.
 
 You can use this command to find out whether the model in BIM 360 Docs is the latest version, or whether it needs to be published.
 
@@ -344,7 +344,7 @@ Show More
 
 ## [Step 6: Publish the Latest Version of the Model to BIM 360 Docs](#step-6-publish-the-latest-version-of-the-model-to-bim-360-docs)
 
-Use the project ID (`b.c8112490-4e08-435c-994b-64fe60fea507`) and item ID (`urn:adsk.wipprod:dm.lineage:hPW2BlBbQG2L5HjCOh7Z8Q`) to call the [PublishModel](/en/docs/data/v2/reference/http/PublishModel) command to publish the latest version of the model to BIM 360 Docs or the [PublishWithoutLinks](/en/docs/data/v2/reference/http/PublishWithoutLinks) command to publish the latest version of the model without the links it contains to BIM 360 Docs.
+Use the project ID (`b.c8112490-4e08-435c-994b-64fe60fea507`) and item ID (`urn:adsk.wipprod:dm.lineage:hPW2BlBbQG2L5HjCOh7Z8Q`) to call the [PublishModel](../http-docs/http-PublishModel.md) command to publish the latest version of the model to BIM 360 Docs or the [PublishWithoutLinks](../http-docs/http-PublishWithoutLinks.md) command to publish the latest version of the model without the links it contains to BIM 360 Docs.
 
 Note that you do not need to create an empty storage object when publishing a model using the PublishModel command or PublishModelWithoutLinks command.
 
@@ -454,11 +454,11 @@ Show More
 
 ## [Step 7: Verify the Model Has Finished Publishing](#step-7-verify-the-model-has-finished-publishing)
 
-The [PublishModel](/en/docs/data/v2/reference/http/PublishModel) and [PublishWithoutLinks](/en/docs/data/v2/reference/http/PublishWithoutLinks) commands are asynchronous and initiate a job that runs in the background, rather than halting execution of your program. When the model has finished publishing to BIM 360 Docs, a new version of the model is created. There are two ways that you can track the jobâs progress:
+The [PublishModel](../http-docs/http-PublishModel.md) and [PublishWithoutLinks](../http-docs/http-PublishWithoutLinks.md) commands are asynchronous and initiate a job that runs in the background, rather than halting execution of your program. When the model has finished publishing to BIM 360 Docs, a new version of the model is created. There are two ways that you can track the jobâs progress:
 
 ### a) Manually Poll for the Status
 
-Use the project ID (`b.c8112490-4e08-435c-994b-64fe60fea507`) and item ID (`urn:adsk.wipprod:dm.lineage:hPW2BlBbQG2L5HjCOh7Z8Q`) to iteratively call [GET projects/:project_id/items/:item_id](/en/docs/data/v2/reference/http/projects-project_id-items-item_id-GET), which returns the extraction status of the latest (tip) version of the model.
+Use the project ID (`b.c8112490-4e08-435c-994b-64fe60fea507`) and item ID (`urn:adsk.wipprod:dm.lineage:hPW2BlBbQG2L5HjCOh7Z8Q`) to iteratively call [GET projects/:project_id/items/:item_id](../http-docs/http-projects-project_id-items-item_id-GET.md), which returns the extraction status of the latest (tip) version of the model.
 
 When `included[i].data.extractState` is set to `SUCCESS`, the model has finished publishing.
 
@@ -554,9 +554,9 @@ Show More
 
 ### b) Set up Automatic Notifications
 
-You can also track the jobâs progress by setting up [webhooks](/en/docs/webhooks/v1/overview) to send automatic notifications whenever the folder that you published the model to is updated.
+You can also track the jobâs progress by setting up [webhooks](https://aps.autodesk.com/en/docs/webhooks/v1/overview/) to send automatic notifications whenever the folder that you published the model to is updated.
 
-[Register the webhook](/en/docs/webhooks/v1/tutorials/create-a-hook-data-management) (`scope.folder`) to the Project Files folder (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`), and set up notifications to be triggered when a file is modified (`dm.version.modified`) in the folder.
+[Register the webhook](../../webhooks/how-to-docs/create-a-hook-data-management.md) (`scope.folder`) to the Project Files folder (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`), and set up notifications to be triggered when a file is modified (`dm.version.modified`) in the folder.
 
 Every time a file in the folder is modified, you receive details about the event.
 
@@ -611,6 +611,6 @@ Every time a file in the folder is modified, you receive details about the event
 
 Show More
 
-Note the item ID, i.e., `lineageURN` - `urn:adsk.wipprod:dm.lineage:hPW2BlBbQG2L5HjCOh7Z8Q`. If it is a cloud workshared Revit model that you published, use it to call [GET projects/:project_id/items/:item_id](/en/docs/data/v2/reference/http/projects-project_id-items-item_id-GET), which returns the extraction status of the latest (tip) version of the model.
+Note the item ID, i.e., `lineageURN` - `urn:adsk.wipprod:dm.lineage:hPW2BlBbQG2L5HjCOh7Z8Q`. If it is a cloud workshared Revit model that you published, use it to call [GET projects/:project_id/items/:item_id](../http-docs/http-projects-project_id-items-item_id-GET.md), which returns the extraction status of the latest (tip) version of the model.
 
 When `included[i].data.extractState` is set to `SUCCESS`, the model has finished publishing.

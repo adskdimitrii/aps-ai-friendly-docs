@@ -11,8 +11,8 @@ This tutorial shows how to find and update an existing data request stored by th
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:create`, `data:read`, and `data:write` scopes. The tokenâs authenticated user must have executive overview permissions.
-- Verify that you have access to a relevant BIM 360 account that contains at least one project. If you donât know your account ID, you can derive it from your hub ID: Use [GET hubs](/en/docs/data/v2/reference/http/hubs-GET/) in the Data Management API to retrieve your hub ID. Remove the initial âb.â from the hub ID to get your account ID. For example, a hub ID of `b.c8b0c73d-3ae9` translates to an account ID of `c8b0c73d-3ae9`.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create`, `data:read`, and `data:write` scopes. The tokenâs authenticated user must have executive overview permissions.
+- Verify that you have access to a relevant BIM 360 account that contains at least one project. If you donât know your account ID, you can derive it from your hub ID: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial âb.â from the hub ID to get your account ID. For example, a hub ID of `b.c8b0c73d-3ae9` translates to an account ID of `c8b0c73d-3ae9`.
 
 ## [Step 1: Get a List of Saved Requests](#step-1-get-a-list-of-saved-requests)
 

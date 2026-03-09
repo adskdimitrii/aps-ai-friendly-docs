@@ -21,8 +21,8 @@ You will use the following operations to work with WorkItems in this task:
 
 | HTTP Request | Description |
 | --- | --- |
-| [POST /workitems](/en/docs/design-automation/v3/reference/http/workitems-POST) | Creates a new WorkItem and queues it for processing. |
-| [GET /workitems/{id}](/en/docs/design-automation/v3/reference/http/workitems-id-GET) | Gets the status of a specific WorkItem. |
+| [POST /workitems](../http-docs/http-workitems-POST.md) | Creates a new WorkItem and queues it for processing. |
+| [GET /workitems/{id}](../http-docs/http-workitems-id-GET.md) | Gets the status of a specific WorkItem. |
 
 ## [Step 1 - Generate a Personal Access Token](#step-1-generate-a-personal-access-token)
 
@@ -85,7 +85,7 @@ A WorkItemâs processing time will vary depending on the size and complexity
 In this walkthrough, you will be checking the WorkItem status to see if it has completed.
 However, the best practice is to use the `onComplete` argument when submitting a WorkItem.
 The onComplete argument lets you specify a callback URL, which will be called once the WorkItem is completed.
-For more information see the documentation on callbacks [here](/en/docs/design-automation/v3/developers_guide/callbacks/).
+For more information see the documentation on callbacks [here](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/callbacks/).
 
 You can check the status of a WorkItem by calling `[GET] /workitems/{id}`:
 

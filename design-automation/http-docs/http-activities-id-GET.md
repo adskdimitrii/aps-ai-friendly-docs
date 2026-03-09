@@ -22,7 +22,7 @@ Gets the details of the specified Activity. Note that the {id} parameter must be
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [OAuth](/en/docs/oauth/v2/reference/http/gettoken-POST) |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [OAuth](../../oauth/http-docs/http-gettoken-POST.md) |
 | --- | --- |
 
 * Required
@@ -51,7 +51,7 @@ Gets the details of the specified Activity. Note that the {id} parameter must be
 
 Expand all
 
-- commandLinearray: string Path to Engine executable with arguments. [Activity command line](/en/docs/design-automation/v3/developers_guide/field-guide#command-lines).
+- commandLinearray: string Path to Engine executable with arguments. [Activity command line](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/field-guide/#command-lines).
 - parametersobject Each parameter represents an input or output file. Named parameters of an Activity have corresponding named arguments of a WorkItem.
 - *object Type: dictionary<string, [*](#id3)>
 - zipboolean This attribute together with the XrefTreeArgumentBase.PathInZip attribute determine how zip files are handled.

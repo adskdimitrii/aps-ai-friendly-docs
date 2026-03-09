@@ -11,7 +11,7 @@ This walkthrough demonstrates how to retrieve your webhooks.
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Successfully [acquire an OAuth token](/en/docs/oauth/v2/tutorials/get-2-legged-token/) with appropriate authentication scopes.
+- Successfully [acquire an OAuth token](../../oauth/how-to-docs/get-2-legged-token.md) with appropriate authentication scopes.
 
 ## [Retrieve your webhooks](#id1)
 
@@ -21,12 +21,12 @@ Note: There are multiple ways to retrieve list of webhooks.
 
 | Endpoint | Description |
 | --- | --- |
-| [GET systems/:system/events/:event/hooks/:hook_id](/en/docs/webhooks/v1/reference/http/systems-system-events-event-hooks-hook_id-GET) | Retrieves the details about a webhook for a specified event. |
-| [GET systems/:system/events/:event/hooks](/en/docs/webhooks/v1/reference/http/systems-system-events-event-hooks-GET) | Retrieves a paginated list of all the webhooks for a specified event in a system. |
-| [GET systems/:system/hooks](/en/docs/webhooks/v1/reference/http/systems-system-hooks-GET) | Retrieves a paginated list of all the webhooks of a specified system. |
-| [GET hooks](/en/docs/webhooks/v1/reference/http/hooks-GET) | Retrieves a paginated list of all the webhooks. |
+| [GET systems/:system/events/:event/hooks/:hook_id](https://aps.autodesk.com/en/docs/webhooks/v1/reference/http/systems-system-events-event-hooks-hook_id-GET/) | Retrieves the details about a webhook for a specified event. |
+| [GET systems/:system/events/:event/hooks](https://aps.autodesk.com/en/docs/webhooks/v1/reference/http/systems-system-events-event-hooks-GET/) | Retrieves a paginated list of all the webhooks for a specified event in a system. |
+| [GET systems/:system/hooks](https://aps.autodesk.com/en/docs/webhooks/v1/reference/http/systems-system-hooks-GET/) | Retrieves a paginated list of all the webhooks of a specified system. |
+| [GET hooks](https://aps.autodesk.com/en/docs/webhooks/v1/reference/http/hooks-GET/) | Retrieves a paginated list of all the webhooks. |
 
-You can find additional details in [API Reference](/en/docs/webhooks/v1/reference/http/systems-system-events-event-hooks-GET) section.
+You can find additional details in [API Reference](https://aps.autodesk.com/en/docs/webhooks/v1/reference/http/systems-system-events-event-hooks-GET/) section.
 
 ## [Example](#example)
 

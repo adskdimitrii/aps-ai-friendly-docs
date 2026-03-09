@@ -11,13 +11,13 @@ This tutorial demonstrates how to download attachments that were added to issues
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with the `data:read` scope.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:read` scope.
 - Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to download an attachment from. See the [Retrieve a Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial for more details. In this example, assume the project ID is `b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`.
+- Find the relevant project ID for the project you want to download an attachment from. See the [Retrieve a Project ID](getting-started-retrieve-account-and-project-id.md) tutorial for more details. In this example, assume the project ID is `b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`.
 
 ## [Step 1: Find the Issue ID](#step-1-find-the-issue-id)
 
-Find the ID of the issue that contains the attachment you want to download by calling [GET issues](/en/docs/acc/v1/reference/http/issues-issues-GET/) using the project ID (`b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`).
+Find the ID of the issue that contains the attachment you want to download by calling [GET issues](../http-docs/http-issues-issues-GET.md) using the project ID (`b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`).
 
 ### Request
 
@@ -88,7 +88,7 @@ Note the ID of the issue that contains the attachment you want to download (`res
 
 ## [Step 2: Find the Attachment Information](#step-2-find-the-attachment-information)
 
-Find the specific attachment you want to download by calling [GET attachments](/en/docs/acc/v1/reference/http/issues-attachments-issueId-items-GET/) using the project ID (`b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`) and the issue ID (`d4f9c2e1-3b8a-4c7d-9e2f-1a5b8c9d0e3f`).
+Find the specific attachment you want to download by calling [GET attachments](../http-docs/http-issues-attachments-issueId-items-GET.md) using the project ID (`b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`) and the issue ID (`d4f9c2e1-3b8a-4c7d-9e2f-1a5b8c9d0e3f`).
 
 ### Request
 
@@ -176,7 +176,7 @@ From the storage URN, extract:
 
 ## [Step 3: Generate a Signed S3 URL](#step-3-generate-a-signed-s3-url)
 
-Use the bucket key (`wip.dm.prod`) and object key (`2a6d61f2-49df-4d7b.jpg`) to call [GET signeds3download](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3download-GET) to generate a signed URL for the storage object, which you can use to download the file directly from S3.
+Use the bucket key (`wip.dm.prod`) and object key (`2a6d61f2-49df-4d7b.jpg`) to call [GET signeds3download](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3download-GET.md) to generate a signed URL for the storage object, which you can use to download the file directly from S3.
 
 You need to repeat this step for each attachment.
 

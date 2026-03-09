@@ -14,9 +14,9 @@ Returns an array of data connector jobs associated with a request that was creat
 
 Returned information for each job in the array includes the job ID, the ID of its associated request, the ID of the account where the request was created, and the ID and email address of the user who created the request. It also includes information about when the job was created, when it was started and completed (if it has been), its completion status, and its current execution status.
 
-To get request IDs for your requests, use [GET requests](/en/docs/bim360/v1/reference/http/data-connector-requests-GET/).
+To get request IDs for your requests, use [GET requests](http-data-connector-requests-GET.md).
 
-To understand the basics of requests, the jobs they spawn, and the data extracts returned by the jobs, see the [Data Connector API Field Guide](/en/docs/bim360/v1/overview/field-guide/data-connector/).
+To understand the basics of requests, the jobs they spawn, and the data extracts returned by the jobs, see the [Data Connector API Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/data-connector/).
 
   Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
@@ -32,7 +32,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 
 * Required
@@ -41,7 +41,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 
 ## [URI Parameters](#uri-parameters)
 
-| accountId   string: UUID | The account ID. You can derive it from your hub ID if necessary: Use [GET hubs](/en/docs/data/v2/reference/http/hubs-GET/) in the Data Management API to retrieve your hub ID. Remove the initial âb.â from the hub ID to get your account ID. |
+| accountId   string: UUID | The account ID. You can derive it from your hub ID if necessary: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial âb.â from the hub ID to get your account ID. |
 | --- | --- |
 | requestId   string: UUID | The ID of the specified request |
 

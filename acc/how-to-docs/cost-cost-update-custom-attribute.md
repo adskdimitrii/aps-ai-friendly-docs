@@ -11,14 +11,14 @@ This tutorial demonstrates how to update a PCOâs custom attributes.
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:read` and `data:write` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` and `data:write` scopes.
 - Verify that you have access to the relevant BIM 360 account and BIM 360 project.
-- Retrieve the project ID for your project. To obtain a project ID, use [GET projects](/en/docs/bim360/v1/reference/http/admin-accounts-accountidprojects-GET/).
+- Retrieve the project ID for your project. To obtain a project ID, use [GET projects](../http-docs/http-admin-accounts-accountidprojects-GET.md).
 - Create PCOs and add custom attributes in the BIM 360 Project Admin module. See the [`](#id1)Help documentation <<https://help.autodesk.com/view/BIM360D/ENU/?guid=BIM360D_Cost_Management_about_cost_management_html>> for more information.
 
 ## [Step 1: Get a PCO in BIM 360 Cost Management](#step-1-get-a-pco-in-bim-360-cost-management)
 
-Find the ID of the PCO you want to update by calling [GET change-orders/:changeOrder](/en/docs/bim360-private/v1/reference/http/cost-change-orders-changeOrder-GET/). In this example, assume that the container ID is `e94b9bc8-1775-4d76-9b1d-c613e120ccff`. Add the `include=attributes` query string parameter to include the custom attributes in the response.
+Find the ID of the PCO you want to update by calling [GET change-orders/:changeOrder](../http-docs/http-cost-change-orders-changeOrder-GET.md). In this example, assume that the container ID is `e94b9bc8-1775-4d76-9b1d-c613e120ccff`. Add the `include=attributes` query string parameter to include the custom attributes in the response.
 
 ### Request
 
@@ -64,7 +64,7 @@ Note the PCO ID (`results[0].id`) in the first part of the response - `55254a50-
 
 ## [Step 2: Update the Custom Attribute Value](#step-2-update-the-custom-attribute-value)
 
-Use the container ID (`e94b9bc8-1775-4d76-9b1d-c613e120ccff`), PCO ID (`55254a50-44d9-11e9-99d7-79aa05d3109e`), and custom attribute definition ID (`9240df60-61b5-11e8-9d14-7f96380922a0`) to call [POST property-values:batch-update](/en/docs/bim360/v1/reference/http/cost-property-valuesbatch-update-POS/) to update the custom attribute value.
+Use the container ID (`e94b9bc8-1775-4d76-9b1d-c613e120ccff`), PCO ID (`55254a50-44d9-11e9-99d7-79aa05d3109e`), and custom attribute definition ID (`9240df60-61b5-11e8-9d14-7f96380922a0`) to call [POST property-values:batch-update](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/cost-property-valuesbatch-update-POS/) to update the custom attribute value.
 
 ### Request
 

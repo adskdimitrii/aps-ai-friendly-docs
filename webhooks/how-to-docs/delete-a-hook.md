@@ -11,21 +11,21 @@ This walkthrough demonstrates how to delete a webhook.
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Successfully [acquire an OAuth token](/en/docs/oauth/v2/tutorials/get-2-legged-token/) with appropriate authentication scopes.
+- Successfully [acquire an OAuth token](../../oauth/how-to-docs/get-2-legged-token.md) with appropriate authentication scopes.
 
 ## [Step 1 : Obtain the webhook ID](#step-1-obtain-the-webhook-id)
 
 You must first obtain `hookId` or `Location` of the webhook that needs to be deleted. Note that `Location` URL contains webhook ID.
 
 There are multiple ways to find `hookId` or `Location` URL of webhook:
-> - When you [create a webhook](/en/docs/webhooks/v1/tutorials/create-a-hook-data-management), you receive `Location` URL in Header of HTTP response.
-> - [List of your Webhooks](/en/docs/webhooks/v1/tutorials/retrieve-list-of-hooks) returns `Location` in `__self__` attribute of response-body. `hookID` attribute in response-body represents webhook ID.
+> - When you [create a webhook](create-a-hook-data-management.md), you receive `Location` URL in Header of HTTP response.
+> - [List of your Webhooks](retrieve-list-of-hooks.md) returns `Location` in `__self__` attribute of response-body. `hookID` attribute in response-body represents webhook ID.
 
 ## [Step 2 : Delete the webhook](#step-2-delete-the-webhook)
 
 You can delete your webhooks by sending a `DELETE` request to `webhooks/v1/systems/:system/events/:event/hooks/:hook_id`.
 
-You can find additional details in the [Reference Guide](/en/docs/webhooks/v1/reference/http/systems-system-events-event-hooks-hook_id-DELETE).
+You can find additional details in the [Reference Guide](https://aps.autodesk.com/en/docs/webhooks/v1/reference/http/systems-system-events-event-hooks-hook_id-DELETE/).
 
 ## [Example](#example)
 

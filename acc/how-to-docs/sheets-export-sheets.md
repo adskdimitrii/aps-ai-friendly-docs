@@ -18,16 +18,16 @@ For more information about exporting sheets, See the [Help documentation](https:
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps), and select the Autodesk Construction Cloud API.
-- [Provision your app](/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/) to acquire access to your ACC account.
-- Acquire a [2-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token/) or [3-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token/) OAuth token with `data:write` scope.
-- Find the project ID for the project that contains the sheets you want to export by following the [Retrieve a Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. In this tutorial, assume that the project ID is `b.139532ee-5cdb-4c9e-a293-652693991e65`.
+- [Provision your app](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/) to acquire access to your ACC account.
+- Acquire a [2-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [3-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth token with `data:write` scope.
+- Find the project ID for the project that contains the sheets you want to export by following the [Retrieve a Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this tutorial, assume that the project ID is `b.139532ee-5cdb-4c9e-a293-652693991e65`.
 - Verify that you have access to the relevant ACC project, and that you have the permissions to export sheets. Note that by default, users are allowed to export sheets.
 
 ## [Step 1: Find the IDs of the Sheets to Export](#step-1-find-the-ids-of-the-sheets-to-export)
 
-Find the IDs of the sheets you want to export using the project ID (`b.139532ee-5cdb-4c9e-a293-652693991e65`), by calling [GET sheets](/en/docs/acc/v1/reference/http/sheets-sheets-GET).
+Find the IDs of the sheets you want to export using the project ID (`b.139532ee-5cdb-4c9e-a293-652693991e65`), by calling [GET sheets](../http-docs/http-sheets-sheets-GET.md).
 
-If you want to export sheets associated with a specific version set, first call [GET version sets](/en/docs/acc/v1/reference/http/sheets-version-sets-GET) to get the version set ID, and then call [GET sheets](/en/docs/acc/v1/reference/http/sheets-sheets-GET) using the version set filter (`filter[versionSetId]`).
+If you want to export sheets associated with a specific version set, first call [GET version sets](../http-docs/http-sheets-version-sets-GET.md) to get the version set ID, and then call [GET sheets](../http-docs/http-sheets-sheets-GET.md) using the version set filter (`filter[versionSetId]`).
 
 In this example we are using a version set filter (`7c2ecde0-2406-49f9-9199-50176848a0b7`) to retrieve all the sheets associated with the specific version set.
 
@@ -100,7 +100,7 @@ Note the IDs of the sheets (`results[i].id`) you want to export (`0d7a5883-1694-
 
 ## [Step 2: Export the ACC Sheets](#step-2-export-the-acc-sheets)
 
-To export the sheet, use the project ID (`b.139532ee-5cdb-4c9e-a293-652693991e65`) and the sheet ID (`0d7a5883-1694-3078-a06d-ad24413f8b06`) to call [POST exports](/en/docs/acc/v1/reference/http/sheets-exports-POST/).
+To export the sheet, use the project ID (`b.139532ee-5cdb-4c9e-a293-652693991e65`) and the sheet ID (`0d7a5883-1694-3078-a06d-ad24413f8b06`) to call [POST exports](../http-docs/http-sheets-exports-POST.md).
 
 By default, both standard and feature markups (issues and photos) are exported along with the sheets. However, hyperlinks are not included in the default export. You need to specifically indicate if you want to export them.
 
@@ -108,7 +108,7 @@ In this example, we are exporting all types of markups, which includes published
 
 For more information about markups, see the [Markups References Help Documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Markups_References).
 
-Note that this endpoint is asynchronous and initiates a job that runs in the background rather than halting execution of your program. You can check whether the asynchronous job is complete by calling [GET exports/:export_id](/en/docs/acc/v1/reference/http/sheets-getexportstatus-GET/).
+Note that this endpoint is asynchronous and initiates a job that runs in the background rather than halting execution of your program. You can check whether the asynchronous job is complete by calling [GET exports/:export_id](https://aps.autodesk.com/en/docs/acc/v1/reference/http/sheets-getexportstatus-GET/).
 
 ### Request
 
@@ -157,7 +157,7 @@ Note the export ID (`id` - `225eb2fb-d5b0-44c9-a50a-2c792d833f2e`). You use the 
 
 ## [Step 3: Verify the Status of the Export and Get a Download Link](#step-3-verify-the-status-of-the-export-and-get-a-download-link)
 
-To verify the status of the export job, and to get a download link for the exported sheets, use the project ID (`b.139532ee-5cdb-4c9e-a293-652693991e65`) and the export ID (`225eb2fb-d5b0-44c9-a50a-2c792d833f2e`) to call [GET exports/:export_id](/en/docs/acc/v1/reference/http/sheets-exports-exportId-GET/).
+To verify the status of the export job, and to get a download link for the exported sheets, use the project ID (`b.139532ee-5cdb-4c9e-a293-652693991e65`) and the export ID (`225eb2fb-d5b0-44c9-a50a-2c792d833f2e`) to call [GET exports/:export_id](../http-docs/http-sheets-exports-exportId-GET.md).
 
 When the status is `successful` the export is copmlete and a signed URL appears in the response, which you can use to download the sheets.
 

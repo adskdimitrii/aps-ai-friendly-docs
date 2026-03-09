@@ -14,7 +14,7 @@ Retrieves the approval workflow associated with a specific review.
 
 This endpoint provides the exact workflow structure used when the review was created, including its steps, candidates, approval status options, and post-review actions.
 
-To retrieve all workflows defined in a project (not just for one review), call [GET workflows](/en/docs/acc/v1/reference/http/reviews-workflows-GET/).
+To retrieve all workflows defined in a project (not just for one review), call [GET workflows](http-reviews-workflows-GET.md).
 
 For more details about reviews, see the [Help documentation](https://help.autodesk.com/view/DOCS/ENU/?guid=Reviews).
 
@@ -32,7 +32,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 
 * Required
@@ -41,7 +41,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring: UUID The ID of the project. Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You can provide the project ID with or without the â**b.**" prefix.
+- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You can provide the project ID with or without the â**b.**" prefix.
 
 - Example with prefix: **b.563a4c30-e30d-4869-ac02-2a18b6447abe**
 - Example without prefix: **563a4c30-e30d-4869-ac02-2a18b6447abe**

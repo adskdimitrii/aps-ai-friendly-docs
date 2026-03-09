@@ -12,7 +12,7 @@ GET
 
 Returns the âtipâ version for the given item. Multiple versions of a resource item can be uploaded in a project. The tip version is the most recent one.
 
-**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](/en/docs/acc/v1/overview/).
+**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/).
 
 ## [Resource Information](#resource-information)
 
@@ -26,7 +26,7 @@ Returns the âtipâ version for the given item. Multiple versions of a r
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | x-user-id   string | In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified. |
 
@@ -84,7 +84,7 @@ Expand all
 | schema   object | An object containing an API link property. |
 | href   string | A hyperlink reference to this resource. |
 | data   object | Additional properties that the resourceâs data possesses. |
-| conformingStatus   enum:string | A status indicating whether or not this version conforms to its parent folderâs file naming standard. <br>Possible values:<br>`NONE`: The conforming status is not applicable for the version.`CONFORMING`: The version conforms to its parent folderâs file naming standard.`NON_CONFORMING`: The version does not conform to its parent folderâs file naming standard.<br>In the event of a `NON_CONFORMING` status, call [GET folders/folder_id](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-GET) to get the file naming standards IDs that have been applied to the versionâs parent folder, and then use the ID to call [GET naming-standards](/en/docs/bim360/v1/reference/http/document-management-naming-standards-id-GET/) to get the details of the file naming standard.<br>Note that this feature is only available for BIM 360 projects.<br>To learn more about the file naming standard feature, see the [BIM 360 File Naming Standard](https://help.autodesk.com/view/BIM360D/ENU/?guid=Common_Data_Environment) help documentation. |
+| conformingStatus   enum:string | A status indicating whether or not this version conforms to its parent folderâs file naming standard. <br>Possible values:<br>`NONE`: The conforming status is not applicable for the version.`CONFORMING`: The version conforms to its parent folderâs file naming standard.`NON_CONFORMING`: The version does not conform to its parent folderâs file naming standard.<br>In the event of a `NON_CONFORMING` status, call [GET folders/folder_id](http-projects-project_id-folders-folder_id-GET.md) to get the file naming standards IDs that have been applied to the versionâs parent folder, and then use the ID to call [GET naming-standards](../../acc/http-docs/http-document-management-naming-standards-id-GET.md) to get the details of the file naming standard.<br>Note that this feature is only available for BIM 360 projects.<br>To learn more about the file naming standard feature, see the [BIM 360 File Naming Standard](https://help.autodesk.com/view/BIM360D/ENU/?guid=Common_Data_Environment) help documentation. |
 | relationships   object | Information on other resources that shares a relationship with this resource. |
 | item   object | Information on resources that are found above this resource. |
 | links   object | The object containing information on links of related resources. |

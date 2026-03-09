@@ -7,7 +7,7 @@ Source: https://aps.autodesk.com/en/docs/viewer/v7/reference/UI/SettingsPanel/
 Autodesk.Viewing.UI
 
 # SettingsPanel
-> Extends [Autodesk.Viewing.UI.SettingsPanel](/en/docs/viewer/v7/reference/UI/SettingsPanel)
+> Extends [Autodesk.Viewing.UI.SettingsPanel](UI-SettingsPanel.md)
 
 ## [new SettingsPanel(parentContainer, id, title, options)](#new-settingspanel-parentcontainer-id-title-options)
 
@@ -299,7 +299,7 @@ Removes a given button from the settings panel.
 
 ### Parameters
 
-| buttonId*   string, [Autodesk.Viewing.UI.Control](/en/docs/viewer/v7/reference/UI/Control/) | button, or button id, to remove. |
+| buttonId*   string, [Autodesk.Viewing.UI.Control](UI-Control.md) | button, or button id, to remove. |
 | --- | --- |
 
 * Required
@@ -316,7 +316,7 @@ Removes a given checkbox from the settings panel.
 
 ### Parameters
 
-| checkboxId*   string, [Autodesk.Viewing.UI.Control](/en/docs/viewer/v7/reference/UI/Control/) | Checkbox to remove. |
+| checkboxId*   string, [Autodesk.Viewing.UI.Control](UI-Control.md) | Checkbox to remove. |
 | --- | --- |
 
 * Required
@@ -333,7 +333,7 @@ Removes a given slider from the settings panel.
 
 ### Parameters
 
-| sliderId*   string, [Autodesk.Viewing.UI.Control](/en/docs/viewer/v7/reference/UI/Control/) | Slider control to remove. |
+| sliderId*   string, [Autodesk.Viewing.UI.Control](UI-Control.md) | Slider control to remove. |
 | --- | --- |
 
 * Required
@@ -350,7 +350,7 @@ Removes a given dropdown menu from the settings panel.
 
 ### Parameters
 
-| dropdownMenuId*   string, [Autodesk.Viewing.UI.Control](/en/docs/viewer/v7/reference/UI/Control/) | Dropdown to remove. |
+| dropdownMenuId*   string, [Autodesk.Viewing.UI.Control](UI-Control.md) | Dropdown to remove. |
 | --- | --- |
 
 * Required
@@ -367,7 +367,7 @@ Removes a given control from the settings panel.
 
 ### Parameters
 
-| controlId*   string, [Autodesk.Viewing.UI.Control](/en/docs/viewer/v7/reference/UI/Control/) | The control ID or control instance to remove. |
+| controlId*   string, [Autodesk.Viewing.UI.Control](UI-Control.md) | The control ID or control instance to remove. |
 | --- | --- |
 
 * Required

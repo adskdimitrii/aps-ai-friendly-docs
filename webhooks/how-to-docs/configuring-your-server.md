@@ -75,4 +75,4 @@ Or, you can create *localhost* in any language or tool of your choice.
 Then, run your *localhost* server.
 
 At this stage, you should have `http://localhost:5678/callback` as `callbackUrl`.
-You can use `http://bf067e05.ngrok.io/callback` in [Step 4](/en/docs/webhooks/v1/tutorials/create-a-hook-data-management) for creating a hook.
+You can use `http://bf067e05.ngrok.io/callback` in [Step 4](create-a-hook-data-management.md) for creating a hook.

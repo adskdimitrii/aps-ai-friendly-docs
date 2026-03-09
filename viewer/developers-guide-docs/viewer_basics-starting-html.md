@@ -51,7 +51,7 @@ The `<script>` tag in the following HTML snippet loads the bundled Viewer SDK at
 
 Show More
 
-The `div` identifier `forgeViewer` will initialize a Viewer instance. To learn how to initialize a viewer instance, see Part 2: [Initialize Viewer](/en/docs/viewer/v7/developers_guide/viewer_basics/initialization).
+The `div` identifier `forgeViewer` will initialize a Viewer instance. To learn how to initialize a viewer instance, see Part 2: [Initialize Viewer](https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/initialization/).
 
 **Note:** The Viewer has a hard dependency on three.js R71.
 
@@ -86,7 +86,7 @@ Show More
 
 #### LMV_VIEWER_VERSION
 
-You can validate the fetched viewer version with the help of the [global variable LMV_VIEWER_VERSION](/en/docs/viewer/v7/reference/properties/LMV_VIEWER_VERSION).
+You can validate the fetched viewer version with the help of the [global variable LMV_VIEWER_VERSION](https://aps.autodesk.com/en/docs/viewer/v7/reference/properties/LMV_VIEWER_VERSION/).
 
 ### Initialize Viewer
 
@@ -145,7 +145,7 @@ You enable SVF or SVF2 support by passing the `env` and `api` parameters when in
 #### Initializer
 
 The Initializer function needs to be run just once. It makes sure that all subsystems are running before proceeding.
-Refer to the Parameters listed under the [Initializer Method](/en/docs/viewer/v7/reference/Viewing/#initializer-options-callback) for details of the values supported for `options`.
+Refer to the Parameters listed under the [Initializer Method](https://aps.autodesk.com/en/docs/viewer/v7/reference/Viewing/#initializer-options-callback) for details of the values supported for `options`.
 
 #### Create Viewer instance
 
@@ -157,7 +157,7 @@ viewer = new Autodesk.Viewing.GuiViewer3D(htmlDiv, {});
 
 ```
 
-You have to invoke the method `viewer.start()` just once. From there, validate that the browser supports WebGL before moving on to [Load a Model](/en/docs/viewer/v7/developers_guide/viewer_basics/load_a_model).
+You have to invoke the method `viewer.start()` just once. From there, validate that the browser supports WebGL before moving on to [Load a Model](https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/load_a_model/).
 
 #### Destroy Viewer instance
 
@@ -174,14 +174,14 @@ Autodesk.Viewing.shutdown();
 
 Loading a model is a 2 step process.
 
-1. Fetch a Manifest JSON from [Model Derivative API](/en/docs/model-derivative/v2/reference/http/urn-manifest-GET/).
+1. Fetch a Manifest JSON from [Model Derivative API](../../model-derivative/http-docs/http-urn-manifest-GET.md).
 2. Instruct the Viewer to load one of the models referenced by the Manifest JSON.
 
-Before you load a model, you must use the [POST job](/en/docs/model-derivative/v2/reference/http/job-POST/) endpoint of the [Model Derivative](/en/docs/model-derivative/v2/) API to kick off a translation job, which translates the model into the SVF format. The translation job produces a JSON file known as a Manifest. The manifest provides details of the resources (e.g., model geometry, thumbnails, camera views) that were produced by the [translation job](/en/docs/model-derivative/v2/reference/http/job-POST/).
+Before you load a model, you must use the [POST job](../../model-derivative/http-docs/http-job-POST.md) endpoint of the [Model Derivative](https://aps.autodesk.com/en/docs/model-derivative/v2/) API to kick off a translation job, which translates the model into the SVF format. The translation job produces a JSON file known as a Manifest. The manifest provides details of the resources (e.g., model geometry, thumbnails, camera views) that were produced by the [translation job](../../model-derivative/http-docs/http-job-POST.md).
 
-See the [Prepare a File for the Viewer](/en/docs/model-derivative/v2/tutorials/prep-file4viewer/) tutorial in the Model Derivative API documentation for more information.
+See the [Prepare a File for the Viewer](https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-file4viewer/) tutorial in the Model Derivative API documentation for more information.
 
-In order to use the [Model Derivative](/en/docs/model-derivative/v2/) API you must have an `ACCESS_TOKEN`. Use the APS [Authentication](/en/docs/oauth/v2/reference/http/) API to obtain an access token. The Viewer supports both 2-legged and 3-legged tokens.
+In order to use the [Model Derivative](https://aps.autodesk.com/en/docs/model-derivative/v2/) API you must have an `ACCESS_TOKEN`. Use the APS [Authentication](https://aps.autodesk.com/en/docs/oauth/v2/reference/http/) API to obtain an access token. The Viewer supports both 2-legged and 3-legged tokens.
 
 #### Step 1: Fetch Manifest
 
@@ -207,12 +207,12 @@ Show More
 
 **Notes:**
 > - The `documentId` is a string value of the URN of the model that was translated.
-> - The URN must be encoded as an *unpadded Base64 string*. See the [Prepare a File for the Viewer](/en/docs/model-derivative/v2/tutorials/prep-file4viewer/) tutorial in the Model Derivative API documentation for more information on Base64 encoding.
+> - The URN must be encoded as an *unpadded Base64 string*. See the [Prepare a File for the Viewer](https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-file4viewer/) tutorial in the Model Derivative API documentation for more information on Base64 encoding.
 > - The value assigned to `documentId` must be prefixed with the string `urn:`
 > - If you want to reuse the code snippet shown above, replace the value of `documentId` with the URN from your own translation jobs.
 > - In some cases you may need to determine if the URN is from EMEA or US. Start by base64 decoding the URN, then check if it contains `urn:adsk.wipemea:xxx` (for EMEA) or `urn:adsk.wipprod:xxx` (for US).
 
-After successfully fetching the manifest, the callback `onDocumentLoadSuccess` gets invoked. The callback receives the argument `viewerDocument`, which is an instance of [Autodesk.Viewing.Document](/en/docs/viewer/v7/reference/Viewing/Document).
+After successfully fetching the manifest, the callback `onDocumentLoadSuccess` gets invoked. The callback receives the argument `viewerDocument`, which is an instance of [Autodesk.Viewing.Document](../reference-docs/Viewing-Document.md).
 
 #### Step 2: Load Model in Manifest
 

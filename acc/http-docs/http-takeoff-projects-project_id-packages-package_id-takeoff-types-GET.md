@@ -16,7 +16,7 @@ You need to create the types in the UI. For more information, see the [ACC Takeo
 
 To find the takeoff packages for a project, call [GET packages](en/docs/acc/v1/reference/http/takeoff-projects-project_id-packages-GET/).
 
-To learn how this endpoint is used, see the [Takeoff Extract Inventory](/en/docs/acc/v1/tutorials/takeoff/takeoff-extract-inventory) tutorial.
+To learn how this endpoint is used, see the [Takeoff Extract Inventory](../how-to-docs/takeoff-takeoff-extract-inventory.md) tutorial.
 
 Note that this endpoint is not compatible with BIM 360 projects.
 
@@ -32,9 +32,9 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
-| region   string | Specifies the region where the service is located. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](/en/docs/acc/v1/overview/acc-regions) page. |
+| region   string | Specifies the region where the service is located. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
 
 * Required
 
@@ -42,8 +42,8 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring: UUID The ID of the project. This corresponds to project ID in the [Data Management API](/en/docs/data/v2/), and can be specified in the form of âUUIDâ or b.âUUIDâ.To learn how to find the project ID, see the [Retrieve ACC Account and project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial.
-- packageIdstring: UUID The takeoff package ID. To find the ID, call [GET packages](/en/docs/acc/v1/reference/http/takeoff-projects-project_id-packages-GET/).
+- projectIdstring: UUID The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/), and can be specified in the form of âUUIDâ or b.âUUIDâ.To learn how to find the project ID, see the [Retrieve ACC Account and project ID](../how-to-docs/getting-started-retrieve-account-and-project-id.md) tutorial.
+- packageIdstring: UUID The takeoff package ID. To find the ID, call [GET packages](http-takeoff-projects-project_id-packages-GET.md).
 
 ### Request
 

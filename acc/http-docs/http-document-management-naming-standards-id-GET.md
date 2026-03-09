@@ -32,7 +32,7 @@ Note that we currently support one file naming standard per project.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | x-ads-region   string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`. |
 
@@ -42,12 +42,12 @@ Note that we currently support one file naming standard per project.
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring: UUID The ID of the project. This corresponds to project ID in the [Data Management API](/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the BIM 360 API you need to remove the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.To learn how to find the project ID, see the [Retrieve BIM 360 Account and Project ID](/en/docs/bim360/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial.
+- projectIdstring: UUID The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the BIM 360 API you need to remove the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.To learn how to find the project ID, see the [Retrieve BIM 360 Account and Project ID](../how-to-docs/getting-started-retrieve-account-and-project-id.md) tutorial.
 - idstring: UUID The ID of the file naming standard. The file naming standard is applied to the project files folder or its subfolders. To find the ID:
 
-- For the project files folder, call [GET hubs/:hub_id/projects/:project_id/topFolders](/en/docs/data/v2/reference/http/hubs-hub_id-projects-project_id-topFolders-GET/).
-- For subfolders, call [GET projects/:project_id/folders/:folder_id/contents](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-contents-GET/).
-- For a specific folder, call [GET projects/:project_id/folders/:folder_id](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-GET/).
+- For the project files folder, call [GET hubs/:hub_id/projects/:project_id/topFolders](../../data/http-docs/http-hubs-hub_id-projects-project_id-topFolders-GET.md).
+- For subfolders, call [GET projects/:project_id/folders/:folder_id/contents](../../data/http-docs/http-projects-project_id-folders-folder_id-contents-GET.md).
+- For a specific folder, call [GET projects/:project_id/folders/:folder_id](../../data/http-docs/http-projects-project_id-folders-folder_id-GET.md).
 The ID is under `data.attributes.extension.data.namingStandardIds`.
 
 ### Response

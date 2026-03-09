@@ -26,8 +26,8 @@ Retrieves one or more schedule of values (SOV) items in the given project.
 
 ## [Headers](#headers)
 
-- Authorization*string Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow.
-- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](/en/docs/acc/v1/overview/acc-regions) page.To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
+- Authorization*string Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow.
+- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
 
 * Required
 
@@ -35,7 +35,7 @@ Retrieves one or more schedule of values (SOV) items in the given project.
 
 ## [URI Parameters](#uri-parameters)
 
-| containerId   string: UUID | The ID of the project (the container ID is the same as the project ID). To obtain the project ID, see [GET projects](/en/docs/bim360/v1/reference/http/admin-accounts-accountidprojects-GET/). |
+| containerId   string: UUID | The ID of the project (the container ID is the same as the project ID). To obtain the project ID, see [GET projects](http-admin-accounts-accountidprojects-GET.md). |
 | --- | --- |
 
 ### Request
@@ -45,7 +45,7 @@ Retrieves one or more schedule of values (SOV) items in the given project.
 | include   array: string | Return the specified nested resources in the response. For example, `include=subitems` returns the projectâs SOV items. Note that for a value of `idOnly`, the response includes only a list of SOV item IDs, and other `include` values are ignored. Possible values: `subitems`, `attributes`, `idOnly`. |
 | --- | --- |
 | filter[id]   array: string: uuid | Returns only the items that are identified by the provided list of item IDs. Separate multiple IDs with commas. For example, `filter[id]=id1,id2`. |
-| filter[budgetId]   array: string: uuid | Returns only tracking item instances that belong to the budgets identified by the provided list of budget IDs (separated with commas). For example, `filter[budgetId]=id1,id2`. Note that you can return the instances that are not linked to any budget using `filter[budgetId]=blank`. To find budget IDs, call [GET budgets](/en/docs/bim360/v1/reference/http/cost-budgets-GET/) and inspect `results.id` in the response. |
+| filter[budgetId]   array: string: uuid | Returns only tracking item instances that belong to the budgets identified by the provided list of budget IDs (separated with commas). For example, `filter[budgetId]=id1,id2`. Note that you can return the instances that are not linked to any budget using `filter[budgetId]=blank`. To find budget IDs, call [GET budgets](http-cost-budgets-GET.md) and inspect `results.id` in the response. |
 | filter[contractId]   array: string: uuid | Returns only items associated with the contracts identified on this list of IDs. Separate multiple IDs with commas; for example:`filter[contractId]=id1,id2`. <br>You can also provide a value of `blank` to return items that are not linked to any contract; for example:`filter[contractId]=blank`. |
 | filter[includeChangeOrders]   boolean | `false`: (default) will Returns only original contracted SOV items. <br>`true`: will include items from approved change orders. |
 | filter[externalSystem]   string | The name of the external ERP system. Use this name to identify or search within the integrated system. For example, `filter[externalSystem]=Sage300`. <br>Max length: 255 |

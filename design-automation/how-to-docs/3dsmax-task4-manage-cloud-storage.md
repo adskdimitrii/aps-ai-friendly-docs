@@ -20,9 +20,9 @@ You will use the following operations in this task:
 
 | HTTP Request | Description |
 | --- | --- |
-| [POST /buckets](/en/docs/data/v2/reference/http/buckets-POST) | Creates an OSS Bucket. |
-| [GET /buckets/{bucketKey}/objects/{objectKey}/signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-GET) | Requests an S3 signed URL with which to upload an object. |
-| [POST /buckets/{bucketKey}/objects/{objectKey}/signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-POST) | Instructs OSS to complete the object creation process after the bytes have been uploaded directly to S3. |
+| [POST /buckets](../../data/http-docs/http-buckets-POST.md) | Creates an OSS Bucket. |
+| [GET /buckets/{bucketKey}/objects/{objectKey}/signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md) | Requests an S3 signed URL with which to upload an object. |
+| [POST /buckets/{bucketKey}/objects/{objectKey}/signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-POST.md) | Instructs OSS to complete the object creation process after the bytes have been uploaded directly to S3. |
 
 ## [Step 1 - Create Bucket](#step-1-create-bucket)
 

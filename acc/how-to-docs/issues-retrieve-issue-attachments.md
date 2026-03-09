@@ -11,13 +11,13 @@ This tutorial demonstrates how to retrieve information about attachments associa
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with the `data:read` scope.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:read` scope.
 - Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project containing issues with attachments by following the [Retrieve an Account ID and Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. In this example, assume the project ID is `b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`.
+- Find the relevant project ID for the project containing issues with attachments by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`.
 
 ## [Step 1: Find Issues in Project](#step-1-find-issues-in-project)
 
-Find issues in your project by calling [GET issues](/en/docs/acc/v1/reference/http/issues-issues-GET/) using the project ID (`b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`).
+Find issues in your project by calling [GET issues](../http-docs/http-issues-issues-GET.md) using the project ID (`b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`).
 
 ### Request
 
@@ -88,7 +88,7 @@ Note the ID of the issue for which you want to retrieve attachments. In this exa
 
 ## [Step 2: Retrieve Attachments for a Specific Issue](#step-2-retrieve-attachments-for-a-specific-issue)
 
-Retrieve information about all attachments associated with a specific issue by calling [GET attachments](/en/docs/acc/v1/reference/http/issues-attachments-issueId-items-GET/) using the project ID (`b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`) and the issue ID (`d4f9c2e1-3b8a-4c7d-9e2f-1a5b8c9d0e3f`).
+Retrieve information about all attachments associated with a specific issue by calling [GET attachments](../http-docs/http-issues-attachments-issueId-items-GET.md) using the project ID (`b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`) and the issue ID (`d4f9c2e1-3b8a-4c7d-9e2f-1a5b8c9d0e3f`).
 
 ### Request
 

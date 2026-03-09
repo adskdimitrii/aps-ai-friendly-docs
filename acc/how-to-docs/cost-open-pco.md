@@ -11,14 +11,14 @@ This tutorial demonstrates how to open a potential change order (PCO) through a 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps).
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:create` `data:read` and `data:write` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create` `data:read` and `data:write` scopes.
 - Verify that you have access to the relevant BIM 360 account and BIM 360 project.
-- Retrieve the project ID for your project. To obtain a project ID, use [GET projects](/en/docs/bim360/v1/reference/http/admin-accounts-accountidprojects-GET/).
-- Ensure that there is a PCO in the project. If there isnât a PCO in the project, see [Create a Potential Change Order (PCO)](/en/docs/bim360/v1/tutorials/create-pco/) to create one.
+- Retrieve the project ID for your project. To obtain a project ID, use [GET projects](../http-docs/http-admin-accounts-accountidprojects-GET.md).
+- Ensure that there is a PCO in the project. If there isnât a PCO in the project, see [Create a Potential Change Order (PCO)](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/create-pco/) to create one.
 
 ## [Step 1: Find a PCO in BIM 360 Cost Management](#step-1-find-a-pco-in-bim-360-cost-management)
 
-Find the ID of the PCO by calling [GET PCO](/en/docs/bim360-private/v1/reference/http/cost-change-orders-changeOrder-GET/). In this example, assume that the container ID is `18ece8b1-204d-11e8-ad71-d73b169f902a` .
+Find the ID of the PCO by calling [GET PCO](../http-docs/http-cost-change-orders-changeOrder-GET.md). In this example, assume that the container ID is `18ece8b1-204d-11e8-ad71-d73b169f902a` .
 
 ### Request
 
@@ -50,7 +50,7 @@ In this example, the PCO ID is in the first part of the response (`results[0].id
 
 ## [Step 2: Find the Available Actions For the PCO](#step-2-find-the-available-actions-for-the-pco)
 
-Use the PCO ID (`55254a50-44d9-11e9-99d7-79aa05d3109e`) to call [GET actions](/en/docs/bim360-private/v1/reference/http/cost-actions-GET/) to get the available actions for the PCO.
+Use the PCO ID (`55254a50-44d9-11e9-99d7-79aa05d3109e`) to call [GET actions](../http-docs/http-cost-actions-GET.md) to get the available actions for the PCO.
 All the actions are associated to an items in Cost Management, for example change order, by the associationId and associationType. For a PCO, the associationId value is the PCO ID `55254a50-44d9-11e9-99d7-79aa05d3109e` and the associationType value is `FormInstance`.
 
 ### Request
@@ -93,7 +93,7 @@ The name `open` is the action we can perform on this PCO. The transforms are wha
 
 ## [Step 3: Open the PCO](#step-3-open-the-pco)
 
-Use the action `open` and the PCO ID to call [POST cost/v1/containers/:containerId/workflows/actions](/en/docs/bim360/v1/reference/http/cost-actions-POST/)
+Use the action `open` and the PCO ID to call [POST cost/v1/containers/:containerId/workflows/actions](../http-docs/http-cost-actions-POST.md)
 
 ### Request
 

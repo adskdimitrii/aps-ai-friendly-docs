@@ -16,7 +16,7 @@ The extension id is: `Autodesk.Geolocation`
 
 ### Parameters
 
-| viewer*   [Autodesk.Viewing.Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) | The Viewer instance |
+| viewer*   [Autodesk.Viewing.Viewer3D](Viewing-Viewer3D.md) | The Viewer instance |
 | --- | --- |
 | options   object | Not used |
 

@@ -30,7 +30,7 @@ The file created for export is specified by a file version ID, which identifies 
 - For each markup type (standard, Issues, and Photos), you can specify whether to export *published* markups, *unpublished* markups, or both. For more information about published and unpublished markups, see the [Create and Style Markups](https://help.autodesk.com/view/DOCS/ENU/?guid=Create_Style_Markups_Files_Docs) help documentation.
 - With standard markups, you can also specify whether to include attached links. For more information about markups links, see the [Markups Links and References](https://help.autodesk.com/view/DOCS/ENU/?guid=Markups_References_Files_Docs) help documentation.
 
-> Note that this endpoint is asynchronous and initiates a job that runs in the background, rather than halting execution of your program. The response returns an export ID that you can use to poll [GET /projects/{projectId}/exports/{exportId}](/en/docs/acc/v1/reference/http/files-get-export-status-GET) to verify the status of the job. When the job is completed, an S3 signed url will be available for downloading the exported result.
+> Note that this endpoint is asynchronous and initiates a job that runs in the background, rather than halting execution of your program. The response returns an export ID that you can use to poll [GET /projects/{projectId}/exports/{exportId}](https://aps.autodesk.com/en/docs/acc/v1/reference/http/files-get-export-status-GET/) to verify the status of the job. When the job is completed, an S3 signed url will be available for downloading the exported result.
 
 For more details about exporting files, see the [Export Files](https://help.autodesk.com/view/DOCS/ENU/?guid=Export_Files) tutorial.
 
@@ -48,7 +48,7 @@ For more details about exporting files, see the [Export Files](https://help.auto
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | x-user-id   string | The ID of a user on whose behalf your API request is acting. Required if youâre using a 2-legged authentication context, which must be 2-legged OAuth2 security with user impersonation. <br>The app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified.<br>You can use either the userâs ACC ID (id), or their Autodesk ID (autodeskId). |
 | Content-Type*   string | Must be `application/json` |
@@ -59,7 +59,7 @@ For more details about exporting files, see the [Export Files](https://help.auto
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. Use the [Data Management API](/en/docs/data/v2/developers_guide/overview/) to retrieve the project ID. For more information, see the [Retrieve a Project ID tutorial](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/). You can use a project ID either with a âb.â prefix or without a âb.â prefix. For instance, a project ID of âb.a4be0c34a-4ab7â can also be referred to as âa4be0c34a-4ab7â. |
+| projectId   string: UUID | The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/developers_guide/overview/) to retrieve the project ID. For more information, see the [Retrieve a Project ID tutorial](../how-to-docs/getting-started-retrieve-account-and-project-id.md). You can use a project ID either with a âb.â prefix or without a âb.â prefix. For instance, a project ID of âb.a4be0c34a-4ab7â can also be referred to as âa4be0c34a-4ab7â. |
 | --- | --- |
 
 ### Request

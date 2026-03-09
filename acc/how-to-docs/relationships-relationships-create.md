@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/relationships/relationshi
 
 # Create Relationships
 
-This tutorial demonstrates how to create a relationship between two entities (for example, an asset and a document). The steps include verifying compatibility of entity types in the Relationships service, finding information about the entities you want to create a relationship for, and creating the relationship between the entities. For information about the Relationships API, see the [Field Guide](/en/docs/bim360/v1/overview/field-guide/relationships/).
+This tutorial demonstrates how to create a relationship between two entities (for example, an asset and a document). The steps include verifying compatibility of entity types in the Relationships service, finding information about the entities you want to create a relationship for, and creating the relationship between the entities. For information about the Relationships API, see the [Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/relationships/).
 
 Note that in order to create a relationship between two entities, the entities must already exist, and the caller must have permission to
 access both entities in the proposed relationship.
@@ -14,7 +14,7 @@ access both entities in the proposed relationship.
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps), and select the Data Management and BIM 360 APIs.
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:create` `data:read` and `data:write` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create` `data:read` and `data:write` scopes.
 - Verify that you have access to the relevant account, project, folder and contents.
 - Find the relationships container ID for the relevant project.
 
@@ -24,8 +24,8 @@ Note that this tutorial assumes you are familiar with the BIM 360 Assets and Doc
 
 You first need to check whether the entities you want to associate with each other are compatible.
 
-To verify compatibility, call [GET utility/relationships:writable](/en/docs/bim360/v1/reference/http/relationship-service-v2-get-writable-relationship-domains-GET), and find the object containing the relationship domain and entity type you want to create a relationship against.
-For example, check whether you can create a relationship between an asset and a document. The asset `domain` is `autodesk-bim360-asset`, and the `entity type` is `asset`. In this example, the `allow` attribute contains an array of entity types that assets can have a relationship with. For a list of domains and their entity types, see the [Relationship Querying tutorial](/en/docs/bim360/v1/tutorials/relationships/relationships-tutorial).
+To verify compatibility, call [GET utility/relationships:writable](../http-docs/http-relationship-service-v2-get-writable-relationship-domains-GET.md), and find the object containing the relationship domain and entity type you want to create a relationship against.
+For example, check whether you can create a relationship between an asset and a document. The asset `domain` is `autodesk-bim360-asset`, and the `entity type` is `asset`. In this example, the `allow` attribute contains an array of entity types that assets can have a relationship with. For a list of domains and their entity types, see the [Relationship Querying tutorial](relationships-relationships-tutorial.md).
 
 Note that some domains have a `bim360` prefix, and others have a `construction` prefix.
 
@@ -112,11 +112,11 @@ Show More
 
 ## [Step 2: Find Information About Entities](#step-2-find-information-about-entities)
 
-You need to find information about the entities you want to create a relationship for. For example, to create a relationship between an asset and a document, you need to call [GET assets](/en/docs/bim360/v1/reference/http/assets-assets-v2-GET/) to find the ID of the asset, and [GET folders/:folder_id/contents](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-contents-GET/) to find the ID of the document.
+You need to find information about the entities you want to create a relationship for. For example, to create a relationship between an asset and a document, you need to call [GET assets](../http-docs/http-assets-assets-v2-GET.md) to find the ID of the asset, and [GET folders/:folder_id/contents](../../data/http-docs/http-projects-project_id-folders-folder_id-contents-GET.md) to find the ID of the document.
 
 ## [Step 3: Create a Relationship](#step-3-create-a-relationship)
 
-To create relationships between compatible entities, use the information you found in the previous steps and the container ID to call [PUT containers/:containerId/relationships](/en/docs/bim360/v1/reference/http/relationship-service-v2-add-relationships-PUT).
+To create relationships between compatible entities, use the information you found in the previous steps and the container ID to call [PUT containers/:containerId/relationships](../http-docs/http-relationship-service-v2-add-relationships-PUT.md).
 Note that one entity may be related to a batch of up to 20 entities within a single API call.
 
 In this example, we are creating a relationship between an asset and a document.

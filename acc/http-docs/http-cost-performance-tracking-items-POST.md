@@ -28,10 +28,10 @@ Note that you can manage the default tracking item instance using Cost Managemen
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
-| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](/en/docs/acc/v1/overview/acc-regions) page.<br>To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
+| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.<br>To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
 
 * Required
 
@@ -39,7 +39,7 @@ Note that you can manage the default tracking item instance using Cost Managemen
 
 ## [URI Parameters](#uri-parameters)
 
-| containerId   string: UUID | The ID of the project (the container ID is the same as the project ID). To obtain the project ID, see [GET projects](/en/docs/bim360/v1/reference/http/admin-accounts-accountidprojects-GET/). |
+| containerId   string: UUID | The ID of the project (the container ID is the same as the project ID). To obtain the project ID, see [GET projects](http-admin-accounts-accountidprojects-GET.md). |
 | --- | --- |
 
 ### Request
@@ -48,7 +48,7 @@ Note that you can manage the default tracking item instance using Cost Managemen
 
 The tracking item
 
-| budgetId*   string: UUID | The unique ID of the budget from which to create the performance tracking item. To find the budget ID, call [GET budgets](/en/docs/bim360/v1/reference/http/cost-budgets-GET/) and inspect `results.id` in the response. |
+| budgetId*   string: UUID | The unique ID of the budget from which to create the performance tracking item. To find the budget ID, call [GET budgets](http-cost-budgets-GET.md) and inspect `results.id` in the response. |
 | --- | --- |
 
 * Required

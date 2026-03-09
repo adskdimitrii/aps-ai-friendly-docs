@@ -6,9 +6,9 @@ Source: https://aps.autodesk.com/en/docs/webhooks/tutorials/create-a-hook-buildi
 
 # Creating a Webhook and Listening to BuildingConnected Events
 
-This walkthrough demonstrates how to create a webhook to register callbacks for [BuildingConnected events](/en/docs/webhooks/v1/reference/events/buildingconnected_events/). The steps include finding the scope ID for the events, choosing the event type for the webhook to listen for, preparing to handle callbacks, and creating the webhook.
+This walkthrough demonstrates how to create a webhook to register callbacks for [BuildingConnected events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/buildingconnected_events/). The steps include finding the scope ID for the events, choosing the event type for the webhook to listen for, preparing to handle callbacks, and creating the webhook.
 
-For more details about the BuildingConnected API, see the [BuildingConnected Field Guide](/en/docs/bim360/v1/overview/field-guide/buildingconnected/).
+For more details about the BuildingConnected API, see the [BuildingConnected Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/buildingconnected/).
 
 ## [Before You Begin](#before-you-begin)
 
@@ -20,29 +20,29 @@ For more details about the BuildingConnected API, see the [BuildingConnected Fie
 > - For Opportunity events subcribe to Bid Board Pro.
 
 - [Register an app](/myapps), and select the BuildingConnected API.
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:read` and `data:create` authentication scopes. For information about authentication scopes, see the Scopes section in the [Data Management API Basics](/en/docs/data/v2/overview/basics) page.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` and `data:create` authentication scopes. For information about authentication scopes, see the Scopes section in the [Data Management API Basics](https://aps.autodesk.com/en/docs/data/v2/overview/basics/) page.
 
 ## [Step 1 : Find the Scope ID for BuildingConnected Events](#step-1-find-the-scope-id-for-buildingconnected-events)
 
 The Webhooks service uses the company ID as the scope for BuildingConnected events. To retrieve the company ID (`results.companyId`), call GET users/me </en/docs/buildingconnected/v2/reference/http/buildingconnected-users-me-GET/>`_.
 
-For more information about webhook scopes, see the [Field Guide](/en/docs/webhooks/v1/developers_guide/field-guide/).
+For more information about webhook scopes, see the [Field Guide](https://aps.autodesk.com/en/docs/webhooks/v1/developers_guide/field-guide/).
 
 ## [Step 2 : Select an Event Type for Webhook Registration](#step-2-select-an-event-type-for-webhook-registration)
 
-The Webhooks service currently supports the events listed on the [BuildingConnected Events](/en/docs/webhooks/v1/reference/events/buildingconnected_events/) page.
+The Webhooks service currently supports the events listed on the [BuildingConnected Events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/buildingconnected_events/) page.
 
 You can specify multiple event types by including wildcards in the event type name. This is done using the asterisk (*) character, which represents zero or more characters in the name. For example, if you specify `opportunity.comment.*-1.0`, it will correspond to `opportunity.comment.created-1.0`, `opportunity.comment.deleted-1.0`, and `opportunity.comment.updated-1.0`.
 
-For more information about event types and wildcards, see [Supported Events](/en/docs/webhooks/v1/reference/events/).
+For more information about event types and wildcards, see [Supported Events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/).
 
 ## [Step 3 : Prepare to Manage Callbacks](#step-3-prepare-to-manage-callbacks)
 
-A webhook requires a callback URL to which it will send the event data. To get started with setting up a local server, see [Configuring Your Server](/en/docs/webhooks/v1/tutorials/configuring-your-server).
+A webhook requires a callback URL to which it will send the event data. To get started with setting up a local server, see [Configuring Your Server](configuring-your-server.md).
 
 ## [Step 4 : Create a Webhook](#step-4-create-a-webhook)
 
-Create a webhook by calling [POST events/:event/hooks](/en/docs/webhooks/v1/reference/http/webhooks/systems-system-events-event-hooks-POST/).
+Create a webhook by calling [POST events/:event/hooks](../http-docs/http-webhooks-systems-system-events-event-hooks-POST.md).
 
 ### Hook Attribute
 
@@ -50,7 +50,7 @@ In some situations, specific data (such as `salesforceId`) might not be included
 
 Supply the `hookAttribute` property with a JSON object that you want to include in the callback, such as the `salesforceId`, or any other details from your app.
 
-For more information, see the [Field Guide](/en/docs/webhooks/v1/developers_guide/field-guide/).
+For more information, see the [Field Guide](https://aps.autodesk.com/en/docs/webhooks/v1/developers_guide/field-guide/).
 
 ### Filter
 
@@ -58,7 +58,7 @@ You might want to filter the callbacks you receive based on the payload of the c
 
 Provide the `filter` attribute in the endpoint request payload with a JSONPath expression that specifies the callback payload field values you want to filter on.
 
-For more information, see [Callback Filtering](/en/docs/webhooks/v1/developers_guide/callback-filtering/).
+For more information, see [Callback Filtering](https://aps.autodesk.com/en/docs/webhooks/v1/developers_guide/callback-filtering/).
 
 ### Example Input Values
 

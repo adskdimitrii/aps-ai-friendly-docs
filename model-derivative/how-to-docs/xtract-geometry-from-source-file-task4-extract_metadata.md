@@ -17,8 +17,8 @@ You will use the following operations in this task:
 
 | Operation | HTTP Request |
 | --- | --- |
-| [List Model Views](/en/docs/model-derivative/v2/reference/http/urn-metadata-GET/) | GET /{urn}/metadata |
-| [Fetch All Properties](/en/docs/model-derivative/v2/reference/http/urn-metadata-guid-properties-GET/) | GET /{urn}/metadata/{modelGuid}/properties |
+| [List Model Views](../http-docs/http-urn-metadata-GET.md) | GET /{urn}/metadata |
+| [Fetch All Properties](../http-docs/http-urn-metadata-guid-properties-GET.md) | GET /{urn}/metadata/{modelGuid}/properties |
 
 ## [Step 1 - Retrieve a list of Viewables](#step-1-retrieve-a-list-of-viewables)
 

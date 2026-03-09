@@ -16,7 +16,7 @@ The workflow defines the steps, reviewers, durations, approval statuses and post
 
 For more details about approval workflows, see the [Help documentation](https://help.autodesk.com/view/DOCS/ENU/?guid=Reviews_Workflow).
 
-The `Authorization` header token can be obtained through either the [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token/) OAuth flow or the [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token/) OAuth flow with user impersonation, which requires the `x-user-id` header.
+The `Authorization` header token can be obtained through either the [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow or the [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) OAuth flow with user impersonation, which requires the `x-user-id` header.
 
 Note that this endpoint is not compatible with BIM 360 projects.
 
@@ -32,7 +32,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | x-user-id   string | The ID of a user on whose behalf the request is made. Your application has access to all users specified by the administrator in the SaaS Integrations UI. Use this header to specify which user should be affected by the request. <br>This header is only required when using two-legged authentication. It is not needed for three-legged authentication.<br>Only userâs Autodesk ID (`autodeskId`) can be accepted. |
 
@@ -42,11 +42,11 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring: UUID The ID of the project. Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You can provide the project ID with or without the â**b.**" prefix.
+- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You can provide the project ID with or without the â**b.**" prefix.
 
 - Example with prefix: **b.563a4c30-e30d-4869-ac02-2a18b6447abe**
 - Example without prefix: **563a4c30-e30d-4869-ac02-2a18b6447abe**
-- workflowIdstring: UUID The ID of the approval workflow. To find available workflow IDs, call [GET Workflows](/en/docs/acc/v1/reference/http/reviews-workflows-GET).
+- workflowIdstring: UUID The ID of the approval workflow. To find available workflow IDs, call [GET Workflows](http-reviews-workflows-GET.md).
 
 ### Response
 

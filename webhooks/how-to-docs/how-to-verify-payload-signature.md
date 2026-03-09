@@ -8,7 +8,7 @@ Source: https://aps.autodesk.com/en/docs/webhooks/tutorials/how-to-verify-payloa
 
 ## [Webhooks Documentation](#webhooks-documentation)
 
-Check our documentation [here](/en/docs/webhooks/v1/overview/basics/) to understand how to create hooks and set up your secure token to sign your callback payload.
+Check our documentation [here](https://aps.autodesk.com/en/docs/webhooks/v1/overview/basics/) to understand how to create hooks and set up your secure token to sign your callback payload.
 This page demonstrates how to verify payload signature using a simple Node JS server receiving callback from the Webhooks service.
 
 ## [Verify using Node.js](#verify-using-node-js)
@@ -53,7 +53,7 @@ app.post("/callback", function(req, res){
 
 Now you have your server running you must configure the Webhooks service to send notification to your server.
 
-Check [here](/en/docs/webhooks/v1/tutorials/create-a-hook-data-management/) to see how to create new hooks in our Step-by-Step guide.
+Check [here](create-a-hook-data-management.md) to see how to create new hooks in our Step-by-Step guide.
 
 ```
 {
@@ -66,7 +66,7 @@ Check [here](/en/docs/webhooks/v1/tutorials/create-a-hook-data-management/) to s
 ```
 
 Note: the above hook is using localhost as callback url and it will not be reachable from the Webhooks service.
-Check how to use ngrok to open a secure tunnel to localhost [here](/en/docs/webhooks/v1/tutorials/configuring-your-server/).
+Check how to use ngrok to open a secure tunnel to localhost [here](configuring-your-server.md).
 
 ### Configure server to verify signature
 

@@ -27,10 +27,10 @@ For more information about cost and sub cost items, see the [Help documentation]
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
-| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](/en/docs/acc/v1/overview/acc-regions) page.<br>To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
+| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.<br>To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
 
 * Required
 
@@ -38,18 +38,18 @@ For more information about cost and sub cost items, see the [Help documentation]
 
 ## [URI Parameters](#uri-parameters)
 
-| containerId   string: UUID | The ID of the project (the container ID is the same as the project ID). To obtain the project ID, see [GET projects](/en/docs/bim360/v1/reference/http/admin-accounts-accountidprojects-GET/). |
+| containerId   string: UUID | The ID of the project (the container ID is the same as the project ID). To obtain the project ID, see [GET projects](http-admin-accounts-accountidprojects-GET.md). |
 | --- | --- |
-| costItemId   string: UUID | The ID of the cost item to which the sub cost item belongs. To find the cost item ID, call [GET cost-items](/en/docs/bim360/v1/reference/http/cost-cost-items-GET/). |
+| costItemId   string: UUID | The ID of the cost item to which the sub cost item belongs. To find the cost item ID, call [GET cost-items](http-cost-cost-items-GET.md). |
 
 ### Request
 
 ## [Body Structure](#body-structure)
 
-| parentId   string,null | The unique ID of the parent sub cost item. Set this to `null` if there is no parent sub cost item. To find the parent ID, call [GET sub-cost-items](/en/docs/bim360/v1/reference/http/cost-sub-cost-items-GET/). |
+| parentId   string,null | The unique ID of the parent sub cost item. Set this to `null` if there is no parent sub cost item. To find the parent ID, call [GET sub-cost-items](http-cost-sub-cost-items-GET.md). |
 | --- | --- |
 | type   enum:string | The classification of the sub cost item that indicates its role in cost tracking and approval workflows. Possible values: `estimated`, `proposed`, `submitted`, `approved`, `committed`. <br>Max length: 255 |
-| code*   string | A user-defined identifier for the sub cost item, used for categorization or identification. If the sub cost item is created by copying from another model, for example, `Contract SOV`, it will inherit the code from the source model. Otherwise, it must be manually assigned. To verify the code is unique, call [GET sub-cost-items](/en/docs/bim360/v1/reference/http/cost-sub-cost-items-GET/). <br>Max length: 255 |
+| code*   string | A user-defined identifier for the sub cost item, used for categorization or identification. If the sub cost item is created by copying from another model, for example, `Contract SOV`, it will inherit the code from the source model. Otherwise, it must be manually assigned. To verify the code is unique, call [GET sub-cost-items](http-cost-sub-cost-items-GET.md). <br>Max length: 255 |
 | name   string | The name to give to the sub cost item. <br>Max length: 1024 |
 | quantity   number,string,null | The planned number of units for the sub cost item. |
 | inputQuantity   number,string,null | The recorded input quantity, typically used in performance tracking. For example, in labor tracking, `inputQuantity` represents man-hours utilized. |

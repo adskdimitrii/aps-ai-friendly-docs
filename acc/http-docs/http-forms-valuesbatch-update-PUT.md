@@ -16,9 +16,9 @@ To edit form values, the form needs to be in draft status and the user must have
 
 To update non-tabular fields you need to use the relevant value type. For example, to update a number field you need to use `numberVal`. To find the value type for the field, call GET forms and check the `valueName`.
 
-See the [Manage Forms tutorial](/en/docs/acc/v1/tutorials/forms/create-update-forms/) for more details about how to update forms.
+See the [Manage Forms tutorial](../how-to-docs/forms-create-update-forms.md) for more details about how to update forms.
 
-To update the formâs details, use [PATCH forms/:formId API](/en/docs/acc/v1/reference/http/forms-forms-formId-PATCH).
+To update the formâs details, use [PATCH forms/:formId API](http-forms-forms-formId-PATCH.md).
 
 Note that we do not currently support adding issues or photos.
 
@@ -34,7 +34,7 @@ Note that we do not currently support adding issues or photos.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 
@@ -44,8 +44,8 @@ Note that we do not currently support adding issues or photos.
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring The ID of the project. Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
-- formIdstring The unique identifier of the form. Use [GET forms](/en/docs/acc/v1/reference/http/forms-forms-GET/) to retrieve the form ID.
+- projectIdstring The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+- formIdstring The unique identifier of the form. Use [GET forms](http-forms-forms-GET.md) to retrieve the form ID.
 
 ### Request
 
@@ -104,7 +104,7 @@ Expand all
 | formDate   string | Date the form pertains to. |
 | assigneeId   string | The unique identifier of the user, role, or company the form is assigned to. |
 | assigneeType   enum:string | Type of entity the form is assigned to. Possible values: `company`, `role`, `user` |
-| locationId   string | Location identifier associated with the form. For more information about the location, see [GET nodes](/en/docs/acc/v1/reference/http/locations-nodes-GET/). |
+| locationId   string | Location identifier associated with the form. For more information about the location, see [GET nodes](http-locations-nodes-GET.md). |
 | updatedAt   datetime: ISO 8601 | When form was last updated, UTC date and time in ISO-8601 format. |
 | createdBy   string | The unique identifier of the user who created the form. |
 | notes   string | Text for the formâs notes section. |

@@ -17,7 +17,7 @@ There are two primary reasons to do this:
 - To verify that all users assigned to the project have been activated as members of the project.
 - To check other information about users, such as their project user ID, roles, and products.
 
-Note that if you want to retrieve information about users associated with a particular Autodesk account, call the [GET users](/en/docs/acc/v1/reference/http/users-GET/) endpoint.
+Note that if you want to retrieve information about users associated with a particular Autodesk account, call the [GET users](http-users-GET.md) endpoint.
 
   Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
@@ -33,9 +33,9 @@ Note that if you want to retrieve information about users associated with a part
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
-| Region   string | Specifies the region where your request should be routed. If not set, the request is routed automatically, which may result in a slight increase in latency. <br>Possible values: `US`, `EMEA`. For a complete list of supported regions, see the [Regions](/en/docs/acc/v1/overview/acc-regions/) page. |
+| Region   string | Specifies the region where your request should be routed. If not set, the request is routed automatically, which may result in a slight increase in latency. <br>Possible values: `US`, `EMEA`. For a complete list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
 | User-Id   string | The ID of a user on whose behalf your request is acting. <br>Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.<br>You can use either the userâs ACC ID (`id`), or their Autodesk ID (`autodeskId`).<br>Note that this header is required for Account Admin POST, PATCH, and DELETE endpoints if you want to use a 2-legged authentication context. This header is optional for Account Admin GET endpoints. |
 
 * Required
@@ -44,7 +44,7 @@ Note that if you want to retrieve information about users associated with a part
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. This corresponds to project ID in the [Data Management API](/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the ACC API you need to remove the â**b.**" prefix. For example, a project ID of `b.a4be0c34a-4ab7` translates to a project ID of `a4be0c34a-4ab7`. |
+| projectId   string: UUID | The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the ACC API you need to remove the â**b.**" prefix. For example, a project ID of `b.a4be0c34a-4ab7` translates to a project ID of `a4be0c34a-4ab7`. |
 | --- | --- |
 
 ### Request
@@ -60,8 +60,8 @@ Note that if you want to retrieve information about users associated with a part
 | filter[companyName]   string | The name of a company that returned users must be associated with. Can be a partial match based on the value of `filterTextMatch` that you provide. <br>For example: `filter[companyName]=Sample filterTextMatch=startsWith`<br>Max length: 255 |
 | filter[autodeskId]   array: string | A list of the Autodesk IDs of users to retrieve. |
 | filter[id]   array: string: uuid | A list of the ACC IDs of users to retrieve. |
-| filter[roleId]   string: UUID | The ID of a user role that the returned users must have. <br>To obtain a role ID for this filter, you can inspect the `roleId` field in previous responses to this endpoint or to the [GET projects/:projectId/users/:userId](/en/docs/acc/v1/reference/http/admin-projects-projectId-users-userId-GET/) endpoint.<br>Max length: 255 |
-| filter[roleIds]   array: string: uuid | A list of the IDs of user roles that the returned users must have. <br>To obtain a role ID for this filter, you can inspect the `roleId` field in previous responses to this endpoint or to the [GET projects/:projectId/users/:userId](/en/docs/acc/v1/reference/http/admin-projects-projectId-users-userId-GET/) endpoint. |
+| filter[roleId]   string: UUID | The ID of a user role that the returned users must have. <br>To obtain a role ID for this filter, you can inspect the `roleId` field in previous responses to this endpoint or to the [GET projects/:projectId/users/:userId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-users-userId-GET/) endpoint.<br>Max length: 255 |
+| filter[roleIds]   array: string: uuid | A list of the IDs of user roles that the returned users must have. <br>To obtain a role ID for this filter, you can inspect the `roleId` field in previous responses to this endpoint or to the [GET projects/:projectId/users/:userId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-users-userId-GET/) endpoint. |
 | filter[status]   array: string | A list of statuses that the returned project users must be in. The default values are `active` and `pending`. <br>Possible values: `active`, `pending`, and `deleted`. |
 | sort   array: string | A list of fields to sort the returned users by. Multiple sort fields are applied in sequence order - each sort field produces groupings of projects with the same values of that field; the next sort field applies within the groupings produced by the previous sort field. <br>Each property can be followed by a direction modifier of either `asc` (ascending) or `desc` (descending). The default is `asc`.<br>Possible values: `name`, `email`, `firstName`, `lastName`, `addressLine1`, `addressLine2`, `city`, `companyName`, `stateOrProvince`, `status`, `phone`, `postalCode`, `country` and `addedOn`. Default value: `name`. |
 | fields   array: string | A list of the project fields to include in the response. Default value: all fields. <br>Possible values: `name`, `email`, `firstName`, `lastName`, `autodeskId`, `analyticsId`, `addressLine1`, `addressLine2`, `city`, `stateOrProvince`, `postalCode`, `country`, `imageUrl`, `phone`, `jobTitle`, `industry`, `aboutMe`, `companyId`, `accessLevels`, `roleIds`, `roles`, `status`, `addedOn` and `products`. |
@@ -128,7 +128,7 @@ Expand all
 | executive   boolean | Indicates whether the user is an executive in the account. Possible values: <br>`true`: The user is an executive.`false`: The user is not an executive. |
 | addedOn   datetime: ISO 8601 | The timestamp when the user was first given access to any product on the project. |
 | updatedAt   datetime: ISO 8601 | The timestamp when the project user was last updated, in ISO 8601 format. |
-| companyId   null,string | The ID of the company that the user is representing in the project. To obtain a list of all company IDs associated with a project, call [GET projects/:projectId/companies](/en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/). |
+| companyId   null,string | The ID of the company that the user is representing in the project. To obtain a list of all company IDs associated with a project, call [GET projects/:projectId/companies](http-projects--project_id-companies-GET.md). |
 | companyName   null,string | The name of the company to which the user belongs. <br>Max length: 255 |
 | roleIds   array: string | A list of IDs of the roles that the user belongs to in the project. |
 | roles   array: object | A list of the role IDs and names that are associated with the user in the project. |
@@ -136,7 +136,7 @@ Expand all
 | name   string | The name of a role that the user belongs to in the project. |
 | status   string | The status of the user in the project. A pending user could be waiting for their products to activate, or the user hasnât accepted an email to create an account with Autodesk. <br>Possible values:<br>`active`: The user has been added to the project.`pending`: The user is in the process of being added to the project.`disabled`: The user has been temporarily suspended from the project.`deleted`: The user has been removed from the project. |
 | products   array: object | Information about the products activated in the specified project for this user. |
-| key   enum:string | A machine-readable identifier for the product (e.g., docs, build). <br>Each product has a unique key used throughout the API for identification, filtering, and integration logic (e.g., in query parameters like `filter[key]`).<br>Possible values: ACC - `autoSpecs`, `build`, `cost`, `designCollaboration`, `docs`, `insight`, `modelCoordination`, `projectAdministration`, and `takeoff`.<br>BIM 360 - `assets`, `costManagement`, `designCollaboration`, `documentManagement`, `field`, `fieldManagement`, `glue`, `insight`, `modelCoordination`, `plan`, `projectAdministration`, `projectHome`, `projectManagement`, and `quantification`.<br>Note that this endpoint returns only ACC products. Other endpoints, such as [GET projects](/en/docs/acc/v1/reference/http/admin-accountsaccountidprojects-GET/) and [GET projects/:projectId](/en/docs/acc/v1/reference/http/admin-projects-projectId-GET/), may return both ACC and BIM 360 projects. In those responses, product keys may include BIM 360 values. |
+| key   enum:string | A machine-readable identifier for the product (e.g., docs, build). <br>Each product has a unique key used throughout the API for identification, filtering, and integration logic (e.g., in query parameters like `filter[key]`).<br>Possible values: ACC - `autoSpecs`, `build`, `cost`, `designCollaboration`, `docs`, `insight`, `modelCoordination`, `projectAdministration`, and `takeoff`.<br>BIM 360 - `assets`, `costManagement`, `designCollaboration`, `documentManagement`, `field`, `fieldManagement`, `glue`, `insight`, `modelCoordination`, `plan`, `projectAdministration`, `projectHome`, `projectManagement`, and `quantification`.<br>Note that this endpoint returns only ACC products. Other endpoints, such as [GET projects](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-accountsaccountidprojects-GET/) and [GET projects/:projectId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-GET/), may return both ACC and BIM 360 projects. In those responses, product keys may include BIM 360 values. |
 | access   enum:string | The userâs type of access to the product identified by `key`. Possible values: <br>`administrator``member``none`<br>Note that when youâre using a POST or PATCH endpoint to set this value, you must adhere to the following guidelines:<br>If you set a productâs `key` to `projectAdministration` and you set `access` to `none`, all other products should be set to `member` access for the user.If you set a productâs `key` to `projectAdministration` and you set `access` to `administrator`, all other products should be set to `administrator` access for the user.You cannot set a productâs `key` to `projectAdministration` and set `access` to `member`. |
 
 ## [Example](#example)

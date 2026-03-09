@@ -12,21 +12,21 @@ In the examples, the responses have been condensed for simplicity.
 
 ## [Before You Begin](#before-you-begin)
 
-Make sure that you have [registered an app](/en/docs/oauth/v2/tutorials/create-app) and successfully [acquired an OAuth token](/en/docs/oauth/v2/tutorials).
+Make sure that you have [registered an app](../../oauth/how-to-docs/create-app.md) and successfully [acquired an OAuth token](https://aps.autodesk.com/en/docs/oauth/v2/tutorials/).
 
-See the Authentication and Scopes section in the [API Basics](/en/docs/data/v2/overview/basics) for the appropriate token based on the data you are accessing.
+See the Authentication and Scopes section in the [API Basics](https://aps.autodesk.com/en/docs/data/v2/overview/basics/) for the appropriate token based on the data you are accessing.
 
-In general, access to BIM 360 Team, BIM 360 Docs, Fusion Team, and A360 Personal data requires the use of a [3-legged OAuth2 token](/en/docs/oauth/v2/tutorials/get-3-legged-token).
+In general, access to BIM 360 Team, BIM 360 Docs, Fusion Team, and A360 Personal data requires the use of a [3-legged OAuth2 token](../../oauth/how-to-docs/get-3-legged-token.md).
 
 HTTP `GET` requests to the Project and Data services require the `data:read` scope.
 
 HTTP `POST` requests to the Data service require the `data:create` scope, but can also be called with the `data:write` scope.
 
-To upload a file to BIM 360 Docs, see the [Upload Documents to BIM 360 Docs](/en/docs/bim360/v1/tutorials/upload-document/) walkthrough.
+To upload a file to BIM 360 Docs, see the [Upload Documents to BIM 360 Docs](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/upload-document/) walkthrough.
 
 ## [Step 1: Find the hub that has your resource](#step-1-find-the-hub-that-has-your-resource)
 
-The Data Management service exposes a [GET hubs](/en/docs/data/v2/reference/http/hubs-GET) endpoint that provides a
+The Data Management service exposes a [GET hubs](../http-docs/http-hubs-GET.md) endpoint that provides a
 list of available hubs for the logged in user. A GET request to that endpoint allow us
 to find the URL for the hub we want.
 
@@ -119,7 +119,7 @@ Show More
 
 In the above example, assume that your resource exists in âJohnâs Hubâ. Make
 note of the the hub ID (`a.cGVyc29uYWw6d2lwMWZxYWUyOWNlZGY4`). The ID can be
-used with the [GET hubs/:hub_id/projects](/en/docs/data/v2/reference/http/hubs-hub_id-projects-GET) endpoint to obtain a list of all the
+used with the [GET hubs/:hub_id/projects](../http-docs/http-hubs-hub_id-projects-GET.md) endpoint to obtain a list of all the
 projects the user has access to within the hub.
 
 ### Example
@@ -240,9 +240,9 @@ Show More
 In the above example, assume that your resource exists in âJohnâs Second Projectâ.
 Make note of the the project and folder IDs (`a.cGVyc29uYWw6d2lwMWZxYWUyOWNlZGY4I0QyMDE2MDQxODM5NDM2NzM` and `urn:adsk.wipprod:fs.folder:co.mgS-lb-BThaTdHnhiN_mbA` respectively).
 
-The [POST projects/:project_id/storage](/en/docs/data/v2/reference/http/projects-project_id-storage-POST) endpoint creates a storage location in the OSS where files can be uploaded to.
+The [POST projects/:project_id/storage](../http-docs/http-projects-project_id-storage-POST.md) endpoint creates a storage location in the OSS where files can be uploaded to.
 
-Note that you cannot upload documents to the root folder in BIM 360 Docs; you can only upload documents to the Project Files folder or to a folder nested under the Project Files folder. For more details, see the [Upload Documents to BIM 360 Docs](/en/docs/bim360/v1/tutorials/upload-document/) walkthrough.
+Note that you cannot upload documents to the root folder in BIM 360 Docs; you can only upload documents to the Project Files folder or to a folder nested under the Project Files folder. For more details, see the [Upload Documents to BIM 360 Docs](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/upload-document/) walkthrough.
 
 ### Example
 
@@ -298,7 +298,7 @@ Show More
 
 In the above example, make note of the object ID (`urn:adsk.objects:os.object:wip.dm.prod/2a6d61f2-49df-4d7b-9aed-439586d61df7.jpg` where `wip.dm.prod` is the bucket key and `2a6d61f2-49df-4d7b-9aed-439586d61df7.jpg` is the object Key.)
 
-The [GET buckets/:bucket_key/objects/:object_key/signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-GET) endpoint generates a signed URL of the storage upload location created in the last step.
+The [GET buckets/:bucket_key/objects/:object_key/signeds3upload](../http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md) endpoint generates a signed URL of the storage upload location created in the last step.
 
 This endpoint supports generating multiple signed URLs to allow parallel upload of chunks of the same file. Please refer to the documentation of this endpoint for more information.
 
@@ -340,7 +340,7 @@ curl -X PUT -H --data-binary @D:\Temp\myfile.jpg "https://com-autodesk-oss-direc
 
 ## [Step 6: Complete the upload](#step-6-complete-the-upload)
 
-The upload needs to be completed by calling the [POST buckets/:bucket_key/objects/:object_key/signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-POST) endpoint. An object will not be accessible until this endpoint is called. This endpoint must be called within 24 hours of the upload beginning, otherwise the object will be discarded, and the upload must begin again from scratch.
+The upload needs to be completed by calling the [POST buckets/:bucket_key/objects/:object_key/signeds3upload](../http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-POST.md) endpoint. An object will not be accessible until this endpoint is called. This endpoint must be called within 24 hours of the upload beginning, otherwise the object will be discarded, and the upload must begin again from scratch.
 
 **Note:** The value to be used for `uploadkey` for this request was returned in the response of step 4.
 
@@ -371,7 +371,7 @@ Show More
 
 In the above examples, make note of the the object ID, project ID and folder ID which are respectively, `urn:adsk.objects:os.object:wip.dm.prod/2a6d61f2-49df-4d7b-9aed-439586d61df7.jpg`, `a.cGVyc29uYWw6d2lwMWZxYWUyOWNlZGY4I0QyMDE2MDQxODM5NDM2NzM`, and `urn:adsk.wipprod:fs.folder:co.mgS-lb-BThaTdHnhiN_mbA`.
 
-The [POST projects/:project_id/items](/en/docs/data/v2/reference/http/projects-project_id-items-POST) endpoint creates the first version of the uploaded file.
+The [POST projects/:project_id/items](../http-docs/http-projects-project_id-items-POST.md) endpoint creates the first version of the uploaded file.
 
 ### Example
 
@@ -625,9 +625,9 @@ Show More
 
 ## [Step 8: Update the version of a file](#step-8-update-the-version-of-a-file)
 
-An uploaded resource can have multiple versions. To create a new version of an existing resource, Step 3 and 4 in this walkthrough will needed to be repeated. Make note of the new object ID in Step 3. Get the item ID of the resource from Step 5 or call the [GET projects/:project_id/folders/:folder_id/contents](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-contents-GET) endpoint.
+An uploaded resource can have multiple versions. To create a new version of an existing resource, Step 3 and 4 in this walkthrough will needed to be repeated. Make note of the new object ID in Step 3. Get the item ID of the resource from Step 5 or call the [GET projects/:project_id/folders/:folder_id/contents](../http-docs/http-projects-project_id-folders-folder_id-contents-GET.md) endpoint.
 
-The [POST projects/:project_id/versions](/en/docs/data/v2/reference/http/projects-project_id-versions-POST) endpoint creates a new version of the uploaded file.
+The [POST projects/:project_id/versions](../http-docs/http-projects-project_id-versions-POST.md) endpoint creates a new version of the uploaded file.
 
 ### Example
 

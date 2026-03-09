@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-room
 
 # Task 3 â Translate to SVF2
 
-SVF2 is a newer format designed specifically for larger models with geometry repetition. When larger and complex models are translated to SVF2, they load much faster in the viewer. For details see [Displaying Models in a Browser](/en/docs/model-derivative/v2/developers_guide/basics/preperation/) in the Developerâs Guide.
+SVF2 is a newer format designed specifically for larger models with geometry repetition. When larger and complex models are translated to SVF2, they load much faster in the viewer. For details see [Displaying Models in a Browser](https://aps.autodesk.com/en/docs/model-derivative/v2/developers_guide/basics/preperation/) in the Developerâs Guide.
 
 ## [Step 1 - Start a translation job](#step-1-start-a-translation-job)
 

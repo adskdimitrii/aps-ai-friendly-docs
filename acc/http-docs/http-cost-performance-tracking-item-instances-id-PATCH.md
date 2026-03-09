@@ -10,7 +10,7 @@ PATCH
 
 # v1/containers/{containerId}/performance-tracking-item-instances/{id}
 
-Updates a performance tracking item instance by ID in the given project. For more information about performance tracking, see the [Cost Management API Field Guide](/en/docs/bim360/v1/overview/field-guide/cost-management/).
+Updates a performance tracking item instance by ID in the given project. For more information about performance tracking, see the [Cost Management API Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/cost-management/).
 
   Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
@@ -26,10 +26,10 @@ Updates a performance tracking item instance by ID in the given project. For mor
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
-| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](/en/docs/acc/v1/overview/acc-regions) page.<br>To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
+| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.<br>To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
 
 * Required
 
@@ -37,9 +37,9 @@ Updates a performance tracking item instance by ID in the given project. For mor
 
 ## [URI Parameters](#uri-parameters)
 
-| containerId   string: UUID | The ID of the project (the container ID is the same as the project ID). To obtain the project ID, see [GET projects](/en/docs/bim360/v1/reference/http/admin-accounts-accountidprojects-GET/). |
+| containerId   string: UUID | The ID of the project (the container ID is the same as the project ID). To obtain the project ID, see [GET projects](http-admin-accounts-accountidprojects-GET.md). |
 | --- | --- |
-| id   string | The tracking item instance ID. To find the instance ID, call [GET performance-tracking-item-instances](/en/docs/bim360/v1/reference/http/cost-performance-tracking-item-instances-GET/) and inspect `results.id` in the response. |
+| id   string | The tracking item instance ID. To find the instance ID, call [GET performance-tracking-item-instances](http-cost-performance-tracking-item-instances-GET.md) and inspect `results.id` in the response. |
 
 ### Request
 

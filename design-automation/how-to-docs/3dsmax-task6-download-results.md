@@ -16,8 +16,8 @@ You will use the following operations to check the WorkItemâs status and do
 
 | HTTP Request | Description |
 | --- | --- |
-| [GET /workitems/{id}](/en/docs/design-automation/v3/reference/http/workitems-id-GET) | Gets the status of a specific WorkItem. |
-| [POST /buckets/{bucketKey}/objects/{objectKey}/signed](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signed-POST) | Creates a signed URL to an object in an OSS bucket. |
+| [GET /workitems/{id}](../http-docs/http-workitems-id-GET.md) | Gets the status of a specific WorkItem. |
+| [POST /buckets/{bucketKey}/objects/{objectKey}/signed](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signed-POST.md) | Creates a signed URL to an object in an OSS bucket. |
 
 ## [Step 1 - Check status of the WorkItem](#step-1-check-status-of-the-workitem)
 
@@ -28,7 +28,7 @@ In this walkthrough, you will be waiting for the WorkItem to finish by querying 
 However, the best practice is to use the `onComplete` argument when submitting WorkItem.
 This onComplete argument enables you tp specify a callback URL that will be called once the WorkItem is completed.
 The onComplete argument can be specified when sending a WorkItem and doesnât need to be defined within an activity.
-For more information see the documentation on callbacks [here](/en/docs/design-automation/v3/developers_guide/callbacks/).
+For more information see the documentation on callbacks [here](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/callbacks/).
 
 For now, send this request periodically until the value of the response body parameter status is something other than `pending` or `inprogress`.
 If everything goes as expected, the status should reach the `success` status. Otherwise, you might see one of the many potential failure statuses.
@@ -47,7 +47,7 @@ curl -i -X GET \
 
 **Notes:**
 
-- Replace the `<YOUR_WORKITEM_ID>` value in the url with the id of your WorkItem obtained from [Task 5](/en/docs/design-automation/v3/tutorials/3dsmax/task5-submit-workitem/).
+- Replace the `<YOUR_WORKITEM_ID>` value in the url with the id of your WorkItem obtained from [Task 5](3dsmax-task5-submit-workitem.md).
 
 ### Response
 

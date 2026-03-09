@@ -14,11 +14,11 @@ You use the following operation for this task:
 
 | Operation | HTTP Request |
 | --- | --- |
-| [Get an Access Token](/en/docs/oauth/v2/reference/http/gettoken-POST/) | POST /token |
+| [Get an Access Token](../../oauth/http-docs/http-gettoken-POST.md) | POST /token |
 
 ## [Step 1 - Register an App](#step-1-register-an-app)
 
-Follow the instructions in the walkthrough [Create an app](/en/docs/oauth/v2/tutorials/create-app) to register an app for this walkthrough. Note down the Client ID and Client Secret you recieve for the app. When specifying details of the app, make sure that the âModel Derivative APIâ and âData Management APIâ are selected.
+Follow the instructions in the walkthrough [Create an app](../../oauth/how-to-docs/create-app.md) to register an app for this walkthrough. Note down the Client ID and Client Secret you recieve for the app. When specifying details of the app, make sure that the âModel Derivative APIâ and âData Management APIâ are selected.
 
 ## [Step 2: Encode your Client ID and Client Secret](#step-2-encode-your-client-id-and-client-secret)
 
@@ -89,7 +89,7 @@ string encodedText = Convert.ToBase64String(bytesToEncode);
 
 ## [Step 3: Use encoded string to obtain an Access Token](#step-3-use-encoded-string-to-obtain-an-access-token)
 
-Call the [POST token](/en/docs/oauth/v2/reference/http/gettoken-POST) endpoint:
+Call the [POST token](../../oauth/http-docs/http-gettoken-POST.md) endpoint:
 
 The Base64 encoded Client ID + Client Secret are passed through the `Authorization` header. The `grant_type` and `scope` are specified as form fields in the request body.
 

@@ -15,12 +15,12 @@ Modifies folder names. You can also use this endpoint to delete and restore BIM 
 Note that you cannot permanently delete BIM 360 Docs folders.
 They are tagged as `hidden` folders and are removed from the BIM 360 Docs UI and from regular Data Management API responses until you restore them.
 You can use the `hidden` filter (`filter[hidden]=true`) to get a list of deleted folders with
-the [GET projects/:project_id/folders/:folder_id/contents](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-contents-GET/) endpoint.
+the [GET projects/:project_id/folders/:folder_id/contents](http-projects-project_id-folders-folder_id-contents-GET.md) endpoint.
 
 Note that to access BIM 360 Docs folders using the Data Management API you need to provision your app in the BIM 360
-Account Administrator portal. For more details, see the [Manage Access to Docs](/en/docs/bim360/v1/tutorials/manage-access-to-docs) tutorial.
+Account Administrator portal. For more details, see the [Manage Access to Docs](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/manage-access-to-docs/) tutorial.
 
-**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](/en/docs/acc/v1/overview/).
+**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/).
 
 ## [Resource Information](#resource-information)
 
@@ -34,7 +34,7 @@ Account Administrator portal. For more details, see the [Manage Access to Docs](
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/vnd.api+json` |
 | x-user-id   string | In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified. |
@@ -62,7 +62,7 @@ Expand all
 | version*   enum:string | The version of JSON API. Will always be: `1.0` |
 | data*   object | The data object. |
 | type*   enum:string | The type of this resource. Will always be: `folders` |
-| id*   string | The URN of the folder. <br>For details about how to find the URN, follow the initial steps in the [Download a File](/en/docs/data/v2/tutorials/download-file/) tutorial.<br>Note that this should NOT be URL-encoded.<br>Note that you also need to specify the URN of the folder in the URI (`folder_id`). |
+| id*   string | The URN of the folder. <br>For details about how to find the URN, follow the initial steps in the [Download a File](../how-to-docs/download-file.md) tutorial.<br>Note that this should NOT be URL-encoded.<br>Note that you also need to specify the URN of the folder in the URI (`folder_id`). |
 | attributes   object | The attributes of the data object |
 | hidden   boolean | `true` if you want to delete a BIM 360 Docs folder. <br>`false` if you want to restore a BIM 360 Docs folder. |
 | name   string | The new folder name (1-255 characters). <br>Reserved characters: `<`, `>`, `:`, `"`, `/`, `\`, `|`, `?`, `*`, `` ` ``, `\n`, `\r`, `\t`, `\0`, `\f`, `Â¢`, `â¢`, `$`, `Â®`.<br>Restored folders are assigned the original folder name by default, unless you specify a different name.<br>Note that if you assign a deleted folder name to a different folder, you will need to assign a new name to the deleted folder when you restore it. |

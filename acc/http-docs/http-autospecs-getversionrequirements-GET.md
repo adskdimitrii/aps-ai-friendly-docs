@@ -10,7 +10,7 @@ GET
 
 # projects/{projectId}/version/{versionId}/requirements
 
-Retrieves the number of submittals for the submittal groups in each submittal section. To retrieve all submittal data from the Smart Register, call [GET smartregister](/en/docs/acc/v1/reference/http/autospecs-getversionsmartregister-GET/).
+Retrieves the number of submittals for the submittal groups in each submittal section. To retrieve all submittal data from the Smart Register, call [GET smartregister](http-autospecs-getversionsmartregister-GET.md).
 
 ## [Resource Information](#resource-information)
 
@@ -24,7 +24,7 @@ Retrieves the number of submittals for the submittal groups in each submittal se
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 
 * Required
@@ -33,8 +33,8 @@ Retrieves the number of submittals for the submittal groups in each submittal se
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring The ID of the project. Use the [Data Management API](/en/docs/data/v2/developers_guide/overview/) to retrieve the project ID. For more information, see the [Retrieve a Project ID tutorial](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/). You need to convert the project ID into a project ID for the ACC API by removing the âb.â prefix. For example, a project ID of b.a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
-- versionIdstring The AutoSpecs version ID of the project. For information about how to find the version ID, see the first few steps of the [Retrieve Submittal Log](/en/docs/acc/v1/tutorials/autospecs/upload-document/) tutorial.
+- projectIdstring The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/developers_guide/overview/) to retrieve the project ID. For more information, see the [Retrieve a Project ID tutorial](../how-to-docs/getting-started-retrieve-account-and-project-id.md). You need to convert the project ID into a project ID for the ACC API by removing the âb.â prefix. For example, a project ID of b.a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+- versionIdstring The AutoSpecs version ID of the project. For information about how to find the version ID, see the first few steps of the [Retrieve Submittal Log](https://aps.autodesk.com/en/docs/acc/v1/tutorials/autospecs/upload-document/) tutorial.
 
 ### Response
 

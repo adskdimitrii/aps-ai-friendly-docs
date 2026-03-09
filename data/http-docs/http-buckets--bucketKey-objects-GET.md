@@ -24,7 +24,7 @@ List objects in a bucket. It is only available to the bucket creator.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](/en/docs/oauth/v2/reference/http/gettoken-POST). |
+| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
 | --- | --- |
 
 * Required

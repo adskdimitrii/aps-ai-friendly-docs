@@ -8,12 +8,12 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/files/download-document-s
 
 This tutorial demonstrates how to download files from the ACC Files tool. The steps include finding the ID of the folder that contains the file, locating the storage object for the file, generating a signed S3 URL, and downloading the file from the signed S3 URL.
 
-For more details about the ACC files management, see the [Data Management API](/en/docs/data/v2/overview/).
+For more details about the ACC files management, see the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/overview/).
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps), and select the Data Management and Autodesk Construction Cloud APIs.
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:create` `data:read` and `data:write` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create` `data:read` and `data:write` scopes.
 - Verify that you have access to the relevant ACC account and ACC project.
 - Note the name of the ACC account, project, and folder that contains the file you want to download.
 
@@ -21,7 +21,7 @@ For more details about the ACC files management, see the [Data Management API](/
 
 The first few steps of the tutorial demonstrate how to find the ID of the folder that contains the file you want to download, which invovles iterating through several Data Management endpoints.
 
-Call [GET hubs](/en/docs/data/v2/reference/http/hubs-GET/) to find the hub ID for the ACC account that contains the file you want to download.
+Call [GET hubs](../../data/http-docs/http-hubs-GET.md) to find the hub ID for the ACC account that contains the file you want to download.
 
 Note that the ACC account ID corresponds to a Data Management hub ID. To convert an account ID into a hub ID you need to add a â**b.**" prefix. For example, an account ID of c8b0c73d-3ae9 translates to a hub ID of **b.**c8b0c73d-3ae9.
 
@@ -73,9 +73,9 @@ Find the hub (`data.name`), and note the hub ID - `b.cGVyc29uYWw6cGUyOWNjZjMy`.
 
 ## [Step 2: Find the Project ID](#step-2-find-the-project-id)
 
-Use the hub ID (`b.cGVyc29uYWw6cGUyOWNjZjMy`) to call [GET hubs/:hub_id/projects](/en/docs/data/v2/reference/http/hubs-hub_id-projects-GET) to get a list of all the projects in the hub. Find the project ID of the project that contains the folder you want to download the file from.
+Use the hub ID (`b.cGVyc29uYWw6cGUyOWNjZjMy`) to call [GET hubs/:hub_id/projects](../../data/http-docs/http-hubs-hub_id-projects-GET.md) to get a list of all the projects in the hub. Find the project ID of the project that contains the folder you want to download the file from.
 
-Note that the project ID in ACC corresponds to the project ID in the [Data Management API](/en/docs/data/v2/). To convert a project ID in ACC to a project ID in the Data Management API, you need to add a â**b.**" prefix. For example, a project ID of a4be0c34a-4ab7 translates to a project ID of **b.**a4be0c34a-4ab7.
+Note that the project ID in ACC corresponds to the project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in ACC to a project ID in the Data Management API, you need to add a â**b.**" prefix. For example, a project ID of a4be0c34a-4ab7 translates to a project ID of **b.**a4be0c34a-4ab7.
 
 ### Request
 
@@ -119,7 +119,7 @@ Find the project (`data.attributes.name`), and note the project ID (`data.id`) -
 
 ## [Step 3: Find the Folder ID](#step-3-find-the-folder-id)
 
-Use the hub ID (`b.cGVyc29uYWw6cGUyOWNjZjMy`) and the project ID (`b.cGVyc29uYWw6d2l`) to call [GET hubs/:hub_id/projects/:project_id/topFolders](/en/docs/data/v2/reference/http/hubs-hub_id-projects-project_id-topFolders-GET) to get the top-level folders.
+Use the hub ID (`b.cGVyc29uYWw6cGUyOWNjZjMy`) and the project ID (`b.cGVyc29uYWw6d2l`) to call [GET hubs/:hub_id/projects/:project_id/topFolders](../../data/http-docs/http-hubs-hub_id-projects-project_id-topFolders-GET.md) to get the top-level folders.
 
 ### Request
 
@@ -180,11 +180,11 @@ Show More
 
 Find the relevant folder (`data.attributes.name`), and note the folder ID (`data.id`) - `urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`
 
-If you want to download a file from a folder nested under the top-level folder, you need to call [GET projects/:project_id/folders/:folder_id/contents](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-contents-GET) repeatedly through the hierarchy of folders until you find the Folder ID of the folder you want to upload the file to. For the first iteration, use the top-level folder ID (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`).
+If you want to download a file from a folder nested under the top-level folder, you need to call [GET projects/:project_id/folders/:folder_id/contents](../../data/http-docs/http-projects-project_id-folders-folder_id-contents-GET.md) repeatedly through the hierarchy of folders until you find the Folder ID of the folder you want to upload the file to. For the first iteration, use the top-level folder ID (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`).
 
 ## [Step 4: Find the Storage Object ID for the File](#step-4-find-the-storage-object-id-for-the-file)
 
-Use the project ID (`b.cGVyc29uYWw6d2l`) and the Projet Files folder ID (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`) to call [GET projects/:project_id/folders/:folder_id/contents](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-contents-GET) to get the storage object ID.
+Use the project ID (`b.cGVyc29uYWw6d2l`) and the Projet Files folder ID (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`) to call [GET projects/:project_id/folders/:folder_id/contents](../../data/http-docs/http-projects-project_id-folders-folder_id-contents-GET.md) to get the storage object ID.
 
 ### Request
 
@@ -264,7 +264,7 @@ Note the bucket key - `wip.dm.prod` and the storage object key - `72d5e7e4-89a7-
 
 ## [Step 5: Generate a Signed S3 URL](#step-5-generate-a-signed-s3-url)
 
-Use the bucket key (`wip.dm.prod`) and the object key (`72d5e7e4-89a7-4cb9-9da0-2e2bbc61ca8e.dwg`) to call [GET buckets/:bucketKey/objects/:objectKey/signeds3download](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3download-GET) to generate a signed URL for the storage object, which you can use to download the file directly from S3.
+Use the bucket key (`wip.dm.prod`) and the object key (`72d5e7e4-89a7-4cb9-9da0-2e2bbc61ca8e.dwg`) to call [GET buckets/:bucketKey/objects/:objectKey/signeds3download](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3download-GET.md) to generate a signed URL for the storage object, which you can use to download the file directly from S3.
 
 ### Request
 

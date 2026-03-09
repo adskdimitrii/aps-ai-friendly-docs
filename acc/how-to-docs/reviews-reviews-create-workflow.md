@@ -13,16 +13,16 @@ Approval workflows control the sequence of steps that files must pass through be
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps), and select `Autodesk Construction Cloud APIs` in the `API Access` dropdown.
-- Acquire a [3-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token/) or [2-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token/) OAuth token with `data:read` and `data:write` scopes for operating approval workflows.
+- Acquire a [3-legged](../../oauth/how-to-docs/get-3-legged-token.md) or [2-legged](../../oauth/how-to-docs/get-2-legged-token.md) OAuth token with `data:read` and `data:write` scopes for operating approval workflows.
   * For a 3-legged token, ensure that the user is a project administrator.
-  * For a 2-legged token, the `x-user-id` header is required. Retrieve the userâs Autodesk ID by calling [GET projects/:projectId/users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET/) with your 2-legged OAuth token and the userâs email address. Ensure that the user is a project administrator.
-- Find the project ID for the project you want to create an approval workflow in by following the [Retrieve an Account ID and Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. In this example, assume the project ID is `9ba6681e-1952-4d54-aac4-9de6d9858dd4`.
+  * For a 2-legged token, the `x-user-id` header is required. Retrieve the userâs Autodesk ID by calling [GET projects/:projectId/users](../http-docs/http-admin-projectsprojectId-users-GET.md) with your 2-legged OAuth token and the userâs email address. Ensure that the user is a project administrator.
+- Find the project ID for the project you want to create an approval workflow in by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `9ba6681e-1952-4d54-aac4-9de6d9858dd4`.
 - Verify that you have access to the relevant ACC account, project, and folders.
-  * If you need to obtain the URNs of folders, follow the [Export Files From the ACC Files Tool](/en/docs/acc/v1/tutorials/files/export-pdf-files/) tutorial to get the URNs you need.
+  * If you need to obtain the URNs of folders, follow the [Export Files From the ACC Files Tool](files-export-pdf-files.md) tutorial to get the URNs you need.
 
 ## [Step 1: Prepare the Workflow Payload](#step-1-prepare-the-workflow-payload)
 
-Before creating an approval workflow, you must prepare a JSON-formatted payload that defines the workflowâs steps and options. This payload will be used in Step 2 when you call [POST Workflow](/en/docs/acc/v1/reference/http/reviews-createworkflow-POST/).
+Before creating an approval workflow, you must prepare a JSON-formatted payload that defines the workflowâs steps and options. This payload will be used in Step 2 when you call [POST Workflow](../http-docs/http-reviews-createworkflow-POST.md).
 
 The steps must follow a specific order:
 * The Initiator step must come first.
@@ -205,7 +205,7 @@ Show More
 
 ## [Step 2: Create an Approval Workflow](#step-2-create-an-approval-workflow)
 
-Use the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and the payload you prepared in Step 1 to call [POST workflow](/en/docs/acc/v1/reference/http/reviews-createworkflow-POST/), and create a new approval workflow in the project.
+Use the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and the payload you prepared in Step 1 to call [POST workflow](../http-docs/http-reviews-createworkflow-POST.md), and create a new approval workflow in the project.
 
 The following example shows a 3-step approval workflow (Initiator + Reviewer + Approver).
 
@@ -323,11 +323,11 @@ Show More
 
 After the workflow is created, its settings can also be updated in the Reviews section of the web interface.
 
-The `id` of each step in the response is automatically generated and must be used when calling [POST review](/en/docs/acc/v1/reference/http/reviews-createreview-POST/).
+The `id` of each step in the response is automatically generated and must be used when calling [POST review](../http-docs/http-reviews-createreview-POST.md).
 
 ## [Step 3: Retrieve an Approval Workflow](#step-3-retrieve-an-approval-workflow)
 
-Use the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and the workflow ID returned in Step 2 to call [GET approval workflow](/en/docs/acc/v1/reference/http/reviews-getworkflow-GET/), and retrieve the details of a specific workflow.
+Use the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and the workflow ID returned in Step 2 to call [GET approval workflow](../http-docs/http-reviews-getworkflow-GET.md), and retrieve the details of a specific workflow.
 
 ### Request
 
@@ -373,7 +373,7 @@ Show More
 
 ## [Step 4 (optional): List Approval Workflows](#step-4-optional-list-approval-workflows)
 
-Use the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) to call [GET workflows](/en/docs/acc/v1/reference/http/reviews-workflows-GET/). and retrieve all approval workflows available in the project.
+Use the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) to call [GET workflows](../http-docs/http-reviews-workflows-GET.md). and retrieve all approval workflows available in the project.
 
 Use the `limit` and `offset` parameters to paginate the results. The default `limit` is 50 and the default `offset` is 0. If the response does not include a `nextUrl`, you have reached the last page of results.
 

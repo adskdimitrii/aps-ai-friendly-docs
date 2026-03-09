@@ -10,7 +10,7 @@ Source: https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/translate
 
 This walkthrough guides you through the process of translating an Inventor model into the STL format. The Inventor model consists of an Inventor assembly file (*.iam) and several part files (*.ipt) referenced by the assembly file. The referenced files have been packaged with the host model as a zip file. Having the files packaged as a zip file provides the convenience of handling the translation job with the ease of translating a single source file.
 
-Besides packaging referenced files with the host as a zip file, Model Derivative supports a workflow that lets you deal with the host model and referenced files individually. This is demonstrated in the walkthrough [Translate a Source File that Contains References](/en/docs/model-derivative/v2/tutorials/translate-source-file-containing-xref/).
+Besides packaging referenced files with the host as a zip file, Model Derivative supports a workflow that lets you deal with the host model and referenced files individually. This is demonstrated in the walkthrough [Translate a Source File that Contains References](https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-source-file-containing-xref/).
 
 ## [Postman Collection for this walkthrough](#postman-collection-for-this-walkthrough)
 

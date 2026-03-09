@@ -17,7 +17,7 @@ This endpoint serves two main purposes:
 1. To retrieve static values, such as submittal roles, user types, and statuses.
 2. To obtain project-specific information, like the custom identifier sequence type, which indicates whether the project uses a global or spec sequence.
 
-For detailed steps on creating submittal items, refer to the [Create Submittal Item](/en/docs/acc/v1/tutorials/submittals/create-submittal-item) tutorial.
+For detailed steps on creating submittal items, refer to the [Create Submittal Item](../how-to-docs/submittals-create-submittal-item.md) tutorial.
 
 Note that this endpoint is not compatible with BIM 360 projects.
 
@@ -33,7 +33,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 
 * Required
@@ -42,7 +42,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Response
@@ -72,7 +72,7 @@ Expand all
 | id   string | The unique identifier for the attachment URN type. |
 | key   string | Not relevant |
 | value   string | The display name of the attachment URN type. |
-| itemTypes   array: object | A list of submittal item types. This is the same as calling [GET item-types](/en/docs/acc/v1/reference/http/submittals-item-types-GET/) |
+| itemTypes   array: object | A list of submittal item types. This is the same as calling [GET item-types](http-submittals-item-types-GET.md) |
 | id   string: UUID | The internal, globally unique identifier (UUID) for the item type. |
 | key   string | Not relevant |
 | value   string | The name of the submittal item type. |
@@ -95,7 +95,7 @@ Expand all
 | id   string | The unique identifier for the status. |
 | key   string | Not relevant |
 | value   string | The display name of the status. |
-| responses   array: object | A list of responses.This is the same as calling [GET responses](/en/docs/acc/v1/reference/http/submittals-responses-GET/) |
+| responses   array: object | A list of responses.This is the same as calling [GET responses](http-submittals-responses-GET.md) |
 | id   string: UUID | The internal, globally unique identifier (UUID) for the response. |
 | key   string | Not relevant |
 | value   string | The content of the response. |
@@ -125,7 +125,7 @@ Expand all
 | isApproval   boolean | `true`: if this option is for an approved submittal response. <br>`false`: if this option is for other-typed submittal responses. |
 | defaultValues   object | An object containing the default values for various settings and configurations in the project. |
 | watchers   array: object | A list of project watchers, who can be individual users, roles, or companies. |
-| id   string | The Autodesk ID of the watcher. The watcher can be a user (`autodeskId`), role (`memberGroupId`), or company (`memberGroupId`). <br>To find details about users, call [GET users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/). Note that we do not currently support finding details about roles for a project. |
+| id   string | The Autodesk ID of the watcher. The watcher can be a user (`autodeskId`), role (`memberGroupId`), or company (`memberGroupId`). <br>To find details about users, call [GET users](http-admin-projectsprojectId-users-GET.md), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/). Note that we do not currently support finding details about roles for a project. |
 | userType   object | The type of watcher assigned to the submittal item. <br>Possible values:<br>`1` (user)`2` (company)`3` (role) |
 | manager   string | The Autodesk ID of the user who is assigned as the manager. |
 | reviewTime   int | The number of days remaining until the review due date. |

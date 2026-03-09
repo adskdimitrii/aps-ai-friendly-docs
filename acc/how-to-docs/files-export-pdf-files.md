@@ -15,16 +15,16 @@ For more information about exporting files, see the [Export Files help documenta
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps), and select Autodesk Construction Cloud API.
-- [Provision your app](/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/) to acquire access to your ACC account.
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:write` scope.
-- Find the relevant hub ID and project ID for the project from which you want to export files by following the [Retrieve a Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. Assume that the hub ID is `b.cGVyc29uYWw6cGUyOWNjZjMy`, and the project ID is `b.139532ee-5cdb-4c9e-a293-652693991e65`.
+- [Provision your app](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/) to acquire access to your ACC account.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:write` scope.
+- Find the relevant hub ID and project ID for the project from which you want to export files by following the [Retrieve a Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. Assume that the hub ID is `b.cGVyc29uYWw6cGUyOWNjZjMy`, and the project ID is `b.139532ee-5cdb-4c9e-a293-652693991e65`.
 - Verify that you have access to the relevant ACC project.
 
 ## [Step 1: Find the Folder ID of the Files to Export](#step-1-find-the-folder-id-of-the-files-to-export)
 
 You first need to find the folder ID of the folder containing the files you want to export. Start by retrieving the parent folder ID, then, if necessary, iterate through the child folders until you locate the correct folder ID.
 
-To find the parent folder ID, use the hub ID (`b.cGVyc29uYWw6cGUyOWNjZjMy`) and project ID (`b.139532ee-5cdb-4c9e-a293-652693991e65`) to call [GET hubs/:hub_id/projects/:project_id/topFolders](/en/docs/data/v2/reference/http/hubs-hub_id-projects-project_id-topFolders-GET).
+To find the parent folder ID, use the hub ID (`b.cGVyc29uYWw6cGUyOWNjZjMy`) and project ID (`b.139532ee-5cdb-4c9e-a293-652693991e65`) to call [GET hubs/:hub_id/projects/:project_id/topFolders](../../data/http-docs/http-hubs-hub_id-projects-project_id-topFolders-GET.md).
 
 ### Request
 
@@ -91,15 +91,15 @@ Show More
 
 Note the folder ID - `data.id` (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`).
 
-If you want to export a file from a folder nested under the parent folder, you need to call [GET projects/:project_id/folders/:folder_id/contents](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-contents-GET) repeatedly through the hierarchy of folders until you find the folder ID of the folder that contains the files you want to export.
+If you want to export a file from a folder nested under the parent folder, you need to call [GET projects/:project_id/folders/:folder_id/contents](../../data/http-docs/http-projects-project_id-folders-folder_id-contents-GET.md) repeatedly through the hierarchy of folders until you find the folder ID of the folder that contains the files you want to export.
 
 ## [Step 2: Find the Version IDs of the Files to Export](#step-2-find-the-version-ids-of-the-files-to-export)
 
-To export the files, youâll also need the version IDs of the files. To find the version IDs, use the project ID (`b.139532ee-5cdb-4c9e-a293-652693991e65`), and the folder ID (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`) to call [GET projects/:project_id/folders/:folder_id/contents](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-contents-GET).
+To export the files, youâll also need the version IDs of the files. To find the version IDs, use the project ID (`b.139532ee-5cdb-4c9e-a293-652693991e65`), and the folder ID (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`) to call [GET projects/:project_id/folders/:folder_id/contents](../../data/http-docs/http-projects-project_id-folders-folder_id-contents-GET.md).
 
 Note that you need to URL-encode the folder ID - `urn%3Aadsk.wipprod%3Afs.folder%3Aco.BJU3PTc4Sd2CmXM492XUiA`.
 
-Note that if you want to export a different version of the file, use [GET projects/:project_id/items/:item_id/versions](/en/docs/data/v2/reference/http/projects-project_id-items-item_id-versions-GET) to find the relevant version ID.
+Note that if you want to export a different version of the file, use [GET projects/:project_id/items/:item_id/versions](../../data/http-docs/http-projects-project_id-items-item_id-versions-GET.md) to find the relevant version ID.
 
 ### Request
 
@@ -217,9 +217,9 @@ Find the name of the file you want to export - `included[i].attributes.displayNa
 
 ## [Step 3: Export the Files](#step-3-export-the-files)
 
-To export the file, use the project ID ((`b.139532ee-5cdb-4c9e-a293-652693991e65`) and the version ID (`urn:adsk.wipprod:fs.file:vf.15Rg8B38Qp-SEu6HzXlTNg?version=1`), to call [POST exports](/en/docs/acc/v1/reference/http/files-export-pdf-files-POST).
+To export the file, use the project ID ((`b.139532ee-5cdb-4c9e-a293-652693991e65`) and the version ID (`urn:adsk.wipprod:fs.file:vf.15Rg8B38Qp-SEu6HzXlTNg?version=1`), to call [POST exports](https://aps.autodesk.com/en/docs/acc/v1/reference/http/files-export-pdf-files-POST/).
 
-Note that this endpoint is asynchronous and initiates a job that runs in the background rather than halting execution of your program. You can check whether the asynchronous job is complete by calling [GET exports/{exportId}](/en/docs/acc/v1/reference/http/files-get-export-status-GET).
+Note that this endpoint is asynchronous and initiates a job that runs in the background rather than halting execution of your program. You can check whether the asynchronous job is complete by calling [GET exports/{exportId}](https://aps.autodesk.com/en/docs/acc/v1/reference/http/files-get-export-status-GET/).
 
 When exporting the markup file, you can also customize the output filename and export the fileâs markup links. For more information about markup links, please see [Markups Links and References Help Documentation](https://help.autodesk.com/view/DOCS/ENU/?guid=Markups_References_Files_Docs).
 
@@ -272,7 +272,7 @@ Note the export ID (`id` - `225eb2fb-d5b0-44c9-a50a-2c792d833f2e`). You use the 
 
 ## [Step 4: Verify the Status of the Export and Get a Download Link](#step-4-verify-the-status-of-the-export-and-get-a-download-link)
 
-To verify the status of the export and to retrieve the data you need to download the exported files when the export job is complete, use the project ID (`b.139532ee-5cdb-4c9e-a293-652693991e65`) and the export ID (`225eb2fb-d5b0-44c9-a50a-2c792d833f2e`) to call [GET /exports/{exportId}](/en/docs/acc/v1/reference/http/files-get-export-status-GET).
+To verify the status of the export and to retrieve the data you need to download the exported files when the export job is complete, use the project ID (`b.139532ee-5cdb-4c9e-a293-652693991e65`) and the export ID (`225eb2fb-d5b0-44c9-a50a-2c792d833f2e`) to call [GET /exports/{exportId}](https://aps.autodesk.com/en/docs/acc/v1/reference/http/files-get-export-status-GET/).
 
 When the status is `successful` the export is complete and a signed URL appears in the response, which you can use to download the sheets.
 

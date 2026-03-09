@@ -16,7 +16,7 @@ This endpoint defines a new status set by specifying a display name, an optional
 or more new statuses. The endpoint uses the status specifications to create new statuses for the status set.
 Each status set has its own unique set of statuses, and statuses are not shared among status sets.
 
-To understand the basics of status sets, and the Assets settings that define them, see the [Assets Field Guide](/en/docs/acc/v1/overview/field-guide/assets/).
+To understand the basics of status sets, and the Assets settings that define them, see the [Assets Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/assets/).
 
   Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
@@ -32,7 +32,7 @@ To understand the basics of status sets, and the Assets settings that define the
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 

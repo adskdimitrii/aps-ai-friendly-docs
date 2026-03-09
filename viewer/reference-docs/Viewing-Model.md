@@ -20,7 +20,7 @@ Core class representing the geometry.
 
 | type | description |
 | --- | --- |
-| [InstanceTree](/en/docs/viewer/v7/reference/Private/InstanceTree/) | Instance tree of the model if available, otherwise null. |
+| [InstanceTree](Private-InstanceTree.md) | Instance tree of the model if available, otherwise null. |
 
 ## [getFuzzyBox(options)](#getfuzzybox-options)
 
@@ -156,7 +156,7 @@ Returns an object wrapping the bubble/manifest entry for the loaded geometry. Co
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) |  |
+| [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) |  |
 
 ## [getRoot()](#getroot)
 
@@ -323,13 +323,13 @@ Returns true if the model with all its geometries has loaded.
 
 ## [getPropertyDb()](#getpropertydb)
 
-Returns an instance of [PropertyDatabase Loader](/en/docs/viewer/v7/reference/Private/PropDbLoader/), responsible for communicating with the PropertyDatabase instance hosted in a browser worker thread.
+Returns an instance of [PropertyDatabase Loader](Private-PropDbLoader.md), responsible for communicating with the PropertyDatabase instance hosted in a browser worker thread.
 
 ### Returns
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.Private.PropDbLoader](/en/docs/viewer/v7/reference/Private/PropDbLoader/) |  |
+| [Autodesk.Viewing.Private.PropDbLoader](Private-PropDbLoader.md) |  |
 
 ## [getPropertyHashes(nameRE, categoryRE)](#getpropertyhashes-namere-categoryre)
 
@@ -371,8 +371,8 @@ Asynchronous method that gets object properties
 
 | dbId*   number | The database identifier. |
 | --- | --- |
-| onSuccessCallback   [Callbacks#onPropertiesSuccess](/en/docs/viewer/v7/reference/Callbacks/onPropertiesSuccess/) | Callback for when the properties are fetched. |
-| onErrorCallback   [Callbacks#onGenericError](/en/docs/viewer/v7/reference/Callbacks/onGenericError/) | Callback for when the properties are not found or another error occurs. |
+| onSuccessCallback   [Callbacks#onPropertiesSuccess](https://aps.autodesk.com/en/docs/viewer/v7/reference/Callbacks/onPropertiesSuccess/) | Callback for when the properties are fetched. |
+| onErrorCallback   [Callbacks#onGenericError](https://aps.autodesk.com/en/docs/viewer/v7/reference/Callbacks/onGenericError/) | Callback for when the properties are not found or another error occurs. |
 
 * Required
 
@@ -386,8 +386,8 @@ Expand all
 
 | dbId*   number | The database identifier. |
 | --- | --- |
-| onSuccessCallback   [Callbacks#onPropertiesSuccess](/en/docs/viewer/v7/reference/Callbacks/onPropertiesSuccess/) | Callback for when the properties are fetched. |
-| onErrorCallback   [Callbacks#onGenericError](/en/docs/viewer/v7/reference/Callbacks/onGenericError/) | Callback for when the properties are not found or another error occurs. |
+| onSuccessCallback   [Callbacks#onPropertiesSuccess](https://aps.autodesk.com/en/docs/viewer/v7/reference/Callbacks/onPropertiesSuccess/) | Callback for when the properties are fetched. |
+| onErrorCallback   [Callbacks#onGenericError](https://aps.autodesk.com/en/docs/viewer/v7/reference/Callbacks/onGenericError/) | Callback for when the properties are not found or another error occurs. |
 | options   Object |  |
 | needsExternalId   boolean | Ensures loading of externalID table if necessary. This may consume a lot of memory. Only use if you really need externalIds. |
 
@@ -433,7 +433,7 @@ Expand all
 
 ## [getPropertySetAsync(dbIds, options)](#getpropertysetasync-dbids-options)
 
-Returns a Promise that resolves with [PropertySet](/en/docs/viewer/v7/reference/Viewing/PropertySet/) for multiple objects. An optional filter can be passed in to specify which properties to retrieve.
+Returns a Promise that resolves with [PropertySet](Viewing-PropertySet.md) for multiple objects. An optional filter can be passed in to specify which properties to retrieve.
 
 ### Parameters
 
@@ -452,13 +452,13 @@ Expand all
 
 | type | description |
 | --- | --- |
-| [Promise (PropertySet)](/en/docs/viewer/v7/reference/Viewing/PropertySet/) | A promise that resolves with an instance of a Autodesk.Viewing.PropertySet |
+| [Promise (PropertySet)](Viewing-PropertySet.md) | A promise that resolves with an instance of a Autodesk.Viewing.PropertySet |
 
 ## [getPropertySet(dbIds, onSuccessCallback, onErrorCallback, options)](#getpropertyset-dbids-onsuccesscallback-onerrorcallback-options)
 
-Gets the property [PropertySet](/en/docs/viewer/v7/reference/Viewing/PropertySet/) for multiple objects. An optional filter can be passed in to specify which properties to retrieve.
+Gets the property [PropertySet](Viewing-PropertySet.md) for multiple objects. An optional filter can be passed in to specify which properties to retrieve.
 
-For the async version see [getPropertySetAsync](/en/docs/viewer/v7/reference/Viewing/Model/#getPropertySetAsync/)
+For the async version see [getPropertySetAsync](Viewing-Model.md#getPropertySetAsync/)
 
 ### Parameters
 
@@ -479,7 +479,7 @@ Expand all
 
 | type | description |
 | --- | --- |
-| [Promise (PropertySet)](/en/docs/viewer/v7/reference/Viewing/PropertySet/) | Returns a promise that resolves with an instance of a Autodesk.Viewing.PropertySet |
+| [Promise (PropertySet)](Viewing-PropertySet.md) | Returns a promise that resolves with an instance of a Autodesk.Viewing.PropertySet |
 
 ## [getExternalIdMapping(onSuccessCallback, onErrorCallback)](#getexternalidmapping-onsuccesscallback-onerrorcallback)
 
@@ -513,9 +513,9 @@ You can use the model object tree to get information about items in the model. T
 
 ### Parameters
 
-| onSuccessCallback   [Callbacks#onObjectTreeSuccess](/en/docs/viewer/v7/reference/Callbacks/onObjectTreeSuccess/) | Success callback invoked once the object tree is available. |
+| onSuccessCallback   [Callbacks#onObjectTreeSuccess](https://aps.autodesk.com/en/docs/viewer/v7/reference/Callbacks/onObjectTreeSuccess/) | Success callback invoked once the object tree is available. |
 | --- | --- |
-| onErrorCallback   [Callbacks#onGenericError](/en/docs/viewer/v7/reference/Callbacks/onGenericError/) | Error callback invoked when the object tree is not found available. |
+| onErrorCallback   [Callbacks#onGenericError](https://aps.autodesk.com/en/docs/viewer/v7/reference/Callbacks/onGenericError/) | Error callback invoked when the object tree is not found available. |
 
 ## [isObjectTreeLoaded()](#isobjecttreeloaded)
 
@@ -537,8 +537,8 @@ Expand all
 
 | text*   string | The search term (not case sensitive). |
 | --- | --- |
-| onSuccessCallback*   [Callbacks#onSearchSuccess](/en/docs/viewer/v7/reference/Callbacks/onSearchSuccess/) | Invoked when the search results are ready. |
-| onErrorCallback*   [Callbacks#onGenericError](/en/docs/viewer/v7/reference/Callbacks/onGenericError/) | Invoke when an error occured during search. |
+| onSuccessCallback*   [Callbacks#onSearchSuccess](https://aps.autodesk.com/en/docs/viewer/v7/reference/Callbacks/onSearchSuccess/) | Invoked when the search results are ready. |
+| onErrorCallback*   [Callbacks#onGenericError](https://aps.autodesk.com/en/docs/viewer/v7/reference/Callbacks/onGenericError/) | Invoke when an error occured during search. |
 | attributeNames   Array.<string> | Restricts search to specific attribute names. |
 | options   Object | Search options. Currently only supported option is searchHidden |
 | searchHidden   boolean | Set to true to also search hidden properties |
@@ -566,7 +566,7 @@ Searches the property database for all dbIds that contains a specific property n
 
 Return topology data of one fragment.
 
-Requires topology data to have been fetched with [fetchTopology()](/en/docs/viewer/v7/reference/Viewing/Model/#fetchTopology/).
+Requires topology data to have been fetched with [fetchTopology()](Viewing-Model.md#fetchTopology/).
 
 ### Parameters
 
@@ -583,7 +583,7 @@ Requires topology data to have been fetched with [fetchTopology()](/en/docs/view
 
 ## [hasTopology()](#hastopology)
 
-See also [fetchTopology()](/en/docs/viewer/v7/reference/Viewing/Model/#fetchTopology/).
+See also [fetchTopology()](Viewing-Model.md#fetchTopology/).
 
 ### Returns
 
@@ -639,4 +639,4 @@ Returns a shallow copy of the model. All the inner state (Fragments, Geometries 
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | A shallow copy of the model. |
+| [Autodesk.Viewing.Model](Viewing-Model.md) | A shallow copy of the model. |

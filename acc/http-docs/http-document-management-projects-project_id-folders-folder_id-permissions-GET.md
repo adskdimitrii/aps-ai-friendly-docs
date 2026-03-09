@@ -14,7 +14,7 @@ Retrieves information about the permissions assigned to users, roles and compani
 
 For information about the different types of permissions you can assign to a user, role or company, see the [Help documentation](http://help.autodesk.com/view/BIM360D/ENU/?guid=GUID-2643FEEF-B48A-45A1-B354-797DAD628C37).
 
-For more details about retrieving a userâs permissions, see the [Retrieve Permissions](/en/docs/bim360/v1/tutorials/retrieve-user-permissions) tutorial.
+For more details about retrieving a userâs permissions, see the [Retrieve Permissions](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/retrieve-user-permissions/) tutorial.
 
 If you are calling this endpoint on behalf of a user, the user needs to have `VIEW` permissions for the folder.
 
@@ -32,7 +32,7 @@ If you are calling this endpoint on behalf of a user, the user needs to have `VI
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | x-user-id   string | In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified. |
 
@@ -42,9 +42,9 @@ If you are calling this endpoint on behalf of a user, the user needs to have `VI
 
 ## [URI Parameters](#uri-parameters)
 
-| project_id   string: UUID | The ID of the project. This corresponds to project ID in the [Data Management API](/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the BIM 360 API you need to remove the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| project_id   string: UUID | The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the BIM 360 API you need to remove the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
-| folder_id   string | The ID (URN) of the folder. <br>For details about how to find the URN, follow the initial steps (1-3) in the [Download Files](/en/docs/bim360/v1/tutorials/document-management/download-document-s3/) tutorial. |
+| folder_id   string | The ID (URN) of the folder. <br>For details about how to find the URN, follow the initial steps (1-3) in the [Download Files](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/document-management/download-document-s3/) tutorial. |
 
 ### Response
 
@@ -62,7 +62,7 @@ If you are calling this endpoint on behalf of a user, the user needs to have `VI
 
 ## [Body Structure (200)](#body-structure-200)
 
-| subjectId   string: UUID | The ID of the user, role, or company. For example, this corresponds to the `id`, `roleId`, or `companyId` in the response for [GET /users/user_id](/en/docs/bim360/v1/reference/http/admin-v1-projects-projectId-users-userId-GET/). |
+| subjectId   string: UUID | The ID of the user, role, or company. For example, this corresponds to the `id`, `roleId`, or `companyId` in the response for [GET /users/user_id](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/admin-v1-projects-projectId-users-userId-GET/). |
 | --- | --- |
 | autodeskId   string | The Autodesk ID of the user, role or company. |
 | name   string | The name of the user, role, or company. |

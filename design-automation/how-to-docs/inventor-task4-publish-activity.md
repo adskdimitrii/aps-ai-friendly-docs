@@ -18,10 +18,10 @@ You will use the following operations to handle Activities for this task:
 
 | HTTP Request | Description |
 | --- | --- |
-| [POST /activities](/en/docs/design-automation/v3/reference/http/activities-POST) | Creates a new Activity. |
-| [POST /activities/{id}/aliases](/en/docs/design-automation/v3/reference/http/activities-id-aliases-POST) | Creates a new alias for this Activity. |
-| [POST /activities/{id}/versions](/en/docs/design-automation/v3/reference/http/activities-id-versions-GET) | Creates a new version of the Activity. |
-| [PATCH /activities/{id}/aliases/{aliasId}](/en/docs/design-automation/v3/reference/http/activities-id-aliases-aliasId-PATCH) | Modifies alias details. |
+| [POST /activities](../http-docs/http-activities-POST.md) | Creates a new Activity. |
+| [POST /activities/{id}/aliases](../http-docs/http-activities-id-aliases-POST.md) | Creates a new alias for this Activity. |
+| [POST /activities/{id}/versions](../http-docs/http-activities-id-versions-GET.md) | Creates a new version of the Activity. |
+| [PATCH /activities/{id}/aliases/{aliasId}](../http-docs/http-activities-id-aliases-aliasId-PATCH.md) | Modifies alias details. |
 
 ## [Step 1 - Create a new Activity](#step-1-create-a-new-activity)
 
@@ -91,9 +91,9 @@ Show More
 | Attribute | Description |
 | --- | --- |
 | `id` | The name given to your new Activity. |
-| `commandLine` | The command run by this Activity.       - `$(engine.path)\\InventorCoreConsole.exe` - The full path to the Inventor engine.      The version of Inventor to be used is defined in the request body as âengineâ: âAutodesk.Inventor+24 (Inventor 2020).   More information about engines can be found in the Additional notes section of the [previous step](/en/docs/design-automation/v3/tutorials/inventor/task3-upload-appbundle/#additional-notes) .       - `$(args[InventorDoc].path)` - The full path to the folder that the file identified by the parameter InventorDoc is downloaded to.       - `$(appbundles[ChangeParamApp].path)` - The full path to where the AppBundle specified under `appbundles` is unzipped to.       - `$(args[InventorParams].path)` - The full path to where the JSON file carrying the height and width parameters is saved to. |
+| `commandLine` | The command run by this Activity.       - `$(engine.path)\\InventorCoreConsole.exe` - The full path to the Inventor engine.      The version of Inventor to be used is defined in the request body as âengineâ: âAutodesk.Inventor+24 (Inventor 2020).   More information about engines can be found in the Additional notes section of the [previous step](inventor-task3-upload-appbundle.md#additional-notes) .       - `$(args[InventorDoc].path)` - The full path to the folder that the file identified by the parameter InventorDoc is downloaded to.       - `$(appbundles[ChangeParamApp].path)` - The full path to where the AppBundle specified under `appbundles` is unzipped to.       - `$(args[InventorParams].path)` - The full path to where the JSON file carrying the height and width parameters is saved to. |
 | `parameters` | Defines the inputs and outputs that need to be provided when the Activity is executed.   Input parameters are identified by the attribute âverbâ:âgetâ. Output parameters are identified by the attribute `âverbâ:âputâ. |
-| `engine` | The engine on which your Activity runs. The available engine versions are described in the Additional notes section in [Task 3](/en/docs/design-automation/v3/tutorials/inventor/task3-upload-appbundle#additional-notes) |
+| `engine` | The engine on which your Activity runs. The available engine versions are described in the Additional notes section in [Task 3](inventor-task3-upload-appbundle.md#additional-notes) |
 | `appbundles` | The fully qualified id of the AppBundle referred to in `commandLine`. |
 
 ### Response

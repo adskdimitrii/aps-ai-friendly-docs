@@ -48,11 +48,11 @@ This method should return the priority of the tool inside the tool stack. A tool
 
 ## [register()](#register)
 
-This method is called by [Autodesk.Viewing.ToolController#registerTool](/en/docs/viewer/v7/reference/Viewing/ToolController/#registerTool/). Use this for initialization.
+This method is called by [Autodesk.Viewing.ToolController#registerTool](Viewing-ToolController.md#registerTool/). Use this for initialization.
 
 ## [deregister()](#deregister)
 
-This method is called by [Autodesk.Viewing.ToolController#deregisterTool](/en/docs/viewer/v7/reference/Viewing/ToolController/#deregisterTool/). Use this to clean up your tool.
+This method is called by [Autodesk.Viewing.ToolController#deregisterTool](Viewing-ToolController.md#deregisterTool/). Use this to clean up your tool.
 
 ## [activate(name, viewerApi)](#activate-name-viewerapi)
 
@@ -62,7 +62,7 @@ The activate method is called by the ToolController when it adds this tool to th
 
 | name*   string | The name under which the tool has been activated. |
 | --- | --- |
-| viewerApi*   [Autodesk.Viewing.Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) | Viewer instance. |
+| viewerApi*   [Autodesk.Viewing.Viewer3D](Viewing-Viewer3D.md) | Viewer instance. |
 
 * Required
 
@@ -136,7 +136,7 @@ This method is called when a single tap on a touch device occurs.
 
 ### Parameters
 
-| event*   [Event](/en/docs/viewer/v7/reference/UI/Control/#Event/) | The triggering event. For tap events the canvasX, canvasY properties contain the canvas relative device coordinates of the tap and the normalizedX, normalizedY properties contain the tap coordinates in the normalized [-1, 1] range. The event.pointers array will contain either one or two touch events depending on whether the tap used one or two fingers. |
+| event*   [Event](UI-Control.md#Event/) | The triggering event. For tap events the canvasX, canvasY properties contain the canvas relative device coordinates of the tap and the normalizedX, normalizedY properties contain the tap coordinates in the normalized [-1, 1] range. The event.pointers array will contain either one or two touch events depending on whether the tap used one or two fingers. |
 | --- | --- |
 
 * Required
@@ -153,7 +153,7 @@ This method is called when a double tap on a touch device occurs.
 
 ### Parameters
 
-| event*   [Event](/en/docs/viewer/v7/reference/UI/Control/#Event/) | The triggering event. For tap events the canvasX, canvasY properties contain the canvas relative device coordinates of the tap and the normalizedX, normalizedY properties contain the tap coordinates in the normalized [-1, 1] range. The event.pointers array will contain either one or two touch events depending on whether the tap used one or two fingers. |
+| event*   [Event](UI-Control.md#Event/) | The triggering event. For tap events the canvasX, canvasY properties contain the canvas relative device coordinates of the tap and the normalizedX, normalizedY properties contain the tap coordinates in the normalized [-1, 1] range. The event.pointers array will contain either one or two touch events depending on whether the tap used one or two fingers. |
 | --- | --- |
 
 * Required
@@ -276,7 +276,7 @@ This method is called when a touch gesture event occurs.
 
 ### Parameters
 
-| event*   [Event](/en/docs/viewer/v7/reference/UI/Control/#Event/) | The event object that triggered this call. The event.type attribute will indicate the gesture event type. This will be one of: dragstart, dragmove, dragend, panstart, panmove, panend, pinchstart, pinchmove, pinchend, rotatestart, rotatemove, rotateend, drag3start, drag3move, drag3end. The event.canvas[XY] attributes will contain the coresponding touch position. The event.scale and event.rotation attributes contain pinch scaling and two finger rotation quantities respectively. The deltaX and deltaY attributes will contain drag offsets. |
+| event*   [Event](UI-Control.md#Event/) | The event object that triggered this call. The event.type attribute will indicate the gesture event type. This will be one of: dragstart, dragmove, dragend, panstart, panmove, panend, pinchstart, pinchmove, pinchend, rotatestart, rotatemove, rotateend, drag3start, drag3move, drag3end. The event.canvas[XY] attributes will contain the coresponding touch position. The event.scale and event.rotation attributes contain pinch scaling and two finger rotation quantities respectively. The deltaX and deltaY attributes will contain drag offsets. |
 | --- | --- |
 
 * Required

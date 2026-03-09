@@ -113,8 +113,8 @@ The request body is a URL-encoded string of ampersand-concatenated, name-value p
 | client_id*   string | Client ID of the app |
 | --- | --- |
 | grant_type*   string | The grant type is `authorization_code`, it returns 3-legged access token for authorization code grant. |
-| code*   string | The authorization code captured from the `code` query parameter when the [GET authorize](/en/docs/oauth/v2/reference/http/authorize-GET) redirected back to the callback URL. |
-| redirect_uri*   string | Must match the `redirect_uri` parameter used in [GET authorize](/en/docs/oauth/v2/reference/http/authorize-GET) |
+| code*   string | The authorization code captured from the `code` query parameter when the [GET authorize](http-authorize-GET.md) redirected back to the callback URL. |
+| redirect_uri*   string | Must match the `redirect_uri` parameter used in [GET authorize](http-authorize-GET.md) |
 | code_verifier*   string | Random URL string using the unreserved characters with a minimum length of 43 characters and a maximum length of 128 characters. This is required if `grant_type` is `authorization_code` and code_challenge was specified in /authorize request. |
 
 * Required

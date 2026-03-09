@@ -14,9 +14,9 @@ Updates the `name` or `barcode` of the specified node of the specified locations
 
 Note that at least one of these fields must be included in your request.
 
-For more information about working with a locations tree, see the [Configure a Locations Tree tutorial](/en/docs/acc/v1/tutorials/locations/configure-locations-tree/).
+For more information about working with a locations tree, see the [Configure a Locations Tree tutorial](../how-to-docs/locations-configure-locations-tree.md).
 
-For more details about the Locations API, see [Locations API Field Guide](/en/docs/acc/v1/overview/field-guide/locations/) .
+For more details about the Locations API, see [Locations API Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/locations/) .
 
 Note that this endpoint is not compatible with BIM 360 projects.
 
@@ -32,7 +32,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 
@@ -42,10 +42,10 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The identifier of the project that contains your locations tree. <br>Use the Data Management API to [retrieve the relevant ACC account and project IDs](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/). |
+| projectId   string: UUID | The identifier of the project that contains your locations tree. <br>Use the Data Management API to [retrieve the relevant ACC account and project IDs](../how-to-docs/getting-started-retrieve-account-and-project-id.md). |
 | --- | --- |
 | treeId   string | Must be `default`. Currently a project can contain only the default tree. |
-| nodeId   string: UUID | The unique identifier of an LBS node. <br>To find node IDs, call the [GET nodes](/en/docs/acc/v1/reference/http/locations-nodes-GET/) endpoint and check the value of `results.id` in the returned nodes. |
+| nodeId   string: UUID | The unique identifier of an LBS node. <br>To find node IDs, call the [GET nodes](http-locations-nodes-GET.md) endpoint and check the value of `results.id` in the returned nodes. |
 
 ### Request
 

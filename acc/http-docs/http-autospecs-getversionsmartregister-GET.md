@@ -11,7 +11,7 @@ GET
 # projects/{projectId}/version/{versionId}/smartregister
 
 Retrieves the submittal logs (Smart Register) that are part of the specification PDFs that were imported into AutoSpecs.
-Note that before you can access the submittal logs the import of the specification PDFs needs to be complete. To verify the status of the import, call [GET metadata](/en/docs/acc/v1/reference/http/autospecs-getprojectmetadata-GET/) and check that the `status` is `Completed`.
+Note that before you can access the submittal logs the import of the specification PDFs needs to be complete. To verify the status of the import, call [GET metadata](http-autospecs-getprojectmetadata-GET.md) and check that the `status` is `Completed`.
 
 Note that we do not currently support updating the Smart Register or Smart Register filtering. In addition, we do not currently support the following columns from the UI: Source version, PDF link, Submittal type group, and Date Issued.
 
@@ -27,7 +27,7 @@ Note that we do not currently support updating the Smart Register or Smart Regis
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 
 * Required
@@ -36,8 +36,8 @@ Note that we do not currently support updating the Smart Register or Smart Regis
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring The ID of the project. Use the [Data Management API](/en/docs/data/v2/developers_guide/overview/) to retrieve the project ID. For more information, see the [Retrieve a Project ID tutorial](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/). You need to convert the project ID into a project ID for the ACC API by removing the âb.â prefix. For example, a project ID of b.a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
-- versionIdstring The AutoSpecs version ID of the project. For information about how to find the version ID, see the first few steps of the [Retrieve Submittal Log](/en/docs/acc/v1/tutorials/autospecs/upload-document/) tutorial.
+- projectIdstring The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/developers_guide/overview/) to retrieve the project ID. For more information, see the [Retrieve a Project ID tutorial](../how-to-docs/getting-started-retrieve-account-and-project-id.md). You need to convert the project ID into a project ID for the ACC API by removing the âb.â prefix. For example, a project ID of b.a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+- versionIdstring The AutoSpecs version ID of the project. For information about how to find the version ID, see the first few steps of the [Retrieve Submittal Log](https://aps.autodesk.com/en/docs/acc/v1/tutorials/autospecs/upload-document/) tutorial.
 
 ### Response
 

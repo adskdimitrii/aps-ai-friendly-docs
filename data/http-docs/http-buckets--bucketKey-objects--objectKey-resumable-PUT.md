@@ -16,7 +16,7 @@ This endpoint allows resumable uploads for large files in chunks.
 
 **We will be deprecating this endpoint.**
 
-We recommend using the [GET buckets/:bucketKey/objects/:objectKey/signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-GET) endpoint. See the [App Managed Bucket Tutorial](en/docs/data/v2/tutorials/app-managed-bucket) for step by step workflow.
+We recommend using the [GET buckets/:bucketKey/objects/:objectKey/signeds3upload](http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md) endpoint. See the [App Managed Bucket Tutorial](en/docs/data/v2/tutorials/app-managed-bucket) for step by step workflow.
 
 Note that for uploading objects smaller than 100 MB we recommend using the [PUT buckets/:bucketKey/objects/:objectKey](en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-PUT) endpoint.
 
@@ -38,7 +38,7 @@ Note this header must be the SHA-1 checksum of the chunk represented as a hexade
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](/en/docs/oauth/v2/reference/http/gettoken-POST). |
+| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
 | --- | --- |
 | Content-Disposition   string | OSS will record the value of the header and on download, would send the header contents down. |
 | Content-Length*   integer | Size in bytes of the data chunk being uploaded.   We recommend uploading 5 MB chunks.   Note that chunks must be larger than 2 MB. |

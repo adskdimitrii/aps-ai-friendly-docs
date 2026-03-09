@@ -7,15 +7,15 @@ Source: https://aps.autodesk.com/en/docs/data/v2/tutorials/create-attachment/
 # Create an Attachment
 
 This walkthrough explains how to attach one version of a file to another. The pre-requisite is to have two of your files uploaded to the âdataâ domain service. This can be done using A360 or the Data Management API. For details on the latter see
-the [Upload a File](/en/docs/data/v2/tutorials/upload-file/) walkthrough.
+the [Upload a File](upload-file.md) walkthrough.
 
 ## [Before You Begin](#before-you-begin)
 
-Make sure that you have [registered an app](/en/docs/oauth/v2/tutorials/create-app) and successfully [acquired an OAuth token](/en/docs/oauth/v2/tutorials).
+Make sure that you have [registered an app](../../oauth/how-to-docs/create-app.md) and successfully [acquired an OAuth token](https://aps.autodesk.com/en/docs/oauth/v2/tutorials/).
 
-See the Authentication and Scopes section in the [API Basics](/en/docs/data/v2/overview/basics) for the appropriate token based on the data you are accessing.
+See the Authentication and Scopes section in the [API Basics](https://aps.autodesk.com/en/docs/data/v2/overview/basics/) for the appropriate token based on the data you are accessing.
 
-In general, access to BIM 360 Team, BIM 360 Docs, Fusion Team, and A360 Personal data requires the use of a [3-legged OAuth2 token](/en/docs/oauth/v2/tutorials/get-3-legged-token).
+In general, access to BIM 360 Team, BIM 360 Docs, Fusion Team, and A360 Personal data requires the use of a [3-legged OAuth2 token](../../oauth/how-to-docs/get-3-legged-token.md).
 
 HTTP `GET` requests to the Project and Data services require the `data:read` scope.
 
@@ -25,9 +25,9 @@ HTTP `POST` requests to the Data service require the `data:create` scope, but ca
 
 Suppose you have an Excel spreadsheet you want to attach to a DWG file, version 2 to version 2 respectively. For this example, letâs assume the DWGâs version ID is `urn:adsk.wipprod:fs.file:vf.J_9fiaqVSa-GSc88OErcAg?version=2` and the spreadsheetâs is `urn:adsk.wipprod:fs.file:vf.ooWjwAQJR0uEoPRyfEnvew?version=2`. Also, the project these files reside in has the ID, `a.YnVzaW5lc3M6YXV0b2Rlc2sxODcjMjAxNjA1MTcxMjgwOTc2`.
 
-The [POST projects/:project_id/version/:version_id/relationships/refs](/en/docs/data/v2/reference/http/projects-project_id-versions-version_id-relationships-refs-POST) endpoint can create a custom relationship between the two versions which represents a file attachment. Notice the extension type comes from the Autodesk Schema Service, where the ref type is `auxiliary` and the extension type is `autodesk.core:Attachment`.
+The [POST projects/:project_id/version/:version_id/relationships/refs](../http-docs/http-projects-project_id-versions-version_id-relationships-refs-POST.md) endpoint can create a custom relationship between the two versions which represents a file attachment. Notice the extension type comes from the Autodesk Schema Service, where the ref type is `auxiliary` and the extension type is `autodesk.core:Attachment`.
 
-For more information about custom relationships, see the corresponding section in the [API Basics](/en/docs/data/v2/overview/basics).
+For more information about custom relationships, see the corresponding section in the [API Basics](https://aps.autodesk.com/en/docs/data/v2/overview/basics/).
 
 ### Example
 
@@ -57,7 +57,7 @@ On success, the endpoint returns a 204 (No Content).
 
 ## [Step 2: Retrieve attachments for a file](#step-2-retrieve-attachments-for-a-file)
 
-The [GET projects/:project_id/version/:version_id/relationships/refs](/en/docs/data/v2/reference/http/projects-project_id-versions-version_id-relationships-refs-GET) endpoint can also be used to retrieve the custom relationships for a version. Notice the response includes the attachment that was created in the previous step.
+The [GET projects/:project_id/version/:version_id/relationships/refs](../http-docs/http-projects-project_id-versions-version_id-relationships-refs-GET.md) endpoint can also be used to retrieve the custom relationships for a version. Notice the response includes the attachment that was created in the previous step.
 
 ### Example
 

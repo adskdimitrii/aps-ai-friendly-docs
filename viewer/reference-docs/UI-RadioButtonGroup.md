@@ -7,13 +7,13 @@ Source: https://aps.autodesk.com/en/docs/viewer/v7/reference/UI/RadioButtonGroup
 Autodesk.Viewing.UI
 
 # RadioButtonGroup
-> Extends [Autodesk.Viewing.UI.ControlGroup](/en/docs/viewer/v7/reference/UI/ControlGroup)
+> Extends [Autodesk.Viewing.UI.ControlGroup](UI-ControlGroup.md)
 
 ## [new RadioButtonGroup(id, options)](#new-radiobuttongroup-id-options)
 
 Group of controls that act like a radio group.
 
-I.e., only one button may be active at a time. Only accepts [Autodesk.Viewing.UI.Button](/en/docs/viewer/v7/reference/UI/Button/).
+I.e., only one button may be active at a time. Only accepts [Autodesk.Viewing.UI.Button](UI-Button.md).
 
 ### Parameters
 
@@ -30,13 +30,13 @@ Expand all
 
 ## [addControl(control, options)](#addcontrol-control-options)
 
-Adds a control to this radio button group. The control must be a [button](/en/docs/viewer/v7/reference/UI/Button/).
+Adds a control to this radio button group. The control must be a [button](UI-Button.md).
 
 ### Parameters
 
 Expand all
 
-| control*   [Autodesk.Viewing.UI.Button](/en/docs/viewer/v7/reference/UI/Button/) | The button to add. |
+| control*   [Autodesk.Viewing.UI.Button](UI-Button.md) | The button to add. |
 | --- | --- |
 | options   object | An option dictionary of options. |
 | index   object | The index to insert the control at. |
@@ -55,7 +55,7 @@ Removes a control from this control group.
 
 ### Parameters
 
-| control*   string, [Autodesk.Viewing.UI.Control](/en/docs/viewer/v7/reference/UI/Control/) | The control ID or control instance to remove. |
+| control*   string, [Autodesk.Viewing.UI.Control](UI-Control.md) | The control ID or control instance to remove. |
 | --- | --- |
 
 * Required
@@ -74,7 +74,7 @@ Returns the active button in this radio button group.
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.UI.Button](/en/docs/viewer/v7/reference/UI/Button/) | The active button. Null if no button is active. |
+| [Autodesk.Viewing.UI.Button](UI-Button.md) | The active button. Null if no button is active. |
 
 ## [indexOf(control)](#indexof-control)
 
@@ -82,7 +82,7 @@ Returns the index of a control in this group. -1 if the item isnât found.
 
 ### Parameters
 
-| control*   string, [Autodesk.Viewing.UI.Control](/en/docs/viewer/v7/reference/UI/Control/) | The control ID or control instance to find. |
+| control*   string, [Autodesk.Viewing.UI.Control](UI-Control.md) | The control ID or control instance to find. |
 | --- | --- |
 
 * Required
@@ -108,7 +108,7 @@ Returns the control with the corresponding ID if it is in this control group.
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.UI.Control](/en/docs/viewer/v7/reference/UI/Control/) | The control or null if it doesnât exist. |
+| [Autodesk.Viewing.UI.Control](UI-Control.md) | The control or null if it doesnât exist. |
 
 ## [getControlId(index)](#getcontrolid-index)
 
@@ -309,7 +309,7 @@ Event fired when active button for this radio group changes.
 
 ### Properties
 
-| button   [Autodesk.Viewing.UI.Button](/en/docs/viewer/v7/reference/UI/Button/) | The button whose state is changing. |
+| button   [Autodesk.Viewing.UI.Button](UI-Button.md) | The button whose state is changing. |
 | --- | --- |
 | isActiveButton   boolean | Is the event target the currently active button. |
 

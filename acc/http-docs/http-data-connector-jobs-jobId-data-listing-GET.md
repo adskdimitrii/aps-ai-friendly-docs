@@ -12,13 +12,13 @@ GET
 
 Returns an array of information about the files contained within the data extract created by a specified job. The job must be spawned by a data request that was created by the authenticated user. The user must have executive overview or project administrator permissions.
 
-The array provides a name, creation date, and size for each file in the data extract. You can retrieve any or all of the files using [GET jobs/:jobId/data/:name](/en/docs/bim360/v1/reference/http/data-connector-jobs-jobid-data-name-GET/). Its reference page describes the file types within a data extract.
+The array provides a name, creation date, and size for each file in the data extract. You can retrieve any or all of the files using [GET jobs/:jobId/data/:name](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/data-connector-jobs-jobid-data-name-GET/). Its reference page describes the file types within a data extract.
 
 If the job was cancelled or otherwise failed to create a data extract, this endpoint returns a 404 error âThe requested resource does not exist.â
 
-To get job IDs for a request, use [GET requests/:requestId/jobs](/en/docs/bim360/v1/reference/http/data-connector-requests-requestid-jobs-GET/).
+To get job IDs for a request, use [GET requests/:requestId/jobs](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/data-connector-requests-requestid-jobs-GET/).
 
-To understand the basics of requests, the jobs they spawn, and the data extracts returned by the jobs, see the [Data Connector API Field Guide](/en/docs/bim360/v1/overview/field-guide/data-connector/).
+To understand the basics of requests, the jobs they spawn, and the data extracts returned by the jobs, see the [Data Connector API Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/data-connector/).
 
   Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
@@ -34,7 +34,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 
 * Required
@@ -43,7 +43,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 
 ## [URI Parameters](#uri-parameters)
 
-| accountId   string: UUID | The account ID. You can derive it from your hub ID if necessary: Use [GET hubs](/en/docs/data/v2/reference/http/hubs-GET/) in the Data Management API to retrieve your hub ID. Remove the initial âb.â from the hub ID to get your account ID. |
+| accountId   string: UUID | The account ID. You can derive it from your hub ID if necessary: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial âb.â from the hub ID to get your account ID. |
 | --- | --- |
 | jobId   string: UUID | The job ID |
 

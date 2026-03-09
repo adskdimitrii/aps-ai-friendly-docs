@@ -15,9 +15,9 @@ For more information about external ERP system integrations, see the [Help docum
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:read` and `data:write` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` and `data:write` scopes.
 - Verify that you have access to the relevant BIM 360 or ACC account and BIM 360 or ACC project.
-- Retrieve the project ID for your project. To obtain a project ID, use [GET projects](/en/docs/bim360/v1/reference/http/admin-accounts-accountidprojects-GET/).
+- Retrieve the project ID for your project. To obtain a project ID, use [GET projects](../http-docs/http-admin-accounts-accountidprojects-GET.md).
 - For this tutorial, use the external ERP system `Morpheus`, and assume that the external ID is `M001`, and the integration state is `locked`.
 - Ensure that you have a budget created in your BIM 360/ACC project and that a corresponding budget exists in the external ERP system.
 
@@ -27,7 +27,7 @@ This option demonstrates how to sync an existing budget from BIM 360/ACC to an e
 
 ### Step 1: Find a Budget in BIM 360/ACC Cost Management
 
-Call [GET budgets](/en/docs/bim360/v1/reference/http/cost-budgets-GET/) with the container ID `71e6b356-a101-4277-b4ca-98989bff4a90` to retrieve the budget ID needed to sync the BIM 360/ACC budget with the external ERP system.
+Call [GET budgets](../http-docs/http-cost-budgets-GET.md) with the container ID `71e6b356-a101-4277-b4ca-98989bff4a90` to retrieve the budget ID needed to sync the BIM 360/ACC budget with the external ERP system.
 
 ### Request
 
@@ -61,7 +61,7 @@ Use the budget ID `bb8cf933-a5ab-47f1-9103-fe6804303f07` to update the budget wi
 
 ### Step 2: Create a Mapping to the ERP System
 
-To map the budget in BIM 360/ACC to the external ERP system, use the retrieved budget ID (`bb8cf933-a5ab-47f1-9103-fe6804303f07`), container ID (`71e6b356-a101-4277-b4ca-98989bff4a90`), external system name (`Morpheus`), external ID (`M001`), and set the integration state to `locked` by calling [PATCH budgets](/en/docs/bim360/v1/reference/http/cost-budgets-budgetId-PATCH/).
+To map the budget in BIM 360/ACC to the external ERP system, use the retrieved budget ID (`bb8cf933-a5ab-47f1-9103-fe6804303f07`), container ID (`71e6b356-a101-4277-b4ca-98989bff4a90`), external system name (`Morpheus`), external ID (`M001`), and set the integration state to `locked` by calling [PATCH budgets](../http-docs/http-cost-budgets-budgetId-PATCH.md).
 
 ### Request
 
@@ -111,7 +111,7 @@ Show More
 
 Show More
 
-The budget in BIM 360 is now integrated with the external ERP system. The integrated itemsâ information can be retrieved from the external ERP system by calling [GET budgets](/en/docs/bim360/v1/reference/http/cost-budgets-budgetId-GET/).
+The budget in BIM 360 is now integrated with the external ERP system. The integrated itemsâ information can be retrieved from the external ERP system by calling [GET budgets](../http-docs/http-cost-budgets-budgetId-GET.md).
 
 ## [Option 2: Sync an ERP System to a BIM 360/ACC Budget](#option-2-sync-an-erp-system-to-a-bim-360-acc-budget)
 
@@ -121,7 +121,7 @@ This option demonstrates how to sync an existing budget from an external ERP sys
 
 This step will create the budget inside of Cost Management, linking it to the specified external ERP system.
 
-To sync an existing budget from an external ERP system into BIM 360/ACC, use the container ID (`71e6b356-a101-4277-b4ca-98989bff4a90`), the external system (`MORPHEUS`), the external ID (`M001`), and set the integration state to `locked` to call [POST budgets](/en/docs/bim360/v1/reference/http/cost-budgets-POST/).
+To sync an existing budget from an external ERP system into BIM 360/ACC, use the container ID (`71e6b356-a101-4277-b4ca-98989bff4a90`), the external system (`MORPHEUS`), the external ID (`M001`), and set the integration state to `locked` to call [POST budgets](../http-docs/http-cost-budgets-POST.md).
 
 ### Request:
 

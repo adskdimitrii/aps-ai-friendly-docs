@@ -19,7 +19,7 @@ Retrieves the next available custom identifier for a submittal item in a project
 
 For information about custom numbering in Submittals, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Submittal_Custom_Numbering).
 
-For details on using custom identifiers in the Submittal workflow, see the [Create Submittal Item](/en/docs/acc/v1/tutorials/submittals/create-submittal-item) tutorial.
+For details on using custom identifiers in the Submittal workflow, see the [Create Submittal Item](../how-to-docs/submittals-create-submittal-item.md) tutorial.
 
 Note that this endpoint is not compatible with BIM 360 projects.
 
@@ -35,7 +35,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 
 * Required
@@ -44,14 +44,14 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Request
 
 ## [Query String Parameters](#query-string-parameters)
 
-| specId   string: UUID | The item spec ID. This parameter is only required when the project is in spec sequence type (as opposed to global sequence). <br>To verify the sequence type, call [GET metadata](/en/docs/acc/v1/reference/http/submittals-metadata-GET/), and check `customIdentifierSequenceType`.<br>To get the spec ID, call [GET specs](/en/docs/acc/v1/reference/http/submittals-specs-GET/), and select the relevant ID (`id`). |
+| specId   string: UUID | The item spec ID. This parameter is only required when the project is in spec sequence type (as opposed to global sequence). <br>To verify the sequence type, call [GET metadata](http-submittals-metadata-GET.md), and check `customIdentifierSequenceType`.<br>To get the spec ID, call [GET specs](http-submittals-specs-GET.md), and select the relevant ID (`id`). |
 | --- | --- |
 
 ### Response

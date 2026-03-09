@@ -22,7 +22,7 @@ Call this endpoint before creating or updating an RFI to:
 
 The values returned by this endpoint reflect the configuration set by project admins in ACC Docs and Project Management.
 
-For more information about creating and updating RFIs, see [POST rfis](/en/docs/acc/v1/reference/http/rfis-rfis-POST) and [PATCH rfis/:id](/en/docs/acc/v1/reference/http/rfis-rfis-id-PATCH/).
+For more information about creating and updating RFIs, see [POST rfis](http-rfis-rfis-POST.md) and [PATCH rfis/:id](http-rfis-rfis-id-PATCH.md).
 
 Note that this endpoint is not compatible with BIM 360 projects.
 
@@ -38,7 +38,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 
 * Required
@@ -47,7 +47,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string | The ID of the project. <br>Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Request
@@ -84,16 +84,16 @@ Expand all
 | status   enum:string | The current status of the RFI type. <br>Possible values:<br>`active`: The type is available for use when creating or updating RFIs.`inactive`: The type exists but cannot currently be selected when creating RFIs.`hidden`: The type is hidden from users in the UI but may still appear in the API.<br>Only active types are available by default when creating new RFIs. |
 | isDefault   boolean | `true`: This RFI type is the default for the project. <br>`false`: (default) This RFI type is not the default. |
 | projectReviewer   array: object | A list of users, companies, or roles that can be assigned to this project role. |
-| id   string | The Autodesk ID of the user, company, or role. <br>To find details about users, call [GET users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/).<br>Note that we do not currently support finding details about roles for a project. |
+| id   string | The Autodesk ID of the user, company, or role. <br>To find details about users, call [GET users](http-admin-projectsprojectId-users-GET.md), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/).<br>Note that we do not currently support finding details about roles for a project. |
 | type   enum:string | The type of assignee. Possible values: `user`, `company`, `role`. |
 | projectCoordinator   array: object | A list of users, companies, or roles that can be assigned to this project role. |
-| id   string | The Autodesk ID of the user, company, or role. <br>To find details about users, call [GET users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/).<br>Note that we do not currently support finding details about roles for a project. |
+| id   string | The Autodesk ID of the user, company, or role. <br>To find details about users, call [GET users](http-admin-projectsprojectId-users-GET.md), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/).<br>Note that we do not currently support finding details about roles for a project. |
 | type   enum:string | The type of assignee. Possible values: `user`, `company`, `role`. |
 | manager   array: object | A list of users, companies, or roles who can be assigned to this workflow role. |
-| id   string | The Autodesk ID of the user, company, or role. <br>To find details about users, call [GET users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/).<br>Note that we do not currently support finding details about roles for a project. |
+| id   string | The Autodesk ID of the user, company, or role. <br>To find details about users, call [GET users](http-admin-projectsprojectId-users-GET.md), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/).<br>Note that we do not currently support finding details about roles for a project. |
 | type   enum:string | The type of assignee. Possible values: `user`, `company`, `role`. |
 | watchers   array: object | A list of users, companies, or roles that can be assigned to this project role. |
-| id   string | The Autodesk ID of the user, company, or role. <br>To find details about users, call [GET users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/).<br>Note that we do not currently support finding details about roles for a project. |
+| id   string | The Autodesk ID of the user, company, or role. <br>To find details about users, call [GET users](http-admin-projectsprojectId-users-GET.md), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/).<br>Note that we do not currently support finding details about roles for a project. |
 | type   enum:string | The type of assignee. Possible values: `user`, `company`, `role`. |
 | dueDateOffset   integer,null | The number of calendar days from the RFI creation date to the default due date. Used to automatically calculate the RFI due date when creating a new RFI of this type. |
 | locationDescription   string,null | The default text for the **Location** field when creating a new RFI. <br>Note that the API does not auto-populate this value. Clients are responsible for applying the default if desired. |

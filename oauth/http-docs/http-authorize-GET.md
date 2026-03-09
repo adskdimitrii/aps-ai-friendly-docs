@@ -17,7 +17,7 @@ The auth_code hence generated is only valid for 5 minutes and id token hence gen
 The expiry duration for access token is 60 minutes and refresh token is 15 days.
 
 *Note: You do not call this URL directly in your server code.
-See the* [Get a 3-Legged Token with Authorization Code Grant](/en/docs/oauth/v2/tutorials/get-3-legged-token)*tutorials for more information on how to use this endpoint.*
+See the* [Get a 3-Legged Token with Authorization Code Grant](../how-to-docs/get-3-legged-token.md)*tutorials for more information on how to use this endpoint.*
 
 ## [Resource Information](#resource-information)
 
@@ -34,11 +34,11 @@ See the* [Get a 3-Legged Token with Authorization Code Grant](/en/docs/oauth/v2/
 | response_type*   string | The value MUST be either `code` for authorization code grant flow or `id_token` for id token flow. |
 | redirect_uri*   string | URL-encoded callback URL that the end user will be redirected to after completing the authorization flow, which can include query parameters and any other valid URL construct       *Note: This must match the pattern of the callback URL field of the appâs registration in the*[My Apps](/myapps) [*](#id1)section. |
 | nonce   string | A string value used to associate a client session with an ID token and to mitigate replay attacks. Mandatory when scope is openid. |
-| scope   string | A URL-encoded, space-separated list of requested scopes. For example, `scope=data:read` requests the `data:read` scope. This value is for the purpose of this example but in your own app, you should request the scope(s) you actually need.       Maximum characters - 3000   Maximum number of scopes - 50       * *See the* [Scopes](/en/docs/oauth/v2/overview/scopes)*page for more information on when scopes are required.* |
+| scope   string | A URL-encoded, space-separated list of requested scopes. For example, `scope=data:read` requests the `data:read` scope. This value is for the purpose of this example but in your own app, you should request the scope(s) you actually need.       Maximum characters - 3000   Maximum number of scopes - 50       * *See the* [Scopes](https://aps.autodesk.com/en/docs/oauth/v2/overview/scopes/)*page for more information on when scopes are required.* |
 | state*   string | A URL-encoded payload containing arbitrary data that the authentication flow will pass back verbatim in a `state` query parameter to the callback URL. |
 | prompt   string | The application prompts the user in a certain way based on its value. Valid value: `login`       If no `prompt` parameter is specified, the standard behavior occurs as follows:   If an user session already exists, the user is authenticated else, the user is prompted to authenticate.       `login`: Always prompt the user for authentication, regardless of the login session. |
 | response_mode   string | Determines how the authorization response should be returned. Valid values: `fragment`, `form_post` or `query`. If `id_token` is stated as response_type, then only `form_post` is allowed as response_mode. |
-| authoptions   string | Json object that carries information to identity. Refer [AuthOptions](/en/docs/oauth/v2/overview/authoptions) to see the supported values. |
+| authoptions   string | Json object that carries information to identity. Refer [AuthOptions](https://aps.autodesk.com/en/docs/oauth/v2/overview/authoptions/) to see the supported values. |
 | code_challenge   string | The code_challenge is a URL encoded string for Proof Key for Code Exchange (PKCE). It is verified in the access token request. |
 | code_challenge_method   string | Method used to derive the code challenge for PKCE. The value of this parameter must always be the string `S256` if code challenge is present. |
 
@@ -117,7 +117,7 @@ Clicking on this link will take the user to the OAuth consent page, and when con
 
 ## [Example 3](#example-3)
 
-An HTML Link in a Web App for Re-verification flow. For this example, you can get an ID token for an user after they successfully authenticate and it is optimized for confidential clients. The ID token contains information about a user and their authentication status. Refer to the [Get an ID Token](/en/docs/oauth/v2/tutorials/get-ID-token) tutorial for more details.
+An HTML Link in a Web App for Re-verification flow. For this example, you can get an ID token for an user after they successfully authenticate and it is optimized for confidential clients. The ID token contains information about a user and their authentication status. Refer to the [Get an ID Token](../how-to-docs/get-ID-token.md) tutorial for more details.
 
 ### Request
 

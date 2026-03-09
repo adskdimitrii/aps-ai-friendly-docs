@@ -12,7 +12,7 @@ The authorization code grant type with PKCE is used to obtain both access tokens
 
 This flow is very similar to the authorization code flow. However, in this case you have to pass a `code_challenge` along with the authorization request.
 
-- Guide for generating `code_challenge`: [Code-Challenge Documentation Link](/en/docs/oauth/v2/tutorials/code-challenge/)
+- Guide for generating `code_challenge`: [Code-Challenge Documentation Link](code-challenge.md)
 
 Note that this walkthrough does not show you how to write server-side code. Instead, it uses cURL commands to illustrate the calls you need to instrument in your code.
 
@@ -20,7 +20,7 @@ This walkthrough presupposes that the app is a web app and that it needs to read
 
 ## [Before You Begin](#before-you-begin)
 
-Before you begin, follow the [Create an App](/en/docs/oauth/v2/tutorials/create-app) walkthrough. Refer to the section, Step 2: Register an App and select Desktop, Mobile, Single-Page App to create your app on the APS developer Platform. Specify your appâs callback URL and note your client ID.
+Before you begin, follow the [Create an App](create-app.md) walkthrough. Refer to the section, Step 2: Register an App and select Desktop, Mobile, Single-Page App to create your app on the APS developer Platform. Specify your appâs callback URL and note your client ID.
 
 Refer to the following image to familiarize yourself with the PKCE overall flow:
 
@@ -28,7 +28,7 @@ Refer to the following image to familiarize yourself with the PKCE overall flow:
 
 ## [Step 1: Direct the User to the Authorization Web Flow with PKCE](#step-1-direct-the-user-to-the-authorization-web-flow-with-pkce)
 
-At some point in the UI of your web app, you will find that you need to get the end userâs consent to access APS resources on the userâs behalf. Depending on your app, you may do this when the user first starts using the app, or you may wait until your app actually needs to access the resource. Whatever the case, you will redirect the user to the [GET authorize](/en/docs/oauth/v2/reference/http/authorize-GET) endpoint in their browser. For example, you might provide a link that looks like the following:
+At some point in the UI of your web app, you will find that you need to get the end userâs consent to access APS resources on the userâs behalf. Depending on your app, you may do this when the user first starts using the app, or you may wait until your app actually needs to access the resource. Whatever the case, you will redirect the user to the [GET authorize](../http-docs/http-authorize-GET.md) endpoint in their browser. For example, you might provide a link that looks like the following:
 
 ```
 <a href="https://developer.api.autodesk.com/authentication/v2/authorize?response_type=code&client_id=GCi5oTYLE36CTUlcL7wWbhq9mC5DzG9w&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Foauth%2Fcallback%2F&nonce=1232132&scope=data:read&prompt=login&state=12321321&code_challenge=fePr9SDGJIToHximLHTRokkzkfzZksznrDIx9bexsto&code_challenge_method=S256">Click here to grant access to your data!</a>
@@ -75,7 +75,7 @@ Your code that serves up the `/oauth/callback/` URL in your web app should extra
 
 ## [Step 3: Exchange the Authorization Code with PKCE for an Access Token](#step-3-exchange-the-authorization-code-with-pkce-for-an-access-token)
 
-Immediately after extracting the `code` query parameter value, you should exchange the authorization code for an access token using the [POST token](/en/docs/oauth/v2/reference/http/gettoken-POST) endpoint:
+Immediately after extracting the `code` query parameter value, you should exchange the authorization code for an access token using the [POST token](../http-docs/http-gettoken-POST.md) endpoint:
 
 Replace the `client_id`, `code`, and `redirect_uri` values in the example below with those specific to your app and from the above steps.
 

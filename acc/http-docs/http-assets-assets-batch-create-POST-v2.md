@@ -16,11 +16,11 @@ This endpoint accepts an array of asset definitions, one definition for each ass
 category for the asset. The status and any custom attributes assigned to the asset must come from the status
 set and the custom attributes assigned to the category.
 
-To find the status set assigned to a category, use [POST category-status-step-sets/status-step-sets:batch-get](/en/docs/acc/v1/reference/http/assets-category-status-step-sets-status-step-sets-batch-get-POST/).
+To find the status set assigned to a category, use [POST category-status-step-sets/status-step-sets:batch-get](http-assets-category-status-step-sets-status-step-sets-batch-get-POST.md).
 
-To find the custom attributes assigned to a category, use [GET categories/:categoryId/custom-attributes](/en/docs/acc/v1/reference/http/assets-categories-category-id-custom-attributes-GET/).
+To find the custom attributes assigned to a category, use [GET categories/:categoryId/custom-attributes](http-assets-categories-category-id-custom-attributes-GET.md).
 
-To understand the basics of assets and the Assets settings that define them, see the [Assets Field Guide](/en/docs/acc/v1/overview/field-guide/assets/).
+To understand the basics of assets and the Assets settings that define them, see the [Assets Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/assets/).
 
   Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
@@ -36,7 +36,7 @@ To understand the basics of assets and the Assets settings that define them, see
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 

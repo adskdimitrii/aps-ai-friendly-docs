@@ -6,40 +6,40 @@ Source: https://aps.autodesk.com/en/docs/webhooks/tutorials/create-a-hook-issues
 
 # Creating a Webhook and Listening to ACC Issue Events
 
-This walkthrough demonstrates how to create a webhook to register callbacks for [Autodesk Construction Cloud (ACC) Issue events](/en/docs/webhooks/v1/reference/events/issues_events/). The steps include finding the scope ID for the events, choosing the event type for the webhook to listen for, preparing to handle callbacks, and creating the webhook.
+This walkthrough demonstrates how to create a webhook to register callbacks for [Autodesk Construction Cloud (ACC) Issue events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/issues_events/). The steps include finding the scope ID for the events, choosing the event type for the webhook to listen for, preparing to handle callbacks, and creating the webhook.
 
-For more details about the Autodesk Construction Cloud (ACC) Issues API, see the [Issues API Field Guide](/en/docs/acc/v1/overview/field-guide/issues/).
+For more details about the Autodesk Construction Cloud (ACC) Issues API, see the [Issues API Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/issues/).
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps) and select the ACC Issues API.
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:read` and `data:create` scopes. These are required to access the Webhooks API and to create a webhook. For more information about scopes, see the [Scopes section](/en/docs/oauth/v2/developers_guide/scopes/) in the Authentication API.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` and `data:create` scopes. These are required to access the Webhooks API and to create a webhook. For more information about scopes, see the [Scopes section](../../oauth/developers-guide-docs/scopes.md) in the Authentication API.
 - Only users with **Project Admin** permissions can successfully create webhooks for ACC Issues.
 
 ## [Step 1 : Find the Scope ID for Events](#step-1-find-the-scope-id-for-events)
 
 The Webhooks service uses the project ID as the scope for ACC Issue events. To find the project ID, see the [`Retrieve Project ID /en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/>`_](#id1) tutorial.
 
-For more information about webhook scopes, see the [Field Guide](/en/docs/webhooks/v1/developers_guide/field-guide/).
+For more information about webhook scopes, see the [Field Guide](https://aps.autodesk.com/en/docs/webhooks/v1/developers_guide/field-guide/).
 
 ## [Step 2 : Select an Event Type for Webhook Registration](#step-2-select-an-event-type-for-webhook-registration)
 
-The Webhooks service currently supports the events listed on the [ACC Issue Events](/en/docs/webhooks/v1/reference/events/issues_events/) page.
+The Webhooks service currently supports the events listed on the [ACC Issue Events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/issues_events/) page.
 
 You can specify multiple event types by including wildcards in the event type name using the asterisk (`*`) character, which matches zero or more characters in the name. For example:
 
 - `issue.*` matches all issue-related events
 - `*` matches all events in the system
 
-For more information about event types and wildcards, see [Supported Events](/en/docs/webhooks/v1/reference/events/).
+For more information about event types and wildcards, see [Supported Events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/).
 
 ## [Step 3 : Prepare to Manage Callbacks](#step-3-prepare-to-manage-callbacks)
 
-A webhook requires a callback URL to which it will send the event data. To get started with setting up a local server, see [Configuring Your Server](/en/docs/webhooks/v1/tutorials/configuring-your-server).
+A webhook requires a callback URL to which it will send the event data. To get started with setting up a local server, see [Configuring Your Server](configuring-your-server.md).
 
 ## [Step 4 : Create a Webhook](#step-4-create-a-webhook)
 
-Create a webhook by calling [POST events/:event/hooks](/en/docs/webhooks/v1/reference/http/systems-system-events-event-hooks-POST/).
+Create a webhook by calling [POST events/:event/hooks](https://aps.autodesk.com/en/docs/webhooks/v1/reference/http/systems-system-events-event-hooks-POST/).
 
 ### Hook Attribute
 
@@ -47,7 +47,7 @@ In some situations, specific data (such as the `projectId`) might not be include
 
 Supply the `hookAttribute` property with a JSON object that you want to include in the callback, such as the `projectId` or any other details from your app.
 
-For more information, see the [Webhooks Field Guide](/en/docs/webhooks/v1/developers_guide/field-guide/).
+For more information, see the [Webhooks Field Guide](https://aps.autodesk.com/en/docs/webhooks/v1/developers_guide/field-guide/).
 
 ### Filter
 
@@ -55,7 +55,7 @@ You might want to filter the callbacks you receive based on the payload of the c
 
 Provide the `filter` attribute in the endpoint request payload with a JSONPath expression that specifies the callback payload field values you want to filter on.
 
-For more information, see [Callback Filtering](/en/docs/webhooks/v1/developers_guide/callback-filtering/).
+For more information, see [Callback Filtering](https://aps.autodesk.com/en/docs/webhooks/v1/developers_guide/callback-filtering/).
 
 ### Example Input Values
 

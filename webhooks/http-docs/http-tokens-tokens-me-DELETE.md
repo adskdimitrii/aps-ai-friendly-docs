@@ -23,7 +23,7 @@ depending on the latest event delivery attempt.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [OAuth](/en/docs/oauth/v2/reference/http/gettoken-POST) |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [OAuth](../../oauth/http-docs/http-gettoken-POST.md) |
 | --- | --- |
 | Content-Type*   string | `application/json` |
 | x-ads-region   string | Specifies the geographical location (region) of the server that the request is executed on. Supported values are the following, but the default value is `US`: <br>`US` : (Default) Deletes the token that was previously saved in a data center dedicated to serve the United States.`EMEA` : Deletes the token that was previously saved in a data center dedicated to serve the European Union, Middle East, and Africa.`AUS` : (Beta) Deletes the token that was previously saved in a data center dedicated to serve Australia.`GBR` : Deletes the token that was previously saved in a data center dedicated to serve United Kingdom.`JPN` : Deletes the token that was previously saved in a data center dedicated to serve Japan.`DEU` : Deletes the token that was previously saved in a data center dedicated to serve Germany.`CAN` : Deletes the token that was previously saved in a data center dedicated to serve Canada.`IND` : Deletes the token that was previously saved in a data center dedicated to serve India. |

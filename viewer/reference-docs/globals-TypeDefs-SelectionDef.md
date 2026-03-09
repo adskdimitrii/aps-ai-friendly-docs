@@ -10,7 +10,7 @@ Type Definitions
 
 # Properties
 
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | The model from which to select |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | The model from which to select |
 | --- | --- |
 | ids   Array.<number> | array of ids to select |
 | selectionType   number | a member of `Autodesk.Viewing.SelectionType` |

@@ -12,4 +12,4 @@ The example implements a function named `addViewable`, which renders a model spe
 
 [https://codepen.io/autodesk-platform-services/embed/bGQQEdV?default-tab=js%2Cresult&amp;theme-id=light](https://codepen.io/autodesk-platform-services/embed/bGQQEdV?default-tab=js%2Cresult&amp;theme-id=light)
 
-For more information about Aggregated View, see the [Advanced Options](/en/docs/viewer/v7/developers_guide/advanced_options/aggregated-view/) and [API Reference](/en/docs/viewer/v7/reference/Viewing/AggregatedView/) sections.
+For more information about Aggregated View, see the [Advanced Options](advanced_options-aggregated-view.md) and [API Reference](../reference-docs/Viewing-AggregatedView.md) sections.

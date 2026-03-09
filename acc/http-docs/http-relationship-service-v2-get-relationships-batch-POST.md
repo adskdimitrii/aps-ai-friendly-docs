@@ -28,10 +28,10 @@ The response contains a list of the requested relationship objects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token/) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
-| x-ads-region   enum: string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](/en/docs/acc/v1/overview/acc-regions) page. |
+| x-ads-region   enum: string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
 
 * Required
 
@@ -80,7 +80,7 @@ Expand all
 | deletedOn   datetime: ISO 8601 | The date and time the relationship was deleted. |
 | entities   array: object | The entities contained in the relationship. <br>Min items: 2 Max items: 2 |
 | createdOn   datetime: ISO 8601 | The date and time the entity was created. |
-| domain   string | The domain to which the entity belongs. <br>To learn more about domains and entities, see the [Relationship Service Field Guide](/en/docs/bim360/v1/overview/field-guide/relationships).<br>Max length: 128 |
+| domain   string | The domain to which the entity belongs. <br>To learn more about domains and entities, see the [Relationship Service Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/relationships/).<br>Max length: 128 |
 | type   string | The type of entity. <br>Max length: 128 |
 | id   string | The unique identifier of the entity. <br>Max length: 512 |
 

@@ -11,13 +11,13 @@ This tutorial demonstrates how to download attachments that were added to submit
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with the `data:read` scope.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:read` scope.
 - Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to download an attachment from. See the [Retrieve a Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial for more details. In this example, assume the project ID is `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`.
+- Find the relevant project ID for the project you want to download an attachment from. See the [Retrieve a Project ID](getting-started-retrieve-account-and-project-id.md) tutorial for more details. In this example, assume the project ID is `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`.
 
 ## [Step 1: Find the Submittal Item ID](#step-1-find-the-submittal-item-id)
 
-Find the ID of the submittal item that is associated with the attachment that you want to download by calling [GET items](/en/docs/acc/v1/reference/http/submittals-items-GET/) using the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`).
+Find the ID of the submittal item that is associated with the attachment that you want to download by calling [GET items](../http-docs/http-submittals-items-GET.md) using the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`).
 
 ### Request
 
@@ -157,7 +157,7 @@ Note the ID of the item that is associated with the attachment you want to downl
 
 ## [Step 2: Find the Storage Object ID for the Attachment](#step-2-find-the-storage-object-id-for-the-attachment)
 
-Find the storage object ID for the attachment you want to download by calling [GET attachments](/en/docs/acc/v1/reference/http/submittals-items-itemId-attachments-GET/) using the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) and the item ID (`b8cc9324-6759-4f07-8ce3-725d5afd4f112`).
+Find the storage object ID for the attachment you want to download by calling [GET attachments](../http-docs/http-submittals-items-itemId-attachments-GET.md) using the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) and the item ID (`b8cc9324-6759-4f07-8ce3-725d5afd4f112`).
 
 ### Request
 
@@ -250,7 +250,7 @@ Note the bucket key - `wip.dm.prod` and the storage object key - `72d5e7e4-89a7-
 
 ## [Step 3: Generate a Signed S3 URL](#step-3-generate-a-signed-s3-url)
 
-Use the bucket key (`wip.dm.prod`) and the object key (`72d5e7e4-89a7-4cb9-9da0-2e2bbc61ca8e.dwg`) to call [GET buckets/:bucketKey/objects/:objectKey/signeds3download](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3download-GET) to generate a signed URL for the storage object, which you can use to download the file directly from S3.
+Use the bucket key (`wip.dm.prod`) and the object key (`72d5e7e4-89a7-4cb9-9da0-2e2bbc61ca8e.dwg`) to call [GET buckets/:bucketKey/objects/:objectKey/signeds3download](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3download-GET.md) to generate a signed URL for the storage object, which you can use to download the file directly from S3.
 
 ### Request
 

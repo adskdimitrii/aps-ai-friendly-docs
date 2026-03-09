@@ -16,7 +16,7 @@ Retrieves a list of model set views in a given model set that contain the provid
 
 **This endpoint is deprecated**
 
-This endpoint is deprecated. We will continue supporting it until February 24, 2023. We recommend migrating to the [GET modelsets/:modelSetId/views](/en/docs/bim360/v1/reference/http/mc-modelset-service-v3-get-model-set-views-GET/) endpoint and filtering the response by lineages.
+This endpoint is deprecated. We will continue supporting it until February 24, 2023. We recommend migrating to the [GET modelsets/:modelSetId/views](http-mc-modelset-service-v3-get-model-set-views-GET.md) endpoint and filtering the response by lineages.
 
 The response contains a list of matching views, restricted by the number specified by the `pageLimit` property. If set (that is, if there are more results than can be displayed at once), you can provide the `continuationToken` property in the response in a separate call to retrieve additional results.
 
@@ -34,10 +34,10 @@ The response contains a list of matching views, restricted by the number specifi
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token/) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
-| x-ads-region   enum: string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](/en/docs/acc/v1/overview/acc-regions) page. |
+| x-ads-region   enum: string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
 
 * Required
 

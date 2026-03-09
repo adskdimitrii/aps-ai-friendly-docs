@@ -14,7 +14,7 @@ Retrieves users, roles, and companies assigned the manager role in the current p
 
 For more information about submittal administration, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Submittals_Administration_Overview).
 
-For information on how mappings are used in the Submittal workflow, see the [Create Submittal Item](/en/docs/acc/v1/tutorials/submittals/create-submittal-item) tutorial.
+For information on how mappings are used in the Submittal workflow, see the [Create Submittal Item](../how-to-docs/submittals-create-submittal-item.md) tutorial.
 
 Note that this endpoint is not compatible with BIM 360 projects.
 
@@ -30,7 +30,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 
 * Required
@@ -39,7 +39,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Request
@@ -80,7 +80,7 @@ Expand all
 | id   string: UUID | The unique identifier (UUID) of the user-role mapping record. |
 | userType   enum:string | The ID for the type of user in the record. Possible values: `1` (user), `2` (company), `3` (role). |
 | oxygenId   string | Not relevant |
-| autodeskId   string | The Autodesk ID of the user (`autodeskId`), role (`memberGroupId`), or company (`memberGroupId`). <br>To find details about users, call [GET users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/). Note that we do not currently support finding details about roles for a project. |
+| autodeskId   string | The Autodesk ID of the user (`autodeskId`), role (`memberGroupId`), or company (`memberGroupId`). <br>To find details about users, call [GET users](http-admin-projectsprojectId-users-GET.md), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/). Note that we do not currently support finding details about roles for a project. |
 | submittalsRole   enum:string | The role of the user in Submittals. Possible values: `1` (manager). |
 | updatedBy   string | Autodesk ID of the last user who updated the record. |
 | updatedAt   datetime: ISO 8601 | When the record was last updated. |

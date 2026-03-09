@@ -10,17 +10,17 @@ POST
 
 # projects/:project_id/items
 
-Creates the first version of a file (item). To create additional versions of an item, use [POST versions](/en/docs/data/v2/reference/http/projects-project_id-versions-POST).
+Creates the first version of a file (item). To create additional versions of an item, use [POST versions](http-projects-project_id-versions-POST.md).
 
-Before you create the first version you need to [create a storage location](/en/docs/data/v2/reference/http/projects-project_id-storage-POST) for the file, and [upload the file to the storage object](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-PUT). For more details about the workflow, see the tutorial on [uploading a file](/en/docs/data/v2/tutorials/upload-file).
+Before you create the first version you need to [create a storage location](http-projects-project_id-storage-POST.md) for the file, and [upload the file to the storage object](http-buckets--bucketKey-objects--objectKey-PUT.md). For more details about the workflow, see the tutorial on [uploading a file](../how-to-docs/upload-file.md).
 
 This endpoint also copies versions of items to other folders in the same project. The endpoint creates a new item and a first version of the item in the target folder. You cannot copy versions of items across different projects and accounts.
 
-To copy versions of items to existng items in other folders, use [POST versions](/en/docs/data/v2/reference/http/projects-project_id-versions-POST). POST versions creates a new version of the existing item in the target folder.
+To copy versions of items to existng items in other folders, use [POST versions](http-projects-project_id-versions-POST.md). POST versions creates a new version of the existing item in the target folder.
 
-Note that to access BIM 360 Docs files using the Data Management API you need to provision your app in the BIM 360 Account Administrator portal. For more details, see the [Manage Access to Docs](/en/docs/bim360/v1/tutorials/manage-access-to-docs) tutorial.
+Note that to access BIM 360 Docs files using the Data Management API you need to provision your app in the BIM 360 Account Administrator portal. For more details, see the [Manage Access to Docs](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/manage-access-to-docs/) tutorial.
 
-**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](/en/docs/acc/v1/overview/).
+**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/).
 
 ## [Resource Information](#resource-information)
 
@@ -34,7 +34,7 @@ Note that to access BIM 360 Docs files using the Data Management API you need to
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/vnd.api+json` |
 | x-user-id   string | In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified. <br>Note that for a three-legged OAuth flow or for a two-legged OAuth flow with user impersonation (`x-user-id`), the user must have permission to upload files to the specified parent folder (`data.attributes.relationships.parent.data.id`).<br>For copying files, the user must have permission to view the source folder.<br>For information about managing and verifying folder permissions for BIM 360 Docs, see the section on [Managing Folder Permissions](http://help.autodesk.com/view/BIM360D/ENU/?guid=GUID-2643FEEF-B48A-45A1-B354-797DAD628C37). |
@@ -52,7 +52,7 @@ Note that to access BIM 360 Docs files using the Data Management API you need to
 
 ## [Query String Parameters](#query-string-parameters)
 
-- copyFromstring Only relevant for copying files to BIM 360 Docs - the version ID (URN) of the file to copy. For details about finding the URN, follow the initial steps in the [Download a File](/en/docs/data/v2/tutorials/download-file/) tutorial.You can only copy files to the Plans folder or to subfolders of the Plans folder with an `item:autodesk.bim360:Document` item extension type, and you can only copy files to the Project Files folder or to subfolders of the Project Files folder with an `item:autodesk.bim360:File` item extension type.To verify an itemâs extension type, use [GET item](/en/docs/data/v2/reference/http/projects-project_id-items-item_id-GET), and check the `attributes.extension.type` attribute.Note that if you copy a file to the Plans folder or to a subfolder of the Plans folder, the copied file inherits the permissions of the source file. For example, if the end user did not have permission to download files in the source folder, but does have permission to download files in the target folder, he/she will not be able to download the copied file.Note that you cannot copy a file if it is in the middle of being uploaded, updated, or copied. To verify the current process state of a file, call [GET item](/en/docs/data/v2/reference/http/projects-project_id-items-item_id-GET), and check the `attributes.extension.data.processState` attribute.
+- copyFromstring Only relevant for copying files to BIM 360 Docs - the version ID (URN) of the file to copy. For details about finding the URN, follow the initial steps in the [Download a File](../how-to-docs/download-file.md) tutorial.You can only copy files to the Plans folder or to subfolders of the Plans folder with an `item:autodesk.bim360:Document` item extension type, and you can only copy files to the Project Files folder or to subfolders of the Project Files folder with an `item:autodesk.bim360:File` item extension type.To verify an itemâs extension type, use [GET item](http-projects-project_id-items-item_id-GET.md), and check the `attributes.extension.type` attribute.Note that if you copy a file to the Plans folder or to a subfolder of the Plans folder, the copied file inherits the permissions of the source file. For example, if the end user did not have permission to download files in the source folder, but does have permission to download files in the target folder, he/she will not be able to download the copied file.Note that you cannot copy a file if it is in the middle of being uploaded, updated, or copied. To verify the current process state of a file, call [GET item](http-projects-project_id-items-item_id-GET.md), and check the `attributes.extension.data.processState` attribute.
 
 ### Request
 
@@ -68,7 +68,7 @@ Expand all
 | data*   object | The data object. |
 | type*   enum:string | The type of this resource. Will always be: `items` |
 | attributes*   object | The attributes of the data object. |
-| displayName   string | The name of the file (1-255 characters). Reserved characters: `<`, `>`, `:`, `"`, `/`, `\`, `|`, `?`, `*`, `` ` ``, `\n`, `\r`, `\t`, `\0`, `\f`, `Â¢`, `â¢`, `$`, `Â®`. This must be the same as `included[i].attributes.name`. <br>Copied files are assigned the `displayName` of the source file by default, unless you specify a different name.<br>Note that you need to add the same file extension that you added when you [created a storage location for the file](/en/docs/data/v2/reference/http/projects-project_id-storage-POST).<br>Note that for A360 projects, this field is required.<br>Note that for BIM 360 projects, this field is reserved for future releases and should not be used. Use `included[0].attributes.name` for the file name. |
+| displayName   string | The name of the file (1-255 characters). Reserved characters: `<`, `>`, `:`, `"`, `/`, `\`, `|`, `?`, `*`, `` ` ``, `\n`, `\r`, `\t`, `\0`, `\f`, `Â¢`, `â¢`, `$`, `Â®`. This must be the same as `included[i].attributes.name`. <br>Copied files are assigned the `displayName` of the source file by default, unless you specify a different name.<br>Note that you need to add the same file extension that you added when you [created a storage location for the file](http-projects-project_id-storage-POST.md).<br>Note that for A360 projects, this field is required.<br>Note that for BIM 360 projects, this field is reserved for future releases and should not be used. Use `included[0].attributes.name` for the file name. |
 | extension*   object | Extended information on the resource. |
 | type   string | Only relevant for creating files - the type of file extension. <br>For BIM 360 Docs files, use `items:autodesk.bim360:File`.<br>For all other services, use `items:autodesk.core:File`. |
 | version   string | The version of the item extension type (`data.attributes.extension.type`). The current version is `1.0`. |
@@ -81,7 +81,7 @@ Expand all
 | parent*   object | Information on the parent resource of this resource. |
 | data*   object | The data object. |
 | type*   enum:string | The type of this resource. Will always be: `folders` |
-| id*   string | The URN of the parent folder in which you want to create a version of a file or to copy a file to. <br>Note that you cannot copy files between folders in different BIM 360 Docs projects and accounts.<br>For details about how to find the URN, follow the initial steps in the [Download a File](/en/docs/data/v2/tutorials/download-file/) tutorial. |
+| id*   string | The URN of the parent folder in which you want to create a version of a file or to copy a file to. <br>Note that you cannot copy files between folders in different BIM 360 Docs projects and accounts.<br>For details about how to find the URN, follow the initial steps in the [Download a File](../how-to-docs/download-file.md) tutorial. |
 | included*   array: object | The array of resources included within this resource. |
 | type*   enum:string | The type of this resource. Will always be: `versions` |
 | id*   enum:string | The id of the resource. Will always be: `1` |
@@ -95,7 +95,7 @@ Expand all
 | storage   object | The object containing information on the storage resource. |
 | data*   object | The data object. |
 | type*   enum:string | Only relevant for creating files - the type of resource of the object. Will always be: `objects` |
-| id*   string | Only relevant for creating files - the storage URN of the version. The storage URN is the `objectId` returned when [uploading the file to the storage object](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-PUT/). |
+| id*   string | Only relevant for creating files - the storage URN of the version. The storage URN is the `objectId` returned when [uploading the file to the storage object](http-buckets--bucketKey-objects--objectKey-PUT.md). |
 | refs   object | Only relevant for creating files. |
 | data*   array: object | The array of ref objects. |
 | type*   enum:string | Will always be: `versions` |
@@ -216,7 +216,7 @@ Expand all
 | schema   object | An object containing an API link property. |
 | href   string | A hyperlink reference to this resource. |
 | data   object | Additional properties that the resourceâs data possesses. |
-| conformingStatus   enum:string | A status indicating whether or not this version conforms to its parent folderâs file naming standard. <br>Possible values:<br>`NONE`: The conforming status is not applicable for the version.`CONFORMING`: The version conforms to its parent folderâs file naming standard.`NON_CONFORMING`: The version does not conform to its parent folderâs file naming standard.<br>In the event of a `NON_CONFORMING` status, call [GET folders/folder_id](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-GET) to get the file naming standards IDs that have been applied to the versionâs parent folder, and then use the ID to call [GET naming-standards](/en/docs/bim360/v1/reference/http/document-management-naming-standards-id-GET/) to get the details of the file naming standard.<br>Note that this feature is only available for BIM 360 projects.<br>To learn more about the file naming standard feature, see the [BIM 360 File Naming Standard](https://help.autodesk.com/view/BIM360D/ENU/?guid=Common_Data_Environment) help documentation. |
+| conformingStatus   enum:string | A status indicating whether or not this version conforms to its parent folderâs file naming standard. <br>Possible values:<br>`NONE`: The conforming status is not applicable for the version.`CONFORMING`: The version conforms to its parent folderâs file naming standard.`NON_CONFORMING`: The version does not conform to its parent folderâs file naming standard.<br>In the event of a `NON_CONFORMING` status, call [GET folders/folder_id](http-projects-project_id-folders-folder_id-GET.md) to get the file naming standards IDs that have been applied to the versionâs parent folder, and then use the ID to call [GET naming-standards](../../acc/http-docs/http-document-management-naming-standards-id-GET.md) to get the details of the file naming standard.<br>Note that this feature is only available for BIM 360 projects.<br>To learn more about the file naming standard feature, see the [BIM 360 File Naming Standard](https://help.autodesk.com/view/BIM360D/ENU/?guid=Common_Data_Environment) help documentation. |
 | relationships   object | Information on other resources that shares a relationship with this resource. |
 | item   object | Information on resources that are found above this resource. |
 | links   object | The object containing information on links of related resources. |

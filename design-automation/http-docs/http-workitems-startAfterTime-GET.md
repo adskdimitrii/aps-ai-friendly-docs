@@ -26,7 +26,7 @@ Limits:
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) OAuth flow. |
 | --- | --- |
 
 * Required

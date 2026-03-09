@@ -11,15 +11,15 @@ This tutorial demonstrates how to add references such as ACC photos to ACC issue
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with the `data:write` scope.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:write` scope.
 - Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to create an issue in by following the [Retrieve a Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. In this example, assume the project ID is `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`.
+- Find the relevant project ID for the project you want to create an issue in by following the [Retrieve a Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`.
 
 Note that we do not currently support document-related (pusphin) issues or linked documents.
 
 ## [Step 1: Verify the Userâs Permissions](#step-1-verify-the-user-s-permissions)
 
-We recommend that you call [GET users/me](/en/docs/acc/v1/reference/http/issues-users-me-GET/) to verify that the user has permissions to add photos to issues. The user can add photos if the `issues.new` object appears in the response. See the [Permissions Table](https://help.autodesk.com/view/BUILD/ENU/?guid=Issues_Permissions) for more information about permissions.
+We recommend that you call [GET users/me](../http-docs/http-issues-users-me-GET.md) to verify that the user has permissions to add photos to issues. The user can add photos if the `issues.new` object appears in the response. See the [Permissions Table](https://help.autodesk.com/view/BUILD/ENU/?guid=Issues_Permissions) for more information about permissions.
 
 ### Request
 
@@ -161,9 +161,9 @@ Note the ID (`results.[id]`) - (`3570f222-6c54-4b01-90e6-e701749f0222`) of the i
 
 ## [Step 3: Find the Reference (Photo) ID](#step-3-find-the-reference-photo-id)
 
-To find the ID of the photo you want to add to the issue, call [GET photos](/en/docs/acc/v1/reference/http/photos-getfilteredphotos-POST/) using the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to get a list of all the photos for the project.
+To find the ID of the photo you want to add to the issue, call [GET photos](../http-docs/http-photos-getfilteredphotos-POST.md) using the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to get a list of all the photos for the project.
 
-Note you cannot currently upload photos to the ACC Photo tool using the Photos API. You can only upload photos via the Photos UI. We will be supporting the photos API upload in the near future. As a workaround you can upload photos to the ACC Files tool using the [Data Management API](/en/docs/data/v2/developers_guide/overview/) and add a file reference to the issue. See the [Upload Files](/en/docs/acc/v1/tutorials/document-management/upload-document/) tutorial for details.
+Note you cannot currently upload photos to the ACC Photo tool using the Photos API. You can only upload photos via the Photos UI. We will be supporting the photos API upload in the near future. As a workaround you can upload photos to the ACC Files tool using the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/developers_guide/overview/) and add a file reference to the issue. See the [Upload Files](https://aps.autodesk.com/en/docs/acc/v1/tutorials/document-management/upload-document/) tutorial for details.
 
 ### Request
 
@@ -227,11 +227,11 @@ Show More
 
 Note the ID (`results.[id]`) - (`5439bfb7-8006-4388-a454-f02560f99566`) of the photo you want to add to the issue.
 
-If you want to add a new photo to the issue, upload the photo to ACC Docs using the Data Management API. See the [Upload Files](/en/docs/acc/v1/tutorials/document-management/upload-document/) tutorial for details. Note the item ID (`included.[id]`) in the response.
+If you want to add a new photo to the issue, upload the photo to ACC Docs using the Data Management API. See the [Upload Files](https://aps.autodesk.com/en/docs/acc/v1/tutorials/document-management/upload-document/) tutorial for details. Note the item ID (`included.[id]`) in the response.
 
 ## [Step 4: Add the Reference (Photo) to the Issue](#step-4-add-the-reference-photo-to-the-issue)
 
-Use the [Relationships API](/en/docs/acc/v1/reference/http/relationship-service-v2-add-relationships-PUT/) to add the photo to the issue. Call [PUT relationships](/en/docs/acc/v1/reference/http/relationship-service-v2-add-relationships-PUT/) using the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`), the photo ID (`5439bfb7-8006-4388-a454-f02560f99566`), and the issue ID (`3570f222-6c54-4b01-90e6-e701749f0222`).
+Use the [Relationships API](../http-docs/http-relationship-service-v2-add-relationships-PUT.md) to add the photo to the issue. Call [PUT relationships](../http-docs/http-relationship-service-v2-add-relationships-PUT.md) using the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`), the photo ID (`5439bfb7-8006-4388-a454-f02560f99566`), and the issue ID (`3570f222-6c54-4b01-90e6-e701749f0222`).
 
 If you uploaded the photo via the Photos UI, use the following types and domains:
 

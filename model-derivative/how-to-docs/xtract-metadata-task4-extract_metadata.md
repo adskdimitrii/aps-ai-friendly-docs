@@ -22,11 +22,11 @@ You will use the following operations in this task:
 
 | Operation | HTTP Request |
 | --- | --- |
-| [Fetch Manifest](/en/docs/model-derivative/v2/reference/http/urn-manifest-GET/) | GET /{urn}/manifest |
-| [List Model Views](/en/docs/model-derivative/v2/reference/http/urn-metadata-GET/) | GET /{urn}/metadata |
-| [Fetch Object Tree](/en/docs/model-derivative/v2/reference/http/urn-metadata-guid-GET/) | GET /{urn}/metadata/{modelGuid} |
-| [Fetch All Properties](/en/docs/model-derivative/v2/reference/http/urn-metadata-guid-properties-GET/) | GET /{urn}/metadata/{modelGuid}/properties |
-| [Fetch Specific Properties](/en/docs/model-derivative/v2/reference/http/urn-metadata-guid-properties-query-POST/) | POST /{urn}/metadata/{modelGuid}/properties:query |
+| [Fetch Manifest](../http-docs/http-urn-manifest-GET.md) | GET /{urn}/manifest |
+| [List Model Views](../http-docs/http-urn-metadata-GET.md) | GET /{urn}/metadata |
+| [Fetch Object Tree](../http-docs/http-urn-metadata-guid-GET.md) | GET /{urn}/metadata/{modelGuid} |
+| [Fetch All Properties](../http-docs/http-urn-metadata-guid-properties-GET.md) | GET /{urn}/metadata/{modelGuid}/properties |
+| [Fetch Specific Properties](../http-docs/http-urn-metadata-guid-properties-query-POST.md) | POST /{urn}/metadata/{modelGuid}/properties:query |
 
 ## [Step 1 - Check the status of the translation job](#step-1-check-the-status-of-the-translation-job)
 

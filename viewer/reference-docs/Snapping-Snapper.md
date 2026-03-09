@@ -14,7 +14,7 @@ A tool that lets users attach pointer events to vertices and edges. It supports 
 
 ### Parameters
 
-| viewer*   [Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) | Viewer instance |
+| viewer*   [Viewer3D](Viewing-Viewer3D.md) | Viewer instance |
 | --- | --- |
 | options*   object | Configurations for the extension |
 
@@ -32,11 +32,11 @@ A tool that lets users attach pointer events to vertices and edges. It supports 
 
 ## [activate()](#activate)
 
-Starts intercepting pointer events. Invoked automatically by the [ToolController](/en/docs/viewer/v7/reference/Viewing/ToolController/).
+Starts intercepting pointer events. Invoked automatically by the [ToolController](Viewing-ToolController.md).
 
 ## [deactivate()](#deactivate)
 
-Stops intercepting pointer events. Invoked automatically by the [ToolController](/en/docs/viewer/v7/reference/Viewing/ToolController/).
+Stops intercepting pointer events. Invoked automatically by the [ToolController](Viewing-ToolController.md).
 
 ## [getSnapResult()](#getsnapresult)
 
@@ -44,7 +44,7 @@ Stops intercepting pointer events. Invoked automatically by the [ToolController]
 
 | type | description |
 | --- | --- |
-| [SnapResult](/en/docs/viewer/v7/reference/MeasureCommon/SnapResult/) | The snapping status of the last pointer event performed. |
+| [SnapResult](MeasureCommon-SnapResult.md) | The snapping status of the last pointer event performed. |
 
 ## [isSnapped()](#issnapped)
 

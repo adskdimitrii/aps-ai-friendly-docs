@@ -19,9 +19,9 @@ You will use the following operations in this task:
 
 | Operation | HTTP Request |
 | --- | --- |
-| [Start Translation Job](/en/docs/model-derivative/v2/reference/http/job-POST/) | POST /job |
-| [Fetch All Properties](/en/docs/model-derivative/v2/reference/http/urn-metadata-guid-properties-GET/) | GET /{urn}/metadata/{modelGuid}/properties |
-| [Fetch Derivative Download URL](/en/docs/model-derivative/v2/reference/http/urn-manifest-derivativeUrn-signedcookies-GET/) | GET /{urn}/manifest/{derivativeUrn}/signedcookies |
+| [Start Translation Job](../http-docs/http-job-POST.md) | POST /job |
+| [Fetch All Properties](../http-docs/http-urn-metadata-guid-properties-GET.md) | GET /{urn}/metadata/{modelGuid}/properties |
+| [Fetch Derivative Download URL](../http-docs/http-urn-manifest-derivativeUrn-signedcookies-GET.md) | GET /{urn}/manifest/{derivativeUrn}/signedcookies |
 
 ## [Step 1 - Translate specific objects to the OBJ format](#step-1-translate-specific-objects-to-the-obj-format)
 

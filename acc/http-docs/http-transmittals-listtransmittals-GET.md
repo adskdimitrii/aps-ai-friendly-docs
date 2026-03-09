@@ -38,7 +38,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | x-user-id   string | The Autodesk ID of the user on whose behalf the request is made. <br>This header is required only when using two-legged authentication. It is not needed for three-legged authentication.<br>Your application can access only those users who are assigned to it in the SaaS Integrations UI.<br>Only user Autodesk IDs (`autodeskId`) are supported. |
 
@@ -48,7 +48,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>You can retrieve the project ID using the [Data Management API](/en/docs/data/v2/). For more details, see the [Retrieve a Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial.<br>You may provide the project ID with or without the `b.` prefix:<br>With prefix: `b.657a5565-09b7-48e0-bd03-acacfe42efaf`Without prefix: `657a5565-09b7-48e0-bd03-acacfe42efaf` |
+| projectId   string: UUID | The ID of the project. <br>You can retrieve the project ID using the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). For more details, see the [Retrieve a Project ID](../how-to-docs/getting-started-retrieve-account-and-project-id.md) tutorial.<br>You may provide the project ID with or without the `b.` prefix:<br>With prefix: `b.657a5565-09b7-48e0-bd03-acacfe42efaf`Without prefix: `657a5565-09b7-48e0-bd03-acacfe42efaf` |
 | --- | --- |
 
 ### Request

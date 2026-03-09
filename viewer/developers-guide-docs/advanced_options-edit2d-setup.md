@@ -15,7 +15,7 @@ This tutorial covers:
 
 ## [Step 1: Load the Extension](#step-1-load-the-extension)
 
-To start using Edit2D, you first need to load the extension. In this example, we will register Edit2Dâs default toolset. You can learn how to create your own toolset, along with other customizations, in the [Customizing Edit2D](/en/docs/viewer/v7/developers_guide/advanced_options/edit2d-customize) tutorial.
+To start using Edit2D, you first need to load the extension. In this example, we will register Edit2Dâs default toolset. You can learn how to create your own toolset, along with other customizations, in the [Customizing Edit2D](advanced_options-edit2d-customize.md) tutorial.
 
 ```
 // Load Edit2D extension
@@ -122,6 +122,6 @@ ctx.selection.setHoverID(shape.id);
 
 Now that youâve set up Edit2D, check out these tutorials:
 
-- [Using the Edit2D Toolset](/en/docs/viewer/v7/developers_guide/advanced_options/edit2d-use)
-- [Drawing Edit2D Shapes Manually](/en/docs/viewer/v7/developers_guide/advanced_options/edit2d-manual)
-- [Customizing Edit2D](/en/docs/viewer/v7/developers_guide/advanced_options/edit2d-customize)
+- [Using the Edit2D Toolset](advanced_options-edit2d-use.md)
+- [Drawing Edit2D Shapes Manually](advanced_options-edit2d-manual.md)
+- [Customizing Edit2D](advanced_options-edit2d-customize.md)

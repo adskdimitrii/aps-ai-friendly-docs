@@ -21,8 +21,8 @@ You will use the following operations to work with WorkItems in this task:
 
 | HTTP Request | Description |
 | --- | --- |
-| [POST /workitems](/en/docs/design-automation/v3/reference/http/workitems-POST) | Creates a new WorkItem and queues it for processing. |
-| [GET /workitems/{id}](/en/docs/design-automation/v3/reference/http/workitems-id-GET) | Gets the status of a specific WorkItem. |
+| [POST /workitems](../http-docs/http-workitems-POST.md) | Creates a new WorkItem and queues it for processing. |
+| [GET /workitems/{id}](../http-docs/http-workitems-id-GET.md) | Gets the status of a specific WorkItem. |
 
 ## [Step 1 - Create a WorkItem](#step-1-create-a-workitem)
 
@@ -369,7 +369,7 @@ This argument is optional for the `[POST] /workitems` call.
 
 Once the WorkItem is processed, the specified URL is called with a payload identical to the response received on `[GET] /workitems/{id}` call.
 
-The implementation of the callback URL is similar to how you implement a callback URL for the [Webhooks API](/en/docs/webhooks/v1/overview/). Refer to the Webhooks API documentation for information on specifying the callback URL. Additional documentation for [configuring local server](/en/docs/webhooks/v1/tutorials/configuring-your-server/) is also available.
+The implementation of the callback URL is similar to how you implement a callback URL for the [Webhooks API](https://aps.autodesk.com/en/docs/webhooks/v1/overview/). Refer to the Webhooks API documentation for information on specifying the callback URL. Additional documentation for [configuring local server](../../webhooks/how-to-docs/configuring-your-server.md) is also available.
 
 **Notes:**
 

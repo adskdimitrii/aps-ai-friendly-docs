@@ -16,7 +16,7 @@ The extension id is: `Autodesk.NPR`
 
 ### Parameters
 
-| viewer*   [Autodesk.Viewing.Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) | Viewer instance. |
+| viewer*   [Autodesk.Viewing.Viewer3D](Viewing-Viewer3D.md) | Viewer instance. |
 | --- | --- |
 | options*   Object | Not used. |
 
@@ -58,7 +58,7 @@ Changes post-processing setting parameters. The supported param/value combinatio
 - ârepeatsâ: `Number`
 - ârotationâ: `Number` between 0 and 1, around circle (e.g. 0.5 == pi radians, 1.0 == 2*pi)
 
-Fires event [RENDER_OPTION_CHANGED_EVENT](/en/docs/viewer/v7/reference/Viewing/#render-option-changed-event/).
+Fires event [RENDER_OPTION_CHANGED_EVENT](https://aps.autodesk.com/en/docs/viewer/v7/reference/Viewing/#render-option-changed-event/).
 
 ### Parameters
 

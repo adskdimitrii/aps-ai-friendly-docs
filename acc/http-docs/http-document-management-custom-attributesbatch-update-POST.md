@@ -14,11 +14,11 @@ Assigns values to custom attributes for multiple documents. This endpoint also c
 
 For information about custom attributes, see the [Help documentation](http://help.autodesk.com/view/BIM360D/ENU/?guid=GUID-244FAB32-8E3B-4D1B-A1EB-C982DB93ABB3).
 
-To retrieve values that were assigned to a documentâs custom attributes, call [POST versions:batch-get](/en/docs/bim360/v1/reference/http/document-management-versionsbatch-get-POST/).
+To retrieve values that were assigned to a documentâs custom attributes, call [POST versions:batch-get](http-document-management-versionsbatch-get-POST.md).
 
-To retrieve the full list of the documentâs custom attributes including custom attributes that have not been assigned a value, call [GET custom-attribute-definitions](/en/docs/bim360/v1/reference/http/document-management-custom-attribute-definitions-GET/).
+To retrieve the full list of the documentâs custom attributes including custom attributes that have not been assigned a value, call [GET custom-attribute-definitions](http-document-management-custom-attribute-definitions-GET.md).
 
-For more details about custom attributes, see the [Update Custom Attributes](/en/docs/bim360/v1/tutorials/document-management/download-document/update-custom-attribute-values) tutorial.
+For more details about custom attributes, see the [Update Custom Attributes](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/document-management/download-document/update-custom-attribute-values/) tutorial.
 
   Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
@@ -34,7 +34,7 @@ For more details about custom attributes, see the [Update Custom Attributes](/en
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 | x-user-id   string | In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified. |
@@ -45,17 +45,17 @@ For more details about custom attributes, see the [Update Custom Attributes](/en
 
 ## [URI Parameters](#uri-parameters)
 
-| project_id   string: UUID | The ID of the project. This corresponds to the project ID in the [Data Management API](/en/docs/data/v2/). To convert a project ID in the Data Management API to a project ID in the BIM 360 API you need to remove the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| project_id   string: UUID | The ID of the project. This corresponds to the project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API to a project ID in the BIM 360 API you need to remove the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
-| version_id   string | The URL-encoded ID (URN) of the version. To find the version ID of a document follow the initial steps of the [Download Files](/en/docs/bim360/v1/tutorials/document-management/download-document-s3/) tutorial. |
+| version_id   string | The URL-encoded ID (URN) of the version. To find the version ID of a document follow the initial steps of the [Download Files](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/document-management/download-document-s3/) tutorial. |
 
 ### Request
 
 ## [Body Structure](#body-structure)
 
-| id*   string | The ID of the custom attribute. To find the ID, call [GET custom-attribute-definitions](/en/docs/bim360/v1/reference/http/document-management-custom-attribute-definitions-GET/). |
+| id*   string | The ID of the custom attribute. To find the ID, call [GET custom-attribute-definitions](http-document-management-custom-attribute-definitions-GET.md). |
 | --- | --- |
-| value*   string | The value of the custom attribute. If you are assigning a value to a drop-list attribute, call [GET custom-attribute-definitions](/en/docs/bim360/v1/reference/http/document-management-custom-attribute-definitions-GET/) to retrieve a list of possible values. If you are clearing a custom attribute value, assign a `null` value to the attribute. <br>For text field (`string`) attributes, the max length is 255.Date attributes need to be compliant with ISO8601. Milliseconds are discarded. |
+| value*   string | The value of the custom attribute. If you are assigning a value to a drop-list attribute, call [GET custom-attribute-definitions](http-document-management-custom-attribute-definitions-GET.md) to retrieve a list of possible values. If you are clearing a custom attribute value, assign a `null` value to the attribute. <br>For text field (`string`) attributes, the max length is 255.Date attributes need to be compliant with ISO8601. Milliseconds are discarded. |
 
 * Required
 

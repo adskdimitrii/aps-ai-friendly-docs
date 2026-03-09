@@ -20,7 +20,7 @@ If your download request to S3 fails after 2 minutes elapses, you can call this 
 
 This call will return one or more URLs. Each URL requires object read access for the object.
 
-Note that resumable uploads store each chunk individually. After upload completes, an async process merges all the chunks and creates the definitive OSS file. This async process can take time. If you request an S3 download URL before the async process completes, the response returns a map of S3 URLs, one per chunk where the key is the corresponding range bytes. In case you donât want multiple URLs in the response, you can use [OSS signed URL functionality](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signed-POST) , with the `public-resource-fallback` query parameter set to `true`.
+Note that resumable uploads store each chunk individually. After upload completes, an async process merges all the chunks and creates the definitive OSS file. This async process can take time. If you request an S3 download URL before the async process completes, the response returns a map of S3 URLs, one per chunk where the key is the corresponding range bytes. In case you donât want multiple URLs in the response, you can use [OSS signed URL functionality](http-buckets--bucketKey-objects--objectKey-signed-POST.md) , with the `public-resource-fallback` query parameter set to `true`.
 
 **Note:** While this endpoint does not support range headers, the returned URL(s) can be used for ranged downloads. This way, downloads can be parallelized using multiple ranges for maximum speed.
 
@@ -38,7 +38,7 @@ Note that resumable uploads store each chunk individually. After upload complete
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](/en/docs/oauth/v2/reference/http/gettoken-POST). |
+| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
 | --- | --- |
 | Content-Type*   string | Must be `application/json`. |
 
@@ -57,7 +57,7 @@ Note that resumable uploads store each chunk individually. After upload complete
 
 ## [Query String Parameters](#query-string-parameters)
 
-| public-resource-fallback   boolean | Allows to fallback to [OSS signed URLs](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signed-POST) in case of unmerged resumable uploads. |
+| public-resource-fallback   boolean | Allows to fallback to [OSS signed URLs](http-buckets--bucketKey-objects--objectKey-signed-POST.md) in case of unmerged resumable uploads. |
 | --- | --- |
 | useCdn   boolean | Will generate a CloudFront URL for the S3 object. |
 | minutesExpiration   integer | The custom expiration time within the 1 to 60 minutes range, if not specified, default is 2 minutes. |

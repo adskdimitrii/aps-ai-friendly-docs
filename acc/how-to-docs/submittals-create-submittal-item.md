@@ -11,20 +11,20 @@ This tutorial demonstrates how to create a submittal item for an Autodesk Constr
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:read` `data:write` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` `data:write` scopes.
 - Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to create an item in by following the [Retrieve an Account ID and Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. In this example, assume the project ID is `91b5ea71-e3ea-495b-999d-57443a8af6a4`.
+- Find the relevant project ID for the project you want to create an item in by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `91b5ea71-e3ea-495b-999d-57443a8af6a4`.
 - Make sure you have chosen at least one âmanagerâ through the UI. To assign a manager to a submittal item, you need to ensure the user has the necessary permissions and roles set within the project. For instructions on setting up roles and permissions see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Submittals_Permissions).
 
 ## [Step 1: Verify User Permissions](#step-1-verify-user-permissions)
 
-Call [GET users/me](/en/docs/acc/v1/reference/http/submittals-users-me-GET/) using the project ID (`91b5ea71-e3ea-495b-999d-57443a8af6a4`) to retrieve the relevant permissions for the user.
+Call [GET users/me](../http-docs/http-submittals-users-me-GET.md) using the project ID (`91b5ea71-e3ea-495b-999d-57443a8af6a4`) to retrieve the relevant permissions for the user.
 
 You need to check whether the user has permissions to create submittal items, and the states in which the user is allowed to create them. Only a manager (`role[i]=1`) can create an item in a Waiting for submission state (`sbc-1`), and any user can create a submittal item in an Open (Submitted) state (`mgr-1`). Check the `transitions` array for the data.
 
 Use the `permittedActions` array to check which fields are mandatory (`mandatoryFields`) and which fields are optional (`fields`) for the state in which you want to create the submittal item. For example, to create a submittal Waiting for submission state (`sbc-1`), the required fields include subcontractor (`subcontractor`), subcontractor type (`subcontractorType`), and submitter due date (`submitterDueDate`). To create a submittal in an Open (Submitted) state (`mgr-1`), the required fields include manager (`manager`) and manager type (`managerType`).
 
-Note that calling [GET items](/en/docs/acc/v1/reference/http/submittals-items-GET/) at any stage in the workflow will return the permitted actions for the user at that point in the workflow for that submittal item.
+Note that calling [GET items](../http-docs/http-submittals-items-GET.md) at any stage in the workflow will return the permitted actions for the user at that point in the workflow for that submittal item.
 
 ### Request
 
@@ -619,7 +619,7 @@ Note the permissions information in the `roles` array and `permittedActions` arr
 
 Every submittal item must be associated with a spec section. When creating a submittal item you need to either select an exising spec section or create a new spec section.
 
-To retrieve an existing spec section ID, use the project ID (`91b5ea71-e3ea-495b-999d-57443a8af6a4`) to call [GET specs](/en/docs/acc/v1/reference/http/submittals-specs-GET/).
+To retrieve an existing spec section ID, use the project ID (`91b5ea71-e3ea-495b-999d-57443a8af6a4`) to call [GET specs](../http-docs/http-submittals-specs-GET.md).
 
 ### Request
 
@@ -667,7 +667,7 @@ Show More
 
 Note the spec section ID (`id`).
 
-If you want to create a new spec section, call [POST specs](/en/docs/acc/v1/reference/http/submittals-specs-POST/). Specify the spec title and identifier in the request.
+If you want to create a new spec section, call [POST specs](../http-docs/http-submittals-specs-POST.md). Specify the spec title and identifier in the request.
 
 ### Request
 
@@ -703,7 +703,7 @@ Note the spec section ID (`id`).
 
 ## [Step 3: Find the Item Type ID](#step-3-find-the-item-type-id)
 
-Every submittal item must be associated with an item type. To get a list of existing item types, use the project ID (`91b5ea71-e3ea-495b-999d-57443a8af6a4`) to call [GET item-types](/en/docs/acc/v1/reference/http/submittals-item-types-GET/).
+Every submittal item must be associated with an item type. To get a list of existing item types, use the project ID (`91b5ea71-e3ea-495b-999d-57443a8af6a4`) to call [GET item-types](../http-docs/http-submittals-item-types-GET.md).
 
 ### Request
 
@@ -760,11 +760,11 @@ Note the item type ID (`results[id]`) of the relevant item type.
 
 When you create a submittal item you can optionally assign a custom number to it. Note that only managers can assign custom numbers to a submittal item. Projects are configured to either assign a sequential global number to the submittal items or a sequential spec number. For more details about custom numbering, see the Custom Numbering in Submittals [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Submittal_Custom_Numbering). Alternatively, you can customize the submittal item custom number to be any string that has not yet been assigned to a submittal item, as long it is in a supported format.
 
-If you want to assign the next global or spec number you need to first check the sequence type. To find the sequence type call [GET metadata](/en/docs/acc/v1/reference/http/submittals-metadata-GET/), and check the `customIdentifierSequenceType` field. If the sequence type is `1` it is a global sequence (global numbering), and if it is `2` it is a spec sequence (spec section numbering).
+If you want to assign the next global or spec number you need to first check the sequence type. To find the sequence type call [GET metadata](../http-docs/http-submittals-metadata-GET.md), and check the `customIdentifierSequenceType` field. If the sequence type is `1` it is a global sequence (global numbering), and if it is `2` it is a spec sequence (spec section numbering).
 
 In this example, assume the project has been assigned a spec sequence. Note that a spec sequence is in the format <spec_identifier>-<sequential_number>. You only need to specify the sequential number. The full number - <spec_identifier>-<sequential_number> - appears in the response payload in the `customIdentifierHumanReadable` attribute.
 
-To find the next number in the sequence, call [GET items:next-custom-identifier](/en/docs/acc/v1/reference/http/submittals-itemsnext-custom-identifier-GET/).
+To find the next number in the sequence, call [GET items:next-custom-identifier](../http-docs/http-submittals-itemsnext-custom-identifier-GET.md).
 
 ### Request
 
@@ -786,7 +786,7 @@ curl -v 'https://developer.api.autodesk.com/construction/submittals/v2/projects/
 
 Note the `nextCustomIdentifier`.
 
-If you want to assign any customized number to the submittal item we recommend that you validate it to check that it is unique and that is in a supported format. Call [POST items:validate-custom-identifier](/en/docs/acc/v1/reference/http/submittals-itemsvalidate-custom-identifier-POST/) to validate the number.
+If you want to assign any customized number to the submittal item we recommend that you validate it to check that it is unique and that is in a supported format. Call [POST items:validate-custom-identifier](../http-docs/http-submittals-itemsvalidate-custom-identifier-POST.md) to validate the number.
 
 ### Request
 
@@ -809,7 +809,7 @@ If the provided `customIdentifier` is already in use or does not meet the field 
 
 A manager must be associated with the submittal item. If the submittal item creator is a manager then you do not need to assign a manager to the submittal item. See step 1 for details about checking whether the user is a manager. If the user is not a manager, you need to assign the submittal item to a manager.
 
-To find the list of managers associated with a project, call [GET mappings](/en/docs/acc/v1/reference/http/submittals-mappings-GET/). This returns a list of all the users, roles, and companies that are managers in the project. `userType` indicates whether it is a user, role, or company. If a user is a manager, call [GET projects/users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET/) to verify the actual name of the user. If a copmany is a manager, call [GET companies](/en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/) to verify the actual name of the company. Note that we do not currently support verifying names of roles.
+To find the list of managers associated with a project, call [GET mappings](../http-docs/http-submittals-mappings-GET.md). This returns a list of all the users, roles, and companies that are managers in the project. `userType` indicates whether it is a user, role, or company. If a user is a manager, call [GET projects/users](../http-docs/http-admin-projectsprojectId-users-GET.md) to verify the actual name of the user. If a copmany is a manager, call [GET companies](../http-docs/http-projects--project_id-companies-GET.md) to verify the actual name of the company. Note that we do not currently support verifying names of roles.
 
 ### Request
 
@@ -850,9 +850,9 @@ Show More
 
 In the submittal item workflow, review steps and tasks must be added before transitioning the item to the Review (`rev`) state. Currently, the Submittals API does not support creating custom steps or tasks directly. Instead, the recommended approach is to associate the submittal item with a review template that already includes predefined steps and tasks.
 
-You can retrieve a list of review templates using [GET templates](/en/docs/acc/v1/reference/http/submittals-templates-GET/), then assign one to the submittal item during creation. This ensures that the necessary steps and tasks are included for managing the submittal lifecycle effectively. For details on retrieving and assigning review templates, see the request/response example in this step and the instructions in Step 7.
+You can retrieve a list of review templates using [GET templates](../http-docs/http-submittals-templates-GET.md), then assign one to the submittal item during creation. This ensures that the necessary steps and tasks are included for managing the submittal lifecycle effectively. For details on retrieving and assigning review templates, see the request/response example in this step and the instructions in Step 7.
 
-You can use [GET templates](/en/docs/acc/v1/reference/http/submittals-templates-GET/) to verify the steps and tasks associated with a template. This provides details such as step numbers, days to respond, and assigned reviewers.
+You can use [GET templates](../http-docs/http-submittals-templates-GET.md) to verify the steps and tasks associated with a template. This provides details such as step numbers, days to respond, and assigned reviewers.
 
 In this example, we retrieve a review template and use its ID in the next step to assign it to a submittal item.
 

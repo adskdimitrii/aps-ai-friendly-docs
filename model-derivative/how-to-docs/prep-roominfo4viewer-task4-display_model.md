@@ -10,14 +10,14 @@ To display the SVF2 file you generated, you can create an HTML page and embed th
 
 ## [Option 1: Embed the Source File URN in an HTML Page](#option-1-embed-the-source-file-urn-in-an-html-page)
 
-1. Insert an instance of the Viewer in an HTML page, and initialize it as per the instructions provided in the [Viewer Basics topic in the Viewer SDK documentation:](/en/docs/viewer/v7/developers_guide/viewer_basics/starting-html/)
+1. Insert an instance of the Viewer in an HTML page, and initialize it as per the instructions provided in the [Viewer Basics topic in the Viewer SDK documentation:](../../viewer/developers-guide-docs/viewer_basics-starting-html.md)
 
 > | Parameter | SVF2 |
 > | --- | --- |
 > | `api` | streamingV2 |
 > | `env` | AutodeskProduction2 |
 
-2. Take the URL safe Base64-encoded URN of the source file, which you obtained in the previous task, and embed it as described in the section [Load a Model](/en/docs/viewer/v7/developers_guide/viewer_basics/starting-html#id3) in the topic [Getting Started](/en/docs/viewer/v7/developers_guide/viewer_basics/starting-html).
+2. Take the URL safe Base64-encoded URN of the source file, which you obtained in the previous task, and embed it as described in the section [Load a Model](../../viewer/developers-guide-docs/viewer_basics-starting-html.md#id3) in the topic [Getting Started](../../viewer/developers-guide-docs/viewer_basics-starting-html.md).
 > Note: Add `urn:` to the URL safe Base64-encoded URN, when you embed it in the JavaScript code, as show in the following image.
 >
 > ![../../../../_images/tutorial_4_urn_in_viewer.png](../../../../_images/tutorial_4_urn_in_viewer.png)

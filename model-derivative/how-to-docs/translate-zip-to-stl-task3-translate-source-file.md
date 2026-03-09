@@ -19,8 +19,8 @@ You will use the following operations in this task:
 
 | Operation | HTTP Request |
 | --- | --- |
-| [Start Translation Job](/en/docs/model-derivative/v2/reference/http/job-POST/) | POST /job |
-| [Fetch Manifest](/en/docs/model-derivative/v2/reference/http/urn-manifest-GET/) | GET /{urn}/manifest |
+| [Start Translation Job](../http-docs/http-job-POST.md) | POST /job |
+| [Fetch Manifest](../http-docs/http-urn-manifest-GET.md) | GET /{urn}/manifest |
 
 ## [Step 1 - Start a translation job](#step-1-start-a-translation-job)
 

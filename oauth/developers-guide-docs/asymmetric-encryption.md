@@ -11,7 +11,7 @@ and a private key. A public key can be used by any person to encrypt a message s
 by the intended recipient with their corresponding private key. A private key can be placed in a confidential
 location and known only to the issuer of the JWT tokens.
 
-Refer to [GET JWKS API reference endpoint](/en/docs/oauth/v2/reference/http/asymmetrickeys-GET) to obtain a list of current public signing keys.
+Refer to [GET JWKS API reference endpoint](../http-docs/http-asymmetrickeys-GET.md) to obtain a list of current public signing keys.
 
 This document contains information on how the signing keys are rotated for effective usage. Also, it guides
 on validating an access token using the public key.

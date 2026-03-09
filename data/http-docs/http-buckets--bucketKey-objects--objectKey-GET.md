@@ -16,7 +16,7 @@ Download an object.
 
 **We will be deprecating this endpoint.**
 
-We recommend using the [GET buckets/:bucketKey/objects/:objectKey/signeds3download](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3download-GET) endpoint. See the [Download a File](/en/docs/data/v2/tutorials/download-file) for step by step workflow.
+We recommend using the [GET buckets/:bucketKey/objects/:objectKey/signeds3download](http-buckets--bucketKey-objects--objectKey-signeds3download-GET.md) endpoint. See the [Download a File](../how-to-docs/download-file.md) for step by step workflow.
 
 ## [Resource Information](#resource-information)
 
@@ -30,7 +30,7 @@ We recommend using the [GET buckets/:bucketKey/objects/:objectKey/signeds3downlo
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](/en/docs/oauth/v2/reference/http/gettoken-POST). |
+| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
 | --- | --- |
 | Range   byte range | A range of bytes to download from the specified object. |
 | If-None-Match   string | The value of this header is compared to the ETAG of the object. If they match, the body will not be included in the response. Only the object information will be included. |

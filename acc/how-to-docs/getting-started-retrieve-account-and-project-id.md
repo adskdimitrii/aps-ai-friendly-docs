@@ -11,12 +11,12 @@ This tutorial demonstrates how to obtain your ACC Account and Project ID. If you
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps), and select the Data Management and Autodesk Construction Cloud APIs.
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:create` `data:read` and `data:write` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create` `data:read` and `data:write` scopes.
 - Verify that you have access to the relevant ACC account, project, and folder.
 
 ## [Step 1: Find the Hub ID for the ACC Account](#step-1-find-the-hub-id-for-the-acc-account)
 
-Find the hub ID for the ACC account you are interested in, by calling [GET hubs](/en/docs/data/v2/reference/http/hubs-GET/).
+Find the hub ID for the ACC account you are interested in, by calling [GET hubs](../../data/http-docs/http-hubs-GET.md).
 
 Note that the ACC account ID corresponds to a Data Management hub ID. To convert an account ID into a hub ID you need to add a â**b.**" prefix. For example, an account ID of d952a4eb-ad57-4d64-b9ab-d540b3b4522e translates to a hub ID of **b.**d952a4eb-ad57-4d64-b9ab-d540b3b4522e.
 
@@ -68,9 +68,9 @@ Find the hub (`data.name`), and note the hub ID - `b.d6cf8c84-c25e-4534-ae5c-62e
 
 ## [Step 2: Find the Project ID](#step-2-find-the-project-id)
 
-To get a list of all the projects in the hub (account), use the hub ID (`b.d6cf8c84-c25e-4534-ae5c-62e08480e751`) to call [GET hubs/:hub_id/projects](/en/docs/data/v2/reference/http/hubs-hub_id-projects-GET). Find the project ID of the project that you are interested in.
+To get a list of all the projects in the hub (account), use the hub ID (`b.d6cf8c84-c25e-4534-ae5c-62e08480e751`) to call [GET hubs/:hub_id/projects](../../data/http-docs/http-hubs-hub_id-projects-GET.md). Find the project ID of the project that you are interested in.
 
-Note that the project ID in ACC corresponds to the project ID in the [Data Management API](/en/docs/data/v2/). To convert a project ID in ACC to a project ID in the Data Management API, you need to add a â**b.**" prefix. For example, a project ID of a4be0c34a-4ab7 translates to a project ID of **b.**a4be0c34a-4ab7.
+Note that the project ID in ACC corresponds to the project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in ACC to a project ID in the Data Management API, you need to add a â**b.**" prefix. For example, a project ID of a4be0c34a-4ab7 translates to a project ID of **b.**a4be0c34a-4ab7.
 
 ### Request
 

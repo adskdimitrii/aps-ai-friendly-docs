@@ -10,11 +10,11 @@ This walkthrough explains how to navigate the project and data domains to find a
 
 ## [Before You Begin](#before-you-begin)
 
-Make sure that you have [registered an app](/en/docs/oauth/v2/tutorials/create-app) and successfully [acquired an OAuth token](/en/docs/oauth/v2/tutorials).
+Make sure that you have [registered an app](../../oauth/how-to-docs/create-app.md) and successfully [acquired an OAuth token](https://aps.autodesk.com/en/docs/oauth/v2/tutorials/).
 
-See the Authentication and Scopes section in the [API Basics](/en/docs/data/v2/overview/basics) for the appropriate token based on the data you are accessing.
+See the Authentication and Scopes section in the [API Basics](https://aps.autodesk.com/en/docs/data/v2/overview/basics/) for the appropriate token based on the data you are accessing.
 
-In general, access to BIM 360 Team, BIM 360 Docs, Fusion Team, and A360 Personal data requires the use of a [3-legged OAuth2 token](/en/docs/oauth/v2/tutorials/get-3-legged-token).
+In general, access to BIM 360 Team, BIM 360 Docs, Fusion Team, and A360 Personal data requires the use of a [3-legged OAuth2 token](../../oauth/how-to-docs/get-3-legged-token.md).
 
 HTTP `GET` requests to the Project and Data services require the `data:read` scope.
 
@@ -22,7 +22,7 @@ HTTP `POST` requests to the Data service require the `data:create` scope, but ca
 
 ## [Step 1: Find the hub that has your resource](#step-1-find-the-hub-that-has-your-resource)
 
-The Data Management service exposes a [GET hubs](/en/docs/data/v2/reference/http/hubs-GET) endpoint that provides a list of available hubs for the logged in user.
+The Data Management service exposes a [GET hubs](../http-docs/http-hubs-GET.md) endpoint that provides a list of available hubs for the logged in user.
 A GET request to that endpoint allows us to find the URL for the hub we want.
 
 ### Example
@@ -71,7 +71,7 @@ Show More
 
 In the above example, assume that your resource exists in `John's Hub`.
 Make note of the the hub ID `a.cGVyc29uYWw6cGUyOWNjZjMy`.
-The hub ID can be used with the [GET hubs/:hub_id/projects](/en/docs/data/v2/reference/http/hubs-hub_id-projects-GET) endpoint to obtain a list of all the projects the user has access to within the hub.
+The hub ID can be used with the [GET hubs/:hub_id/projects](../http-docs/http-hubs-hub_id-projects-GET.md) endpoint to obtain a list of all the projects the user has access to within the hub.
 For our example we are going to filter the projects to just the one we are interested in.
 
 ### Example
@@ -149,7 +149,7 @@ Show More
 
 In the above example, assume that your resource exists in `Demo Project`.
 Make note of the the project and folder IDs `a.cGVyc29uYWw6cGUyOWNjZjMyI0QyMDE2MDUyNDEyOTI5NzY` and `urn:adsk.wipprod:fs.folder:co.uvDiLQ5DRYidDQ_EFW1OOg` respectively.
-The [GET projects/:project_id/folders/:folder_id/contents](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-contents-GET) endpoint allows us to retrieve all the contents of the specified folder.
+The [GET projects/:project_id/folders/:folder_id/contents](../http-docs/http-projects-project_id-folders-folder_id-contents-GET.md) endpoint allows us to retrieve all the contents of the specified folder.
 
 ### Example
 
@@ -338,7 +338,7 @@ Show More
 
 In the above example, we can see the `House Design.rvt` item listed.
 Make note of the itemâs ID `urn:adsk.wipprod:dm.lineage:6bVr4EVDSaOpykczeQYR2Q`.
-The [GET projects/:project_id/items/:item_id](/en/docs/data/v2/reference/http/projects-project_id-items-item_id-GET) endpoint provides the storage location of the targeted item.
+The [GET projects/:project_id/items/:item_id](../http-docs/http-projects-project_id-items-item_id-GET.md) endpoint provides the storage location of the targeted item.
 
 ### Example
 
@@ -525,7 +525,7 @@ Show More
 
 If you only want the latest version, you can simply get the link from the response body of the previous step. In the above example, we can see the storage location of `House Design.rvt` in the `included.relationships.storage.meta.link.href` attribute (`https://developer.api.autodesk.com/oss/v2/buckets/wip.dm.prod/objects/977d69b1-43e7-40fa-8ece-6ec4602892f3.rvt`) which can be used to download the item.
 
-If you want a version other than the latest version, the [GET projects/:project_id/items/:item_id/versions](/en/docs/data/v2/reference/http/projects-project_id-items-item_id-versions-GET) endpoint returns the versions of an uploaded item. Find the version of the resource item that you want to download.
+If you want a version other than the latest version, the [GET projects/:project_id/items/:item_id/versions](../http-docs/http-projects-project_id-items-item_id-versions-GET.md) endpoint returns the versions of an uploaded item. Find the version of the resource item that you want to download.
 
 ### Example
 
@@ -645,7 +645,7 @@ The response is similar to the one in Step 4 other than multiple versions of the
 
 ## [Step 6: Get the S3 URL](#step-6-get-the-s3-url)
 
-The [GET buckets/:bucket_key/objects/:object_key/signeds3download](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3download-GET) endpoint will generate a signed URL to an object, which can be used to download it directly from S3.
+The [GET buckets/:bucket_key/objects/:object_key/signeds3download](../http-docs/http-buckets--bucketKey-objects--objectKey-signeds3download-GET.md) endpoint will generate a signed URL to an object, which can be used to download it directly from S3.
 
 The following example shows how to get the signed url.
 

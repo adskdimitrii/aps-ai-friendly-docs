@@ -31,7 +31,7 @@ Limitations: Most core features of LMV keep working (2D/3D render, mouse-over, s
 
 Expand all
 
-| viewer*   [Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) | Viewer instance |
+| viewer*   [Viewer3D](Viewing-Viewer3D.md) | Viewer instance |
 | --- | --- |
 | options   object |  |
 | viewports   Array.<?Autodesk.Viewing.Extensions.SplitScreenExtension~modelFilterFunction> | Filter functions that returns true for models to be rendered for the viewport at that index. Falsy values render everything. |

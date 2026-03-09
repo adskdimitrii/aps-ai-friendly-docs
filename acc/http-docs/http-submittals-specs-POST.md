@@ -29,7 +29,7 @@ For information on how spec sections are used in the submittal workflow, see the
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 
@@ -39,7 +39,7 @@ For information on how spec sections are used in the submittal workflow, see the
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Request
@@ -48,7 +48,7 @@ For information on how spec sections are used in the submittal workflow, see the
 
 | title*   string | The title of the spec section to be created. |
 | --- | --- |
-| identifier*   string | The unique ID to be assigned to the spec section within the UI. Ensure this ID is unique by checking existing spec sections using [GET specs](/en/docs/acc/v1/reference/http/submittals-specs-GET/). |
+| identifier*   string | The unique ID to be assigned to the spec section within the UI. Ensure this ID is unique by checking existing spec sections using [GET specs](http-submittals-specs-GET.md). |
 
 * Required
 

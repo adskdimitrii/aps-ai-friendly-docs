@@ -10,11 +10,11 @@ The following step-by-step tutorial describes how to create a basic property ind
 
 ## [Step 1: Specify the index](#step-1-specify-the-index)
 
-To create a basic index, call the [batch status method](/en/docs/acc/v1/reference/http/index-v2-index-jobs-batch-status-post), which allows you to check the status of one or more file version indexes. The batch status endpoint is lazy, meaning that if an indexing job for the file(s) specified in batch status check have not been executed, the service will automatically start the missing job(s). For the purposes of this tutorial, however, we will use the simple single file mode.
+To create a basic index, call the [batch status method](../http-docs/http-index-v2-index-jobs-batch-status-post.md), which allows you to check the status of one or more file version indexes. The batch status endpoint is lazy, meaning that if an indexing job for the file(s) specified in batch status check have not been executed, the service will automatically start the missing job(s). For the purposes of this tutorial, however, we will use the simple single file mode.
 
 ### Example Request
 
-In the request below a `POST` is made to the [index batch status endpoint](/en/docs/acc/v1/reference/http/index-v2-index-jobs-batch-status-post/) passing in a single model file. There are no `query` or `columns` properties set in the payload so no query results will be generated in response to this operation.
+In the request below a `POST` is made to the [index batch status endpoint](../http-docs/http-index-v2-index-jobs-batch-status-post.md) passing in a single model file. There are no `query` or `columns` properties set in the payload so no query results will be generated in response to this operation.
 
 ```
 curl --request POST 'https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/indexes:batch-status' \
@@ -81,7 +81,7 @@ The properties returned by this endpoint are as follows:
 
 ## [Step 2: Poll for progress](#step-2-poll-for-progress)
 
-To track the progress of an indexing request, send a `GET` request to the [index status endpoint](/en/docs/acc/v1/reference/http/index-v2-index-status-get) using the `indexId` obtained in the batch status request. When the index has a status of `FINISHED` processing, the index is available for querying and download.
+To track the progress of an indexing request, send a `GET` request to the [index status endpoint](../http-docs/http-index-v2-index-status-get.md) using the `indexId` obtained in the batch status request. When the index has a status of `FINISHED` processing, the index is available for querying and download.
 
 ### Example Request
 
@@ -121,7 +121,7 @@ When an index has been successfully created (`state` equals `FINISHED`), it cont
 
 ## [Step 3: (Optional) Download the manifest](#step-3-optional-download-the-manifest)
 
-To retrieve the index manifest make a `GET` to the [manifest endpoint](/en/docs/acc/v1/reference/http/index-v2-index-manifest-get) as described in the [field guide](/en/docs/acc/v1/overview/field-guide/model-properties)
+To retrieve the index manifest make a `GET` to the [manifest endpoint](../http-docs/http-index-v2-index-manifest-get.md) as described in the [field guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/model-properties/)
 
 ### Example Request
 
@@ -185,11 +185,11 @@ curl --request GET 'https://developer.api.autodesk.com/construction/index/v2/pro
 
 Show More
 
-The structure of the manifest resource returned by this endpoint is described in the [field guide](/en/docs/acc/v1/overview/field-guide/model-properties) page.
+The structure of the manifest resource returned by this endpoint is described in the [field guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/model-properties/) page.
 
 ## [Step 4: (Optional) Download the fields](#step-4-optional-download-the-fields)
 
-In order to query the index, [download the fields resource](/en/docs/acc/v1/reference/http/index-v2-index-fields-get/), which describes the columns available in the index. The index fields are obtained by a call to the `fieldsUrl` returned either by a call to the batch status endpoint (Step 1) or by polling the state of a running indexing job (Step 2). If you already know the field keys you require for your query you can skip this step.
+In order to query the index, [download the fields resource](../http-docs/http-index-v2-index-fields-get.md), which describes the columns available in the index. The index fields are obtained by a call to the `fieldsUrl` returned either by a call to the batch status endpoint (Step 1) or by polling the state of a running indexing job (Step 2). If you already know the field keys you require for your query you can skip this step.
 
 ### Example Request
 
@@ -225,7 +225,7 @@ TRUNCATED
 
 Show More
 
-The structure of the fields resource returned by this endpoint is described in the [field guide](/en/docs/acc/v1/tutorials/model-properties/overview/) page.
+The structure of the fields resource returned by this endpoint is described in the [field guide](https://aps.autodesk.com/en/docs/acc/v1/tutorials/model-properties/overview/) page.
 
 ## [Step 5: (Optional) Download the raw index](#step-5-optional-download-the-raw-index)
 
@@ -330,11 +330,11 @@ Index rows are returned as compressed (gzip) line-delimited JSON. The following 
 
 Show More
 
-The structure of the properties resource returned by this endpoint is described in the [field guide](/en/docs/acc/v1/tutorials/model-properties/overview/) page.
+The structure of the properties resource returned by this endpoint is described in the [field guide](https://aps.autodesk.com/en/docs/acc/v1/tutorials/model-properties/overview/) page.
 
 ## [Step 6: Build and run a query](#step-6-build-and-run-a-query)
 
-Once an index has been successfully created, it can be queried using the `queries` endpoint for the index via the `indexId` that can be obtained by a call to the index status tracking endpoints (Steps 1 or 2 above). Index queries are described using a custom JSON schema that is converted to a filter expression and applied line by line to the index. This documentation includes a [comprehensive query language reference](/en/docs/acc/v1/tutorials/model-properties/query-ref) that describes how to form index and diff queries by example using this JSON schema.
+Once an index has been successfully created, it can be queried using the `queries` endpoint for the index via the `indexId` that can be obtained by a call to the index status tracking endpoints (Steps 1 or 2 above). Index queries are described using a custom JSON schema that is converted to a filter expression and applied line by line to the index. This documentation includes a [comprehensive query language reference](model-properties-query-ref.md) that describes how to form index and diff queries by example using this JSON schema.
 
 ### Example Request
 

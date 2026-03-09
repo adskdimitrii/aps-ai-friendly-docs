@@ -6,12 +6,12 @@ Source: https://aps.autodesk.com/en/docs/webhooks/tutorials/create-a-hook-model-
 
 # Creating a Webhook and Listening to Events
 
-This walkthrough explains how to create a Webhook to register callbacks for [Model Derivative](/en/docs/model-derivative/v2/overview) events.
+This walkthrough explains how to create a Webhook to register callbacks for [Model Derivative](https://aps.autodesk.com/en/docs/model-derivative/v2/overview/) events.
 
 ## [Before You Begin](#before-you-begin)
 
-- Make sure that you have [registered an app](/myapps) and successfully [acquired an OAuth token](/en/docs/oauth/v2/tutorials) .
-- See the Authentication and Scopes section in the [API Basics](/en/docs/data/v2/overview/basics) for the appropriate token based on the data you are accessing.
+- Make sure that you have [registered an app](/myapps) and successfully [acquired an OAuth token](https://aps.autodesk.com/en/docs/oauth/v2/tutorials/) .
+- See the Authentication and Scopes section in the [API Basics](https://aps.autodesk.com/en/docs/data/v2/overview/basics/) for the appropriate token based on the data you are accessing.
 - All requests to the Webhooks Service require the `data:read` scope.
 - You need `data:create` scope to create a hook.
 
@@ -21,23 +21,23 @@ Webhooks service uses the workflow ID of a set of jobs as the scope for Model De
 
 ### Field Guide
 
-For more information about scope and webhook take a look at our [Field Guide](/en/docs/webhooks/v1/overview/field-guide).
+For more information about scope and webhook take a look at our [Field Guide](https://aps.autodesk.com/en/docs/webhooks/v1/overview/field-guide/).
 
 ## [Step 2 : Choose event type to register the Webhook on](#step-2-choose-event-type-to-register-the-webhook-on)
 
 Webhooks service currently exposes the following types of Model Derivative events. Wildcards can also be specified by using the character â*â to represent the matching
 placeholder to substitute zero or more characters in the event type.
 
-See [Supported Events](/en/docs/webhooks/v1/reference/events) for more information about event types and wildcards.
+See [Supported Events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/) for more information about event types and wildcards.
 
 ## [Step 3 : Preparing to handle Callbacks](#step-3-preparing-to-handle-callbacks)
 
-A webhook requires a callback URL where the event data is sent. See [Configuring Your Server](/en/docs/webhooks/v1/tutorials/configuring-your-server) to get you started with a local server setup.
+A webhook requires a callback URL where the event data is sent. See [Configuring Your Server](configuring-your-server.md) to get you started with a local server setup.
 
 ## [Step 4 : Create a Webhook](#step-4-create-a-webhook)
 
 A webhook is created by making a `POST` request to `webhooks/v1/systems/:system/events/:event/hooks`.
-You can find additional details in the [Reference Guide](/en/docs/webhooks/v1/reference/http/systems-system-events-event-hooks-POST).
+You can find additional details in the [Reference Guide](https://aps.autodesk.com/en/docs/webhooks/v1/reference/http/systems-system-events-event-hooks-POST/).
 
 ### Example
 
@@ -113,4 +113,4 @@ curl -X 'POST'
 
 Show More
 
-For more information please take a look at [POST job](/en/docs/model-derivative/v2/reference/http/job-POST)
+For more information please take a look at [POST job](../../model-derivative/http-docs/http-job-POST.md)

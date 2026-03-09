@@ -8,12 +8,12 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/rfis3/rfi-upload/
 
 This tutorial demonstrates how to upload attachments to RFIs. The process includes locating the ID of the project that contains the RFI, identifying the virtual folder where the attachment will be stored, creating an empty storage object, generating a signed S3 URL, and uploading the attachment using that URL.
 
-For more details about ACC Document management, see the [Data Management API](/en/docs/data/v2/overview/).
+For more details about ACC Document management, see the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/overview/).
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps), and select the Data Management and Autodesk Construction Cloud APIs.
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:create` `data:read` and `data:write` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create` `data:read` and `data:write` scopes.
 - Assume the RFI that you want to add the attachment to is `31a3f98d-34a8-4d4c-a362-3cc9de44f89c`.
 - Verify that you have access to the relevant ACC account, project, and folder.
 
@@ -21,7 +21,7 @@ For more details about ACC Document management, see the [Data Management API](/e
 
 The first few steps of the tutorial demonstrate how to find the ID of the project that contains the RFI. This involves using several Data Management endpoints to find the folder ID.
 
-Call [GET hubs](/en/docs/data/v2/reference/http/hubs-GET/) to find the hub ID for the ACC account that includes the project that contains the RFI you want to add the attachment to.
+Call [GET hubs](../../data/http-docs/http-hubs-GET.md) to find the hub ID for the ACC account that includes the project that contains the RFI you want to add the attachment to.
 
 Note that the ACC account ID corresponds to a Data Management hub ID. To convert an account ID into a hub ID you need to add a â**b.**" prefix. For example, an account ID of c8b0c73d-3ae9 translates to a hub ID of **b.**c8b0c73d-3ae9.
 
@@ -73,9 +73,9 @@ Find the hub (`data.name`), and note the hub ID - `b.cGVyc29uYWw6cGUyOWNjZjMy`.
 
 ## [Step 2: Find the Project ID](#step-2-find-the-project-id)
 
-Use the hub ID (`b.cGVyc29uYWw6cGUyOWNjZjMy`) to call [GET hubs/:hub_id/projects](/en/docs/data/v2/reference/http/hubs-hub_id-projects-GET) to get a list of all the projects in the hub. Find the project ID of the project that contains the RFI you want to upload the attachment to.
+Use the hub ID (`b.cGVyc29uYWw6cGUyOWNjZjMy`) to call [GET hubs/:hub_id/projects](../../data/http-docs/http-hubs-hub_id-projects-GET.md) to get a list of all the projects in the hub. Find the project ID of the project that contains the RFI you want to upload the attachment to.
 
-Note that the project ID in ACC corresponds to the project ID in the [Data Management API](/en/docs/data/v2/). To convert a project ID in ACC to a project ID in the Data Management API, you need to add a â**b.**" prefix. For example, a project ID of a4be0c34a-4ab7 translates to a project ID of **b.**a4be0c34a-4ab7.
+Note that the project ID in ACC corresponds to the project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in ACC to a project ID in the Data Management API, you need to add a â**b.**" prefix. For example, a project ID of a4be0c34a-4ab7 translates to a project ID of **b.**a4be0c34a-4ab7.
 
 ### Request
 
@@ -125,9 +125,9 @@ Note that virtual folder creation is triggered as a separate asynchronous job wh
 Until this folder is successfully created, users cannot upload files into it.
 To confirm that the folder is ready, call GET rfis/:id </en/docs/acc/v1/reference/http/rfis-rfis-id-GET/> and check that the `virtualFolderUrn` field appears in the response.
 
-Use the project ID (`b.cGVyc29uYWw6d2l`) and the RFI ID (`31a3f98d-34a8-4d4c-a362-3cc9de44f89c` to call [GET rfis/:id](/en/docs/acc/v1/reference/http/rfis-rfis-id-GET/) to get the virtual folder ID for the RFI.
+Use the project ID (`b.cGVyc29uYWw6d2l`) and the RFI ID (`31a3f98d-34a8-4d4c-a362-3cc9de44f89c` to call [GET rfis/:id](../http-docs/http-rfis-rfis-id-GET.md) to get the virtual folder ID for the RFI.
 
-To find the RFI ID, call [POST search:rfis](/en/docs/acc/v1/reference/http/rfis-rfi-search-POST/).
+To find the RFI ID, call [POST search:rfis](../http-docs/http-rfis-rfi-search-POST.md).
 
 ### Request
 
@@ -368,7 +368,7 @@ Note the virtual folder ID (`virtualFolderUrn`) - `"urn:adsk.wip:fs.folder:co.18
 
 ## [Step 4: Create a Storage Object](#step-4-create-a-storage-object)
 
-Use the project ID (`b.cGVyc29uYWw6d2l`) and the virtual folder ID (`urn:adsk.wip:fs.folder:co.1838SAGCQ3SPn7lqOXMaJQ`) to call [POST projects/:project_id/storage](/en/docs/data/v2/reference/http/projects-project_id-storage-POST) to create an empty storage object for the file in the folder.
+Use the project ID (`b.cGVyc29uYWw6d2l`) and the virtual folder ID (`urn:adsk.wip:fs.folder:co.1838SAGCQ3SPn7lqOXMaJQ`) to call [POST projects/:project_id/storage](../../data/http-docs/http-projects-project_id-storage-POST.md) to create an empty storage object for the file in the folder.
 
 Note that you must assign a filename and file extension (such as `.pdf`, `.jpg`, `.txt`, etc.) to the `name` parameter (for example, `site-plan-v2.pdf`).
 
@@ -436,9 +436,9 @@ Note the bucket key - `wip.dm.prod` and the object key - `2a6d61f2-49df-4d7b.jpg
 
 ACC stores files in Amazon S3, and uploads must go through signed URLs for security. Use the bucket key and object key to generate a signed upload URL for your storage object.
 
-Use the bucket key (`wip.dm.prod`) and the object key (`2a6d61f2-49df-4d7b.jpg`) to call [GET buckets/:bucketKey/objects/:objectKey/signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-GET) to generate a signed URL for the storage object.
+Use the bucket key (`wip.dm.prod`) and the object key (`2a6d61f2-49df-4d7b.jpg`) to call [GET buckets/:bucketKey/objects/:objectKey/signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md) to generate a signed URL for the storage object.
 
-This endpoint supports generating multiple signed URLs, which allows you to upload multiple chunks of the same file in parallel. For more information, see [GET signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-GET).
+This endpoint supports generating multiple signed URLs, which allows you to upload multiple chunks of the same file in parallel. For more information, see [GET signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md).
 
 ### Request
 
@@ -482,7 +482,7 @@ Note that a successful call (`200`) returns an empty response.
 
 ## [Step 7: Complete the Upload](#step-7-complete-the-upload)
 
-Use the bucket key (`wip.dm.prod`) the object key (`` 2a6d61f2-49df-4d7b.jpg` ``) and the upload key (`AQICAHifrJ6-BSHUmjAat4..........QWI-fuvghN23akgePMdmykV`) to call [POST buckets/:bucket_key/objects/:object_key/signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-POST) to complete the upload.
+Use the bucket key (`wip.dm.prod`) the object key (`` 2a6d61f2-49df-4d7b.jpg` ``) and the upload key (`AQICAHifrJ6-BSHUmjAat4..........QWI-fuvghN23akgePMdmykV`) to call [POST buckets/:bucket_key/objects/:object_key/signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-POST.md) to complete the upload.
 
 This endpoint needs to be called within 24 hours from the time you began uploading the file.
 
@@ -515,7 +515,7 @@ The file has been uploaded to the storage object.
 
 At this point, the file has been uploaded to the RFIâs virtual folder â but it wonât appear in the RFI interface unless itâs assigned to a specific response.
 
-To complete the workflow, see the [Upload Attachments to RFI Responses tutorial](/en/docs/acc/v1/tutorials/create-rfi-response), which shows how to attach the file to a draft response.
+To complete the workflow, see the [Upload Attachments to RFI Responses tutorial](https://aps.autodesk.com/en/docs/acc/v1/tutorials/create-rfi-response/), which shows how to attach the file to a draft response.
 
 Note that we do not currently support the workflow to assign attachments directly to the official response via the API. This will be available in a future release.
 

@@ -12,11 +12,11 @@ Autodesk.Viewing
 
 Profiles encapsulate viewer settings, extensions to unload, and extensions to load.
 
-The `profileSettings.settings` parameter will override the existing [preferences](/en/docs/viewer/v7/reference/Private/Preferences/) upon calling the [apply](/en/docs/viewer/v7/reference/Viewing/Profile/#apply/) method. The `profileSettings.extensions.load` and `profileSettings.extensions.unload` arrays are used to load and unload extensions. Make sure to set the profile by using the [Autodesk.Viewing.Viewer3D#setProfile](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#setProfile/) method.
+The `profileSettings.settings` parameter will override the existing [preferences](Private-Preferences.md) upon calling the [apply](Viewing-Profile.md#apply/) method. The `profileSettings.extensions.load` and `profileSettings.extensions.unload` arrays are used to load and unload extensions. Make sure to set the profile by using the [Autodesk.Viewing.Viewer3D#setProfile](Viewing-Viewer3D.md#setProfile/) method.
 
 ### Parameters
 
-| profileSettings*   [ProfileSettings](/en/docs/viewer/v7/reference/globals/TypeDefs/ProfileSettings/) | the profile settings. |
+| profileSettings*   [ProfileSettings](globals-TypeDefs-ProfileSettings.md) | the profile settings. |
 | --- | --- |
 
 * Required
@@ -50,11 +50,11 @@ const profile = new Autodesk.Viewing.Profile(profileSettings);
 
 ## [apply(prefs, override)](#apply-prefs-override)
 
-Applies the profileâs settings to the viewer preferences. To make the viewer react to the updated preferences please reference [Autodesk.Viewing.Viewer3D#setProfile](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#setProfile/).
+Applies the profileâs settings to the viewer preferences. To make the viewer react to the updated preferences please reference [Autodesk.Viewing.Viewer3D#setProfile](Viewing-Viewer3D.md#setProfile/).
 
 ### Parameters
 
-| prefs*   [Autodesk.Viewing.Private.Preferences](/en/docs/viewer/v7/reference/Private/Preferences/) | preferences instance. |
+| prefs*   [Autodesk.Viewing.Private.Preferences](Private-Preferences.md) | preferences instance. |
 | --- | --- |
 | override   boolean | Override all existing preferences with the profileâs preferences. |
 

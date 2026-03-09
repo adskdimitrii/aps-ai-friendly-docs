@@ -26,11 +26,11 @@ Retrieve the job status for several jobs in a single request.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 | x-ads-force-regenerate-cache   boolean | If set to true, force regeneration of S3 cache. |
-| x-ads-region   enum: string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](/en/docs/acc/v1/overview/acc-regions) page. |
+| x-ads-region   enum: string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
 
 * Required
 
@@ -50,8 +50,8 @@ Expand all
 | versions*   array: object | versions. <br>Min items: 1 Max items: 1000 |
 | --- | --- |
 | versionUrn*   string | file version urn. |
-| query   object | [SQL AST for binary expression/filter](/en/docs/acc/v1/tutorials/model-properties/query-ref/) |
-| columns   object | [SQL AST for describing columns/projections](/en/docs/acc/v1/tutorials/model-properties/query-ref/) |
+| query   object | [SQL AST for binary expression/filter](../how-to-docs/model-properties-query-ref.md) |
+| columns   object | [SQL AST for describing columns/projections](../how-to-docs/model-properties-query-ref.md) |
 
 * Required
 

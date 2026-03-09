@@ -10,7 +10,7 @@ Learn how to use the simplest authentication mechanism on APS with this example 
 
 ## [Before You Begin](#before-you-begin)
 
-[Create an app](/en/docs/oauth/v2/tutorials/create-app). Note your Client ID and Client Secret.
+[Create an app](create-app.md). Note your Client ID and Client Secret.
 
 ## [Step 1: Convert Client ID and Secret to Base64 encoded string](#step-1-convert-client-id-and-secret-to-base64-encoded-string)
 
@@ -37,7 +37,7 @@ You must combine your Client ID with the Client Secret and convert it to a Base6
 
 ## [Step 2: Use encoded string to obtain an Access Token](#step-2-use-encoded-string-to-obtain-an-access-token)
 
-Call the [POST token](/en/docs/oauth/v2/reference/http/gettoken-POST) endpoint:
+Call the [POST token](../http-docs/http-gettoken-POST.md) endpoint:
 
 The Base64 encoded Client ID + Client Secret are passed through the `Authorization` header. The `grant_type` and `scope` are specified as form fields in the request body.
 

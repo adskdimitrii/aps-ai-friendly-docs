@@ -50,7 +50,7 @@ If thereâs no camera transition, return immediately. Otherwise, resolve whe
 
 ### Parameters
 
-| viewer*   [Autodesk.Viewing.Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) |  |
+| viewer*   [Autodesk.Viewing.Viewer3D](Viewing-Viewer3D.md) |  |
 | --- | --- |
 
 * Required
@@ -63,7 +63,7 @@ If geometry has been loaded, return immediately. Otherwise, resolve when the geo
 
 Expand all
 
-| viewer*   [Autodesk.Viewing.Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) |  |
+| viewer*   [Autodesk.Viewing.Viewer3D](Viewing-Viewer3D.md) |  |
 | --- | --- |
 | Model | model - Default is viewer.model, if not provided |
 
@@ -77,7 +77,7 @@ If model has been already added, return immediately. Otherwise, resolve when the
 
 Expand all
 
-| viewer*   [Autodesk.Viewing.Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) |  |
+| viewer*   [Autodesk.Viewing.Viewer3D](Viewing-Viewer3D.md) |  |
 | --- | --- |
 | Model | model - Default is viewer.model, if not provided |
 

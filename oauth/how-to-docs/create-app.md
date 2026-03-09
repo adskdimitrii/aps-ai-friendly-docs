@@ -35,14 +35,14 @@ Before an app can use APS APIs, you must register that app. APS then assigns a C
 ![../../../_images/signed-in2.png](../../../_images/signed-in2.png)
 2. Click **Create application**. The Create Application page displays.
 ![../../../_images/signed-in-new.png](../../../_images/signed-in-new.png)
-3. Enter a name for the app and select an application type. For more information, see [Application Types](/en/docs/oauth/v2/developers_guide/App-types).
+3. Enter a name for the app and select an application type. For more information, see [Application Types](https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/App-types/).
 Note: The application (APS app) created by selecting the application type âDesktop, Mobile, Single-Page Appâ is for a client with public keys, and âTraditional Web App, Server-to-Server Appâ is for a client with private keys.
 ![../../../_images/create-app-new-int.png](../../../_images/create-app-new-int.png)
 4. Click **Create**. A page to capture the details of your app is displayed.
 ![../../../_images/create-app2.png](../../../_images/create-app2.png)
 5. Enter the details of your app as follows:
   1. In the **Description** box, enter a short description of the app.
-  2. In the **Callback URL** box, enter the URL of the app that is designated to receive the authorization code on behalf of your app. For more information see [API Basics](/en/docs/oauth/v2/overview/basics).
+  2. In the **Callback URL** box, enter the URL of the app that is designated to receive the authorization code on behalf of your app. For more information see [API Basics](https://aps.autodesk.com/en/docs/oauth/v2/overview/basics/).
   3. From the **API Access** drop-down, select the APIs that you want to use in your app.
 6. Click **Save changes**.
 

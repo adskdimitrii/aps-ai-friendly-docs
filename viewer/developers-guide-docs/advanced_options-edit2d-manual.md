@@ -14,7 +14,7 @@ This tutorial covers:
 - Drawing Bezier and ellipse arcs
 - Converting your Edit2D shapes to and from SVG
 
-Before you do this tutorial, you should complete the [Setting Up Edit2D](/en/docs/viewer/v7/developers_guide/advanced_options/edit2d-setup) tutorial. Tutorials for using and customizing Edit2D are linked at the end of this tutorial.
+Before you do this tutorial, you should complete the [Setting Up Edit2D](advanced_options-edit2d-setup.md) tutorial. Tutorials for using and customizing Edit2D are linked at the end of this tutorial.
 
 ## [Step 1: Run the Edit2D Playground](#step-1-run-the-edit2d-playground)
 
@@ -355,5 +355,5 @@ Show More
 
 Now that youâve learned how to draw shapes manually, check out these other Edit2D tutorials:
 
-- [Using the Edit2D Toolset](/en/docs/viewer/v7/developers_guide/advanced_options/edit2d-use)
-- [Customizing Edit2D](/en/docs/viewer/v7/developers_guide/advanced_options/edit2d-customize)
+- [Using the Edit2D Toolset](advanced_options-edit2d-use.md)
+- [Customizing Edit2D](advanced_options-edit2d-customize.md)

@@ -10,12 +10,12 @@ POST
 
 Creates a new AppBundle.
 
-It is highly recommended to [create nickname](/en/docs/design-automation/v3/reference/http/forgeapps-id-PATCH/) before creating AppBundle. The nickname is used as a clearer alternative name when identifying AppBundles and Activities, as compared to using the Client ID.
+It is highly recommended to [create nickname](http-forgeapps-id-PATCH.md) before creating AppBundle. The nickname is used as a clearer alternative name when identifying AppBundles and Activities, as compared to using the Client ID.
 > Limits: (varies by Engine)
 >
-> 1. Number of AppBundle that can be created. See [Activity and AppBundle Quotas](/en/docs/design-automation/v3/developers_guide/rate-limits/da-rate-limits/).
+> 1. Number of AppBundle that can be created. See [Activity and AppBundle Quotas](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/rate-limits/da-rate-limits/).
 >
-> 2. Size of AppBundle. See [Activity and AppBundle Quotas](/en/docs/design-automation/v3/developers_guide/rate-limits/da-rate-limits/).
+> 2. Size of AppBundle. See [Activity and AppBundle Quotas](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/rate-limits/da-rate-limits/).
 >
 > This method creates new AppBundle returned in response value.
 >
@@ -67,7 +67,7 @@ It is highly recommended to [create nickname](/en/docs/design-automation/v3/refe
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [OAuth](/en/docs/oauth/v2/reference/http/gettoken-POST) |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [OAuth](../../oauth/http-docs/http-gettoken-POST.md) |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 

@@ -24,7 +24,7 @@ Return bucket details in JSON format if the caller is the owner of the bucket. A
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](/en/docs/oauth/v2/reference/http/gettoken-POST). |
+| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
 | --- | --- |
 
 * Required

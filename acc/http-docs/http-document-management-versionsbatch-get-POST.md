@@ -12,13 +12,13 @@ POST
 
 Retrieves a list of custom attribute values for multiple BIM 360 Document Management documents. For information about custom attributes, see the [Help documentation](http://help.autodesk.com/view/BIM360D/ENU/?guid=GUID-244FAB32-8E3B-4D1B-A1EB-C982DB93ABB3). This endpoint also retrieves information about a documentâs approval status and revision number.
 
-You can either retrieve the custom attributes using the version ID or the item ID. If you use the item ID it returns the custom attributes for the latest (tip) version of the file. For information about finding the version ID and item ID for a document, see the initial steps of the [Download File](/en/docs/bim360/v1/tutorials/document-management/download-document-s3/) tutorial.
+You can either retrieve the custom attributes using the version ID or the item ID. If you use the item ID it returns the custom attributes for the latest (tip) version of the file. For information about finding the version ID and item ID for a document, see the initial steps of the [Download File](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/document-management/download-document-s3/) tutorial.
 
-Note that this endpoint only retrieves custom attributes that have been assigned a value. To retrieve the full list of the documentâs custom attributes including custom attributes that have not been assigned a value, call [GET custom-attribute-definitions](/en/docs/bim360/v1/reference/http/document-management-custom-attribute-definitions-GET/).
+Note that this endpoint only retrieves custom attributes that have been assigned a value. To retrieve the full list of the documentâs custom attributes including custom attributes that have not been assigned a value, call [GET custom-attribute-definitions](http-document-management-custom-attribute-definitions-GET.md).
 
-To assign values to a documentâs custom attributes or to clear custom attribute values, call [POST custom-attributes:batch-update](/en/docs/bim360/v1/reference/http/document-management-custom-attributesbatch-update-POST/).
+To assign values to a documentâs custom attributes or to clear custom attribute values, call [POST custom-attributes:batch-update](http-document-management-custom-attributesbatch-update-POST.md).
 
-For more details about custom attributes, see the [Update Custom Attributes](/en/docs/bim360/v1/tutorials/document-management/download-document/update-custom-attribute-values) tutorial.
+For more details about custom attributes, see the [Update Custom Attributes](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/document-management/download-document/update-custom-attribute-values/) tutorial.
 
   Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
@@ -34,7 +34,7 @@ For more details about custom attributes, see the [Update Custom Attributes](/en
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 | x-user-id   string | In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified. |
@@ -45,14 +45,14 @@ For more details about custom attributes, see the [Update Custom Attributes](/en
 
 ## [URI Parameters](#uri-parameters)
 
-| project_id   string | The ID of the project. This corresponds to project ID in the [Data Management API](/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the BIM 360 API you need to remove the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| project_id   string | The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the BIM 360 API you need to remove the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Request
 
 ## [Body Structure](#body-structure)
 
-| urns*   array: string | A list of version IDs or item IDs. If you use item IDs it retrieves the values for the latest (tip) versions. You can specify up to 50 documents. To find the version ID and item ID of a document follow the initial steps of the [Download Files](/en/docs/bim360/v1/tutorials/document-management/download-document-s3/) tutorial. |
+| urns*   array: string | A list of version IDs or item IDs. If you use item IDs it retrieves the values for the latest (tip) versions. You can specify up to 50 documents. To find the version ID and item ID of a document follow the initial steps of the [Download Files](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/document-management/download-document-s3/) tutorial. |
 | --- | --- |
 
 * Required

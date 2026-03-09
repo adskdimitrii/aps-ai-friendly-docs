@@ -20,7 +20,7 @@ Remember to add draw calls to the BufferGeometry if the geometry has more than 6
 
 ### Parameters
 
-| viewer*   [Autodesk.Viewing.Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) | The viewer instance. |
+| viewer*   [Autodesk.Viewing.Viewer3D](Viewing-Viewer3D.md) | The viewer instance. |
 | --- | --- |
 
 * Required

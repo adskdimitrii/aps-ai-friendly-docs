@@ -18,7 +18,7 @@ At a high level, the Authorization Code grant type, used with traditional web ap
 4. Your application exchanges this code for an access token, and optionally a refresh token, with an API call to the Authorization Server.
 5. The application can now use these tokens to call the resource server (for example an API) on behalf of the user.
 
-Refer to this [walkthrough](/en/docs/oauth/v2/tutorials/get-3-legged-token) to see the complete flow using the Authorization Code grant type.
+Refer to this [walkthrough](../how-to-docs/get-3-legged-token.md) to see the complete flow using the Authorization Code grant type.
 
 [![../../../_images/traditional-web-app.svg](../../../_images/traditional-web-app.svg)](../../../_images/traditional-web-app.svg)
 

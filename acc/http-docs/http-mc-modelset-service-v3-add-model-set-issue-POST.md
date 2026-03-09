@@ -12,7 +12,7 @@ POST
 
 Adds a model set visual inspection issue, represented as a BIM360 issue.
 
-The data associated with `pushpin` is supported by the Viewerâs Pushpin extension. See the [pushpin tutorial](/en/docs/bim360/v1/tutorials/pushpins/) for more information.
+The data associated with `pushpin` is supported by the Viewerâs Pushpin extension. See the [pushpin tutorial](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/pushpins/) for more information.
 
 The created job performs the following steps:
 
@@ -35,10 +35,10 @@ The response contains information about the created model set job.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token/) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
-| x-ads-region   enum: string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](/en/docs/acc/v1/overview/acc-regions) page. |
+| x-ads-region   enum: string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
 
 * Required
 

@@ -13,7 +13,7 @@ GET
 Returns the folder by ID for any folder within a given project.
 All folders or sub-folders within a project are associated with their own unique ID, including the root folder.
 
-**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](/en/docs/acc/v1/overview/).
+**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/).
 
 ## [Resource Information](#resource-information)
 
@@ -27,7 +27,7 @@ All folders or sub-folders within a project are associated with their own unique
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | If-Modified-Since   string | If the resource has not been modified since, the response will be a 304 without any body; the `Last-Modified` response header will contain the date of last modification. |
 | x-user-id   string | In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified. |
@@ -86,7 +86,7 @@ Expand all
 | schema   object | An object containing an API link property. |
 | href   string | A hyperlink reference to this resource. |
 | data   object | A collection of properties applied to the folder. |
-| namingStandardIds   array: string | A list of file naming standard IDs that have been applied to the folder. <br>Note that we currently support one file naming standard per project.<br>Note that this feature is only available for BIM 360 projects.<br>To get the details of a file naming standard, call [GET naming-standards](/en/docs/bim360/v1/reference/http/document-management-naming-standards-id-GET).<br>To learn more about the file naming standard feature, see the [BIM 360 File Naming Standard](https://help.autodesk.com/view/BIM360D/ENU/?guid=Common_Data_Environment) help documentation. |
+| namingStandardIds   array: string | A list of file naming standard IDs that have been applied to the folder. <br>Note that we currently support one file naming standard per project.<br>Note that this feature is only available for BIM 360 projects.<br>To get the details of a file naming standard, call [GET naming-standards](../../acc/http-docs/http-document-management-naming-standards-id-GET.md).<br>To learn more about the file naming standard feature, see the [BIM 360 File Naming Standard](https://help.autodesk.com/view/BIM360D/ENU/?guid=Common_Data_Environment) help documentation. |
 | relationships   object | The relationship links associated with the folder, including `refs`, `links`, `parent`, and `contents.` |
 | parent   object | Information on resources that are found above this resource. |
 | links   object | The object containing information on links of related resources. |

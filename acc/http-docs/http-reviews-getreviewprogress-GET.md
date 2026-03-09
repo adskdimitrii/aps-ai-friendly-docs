@@ -16,7 +16,7 @@ This endpoint tracks the current state of each step in the reviewâs approva
 
 Note that this endpoint only returns data for the current round of the review.
 
-To retrieve the reviewâs configuration and metadata, call [GET reviews/:reviewId](/en/docs/acc/v1/reference/http/reviews-getreview-GET/).
+To retrieve the reviewâs configuration and metadata, call [GET reviews/:reviewId](http-reviews-getreview-GET.md).
 
 For more details about reviews, see the [Help documentation](https://help.autodesk.com/view/DOCS/ENU/?guid=Reviews).
 > Note that this endpoint is not compatible with BIM 360 projects.
@@ -33,7 +33,7 @@ For more details about reviews, see the [Help documentation](https://help.autode
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | x-user-id   string | The ID of a user on whose behalf the request is made. Your application has access to all users specified by the administrator in the SaaS Integrations UI. Use this header to specify which user should be affected by the request. <br>This header is only required when using two-legged authentication. It is not needed for three-legged authentication.<br>Only userâs Autodesk ID (`autodeskId`) can be accepted. |
 
@@ -43,7 +43,7 @@ For more details about reviews, see the [Help documentation](https://help.autode
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring: UUID The ID of the project. Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You can provide the project ID with or without the â**b.**" prefix.
+- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You can provide the project ID with or without the â**b.**" prefix.
 
 - Example with prefix: **b.563a4c30-e30d-4869-ac02-2a18b6447abe**
 - Example without prefix: **563a4c30-e30d-4869-ac02-2a18b6447abe**
@@ -79,10 +79,10 @@ Expand all
 | stepId   string | The ID of the review step this progress record relates to. |
 | stepName   string | The name of the review step this progress record relates to. |
 | claimedBy   object | Information about the user who claimed the step. |
-| autodeskId   string | The Autodesk ID of the user. To find details about the user, call [GET users/:Id](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-userId-GET/). |
+| autodeskId   string | The Autodesk ID of the user. To find details about the user, call [GET users/:Id](http-admin-projectsprojectId-users-userId-GET.md). |
 | name   string | The name of the user. |
 | actionBy   object | Information about the user recorded when the step status is `SUBMITTED` or `VOID`. In the Reviews UI, these statuses occur when a participant submits their decision or when a step is voided. |
-| autodeskId   string | The Autodesk ID of the user. To find details about the user, call [GET users/:Id](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-userId-GET/). |
+| autodeskId   string | The Autodesk ID of the user. To find details about the user, call [GET users/:Id](http-admin-projectsprojectId-users-userId-GET.md). |
 | name   string | The name of a user. |
 | candidates   object | Information about the users, roles, and companies who are eligible to take the next action in this step. |
 | roles   array: object | Project roles that can act in this step. |

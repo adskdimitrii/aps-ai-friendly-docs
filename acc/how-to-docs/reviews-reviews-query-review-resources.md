@@ -15,16 +15,16 @@ The workflow snapshot may differ from the current definition of the approval wor
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps), and select `Autodesk Construction Cloud APIs` in the `API Access` dropdown.
-- Acquire a [3-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token/) or [2-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token/) OAuth token with `data:read` scopes for querying.
+- Acquire a [3-legged](../../oauth/how-to-docs/get-3-legged-token.md) or [2-legged](../../oauth/how-to-docs/get-2-legged-token.md) OAuth token with `data:read` scopes for querying.
   * For a 3-legged token, ensure that the user has permission to access the review and the files.
-  * For a 2-legged token, the `x-user-id` header is required. Retrieve the userâs Autodesk ID by calling [GET projects/:projectId/users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET/) with your 2-legged OAuth token and the userâs email address. Ensure that the user is a project administrator or a candidate of the review.
-- Find the project ID for the project you want to work with by following the [Retrieve an Account ID and Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. In this example, assume the project ID is `9ba6681e-1952-4d54-aac4-9de6d9858dd4`.
-- Find the review ID by calling [GET reviews](/en/docs/acc/v1/reference/http/reviews-reviews-GET/). In this example, assume the review ID is `4e609369-e950-4097-b7d3-e6cf1c3c5415`.
+  * For a 2-legged token, the `x-user-id` header is required. Retrieve the userâs Autodesk ID by calling [GET projects/:projectId/users](../http-docs/http-admin-projectsprojectId-users-GET.md) with your 2-legged OAuth token and the userâs email address. Ensure that the user is a project administrator or a candidate of the review.
+- Find the project ID for the project you want to work with by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `9ba6681e-1952-4d54-aac4-9de6d9858dd4`.
+- Find the review ID by calling [GET reviews](../http-docs/http-reviews-reviews-GET.md). In this example, assume the review ID is `4e609369-e950-4097-b7d3-e6cf1c3c5415`.
 - Verify that you have access to the relevant ACC account, project, folders, and files.
 
 ## [Step 1: Get File Versions Included in the Review](#step-1-get-file-versions-included-in-the-review)
 
-Use the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and the review ID (`4e609369-e950-4097-b7d3-e6cf1c3c5415`), to call [GET reviews/versions](/en/docs/acc/v1/reference/http/reviews-getreviewversions-GET/) and retrieve the file versions that were included in the review.
+Use the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and the review ID (`4e609369-e950-4097-b7d3-e6cf1c3c5415`), to call [GET reviews/versions](../http-docs/http-reviews-getreviewversions-GET.md) and retrieve the file versions that were included in the review.
 
 ### Request
 
@@ -135,7 +135,7 @@ The response shows the files that were included in the review, along with their 
 
 ## [Step 2: Get Workflow Snapshot for the Review](#step-2-get-workflow-snapshot-for-the-review)
 
-Use the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and the review ID (`4e609369-e950-4097-b7d3-e6cf1c3c5415`) to call [GET reviews/workflow](/en/docs/acc/v1/reference/http/reviews-getreviewworkflow-GET/) and retrieve the workflow snapshot that was captured when the review was created.
+Use the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and the review ID (`4e609369-e950-4097-b7d3-e6cf1c3c5415`) to call [GET reviews/workflow](../http-docs/http-reviews-getreviewworkflow-GET.md) and retrieve the workflow snapshot that was captured when the review was created.
 
 ### Request
 
@@ -191,11 +191,11 @@ Show More
 
 The response shows the workflow steps and candidates that were defined at the time the review was created.
 
-Note that the content of this workflow may differ from what you get using [GET approval workflow](/en/docs/acc/v1/reference/http/reviews-getworkflow-GET/), because the workflow may have been updated after the review was created. The snapshot returned by this endpoint reflects the state of the workflow at the time of review creation and does not change with subsequent workflow updates.
+Note that the content of this workflow may differ from what you get using [GET approval workflow](../http-docs/http-reviews-getworkflow-GET.md), because the workflow may have been updated after the review was created. The snapshot returned by this endpoint reflects the state of the workflow at the time of review creation and does not change with subsequent workflow updates.
 
 ## [Step 3: Get Progress of the Review](#step-3-get-progress-of-the-review)
 
-Use the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and the review ID (`4e609369-e950-4097-b7d3-e6cf1c3c5415`) to call [GET reviews/progress](/en/docs/acc/v1/reference/http/reviews-getreviewprogress-GET/) and retrieve the current progress of the review.
+Use the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and the review ID (`4e609369-e950-4097-b7d3-e6cf1c3c5415`) to call [GET reviews/progress](../http-docs/http-reviews-getreviewprogress-GET.md) and retrieve the current progress of the review.
 
 ### Request
 

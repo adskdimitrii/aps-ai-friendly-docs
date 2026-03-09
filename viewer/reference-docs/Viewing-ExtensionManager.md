@@ -24,7 +24,7 @@ Registers a new extension with the given id.
 
 | extensionId*   string | The string id of the extension. |
 | --- | --- |
-| extensionClass*   [Extension](/en/docs/viewer/v7/reference/Viewing/Extension/) | The Extension-derived class representing the extension. |
+| extensionClass*   [Extension](Viewing-Extension.md) | The Extension-derived class representing the extension. |
 
 * Required
 
@@ -49,7 +49,7 @@ Returns the class representing the extension with the given id.
 
 | type | description |
 | --- | --- |
-| [Extension](/en/docs/viewer/v7/reference/Viewing/Extension/), null | The Extension-derived class if one was registered; null otherwise. |
+| [Extension](Viewing-Extension.md), null | The Extension-derived class if one was registered; null otherwise. |
 
 ## [unregisterExtension(extensionId)](#unregisterextension-extensionid)
 

@@ -11,13 +11,13 @@ This tutorial demonstrates how to download references such as ACC photos that ar
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with the `data:read` scope.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:read` scope.
 - Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to create an issue in by following the [Retrieve a Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. In this example, assume the project ID is `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`.
+- Find the relevant project ID for the project you want to create an issue in by following the [Retrieve a Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`.
 
 ## [Step 1: Find the Relevant Issue](#step-1-find-the-relevant-issue)
 
-Find the ID of the issue you want to download the reference from, by calling [GET issues](/en/docs/acc/v1/reference/http/issues-issues-GET/) using the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`).
+Find the ID of the issue you want to download the reference from, by calling [GET issues](../http-docs/http-issues-issues-GET.md) using the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`).
 
 ### Request
 
@@ -105,7 +105,7 @@ Note the ID (`results.[id]`) (`3570f222-6c54-4b01-90e6-e701749f0222`) of the iss
 
 ## [Step 2: Find the Photo IDs](#step-2-find-the-photo-ids)
 
-Use the [Relationships API](/en/docs/bim360/v1/reference/http/relationship-service-v2-intersect-relationships-POST/) to find the photos that are associated with the relevant issue. Call [POST relationships](/en/docs/bim360/v1/reference/http/relationship-service-v2-intersect-relationships-POST/) using the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) and the issue ID (`3570f222-6c54-4b01-90e6-e701749f0222`).
+Use the [Relationships API](../http-docs/http-relationship-service-v2-intersect-relationships-POST.md) to find the photos that are associated with the relevant issue. Call [POST relationships](../http-docs/http-relationship-service-v2-intersect-relationships-POST.md) using the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) and the issue ID (`3570f222-6c54-4b01-90e6-e701749f0222`).
 
 In the request body you need to specify an `issue` type and an `autodesk-bim360-issue` domain.
 
@@ -181,7 +181,7 @@ Note the photo ID (`relationships.[entities.[id]]`) (`5439bfb7-8006-4388-a454-f0
 
 Use the Photos API to generate a signed URL, which you can use to download the photo directly from S3.
 
-Call [GET photos](/en/docs/acc/v1/reference/http/photos-getphoto-GET/) using the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) and photo ID (`5439bfb7-8006-4388-a454-f02560f99566`). To generate the signed URL you need add the `include` query string parameter (`include=signedUrls`).
+Call [GET photos](../http-docs/http-photos-getphoto-GET.md) using the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) and photo ID (`5439bfb7-8006-4388-a454-f02560f99566`). To generate the signed URL you need add the `include` query string parameter (`include=signedUrls`).
 
 You need to repeat this step for each photo.
 

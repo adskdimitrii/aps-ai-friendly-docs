@@ -11,14 +11,14 @@ POST
 # projects/:project_id/folders
 
 Creates a new folder. To delete and restore folders,
-use the [PATCH projects/:project_id/folders/:folder_id](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-PATCH) endpoint.
+use the [PATCH projects/:project_id/folders/:folder_id](http-projects-project_id-folders-folder_id-PATCH.md) endpoint.
 
 **BIM 360 and ACC**
 
-1. To access Docs folders using the Data Management API you need to provision your app in the Account Administrator portal. For more details, see the [Manage Access to Docs](/en/docs/bim360/v1/tutorials/manage-access-to-docs) tutorial.
+1. To access Docs folders using the Data Management API you need to provision your app in the Account Administrator portal. For more details, see the [Manage Access to Docs](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/manage-access-to-docs/) tutorial.
 2. The number of subfolder levels is limited to 25.
 
-**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](/en/docs/acc/v1/overview/).
+**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/).
 
 ## [Resource Information](#resource-information)
 
@@ -32,7 +32,7 @@ use the [PATCH projects/:project_id/folders/:folder_id](/en/docs/data/v2/referen
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/vnd.api+json` |
 | x-user-id   string | In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified. <br>Note that for a three-legged OAuth flow or for a two-legged OAuth flow with user impersonation (`x-user-id`), the user must have permission to create a subfolder in the specified parent folder (`data.attributes.relationships.parent.data.id`).<br>For information about managing and verifying folder permissions for BIM 360 Docs, see the section on [Managing Folder Permissions](http://help.autodesk.com/view/BIM360D/ENU/?guid=GUID-2643FEEF-B48A-45A1-B354-797DAD628C37). |
@@ -69,7 +69,7 @@ Expand all
 | parent*   object | Information on the parent resource of this resource. |
 | data*   object | The data object. |
 | type*   enum:string | The parent folder resource. Will always be: `folders` |
-| id*   string | The URN of parent folder. For details about how to find the URN, follow the initial steps in the [Download a File](/en/docs/data/v2/tutorials/download-file/) tutorial. <br>Note that for BIM 360 Docs, new folders must be created within an existing folder (e.g., the Plans or Project Files folders), but not directly within the root folder. Permissions, visibility (e.g., items:autodesk.bim360:Document or items:autodesk.bim360:File), and actions (e.g., OCR) are inherited from the existing parent folder. New folders also inherit subscriptions, i.e., notifications that are sent when files are added to a folder. |
+| id*   string | The URN of parent folder. For details about how to find the URN, follow the initial steps in the [Download a File](../how-to-docs/download-file.md) tutorial. <br>Note that for BIM 360 Docs, new folders must be created within an existing folder (e.g., the Plans or Project Files folders), but not directly within the root folder. Permissions, visibility (e.g., items:autodesk.bim360:Document or items:autodesk.bim360:File), and actions (e.g., OCR) are inherited from the existing parent folder. New folders also inherit subscriptions, i.e., notifications that are sent when files are added to a folder. |
 
 * Required
 
@@ -118,7 +118,7 @@ Expand all
 | schema   object | An object containing an API link property. |
 | href   string | A hyperlink reference to this resource. |
 | data   object | A collection of properties applied to the folder. |
-| namingStandardIds   array: string | A list of file naming standard IDs that have been applied to the folder. <br>Note that we currently support one file naming standard per project.<br>Note that this feature is only available for BIM 360 projects.<br>To get the details of a file naming standard, call [GET naming-standards](/en/docs/bim360/v1/reference/http/document-management-naming-standards-id-GET).<br>To learn more about the file naming standard feature, see the [BIM 360 File Naming Standard](https://help.autodesk.com/view/BIM360D/ENU/?guid=Common_Data_Environment) help documentation. |
+| namingStandardIds   array: string | A list of file naming standard IDs that have been applied to the folder. <br>Note that we currently support one file naming standard per project.<br>Note that this feature is only available for BIM 360 projects.<br>To get the details of a file naming standard, call [GET naming-standards](../../acc/http-docs/http-document-management-naming-standards-id-GET.md).<br>To learn more about the file naming standard feature, see the [BIM 360 File Naming Standard](https://help.autodesk.com/view/BIM360D/ENU/?guid=Common_Data_Environment) help documentation. |
 | relationships   object | The relationship links associated with the folder, including `refs`, `links`, `parent`, and `contents.` |
 | parent   object | Information on resources that are found above this resource. |
 | links   object | The object containing information on links of related resources. |

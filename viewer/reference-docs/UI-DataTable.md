@@ -14,7 +14,7 @@ UI component in LMV that can be added into the DockingPanels to create custom ta
 
 ### Parameters
 
-| dockingPanel*   [Autodesk.Viewing.UI.DockingPanel](/en/docs/viewer/v7/reference/UI/DockingPanel/) | Instance of the Docking Panel |
+| dockingPanel*   [Autodesk.Viewing.UI.DockingPanel](UI-DockingPanel.md) | Instance of the Docking Panel |
 | --- | --- |
 
 * Required

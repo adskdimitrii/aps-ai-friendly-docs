@@ -18,7 +18,7 @@ it returns all the highest level folders in the folder hierarchy the user has ac
 
 Note that when users have access to a folder, access is automatically granted to its subfolders.
 
-**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](/en/docs/acc/v1/overview/).
+**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/).
 
 ## [Resource Information](#resource-information)
 
@@ -32,7 +32,7 @@ Note that when users have access to a folder, access is automatically granted to
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | x-user-id   string | In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified. |
 
@@ -87,7 +87,7 @@ Expand all
 | parentUrn   string | The unique identifier of the parent folder. |
 | title   string | The name of the folder. |
 | isRoot   boolean | Determines if folder is root folder. |
-| namingStandardIds   array: string | A list of file naming standard IDs that have been applied to the folder. <br>Note that we currently support one file naming standard per project.<br>Note that this feature is only available for BIM 360 projects.<br>To get the details of a file naming standard, call [GET naming-standards](/en/docs/bim360/v1/reference/http/document-management-naming-standards-id-GET).<br>To learn more about the file naming standard feature, see the [BIM 360 File Naming Standard](https://help.autodesk.com/view/BIM360D/ENU/?guid=Common_Data_Environment) help documentation. |
+| namingStandardIds   array: string | A list of file naming standard IDs that have been applied to the folder. <br>Note that we currently support one file naming standard per project.<br>Note that this feature is only available for BIM 360 projects.<br>To get the details of a file naming standard, call [GET naming-standards](../../acc/http-docs/http-document-management-naming-standards-id-GET.md).<br>To learn more about the file naming standard feature, see the [BIM 360 File Naming Standard](https://help.autodesk.com/view/BIM360D/ENU/?guid=Common_Data_Environment) help documentation. |
 | type   string | The type of resource. |
 | version   string | The version of the folderâs type. |
 | schema   object | An object containing an API link property. |

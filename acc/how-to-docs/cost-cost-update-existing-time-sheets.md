@@ -13,13 +13,13 @@ Note that the Cost API timesheets endpoints used in this tutorial are designed o
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps).
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:create`, `data:read`, and `data:write` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create`, `data:read`, and `data:write` scopes.
 - Verify that you have access to the relevant BIM 360 account and project.
-- Retrieve the project ID for your project. To obtain a project ID, use [GET projects](/en/docs/bim360/v1/reference/http/admin-accounts-accountidprojects-GET/).
+- Retrieve the project ID for your project. To obtain a project ID, use [GET projects](../http-docs/http-admin-accounts-accountidprojects-GET.md).
 
 ## [Step 1: Find the Timesheet ID](#step-1-find-the-timesheet-id)
 
-To retrieve the ID of the timesheet you want to update, call [GET time-sheets](/en/docs/acc/v1/reference/http/cost-time-sheets-GET/). In this example, assume that the project container ID is `e94b9bc8-1775-4d76-9b1d-c613e120ccff`.
+To retrieve the ID of the timesheet you want to update, call [GET time-sheets](../http-docs/http-cost-time-sheets-GET.md). In this example, assume that the project container ID is `e94b9bc8-1775-4d76-9b1d-c613e120ccff`.
 
 ### Request
 
@@ -63,7 +63,7 @@ Find the timesheet you want to update and note the timesheet ID (`6f7f7780-3867-
 
 ## [Step 2: Update the Timesheet by ID](#step-2-update-the-timesheet-by-id)
 
-To update the timesheet, use the timesheet ID (`6f7f7780-3867-4aa3-9f37-8ae53532a590`) to call [PATCH time-sheets/:id](/en/docs/acc/v1/reference/http/cost-time-sheets-id-PATCH/). Provide updated values for any of the endpointâs request payload fields.
+To update the timesheet, use the timesheet ID (`6f7f7780-3867-4aa3-9f37-8ae53532a590`) to call [PATCH time-sheets/:id](../http-docs/http-cost-time-sheets-id-PATCH.md). Provide updated values for any of the endpointâs request payload fields.
 
 ### Request
 

@@ -8,19 +8,19 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/admin/admin-create-config
 
 This tutorial demonstrates how to create and configure an ACC project. The steps include creating the project, checking the product activation status, assigning members to the project, and retrieving information about the project and its members.
 
-For more information about projects, project templates, and project members, see the [Account Administration API Field Guide](/en/docs/acc/v1/overview/field-guide/admin/).
+For more information about projects, project templates, and project members, see the [Account Administration API Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/admin/).
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps).
 -
 
-Acquire a [3-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token/) or [2-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token/) Oauth token with `data:read`, `data:write`, `account:read`, and `account:write` scopes.
+Acquire a [3-legged](../../oauth/how-to-docs/get-3-legged-token.md) or [2-legged](../../oauth/how-to-docs/get-2-legged-token.md) Oauth token with `data:read`, `data:write`, `account:read`, and `account:write` scopes.
 :   * For a 3-legged token, ensure that the user is an account administrator (or a project administrator if **Allow project administrators to create projects and project templates** is enabled in Account Settings).
-      * For a 2-legged token, the `User-Id` header is required to process the Account Admin endpoints. Retrieve the user ID by calling [GET users/search](/en/docs/acc/v1/reference/http/users-search-GET/) with your 2-legged OAuth token and the userâs email address. Ensure that the user is an account administrator (or a project administrator if **Allow project administrators to create projects and project templates** is enabled in Account Settings).
+      * For a 2-legged token, the `User-Id` header is required to process the Account Admin endpoints. Retrieve the user ID by calling [GET users/search](../http-docs/http-users-search-GET.md) with your 2-legged OAuth token and the userâs email address. Ensure that the user is an account administrator (or a project administrator if **Allow project administrators to create projects and project templates** is enabled in Account Settings).
 
 - Verify that you have access to the relevant account.
-- Find the relevant account ID for the account you want to create a project in by following the [Retrieve an Account ID and Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. In this example, assume the account ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`.
+- Find the relevant account ID for the account you want to create a project in by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the account ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`.
 
 ## [Step 1: Create a Project](#step-1-create-a-project)
 
@@ -29,13 +29,13 @@ You can create a project in two ways:
 - Option 1A â Clone the project from a project template. This assumes an appropriate project template has been created and configured. We strongly recommend this if you expect to implement multiple similar projects.
 - Option 1B â Create the project directly. This option works well for a one-off project when you donât have a project template.
 
-Note that you can use [POST projects](/en/docs/acc/v1/reference/http/admin-accountsaccountidprojects-POST/) to create a project template, then use the ACC Build UI to edit the template details and permissions, add project members to the template, and configure the templateâs notification settings. For more information about working with project templates, see [Project Administration > Project Templates](https://help.autodesk.com/view/BUILD/ENU/?guid=Templates_About) and [Account Administration > Project Templates](https://help.autodesk.com/view/BUILD/ENU/?guid=Account_Admin_Project_Templates) in Build Help.
+Note that you can use [POST projects](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-accountsaccountidprojects-POST/) to create a project template, then use the ACC Build UI to edit the template details and permissions, add project members to the template, and configure the templateâs notification settings. For more information about working with project templates, see [Project Administration > Project Templates](https://help.autodesk.com/view/BUILD/ENU/?guid=Templates_About) and [Account Administration > Project Templates](https://help.autodesk.com/view/BUILD/ENU/?guid=Account_Admin_Project_Templates) in Build Help.
 
 ### Option 1A: Clone the project from a project template
 
 To create the project from a template, include `template.projectId` in the request to specify an existing project template from which to copy products and settings for the new project.
 
-Note that you can obtain the project ID of a suitable project template by calling [GET projects](/en/docs/acc/v1/reference/http/admin-accountsaccountidprojects-GET/) with `filter[classification] == template`, inspecting the returned templates, and noting the `id` value of the template you want to use.
+Note that you can obtain the project ID of a suitable project template by calling [GET projects](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-accountsaccountidprojects-GET/) with `filter[classification] == template`, inspecting the returned templates, and noting the `id` value of the template you want to use.
 
 #### Request
 
@@ -151,7 +151,7 @@ Note that this operation does not automatically assign the template project memb
 
 ### Option 1B: Create the project directly
 
-To create the project, call [POST projects](/en/docs/acc/v1/reference/http/admin-accountsaccountidprojects-POST/). This endpoint automatically adds to the project all of the products (and their settings) that are associated with the current ACC account.
+To create the project, call [POST projects](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-accountsaccountidprojects-POST/). This endpoint automatically adds to the project all of the products (and their settings) that are associated with the current ACC account.
 
 #### Request
 
@@ -324,7 +324,7 @@ Note that currently, you cannot use `jobId` to check the progress of product act
 
 ## [Step 2: Check Project Activation Status by Polling](#step-2-check-project-activation-status-by-polling)
 
-Before you can continue configuring your new project, it must be active. The activation process occurs automatically, but doesnât finish immediately. Call [GET projects/:projectId](/en/docs/acc/v1/reference/http/admin-projects-projectId-GET/) to check its activation status. The activation process is complete when the value of the project-level `status` field in the response is `active`.
+Before you can continue configuring your new project, it must be active. The activation process occurs automatically, but doesnât finish immediately. Call [GET projects/:projectId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-GET/) to check its activation status. The activation process is complete when the value of the project-level `status` field in the response is `active`.
 
 ### Request
 
@@ -405,7 +405,7 @@ Show More
 
 Find the project-level `status` field in the response, and note its value. Keep polling the project until the status is `active`.
 
-Note that you can also use [GET projects/:projectId](/en/docs/acc/v1/reference/http/admin-projects-projectId-GET/) to check the activation status of its products for troubleshooting.
+Note that you can also use [GET projects/:projectId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-GET/) to check the activation status of its products for troubleshooting.
 
 It is strongly recommended that you assign at least a project administrator to your project (Step 3) before doing anything else.
 
@@ -418,7 +418,7 @@ How you assign project members depends on how you created your project:
 
 ### Option 3A: Import template project members (if applicable)
 
-If you just cloned your project from a template, call [POST users](/en/docs/acc/v1/reference/http/admin-projects-projectId-users-POST/) to assign a project administrator to the project, which triggers the assignment of all template project members to the project.
+If you just cloned your project from a template, call [POST users](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-users-POST/) to assign a project administrator to the project, which triggers the assignment of all template project members to the project.
 
 The administrator can be any user who is currently in the same account as the project. Include the products object in the request, with `products.key` set to `projectAdministration`, and `products.access` set to `administrator`.
 
@@ -598,13 +598,13 @@ Show More
 
 ```
 
-Note that currently, [POST users:import](/en/docs/acc/v1/reference/http/admin-projects-projectId-users-import-POST/) does not return information about the newly assigned project members.
+Note that currently, [POST users:import](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-users-import-POST/) does not return information about the newly assigned project members.
 
 ## [Step 4: Retrieve Information About the Project Members](#step-4-retrieve-information-about-the-project-members)
 
 Note that project members cannot start work on the project until they have been activated to participate in the project.
 
-Use [GET users](/en/docs/acc/v1/reference/http/admin-projects-projectId-users-GET//) to retrieve all users in the project. There are two primary reasons to do this:
+Use [GET users](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-users-GET/) to retrieve all users in the project. There are two primary reasons to do this:
 
 - To verify that all users assigned to the project have been activated as members of the project.
 - To check other information about members, such as their project user ID, roles, and products.
@@ -706,7 +706,7 @@ Find the userâs project status (`results.status`) and verify thet its value
 
 ## [(Optional) Step 5: Configure Project Member Access to Products](#optional-step-5-configure-project-member-access-to-products)
 
-If circumstances produce a change in the access to a product (e.g. build, takeoff, or docs) that a project member requires, call [PATCH users/:userId](/en/docs/acc/v1/reference/http/admin-projects-projectId-users-userId-PATCH/) to update the project memberâs access. This example adds two new role IDs along with member access to the Takeoff product for the specified project member.
+If circumstances produce a change in the access to a product (e.g. build, takeoff, or docs) that a project member requires, call [PATCH users/:userId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-users-userId-PATCH/) to update the project memberâs access. This example adds two new role IDs along with member access to the Takeoff product for the specified project member.
 
 ### Request
 

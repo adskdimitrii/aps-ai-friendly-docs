@@ -54,12 +54,12 @@ While other grant types are possible (that enable other flows), they are less se
 
 A typical workflow is as follows:
 
-1. Your app (the âclientâ in OAuth terminology) triggers the browser (the âuser agentâ in OAuth terminology) to redirect the end user to the [GET authorize](/en/docs/oauth/v2/reference/http/authorize-GET) endpoint *in the browser itself*. (Remember that typical web browsing is technically hitting HTTP REST endpoints!) Using query parameters, your app identifies itself, requests scopes, and indicates the callback URL to redirect the browser to after authorization has completed.
+1. Your app (the âclientâ in OAuth terminology) triggers the browser (the âuser agentâ in OAuth terminology) to redirect the end user to the [GET authorize](../http-docs/http-authorize-GET.md) endpoint *in the browser itself*. (Remember that typical web browsing is technically hitting HTTP REST endpoints!) Using query parameters, your app identifies itself, requests scopes, and indicates the callback URL to redirect the browser to after authorization has completed.
 2. If the user is not already logged in to the Autodesk account via the authentication service, the user is prompted to log in or create an Autodesk account.
 3. The user is presented with an in-browser consent page and must explicitly accept the scopes that your app is requesting.
 4. The userâs browser is then redirected to the callback URL, along with a `code` query parameter that contains the authorization code.
 5. The browserâs loading the callback URL is what passes the authorization code back to your app.
-6. Your app then uses that authorization code, its client ID, and its client secret to call the [POST token](/en/docs/oauth/v2/reference/http/gettoken-POST) endpoint.
+6. Your app then uses that authorization code, its client ID, and its client secret to call the [POST token](../http-docs/http-gettoken-POST.md) endpoint.
 7. Assuming successful validation of the credentials, an access token and a refresh token are returned.
 8. Your app can make calls to any âuser context requiredâ or âuser context optionalâ endpoint for which the token has the required scopes by including the `Authorization: Bearer <token>` request header (where `<token>` is your 28-character access token).
 9. When the token expires, your app can use the refresh token to acquire a new access token. (This avoids having to go through steps 1-6 every time the access token expires.)

@@ -28,7 +28,7 @@ For information about creating packages, see the [Create Packages](https://help.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | x-user-id   string | The Autodesk ID of the user on whose behalf the request is made. <br>This header is required only when using two-legged authentication. It is not needed for three-legged authentication.<br>Your application can access only those users who are assigned to it in the SaaS Integrations UI.<br>Only user Autodesk IDs (`autodeskId`) are supported. |
 
@@ -38,7 +38,7 @@ For information about creating packages, see the [Create Packages](https://help.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>You can retrieve the project ID using the [Data Management API](/en/docs/data/v2/). For more details, see the [Retrieve a Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial.<br>You may provide the project ID with or without the `b.` prefix:<br>With prefix: `b.657a5565-09b7-48e0-bd03-acacfe42efaf`Without prefix: `657a5565-09b7-48e0-bd03-acacfe42efaf` |
+| projectId   string: UUID | The ID of the project. <br>You can retrieve the project ID using the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). For more details, see the [Retrieve a Project ID](../how-to-docs/getting-started-retrieve-account-and-project-id.md) tutorial.<br>You may provide the project ID with or without the `b.` prefix:<br>With prefix: `b.657a5565-09b7-48e0-bd03-acacfe42efaf`Without prefix: `657a5565-09b7-48e0-bd03-acacfe42efaf` |
 | --- | --- |
 
 ### Request
@@ -49,7 +49,7 @@ For information about creating packages, see the [Create Packages](https://help.
 | --- | --- |
 | offset   int | The number of packages that you want to begin retrieving results from. <br>Default: `0`. For example: `offset=10` |
 | filter[createdBy]   string | Filters results by the Autodesk ID of the users who created the packages. <br>You can provide a single Autodesk ID or a comma-separated list of IDs. |
-| filter[updatedBy]   string | Filters results by the Autodesk ID of the users who last updated the packages. <br>You can provide a single Autodesk ID or a comma-separated list of IDs.<br>To find the IDs call [GET users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET/) |
+| filter[updatedBy]   string | Filters results by the Autodesk ID of the users who last updated the packages. <br>You can provide a single Autodesk ID or a comma-separated list of IDs.<br>To find the IDs call [GET users](http-admin-projectsprojectId-users-GET.md) |
 | filter[createdAt]   string | Filter packages by their creation time. Use an ISO 8601 date-time range in the format `startDate..endDate`. <br>Either date may be omitted to specify an open-ended range.<br>Examples:<br>After a specific time: `2025-03-26T16:00:00.000Z..`Before a specific time: `..2025-03-28T15:59:59.999Z`Between two times: `2025-03-26T16:00:00.000Z..2025-03-28T15:59:59.999Z` |
 | filter[updatedAt]   string | Filter packages by their last update time. Use an ISO 8601 date-time range in the format `startDate..endDate`. <br>Either date may be omitted to specify an open-ended range.<br>Examples:<br>After a specific time: `2025-03-26T16:00:00.000Z..`Before a specific time: `..2025-03-28T15:59:59.999Z`Between two times: `2025-03-26T16:00:00.000Z..2025-03-28T15:59:59.999Z` |
 | sort   enum:string | Sorts the results by a supported field. <br>By default, results are sorted in ascending (`asc`) order. To sort in descending order, add `desc` after the field name.<br>Format: `sort=fieldName [desc]`<br>Possible values: `name`, `createdAt`, `updatedAt`, `displayId`,<br>Examples:<br>Sort by name (ascending): `sort=name`Sort by creation time (descending): `sort=createdAt desc` |
@@ -79,11 +79,11 @@ Expand all
 | name   string | The name of the package. <br>Max length: 255 |
 | description   string | The description of the package. <br>Max length: 2048 |
 | createdAt   datetime: ISO 8601 | The time the package was created. |
-| createdBy   string | The Autodesk ID of the user who created the package. For details about the user, call [GET users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET/). |
+| createdBy   string | The Autodesk ID of the user who created the package. For details about the user, call [GET users](http-admin-projectsprojectId-users-GET.md). |
 | updatedAt   datetime: ISO 8601 | The time the package was last updated. |
-| updatedBy   string | The Autodesk ID of the user who last updated the package. For details about the user, call [GET users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET/). |
+| updatedBy   string | The Autodesk ID of the user who last updated the package. For details about the user, call [GET users](http-admin-projectsprojectId-users-GET.md). |
 | locked   boolean | `true`: The package is locked. Its contents cannot be modified until it is unlocked. <br>`false`: The package is not locked. Files and resources can still be added, removed, or updated. |
-| lockedBy   string | The Autodesk ID of the user who locked the package. For details about the user, call [GET users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET/). |
+| lockedBy   string | The Autodesk ID of the user who locked the package. For details about the user, call [GET users](http-admin-projectsprojectId-users-GET.md). |
 | lockedAt   datetime: ISO 8601 | The time the package was locked. |
 | resourceCount   int | The number of resources in the package. |
 | versionType   object | The version type of the package. <br>Possible values:  > `FIXED` â The files in the package remain fixed at the selected versions.`CURRENT` â The files in the package automatically update to the latest current versions.`CHANGING` â The package is temporarily changing from one version type to another. This state usually lasts only a few seconds and cannot be used as a filter.<br>For more details, see the [Change Package Version Type](https://help.autodesk.com/view/BUILD/ENU/?guid=View_Manage_Packages#change-package-version-type) documentation. |

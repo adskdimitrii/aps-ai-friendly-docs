@@ -15,7 +15,7 @@ This set will include the assets themselves, as well as all of the surrounding A
 - Asset custom attributes
 - Assignments of status sets and Asset custom attributes to categories
 
-Usage of pagination and batch-fetch endpoints are subject to rate limiting. For more details on Assets API rate limits, see the [Assets Rate Limits](/en/docs/acc/v1/overview/rate-limits/assets-rate-limits/).
+Usage of pagination and batch-fetch endpoints are subject to rate limiting. For more details on Assets API rate limits, see the [Assets Rate Limits](https://aps.autodesk.com/en/docs/acc/v1/overview/rate-limits/assets-rate-limits/).
 
 ## [Pagination](#pagination)
 
@@ -29,22 +29,22 @@ Most of the endpoints detailed below are paginated. Assets API uses cursor-based
 | `nextUrl` | The URL for the next paginated request. Contains the `cursorState` and any additional filters that have been applied. The `cursorState` is returned independently as well to give the client more flexibility in how they wish to paginate through entities. If `nextUrl` is missing from the response, you have reached the end of the pagination and all results have been returned. |
 | `totalResults` | Not returned for all pagination endpoints, but if present will provide the total number of entities that can be returned through the pagination. |
 
-For more details about Autodesk Construction Cloud Assets API, see the [Assets Field Guide](/en/docs/acc/v1/overview/field-guide/assets/).
+For more details about Autodesk Construction Cloud Assets API, see the [Assets Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/assets/).
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps), and select the Data Management and Autodesk Construction Cloud APIs.
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:read` scope.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` scope.
 - Verify that you have access to the relevant Autodesk Construction Cloud account, project, and folder.
-- Retrieve the relevant [ACC account and project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/). In this tutorial we will use the example project ID `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`, but you should replace that with the project ID you have retrieved for your project.
+- Retrieve the relevant [ACC account and project ID](getting-started-retrieve-account-and-project-id.md). In this tutorial we will use the example project ID `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`, but you should replace that with the project ID you have retrieved for your project.
 
 ## [Step 1: Fetch Assets](#step-1-fetch-assets)
 
-To get the assets themselves, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to call [GET assets/v2/projects/:projectId/assets](/en/docs/acc/v1/reference/http/assets-assets-v2-GET/).
+To get the assets themselves, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to call [GET assets/v2/projects/:projectId/assets](../http-docs/http-assets-assets-v2-GET.md).
 
 You will want to ensure you set the query parameter `includeCustomAttributes=true` if you wish to include Asset custom attribute data in your fetch. If you want to include deleted assets, you can set the query parameter `includeDeleted=true` as well.
 
-If you want to fetch a more targeted set of assets, you can provide additional filters in your request. This could include filtering by category, status, a specific location or a location hierarchy, custom attribute value(s), or any combination thereof. A complete list of the filters available, and how they are used, can be found in the [query parameter documentation](/en/docs/acc/v1/reference/http/assets-assets-v2-GET/#query-string-parameters) for the asset pagination endpoint. Filters provided in the initial pagination request will automatically be added to the `nextUrl` field to continue the filtered pagination.
+If you want to fetch a more targeted set of assets, you can provide additional filters in your request. This could include filtering by category, status, a specific location or a location hierarchy, custom attribute value(s), or any combination thereof. A complete list of the filters available, and how they are used, can be found in the [query parameter documentation](../http-docs/http-assets-assets-v2-GET.md#query-string-parameters) for the asset pagination endpoint. Filters provided in the initial pagination request will automatically be added to the `nextUrl` field to continue the filtered pagination.
 
 If you want to include only assets that have changed since previously retrieving assets, you can use the query parameter filter `filter[updatedAt]={previousFetchTime}..`.
 
@@ -131,7 +131,7 @@ Show More
 
 ## [Step 2: Fetch Categories](#step-2-fetch-categories)
 
-To get the categories, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to call [GET assets/v1/projects/:projectId/categories](/en/docs/acc/v1/reference/http/assets-categories-GET/).
+To get the categories, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to call [GET assets/v1/projects/:projectId/categories](../http-docs/http-assets-categories-GET.md).
 
 If you want to include only active categories, you can set the query parameter `filter[isActive]=true`. Note that filtering to only active or inactive categories can result in the returned tree not being fully intact.
 
@@ -201,13 +201,13 @@ Show More
 
 ## [Step 3: Fetch Status Sets And Asset Statuses](#step-3-fetch-status-sets-and-asset-statuses)
 
-To get the status sets, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to call [GET assets/v1/projects/:projectId/status-step-sets](/en/docs/acc/v1/reference/http/assets-status-step-sets-GET/).
+To get the status sets, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to call [GET assets/v1/projects/:projectId/status-step-sets](../http-docs/http-assets-status-step-sets-GET.md).
 
 If you want to include deactivated status sets and Asset statuses, you can set the query parameter `includeDeleted=true`.
 
-Note: If you just want to fetch the Asset statuses directly, you can call [GET assets/v1/projects/:projectId/asset-statuses](/en/docs/acc/v1/reference/http/assets-asset-statuses-GET/), but all statuses will be returned nested by fetching the full set of status sets as well.
+Note: If you just want to fetch the Asset statuses directly, you can call [GET assets/v1/projects/:projectId/asset-statuses](../http-docs/http-assets-asset-statuses-GET.md), but all statuses will be returned nested by fetching the full set of status sets as well.
 
-If you want to include only status sets that have changed since previously retrieving status sets, you can use the query parameter filter `filter[updatedAt]={previousFetchTime}..`. Note that this will only reflect updates to the status sets themselves, not any of the contained statuses. To fetch Asset statuses that have been changed since a given time, you can call [GET assets/v1/projects/:projectId/asset-statuses](/en/docs/acc/v1/reference/http/assets-asset-statuses-GET/) with `filter[updatedAt]={previousFetchTime}..`.
+If you want to include only status sets that have changed since previously retrieving status sets, you can use the query parameter filter `filter[updatedAt]={previousFetchTime}..`. Note that this will only reflect updates to the status sets themselves, not any of the contained statuses. To fetch Asset statuses that have been changed since a given time, you can call [GET assets/v1/projects/:projectId/asset-statuses](../http-docs/http-assets-asset-statuses-GET.md) with `filter[updatedAt]={previousFetchTime}..`.
 
 ### Request
 
@@ -357,7 +357,7 @@ Show More
 
 ## [Step 5: Fetch Asset Custom Attributes](#step-5-fetch-asset-custom-attributes)
 
-To get the Asset custom attributes, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to call [GET assets/v1/projects/:projectId/custom-attributes](/en/docs/acc/v1/reference/http/assets-custom-attributes-GET/).
+To get the Asset custom attributes, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to call [GET assets/v1/projects/:projectId/custom-attributes](../http-docs/http-assets-custom-attributes-GET.md).
 
 If you want to include deactivated custom attributes, you can set the query parameter `includeDeleted=true`.
 
@@ -513,7 +513,7 @@ Show More
 
 ## [Step 7: Fetch Locations](#step-7-fetch-locations)
 
-The Locations API can be used to fetch location data for the `locationId` field on an asset via the [GET Nodes](/en/docs/acc/v1/reference/http/locations-nodes-GET/) endpoint.
+The Locations API can be used to fetch location data for the `locationId` field on an asset via the [GET Nodes](../http-docs/http-locations-nodes-GET.md) endpoint.
 
 In this example the Project ID is `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`.
 
@@ -569,7 +569,7 @@ Assets can be associated with other entities such as Issues, Forms, Photos, etc.
 
 For the Relationship API, your Container ID will simply be your Project ID.
 
-See the [Relationship v2 APIs documentation](/en/docs/bim360/v1/reference/http/#bim-360-relationships-api).
+See the [Relationship v2 APIs documentation](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/#bim-360-relationships-api).
 
 You can search for all relationships in your project which include an âassetâ type using the following query parameters:
 
@@ -647,6 +647,6 @@ curl -v 'https://developer.api.autodesk.com/bim360/relationship/v2/containers/f6
 
 Show More
 
-For more information on querying the Relationship API, see the [Relationship Querying Tutorial](/en/docs/bim360/v1/tutorials/relationships/relationships-tutorial/).
+For more information on querying the Relationship API, see the [Relationship Querying Tutorial](relationships-relationships-tutorial.md).
 
-Once you have the entities and their relationships to the given assets you can use the relevant APIs to fetch the data for the given entities. This may require setting up access to other APIs, depending on what type of entities are linked to your Assets. See [Retrieve Issues](/en/docs/bim360/v1/tutorials/issues/retrieve-issues/) and [Get Forms Endpoint](/en/docs/acc/v1/reference/http/forms-forms-GET/) for examples of retrieving related entities.
+Once you have the entities and their relationships to the given assets you can use the relevant APIs to fetch the data for the given entities. This may require setting up access to other APIs, depending on what type of entities are linked to your Assets. See [Retrieve Issues](issues-retrieve-issues.md) and [Get Forms Endpoint](../http-docs/http-forms-forms-GET.md) for examples of retrieving related entities.

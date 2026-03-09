@@ -8,7 +8,7 @@ Source: https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/3dsmax/t
 
 Submitting a WorkItem is the way to request the Automation Service to execute an Activity.
 This is where you will specify the different input and output values required by the Activity.
-You defined these inputs when you created the Activity during [Task 3](/en/docs/design-automation/v3/tutorials/3dsmax/task3-create-activity/). You obtained the signed URLs to the input and output locations in [Task 4](/en/docs/design-automation/v3/tutorials/3dsmax/task4-manage-cloud-storage).
+You defined these inputs when you created the Activity during [Task 3](3dsmax-task3-create-activity.md). You obtained the signed URLs to the input and output locations in [Task 4](3dsmax-task4-manage-cloud-storage.md).
 
 By the end of this task, you will be able to create a WorkItem to execute an Activity.
 
@@ -16,7 +16,7 @@ You will use the following operations to work with WorkItems in this task:
 
 | HTTP Request | Description |
 | --- | --- |
-| [POST /workitems](/en/docs/design-automation/v3/reference/http/workitems-POST) | Creates a new WorkItem and queues it for processing. |
+| [POST /workitems](../http-docs/http-workitems-POST.md) | Creates a new WorkItem and queues it for processing. |
 
 ## [Step 1 - Create a WorkItem](#step-1-create-a-workitem)
 
@@ -61,7 +61,7 @@ Show More
 
 **Notes:**
 
-- `activityId` is the fully qualified id to identify the Activity you created in [Task 3](/en/docs/design-automation/v3/tutorials/3dsmax/task3-create-activity). This id is created with 3 pieces as described [here](/en/docs/design-automation/v3/developers_guide/aliases-and-ids/).
+- `activityId` is the fully qualified id to identify the Activity you created in [Task 3](3dsmax-task3-create-activity.md). This id is created with 3 pieces as described [here](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/aliases-and-ids/).
 - Replace the `pathInZip` values inside the `InputMaxScene` argument with the path to the 3ds Max scene file inside your zip file. If the 3ds Max file is at the root of your zip, simply specify the 3ds Max file name.
 - If you do not wish to use a zip file to hold the 3ds Max scene, but prefer to use the 3ds Max scene itself, provide the URN of the scene file directly and remove the `pathInZip` attribute inside the `InputMaxScene` argument.
 
@@ -80,4 +80,4 @@ Show More
 
 **Notes:**
 
-- Jot down the `id` in the response. This is the id that identifies your WorkItem. You will use this id in [Task 6](/en/docs/design-automation/v3/tutorials/3dsmax/task6-download-results).
+- Jot down the `id` in the response. This is the id that identifies your WorkItem. You will use this id in [Task 6](3dsmax-task6-download-results.md).

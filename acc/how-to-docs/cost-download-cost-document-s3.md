@@ -11,14 +11,14 @@ This tutorial demonstrates how to download a generated SCO (*Supplier Change Ord
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps).
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:create` `data:read` and `data:write` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create` `data:read` and `data:write` scopes.
 - Verify that you have access to the relevant BIM 360 account and BIM 360 project.
-- Retrieve the project ID for your project. To obtain a project ID, use [GET projects](/en/docs/bim360/v1/reference/http/admin-accounts-accountidprojects-GET/).
+- Retrieve the project ID for your project. To obtain a project ID, use [GET projects](../http-docs/http-admin-accounts-accountidprojects-GET.md).
 - Verify that you have an SCO and that a document has been generated for it.
 
 ## [Step 1: Find an SCO in BIM 360 Cost Management](#step-1-find-an-sco-in-bim-360-cost-management)
 
-Use the [GET SCO](/en/docs/bim360/v1/reference/http/cost-change-orders-changeOrder-GET/) endpoint to find the ID of the SCO from which you want to download.
+Use the [GET SCO](../http-docs/http-cost-change-orders-changeOrder-GET.md) endpoint to find the ID of the SCO from which you want to download.
 
 In this example, the SCO has a generated document. Assume that the container ID is `18ece8b1-204d-11e8-ad71-d73b169f902a`.
 
@@ -53,7 +53,7 @@ The response payload includes the SCO ID (`results[0].id`) with a value of `5525
 
 ## [Step 2: Find the Document Generated for the SCO](#step-2-find-the-document-generated-for-the-sco)
 
-Use the [GET cost/v1/containers/{containerId}/documents](/en/docs/bim360/v1/reference/http/cost-documents-GET/) endpoint to retrieve the generated document. The `associationId` value is the SCO ID `55254a50-44d9-11e9-99d7-79aa05d3109e`. The `associationType` value is `FormInstance`.
+Use the [GET cost/v1/containers/{containerId}/documents](../http-docs/http-cost-documents-GET.md) endpoint to retrieve the generated document. The `associationId` value is the SCO ID `55254a50-44d9-11e9-99d7-79aa05d3109e`. The `associationType` value is `FormInstance`.
 
 ### Request
 
@@ -81,7 +81,7 @@ The `urn` value in the response (`urn:adsk.wipprod:fs.file:vf.kYtkYWBsSKSCMXYzEY
 
 Use Mozillaâs [encodeURIComponent](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) operation to encode the object ID `urn:adsk.wipprod:fs.file:vf.kYtkYWBsSKSCMXYzEYe80w?version=1` as `urn%3Aadsk.wipprod%3Afs.file%3Avf.kYtkYWBsSKSCMXYzEYe80w%3Fversion%3D1`.
 
-Next, use the encoded ID as the version ID to call the Data Management APIâs [GET projects/:project_id/versions/:version_id](/en/docs/data/v2/reference/http/projects-project_id-versions-version_id-GET/).
+Next, use the encoded ID as the version ID to call the Data Management APIâs [GET projects/:project_id/versions/:version_id](../../data/http-docs/http-projects-project_id-versions-version_id-GET.md).
 
 ### Request
 
@@ -159,7 +159,7 @@ Youâll use this ID to access the storage service in the next step.
 
 ## [Step 4: Generate a Signed S3 URL](#step-4-generate-a-signed-s3-url)
 
-Use the Data Management APIâs [GET buckets/:bucketKey/objects/:objectKey/signeds3download](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3download-GET/) endpoint to generate a signed URL for the storage object, which you can use to download the file directly from S3. Include the bucket key (`wip.dm.prod`) and the object name (`af47b92e-7096-4c1f-b090-f77b1d83485f.docx`) that you retrieved in the previous step.
+Use the Data Management APIâs [GET buckets/:bucketKey/objects/:objectKey/signeds3download](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3download-GET.md) endpoint to generate a signed URL for the storage object, which you can use to download the file directly from S3. Include the bucket key (`wip.dm.prod`) and the object name (`af47b92e-7096-4c1f-b090-f77b1d83485f.docx`) that you retrieved in the previous step.
 
 ### Request
 

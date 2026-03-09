@@ -7,7 +7,7 @@ Source: https://aps.autodesk.com/en/docs/viewer/v7/reference/UI/ModelStructurePa
 Autodesk.Viewing.UI
 
 # ModelStructurePanel
-> Extends [Autodesk.Viewing.UI.DockingPanel](/en/docs/viewer/v7/reference/UI/DockingPanel)
+> Extends [Autodesk.Viewing.UI.DockingPanel](UI-DockingPanel.md)
 
 ## [new ModelStructurePanel(parentContainer, id, title, options)](#new-modelstructurepanel-parentcontainer-id-title-options)
 

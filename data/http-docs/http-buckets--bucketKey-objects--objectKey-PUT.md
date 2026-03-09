@@ -16,7 +16,7 @@ Upload an object.
 
 **We will be deprecating this endpoint.**
 
-We recommend using the [GET buckets/:bucketKey/objects/:objectKey/signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-GET) endpoint. See the [App Managed Bucket Tutorial](en/docs/data/v2/tutorials/app-managed-bucket) for step by step workflow.
+We recommend using the [GET buckets/:bucketKey/objects/:objectKey/signeds3upload](http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md) endpoint. See the [App Managed Bucket Tutorial](en/docs/data/v2/tutorials/app-managed-bucket) for step by step workflow.
 
 Upload an object.
 If the specified object key already exists in the bucket, the uploaded content will overwrite the existing content for the bucket name/object key combination.
@@ -35,7 +35,7 @@ Note that for objects larger than 100 MB we recommend using the [PUT buckets/:bu
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [POST token](/en/docs/oauth/v2/reference/http/gettoken-POST) |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md) |
 | --- | --- |
 | Content-Disposition   string | The suggested default filename when downloading this object to a file after it has been uploaded. |
 | Content-Length*   integer | Size in bytes of the request body.       Most clients add this header automatically, so you should only set it explicitly if necessary. |

@@ -18,7 +18,7 @@ Upon successful or failed review creation, this endpoint automatically triggers 
 
 For more information about the Reviews tool, see the [Help documentation](https://help.autodesk.com/view/DOCS/ENU/?guid=Reviews).
 
-For more details about Reviews webhooks, see the [Reviews Webhooks](/en/docs/acc/v1/overview/field-guide/reviews/#reviews-webhooks/) section in the Field Guide.
+For more details about Reviews webhooks, see the [Reviews Webhooks](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/reviews/#reviews-webhooks/) section in the Field Guide.
 
 Note that this endpoint is not compatible with BIM 360 projects.
 
@@ -34,7 +34,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | x-user-id   string | The ID of a user on whose behalf the request is made. Your application has access to all users specified by the administrator in the SaaS Integrations UI. Use this header to specify which user should be affected by the request. <br>This header is only required when using two-legged authentication. It is not needed for three-legged authentication.<br>Only userâs Autodesk ID (`autodeskId`) can be accepted. |
 | Content-Type*   string | Must be `application/json` |
@@ -45,7 +45,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You can provide the project ID with or without the â**b.**" prefix.<br>Example with prefix: **b.563a4c30-e30d-4869-ac02-2a18b6447abe**Example without prefix: **563a4c30-e30d-4869-ac02-2a18b6447abe** |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You can provide the project ID with or without the â**b.**" prefix.<br>Example with prefix: **b.563a4c30-e30d-4869-ac02-2a18b6447abe**Example without prefix: **563a4c30-e30d-4869-ac02-2a18b6447abe** |
 | --- | --- |
 
 ### Request
@@ -59,21 +59,21 @@ Expand all
 | name*   string | The name of the review. Maximum length: 255 characters. <br>Max length: 255 |
 | --- | --- |
 | fileVersions*   array: object | The file versions to include in the review. Maximum: 1000 items. |
-| urn*   string | The URN of the file version. <br>You can find this value by following the first four steps of the [Download a File](/en/docs/acc/v1/tutorials/files/download-document-s3/) tutorial and noting the `included.id` field in the response. Note that the Step 4 request in the tutorial returns only the latest version of each file in the folder.<br>Use the `included.attributes.name` or `included.attributes.displayName` fields in the response to confirm you have the correct file. |
-| workflowId*   string: UUID | The ID of the approval workflow used to create the review. <br>To list available workflows, call [GET workflows](/en/docs/acc/v1/reference/http/reviews-workflows-GET/). |
+| urn*   string | The URN of the file version. <br>You can find this value by following the first four steps of the [Download a File](../how-to-docs/files-download-document-s3.md) tutorial and noting the `included.id` field in the response. Note that the Step 4 request in the tutorial returns only the latest version of each file in the folder.<br>Use the `included.attributes.name` or `included.attributes.displayName` fields in the response to confirm you have the correct file. |
+| workflowId*   string: UUID | The ID of the approval workflow used to create the review. <br>To list available workflows, call [GET workflows](http-reviews-workflows-GET.md). |
 | notes   string | A note about the review. In the UI, this appears as the `Description` field. <br>Maximum length: 4096 characters.<br>Max length: 4096 |
 | workflowOptions   object | Optional parameters that override approval workflow settings for this review (for example, steps, copy settings, or additional options). |
 | copyFilesOptions   object | (`Copy approved files` in the UI) Option for copying approved files when the review is complete. |
-| folderUrn   string | (`Then copy approved files to` in the UI) The URN of the target folder where approved files will be copied. <br>To find the folder URN, follow the first four steps of the [Upload Files to the ACC Files tool](/en/docs/acc/v1/tutorials/files/upload-document-s3/) tutorial and note the `data.id` field in the response. Use `data.attributes.name` or `data.attributes.displayName` to confirm you have the correct folder. |
-| steps   array: object | Assigns participants to the steps defined in the approval workflow. If omitted, the review inherits default candidates from the workflow. If provided, your assignments replace the defaults for that step. Multiple `REVIEWER` steps run sequentially in the order returned by [GET workflows](/en/docs/acc/v1/reference/http/reviews-workflows-GET/). |
-| id*   string | The ID of the step in the approval workflow. Use this value to set the candidates for the step when creating the review. Retrieve step IDs by calling [GET workflows](/en/docs/acc/v1/reference/http/reviews-workflows-GET/). |
+| folderUrn   string | (`Then copy approved files to` in the UI) The URN of the target folder where approved files will be copied. <br>To find the folder URN, follow the first four steps of the [Upload Files to the ACC Files tool](../how-to-docs/files-upload-document-s3.md) tutorial and note the `data.id` field in the response. Use `data.attributes.name` or `data.attributes.displayName` to confirm you have the correct folder. |
+| steps   array: object | Assigns participants to the steps defined in the approval workflow. If omitted, the review inherits default candidates from the workflow. If provided, your assignments replace the defaults for that step. Multiple `REVIEWER` steps run sequentially in the order returned by [GET workflows](http-reviews-workflows-GET.md). |
+| id*   string | The ID of the step in the approval workflow. Use this value to set the candidates for the step when creating the review. Retrieve step IDs by calling [GET workflows](http-reviews-workflows-GET.md). |
 | candidates*   object | (Displayed in the UI when selecting Reviewers/Approvers for a step) Defines the users, roles, or companies to specify for this step of the approval workflow. At least one of the fields (`users`, `roles`, or `companies`) must be provided. |
 | users   array: object | A list of individual users assigned as candidates for this step. |
-| autodeskId*   string | The Autodesk ID of the user. To find the Autodesk IDs of users for a project, call [GET projects/users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET/). |
+| autodeskId*   string | The Autodesk ID of the user. To find the Autodesk IDs of users for a project, call [GET projects/users](http-admin-projectsprojectId-users-GET.md). |
 | roles   array: object | A list of project roles assigned as candidates for this step. |
 | autodeskId*   string | The Autodesk ID of the role. Note that we do not currently support finding details about roles for a project. |
 | companies   array: object | A list of companies assigned as candidates for this step. |
-| autodeskId*   string | The Autodesk ID of the company. To find the Autodesk IDs of companies for a project, call [GET companies](/en/docs/acc/v1/reference/http/companies-GET/). |
+| autodeskId*   string | The Autodesk ID of the company. To find the Autodesk IDs of companies for a project, call [GET companies](http-companies-GET.md). |
 
 * Required
 

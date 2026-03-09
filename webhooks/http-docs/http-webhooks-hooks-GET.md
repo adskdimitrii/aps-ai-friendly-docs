@@ -22,7 +22,7 @@ Retrieves a paginated list of all the webhooks. If the pageState query string is
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [OAuth](/en/docs/oauth/v2/reference/http/gettoken-POST) |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [OAuth](../../oauth/http-docs/http-gettoken-POST.md) |
 | --- | --- |
 | x-ads-region   string | Specifies the geographical location (region) of the server that the request is executed on. Supported values are the following, but the default value is `US`: <br>`US` : (Default) Retrieves the webhooks that were registered in a data center dedicated to serve the United States.`EMEA` : Retrieves the webhooks that were registered in a data center dedicated to serve the European Union, Middle East, and Africa.`AUS` : (Beta) Retrieves the webhooks that were registered in a data center dedicated to serve Australia.`GBR` : Retrieves the webhooks that were registered in a data center dedicated to serve United Kingdom.`JPN` : Retrieves the webhooks that were registered in a data center dedicated to serve Japan.`DEU` : Retrieves the webhooks that were registered in a data center dedicated to serve Germany.`CAN` : Retrieves the webhooks that were registered in a data center dedicated to serve Canada.`IND` : Retrieves the webhooks that were registered in a data center dedicated to serve India. |
 
@@ -69,7 +69,7 @@ Expand all
 | createdDate   date | Date and time when webhook was created |
 | lastUpdatedDate   date | Date and time when webhook was last updated |
 | event   string | Type of event that is being monitored |
-| scope   object | An object that represents the extent to where the event is monitored. For example, if the scope is a folder, the webhooks service generates a notification for the specified event occurring in any sub folder or item within that folder. Please refer to the individual event specification pages for valid scopes. For example, [Data Management events](/en/docs/webhooks/v1/reference/events/data_management_events). |
+| scope   object | An object that represents the extent to where the event is monitored. For example, if the scope is a folder, the webhooks service generates a notification for the specified event occurring in any sub folder or item within that folder. Please refer to the individual event specification pages for valid scopes. For example, [Data Management events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/data_management_events/). |
 | status   string | `active` if webhook is active; otherwise `inactive` |
 | urn   string | URN of the webhook |
 | autoReactivateHook   boolean | Flag to indicate if the hook can be automatically reactivated. |

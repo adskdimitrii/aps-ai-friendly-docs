@@ -26,7 +26,7 @@ An object will not be accessible until this endpoint is called. This endpoint mu
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](/en/docs/oauth/v2/reference/http/gettoken-POST). |
+| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
 | --- | --- |
 | Content-Type*   string | Must be exactly âapplication/jsonâ. |
 | x-ads-meta-Content-Type   string | The Content-Type value that OSS will store in the record for the uploaded object. |

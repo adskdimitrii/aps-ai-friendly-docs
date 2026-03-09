@@ -23,7 +23,7 @@ Service wide. These limits are enforced during workitem submission.
 4. Maximum number of WorkItem of parts in the request is **100**.
 5. Activity has to be the same for all WorkItems of parts.
 
-More explanation is at [WorkItem Combine API Reference](/en/docs/design-automation/v3/reference/combinator).
+More explanation is at [WorkItem Combine API Reference](https://aps.autodesk.com/en/docs/design-automation/v3/reference/combinator/).
 
 ## [Resource Information](#resource-information)
 
@@ -37,7 +37,7 @@ More explanation is at [WorkItem Combine API Reference](/en/docs/design-automati
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 

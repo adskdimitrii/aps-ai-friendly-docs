@@ -7,7 +7,7 @@ Source: https://aps.autodesk.com/en/docs/viewer/v7/reference/Viewing/AppScreenMo
 Autodesk.Viewing
 
 # AppScreenModeDelegate
-> Extends [Autodesk.Viewing.ScreenModeDelegate](/en/docs/viewer/v7/reference/Viewing/ScreenModeDelegate)
+> Extends [Autodesk.Viewing.ScreenModeDelegate](Viewing-ScreenModeDelegate.md)
 
 ## [new AppScreenModeDelegate(viewer)](#new-appscreenmodedelegate-viewer)
 
@@ -17,7 +17,7 @@ Unlike ViewerScreenModeDelegate class, this delegate doesnât use the full b
 
 ### Parameters
 
-| viewer*   [Autodesk.Viewing.Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) | Viewer instance. |
+| viewer*   [Autodesk.Viewing.Viewer3D](Viewing-Viewer3D.md) | Viewer instance. |
 | --- | --- |
 
 * Required

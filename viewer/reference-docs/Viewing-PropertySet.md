@@ -8,7 +8,7 @@ Autodesk.Viewing
 
 # PropertySet
 
-The PropertySet class allows for aggregation of properties with the same names and categories. To get an instance of this class use [Autodesk.Viewing.Model#getPropertySet](/en/docs/viewer/v7/reference/Viewing/Model/#getPropertySet/).
+The PropertySet class allows for aggregation of properties with the same names and categories. To get an instance of this class use [Autodesk.Viewing.Model#getPropertySet](Viewing-Model.md#getPropertySet/).
 
 ## [new PropertySet(result)](#new-propertyset-result)
 
@@ -40,14 +40,14 @@ Iterates over all of the common properties. The callback is invoked on each key 
 
 ### Parameters
 
-| callback*   [forEachCallback](/en/docs/viewer/v7/reference/globals/TypeDefs/forEachCallback/) | Called for each entry in the map |
+| callback*   [forEachCallback](globals-TypeDefs-forEachCallback.md) | Called for each entry in the map |
 | --- | --- |
 
 * Required
 
 ## [getAggregation(properties)](#getaggregation-properties)
 
-Returns an object containing aggregated values. see [Autodesk.Viewing.PropertySet#forEach](/en/docs/viewer/v7/reference/Viewing/PropertySet/#forEach/)
+Returns an object containing aggregated values. see [Autodesk.Viewing.PropertySet#forEach](Viewing-PropertySet.md#forEach/)
 
 ### Parameters
 
@@ -60,7 +60,7 @@ Returns an object containing aggregated values. see [Autodesk.Viewing.PropertySe
 
 | type | description |
 | --- | --- |
-| [AggregatedResult](/en/docs/viewer/v7/reference/globals/TypeDefs/AggregatedResult/) | Object with all aggregated values |
+| [AggregatedResult](globals-TypeDefs-AggregatedResult.md) | Object with all aggregated values |
 
 ### Examples
 
@@ -77,7 +77,7 @@ propertySet.forEach((key, properties) => {
 
 Returns an object with a key representing the propertyâs displayValue and the value being all of the property names associated with it.
 
-see [Autodesk.Viewing.PropertySet#forEach](/en/docs/viewer/v7/reference/Viewing/PropertySet/#forEach/) see [PropertyResult](/en/docs/viewer/v7/reference/globals/TypeDefs/PropertyResult/)
+see [Autodesk.Viewing.PropertySet#forEach](Viewing-PropertySet.md#forEach/) see [PropertyResult](globals-TypeDefs-PropertyResult.md)
 
 ### Parameters
 
@@ -157,7 +157,7 @@ Merges the passed in PropertySet map with the current PropertySetâs map.
 
 ### Parameters
 
-| propertySet*   [Autodesk.Viewing.PropertySet](/en/docs/viewer/v7/reference/Viewing/PropertySet/) | A PropertySet instance |
+| propertySet*   [Autodesk.Viewing.PropertySet](Viewing-PropertySet.md) | A PropertySet instance |
 | --- | --- |
 
 * Required
@@ -166,4 +166,4 @@ Merges the passed in PropertySet map with the current PropertySetâs map.
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.PropertySet](/en/docs/viewer/v7/reference/Viewing/PropertySet/) | returns from the passed in propertySet merged |
+| [Autodesk.Viewing.PropertySet](Viewing-PropertySet.md) | returns from the passed in propertySet merged |

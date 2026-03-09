@@ -8,22 +8,22 @@ Source: https://aps.autodesk.com/en/docs/data/v2/tutorials/delete-and-restore-fi
 
 This walkthrough demonstrates how to delete and restore files in BIM 360 Document Management. The steps include finding the ID of the file you want to delete, deleting the file, and restoring it. You can delete both Plans folder files and Project Files folder files.
 
-Note that you cannot permanently delete BIM 360 files. Deleted files remain `hidden` until they are restored. By default, hidden files do not appear in the UI or in API response payloads. You can include hidden files in API response payloads by adding the `hidden` query string parameter (`filter[hidden]=true`). See the section on [Filtering](/en/docs/data/v2/developers_guide/filtering/) for more information.
+Note that you cannot permanently delete BIM 360 files. Deleted files remain `hidden` until they are restored. By default, hidden files do not appear in the UI or in API response payloads. You can include hidden files in API response payloads by adding the `hidden` query string parameter (`filter[hidden]=true`). See the section on [Filtering](https://aps.autodesk.com/en/docs/data/v2/developers_guide/filtering/) for more information.
 
-For more details about BIM 360 file management, see the [Data Management API](/en/docs/data/v2/overview/).
+For more details about BIM 360 file management, see the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/overview/).
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Acquire an [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token) with `data:create` `data:read` and `data:write` scopes.
-- Verify that you have access to the relevant BIM 360 account and BIM 360 project, and that the app is [integrated into the account](/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/).
+- Acquire an [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create` `data:read` and `data:write` scopes.
+- Verify that you have access to the relevant BIM 360 account and BIM 360 project, and that the app is [integrated into the account](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/).
 - Note the name of the BIM 360 account, project, and folder that contains the file you want to delete.
 
 ## [Step 1: Find the Hub ID for the BIM 360 Account](#step-1-find-the-hub-id-for-the-bim-360-account)
 
 The first few steps of the walkthrough demonstrate how to find the ID of file you want to delete, which invovles iterating through several Data Management endpoints.
 
-Find the hub ID of the BIM 360 account that contains the file you want to delete by calling [GET hubs](/en/docs/data/v2/reference/http/hubs-GET/).
+Find the hub ID of the BIM 360 account that contains the file you want to delete by calling [GET hubs](../http-docs/http-hubs-GET.md).
 
 Note that the BIM 360 account ID corresponds to the Data Management hub ID. To convert an account ID into a hub ID you need to add a â**b.**" prefix. For example, an account ID of c8b0c73d-3ae9 translates to a hub ID of **b.**c8b0c73d-3ae9.
 
@@ -75,9 +75,9 @@ Find the hub (`data.name`), and note the hub ID - `b.cGVyc29uYWw6cGUyOWNjZjMy`.
 
 ## [Step 2: Find the Project ID](#step-2-find-the-project-id)
 
-Get a list of all the projects in the hub by using the converted hub ID (`b.cGVyc29uYWw6cGUyOWNjZjMy`) to call [GET hubs/:hub_id/projects](/en/docs/data/v2/reference/http/hubs-hub_id-projects-GET) to get a list of all the projects in the hub. Find the project ID of the project that contains the file you want to delete.
+Get a list of all the projects in the hub by using the converted hub ID (`b.cGVyc29uYWw6cGUyOWNjZjMy`) to call [GET hubs/:hub_id/projects](../http-docs/http-hubs-hub_id-projects-GET.md) to get a list of all the projects in the hub. Find the project ID of the project that contains the file you want to delete.
 
-Note that the project ID in BIM 360 corresponds to the project ID in the [Data Management API](/en/docs/data/v2/). To convert a project ID in BIM 360 to a project ID in the Data Management API, you need to add a â**b.**" prefix. For example, a project ID of a4be0c34a-4ab7 translates to a project ID of **b.**a4be0c34a-4ab7.
+Note that the project ID in BIM 360 corresponds to the project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in BIM 360 to a project ID in the Data Management API, you need to add a â**b.**" prefix. For example, a project ID of a4be0c34a-4ab7 translates to a project ID of **b.**a4be0c34a-4ab7.
 
 ### Request
 
@@ -125,7 +125,7 @@ Find the project (`data.attributes.name`), and note the project ID (`data.id`) -
 
 In this example, assume that the file you want to delete is in the Project Files folder.
 
-Get the Project Files folder ID by using the hub ID (`b.cGVyc29uYWw6cGUyOWNjZjMy`) and the project ID (`b.cGVyc29uYWw6d2l`) to call [GET hubs/:hub_id/projects/:project_id/topFolders](/en/docs/data/v2/reference/http/hubs-hub_id-projects-project_id-topFolders-GET).
+Get the Project Files folder ID by using the hub ID (`b.cGVyc29uYWw6cGUyOWNjZjMy`) and the project ID (`b.cGVyc29uYWw6d2l`) to call [GET hubs/:hub_id/projects/:project_id/topFolders](../http-docs/http-hubs-hub_id-projects-project_id-topFolders-GET.md).
 
 ### Request
 
@@ -186,11 +186,11 @@ Show More
 
 Find the Project Files folder (`data.attributes.name`), and note the folder ID (`data.id`) - `urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`
 
-If you want to delete a file from a folder nested under the Project Files folder, you need to call [GET projects/:project_id/folders/:folder_id/contents](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-contents-GET) repeatedly through the hierarchy of folders until you find the Folder ID of the folder you want to delete. For the first iteration, use the Project Files ID (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`).
+If you want to delete a file from a folder nested under the Project Files folder, you need to call [GET projects/:project_id/folders/:folder_id/contents](../http-docs/http-projects-project_id-folders-folder_id-contents-GET.md) repeatedly through the hierarchy of folders until you find the Folder ID of the folder you want to delete. For the first iteration, use the Project Files ID (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`).
 
 ## [Step 4: Find the File (Item) ID](#step-4-find-the-file-item-id)
 
-Get the ID of the file you want to delete by using the project ID (`b.cGVyc29uYWw6d2l`) and the Projet Files folder ID (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`) to call [GET projects/:project_id/folders/:folder_id/contents](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-contents-GET).
+Get the ID of the file you want to delete by using the project ID (`b.cGVyc29uYWw6d2l`) and the Projet Files folder ID (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`) to call [GET projects/:project_id/folders/:folder_id/contents](../http-docs/http-projects-project_id-folders-folder_id-contents-GET.md).
 
 ### Request
 
@@ -275,7 +275,7 @@ Find the file (`data.attributes.displayName`), and note the file (item) ID (`dat
 
 ## [Step 5: Delete the File](#step-5-delete-the-file)
 
-Delete the file by using the project ID (`b.cGVyc29uYWw6d2l`) and the item ID (`urn:adsk.wipprod:dm.lineage:hPW2BlBbQG2L5HjCOh7Z8Q`) to call [POST versions](/en/docs/data/v2/reference/http/projects-project_id-versions-POST/).
+Delete the file by using the project ID (`b.cGVyc29uYWw6d2l`) and the item ID (`urn:adsk.wipprod:dm.lineage:hPW2BlBbQG2L5HjCOh7Z8Q`) to call [POST versions](../http-docs/http-projects-project_id-versions-POST.md).
 
 ### Request
 
@@ -478,11 +478,11 @@ Congratulations! You have deleted a file from BIM 360 Document Management.
 
 Note the version ID (`data.id`) - (`urn:adsk.wipprod:fs.file:vf.hPW2BlBbQG2L5HjCOh7Z8Q?version=2`), which you will need if you want to restore the file.
 
-Note that you cannot permanently delete BIM 360 files. Deleted files remain `hidden` until they are restored. By default, hidden files do not appear in the UI or in API response payloads. You can include hidden files in API response payloads by adding the `hidden` query string parameter (`filter[hidden]=true`). See the section on [Filtering](/en/docs/data/v2/developers_guide/filtering/) for more information.
+Note that you cannot permanently delete BIM 360 files. Deleted files remain `hidden` until they are restored. By default, hidden files do not appear in the UI or in API response payloads. You can include hidden files in API response payloads by adding the `hidden` query string parameter (`filter[hidden]=true`). See the section on [Filtering](https://aps.autodesk.com/en/docs/data/v2/developers_guide/filtering/) for more information.
 
 ## [Step 6: Restore the File](#step-6-restore-the-file)
 
-Restore the file by using the project ID (`b.cGVyc29uYWw6d2l`) and the version ID (`urn:adsk.wipprod:fs.file:vf.hPW2BlBbQG2L5HjCOh7Z8Q%3Fversion=2`) to call [POST versions](/en/docs/data/v2/reference/http/projects-project_id-versions-POST/).
+Restore the file by using the project ID (`b.cGVyc29uYWw6d2l`) and the version ID (`urn:adsk.wipprod:fs.file:vf.hPW2BlBbQG2L5HjCOh7Z8Q%3Fversion=2`) to call [POST versions](../http-docs/http-projects-project_id-versions-POST.md).
 
 Note that every time you perform an action on a file (including delete or restore) the version number increases. When you restore a file you need to specify the version of the file you want to restore. However, you cannot restore the version of the file that was created when you deleted the file. In this example, `version=2` was created when the file was deleted. To restore the file you need to reduce the version number by one. In this example, you need to adjust `version=2` to `version=1`. To restore the latest version of a file, you need to retrieve the latest version and subtract 1 from the version number.
 

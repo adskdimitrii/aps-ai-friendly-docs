@@ -13,14 +13,14 @@ For more information about Forms, see the [Forms help documentation](https://hel
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps), and select Autodesk Construction Cloud API
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:read` and `data:write` scopes.
-- Find the relevant project ID, by following the [Retrieve a Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. In this example, assume the project ID is `cd13503e-1265-49c3-b2da-477c57cda60c`.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` and `data:write` scopes.
+- Find the relevant project ID, by following the [Retrieve a Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `cd13503e-1265-49c3-b2da-477c57cda60c`.
 - Verify that you have access to the relevant ACC project.
 - Verify that you were added as a contributor to the form templates in that project, see the [`Forms help documentation<https://help.autodesk.com/view/BUILD/ENU/?guid=Build_Forms_about_forms_html>`_](#id20) for information about creating and configuring templates.
 
 ## [Step 1: Find the Form Template](#step-1-find-the-form-template)
 
-The the project ID (`cd13503e-1265-49c3-b2da-477c57cda60c`) to call [GET form-templates](/en/docs/acc/v1/reference/http/forms-form-templates-GET) to retrieve the templates for the project.
+The the project ID (`cd13503e-1265-49c3-b2da-477c57cda60c`) to call [GET form-templates](../http-docs/http-forms-form-templates-GET.md) to retrieve the templates for the project.
 
 ### request
 
@@ -93,7 +93,7 @@ Find the template ID of the template you want to create the form in `(data[i].id
 
 ## [Step 2: Create a Form](#step-2-create-a-form)
 
-Use the project ID (`cd13503e-1265-49c3-b2da-477c57cda60c`) and template ID (`a304cc08-fadb-58c8-3181-7bb06fdef93e`) to call [POST forms](/en/docs/acc/v1/reference/http/forms-forms-POST) to create a form.
+Use the project ID (`cd13503e-1265-49c3-b2da-477c57cda60c`) and template ID (`a304cc08-fadb-58c8-3181-7bb06fdef93e`) to call [POST forms](../http-docs/http-forms-forms-POST.md) to create a form.
 
 Note that you can optionally add attributes in the request body, such as `formDate` and `description`. If you do not include any attributes in the request body, you need to add an empty object.
 
@@ -203,7 +203,7 @@ For non-tabular fields note the ID of the field (`fieldId`), the name of the fie
 
 ## [Step 3: Add Form Details](#step-3-add-form-details)
 
-Use the project ID (`cd13503e-1265-49c3-b2da-477c57cda60c`), the template ID (`a304cc08-fadb-58c8-3181-7bb06fdef93e`), and the form ID (`76ee8c34-1897-4720-bb4f-9ae82c9af02e`), to call [PATCH forms/:formId](/en/docs/acc/v1/reference/http/forms-forms-formId-PATCH) to add form details to the form, such a description. For details about attributes that are included in the form details section of a form, see the [Help](https://help.autodesk.com/view/BUILD/ENU/?guid=Build_Forms_use_html) documentation.
+Use the project ID (`cd13503e-1265-49c3-b2da-477c57cda60c`), the template ID (`a304cc08-fadb-58c8-3181-7bb06fdef93e`), and the form ID (`76ee8c34-1897-4720-bb4f-9ae82c9af02e`), to call [PATCH forms/:formId](../http-docs/http-forms-forms-formId-PATCH.md) to add form details to the form, such a description. For details about attributes that are included in the form details section of a form, see the [Help](https://help.autodesk.com/view/BUILD/ENU/?guid=Build_Forms_use_html) documentation.
 
 ### request
 
@@ -315,7 +315,7 @@ Show More
 
 ## [Step 4: Update the Main Form Fields](#step-4-update-the-main-form-fields)
 
-Use the project ID (`cd13503e-1265-49c3-b2da-477c57cda60c`), the form ID (`76ee8c34-1897-4720-bb4f-9ae82c9af02e`), and the relevant information field information (see Step 2) to call [PUT forms/{formId}/values:batch-update](/en/docs/acc/v1/reference/http/forms-valuesbatch-update-PUT) to update the main form fields - both tabular (`tabularValues`) and non-tabular (`customValues`).
+Use the project ID (`cd13503e-1265-49c3-b2da-477c57cda60c`), the form ID (`76ee8c34-1897-4720-bb4f-9ae82c9af02e`), and the relevant information field information (see Step 2) to call [PUT forms/{formId}/values:batch-update](../http-docs/http-forms-valuesbatch-update-PUT.md) to update the main form fields - both tabular (`tabularValues`) and non-tabular (`customValues`).
 
 For details about attributes that are included in the main form field section of a form, see the [Help](https://help.autodesk.com/view/BUILD/ENU/?guid=Build_Forms_use_html) documentation.
 
@@ -1653,7 +1653,7 @@ Show More
 
 ## [Step 5: Submit the Form](#step-5-submit-the-form)
 
-The [PATCH forms/:formId](/en/docs/acc/v1/reference/http/forms-forms-formId-PATCH) endpoint is used to submit the form, see the endpoint documentation for supported fields.
+The [PATCH forms/:formId](../http-docs/http-forms-forms-formId-PATCH.md) endpoint is used to submit the form, see the endpoint documentation for supported fields.
 
 Using data from previous steps:
 
@@ -1661,7 +1661,7 @@ Using data from previous steps:
 - Template ID (`a304cc08-fadb-58c8-3181-7bb06fdef93e`)
 - Form ID (`76ee8c34-1897-4720-bb4f-9ae82c9af02e`)
 
-call [PATCH forms/:formId](/en/docs/acc/v1/reference/http/forms-forms-formId-PATCH).
+call [PATCH forms/:formId](../http-docs/http-forms-forms-formId-PATCH.md).
 
 ### request
 

@@ -41,16 +41,16 @@ This tutorial is using the default RFI workflow with a single reviewer. For info
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:create` `data:read` and `data:write` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create` `data:read` and `data:write` scopes.
 - In this example, assume the project ID is `afc6e536-3a12-4ecf-8302-3f283d50dc6f`.
 
 ## [Step 1: Verify the Userâs Permissions](#step-1-verify-the-user-s-permissions)
 
 Before the user creates an RFI you need to verify that the user has permissions to create it. Users who have been assigned either creator (`projectSC`) or manager (`projectGC`) workflow roles can create RFIs. All users in the project are automatically assigned the creator workflow role. To assign creator or manager workflow roles to project members, open the ACC RFIs module, click Settings on the top right, and select Permissions. A list of users is displayed. Select the appropriate role from the Workflow role dropdown on the right. Note that in order to allocate workflow roles, you must have User Admin status.
 
-Use the project ID (`afc6e536-3a12-4ecf-8302-3f283d50dc6f`) to call [GET users/me](/en/docs/acc/v1/reference/http/rfis-v3-users-me-GET/) to verify the userâs permissions for creating RFIs.
+Use the project ID (`afc6e536-3a12-4ecf-8302-3f283d50dc6f`) to call [GET users/me](https://aps.autodesk.com/en/docs/acc/v1/reference/http/rfis-v3-users-me-GET/) to verify the userâs permissions for creating RFIs.
 
-Note that only users who are members of a project can potentially create and edit RFIs for the project. To check which users are members of a project, call GET users ([BIM 360](/en/docs/bim360/v1/reference/http/admin-v1-projects-projectId-users-GET) or [ACC](en/docs/acc/v1/reference/http/users-GET)). If a user is not a project member, the endpoint will return an error. Note that although we support grouping users by project for BIM 360 projects, we currently only support grouping users by account for ACC projects.
+Note that only users who are members of a project can potentially create and edit RFIs for the project. To check which users are members of a project, call GET users ([BIM 360](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/admin-v1-projects-projectId-users-GET/) or [ACC](en/docs/acc/v1/reference/http/users-GET)). If a user is not a project member, the endpoint will return an error. Note that although we support grouping users by project for BIM 360 projects, we currently only support grouping users by account for ACC projects.
 
 Note that if a user is not a project member, the endpoint will return an error.
 
@@ -655,7 +655,7 @@ Note also:
 
 ## [Step 2: Create the RFI](#step-2-create-the-rfi)
 
-Use the project ID (`afc6e536-3a12-4ecf-8302-3f283d50dc6f`) to call [POST rfis](/en/docs/acc/v1/reference/http/rfis-V3-rfi-POST/).
+Use the project ID (`afc6e536-3a12-4ecf-8302-3f283d50dc6f`) to call [POST rfis](https://aps.autodesk.com/en/docs/acc/v1/reference/http/rfis-V3-rfi-POST/).
 
 ### Request
 
@@ -1136,11 +1136,11 @@ Note that only assignees with a manager (`projectGC`) workflow role will be list
 
 Note the userâs ID. In this example `KMQ7KREACSE7`. This is the same user who created the RFI and will also perform the transition to `open` status in the next step.
 
-To verify the actual name of the user, call [GET accounts/:accountId/users/:userId](/en/docs/bim360/v1/reference/http/admin-v1-accounts-accountId-users-userId-GET/).
+To verify the actual name of the user, call [GET accounts/:accountId/users/:userId](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/admin-v1-accounts-accountId-users-userId-GET/).
 
 ## [Step 3: Transition the RFI to Open Status](#step-3-transition-the-rfi-to-open-status)
 
-Use the project ID (`afc6e536-3a12-4ecf-8302-3f283d50dc6f`), the RFI ID (`48ae70ef-c215-4781-a7c2-394afaae0d9c`) and the IDs of the assignees (`Z762FZR9LSEHQASK` and `WZJ23QYPPEBML8BG`) to call [PATCH rfis/:rfiId](/en/docs/acc/v1/reference/http/rfis-V3-rfisrfiid-PATCH/) to transition the RFI from draft status to open status.
+Use the project ID (`afc6e536-3a12-4ecf-8302-3f283d50dc6f`), the RFI ID (`48ae70ef-c215-4781-a7c2-394afaae0d9c`) and the IDs of the assignees (`Z762FZR9LSEHQASK` and `WZJ23QYPPEBML8BG`) to call [PATCH rfis/:rfiId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/rfis-V3-rfisrfiid-PATCH/) to transition the RFI from draft status to open status.
 
 In this example, the user who created the RFI will also transition the RFI to open status.
 
@@ -1465,7 +1465,7 @@ In the previous step, the RFI was transitioned to `open` status and assigned to 
 
 Each assigned user is expected to submit a response. You can either switch authentication to act as one of these users, or use the `createResponseOnBehalf` capability if permitted.
 
-For instructions on how to submit a response, see the [Submit an RFI Response](/en/docs/acc/v1/tutorials/rfis3/rfi-response/) tutorial.
+For instructions on how to submit a response, see the [Submit an RFI Response](rfis3-rfi-response.md) tutorial.
 
 Note that at least one response must be submitted before the RFI can be transitioned to `answered` status in Step 5.
 
@@ -1878,7 +1878,7 @@ curl --location 'https://developer.api.autodesk.com/construction/rfis/v3/project
 
 Show More
 
-Use the project ID (`afc6e536-3a12-4ecf-8302-3f283d50dc6f`), the RFI ID (`48ae70ef-c215-4781-a7c2-394afaae0d9c`), and the managerâs ID (`KMQ7KREACSE7`) to call [PATCH rfis/:rfiId](/en/docs/acc/v1/reference/http/rfis-V3-rfisrfiid-PATCH/) to transition the RFI from open status to answered status.
+Use the project ID (`afc6e536-3a12-4ecf-8302-3f283d50dc6f`), the RFI ID (`48ae70ef-c215-4781-a7c2-394afaae0d9c`), and the managerâs ID (`KMQ7KREACSE7`) to call [PATCH rfis/:rfiId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/rfis-V3-rfisrfiid-PATCH/) to transition the RFI from open status to answered status.
 
 ### Request
 

@@ -24,7 +24,7 @@ Examples of AggregatedView functionality include:
 - View Switches: Allow visibility toggling (hide/show) versus full view switches (switchView(nodes)), the latter including proper reset of camera, UI, and extensions.
 - Diff Setups: Use diffOptions to view changes between aggregated views.
 
-For more information, see: [AggregatedView](/en/docs/viewer/v7/reference/Viewing/AggregatedView)
+For more information, see: [AggregatedView](../reference-docs/Viewing-AggregatedView.md)
 
 # Initialize and load a model with Aggregated View
 
@@ -120,4 +120,4 @@ view.unloadAll();
 
 ```
 
-For an Interactive Example, see [Aggregated View](/en/docs/viewer/v7/developers_guide/interactive_examples/example_6/).
+For an Interactive Example, see [Aggregated View](interactive_examples-example_6.md).

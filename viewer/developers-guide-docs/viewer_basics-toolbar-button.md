@@ -16,7 +16,7 @@ Clicking one button displays the environment background, while clicking the othe
 
 ## [Before You Begin](#before-you-begin)
 
-The customization logic is is implemented as an [extension](/en/docs/viewer/v7/developers_guide/viewer_basics/extensions).
+The customization logic is is implemented as an [extension](viewer_basics-extensions.md).
 
 ```
 function ToolbarExtension(viewer, options) {
@@ -134,5 +134,5 @@ ToolbarExtension.prototype.unload = function() {
 
 ```
 
-As explained in [Writing an Extension](/en/docs/viewer/v7/developers_guide/viewer_basics/extensions/), you can verify that the extension works as expected by manually
+As explained in [Writing an Extension](viewer_basics-extensions.md), you can verify that the extension works as expected by manually
 calling the `viewer.loadExtension('ToolbarExtension')` and `viewer.unload('ToolbarExtension')` methods.

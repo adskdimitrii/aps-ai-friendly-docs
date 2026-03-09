@@ -27,7 +27,7 @@ Adds a new control to the combo fly-out.
 
 ### Parameters
 
-| button*   [Autodesk.Viewing.UI.Button](/en/docs/viewer/v7/reference/UI/Button/) |  |
+| button*   [Autodesk.Viewing.UI.Button](UI-Button.md) |  |
 | --- | --- |
 
 * Required
@@ -38,7 +38,7 @@ Removes a control from the combo fly-out.
 
 ### Parameters
 
-| button*   [Autodesk.Viewing.UI.Button](/en/docs/viewer/v7/reference/UI/Button/) |  |
+| button*   [Autodesk.Viewing.UI.Button](UI-Button.md) |  |
 | --- | --- |
 
 * Required
@@ -49,7 +49,7 @@ Sets the state of this combo button.
 
 ### Parameters
 
-| state*   [Autodesk.Viewing.UI.Button.State](/en/docs/viewer/v7/reference/UI/Button/#State/) | The state. |
+| state*   [Autodesk.Viewing.UI.Button.State](UI-Button.md#State/) | The state. |
 | --- | --- |
 
 * Required
@@ -81,7 +81,7 @@ Returns the state of this button.
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.UI.Button.State](/en/docs/viewer/v7/reference/UI/Button/#State/) | The state of the button. |
+| [Autodesk.Viewing.UI.Button.State](UI-Button.md#State/) | The state of the button. |
 
 ## [onClick(event)](#onclick-event)
 
@@ -290,7 +290,7 @@ Event fired when state of the button changes.
 
 | buttonId   string | The ID of the button that fired this event. |
 | --- | --- |
-| state   [Autodesk.Viewing.UI.Button.State](/en/docs/viewer/v7/reference/UI/Button/#State/) | The new state of the button. |
+| state   [Autodesk.Viewing.UI.Button.State](UI-Button.md#State/) | The new state of the button. |
 
 ## [VISIBILITY_CHANGED](#visibility-changed)
 

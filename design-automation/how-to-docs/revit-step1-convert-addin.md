@@ -190,7 +190,7 @@ When an add-in runs on Revit, the add-in uses the UI to communicate warnings and
 For this walkthrough, you will use the default error handler. You donât need to add any code to enable the default error handler because it comes by default with the Automation Service Bridge (formerly known as the Design Automation Bridge).
 The default error handler suppresses warnings and resolves errors automatically by applying the default options. If resolution of an error fails, it rolls back the failed action.
 
-For more information refer [Handling Revit Failures](/en/docs/design-automation/v3/tutorials/handling-failures) .
+For more information refer [Handling Revit Failures](https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/handling-failures/) .
 
 ## [Step 8 - Build the add-in](#step-8-build-the-add-in)
 
@@ -200,5 +200,5 @@ You should now have an Automation API compatible Revit add-in.
 
 ## [Additional notes](#additional-notes)
 > - Use the [debug tool](https://github.com/autodesk-platform-services/aps-automation-csharp-revit.local.debug.tool) on GitHub to test an add-in designed for the Automation API locally. The [Readme file](https://github.com/autodesk-platform-services/aps-automation-csharp-revit.local.debug.tool/blob/master/README.md) in the GitHub repository provides instructions on how to test the add-in. You can also follow a [video tutorial](https://youtu.be/i0LJ9JOpKMQ) on how to use this tool on YouTube.
-> - Your application cannot use the network or write to any files outside of the current working directory (or a child folder of the working directory). Restrictions for Revit on the Automation Service can be found [here](/en/docs/design-automation/v3/developers_guide/restrictions).
+> - Your application cannot use the network or write to any files outside of the current working directory (or a child folder of the working directory). Restrictions for Revit on the Automation Service can be found [here](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/restrictions/).
 > - If step 8 fails, you can download an Automation API compatible version of *DeleteWalls.dll* from [here](https://github.com/autodesk-platform-services/aps-tutorial-postman/tree/master/DA4Revit/walkthrough_data) and continue with task 2.

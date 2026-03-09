@@ -16,7 +16,7 @@ You will use the following operation in this task:
 
 | HTTP Request | Description |
 | --- | --- |
-| [POST /buckets/{bucketKey}/objects/{objectKey}/signed](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signed-POST) | Creates a signed URL to an object in an OSS bucket. |
+| [POST /buckets/{bucketKey}/objects/{objectKey}/signed](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signed-POST.md) | Creates a signed URL to an object in an OSS bucket. |
 
 ## [Step 1 - Get a temporary download URL for the result](#step-1-get-a-temporary-download-url-for-the-result)
 

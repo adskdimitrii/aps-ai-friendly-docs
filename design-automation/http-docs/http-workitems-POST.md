@@ -33,7 +33,7 @@ Service wide. These limits are enforced during workitem submission.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 
@@ -61,7 +61,7 @@ Expand all
 | url*   string | Url. |
 | headers   object | Headers. |
 | *   string | Type: dictionary<string, [*](#id4)> |
-| verb   enum:string | Defines the operation for a parameter. get, refget, put, post, patch imply an HTTP operation on the url in the parameter. get and refget imply input parameters all others are output. For more information on `refget` see [this page](/en/docs/design-automation/v3/developers_guide/reference-downloading/). Possible values: `get`, `refget`, `head`, `put`, `post`, `patch` |
+| verb   enum:string | Defines the operation for a parameter. get, refget, put, post, patch imply an HTTP operation on the url in the parameter. get and refget imply input parameters all others are output. For more information on `refget` see [this page](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/reference-downloading/). Possible values: `get`, `refget`, `head`, `put`, `post`, `patch` |
 | multiparts   object | Provide [multipart post](http://hc.apache.org/httpclient-3.x/methods/multipartpost.html) method to upload the results and multiparts can be empty if there is no âparameterâ to provide. <br>It supports [Box](https://developer.box.com/reference#upload), [Google Drive](https://developers.google.com/drive/api/v3/manage-uploads#multipart) and [Amazon Simple Storage Service (S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html) services.<br>Examples of using argument âmultipartsâ:<br>Box:  | âmultipartsâ: | {âattributesâ: {ânameâ: âresult.txtâ, âparentâ: {âidâ: âxxxxxâ}}, âmydataâ: âxxxxxâ} | | --- | --- | <br>Google Drive:  | âmultipartsâ: | {âkeysâ: {ânameâ: âresult.txtâ, âparentâ :[âxxxxxâ]}} | | --- | --- | <br>Amazon Simple Storage Service (S3):  | âmultipartsâ: | {âkeyâ: âresult.txtâ, âpolicyâ: âxxxxxâ, âx-amz-signatureâ: âxxxxxâ, âx-amz-credentialâ: âxxxxxâ, âx-amz-algorithmâ: âAWS4-HMAC-SHA256â, âx-amz-dateâ: â20190820T000000Zâ, âbucketâ: âxxxxxâ} | | --- | --- | |
 | *   object | Type: dictionary<string, [*](#id6)> |
 | signatures   object | Signatures for various WorkItem attributes. |

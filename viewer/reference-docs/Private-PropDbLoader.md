@@ -46,8 +46,8 @@ Gets the properties for an ID.
 
 | dbId*   number | The database identifier. |
 | --- | --- |
-| onSuccess   [Callbacks#onPropertiesSuccess](/en/docs/viewer/v7/reference/Callbacks/onPropertiesSuccess/) | Callback for when the properties are fetched. |
-| onError   [Callbacks#onGenericError](/en/docs/viewer/v7/reference/Callbacks/onGenericError/) | Callback for when the properties are not found or another error occurs. |
+| onSuccess   [Callbacks#onPropertiesSuccess](https://aps.autodesk.com/en/docs/viewer/v7/reference/Callbacks/onPropertiesSuccess/) | Callback for when the properties are fetched. |
+| onError   [Callbacks#onGenericError](https://aps.autodesk.com/en/docs/viewer/v7/reference/Callbacks/onGenericError/) | Callback for when the properties are not found or another error occurs. |
 
 * Required
 
@@ -61,8 +61,8 @@ Expand all
 
 | dbId*   number | The database identifier. |
 | --- | --- |
-| onSuccess   [Callbacks#onPropertiesSuccess](/en/docs/viewer/v7/reference/Callbacks/onPropertiesSuccess/) | Callback for when the properties are fetched. |
-| onError   [Callbacks#onGenericError](/en/docs/viewer/v7/reference/Callbacks/onGenericError/) | Callback for when the properties are not found or another error occurs. |
+| onSuccess   [Callbacks#onPropertiesSuccess](https://aps.autodesk.com/en/docs/viewer/v7/reference/Callbacks/onPropertiesSuccess/) | Callback for when the properties are fetched. |
+| onError   [Callbacks#onGenericError](https://aps.autodesk.com/en/docs/viewer/v7/reference/Callbacks/onGenericError/) | Callback for when the properties are not found or another error occurs. |
 | options   object |  |
 | needsExternalId   boolean | If true, we enforce loading of externalIDs if necessary. ExternalIds may significantly increase memory consumption and should only be loaded if unavoidable. |
 
@@ -105,7 +105,7 @@ Expand all
 
 ## [getPropertySet(dbIds, options, onSuccess, onError)](#getpropertyset-dbids-options-onsuccess-onerror)
 
-Retrieves properties related to the specified dbIds. The results object that is passed into the onSuccess callback contains the displayName and displayCategory separated by a â/â as the key and all of the related properties as the entryâs value. The results can be used to create a new [PropertySet](/en/docs/viewer/v7/reference/Viewing/PropertySet/) instance.
+Retrieves properties related to the specified dbIds. The results object that is passed into the onSuccess callback contains the displayName and displayCategory separated by a â/â as the key and all of the related properties as the entryâs value. The results can be used to create a new [PropertySet](Viewing-PropertySet.md) instance.
 
 ### Parameters
 
@@ -124,11 +124,11 @@ Expand all
 
 ## [executeUserFunction(code, userData)](#executeuserfunction-code-userdata)
 
-Allows executing user supplied function code on the worker thread against the [PropertyDatabase](/en/docs/viewer/v7/reference/Private/PropertyDatabase/) instance. The returned value from the supplied function will be used to resolve the returned Promise.
+Allows executing user supplied function code on the worker thread against the [PropertyDatabase](Private-PropertyDatabase.md) instance. The returned value from the supplied function will be used to resolve the returned Promise.
 
 ### Parameters
 
-| code*   function, string | Function takes two arguments, the [PropertyDatabase](/en/docs/viewer/v7/reference/Private/PropertyDatabase/) instance and userData. |
+| code*   function, string | Function takes two arguments, the [PropertyDatabase](Private-PropertyDatabase.md) instance and userData. |
 | --- | --- |
 | userData*   <br> | A value that will get passed to the `code` function when run in the property worker context. it needs to be serializable. |
 

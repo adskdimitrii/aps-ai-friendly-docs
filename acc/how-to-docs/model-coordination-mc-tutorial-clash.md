@@ -6,17 +6,17 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/model-coordination/mc-tut
 
 # Model Set Version Clash
 
-This tutorial demonstrates how to work with the results of the automated clash testing that the BIM 360 Model Coordination clash service performs whenever a new [model set version](/en/docs/bim360/v1/overview/field-guide/model-coordination/mcfg-model-set) is created. New model set versions are typically created by users uploading new versions of model files to folders that have been configured as model sets by model coordination administrators. The results of clash testing are a set of compressed, versioned, JSON files. You need to download these files locally before you can interpret them. The API provides endpoints to discover and download these result files.
+This tutorial demonstrates how to work with the results of the automated clash testing that the BIM 360 Model Coordination clash service performs whenever a new [model set version](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/model-coordination/mcfg-model-set/) is created. New model set versions are typically created by users uploading new versions of model files to folders that have been configured as model sets by model coordination administrators. The results of clash testing are a set of compressed, versioned, JSON files. You need to download these files locally before you can interpret them. The API provides endpoints to discover and download these result files.
 
 ## [Before You Begin](#before-you-begin)
 
-Make sure that you have [registered an app](/en/docs/oauth/v2/tutorials/create-app). and successfully [acquired an OAuth token](/en/docs/oauth/v2/tutorials/http/get-2-legged-token) with the `data:read`, `data:write` and `data:create` scopes.
+Make sure that you have [registered an app](../../oauth/how-to-docs/create-app.md). and successfully [acquired an OAuth token](https://aps.autodesk.com/en/docs/oauth/v2/tutorials/http/get-2-legged-token/) with the `data:read`, `data:write` and `data:create` scopes.
 
 You also need a configured a`BIM 360 Model Coordination space <<https://help.autodesk.com/view/BIM360D/ENU/?guid=GUID-8B8DB128-F95B-461D-B265-468481208944>>`_ with some uploaded models, and must ensure that the clash process has completed successfully.
 
 ## [Step 1: Get the latest Model Set Version](#step-1-get-the-latest-model-set-version)
 
-Before working with model set clash data, you need to decide which set version you want to use. [GET modelsets/:modelSetId/versions/latest](/en/docs/bim360/v1/reference/http/mc-modelset-service-v3-get-model-set-version-latest-GET) allows you to obtain the latest model set version for the model set. You can use this endpoint to obtain a model set version number that you can use in conjunction with the clash endpoints to interrogate the results of clash testing.
+Before working with model set clash data, you need to decide which set version you want to use. [GET modelsets/:modelSetId/versions/latest](../http-docs/http-mc-modelset-service-v3-get-model-set-version-latest-GET.md) allows you to obtain the latest model set version for the model set. You can use this endpoint to obtain a model set version number that you can use in conjunction with the clash endpoints to interrogate the results of clash testing.
 
 ### Example Request
 
@@ -67,7 +67,7 @@ You can use the value of `version` in the response above to obtain the clash tes
 
 ## [Step 2: Get the Clash Tests for the Model Set Version](#step-2-get-the-clash-tests-for-the-model-set-version)
 
-The step above demonstrated how to get the latest version of a model set, but other methods on the model set service allow you to discover all the versions of a model set. Once you have determined the model set version you want to use, you can call [GET modelsets/:modelSetId/versions/:version/tests](/en/docs/bim360/v1/reference/http/mc-clash-service-v3-get-model-set-version-clash-tests-GET) to get the list of clash tests that have been performed against the model set version. This endpoint returns the test ID (a GUID) and the status of the test. A status of `Success` indicates that the test is complete and the test results are ready to download. You cannot download clash results unless the test is successful. You can use the clash test ID (GUID) to access the clash test result resources.
+The step above demonstrated how to get the latest version of a model set, but other methods on the model set service allow you to discover all the versions of a model set. Once you have determined the model set version you want to use, you can call [GET modelsets/:modelSetId/versions/:version/tests](../http-docs/http-mc-clash-service-v3-get-model-set-version-clash-tests-GET.md) to get the list of clash tests that have been performed against the model set version. This endpoint returns the test ID (a GUID) and the status of the test. A status of `Success` indicates that the test is complete and the test results are ready to download. You cannot download clash results unless the test is successful. You can use the clash test ID (GUID) to access the clash test result resources.
 
 ### Example Request
 
@@ -98,7 +98,7 @@ Show More
 
 ## [Step 3: Get the Clash Test Result Resource URLs](#step-3-get-the-clash-test-result-resource-urls)
 
-The results of clash testing are a set of gzip compressed JSON documents that are generated by the clash test process and written to cloud storage. To work with the clash test results, you need to download these files locally. The [GET tests/:testId/resources](/en/docs/bim360/v1/reference/http/mc-clash-service-v3-get-clash-test-resources-GET) endpoint returns the URLs necessary to download the compressed clash result files. Note that the individual resource URLs returned by the clash service are time limited; you can use the validUntil property in the response from the resources endpoint to determine the viability of the associated URL. If the lease expires before you have downloaded a file, subsequent calls to the resources endpoint yield a new set of URLs with a new lease.
+The results of clash testing are a set of gzip compressed JSON documents that are generated by the clash test process and written to cloud storage. To work with the clash test results, you need to download these files locally. The [GET tests/:testId/resources](../http-docs/http-mc-clash-service-v3-get-clash-test-resources-GET.md) endpoint returns the URLs necessary to download the compressed clash result files. Note that the individual resource URLs returned by the clash service are time limited; you can use the validUntil property in the response from the resources endpoint to determine the viability of the associated URL. If the lease expires before you have downloaded a file, subsequent calls to the resources endpoint yield a new set of URLs with a new lease.
 
 ### Example Request
 

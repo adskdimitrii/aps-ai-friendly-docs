@@ -11,7 +11,7 @@ This walkthrough explains how to enable API access for an application in Autodes
 ## [Before You Begin](#before-you-begin)
 
 Verify that you have Admin access to an Autodesk Construction Cloud (ACC) account.
-- [Register an app](/en/docs/oauth/v2/tutorials/create-app), and note the [client ID](/myapps).
+- [Register an app](../../oauth/how-to-docs/create-app.md), and note the [client ID](/myapps).
 
 ## [Step 1: Access Account Administration](#step-1-access-account-administration)
 

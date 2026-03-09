@@ -6,39 +6,39 @@ Source: https://aps.autodesk.com/en/docs/webhooks/tutorials/create-a-hook-review
 
 # Creating a Webhook and Listening to ACC Reviews Events
 
-This walkthrough demonstrates how to create a Webhook to register callbacks for specified types of [Autodesk Construction Cloud (ACC) Reviews events](/en/docs/webhooks/v1/reference/events/reviews_events). The steps include finding the scope ID for the events, choosing the event type for the webhook to listen for, preparing to handle callbacks, and creating the webhook.
+This walkthrough demonstrates how to create a Webhook to register callbacks for specified types of [Autodesk Construction Cloud (ACC) Reviews events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/reviews_events/). The steps include finding the scope ID for the events, choosing the event type for the webhook to listen for, preparing to handle callbacks, and creating the webhook.
 
-For more details about the Reviews API, see the [Reviews Field Guide](/en/docs/acc/v1/overview/field-guide/reviews).
+For more details about the Reviews API, see the [Reviews Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/reviews/).
 
 ## [Before You Begin](#before-you-begin)
 
-- Make sure that you have [registered an app](/myapps) and successfully [acquired an OAuth token](/en/docs/oauth/v2/tutorials/create-app) .
-- The Reviews Webhook supports only 3-legged OAuth tokens. See [Get a 3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token) to acquire a 3-legged OAuth token with scopes.
+- Make sure that you have [registered an app](/myapps) and successfully [acquired an OAuth token](../../oauth/how-to-docs/create-app.md) .
+- The Reviews Webhook supports only 3-legged OAuth tokens. See [Get a 3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) to acquire a 3-legged OAuth token with scopes.
 - All requests to the Webhooks Service require the `data:read` scope.
 - You need the `data:create` scope to create a webhook.
-- Specify the `region` header to indicate the region in which the request is executed. The default value is `US`. You can also provide a specific region API value. For more details, see [Region](/en/docs/acc/v1/overview/acc-regions). The region parameter must remain consistent with the value used at creation time when listing, querying, or deleting webhooks.
+- Specify the `region` header to indicate the region in which the request is executed. The default value is `US`. You can also provide a specific region API value. For more details, see [Region](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/). The region parameter must remain consistent with the value used at creation time when listing, querying, or deleting webhooks.
 
 ## [Step 1: Find the Scope ID for Events](#step-1-find-the-scope-id-for-events)
 
-The Webhooks service uses the project ID as the scope for ACC Reviews events. To find the project ID, see the [Retrieve Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial.
+The Webhooks service uses the project ID as the scope for ACC Reviews events. To find the project ID, see the [Retrieve Project ID](../../acc/how-to-docs/getting-started-retrieve-account-and-project-id.md) tutorial.
 
-For more information about webhook scopes, see the [Field Guide](/en/docs/webhooks/v1/developers_guide/field-guide/).
+For more information about webhook scopes, see the [Field Guide](https://aps.autodesk.com/en/docs/webhooks/v1/developers_guide/field-guide/).
 
 ## [Step 2: Select an Event Type for Webhook Registration](#step-2-select-an-event-type-for-webhook-registration)
 
-The Webhooks service currently supports the events listed on the [Reviews Events](/en/docs/webhooks/v1/reference/events/reviews_events) page.
+The Webhooks service currently supports the events listed on the [Reviews Events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/reviews_events/) page.
 
 You can specify multiple event types by including wildcards in the event type name using the asterisk (`*`) character, which matches zero or more characters in the name. For example, specifying `review.*-1.0` will match `review.created-1.0` and `review.closed-1.0`.
 
-For more information about event types and wildcards, see [Supported Events](/en/docs/webhooks/v1/reference/events).
+For more information about event types and wildcards, see [Supported Events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/).
 
 ## [Step 3: Prepare to Manage Callbacks](#step-3-prepare-to-manage-callbacks)
 
-A webhook requires a callback URL to which the event data can be sent. See [Configuring Your Server](/en/docs/webhooks/v1/tutorials/configuring-your-server) to get started with a local server setup.
+A webhook requires a callback URL to which the event data can be sent. See [Configuring Your Server](configuring-your-server.md) to get started with a local server setup.
 
 ## [Step 4: Create a Webhook](#step-4-create-a-webhook)
 
-A webhook is created by making a `POST` request to `webhooks/v1/systems/:system/events/:event/hooks`. You can find additional details in the [endpoint documentation](/en/docs/webhooks/v1/reference/http/webhooks/systems-system-events-event-hooks-POST).
+A webhook is created by making a `POST` request to `webhooks/v1/systems/:system/events/:event/hooks`. You can find additional details in the [endpoint documentation](../http-docs/http-webhooks-systems-system-events-event-hooks-POST.md).
 
 ### Hook Attribute
 
@@ -46,7 +46,7 @@ In some scenarios, certain data (such as `projectId`) are not included in the ev
 
 Provide the `hookAttribute` property with a JSON object that you want to include in the callback, such as the `projectId` or any other information from your app.
 
-For more information, see the [Webhooks Field Guide](/en/docs/webhooks/v1/developers_guide/field-guide).
+For more information, see the [Webhooks Field Guide](https://aps.autodesk.com/en/docs/webhooks/v1/developers_guide/field-guide/).
 
 ### Filter
 
@@ -54,7 +54,7 @@ You might want to filter the callbacks you receive based on the payload of the c
 
 Provide the `filter` attribute in the endpoint request payload with a JSONPath expression that specifies the callback payload field values to filter on.
 
-For more information, see [Callback Filtering](/en/docs/webhooks/v1/developers_guide/callback-filtering).
+For more information, see [Callback Filtering](https://aps.autodesk.com/en/docs/webhooks/v1/developers_guide/callback-filtering/).
 
 ### Example Input Values
 

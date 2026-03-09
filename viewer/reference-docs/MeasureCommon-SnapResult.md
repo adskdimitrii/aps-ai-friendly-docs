@@ -10,7 +10,7 @@ Autodesk.Viewing.MeasureCommon
 
 ## [new SnapResult()](#new-snapresult)
 
-Encapsulates the result of a Snap operation performed by the [Snapper](/en/docs/viewer/v7/reference/Snapping/Snapper/).
+Encapsulates the result of a Snap operation performed by the [Snapper](Snapping-Snapper.md).
 
 # Methods
 
@@ -24,7 +24,7 @@ Copies the current state of the object into another.
 
 ### Parameters
 
-| destiny*   [SnapResult](/en/docs/viewer/v7/reference/MeasureCommon/SnapResult/) | target for the copy operation. |
+| destiny*   [SnapResult](MeasureCommon-SnapResult.md) | target for the copy operation. |
 | --- | --- |
 
 * Required
@@ -37,7 +37,7 @@ Creates a new instance and copies the current state into it.
 
 | type | description |
 | --- | --- |
-| [SnapResult](/en/docs/viewer/v7/reference/MeasureCommon/SnapResult/) |  |
+| [SnapResult](MeasureCommon-SnapResult.md) |  |
 
 ## [isEmpty()](#isempty)
 

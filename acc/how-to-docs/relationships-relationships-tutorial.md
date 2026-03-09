@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/relationships/relationshi
 
 # Relationship Querying
 
-The Relationship Service is used in BIM 360 to link entities across domains. The following document assumes the reader is familiar with the concept of domain entity linking. If you have not already done so refer to [Relationship Service Field Guide](/en/docs/bim360/v1/overview/field-guide/relationships) which explains the concepts underpinning the relationship service.
+The Relationship Service is used in BIM 360 to link entities across domains. The following document assumes the reader is familiar with the concept of domain entity linking. If you have not already done so refer to [Relationship Service Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/relationships/) which explains the concepts underpinning the relationship service.
 
 ## [Relationship Domain and Entity Types](#relationship-domain-and-entity-types)
 
@@ -76,7 +76,7 @@ The following table lists `Domains` and `Entity Types` currently supported by th
 
 ## [Get Relationships by ID](#get-relationships-by-id)
 
-The [get relationship by unique ID endpoint](/en/docs/bim360/v1/reference/http/relationships-get-relationship-by-id-GET) is used to retrieve a relationship given its GUID unique ID. This endpoint is only typically useful if you have previously cached the IDs of relationships from a search query (see below).
+The [get relationship by unique ID endpoint](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/relationships-get-relationship-by-id-GET/) is used to retrieve a relationship given its GUID unique ID. This endpoint is only typically useful if you have previously cached the IDs of relationships from a search query (see below).
 
 ### Example Request
 
@@ -119,7 +119,7 @@ In the case of this example the relationship ID `b544a7eb-3c64-4a56-a7ff-392d044
 
 ## [Get Relationship Batch](#get-relationship-batch)
 
-The [relationship batch endpoint](/en/docs/bim360/v1/reference/http/relationships-get-relationships-batch-POST) can be used to retrieve a set of relationships using their unique GUID IDs. This endpoint is only typically useful if you have previously cached the IDs of relationships from a search query (see below).
+The [relationship batch endpoint](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/relationships-get-relationships-batch-POST/) can be used to retrieve a set of relationships using their unique GUID IDs. This endpoint is only typically useful if you have previously cached the IDs of relationships from a search query (see below).
 
 ### Example Request
 
@@ -203,7 +203,7 @@ By contrast the intersect endpoint makes more specific starting assumptions abou
 
 ## [Search Relationships](#search-relationships)
 
-The [relationship search endpoint](/en/docs/bim360/v1/reference/http/relationships-search-relationships-GET) can be used to retrieve relationships using the domain, entity type and id hierarchy [implicit in the relationship serviceâs data model](/en/docs/bim360/v1/overview/field-guide/relationships). The search endpoint uses the `domain`, `type`, `id`, `withDomain`, `withType` and `withId` query parameters to control the search endpointâs behaviour. `Deleted` relationships will only be returned if the `includeDeleted` query parameter is set to true. Remember the importance of supplying fully qualified search qualifiers `domain+entityType+id`, `domain+entityType` or `domain` on either side of the search.
+The [relationship search endpoint](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/relationships-search-relationships-GET/) can be used to retrieve relationships using the domain, entity type and id hierarchy [implicit in the relationship serviceâs data model](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/relationships/). The search endpoint uses the `domain`, `type`, `id`, `withDomain`, `withType` and `withId` query parameters to control the search endpointâs behaviour. `Deleted` relationships will only be returned if the `includeDeleted` query parameter is set to true. Remember the importance of supplying fully qualified search qualifiers `domain+entityType+id`, `domain+entityType` or `domain` on either side of the search.
 
 ### Example Request
 
@@ -275,7 +275,7 @@ Show More
 
 ## [Intersect Relationships](#intersect-relationships)
 
-The [relationship intersection endpoint](/en/docs/bim360/v1/reference/http/relationships-intersect-relationships-POST) is similar to the [relationship search endpoint](/en/docs/bim360/v1/reference/http/relationships-search-relationships-GET) in that it allows callers to control the domains and entity types which are being queried. The intersection endpoint however takes things one step further in that it requires users to pass a set of entities and then intersect these entities with other domains and entity types. Callers `POST` two collections of domain entities , `entities` which must be fully specified (Domain, Entity and Entity ID) and a second collection `withEntities` which can be fully or partially specified. In the following example four BIM 360 assets are passed in the `entities` collection and the `withEntities` collection is used to request relationships which contain these assets and links to any issues or photos associated with these assets.
+The [relationship intersection endpoint](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/relationships-intersect-relationships-POST/) is similar to the [relationship search endpoint](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/relationships-search-relationships-GET/) in that it allows callers to control the domains and entity types which are being queried. The intersection endpoint however takes things one step further in that it requires users to pass a set of entities and then intersect these entities with other domains and entity types. Callers `POST` two collections of domain entities , `entities` which must be fully specified (Domain, Entity and Entity ID) and a second collection `withEntities` which can be fully or partially specified. In the following example four BIM 360 assets are passed in the `entities` collection and the `withEntities` collection is used to request relationships which contain these assets and links to any issues or photos associated with these assets.
 
 ### Example Request
 
@@ -383,11 +383,11 @@ In the response above only two assets in the request are returned. This indicate
 
 ## [Relationship Sync](#relationship-sync)
 
-The relationship service supports full data synchronisation via the [relationship sync endpoint](/en/docs/bim360/v1/reference/http/relationships-relationships-sync-POST). This endpoint allows callers to replicate ALL of the relationships stored in the relationship service to an external repository. After relationships have been initially replicated subsequent calls to the the sync endpoint can be used to discover changes which have occurred between the time the initial synchronisation ended and ânowâ.
+The relationship service supports full data synchronisation via the [relationship sync endpoint](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/relationships-relationships-sync-POST/). This endpoint allows callers to replicate ALL of the relationships stored in the relationship service to an external repository. After relationships have been initially replicated subsequent calls to the the sync endpoint can be used to discover changes which have occurred between the time the initial synchronisation ended and ânowâ.
 
 ### Bootstrapping Sync with no syncToken
 
-Calling the [relationship sync endpoint](/en/docs/bim360/v1/reference/http/relationships-relationships-sync-POST) with no initial `syncToken` will result in a full download of all the relationships currently in the system.
+Calling the [relationship sync endpoint](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/relationships-relationships-sync-POST/) with no initial `syncToken` will result in a full download of all the relationships currently in the system.
 
 ```
 curl -v 'https://developer.api.autodesk.com/bim360/relationship/v2/containers/04074497-ed5d-4ea3-861d-1f146418f5bb/relationships:sync' \
@@ -405,7 +405,7 @@ Show More
 
 ### Calling Sync with a syncToken
 
-Calling the [relationship sync endpoint](/en/docs/bim360/v1/reference/http/relationships-relationships-sync-POST) with a `syncToken` will result in a full download of all the relationships which have changed (been added to the service or deleted) since the initial call which yielded the `syncToken` passed in the request. The [relationship search endpoint](/en/docs/bim360/v1/reference/http/relationships-search-relationships-GET) and the [relationship intersection endpoint](/en/docs/bim360/v1/reference/http/relationships-intersect-relationships-POST) both return syncTokens in the page header in their responses. These syncTokens can be passed to the [relationship sync endpoint](/en/docs/bim360/v1/reference/http/relationships-relationships-sync-POST) to limit the scope of the synchronisation. For example if a syncToken from a filtered search is used then the relationships downloaded will be restricted by the same search criteria used in the search request.
+Calling the [relationship sync endpoint](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/relationships-relationships-sync-POST/) with a `syncToken` will result in a full download of all the relationships which have changed (been added to the service or deleted) since the initial call which yielded the `syncToken` passed in the request. The [relationship search endpoint](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/relationships-search-relationships-GET/) and the [relationship intersection endpoint](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/relationships-intersect-relationships-POST/) both return syncTokens in the page header in their responses. These syncTokens can be passed to the [relationship sync endpoint](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/relationships-relationships-sync-POST/) to limit the scope of the synchronisation. For example if a syncToken from a filtered search is used then the relationships downloaded will be restricted by the same search criteria used in the search request.
 
 ```
 curl -v 'https://developer.api.autodesk.com/bim360/relationship/v2/containers/04074497-ed5d-4ea3-861d-1f146418f5bb/relationships:sync' \
@@ -486,7 +486,7 @@ Show More
 
 ### Relationship Sync Status
 
-The [relationship service sync status endpoint](/en/docs/bim360/v1/reference/http/relationships-relationships-sync-status-POST) can be used to check if there is new data or changes available for a given syncToken. This endpoint accepts multiple syncTokens and returns a response for each syncToken passed. If `moreData` is set to `true` then a call to the [relationship sync endpoint](/en/docs/bim360/v1/reference/http/relationships-relationships-sync-POST) with the syncToken passed in the status check will yield updated relationships. The `overwrite` flag instructs callers âre-setâ their copy of the relationship data if it is set to `true`.
+The [relationship service sync status endpoint](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/relationships-relationships-sync-status-POST/) can be used to check if there is new data or changes available for a given syncToken. This endpoint accepts multiple syncTokens and returns a response for each syncToken passed. If `moreData` is set to `true` then a call to the [relationship sync endpoint](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/relationships-relationships-sync-POST/) with the syncToken passed in the status check will yield updated relationships. The `overwrite` flag instructs callers âre-setâ their copy of the relationship data if it is set to `true`.
 
 ```
 curl -v 'https://developer.api.autodesk.com/bim360/relationship/v2/containers/04074497-ed5d-4ea3-861d-1f146418f5bb/relationships:syncStatus' \

@@ -43,7 +43,7 @@ await view.init(viewerElement, options);
 
 Initializes the AggregatedView and loads the following predefined extensions: `Autodesk.CrossFadeEffects`, `Autodesk.AEC.LevelsExtension`, `Autodesk.ModelStructure`, `Autodesk.AEC.HyperlinkExtension`, `Autodesk.AEC.Minimap3DExtension`, `Autodesk.AEC.CanvasBookmarkExtension` and `Autodesk.AEC.DropMeExtension` The initialization can also be customized with the options object.
 
-To initialize the viewer without loading the specified extension please reference [initViewerInstance](/en/docs/viewer/v7/reference/Viewing/AggregatedView/#initViewerInstance/).
+To initialize the viewer without loading the specified extension please reference [initViewerInstance](Viewing-AggregatedView.md#initViewerInstance/).
 
 ### Parameters
 
@@ -80,7 +80,7 @@ Expand all
 
 Initialize a new viewer instance.
 
-To initialize the viewer and load the default extensions please see [init](/en/docs/viewer/v7/reference/Viewing/AggregatedView/#init/).
+To initialize the viewer and load the default extensions please see [init](Viewing-AggregatedView.md#init/).
 
 ### Parameters
 
@@ -96,11 +96,11 @@ Resets tools, UI, camera, and refPoint. This method should be called when an exp
 
 ## [getModel(node)](#getmodel-node)
 
-Finds a model for the given bubbleNode or key. To get multiple models reference [getModels](#fixMe/). To make sure that the model is loaded reference [getModelAndWait](/en/docs/viewer/v7/reference/Viewing/AggregatedView/#getModelAndWait/).
+Finds a model for the given bubbleNode or key. To get multiple models reference [getModels](#fixMe/). To make sure that the model is loaded reference [getModelAndWait](Viewing-AggregatedView.md#getModelAndWait/).
 
 ### Parameters
 
-| node*   [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | The Bubble node to use to get the model |
+| node*   [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | The Bubble node to use to get the model |
 | --- | --- |
 
 * Required
@@ -109,7 +109,7 @@ Finds a model for the given bubbleNode or key. To get multiple models reference 
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | The model that corresponds to the bubbleNode |
+| [Autodesk.Viewing.Model](Viewing-Model.md) | The model that corresponds to the bubbleNode |
 
 ### Examples
 
@@ -128,7 +128,7 @@ Find a model for given bubbleNode or key. If the model is not available yet, wai
 
 ### Parameters
 
-| node*   [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | The Bubble node to use to get the model |
+| node*   [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | The Bubble node to use to get the model |
 | --- | --- |
 | checkIfVisible   Boolean | If true, will wait until model is also visible |
 
@@ -167,7 +167,7 @@ To get the bubbleNode from a URN please reference [Document#load](#fixMe/).
 
 ### Parameters
 
-| bubbleNode*   [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | The node to load and show in the viewer |
+| bubbleNode*   [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | The node to load and show in the viewer |
 | --- | --- |
 | customLoadOptions   Object | Optional extra loadOptions to override/extend the default ones |
 
@@ -201,11 +201,11 @@ Show More
 
 Hides the model associated from the supplied bubble node.
 
-To show the model reference [show](/en/docs/viewer/v7/reference/Viewing/AggregatedView/#show/).
+To show the model reference [show](Viewing-AggregatedView.md#show/).
 
 ### Parameters
 
-| bubbleNode*   [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | The node to hide in the viewer |
+| bubbleNode*   [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | The node to hide in the viewer |
 | --- | --- |
 
 * Required
@@ -225,7 +225,7 @@ Returns true if the supplied bubble node is currently visible.
 
 ### Parameters
 
-| bubbleNode*   [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | The BubbleNode to check the visibility of |
+| bubbleNode*   [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | The BubbleNode to check the visibility of |
 | --- | --- |
 
 * Required
@@ -266,7 +266,7 @@ Checks if the Otg manifest for a 3D viewable is available and complete. If not, 
 
 ### Parameters
 
-| bubbleNode*   [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | The BubbleNode |
+| bubbleNode*   [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | The BubbleNode |
 | --- | --- |
 
 * Required
@@ -279,11 +279,11 @@ Checks if the Otg manifest for a 3D viewable is available and complete. If not, 
 
 ## [load(bubbleNode, customLoadOptions)](#load-bubblenode-customloadoptions)
 
-Loads the model that is specified by the passed in bubbleNode parameter. Note this function will not show the model once it is loaded. To load and show the model reference the [show](/en/docs/viewer/v7/reference/Viewing/AggregatedView/#show/) method.
+Loads the model that is specified by the passed in bubbleNode parameter. Note this function will not show the model once it is loaded. To load and show the model reference the [show](Viewing-AggregatedView.md#show/) method.
 
 ### Parameters
 
-| bubbleNode*   [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | The BubbleNode |
+| bubbleNode*   [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | The BubbleNode |
 | --- | --- |
 | customLoadOptions   Object | Optional extra loadOptions to override/extend the default ones |
 
@@ -301,7 +301,7 @@ Unload the model that corresponds with the passed in bubbleNode.
 
 ### Parameters
 
-| bubbleNode*   [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | The BubbleNode to unload |
+| bubbleNode*   [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | The BubbleNode to unload |
 | --- | --- |
 
 * Required
@@ -387,11 +387,11 @@ Returns true if the BimWalk tool is active.
 
 Switches between bubble node models. This method will reset the view and then set the passed in nodes.
 
-Use this for explicit view switches. See [setNodes()](/en/docs/viewer/v7/reference/Viewing/AggregatedView/#setNodes/) for params.
+Use this for explicit view switches. See [setNodes()](Viewing-AggregatedView.md#setNodes/) for params.
 
 ### Parameters
 
-| bubbleNodes*   [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/), Array.<Autodesk.Viewing.BubbleNode> | The nodes to be shown |
+| bubbleNodes*   [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md), Array.<Autodesk.Viewing.BubbleNode> | The nodes to be shown |
 | --- | --- |
 | diffConfig   Object | see the setNodes method for the diffConfig parameter |
 
@@ -407,19 +407,19 @@ Use this for explicit view switches. See [setNodes()](/en/docs/viewer/v7/referen
 
 Load/Unload models so that the currently loaded models matches with the given list of svfs.
 
-Note: Use [switchView()](/en/docs/viewer/v7/reference/Viewing/AggregatedView/#switchView/) to do an explicit view switch (including resetting tools/camera). Use [setModels()](#fixMe/) to reconfiguring which models are visible in the current view.
+Note: Use [switchView()](Viewing-AggregatedView.md#switchView/) to do an explicit view switch (including resetting tools/camera). Use [setModels()](#fixMe/) to reconfiguring which models are visible in the current view.
 
 ### Parameters
 
 Expand all
 
-| bubbleNodes*   [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/), Array.<Autodesk.Viewing.BubbleNode> | The nodes to be shown |
+| bubbleNodes*   [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md), Array.<Autodesk.Viewing.BubbleNode> | The nodes to be shown |
 | --- | --- |
 | diffConfig   Object | Options to activate diff views. |
 | primaryBubbles   Array.<Autodesk.Viewing.BubbleNode> | A subset of âbubbleNodesâ that participates in the diff. If âbubbleNodesâ contains more, these will be ghosted. These nodes represent the current/as-is state |
 | diffBubbles   Array.<Autodesk.Viewing.BubbleNode> | Length must match primaryBubbles. For each node primaryBubbles[i], diffBubbles[i] provides the corresponding âbeforeâ state to compare against |
-| diff   [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | If svfs are sheet nodes, diff.supportModels must provide the bubbleNodes for the corresponding 3D support models. { diff, primary } |
-| primary   [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | Primary bubble node to do the diff comparison on |
+| diff   [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | If svfs are sheet nodes, diff.supportModels must provide the bubbleNodes for the corresponding 3D support models. { diff, primary } |
+| primary   [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | Primary bubble node to do the diff comparison on |
 | autoDetect   boolean | If true, support models are automatically found - works for Revit models with master views |
 
 * Required
@@ -438,7 +438,7 @@ Returns true if all pending loading is finished. More concrete, it means that th
 - geometry loading, or
 - propDbLoading pending or in progress.
 
-Reference [waitForLoadDone](/en/docs/viewer/v7/reference/Viewing/AggregatedView/#waitForLoadDone/).
+Reference [waitForLoadDone](Viewing-AggregatedView.md#waitForLoadDone/).
 
 ### Returns
 
@@ -448,7 +448,7 @@ Reference [waitForLoadDone](/en/docs/viewer/v7/reference/Viewing/AggregatedView/
 
 ## [waitForLoadDone()](#id46)
 
-Returns a promise that resolves when [isLoadDone()](/en/docs/viewer/v7/reference/Viewing/AggregatedView/#isLoadDone/) returns true.
+Returns a promise that resolves when [isLoadDone()](Viewing-AggregatedView.md#isLoadDone/) returns true.
 
 ### Returns
 
@@ -464,7 +464,7 @@ Given a bubble node referring to a 2D sheet node, this function returns the bubb
 
 ### Parameters
 
-| sheetNode*   [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | A 2d bubble node |
+| sheetNode*   [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | A 2d bubble node |
 | --- | --- |
 
 * Required
@@ -473,13 +473,13 @@ Given a bubble node referring to a 2D sheet node, this function returns the bubb
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | the coresponding 3d bubble node |
+| [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | the coresponding 3d bubble node |
 
 ## [findDiffSupportModels(diffConfig)](#finddiffsupportmodels-diffconfig)
 
 Find corresponding 3D model for each diff/primary The result will be stored in the passed in diffConfig. The results will be in diffConfig.supportBubbles.diff and diffConfig.supportBubbles.primary.
 
-For the diffConfig parameter reference [setNodes](/en/docs/viewer/v7/reference/Viewing/AggregatedView/#setNodes/).
+For the diffConfig parameter reference [setNodes](Viewing-AggregatedView.md#setNodes/).
 
 ### Parameters
 

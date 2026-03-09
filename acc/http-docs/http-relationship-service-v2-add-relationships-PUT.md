@@ -11,7 +11,7 @@ PUT
 # containers/:containerId/relationships
 > Creates a relationship between two entities (for example, asset and document). Relationships are stored in the project container, and are retrievable via the relationships search endpoints.
 
-Note that not all entities may be compatible. To learn how to verify the compatibility of two entities, see the [Create a Relationship tutorial](/en/docs/bim360/v1/tutorials/relationships/relationships-create/).
+Note that not all entities may be compatible. To learn how to verify the compatibility of two entities, see the [Create a Relationship tutorial](../how-to-docs/relationships-relationships-create.md).
 
 Note that in order to create a relationship between two entities, the entities must already exist, and you must have permission to access both entities in the proposed relationship.
 
@@ -31,10 +31,10 @@ Note that one entity may be related to a batch of up to 20 entities within a sin
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token/) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
-| x-ads-region   enum: string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](/en/docs/acc/v1/overview/acc-regions) page. |
+| x-ads-region   enum: string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
 
 * Required
 
@@ -54,7 +54,7 @@ Expand all
 | id   string: UUID | The UUID that uniquely identifies the relationship. If no `id` is supplied, the system automatically allocates one. |
 | --- | --- |
 | entities*   array: object | The entities to be contained in the relationship. <br>Min items: 2 Max items: 2 |
-| domain*   string | The domain to which the entity belongs. <br>To learn more about domains and entities, see the [Relationship Service Field Guide](/en/docs/bim360/v1/overview/field-guide/relationships).<br>Max length: 128 |
+| domain*   string | The domain to which the entity belongs. <br>To learn more about domains and entities, see the [Relationship Service Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/relationships/).<br>Max length: 128 |
 | type*   string | The type of entity. <br>Max length: 128 |
 | id*   string | The unique identifier of the entity. <br>Max length: 512 |
 
@@ -90,7 +90,7 @@ Expand all
 | deletedOn   datetime: ISO 8601 | The date and time the relationship was deleted. |
 | entities   array: object | The entities contained in the relationship. <br>Min items: 2 Max items: 2 |
 | createdOn   datetime: ISO 8601 | The date and time the entity was created. |
-| domain   string | The domain to which the entity belongs. <br>To learn more about domains and entities, see the [Relationship Service Field Guide](/en/docs/bim360/v1/overview/field-guide/relationships).<br>Max length: 128 |
+| domain   string | The domain to which the entity belongs. <br>To learn more about domains and entities, see the [Relationship Service Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/relationships/).<br>Max length: 128 |
 | type   string | The type of entity. <br>Max length: 128 |
 | id   string | The unique identifier of the entity. <br>Max length: 512 |
 
@@ -126,7 +126,7 @@ Expand all
 | deletedOn   datetime: ISO 8601 | The date and time the relationship was deleted. |
 | entities   array: object | The entities contained in the relationship. <br>Min items: 2 Max items: 2 |
 | createdOn   datetime: ISO 8601 | The date and time the entity was created. |
-| domain   string | The domain to which the entity belongs. <br>To learn more about domains and entities, see the [Relationship Service Field Guide](/en/docs/bim360/v1/overview/field-guide/relationships).<br>Max length: 128 |
+| domain   string | The domain to which the entity belongs. <br>To learn more about domains and entities, see the [Relationship Service Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/relationships/).<br>Max length: 128 |
 | type   string | The type of entity. <br>Max length: 128 |
 | id   string | The unique identifier of the entity. <br>Max length: 512 |
 | conflict   array: object | Conflicting relationships. <br>A conflict between IDs of an existing relationship and a proposed relationship, or due to allocating an array of entity items two different IDs. |
@@ -140,7 +140,7 @@ Expand all
 | deletedOn   datetime: ISO 8601 | The date and time the relationship was deleted. |
 | entities   array: object | The entities contained in the relationship. <br>Min items: 2 Max items: 2 |
 | createdOn   datetime: ISO 8601 | The date and time the entity was created. |
-| domain   string | The domain to which the entity belongs. <br>To learn more about domains and entities, see the [Relationship Service Field Guide](/en/docs/bim360/v1/overview/field-guide/relationships).<br>Max length: 128 |
+| domain   string | The domain to which the entity belongs. <br>To learn more about domains and entities, see the [Relationship Service Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/relationships/).<br>Max length: 128 |
 | type   string | The type of entity. <br>Max length: 128 |
 | id   string | The unique identifier of the entity. <br>Max length: 512 |
 

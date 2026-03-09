@@ -19,4 +19,4 @@ Object that is returned by the ray cast and hit test methods for each scene obje
 | faceIndex   number | Index of the intersected face, if available. |
 | fragId   number | ID of Viewer SDK fragment that was intersected. |
 | point   THREE.Vector3 | THREE.Vector3 point of intersection. |
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | Model instance the dbId belongs to. |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | Model instance the dbId belongs to. |

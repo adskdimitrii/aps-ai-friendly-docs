@@ -16,13 +16,13 @@ There are two ways to attach files:
 > 1. Attach a local file â attach a file from your local machine.
 > 2. Attach an existing file from the Files tool â link a file already stored in the system.
 
-To verify user permissions and required fields, call [GET item/:id](/en/docs/acc/v1/reference/http/submittals-items-itemId-GET/).
+To verify user permissions and required fields, call [GET item/:id](http-submittals-items-itemId-GET.md).
 
-Note that for local attachments, you must confirm the attachment by calling [PATCH attachments](/en/docs/acc/v1/reference/http/submittals-attachments-attachmentId-PATCH/) to finalize the upload.
+Note that for local attachments, you must confirm the attachment by calling [PATCH attachments](http-submittals-attachments-attachmentId-PATCH.md) to finalize the upload.
 
-For details about attaching local files, see the [Attach Local File to Submittals](/en/docs/acc/v1/tutorials/submittals/attach-local-files/) tutorial.
+For details about attaching local files, see the [Attach Local File to Submittals](../how-to-docs/submittals-attach-local-files.md) tutorial.
 
-For details about attaching exising files from the Files tool, see the [Attach Files From the ACC Files Tool to Submittals](/en/docs/acc/v1/tutorials/submittals/attach-files-tool/) tutorial.
+For details about attaching exising files from the Files tool, see the [Attach Files From the ACC Files Tool to Submittals](../how-to-docs/submittals-attach-files-tool.md) tutorial.
 
 For details about submittal attachments, see the [Submittal Attachments Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Submittal_Attachments).
 
@@ -40,7 +40,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 
@@ -50,20 +50,20 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring: UUID The ID of the project. Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
-- itemIdstring The ID of the submittal item. To find the item ID, call [GET items](/en/docs/acc/v1/reference/http/submittals-items-GET/).
+- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+- itemIdstring The ID of the submittal item. To find the item ID, call [GET items](http-submittals-items-GET.md).
 
 ### Request
 
 ## [Body Structure](#body-structure)
 
-| taskId   string: UUID | The ID of the task within the review step that the attachment is associated with. The task ID identifies the specific task in the review process where the attachment belongs. <br>This field is only required when the submittal item is in the **Review (``rev``)** state.<br>To retrieve the task ID, call [Get tasks](/en/docs/acc/v1/reference/http/submittals-tasks-GET/). |
+| taskId   string: UUID | The ID of the task within the review step that the attachment is associated with. The task ID identifies the specific task in the review process where the attachment belongs. <br>This field is only required when the submittal item is in the **Review (``rev``)** state.<br>To retrieve the task ID, call [Get tasks](http-submittals-tasks-GET.md). |
 | --- | --- |
 | name*   string | The user-defined name for the attachment. This value does not need to match the actual file name. For example, `design-review.pdf` or `Design Review`. <br>Spaces are allowed in the name.The following characters are not supported: `/`, `\n`, `\r`, `\t`, `\0`, `\f`, `?`, `*`, `\\`, `<`, `>`, `|`, `:`. |
-| isFileUploaded   boolean | Specifies whether the attachment upload has been completed. This value controls how the system processes the attachment. <br>`true`: if the attachment is complete.`false`: if the attachment is still in progress.<br>Behavior:<br>For local file uploads: The system initially considers the file as not uploaded (`false`). After completing the upload, you must set `isFileUploaded: true` using [PATCH attachments/:id](/en/docs/acc/v1/reference/http/submittals-attachments-attachmentId-PATCH/) to allow the system to process the attachment.For Files tool attachments: Always set to `true` since the file was uploaded earlier.<br>This field cannot be explicitly set to `false` in the request. If omitted, it defaults to `false`. |
+| isFileUploaded   boolean | Specifies whether the attachment upload has been completed. This value controls how the system processes the attachment. <br>`true`: if the attachment is complete.`false`: if the attachment is still in progress.<br>Behavior:<br>For local file uploads: The system initially considers the file as not uploaded (`false`). After completing the upload, you must set `isFileUploaded: true` using [PATCH attachments/:id](http-submittals-attachments-attachmentId-PATCH.md) to allow the system to process the attachment.For Files tool attachments: Always set to `true` since the file was uploaded earlier.<br>This field cannot be explicitly set to `false` in the request. If omitted, it defaults to `false`. |
 | urn   string | The unique identifier for the file version in the Files tool. This field is required for referencing a specific file version when attaching a file from the Files tool. This field is not applicable for local file uploads. When attaching a file from the Files tool, both `urn` and `urnTypeId` must be provided. |
 | urnTypeId*   enum:string | Specifies the type of URN associated with the attachment. <br>Possible values: `2` |
-| categoryId   enum:string | Specifies the workflow state of the submittal item associated with the attachment. If omitted, the system assigns one based on the current state. <br>Note that you can only set category IDs `1`-`4` when adding an attachment. Category IDs `5`-`8` are system-generated and appear in responses for historical records.<br>In some cases, you must manually set `categoryId`:<br>1. Subcontractor Submissions: When a subcontractor creates an item in the `Open (Submitted) - (mgr-1)` state, set `categoryId` to `1` (**Submission**) instead of `2` (**For Review**).<br>2. Final Response in Non-Standard Closures: When closing an item from a state other than `Open (Reviewed) - (mgr-2)`, set `categoryId` to `4` (**Final Response**) if uploading a final response.<br>Possible values:<br>`1`: **Submission** â Initial submission.`2`: **For Review** â Submitted and awaiting review.`3`: **Review Response** â A response provided during review.`4`: **Final Response** â The final response in the submittal workflow.<br>To retrieve the list of available category ID values, call [GET metadata](/en/docs/acc/v1/reference/http/submittals-metadata-GET/) and refer to the attachment categories list in the response. |
+| categoryId   enum:string | Specifies the workflow state of the submittal item associated with the attachment. If omitted, the system assigns one based on the current state. <br>Note that you can only set category IDs `1`-`4` when adding an attachment. Category IDs `5`-`8` are system-generated and appear in responses for historical records.<br>In some cases, you must manually set `categoryId`:<br>1. Subcontractor Submissions: When a subcontractor creates an item in the `Open (Submitted) - (mgr-1)` state, set `categoryId` to `1` (**Submission**) instead of `2` (**For Review**).<br>2. Final Response in Non-Standard Closures: When closing an item from a state other than `Open (Reviewed) - (mgr-2)`, set `categoryId` to `4` (**Final Response**) if uploading a final response.<br>Possible values:<br>`1`: **Submission** â Initial submission.`2`: **For Review** â Submitted and awaiting review.`3`: **Review Response** â A response provided during review.`4`: **Final Response** â The final response in the submittal workflow.<br>To retrieve the list of available category ID values, call [GET metadata](http-submittals-metadata-GET.md) and refer to the attachment categories list in the response. |
 
 * Required
 

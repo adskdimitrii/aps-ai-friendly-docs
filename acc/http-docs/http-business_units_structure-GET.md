@@ -27,15 +27,15 @@ Query all the business units in a specific BIM 360 account.
 
 ## [Headers](#headers)
 
-| Authorization   yes | Must be `Bearer <token>`, where `<token>` is obtained via a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) OAuth flow. |
+| Authorization   yes | Must be `Bearer <token>`, where `<token>` is obtained via a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) OAuth flow. |
 | --- | --- |
-| Region   no | Specifies the region where the service is located. Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](/en/docs/acc/v1/overview/acc-regions) page. |
+| Region   no | Specifies the region where the service is located. Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
 
 ### Request
 
 ## [URI Parameters](#uri-parameters)
 
-| account_id   string: UUID | The account ID of the business unit. This corresponds to hub ID in the [Data Management API](/en/docs/data/v2/). To convert a hub ID into an account ID you need to remove the â**b.**" prefix. For example, a hub ID of **b.**c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. |
+| account_id   string: UUID | The account ID of the business unit. This corresponds to hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID you need to remove the â**b.**" prefix. For example, a hub ID of **b.**c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. |
 | --- | --- |
 
 ### Response

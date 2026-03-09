@@ -13,7 +13,7 @@ GET
 
 Note that some entity types belong to a `bim360` domain, and others to a `construction` domain.
 
-To learn how this endpoint is used, see the [Create a Relationship tutorial](/en/docs/bim360/v1/tutorials/relationships/relationships-create/).
+To learn how this endpoint is used, see the [Create a Relationship tutorial](../how-to-docs/relationships-relationships-create.md).
 
   Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
@@ -29,9 +29,9 @@ To learn how this endpoint is used, see the [Create a Relationship tutorial](/en
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token/) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
-| x-ads-region   enum: string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](/en/docs/acc/v1/overview/acc-regions) page. |
+| x-ads-region   enum: string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
 
 * Required
 
@@ -52,7 +52,7 @@ To learn how this endpoint is used, see the [Create a Relationship tutorial](/en
 
 Expand all
 
-| domain   string | The domain to which the entity types belong. <br>For example: `autodesk-bim360-asset`<br>To learn more about domains and entities, see the [Relationship Service Field Guide](/en/docs/bim360/v1/overview/field-guide/relationships). |
+| domain   string | The domain to which the entity types belong. <br>For example: `autodesk-bim360-asset`<br>To learn more about domains and entities, see the [Relationship Service Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/relationships/). |
 | --- | --- |
 | entityTypes   array: object | The list of entity types in the domain. |
 | entityType   string | An individual entity type. <br>For example: `asset`. |

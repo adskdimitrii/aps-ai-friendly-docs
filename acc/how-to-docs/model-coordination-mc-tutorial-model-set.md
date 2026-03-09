@@ -6,15 +6,15 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/model-coordination/mc-tut
 
 # Model Sets and Versions
 
-This tutorial demonstrates the various features of the Model Set Service. Model sets and [model set versions](/en/docs/bim360/v1/overview/field-guide/model-coordination/mcfg-model-set) are the unit of coordination used in BIM 360 Model Coordination. Model sets are equivalent to the coordination spaces configured via the Model Coordination Project Admin web UI. There is currently a limitation in the BIM 360 Model Coordination application resulting in the API not being accessible on new BIM 360 projects until the first coordination space has been defined by a project administrator. Essentially, the administrative process of creating the first collaboration space initializes the model set service container. If you are running these samples against a new BIM 360 project with no coordination spaces, you first need to manually create a coordination space via the Model Coordination Project Admin web UI.
+This tutorial demonstrates the various features of the Model Set Service. Model sets and [model set versions](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/model-coordination/mcfg-model-set/) are the unit of coordination used in BIM 360 Model Coordination. Model sets are equivalent to the coordination spaces configured via the Model Coordination Project Admin web UI. There is currently a limitation in the BIM 360 Model Coordination application resulting in the API not being accessible on new BIM 360 projects until the first coordination space has been defined by a project administrator. Essentially, the administrative process of creating the first collaboration space initializes the model set service container. If you are running these samples against a new BIM 360 project with no coordination spaces, you first need to manually create a coordination space via the Model Coordination Project Admin web UI.
 
 ## [Before You Begin](#before-you-begin)
 
-Make sure that you have [registered an app](/en/docs/oauth/v2/tutorials/create-app). and successfully [acquired an OAuth token](/en/docs/oauth/v2/tutorials/http/get-2-legged-token) with the `data:read`, `data:write` and `data:create` scopes.
+Make sure that you have [registered an app](../../oauth/how-to-docs/create-app.md). and successfully [acquired an OAuth token](https://aps.autodesk.com/en/docs/oauth/v2/tutorials/http/get-2-legged-token/) with the `data:read`, `data:write` and `data:create` scopes.
 
 ## [Creating model sets](#creating-model-sets)
 
-Once the model coordination container is initialized, you can programmatically create new model sets (coordination spaces) by posting a BIM 360 Docs Plans or Project Files folder URN on to [POST modelsets](/en/docs/bim360/v1/reference/http/mc-modelset-service-v3-create-model-set-POST) endpoint. All of the endpoints in the model coordination API that change data are asynchronous. The initial POST, PATCH, PUT, or DELETE call starts a job. The various resource collections in the API each have corresponding job endpoints that you can use to track the success or failure of asynchronous operations.
+Once the model coordination container is initialized, you can programmatically create new model sets (coordination spaces) by posting a BIM 360 Docs Plans or Project Files folder URN on to [POST modelsets](../http-docs/http-mc-modelset-service-v3-create-model-set-POST.md) endpoint. All of the endpoints in the model coordination API that change data are asynchronous. The initial POST, PATCH, PUT, or DELETE call starts a job. The various resource collections in the API each have corresponding job endpoints that you can use to track the success or failure of asynchronous operations.
 
 ### Example Request
 
@@ -69,7 +69,7 @@ The initial response from the POST to the modelsets endpoint returns a job respo
 
 Show More
 
-Taking the `jobId` from the response, you can call the container [GET jobs/:jobId](/en/docs/bim360/v1/reference/http/mc-modelset-service-v3-get-container-job-by-container-GET) endpoint. Model sets belong to containers (that is, the process of adding a new model set to a container is a container-level operation, so you can use the container jobs endpoint to track the progress of the job).
+Taking the `jobId` from the response, you can call the container [GET jobs/:jobId](../http-docs/http-mc-modelset-service-v3-get-container-job-by-container-GET.md) endpoint. Model sets belong to containers (that is, the process of adding a new model set to a container is a container-level operation, so you can use the container jobs endpoint to track the progress of the job).
 
 ### Example Request
 
@@ -113,7 +113,7 @@ Show More
 
 ## [Querying model sets](#querying-model-sets)
 
-You can also use the [GET modelsets](/en/docs/bim360/v1/reference/http/mc-modelset-service-v3-get-model-sets-GET) endpoint on a container to list the currently defined model sets in the container. This endpoint is paged and returns all of the data necessary to interrogate an individual model set for its versions and the clash and index data associated with these versions.
+You can also use the [GET modelsets](../http-docs/http-mc-modelset-service-v3-get-model-sets-GET.md) endpoint on a container to list the currently defined model sets in the container. This endpoint is paged and returns all of the data necessary to interrogate an individual model set for its versions and the clash and index data associated with these versions.
 
 ### Example Request
 
@@ -178,7 +178,7 @@ In addition to returning display properties such as the name and description of 
 
 Show More
 
-To obtain the full details of a given model set, you can call the [GET modelsets/:modelSetId](/en/docs/bim360/v1/reference/http/mc-modelset-service-v3-get-model-set-GET) endpoint, supplying a `modelSetId` GUID identity returned in the above response.
+To obtain the full details of a given model set, you can call the [GET modelsets/:modelSetId](../http-docs/http-mc-modelset-service-v3-get-model-set-GET.md) endpoint, supplying a `modelSetId` GUID identity returned in the above response.
 
 ### Example Request
 
@@ -216,7 +216,7 @@ Show More
 
 ## [Querying model set versions](#querying-model-set-versions)
 
-Once a model set is defined, it is automatically âenabledâ by the system. An enabled model set results in the system automatically creating model set versions as users interact with BIM 360 Docs. If a user changes the file content in a folder associated with a model set, the system automatically scans the tip versions of the 3D model content in the folder. If this scan yields a set of file versions different to any proceeding scan, a new model set version is created. Model set versions are sequential for a model set and have sequential version numbers. To page through the model set versions for a model set, you call its [GET modelsets/:modelSetId/versions](/en/docs/bim360/v1/reference/http/mc-modelset-service-v3-get-model-set-versions-GET) endpoint.
+Once a model set is defined, it is automatically âenabledâ by the system. An enabled model set results in the system automatically creating model set versions as users interact with BIM 360 Docs. If a user changes the file content in a folder associated with a model set, the system automatically scans the tip versions of the 3D model content in the folder. If this scan yields a set of file versions different to any proceeding scan, a new model set version is created. Model set versions are sequential for a model set and have sequential version numbers. To page through the model set versions for a model set, you call its [GET modelsets/:modelSetId/versions](../http-docs/http-mc-modelset-service-v3-get-model-set-versions-GET.md) endpoint.
 
 ### Example Request
 
@@ -256,7 +256,7 @@ The *versions* endpoint returns paged model set version summaries. These summari
 
 Show More
 
-You can query a specific model set version by calling the [GET modelsets/:modelSetId/versions/:version](/en/docs/bim360/v1/reference/http/mc-modelset-service-v3-get-model-set-version-GET) endpoint and passing the version number of the model set version.
+You can query a specific model set version by calling the [GET modelsets/:modelSetId/versions/:version](../http-docs/http-mc-modelset-service-v3-get-model-set-version-GET.md) endpoint and passing the version number of the model set version.
 
 ### Example Request
 
@@ -410,7 +410,7 @@ This returns the immutable set of 3D model files that was found when the system 
 
 Show More
 
-The previous example described how to navigate from a model set to discover its versions, then how to select one of these versions to display the content associated with this version. The model set service provides a [GET modelsets/:modelSetId/versions/latest](/en/docs/bim360/v1/reference/http/mc-modelset-service-v3-get-model-set-version-latest-GET) short-cut API call that returns the details of the most recently available model set version.
+The previous example described how to navigate from a model set to discover its versions, then how to select one of these versions to display the content associated with this version. The model set service provides a [GET modelsets/:modelSetId/versions/latest](../http-docs/http-mc-modelset-service-v3-get-model-set-version-latest-GET.md) short-cut API call that returns the details of the most recently available model set version.
 
 ### Example Request
 
@@ -422,7 +422,7 @@ curl -v 'https://developer.api.autodesk.com/bim360/modelset/v3/containers/f83cef
 
 ## [Controlling automatic model set version creation](#controlling-automatic-model-set-version-creation)
 
-Up to this point, the examples work on the principle that model set versions should be created automatically as users interact with BIM 360 Docs (uploading, moving, and copying content). This has the potential to create redundant model set versions, representing intermediate states on the project that have no real value from a data analysis point of view. The model set service solves this potential issue by allowing API users to enable and disable automatic model set version creation. You can use the [PATCH modelsets/:modelSetId/versions:disable](/en/docs/bim360/v1/reference/http/mc-modelset-service-v3-disable-model-set-versions-PATCH) endpoint to switch off automatic model set version creation.
+Up to this point, the examples work on the principle that model set versions should be created automatically as users interact with BIM 360 Docs (uploading, moving, and copying content). This has the potential to create redundant model set versions, representing intermediate states on the project that have no real value from a data analysis point of view. The model set service solves this potential issue by allowing API users to enable and disable automatic model set version creation. You can use the [PATCH modelsets/:modelSetId/versions:disable](../http-docs/http-mc-modelset-service-v3-disable-model-set-versions-PATCH.md) endpoint to switch off automatic model set version creation.
 
 ### Example Request
 
@@ -457,7 +457,7 @@ The response from this endpoint is a model set job, the seed of which indicates 
 
 Show More
 
-As before, you can track the status of this job using the [GET modelsets/:modelSetId/jobs/:jobId](/en/docs/bim360/v1/reference/http/mc-modelset-service-v3-get-model-set-job-GET) endpoint.
+As before, you can track the status of this job using the [GET modelsets/:modelSetId/jobs/:jobId](../http-docs/http-mc-modelset-service-v3-get-model-set-job-GET.md) endpoint.
 
 ### Example Request
 
@@ -492,7 +492,7 @@ A status of `Succeeded` indicates that automatic model set version creation is d
 
 Show More
 
-You can enable a disabled model set version by calling the [PATCH modelsets/:modelSetId/versions:enable](/en/docs/bim360/v1/reference/http/mc-modelset-service-v3-enable-model-set-versions-PATCH) endpoint, which starts a job to re-enable automatic model set versioning.
+You can enable a disabled model set version by calling the [PATCH modelsets/:modelSetId/versions:enable](../http-docs/http-mc-modelset-service-v3-enable-model-set-versions-PATCH.md) endpoint, which starts a job to re-enable automatic model set versioning.
 
 ### Example Request
 
@@ -503,7 +503,7 @@ curl -v 'https://developer.api.autodesk.com/bim360/modelset/v3/containers/f83cef
 
 ```
 
-Once again, this endpoint returns a job that you can track using the [GET modelsets/:modelSetId/jobs/:jobId](/en/docs/bim360/v1/reference/http/mc-modelset-service-v3-get-model-set-job-GET) endpoint.
+Once again, this endpoint returns a job that you can track using the [GET modelsets/:modelSetId/jobs/:jobId](../http-docs/http-mc-modelset-service-v3-get-model-set-job-GET.md) endpoint.
 
 ### Example Response
 
@@ -562,7 +562,7 @@ Show More
 
 ## [Manually creating a model set version](#manually-creating-a-model-set-version)
 
-If you disable automatic model set version creation, it is still possible to get the system to create new model set versions by calling the [POST modelsets/:modelSetId/versions](/en/docs/bim360/v1/reference/http/mc-modelset-service-v3-create-model-set-version-POST) endpoint. This has the net effect of invoking the same workflow that is run when automatic model set version creation is enabled. The logic is identical: if a new model set version can be calculated, then it is persisted. If, however, the tip versions of the models in the model set have not changed since the last time the model set version workflow was invoked, a new model set version is not persisted. As with all other data modifying workflows in the model coordination API, this call starts a job.
+If you disable automatic model set version creation, it is still possible to get the system to create new model set versions by calling the [POST modelsets/:modelSetId/versions](../http-docs/http-mc-modelset-service-v3-create-model-set-version-POST.md) endpoint. This has the net effect of invoking the same workflow that is run when automatic model set version creation is enabled. The logic is identical: if a new model set version can be calculated, then it is persisted. If, however, the tip versions of the models in the model set have not changed since the last time the model set version workflow was invoked, a new model set version is not persisted. As with all other data modifying workflows in the model coordination API, this call starts a job.
 
 ### Example Request
 
@@ -593,7 +593,7 @@ The scopeId in the seed returned in response to the POST on the model set versio
 
 Show More
 
-As before, you can use a call to the [GET modelsets/:modelSetId/jobs/:jobId](/en/docs/bim360/v1/reference/http/mc-modelset-service-v3-get-model-set-job-GET) endpoint to track the progress of the new model set version workflow.
+As before, you can use a call to the [GET modelsets/:modelSetId/jobs/:jobId](../http-docs/http-mc-modelset-service-v3-get-model-set-job-GET.md) endpoint to track the progress of the new model set version workflow.
 
 ### Example Request
 

@@ -16,11 +16,11 @@ Use its `activate()` method to open the Model Browser panel. The Model Browser i
 
 The extension id is: `Autodesk.ModelStructure`
 
-[Autodesk.Viewing.GuiViewer3D](/en/docs/viewer/v7/reference/Viewing/GuiViewer3D/) loads this extension by default.
+[Autodesk.Viewing.GuiViewer3D](Viewing-GuiViewer3D.md) loads this extension by default.
 
 ### Parameters
 
-| viewer*   [Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) | Viewer instance |
+| viewer*   [Viewer3D](Viewing-Viewer3D.md) | Viewer instance |
 | --- | --- |
 | options*   object | Configurations for the extension |
 
@@ -51,7 +51,7 @@ Invoked after the Toolbar UI gets created. Adds toolbar button.
 
 ### Parameters
 
-| toolbar*   [Autodesk.Viewing.UI.ToolBar](/en/docs/viewer/v7/reference/UI/ToolBar/) | toolbar instance. |
+| toolbar*   [Autodesk.Viewing.UI.ToolBar](UI-ToolBar.md) | toolbar instance. |
 | --- | --- |
 
 * Required
@@ -78,7 +78,7 @@ Sets the panel instance to open when clicking the toolbar button. Use the API to
 
 ### Parameters
 
-| modelStructurePanel*   [Autodesk.Viewing.UI.ModelStructurePanel](/en/docs/viewer/v7/reference/UI/ModelStructurePanel/) | The model structure panel to use, or null. |
+| modelStructurePanel*   [Autodesk.Viewing.UI.ModelStructurePanel](UI-ModelStructurePanel.md) | The model structure panel to use, or null. |
 | --- | --- |
 
 * Required

@@ -15,7 +15,7 @@ Managing assets is the core of the functionality the Autodesk Construction Cloud
 - Deleting relationships between assets and other entities
 
 This tutorial assumes that the projectâs Asset settings have already been set up. For more details on how to do this,
-see the [Setup ACC Assets Project Settings](/en/docs/acc/v1/tutorials/assets/create-assets-project-settings/) tutorial.
+see the [Setup ACC Assets Project Settings](assets-create-assets-project-settings.md) tutorial.
 
 ## [Batch Endpoints](#batch-endpoints)
 
@@ -27,24 +27,24 @@ When fetching entities in batch, invalid entities that are requested will simply
 
 Batch endpoints generally support operating on up to 100 entities at a given time, unless otherwise noted in the endpoint documentation.
 
-For more details about Autodesk Construction Cloud Assets API, see the [Assets Field Guide](/en/docs/acc/v1/overview/field-guide/assets/).
+For more details about Autodesk Construction Cloud Assets API, see the [Assets Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/assets/).
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps), and select the Data Management and Autodesk Construction Cloud APIs.
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:create` and `data:write` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create` and `data:write` scopes.
 - Verify that you have access to the relevant Autodesk Construction Cloud account, project, and folder.
-- Retrieve the relevant [ACC account and project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/). In this tutorial we will use the example project ID `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`, but you should replace that with the project ID you have retrieved for your project.
+- Retrieve the relevant [ACC account and project ID](getting-started-retrieve-account-and-project-id.md). In this tutorial we will use the example project ID `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`, but you should replace that with the project ID you have retrieved for your project.
 
 ## [Step 1: Create new Assets](#step-1-create-new-assets)
 
-To create new assets, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to call [POST assets/v2/projects/:projectId/assets:batch-create](/en/docs/acc/v1/reference/http/assets-assets-batch-create-POST-v2/).
+To create new assets, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to call [POST assets/v2/projects/:projectId/assets:batch-create](../http-docs/http-assets-assets-batch-create-POST-v2.md).
 
 This is a batch endpoint that can be used to create multiple assets at a time. The endpoint accepts a set of asset definitions and returns the set of created assets.
 
 Unlike batch fetch endpoints, batch creating assets is âall-or-nothingâ. If any of the asset definitions in the request are invalid, none of the assets will be created and a `400 - Error: Bad Request` will be returned with a list of the violations that need to be corrected before the request can succeed.
 
-For more details on finding out which categories, statuses, and custom attributes are available and required, see the [Retrieve ACC Assets Data](/en/docs/acc/v1/tutorials/assets/retrieve-assets-data/) tutorial.
+For more details on finding out which categories, statuses, and custom attributes are available and required, see the [Retrieve ACC Assets Data](assets-retrieve-assets-data.md) tutorial.
 
 ### Request
 
@@ -130,13 +130,13 @@ Show More
 
 ## [Step 2: Update Existing Assets](#step-2-update-existing-assets)
 
-To update existing assets, like the assets that were created in Step 1 above, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to call [PATCH assets/v2/projects/:projectId/assets:batch-patch](/en/docs/acc/v1/reference/http/assets-assets-batch-patch-PATCH-v2/).
+To update existing assets, like the assets that were created in Step 1 above, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to call [PATCH assets/v2/projects/:projectId/assets:batch-patch](../http-docs/http-assets-assets-batch-patch-PATCH-v2.md).
 
 This is a batch endpoint that can be used to modify multiple assets at a time. The endpoint accepts a map of asset IDs to the desired asset patch updates, and returns the set of updated assets. Note that this is a patch and not a full update, so only the fields specified in the request body will be updated and the remaining fields will be left unaltered.
 
 Unlike batch fetch endpoints, batch updating assets is âall-or-nothingâ. If any of the asset patches in the request are invalid, none of the assets will be updated and a `400 - Error: Bad Request` will be returned with a list of the violations that need to be corrected before the request can succeed.
 
-For more details on finding out which categories, statuses, and custom attributes are available and required, see the [Retrieve ACC Assets Data](/en/docs/acc/v1/tutorials/assets/retrieve-assets-data/) tutorial.
+For more details on finding out which categories, statuses, and custom attributes are available and required, see the [Retrieve ACC Assets Data](assets-retrieve-assets-data.md) tutorial.
 
 ### Request
 
@@ -212,7 +212,7 @@ Show More
 
 ## [Step 3: Fetch Existing Assets](#step-3-fetch-existing-assets)
 
-To fetch existing assets, like the assets that were created in Step 1 above, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to call [POST assets/v2/projects/:projectId/assets:batch-get](/en/docs/acc/v1/reference/http/assets-assets-batch-get-v2-POST/).
+To fetch existing assets, like the assets that were created in Step 1 above, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to call [POST assets/v2/projects/:projectId/assets:batch-get](../http-docs/http-assets-assets-batch-get-v2-POST.md).
 
 This is a batch endpoint that can be used to fetch multiple assets at a time. The endpoint accepts a set of asset IDs to be fetched, and returns the set of valid requested assets. Any invalid asset IDs in the request will simply be omitted from the response and the client is responsible for verifying the presence of all requested assets.
 
@@ -286,7 +286,7 @@ Show More
 
 To create asset relationships, attaching an issue to an asset for example, the preferred means is to use the Relationship API. For more information on how to create relationships please see Create Relationships tutorial</en/docs/bim360/v1/tutorials/relationships/relationships-create/>.
 
-In order to create a relationship between an asset and another entity, you will need to obtain the ID of the entity you wish to link to the asset. This may require setting up access to other Autodesk APIs, depending on what type of entities you wish to link to your assets. See the [GET issues](/en/docs/bim360/v1/reference/http/field-issues-GET/) or [GET forms](/en/docs/acc/v1/reference/http/forms-forms-GET/) for examples of retrieving related entities. In this example we will assume we fetched the issues for the project, and wish to attach an issue with ID `a3311fc6-4571-4fca-9fb4-37120d976bd2` to the asset.
+In order to create a relationship between an asset and another entity, you will need to obtain the ID of the entity you wish to link to the asset. This may require setting up access to other Autodesk APIs, depending on what type of entities you wish to link to your assets. See the [GET issues](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/field-issues-GET/) or [GET forms](../http-docs/http-forms-forms-GET.md) for examples of retrieving related entities. In this example we will assume we fetched the issues for the project, and wish to attach an issue with ID `a3311fc6-4571-4fca-9fb4-37120d976bd2` to the asset.
 
 Note that within Autodesk Construction Cloud projects, assets may be linked to any of the following domains and types:
 
@@ -319,7 +319,7 @@ Note that within Autodesk Construction Cloud projects, assets may be linked to a
 
 Additionally, you can use the Relationships API to search for all existing relationships associated with your project, or you can search for the relationships associated with a specific asset.
 For more information on querying the Relationships API,
-see the [Relationship Field Guide](/en/docs/bim360/v1/overview/field-guide/relationships/) and the [Relationship Querying](/en/docs/bim360/v1/tutorials/relationships/relationships-tutorial/) tutorial.
+see the [Relationship Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/relationships/) and the [Relationship Querying](relationships-relationships-tutorial.md) tutorial.
 
 ### Request
 
@@ -386,12 +386,12 @@ To delete the relationship between an asset and a given entity, first you must d
 
 You can use the Relationships API to search for all existing relationships associated with your project, or you can search for the relationships associated with a specific asset.
 For more information on querying the Relationships API,
-see the [Relationships Field Guide](/en/docs/bim360/v1/overview/field-guide/relationships/) and the [Relationships Querying](/en/docs/bim360/v1/tutorials/relationships/relationships-tutorial/) tutorial.
+see the [Relationships Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/relationships/) and the [Relationships Querying](relationships-relationships-tutorial.md) tutorial.
 
 In this example, we will use the ID of the relationship we created in step 5 above (`2299821e-c3e6-4ad7-92c3-ea4ddaf941bf`).
 
 Use the relationship IDs you want to delete and the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`)
-to call [POST relationship/v2/containers/:containerId/relationships:delete](/en/docs/acc/v1/reference/http/relationship-service-v2-delete-relationships-POST/).
+to call [POST relationship/v2/containers/:containerId/relationships:delete](../http-docs/http-relationship-service-v2-delete-relationships-POST.md).
 
 ### Request
 
@@ -417,7 +417,7 @@ curl 'https://developer.api.autodesk.com/bim360/relationship/v2/containers/f6a1e
 
 ## [Step 6: Delete Assets](#step-6-delete-assets)
 
-To delete assets, like the assets that were created in Step 1 above, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to call [POST assets/v2/projects/:projectId/assets:batch-delete](/en/docs/acc/v1/reference/http/assets-assets-batch-delete-v2-POST/).
+To delete assets, like the assets that were created in Step 1 above, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to call [POST assets/v2/projects/:projectId/assets:batch-delete](../http-docs/http-assets-assets-batch-delete-v2-POST.md).
 
 This is a batch endpoint that can be used to delete multiple assets at a time. The endpoint accepts a set of asset IDs to be deleted, and simply returns a `204 - No Content` response if successful.
 

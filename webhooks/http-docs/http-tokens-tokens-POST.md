@@ -22,7 +22,7 @@ Add a new Webhook secret token
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [OAuth](/en/docs/oauth/v2/reference/http/gettoken-POST) |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [OAuth](../../oauth/http-docs/http-gettoken-POST.md) |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 | x-ads-region   string | Specifies the geographical location (region) of the server that the request is executed on. Supported values are the following, but the default value is `US`: <br>`US` : (Default) Save the token in a data center dedicated to serve the United States.`EMEA` : Save the token in a data center dedicated to serve the European Union, Middle East, and Africa.`AUS` : (Beta) Save the token in a data center dedicated to serve Australia.`GBR` : Save the token in a data center dedicated to serve United Kingdom.`JPN` : Save the token in a data center dedicated to serve Japan.`DEU` : Save the token in a data center dedicated to serve Germany.`CAN` : Save the token in a data center dedicated to serve Canada.`IND` : Save the token in a data center dedicated to serve India. |

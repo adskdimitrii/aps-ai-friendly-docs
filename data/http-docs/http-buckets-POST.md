@@ -12,7 +12,7 @@ POST
 
 Creates a bucket. Buckets are arbitrary spaces that are created by applications and are used to store objects for later retrieval. A bucket is owned by the application that creates it.
 
-Note that to create storage spaces for BIM 360 Document Management you need to use [POST projects/:project_id/storage](/en/docs/data/v2/reference/http/projects-project_id-storage-POST). For more details, see the [Upload Files to BIM 360 Document Management](/en/docs/bim360/v1/tutorials/document-management/upload-document) tutorial.
+Note that to create storage spaces for BIM 360 Document Management you need to use [POST projects/:project_id/storage](http-projects-project_id-storage-POST.md). For more details, see the [Upload Files to BIM 360 Document Management](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/document-management/upload-document/) tutorial.
 
 ## [Resource Information](#resource-information)
 
@@ -26,7 +26,7 @@ Note that to create storage spaces for BIM 360 Document Management you need to u
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [POST token](/en/docs/oauth/v2/reference/http/gettoken-POST). |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
 | --- | --- |
 | Content-Type*   string | Must be `application/json`. |
 | x-ads-region*   enum | ![DEPRECATED](../../../../_images/badge_deprecated.svg) The region where the bucket resides       **Note**: This attribute is replaced by the `region` header. |
@@ -83,7 +83,7 @@ Show More
 | allow   array | Objects representing applications to which the owner wants to grant access at bucket creation time |
 | authId   string | The application key to grant access to. Required when _allow_ is used. |
 | access   enum | Acceptable values: `full`, `read`. Required when _allow_ is used. |
-| policyKey*   enum | [Data retention policy](/en/docs/data/v2/overview/retention-policy/)       Acceptable values: `transient`, `temporary`, `persistent` |
+| policyKey*   enum | [Data retention policy](https://aps.autodesk.com/en/docs/data/v2/overview/retention-policy/)       Acceptable values: `transient`, `temporary`, `persistent` |
 
 * Required
 

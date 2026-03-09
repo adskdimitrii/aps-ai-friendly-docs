@@ -20,7 +20,7 @@ Extensions are registered and loaded automatically by adding the Extension ID to
 
 ### Parameters
 
-| viewer*   [Autodesk.Viewing.Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) | The viewer to be extended. |
+| viewer*   [Autodesk.Viewing.Viewer3D](Viewing-Viewer3D.md) | The viewer to be extended. |
 | --- | --- |
 | options*   object | An optional dictionary of options for this extension. |
 
@@ -183,7 +183,7 @@ var locales = {
 
 ## [getCache()](#getcache)
 
-Returns an object that persists throughout an extensionâs unload->load operation sequence. Cache object is kept by the [Autodesk.Viewing.Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) instance. Cache object lives only in RAM, there is no localStorage persistence.
+Returns an object that persists throughout an extensionâs unload->load operation sequence. Cache object is kept by the [Autodesk.Viewing.Viewer3D](Viewing-Viewer3D.md) instance. Cache object lives only in RAM, there is no localStorage persistence.
 
 ### Returns
 
@@ -193,13 +193,13 @@ Returns an object that persists throughout an extensionâs unload->load oper
 
 ## [onToolbarCreated(toolbar)](#ontoolbarcreated-toolbar)
 
-Invoked after the Toolbar UI gets created. Extensions can extend (or remove) its content from this point forward. The method is invoked after [TOOLBAR_CREATED_EVENT](/en/docs/viewer/v7/reference/Viewing#TOOLBAR_CREATED_EVENT/) gets fired. It is also invoked right after [Autodesk.Viewing.Extension#load](/en/docs/viewer/v7/reference/Viewing/Extension/#load/) if the toolbar was already created.
+Invoked after the Toolbar UI gets created. Extensions can extend (or remove) its content from this point forward. The method is invoked after [TOOLBAR_CREATED_EVENT](https://aps.autodesk.com/en/docs/viewer/v7/reference/Viewing/#TOOLBAR_CREATED_EVENT/) gets fired. It is also invoked right after [Autodesk.Viewing.Extension#load](Viewing-Extension.md#load/) if the toolbar was already created.
 
 Must be overriden by subclasses.
 
 ### Parameters
 
-| toolbar*   [Autodesk.Viewing.UI.ToolBar](/en/docs/viewer/v7/reference/UI/ToolBar/) | toolbar instance. |
+| toolbar*   [Autodesk.Viewing.UI.ToolBar](UI-ToolBar.md) | toolbar instance. |
 | --- | --- |
 
 * Required

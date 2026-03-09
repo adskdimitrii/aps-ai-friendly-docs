@@ -12,7 +12,7 @@ GET
 
 Retrieves the list of public keys in the JWKS format (JSON Web Key Set). A public key is used to validate the asymmetric JWT signature of an OAuth 2.0 access token by an authorizing end user in both two-legged & three-legged context. From the list of keys returned in the response, identify the key to be used to validate a given token using the tokenâs kid (key ID) parameter.
 
-Note: Refer to [asymmetric JWT encryption](/en/docs/oauth/v2/developers_guide/asymmetric-encryption), [key rotation](/en/docs/oauth/v2/developers_guide/asymmetric-encryption/#key-rotation) and [validate access token](/en/docs/oauth/v2/developers_guide/asymmetric-encryption/#validate-access-token) for more information.
+Note: Refer to [asymmetric JWT encryption](../developers-guide-docs/asymmetric-encryption.md), [key rotation](../developers-guide-docs/asymmetric-encryption.md#key-rotation) and [validate access token](../developers-guide-docs/asymmetric-encryption.md#validate-access-token) for more information.
 
 ## [Resource Information](#resource-information)
 

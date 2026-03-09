@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/advanced_opt
 
 # Customizing Your Edit2D Instance
 
-Edit2D defines several defaults when you run it. In the [Setting Up Edit2D](/en/docs/viewer/v7/developers_guide/advanced_options/edit2d-setup) tutorial, you looked at an application that runs some of those defaults, including Edit2Dâs default toolset and context. There are several ways to customize Edit2D behavior. This tutorial covers some of them.
+Edit2D defines several defaults when you run it. In the [Setting Up Edit2D](advanced_options-edit2d-setup.md) tutorial, you looked at an application that runs some of those defaults, including Edit2Dâs default toolset and context. There are several ways to customize Edit2D behavior. This tutorial covers some of them.
 
 This tutorial shows you ho to:
 
@@ -16,7 +16,7 @@ This tutorial shows you ho to:
 - Add more layers
 - Customize the appearance of selection and hover
 
-Before completing this tutorial, you should be familiar with how to set up and use Edit2D in your application. Refer to the [Setting Up Edit2D](/en/docs/viewer/v7/developers_guide/advanced_options/edit2d-setup) tutorial to familiarize yourself with these concepts. Tutorials about how to use Edit2D and how to manually draw Edit2D shapes with JavaScript are linked at the end of this tutorial.
+Before completing this tutorial, you should be familiar with how to set up and use Edit2D in your application. Refer to the [Setting Up Edit2D](advanced_options-edit2d-setup.md) tutorial to familiarize yourself with these concepts. Tutorials about how to use Edit2D and how to manually draw Edit2D shapes with JavaScript are linked at the end of this tutorial.
 
 ## [Step 1: Customize Units](#step-1-customize-units)
 
@@ -152,5 +152,5 @@ More generally, `layer.scene` is a `Three.Scene` with triangulated shapes that y
 
 Now that youâve learned how to customize Edit2D, check out these tutorials:
 
-- [Using the Edit2D Toolset](/en/docs/viewer/v7/developers_guide/advanced_options/edit2d-use)
-- [Drawing Edit2D Shapes Manually](/en/docs/viewer/v7/developers_guide/advanced_options/edit2d-manual)
+- [Using the Edit2D Toolset](advanced_options-edit2d-use.md)
+- [Drawing Edit2D Shapes Manually](advanced_options-edit2d-manual.md)

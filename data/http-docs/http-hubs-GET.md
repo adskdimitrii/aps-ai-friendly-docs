@@ -16,9 +16,9 @@ Hubs represent BIM 360 Team hubs, Fusion Team hubs (formerly known as A360 Team 
 Team hubs include BIM 360 Team hubs and Fusion Team hubs (formerly known as A360 Team hubs).
 Personal hubs include A360 Personal hubs. Only active hubs are listed.
 
-Note that for BIM 360 Docs, a hub ID corresponds to an account ID in the [BIM 360 API](/en/docs/bim360/v1/). To convert an account ID into a hub ID you need to add a "**b.**" prefix. For example, an account ID of c8b0c73d-3ae9 translates to a hub ID of **b.**c8b0c73d-3ae9.
+Note that for BIM 360 Docs, a hub ID corresponds to an account ID in the [BIM 360 API](https://aps.autodesk.com/en/docs/bim360/v1/). To convert an account ID into a hub ID you need to add a "**b.**" prefix. For example, an account ID of c8b0c73d-3ae9 translates to a hub ID of **b.**c8b0c73d-3ae9.
 
-**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](/en/docs/acc/v1/overview/).
+**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/).
 
 ## [Resource Information](#resource-information)
 
@@ -32,7 +32,7 @@ Note that for BIM 360 Docs, a hub ID corresponds to an account ID in the [BIM 36
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | x-user-id   string | In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified. |
 

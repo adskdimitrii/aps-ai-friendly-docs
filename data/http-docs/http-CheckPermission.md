@@ -47,9 +47,9 @@ The following table compares the terms used by BIM 360 Team, Fusion Team, and A3
 | manage   (Perform administrative operations on specified resource) |  | admin |
 | share   (Share the specified resource) |  | share |
 
-**Note:** CheckPermission is a Data Management command. Unlike typical CRUD operations, commands let you perform complex operations on multiple resources. For more details see [Commands](/en/docs/data/v2/overview/commands) .
+**Note:** CheckPermission is a Data Management command. Unlike typical CRUD operations, commands let you perform complex operations on multiple resources. For more details see [Commands](https://aps.autodesk.com/en/docs/data/v2/overview/commands/) .
 
-**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](/en/docs/acc/v1/overview/).
+**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/).
 
 ## [Resource Information](#resource-information)
 
@@ -63,7 +63,7 @@ The following table compares the terms used by BIM 360 Team, Fusion Team, and A3
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained by means of a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained by means of a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | x-user-id   string | In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call is limited to act only on behalf of the specified user. |
 | Content-Type*   string | Must be `application/vnd.api+json`. |

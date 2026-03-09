@@ -6,40 +6,40 @@ Source: https://aps.autodesk.com/en/docs/webhooks/tutorials/create-a-hook-cost-m
 
 # Creating a Webhook and Listening to Events
 
-This walkthrough demonstrates how to create a Webhook to register callbacks for specified types of [Autodesk Construction Cloud (ACC) and BIM 360 Cost Management events](/en/docs/webhooks/v1/reference/events/cost_management_events/). The steps include finding the scope ID for the events, choosing the event type for the webhook to listen for, preparing to handle callbacks, and creating the webhook.
+This walkthrough demonstrates how to create a Webhook to register callbacks for specified types of [Autodesk Construction Cloud (ACC) and BIM 360 Cost Management events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/cost_management_events/). The steps include finding the scope ID for the events, choosing the event type for the webhook to listen for, preparing to handle callbacks, and creating the webhook.
 
-For more details about the Cost Management API, see the [Cost Management Field Guide](/en/docs/bim360/v1/overview/field-guide/cost-management/).
+For more details about the Cost Management API, see the [Cost Management Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/cost-management/).
 
 ## [Before You Begin](#before-you-begin)
 
-- Make sure that you have [registered an app](/myapps) and successfully [acquired an OAuth token](/en/docs/oauth/v2/tutorials/create-app/) .
-- See the Authentication and Scopes section on the Data Management APIâs [API Basics](/en/docs/data/v2/overview/basics) page for the appropriate token based on the data that youâre accessing.
+- Make sure that you have [registered an app](/myapps) and successfully [acquired an OAuth token](../../oauth/how-to-docs/create-app.md) .
+- See the Authentication and Scopes section on the Data Management APIâs [API Basics](https://aps.autodesk.com/en/docs/data/v2/overview/basics/) page for the appropriate token based on the data that youâre accessing.
 - All requests to the Webhooks Service require the `data:read` scope.
 - You need the `data:create` scope to create a webhook.
 
 ## [Step 1 : Find the scope ID for events](#step-1-find-the-scope-id-for-events)
 
-A projectâs ID is used as the project level scope. Retrieve the project/container ID for your project as described in the [Retrieve project id](/en/docs/bim360/v1/tutorials/cost/retrieve-cost-container-id/) walkthrough.
+A projectâs ID is used as the project level scope. Retrieve the project/container ID for your project as described in the [Retrieve project id](../../acc/how-to-docs/cost-retrieve-cost-container-id.md) walkthrough.
 
 ### Field Guide
 
-For more information about webhook scope, see the [Webhooks Field Guide](/en/docs/webhooks/v1/developers_guide/field-guide/).
+For more information about webhook scope, see the [Webhooks Field Guide](https://aps.autodesk.com/en/docs/webhooks/v1/developers_guide/field-guide/).
 
 ## [Step 2 : Choose an event type to register the webhook on](#step-2-choose-an-event-type-to-register-the-webhook-on)
 
-The Webhooks service currently supports the events listed on the [Cost Management Events](/en/docs/webhooks/v1/reference/events/cost_management_events/) page.
+The Webhooks service currently supports the events listed on the [Cost Management Events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/cost_management_events/) page.
 
 You can specify multiple event types by including wildcards in the event type name using the asterisk (`*`) character, which matches zero or more characters in the name. For example, specifying `budget.*-1.0` will match `budget.created-1.0`, `budget.deleted-1.0`, and `budget.updated-1.0`.
 
-For more information about event types and wildcards, see [Supported Events](/en/docs/webhooks/v1/reference/events/).
+For more information about event types and wildcards, see [Supported Events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/).
 
 ## [Step 3 : Prepare to handle callbacks](#step-3-prepare-to-handle-callbacks)
 
-A webhook requires a callback URL to which the event data can be sent. See [Configuring Your Server](/en/docs/webhooks/v1/tutorials/configuring-your-server) to get started with a local server setup.
+A webhook requires a callback URL to which the event data can be sent. See [Configuring Your Server](configuring-your-server.md) to get started with a local server setup.
 
 ## [Step 4 : Create a webhook](#step-4-create-a-webhook)
 
-A webhook is created by making a `POST` request to `webhooks/v1/systems/:system/events/:event/hooks`. You can find additional details in the [endpoint documentation](/en/docs/webhooks/v1/reference/http/webhooks/systems-system-events-event-hooks-POST/).
+A webhook is created by making a `POST` request to `webhooks/v1/systems/:system/events/:event/hooks`. You can find additional details in the [endpoint documentation](../http-docs/http-webhooks-systems-system-events-event-hooks-POST.md).
 
 ### Hook Attribute
 
@@ -47,7 +47,7 @@ In some scenarios, certain data (such as `projectId`) are not included in the ev
 
 Provide the `hookAttribute` property with a JSON object that you want to include in the callback, such as the `projectId` or any other information from your app.
 
-For more information, see the [Webhooks Field Guide](/en/docs/webhooks/v1/developers_guide/field-guide/).
+For more information, see the [Webhooks Field Guide](https://aps.autodesk.com/en/docs/webhooks/v1/developers_guide/field-guide/).
 
 ### Filter
 
@@ -55,7 +55,7 @@ You might want to filter the callbacks you receive based on the payload of the c
 
 Provide the `filter` attribute in the endpoint request payload with a JSONPath expression that specifies the callback payload field values to filter on.
 
-For more information, see [Callback Filtering](/en/docs/webhooks/v1/developers_guide/callback-filtering/)
+For more information, see [Callback Filtering](https://aps.autodesk.com/en/docs/webhooks/v1/developers_guide/callback-filtering/)
 
 ### Example Input Values
 

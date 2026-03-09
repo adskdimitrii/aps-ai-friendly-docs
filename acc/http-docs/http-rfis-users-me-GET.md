@@ -16,7 +16,7 @@ Retrieves information about the current user in the context of the specified pro
 
 The RFIs API does not currently support adding users to a project or assigning workflow roles. Only project members can create or edit RFIs.
 
-To add responses or attachments to the RFI, call [POST responses](/en/docs/acc/v1/reference/http/rfis-rfis-POST) after the RFI is created.
+To add responses or attachments to the RFI, call [POST responses](http-rfis-rfis-POST.md) after the RFI is created.
 
 Users can create RFIs if they are assigned either the creator (`projectSC`) or manager (`projectGC`) workflow role.
 These roles must be explicitly configured in the RFI tool settings by going to RFIs â Settings â Permissions in the Autodesk Construction Cloud (ACC) web interface.
@@ -60,7 +60,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 
 * Required
@@ -69,7 +69,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string | The ID of the project. <br>Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Response
@@ -103,12 +103,12 @@ Expand all
 | requiredAttributes   array: object | The list of attributes that are required when creating or updating an RFI. |
 | name   string | The name of the RFI attribute that must be provided when updating or creating an RFI in the specified status. |
 | values   array: object | The list of allowed values for the required attribute. |
-| value   string | The actual value that must be used for the required attribute when updating or creating the RFI. <br>To find details about users, call [GET users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/).<br>Note that we do not currently support finding details about roles for a project. |
+| value   string | The actual value that must be used for the required attribute when updating or creating the RFI. <br>To find details about users, call [GET users](http-admin-projectsprojectId-users-GET.md), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/).<br>Note that we do not currently support finding details about roles for a project. |
 | type   string | The type of the required attribute value. Indicates what kind of entity the value represents (e.g., `user`, `role`, or `company`). |
 | permittedAttributes   array: object | The list of attributes that the user is optionally allowed to include when updating or creating the RFI in the specified status. |
 | name   string | The name of the RFI attribute that must be provided when updating or creating an RFI in the specified status. |
 | values   array: object | The list of allowed values for the required attribute. |
-| value   string | The actual value that must be used for the required attribute when updating or creating the RFI. <br>To find details about users, call [GET users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/).<br>Note that we do not currently support finding details about roles for a project. |
+| value   string | The actual value that must be used for the required attribute when updating or creating the RFI. <br>To find details about users, call [GET users](http-admin-projectsprojectId-users-GET.md), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/).<br>Note that we do not currently support finding details about roles for a project. |
 | type   string | The type of the required attribute value. Indicates what kind of entity the value represents (e.g., `user`, `role`, or `company`). |
 | wfEU   array: object | The list of statuses the user is permitted to transition an RFI to in workflows of type `emea`. |
 | status   enum:string | The current response status of the RFI for a multi-reviewer workflow (EMEA): Possible values: `draft`, `submitted`, `openRev1` (manager), `openRev2` (reviewer), `answeredRev1`, `answeredManager`, `closed`, `void`. <br>For more information about workflows, see [About RFI Workflows â Autodesk Help](https://help.autodesk.com/view/BUILD/ENU/?guid=RFI_Types). |
@@ -116,12 +116,12 @@ Expand all
 | requiredAttributes   array: object | The list of attributes that are required when creating or updating an RFI. |
 | name   string | The name of the RFI attribute that must be provided when updating or creating an RFI in the specified status. |
 | values   array: object | The list of allowed values for the required attribute. |
-| value   string | The actual value that must be used for the required attribute when updating or creating the RFI. <br>To find details about users, call [GET users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/).<br>Note that we do not currently support finding details about roles for a project. |
+| value   string | The actual value that must be used for the required attribute when updating or creating the RFI. <br>To find details about users, call [GET users](http-admin-projectsprojectId-users-GET.md), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/).<br>Note that we do not currently support finding details about roles for a project. |
 | type   string | The type of the required attribute value. Indicates what kind of entity the value represents (e.g., `user`, `role`, or `company`). |
 | permittedAttributes   array: object | The list of attributes that the user is optionally allowed to include when updating or creating the RFI in the specified status. |
 | name   string | The name of the RFI attribute that must be provided when updating or creating an RFI in the specified status. |
 | values   array: object | The list of allowed values for the required attribute. |
-| value   string | The actual value that must be used for the required attribute when updating or creating the RFI. <br>To find details about users, call [GET users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/).<br>Note that we do not currently support finding details about roles for a project. |
+| value   string | The actual value that must be used for the required attribute when updating or creating the RFI. <br>To find details about users, call [GET users](http-admin-projectsprojectId-users-GET.md), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/).<br>Note that we do not currently support finding details about roles for a project. |
 | type   string | The type of the required attribute value. Indicates what kind of entity the value represents (e.g., `user`, `role`, or `company`). |
 | workflow   object | The userâs assigned workflow roles and workflow type for RFIs in the current project. |
 | roles   array: string | The list of RFI workflow roles assigned to the user. Possible values: <br>`projectSC` â Creator<br>`projectGC` â Manager<br>`projectCoordinator` â Reviewer 1 (EMEA workflow only)<br>`projectReviewer` â Reviewer 1 (US) or Reviewer 2 (EMEA)<br>For information about workflow roles, see the [RFIs Permission](https://help.autodesk.com/view/BUILD/ENU/?guid=RFI_Statuses) documentation. |

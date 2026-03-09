@@ -68,4 +68,4 @@ Returns a BubbleNode instance, encapsulating the current document manifest JSON.
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) |  |
+| [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) |  |

@@ -12,15 +12,15 @@ GET
 
 Deprecated
 
-**Note:** This operation is deprecated. Beyond December 2022 we will only provide minimal support for this operation. So, please do not use this operation to download derivatives. Instead, use [Fetch Derivative Download URL](/en/docs/model-derivative/v2/reference/http/urn-manifest-derivativeurn-signedcookies-GET/) to obtain a download URL and a set of signed cookies to securely download derivatives.
+**Note:** This operation is deprecated. Beyond December 2022 we will only provide minimal support for this operation. So, please do not use this operation to download derivatives. Instead, use [Fetch Derivative Download URL](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-derivativeurn-signedcookies-GET/) to obtain a download URL and a set of signed cookies to securely download derivatives.
 
 Downloads the derivative specified by the `derivativeUrn` URI parameter, which was generated from the source model specified by the `urn` URI parameter.
 
-Note that the Model Derivative API uses 2 types of URNs. The **design URN** is generated when you upload the source design file to APS, and is used when calling most of the Model Derivative operations. A **derivative URN** is generated for each translated output file format, which is the URN you specify as the `derivativeUrn` URI parameter for this operation. To obtain the derivative URN, inspect the manifest of the translation job. Use [Fetch Manifest](/en/docs/model-derivative/v2/reference/http/urn-manifest-GET) to obtain the manifest of the translation job. See the [Translate a Source File](/en/docs/model-derivative/v2/tutorials/translate-to-obj/task3-translate-source-file/) for a demonstration on how to obtain the **deriviative URN** and how to download a derivative.
+Note that the Model Derivative API uses 2 types of URNs. The **design URN** is generated when you upload the source design file to APS, and is used when calling most of the Model Derivative operations. A **derivative URN** is generated for each translated output file format, which is the URN you specify as the `derivativeUrn` URI parameter for this operation. To obtain the derivative URN, inspect the manifest of the translation job. Use [Fetch Manifest](http-urn-manifest-GET.md) to obtain the manifest of the translation job. See the [Translate a Source File](../how-to-docs/translate-to-obj-task3-translate-source-file.md) for a demonstration on how to obtain the **deriviative URN** and how to download a derivative.
 
 **Note:** 3D SVF2 derivatives cannot be downloaded.
 
-**Tip:** Before calling this endpoint, call [Check Derivative Details](/en/docs/model-derivative/v2/reference/http/urn-manifest-derivativeurn-HEAD) to determine the total content length. If the derivative is large, use the `Range` header to download the derivative in chunks.
+**Tip:** Before calling this endpoint, call [Check Derivative Details](http-urn-manifest-derivativeurn-HEAD.md) to determine the total content length. If the derivative is large, use the `Range` header to download the derivative in chunks.
 
 ## [Resource Information](#resource-information)
 
@@ -34,7 +34,7 @@ Note that the Model Derivative API uses 2 types of URNs. The **design URN** is g
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](/en/docs/oauth/v2/tutorials/get-2-legged-token/), or a three-legged access token obtained via an [Authorization Code flow](/en/docs/oauth/v2/tutorials/get-3-legged-token/) or a [Secure Service Account flow](/en/docs/ssa/v1/tutorials/getting-started-with-ssa/task3-generate-3-legged-access-token/). The Secure Service Account flow generates tokens without user interaction but maintains user context for headless server-to-server operations. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account flow](https://aps.autodesk.com/en/docs/ssa/v1/tutorials/getting-started-with-ssa/task3-generate-3-legged-access-token/). The Secure Service Account flow generates tokens without user interaction but maintains user context for headless server-to-server operations. |
 | --- | --- |
 | Range   string | Specifies the byte range to download. Use this header to download a derivative in chunks, by requesting only a specific portion of the derivative. If not specified, the entire derivative is returned. <br>The format for specifying a range is `Range:bytes=start-end`, where:<br>`start` is the starting byte offset (inclusive).`end` is the ending byte offset (inclusive). If omitted, returns all bytes from the `start` offset to the end of the derivative.<br>For example:<br>`Range:bytes=0-63` - Returns the first 64 bytes`Range:bytes=64-127` - Returns the second set of 64 bytes`Range:bytes=1022` - Returns all the bytes from offset 1022 to the end<br>**Note:** You can specify only one range per request. |
 | region   string | Specifies the data center where the manifest and derivatives of the specified source design are stored. Possible values are: <br>`US` - (Default) Data center for the US region.`EMEA` - Data center for the European Union, Middle East, and Africa.`AUS` - Data center for the Australia region.`CAN` - Data center for the Canada region.`DEU` - Data center for the Germany region.`IND` - Data center for the India region.`JPN` - Data center for the Japan region.`GBR` - Data center for the United Kingdom region. |
@@ -82,7 +82,7 @@ Response for 200 has no body.
 
 Hint:
 
-The following examples return raw HTTP headers and JSON objects. For a more developer-friendly experience, consider using our [TypeScript SDK](/en/docs/model-derivative/v2/reference/typescript-sdk/) or [.NET SDK](/en/docs/model-derivative/v2/reference/dot-net-sdk). Both provide strongly typed data with IntelliSense support, offering code completion, error checking, and tooltips that reduce the need to reference JSON schemas.
+The following examples return raw HTTP headers and JSON objects. For a more developer-friendly experience, consider using our [TypeScript SDK](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/typescript-sdk/) or [.NET SDK](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/dot-net-sdk/). Both provide strongly typed data with IntelliSense support, offering code completion, error checking, and tooltips that reduce the need to reference JSON schemas.
 
  
 

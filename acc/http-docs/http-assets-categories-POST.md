@@ -16,14 +16,14 @@ This endpoint creates a new category within a projectâs category tree. The 
 of an existing category within the tree. This endpoint does not explicitly associate a status set or Asset
 custom attributes with the new category.
 
-To assign a status set to a category, use [PUT categories/:categoryId/status-step-set/:statusStepSetId](/en/docs/acc/v1/reference/http/assets-categories-category-id-status-step-set-status-step-set-id-PUT/).
-To assign an Asset custom attribute to a category, use [PUT categories/:categoryId/custom-attributes/:customAttributeId](/en/docs/acc/v1/reference/http/assets-categories-category-id-custom-attributes-custom-attribute-id-PUT/).
+To assign a status set to a category, use [PUT categories/:categoryId/status-step-set/:statusStepSetId](http-assets-categories-category-id-status-step-set-status-step-set-id-PUT.md).
+To assign an Asset custom attribute to a category, use [PUT categories/:categoryId/custom-attributes/:customAttributeId](http-assets-categories-category-id-custom-attributes-custom-attribute-id-PUT.md).
 
 Note that the new category will inherit a status set and any existing custom attributes from its parent
 
 category. The status set may be overridden; the custom attributes may be added to.
 
-To understand the basics of categories, category inheritance, and the Assets settings that define them, see the [Assets Field Guide](/en/docs/acc/v1/overview/field-guide/assets/).
+To understand the basics of categories, category inheritance, and the Assets settings that define them, see the [Assets Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/assets/).
 
   Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
@@ -39,7 +39,7 @@ To understand the basics of categories, category inheritance, and the Assets set
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 

@@ -16,7 +16,7 @@ When copying from a budget or a contract, the request must include specific IDs 
 
 For example, to copy sub cost items from a `contract SOV` to `estimated` sub cost items, use the endpoint with your specific project IDs.
 
-In the request body, set `from` as `contract`, `to` as `estimated`, and specify the contract SOV IDs in the `source.ids` array. After copying, you can verify the changes by calling [GET sub-cost-items](/en/docs/acc/v1/reference/http/cost-sub-cost-items-GET/).
+In the request body, set `from` as `contract`, `to` as `estimated`, and specify the contract SOV IDs in the `source.ids` array. After copying, you can verify the changes by calling [GET sub-cost-items](http-cost-sub-cost-items-GET.md).
 
 For more information about cost and sub cost items, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Cost_Cost_Items#add-a-cost-item).
 
@@ -34,10 +34,10 @@ For more information about cost and sub cost items, see the [Help documentation]
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
-| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](/en/docs/acc/v1/overview/acc-regions) page.<br>To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
+| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.<br>To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
 
 * Required
 
@@ -45,9 +45,9 @@ For more information about cost and sub cost items, see the [Help documentation]
 
 ## [URI Parameters](#uri-parameters)
 
-| containerId   string: UUID | The ID of the project (the container ID is the same as the project ID). To obtain the project ID, see [GET projects](/en/docs/bim360/v1/reference/http/admin-accounts-accountidprojects-GET/). |
+| containerId   string: UUID | The ID of the project (the container ID is the same as the project ID). To obtain the project ID, see [GET projects](http-admin-accounts-accountidprojects-GET.md). |
 | --- | --- |
-| costItemId   string: UUID | The ID of the cost item to which the sub cost item belongs. To find the cost item ID, call [GET cost-items](/en/docs/bim360/v1/reference/http/cost-cost-items-GET/). |
+| costItemId   string: UUID | The ID of the cost item to which the sub cost item belongs. To find the cost item ID, call [GET cost-items](http-cost-cost-items-GET.md). |
 
 ### Request
 
@@ -61,7 +61,7 @@ Expand all
 | --- | --- |
 | to*   enum:string | The type to which the sub cost items are copied. Note that `contract` and `budget` cannot be used as a destination. Possible values: `estimated`, `proposed`, `submitted`, `approved`, `committed`. |
 | source   object | The source object defining where sub-cost items are copied from. When copying from a `budget` or `contract`, this must include one or more source IDs. |
-| ids   array: string | A list of budget IDs or Schedule of Value (SOV) IDs from a contract, used as the source for copying sub cost items. To retrieve the relevant IDs, call [GET budgets](/en/docs/bim360/v1/reference/http/cost-budgets-GET/) or [GET contracts](/en/docs/bim360/v1/reference/http/cost-contracts-GET/). |
+| ids   array: string | A list of budget IDs or Schedule of Value (SOV) IDs from a contract, used as the source for copying sub cost items. To retrieve the relevant IDs, call [GET budgets](http-cost-budgets-GET.md) or [GET contracts](http-cost-contracts-GET.md). |
 
 * Required
 

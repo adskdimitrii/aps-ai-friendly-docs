@@ -12,7 +12,7 @@ POST
 
 Retrieves the view context around a set of assigned clash groups, such as the model set, and documents with which they are associated.
 
-You can use the BIM360 Issues API to obtain individual issues. See [GET issues/:issueId](/en/docs/bim360/v1/reference/http/issues-v2-issues-issueId-GET/) for more information.
+You can use the BIM360 Issues API to obtain individual issues. See [GET issues/:issueId](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/issues-v2-issues-issueId-GET/) for more information.
 
 The response contains context for the set of assigned clash groups.
 
@@ -30,10 +30,10 @@ The response contains context for the set of assigned clash groups.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token/) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
-| x-ads-region   enum: string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](/en/docs/acc/v1/overview/acc-regions) page. |
+| x-ads-region   enum: string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
 
 * Required
 

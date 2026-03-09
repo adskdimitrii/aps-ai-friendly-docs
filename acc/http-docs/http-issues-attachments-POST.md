@@ -16,7 +16,7 @@ Links one or more files in Autodesk Docs (uploaded via the Data Management OSS A
 
 Note that an issue can have up to 100 attachments. Files can include images, PDFs, or other supported formats.
 
-For more information about uploading attachments, see the [Upload Issue Attachment](/en/docs/acc/v1/tutorials/issues/upload-issue-attachments/) tutorial.
+For more information about uploading attachments, see the [Upload Issue Attachment](../how-to-docs/issues-upload-issue-attachments.md) tutorial.
 
 ## [Resource Information](#resource-information)
 
@@ -30,7 +30,7 @@ For more information about uploading attachments, see the [Upload Issue Attachme
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 
@@ -40,7 +40,7 @@ For more information about uploading attachments, see the [Upload Issue Attachme
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Request
@@ -54,11 +54,11 @@ Expand all
 | domainEntityId   string: UUID | The unique identifier of the issue to which the attachments will be added. |
 | --- | --- |
 | attachments*   array: object | A list of attachments to add to the issue. |
-| attachmentId*   string: UUID | The unique identifier for the attachment, set by the client when creating the attachment reference. This can be any unique GUID, but it is recommended to use the OSS storage GUID. For more information, see the [Upload Issue Attachment](/en/docs/acc/v1/tutorials/issues/upload-issue-attachments/) tutorial. |
+| attachmentId*   string: UUID | The unique identifier for the attachment, set by the client when creating the attachment reference. This can be any unique GUID, but it is recommended to use the OSS storage GUID. For more information, see the [Upload Issue Attachment](../how-to-docs/issues-upload-issue-attachments.md) tutorial. |
 | displayName*   string | The human-readable display name for the attachment, including the file extension (for example, `.pdf`, `.jpg`, `.dwg`). This name appears in the ACC web UI and is used when downloading the file from the issue. |
-| fileName*   string | The unique filename of the attachment, typically formatted as {attachmentId}.{fileExtension}. <br>This value must exactly match the name of the file stored in Autodesk Docs (OSS) that you uploaded via the OSS process.<br>For more information, see the [Upload Issue Attachment](/en/docs/acc/v1/tutorials/issues/upload-issue-attachments/) tutorial. |
+| fileName*   string | The unique filename of the attachment, typically formatted as {attachmentId}.{fileExtension}. <br>This value must exactly match the name of the file stored in Autodesk Docs (OSS) that you uploaded via the OSS process.<br>For more information, see the [Upload Issue Attachment](../how-to-docs/issues-upload-issue-attachments.md) tutorial. |
 | attachmentType*   enum:string | The type of attachment to create. Set to `issue-attachment`. Will always be: `issue-attachment` |
-| storageUrn*   string | The Object Storage Service (OSS) URN that uniquely identifies where the file is stored in Autodeskâs cloud infrastructure. You obtain this value after uploading the file to OSS (see the [Upload Issue Attachment](/en/docs/acc/v1/tutorials/issues/upload-issue-attachments/) tutorial) or by retrieving it from an existing attachment (see the [Downloading Issue Attachments](/en/docs/acc/v1/tutorials/issues/download-issue-attachments/) tutorial). |
+| storageUrn*   string | The Object Storage Service (OSS) URN that uniquely identifies where the file is stored in Autodeskâs cloud infrastructure. You obtain this value after uploading the file to OSS (see the [Upload Issue Attachment](../how-to-docs/issues-upload-issue-attachments.md) tutorial) or by retrieving it from an existing attachment (see the [Downloading Issue Attachments](../how-to-docs/issues-download-issue-attachments.md) tutorial). |
 
 * Required
 
@@ -96,11 +96,11 @@ Expand all
 | versionUrn   string | The URN for the specific file version that was attached to the issue. This may differ from the latest version URN (`tipVersionUrn`) if a newer version of the file exists in Autodesk Docs. |
 | tipVersionUrn   string | The URN for the latest (tip) version of the file. |
 | bubbleUrn   string | Not relevant |
-| createdBy   string | The ID of the user who created the issue attachment. For details about the user, call [GET users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET/). |
+| createdBy   string | The ID of the user who created the issue attachment. For details about the user, call [GET users](http-admin-projectsprojectId-users-GET.md). |
 | createdOn   datetime: ISO 8601 | The date and time when the issue attachment was created, in ISO8601 format. |
 | modifiedBy   string | Not relevant |
 | modifiedOn   datetime: ISO 8601 | Not relevant |
-| deletedBy   string | The ID of the user who deleted the issue attachment, if applicable. For details about the user, call [GET users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET/). |
+| deletedBy   string | The ID of the user who deleted the issue attachment, if applicable. For details about the user, call [GET users](http-admin-projectsprojectId-users-GET.md). |
 | deletedOn   datetime: ISO 8601 | The date and time when the issue attachment was deleted, if applicable. |
 | isDeleted   boolean | `true`: The attachment has been deleted. <br>`false`: (default) The attachment has not been deleted. |
 

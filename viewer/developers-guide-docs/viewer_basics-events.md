@@ -8,7 +8,7 @@ Source: https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basic
 
 Events are a mechanism to notify 3rd party code about changes in the Viewer.
 The Viewer actually listens to its own events in order to update the UI state.
-See the [Viewing Namespace](/en/docs/viewer/v7/reference/Viewing/#escape-event) topic of the API Reference for a list of available events.
+See the [Viewing Namespace](https://aps.autodesk.com/en/docs/viewer/v7/reference/Viewing/#escape-event) topic of the API Reference for a list of available events.
 
 This topic demonstrates adding listeners for the `Autodesk.Viewing.SELECTION_CHANGED_EVENT` and `Autodesk.Viewing.NAVIGATION_MODE_CHANGED_EVENT`. We will change the HTML content to
 display how many elements are currently selected and what navigation tool is currently set.
@@ -17,7 +17,7 @@ display how many elements are currently selected and what navigation tool is cur
 
 ## [Before You Begin](#before-you-begin)
 
-We recommend the code in this example to be encapsulated in an [extension](/en/docs/viewer/v7/developers_guide/viewer_basics/extensions).
+We recommend the code in this example to be encapsulated in an [extension](viewer_basics-extensions.md).
 
 ## [Step 1: Add Selection Counter to HTML](#step-1-add-selection-counter-to-html)
 
@@ -60,7 +60,7 @@ The content of `#MySelectionValue` changes whenever `Autodesk.Viewing.SELECTION_
 
 ## [Step 2: Listen and react to an event](#step-2-listen-and-react-to-an-event)
 
-Events are dispatched through the [Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) instance.
+Events are dispatched through the [Viewer3D](../reference-docs/Viewing-Viewer3D.md) instance.
 Letâs now add a function to handle selection change events.
 We will also call `addEventListener()` on the extensionâs `load()` function and call `removeEventListener()` on the extensionsâs `unload()` function.
 

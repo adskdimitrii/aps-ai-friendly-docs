@@ -16,7 +16,7 @@ This walkthrough presupposes that the app is a web app and that it needs to read
 
 ## [Before You Begin](#before-you-begin)
 
-Before you begin, follow the [Create an App](/en/docs/oauth/v2/tutorials/create-app) walkthrough to create your app on the APS Platform. Specify your appâs callback URL and note your client ID and secret.
+Before you begin, follow the [Create an App](create-app.md) walkthrough to create your app on the APS Platform. Specify your appâs callback URL and note your client ID and secret.
 
 Familiarize yourself with the overall flow:
 
@@ -24,7 +24,7 @@ Familiarize yourself with the overall flow:
 
 ## [Step 1: Direct the User to the Authorization Web Flow](#step-1-direct-the-user-to-the-authorization-web-flow)
 
-At some point in the UI of your web app, you will find that you need to get the end userâs consent to access APS resources on the userâs behalf. Depending on your app, you may do this when the user first starts using the app, or you may wait until your app actually needs to access the resource. Whatever the case, you will redirect the user to the [GET authorize](/en/docs/oauth/v2/reference/http/authorize-GET) endpoint in their browser. For example, you might provide a link that looks like the following:
+At some point in the UI of your web app, you will find that you need to get the end userâs consent to access APS resources on the userâs behalf. Depending on your app, you may do this when the user first starts using the app, or you may wait until your app actually needs to access the resource. Whatever the case, you will redirect the user to the [GET authorize](../http-docs/http-authorize-GET.md) endpoint in their browser. For example, you might provide a link that looks like the following:
 
 ```
 https://developer.api.autodesk.com/authentication/v2/authorize?response_type=code&client_id=F6Dn8ypem1j8P6sUz8IX3pmSsOA99GUT&redirect_uri=http://localhost:8080/oauth/callback/&scope=data:read
@@ -61,7 +61,7 @@ Your code that serves up the `/oauth/callback/` URL in your web app should extra
 
 ## [Step 3: Exchange the Authorization Code for an Access Token](#step-3-exchange-the-authorization-code-for-an-access-token)
 
-Immediately after extracting the `code` query parameter value, you should exchange the authorization code for an access token using the [POST token](/en/docs/oauth/v2/reference/http/gettoken-POST) endpoint:
+Immediately after extracting the `code` query parameter value, you should exchange the authorization code for an access token using the [POST token](../http-docs/http-gettoken-POST.md) endpoint:
 
 To generate Basic Header for your <client_id> and <client_secret>, execute the following command:
 

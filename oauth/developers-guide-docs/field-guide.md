@@ -24,11 +24,11 @@ A native application that uses the Authorization Code Flow with PKCE to be deplo
 
 ## [Grant](#grant)
 
-A grant is a protocol of acquiring an access token. Respective grant types are listed below under each Client. Refer to the [GET authorize](/en/docs/oauth/v2/reference/http/authorize-GET) endpoint reference for more information.
+A grant is a protocol of acquiring an access token. Respective grant types are listed below under each Client. Refer to the [GET authorize](../http-docs/http-authorize-GET.md) endpoint reference for more information.
 
 ### Grant Types
 
-Confidential applications can use grant types that require them to authenticate by specifying their client ID and client secret when calling the [Token endpoint](/en/docs/oauth/v2/reference/http/gettoken-POST).
+Confidential applications can use grant types that require them to authenticate by specifying their client ID and client secret when calling the [Token endpoint](../http-docs/http-gettoken-POST.md).
 
 Public applications can only use grant types that do not require the use of their client secret.
 
@@ -54,7 +54,7 @@ If you lose control of your credentials, you can regenerate your client secret.
 
 In a three-legged authorization code grant type flow, an authorization code is passed through a `code` query parameter when the user is redirected back to the app via the callback URL. Anything returned this way is accessible to the end user and, in principle, any intermediate system (including spyware in a browser extension).
 
-For this reason, returning an access token directly poses a security risk. But an authorization code on its own cannot be used to get an access token; the app has to supplement it with its client ID and secret in the [POST token](/en/docs/oauth/v2/reference/http/gettoken-POST) endpoint. Because the end user (and any part of the app that runs in the web browser) does not have the client ID and secret, the access token is not exposed.
+For this reason, returning an access token directly poses a security risk. But an authorization code on its own cannot be used to get an access token; the app has to supplement it with its client ID and secret in the [POST token](../http-docs/http-gettoken-POST.md) endpoint. Because the end user (and any part of the app that runs in the web browser) does not have the client ID and secret, the access token is not exposed.
 
 The authorization code is a 40-character string (e.g., `wroM1vFA4E-Aj241-quh_LVjm7UldawnNgYEHQ8I`).
 
@@ -76,7 +76,7 @@ In a three-legged context, it would be very disruptive to require that an end us
 
 It is a 42-character alphanumeric strings (e.g., `SDrclmgQSGyF79wjLqxQeEIjqELf0wE8aMym02PjRy`), and it is passed as the value for the `refresh_token` query parameter and JSON attribute.
 
-In a three-legged context, the [POST token](/en/docs/oauth/v2/reference/http/gettoken-POST) endpoint returns a JSON object that includes a refresh token. For example:
+In a three-legged context, the [POST token](../http-docs/http-gettoken-POST.md) endpoint returns a JSON object that includes a refresh token. For example:
 
 ```
 {

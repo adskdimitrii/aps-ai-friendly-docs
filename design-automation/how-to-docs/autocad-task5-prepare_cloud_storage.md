@@ -12,7 +12,7 @@ The Automation Service does not retain the inputs or outputs. It simply download
 While you can use any cloud storage service, in this task. you use the Data Management API to access the Object Storage Service (OSS) to store the input drawing file as well as define a placeholder for the output text file.
 
 The OSS is a cloud storage service that uses âBucketsâ as containers of data. The input and output files are stored as âObjectsâ in a Bucket.
-For more information on the OSS, refer the [Data Management API documentation](/en/docs/data/v2/reference/http/).
+For more information on the OSS, refer the [Data Management API documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/).
 
 By the end of this task, you will be able to:
 > - Create a Bucket to store the input and output files.
@@ -23,10 +23,10 @@ You will use the following operations in this task:
 
 | HTTP Request | Description |
 | --- | --- |
-| [POST /buckets](/en/docs/data/v2/reference/http/buckets-POST) | Creates an OSS Bucket. |
-| [GET /buckets/{bucketKey}/objects/{objectKey}/signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-GET) | Requests an S3 signed URL with which to upload an object. |
-| [POST /buckets/{bucketKey}/objects/{objectKey}/signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-POST) | Instructs OSS to complete the object creation process after the bytes have been uploaded directly to S3. |
-| [POST /buckets/{bucketKey}/objects/{objectKey}/signed](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signed-POST) | Creates a signed URL to an object in an OSS bucket. |
+| [POST /buckets](../../data/http-docs/http-buckets-POST.md) | Creates an OSS Bucket. |
+| [GET /buckets/{bucketKey}/objects/{objectKey}/signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md) | Requests an S3 signed URL with which to upload an object. |
+| [POST /buckets/{bucketKey}/objects/{objectKey}/signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-POST.md) | Instructs OSS to complete the object creation process after the bytes have been uploaded directly to S3. |
+| [POST /buckets/{bucketKey}/objects/{objectKey}/signed](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signed-POST.md) | Creates a signed URL to an object in an OSS bucket. |
 
 ## [Step 1 - Create a Bucket](#step-1-create-a-bucket)
 

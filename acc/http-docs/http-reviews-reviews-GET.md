@@ -30,7 +30,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | x-user-id   string | The ID of a user on whose behalf the request is made. Your application has access to all users specified by the administrator in the SaaS Integrations UI. Use this header to specify which user should be affected by the request. <br>This header is only required when using two-legged authentication. It is not needed for three-legged authentication.<br>Only userâs Autodesk ID (`autodeskId`) can be accepted. |
 
@@ -40,7 +40,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You can provide the project ID with or without the â**b.**" prefix.<br>Example with prefix: **b.563a4c30-e30d-4869-ac02-2a18b6447abe**Example without prefix: **563a4c30-e30d-4869-ac02-2a18b6447abe** |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You can provide the project ID with or without the â**b.**" prefix.<br>Example with prefix: **b.563a4c30-e30d-4869-ac02-2a18b6447abe**Example without prefix: **563a4c30-e30d-4869-ac02-2a18b6447abe** |
 | --- | --- |
 
 ### Request
@@ -63,7 +63,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 | filter[name]   string | Filter by review name in URL-encoded format. <br>Retrieves reviews with names that contain the specified string (not case-sensitive).<br>For example: `filter[name]=Apartment` retrieves reviews like `Apartment Block A` and `apartment_rendering`. |
 | filter[sequenceId]   int | Filter by review sequence ID in URL-encoded format. <br>Retrieves reviews with sequence IDs that partially match the specified number.<br>For example: `filter[sequenceId]=11` may retrieve `113` and `211`. |
 | filter[archived]   boolean | Filter by archive status in URL-encoded format. <br>`true`: retrieves only archived reviews.<br>`false`: retrieves only active (non-archived) reviews.<br>If omitted, only active reviews are retrieved.<br>For example: `filter[archived]=false`. |
-| filter[archivedBy]   string | Filter by the Autodesk ID of the user who archived the review, in URL-encoded format. To find the ID, call [GET users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET/). <br>It only takes effect when `filter[archived]=true` is also set.<br>For example: `filter[archivedBy]=A96JX8NUKRLVFWSR`. |
+| filter[archivedBy]   string | Filter by the Autodesk ID of the user who archived the review, in URL-encoded format. To find the ID, call [GET users](http-admin-projectsprojectId-users-GET.md). <br>It only takes effect when `filter[archived]=true` is also set.<br>For example: `filter[archivedBy]=A96JX8NUKRLVFWSR`. |
 | filter[archivedAt]   string | Filter by the date the review was archived, in URL-encoded format. <br>It only applies if `filter[archived]=true`.<br>Provide a date range using the format `startDate..endDate`.<br>Both values must be in ISO 8601 format.<br>For example: `filter[archivedAt]=2023-06-01..2023-06-30`. |
 
 ### Response

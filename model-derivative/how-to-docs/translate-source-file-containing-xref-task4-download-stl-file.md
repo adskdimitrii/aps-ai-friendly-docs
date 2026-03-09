@@ -11,7 +11,7 @@ In order to download the translated STL file, you must wait until the translatio
 1. Periodically download and check the manifest.
 2. Set up a webhook to notify you when the job is done.
 
-For the purpose of this walkthrough you will download the manifest and get the information you need to download the STL file. For more information on webhooks, see the documentation on [Model Derivative webhook events](/en/docs/webhooks/v1/reference/events/model_derivative_events/)
+For the purpose of this walkthrough you will download the manifest and get the information you need to download the STL file. For more information on webhooks, see the documentation on [Model Derivative webhook events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events/)
 
 By the end of this task you will be able to:
 
@@ -22,8 +22,8 @@ You will use the following operations in this task:
 
 | Operation | HTTP Request |
 | --- | --- |
-| [Fetch Manifest](/en/docs/model-derivative/v2/reference/http/urn-manifest-GET) | GET /{urn}/manifest |
-| [Fetch Derivative Download URL](/en/docs/model-derivative/v2/reference/http/urn-manifest-derivativeUrn-signedcookies-GET/) | GET {urn}/manifest/{derivativeUrn}/signedcookies |
+| [Fetch Manifest](../http-docs/http-urn-manifest-GET.md) | GET /{urn}/manifest |
+| [Fetch Derivative Download URL](../http-docs/http-urn-manifest-derivativeUrn-signedcookies-GET.md) | GET {urn}/manifest/{derivativeUrn}/signedcookies |
 
 ## [Step 1 - Check the status of translation job](#step-1-check-the-status-of-translation-job)
 

@@ -11,9 +11,9 @@ Commands
 Retrieves metadata for up to 50 specified items. For example, an item name, or the date it was created. It returns the `tip` (latest) version of the items.
 
 Note that ListItems is a Data Management command. Commands enable you to perform complex operations on multiple resources
-rather than standard CRUD operations. For more details about commands, see the[Commands](/en/docs/data/v2/overview/commands) overview section.
+rather than standard CRUD operations. For more details about commands, see the[Commands](https://aps.autodesk.com/en/docs/data/v2/overview/commands/) overview section.
 
-**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](/en/docs/acc/v1/overview/).
+**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/).
 
 ## [Resource Information](#resource-information)
 
@@ -27,7 +27,7 @@ rather than standard CRUD operations. For more details about commands, see the[C
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | x-user-id   string | In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified. |
 | Content-Type*   string | Must be `application/vnd.api+json`. |
@@ -64,7 +64,7 @@ Expand all
 | resources*   object | An object that represents related resources.   In this case, it is used to list the resourceâs metadata which should be retrieved. |
 | data*   array:object | List of items. Each item requires a `type` and `id` |
 | type*   string | The type of resource. Will always be: `items` |
-| id*   string | The URN of the item; to verify a URN, see the [GET projects/:project_id/items/:item_id](/en/docs/data/v2/reference/http/projects-project_id-items-item_id-GET) endpoint. |
+| id*   string | The URN of the item; to verify a URN, see the [GET projects/:project_id/items/:item_id](http-projects-project_id-items-item_id-GET.md) endpoint. |
 
 * Required
 
@@ -101,8 +101,8 @@ Expand all
 | resources   object | An object that represents related resources.   In this case, it is used to list the resourceâs metadata. |
 | data   array:object | List of metadata for the specified items. |
 | type   string | The type of resource. Will always be: `items` |
-| id   string | The URN of the item; to verify a URN, see the [GET projects/:project_id/items/:item_id](/en/docs/data/v2/reference/http/projects-project_id-items-item_id-GET) endpoint. |
-| meta   object | The meta-information of this resource. See [GET projects/:project_id/items/:item_id](/en/docs/data/v2/reference/http/projects-project_id-items-item_id-GET). |
+| id   string | The URN of the item; to verify a URN, see the [GET projects/:project_id/items/:item_id](http-projects-project_id-items-item_id-GET.md) endpoint. |
+| meta   object | The meta-information of this resource. See [GET projects/:project_id/items/:item_id](http-projects-project_id-items-item_id-GET.md). |
 | webView   object | An object containing a link that opens the resource in a browser. |
 | href   string | The location (URL) of the resource the link goes to. |
 | *included*   array:object | List of metadata for the tip (latest) version of each item. |

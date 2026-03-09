@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/advanced_opt
 
 # Querying the Property Database
 
-The [Property Database](/en/docs/viewer/v7/reference/globals/PropertyDatabase) contains all of the BIM data for a construction model and the manufacturing data for manufacturing models. The Property Database is kept on a dedicated [web worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) and accessing it is done via asynchronous messages.
+The [Property Database](https://aps.autodesk.com/en/docs/viewer/v7/reference/globals/PropertyDatabase/) contains all of the BIM data for a construction model and the manufacturing data for manufacturing models. The Property Database is kept on a dedicated [web worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) and accessing it is done via asynchronous messages.
 
 In this example weâll be writing a function that queries the Property Database of the model directly inside the web worker execution context.
 
@@ -163,6 +163,6 @@ When writing your own `userFunction`, make sure that you avoid referencing objec
 
 ## [Whatâs next?](#what-s-next)
 
-To view an interactive example, see [Querying Model Properties](/en/docs/viewer/v7/developers_guide/interactive_examples/example_3/).
+To view an interactive example, see [Querying Model Properties](interactive_examples-example_3.md).
 
-See [Property Database](/en/docs/viewer/v7/reference/globals/PropertyDatabase) for the instance methods available for your custom query function.
+See [Property Database](https://aps.autodesk.com/en/docs/viewer/v7/reference/globals/PropertyDatabase/) for the instance methods available for your custom query function.

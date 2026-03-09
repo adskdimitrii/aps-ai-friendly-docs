@@ -14,9 +14,9 @@ Updates the upload status of an attachment associated with a submittal item. Use
 
 For more details about submittal attachments, see the [Submittal Attachments Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Submittal_Attachments).
 
-For details about attaching local files, see the [Attach Local File to Submittals](/en/docs/acc/v1/tutorials/submittals/attach-local-files/) tutorial.
+For details about attaching local files, see the [Attach Local File to Submittals](../how-to-docs/submittals-attach-local-files.md) tutorial.
 
-For details about attaching exising files from the Files tool, see the [Attach Files From the ACC Files Tool to Submittals](/en/docs/acc/v1/tutorials/submittals/attach-files-tool/) tutorial.
+For details about attaching exising files from the Files tool, see the [Attach Files From the ACC Files Tool to Submittals](../how-to-docs/submittals-attach-files-tool.md) tutorial.
 
 Note that this endpoint is not compatible with BIM 360 projects.
 
@@ -32,7 +32,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 
@@ -42,10 +42,10 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
-| itemId   string | The ID of the submittal item. To find the item ID, call [GET items](/en/docs/acc/v1/reference/http/submittals-items-GET/). |
-| attachmentId   string | The ID of the attachment. To find the ID, call [GET attachments](/en/docs/acc/v1/reference/http/submittals-items-itemId-attachments-GET/). |
+| itemId   string | The ID of the submittal item. To find the item ID, call [GET items](http-submittals-items-GET.md). |
+| attachmentId   string | The ID of the attachment. To find the ID, call [GET attachments](http-submittals-items-itemId-attachments-GET.md). |
 
 ### Request
 

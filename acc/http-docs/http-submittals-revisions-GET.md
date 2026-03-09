@@ -12,7 +12,7 @@ GET
 
 Retrieves the revision history of a specified submittal item, returning previous versions of its fields and associated workflow details. Each revision contains information about the itemâs previous states.
 
-To retrieve the most recent version of a submittal item, call [GET item](/en/docs/acc/v1/reference/http/submittals-items-itemId-GET/).
+To retrieve the most recent version of a submittal item, call [GET item](http-submittals-items-itemId-GET.md).
 
 For more details about submittal revisions, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Process_Submittal).
 
@@ -30,7 +30,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 
 * Required
@@ -39,8 +39,8 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring: UUID The ID of the project. Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
-- itemIdstring The ID of the submittal item. To find the item ID, call [GET items](/en/docs/acc/v1/reference/http/submittals-items-GET/).
+- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+- itemIdstring The ID of the submittal item. To find the item ID, call [GET items](http-submittals-items-GET.md).
 
 ### Request
 
@@ -76,11 +76,11 @@ Expand all
 | previousUrl   string | The URL to retrieve the preceding page of results, if applicable. Not returned on the first page of results. |
 | nextUrl   string | The URL to retrieve the subsequent page of results, if available. If not included, this is the last page of data. |
 | results   array: object | A list of revisions associated with the specified submittal item. |
-| itemId   string: UUID | The unique identifier of the submittal item whose revision history is being retrieved. It remains the same across all revisions of the item. Use this ID to track changes and access previous versions. To get the most recent version of a submittal item, call [GET items/:itemId](/en/docs/acc/v1/reference/http/submittals-items-itemId-GET/). |
+| itemId   string: UUID | The unique identifier of the submittal item whose revision history is being retrieved. It remains the same across all revisions of the item. Use this ID to track changes and access previous versions. To get the most recent version of a submittal item, call [GET items/:itemId](http-submittals-items-itemId-GET.md). |
 | revision   int | The version number of the submittal item, representing its revision history. |
-| manager   string | The Autodesk ID of the user, company, or role assigned as the manager of the submittal item. In order to get more info about the manager, use:  > [GET projects/users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET) to verify the actual name of the user in case the typs is a `user` (1).[GET companies](/en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/) to determine the name of the company in case the typs is a `company` (2). <br>Note that we do not currently support verifying names of roles. |
+| manager   string | The Autodesk ID of the user, company, or role assigned as the manager of the submittal item. In order to get more info about the manager, use:  > [GET projects/users](http-admin-projectsprojectId-users-GET.md) to verify the actual name of the user in case the typs is a `user` (1).[GET companies](http-projects--project_id-companies-GET.md) to determine the name of the company in case the typs is a `company` (2). <br>Note that we do not currently support verifying names of roles. |
 | managerType   enum:string | The type of entity assigned as the manager of the submittal item. <br>Possible values: `1` (user), `2` (company), `3` (role). |
-| subcontractor   string | The Autodesk ID of the user, company, or role assigned as the subcontractor for the submittal item. In order to get more info about the subcontractor, use:  > [GET projects/users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET) to verify the actual name of the user in case the typs is a `user` (1).[GET companies](/en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/) to determine the name of the company in case the typs is a `company` (2). <br>Note that we do not currently support verifying names of roles. |
+| subcontractor   string | The Autodesk ID of the user, company, or role assigned as the subcontractor for the submittal item. In order to get more info about the subcontractor, use:  > [GET projects/users](http-admin-projectsprojectId-users-GET.md) to verify the actual name of the user in case the typs is a `user` (1).[GET companies](http-projects--project_id-companies-GET.md) to determine the name of the company in case the typs is a `company` (2). <br>Note that we do not currently support verifying names of roles. |
 | subcontractorType   enum:string | The type of manager. Possible values: `1` (user), `2` (company), `3` (role). |
 | submitterDueDate   string | The date when the subcontractor is expected to submit the submittal to the manager, in the following format: YYYY-MM-DD in UTC (ISO 8601). For example, `2017-02-15`. This corresponds to the `sbc-1` state `Waiting for submission`. |
 | sentToSubmitter   datetime: ISO 8601 | The date when the submittal item transitioned to the subcontractor for review, formatted as YYYY-MM-DDTHH:mm:ss.SSSSSSZ (ISO 8601) in UTC. For example, `2018-02-15T12:09:24.198466Z`. This corresponds to transition to the `sbc-1` state. |
@@ -92,7 +92,7 @@ Expand all
 | receivedFromReview   datetime: ISO 8601 | The date and time when the submittal item transitioned from the `rev` state (`Open - In Review`) to the `mgr-2` state `(Close and distribute)`, formatted as YYYY-MM-DDTHH:mm:ss.SSSSSSZ (ISO 8601) in UTC. For example, `2018-02-15T12:09:24.198466Z`. |
 | publishedDate   datetime: ISO 8601 | The date when the manager closed and distributed the submittal item, formatted as YYYY-MM-DDTHH:mm:ss.SSSSSSZ (ISO 8601) in UTC. For example, `2018-02-15T12:09:24.198466Z`. |
 | publishedBy   string | The Autodesk ID of the user who published the submittal item. |
-| responseId   string: UUID | The ID of the response associated with the submittal item, linking to the specific feedback or action taken. For information about the response, call [GET responses](/en/docs/acc/v1/reference/http/submittals-responses-GET/). |
+| responseId   string: UUID | The ID of the response associated with the submittal item, linking to the specific feedback or action taken. For information about the response, call [GET responses](http-submittals-responses-GET.md). |
 | responseComment   string | The body of the response comment, containing feedback or instructions related to the submittal item. |
 | respondedAt   datetime: ISO 8601 | The date and time when the response was added, formatted as YYYY-MM-DDTHH:mm:ss.SSSSSSZ (ISO 8601) in UTC. For example, `2018-02-15T12:09:24.198466Z`. |
 | respondedBy   string | The Autodesk ID of the user that gave the response to the submittal item. |

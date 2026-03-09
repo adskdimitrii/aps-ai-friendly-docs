@@ -12,19 +12,19 @@ If you want to upload a file to ACC Sheets, see the [Upload Sheets](https://aps.
 
 In order to complete the upload process, you need to manually review and publish the file in ACC Files. For more details, see the [Help documentation](https://help.autodesk.com/view/DOCS/ENU/?guid=Upload_files).
 
-For more details about ACC Document management, see the [Data Management API](/en/docs/data/v2/overview/).
+For more details about ACC Document management, see the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/overview/).
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps), and select the Data Management and Autodesk Construction Cloud APIs.
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:create` `data:read` and `data:write` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create` `data:read` and `data:write` scopes.
 - Verify that you have access to the relevant ACC account, project, and folder.
 
 ## [Step 1: Find the Hub ID for the ACC Account](#step-1-find-the-hub-id-for-the-acc-account)
 
 The first few steps of the tutorial demonstrate how to create an empty storage object in the folder where you want to upload the file. This involves iterating through several Data Management endpoints to find the folder ID.
 
-Call [GET hubs](/en/docs/data/v2/reference/http/hubs-GET/) to find the hub ID for the ACC account that contains the folder you want to upload the file to.
+Call [GET hubs](../../data/http-docs/http-hubs-GET.md) to find the hub ID for the ACC account that contains the folder you want to upload the file to.
 
 Note that the ACC account ID corresponds to a Data Management hub ID. To convert an account ID into a hub ID you need to add a â**b.**" prefix. For example, an account ID of c8b0c73d-3ae9 translates to a hub ID of **b.**c8b0c73d-3ae9.
 
@@ -76,9 +76,9 @@ Find the hub (`data.name`), and note the hub ID - `b.cGVyc29uYWw6cGUyOWNjZjMy`.
 
 ## [Step 2: Find the Project ID](#step-2-find-the-project-id)
 
-Use the hub ID (`b.cGVyc29uYWw6cGUyOWNjZjMy`) to call [GET hubs/:hub_id/projects](/en/docs/data/v2/reference/http/hubs-hub_id-projects-GET) to get a list of all the projects in the hub. Find the project ID of the project that contains the folder you want to upload the file to.
+Use the hub ID (`b.cGVyc29uYWw6cGUyOWNjZjMy`) to call [GET hubs/:hub_id/projects](../../data/http-docs/http-hubs-hub_id-projects-GET.md) to get a list of all the projects in the hub. Find the project ID of the project that contains the folder you want to upload the file to.
 
-Note that the project ID in ACC corresponds to the project ID in the [Data Management API](/en/docs/data/v2/). To convert a project ID in ACC to a project ID in the Data Management API, you need to add a â**b.**" prefix. For example, a project ID of a4be0c34a-4ab7 translates to a project ID of **b.**a4be0c34a-4ab7.
+Note that the project ID in ACC corresponds to the project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in ACC to a project ID in the Data Management API, you need to add a â**b.**" prefix. For example, a project ID of a4be0c34a-4ab7 translates to a project ID of **b.**a4be0c34a-4ab7.
 
 ### Request
 
@@ -124,7 +124,7 @@ Find the project (`data.attributes.name`), and note the project ID (`data.id`) -
 
 ## [Step 3: Find the Folder ID](#step-3-find-the-folder-id)
 
-Use the hub ID (`b.cGVyc29uYWw6cGUyOWNjZjMy`) and the project ID (`b.cGVyc29uYWw6d2l`) to call [GET hubs/:hub_id/projects/:project_id/topFolders](/en/docs/data/v2/reference/http/hubs-hub_id-projects-project_id-topFolders-GET) to get the top-level folders.
+Use the hub ID (`b.cGVyc29uYWw6cGUyOWNjZjMy`) and the project ID (`b.cGVyc29uYWw6d2l`) to call [GET hubs/:hub_id/projects/:project_id/topFolders](../../data/http-docs/http-hubs-hub_id-projects-project_id-topFolders-GET.md) to get the top-level folders.
 
 ### Request
 
@@ -188,7 +188,7 @@ Find the relevant folder (`data.attributes.name`); in this example, the Project 
 
 ## [Step 4: Find the Nested Folder ID](#step-4-find-the-nested-folder-id)
 
-If you want to upload the document to a folder nested under the top-level folder, you need to call [GET projects/:project_id/folders/:folder_id/contents](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-contents-GET) repeatedly through the hierarchy of folders until you find the Folder ID of the folder you want to upload the document to. For the first iteration, use the top-level folder ID. (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`).
+If you want to upload the document to a folder nested under the top-level folder, you need to call [GET projects/:project_id/folders/:folder_id/contents](../../data/http-docs/http-projects-project_id-folders-folder_id-contents-GET.md) repeatedly through the hierarchy of folders until you find the Folder ID of the folder you want to upload the document to. For the first iteration, use the top-level folder ID. (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`).
 
 ### Request
 
@@ -254,7 +254,7 @@ Find the folder (`data.attributes.name`), and note the folder ID (`data.id`) - `
 
 ## [Step 5: Create a Storage Object](#step-5-create-a-storage-object)
 
-Use the project ID (`b.cGVyc29uYWw6d2l`) and the folder ID (`urn:adsk.wipprod:fs.folder:co.QneBBX7evT2JSrpeQXga0`) to call [POST projects/:project_id/storage](/en/docs/data/v2/reference/http/projects-project_id-storage-POST) to create an empty storage object for the file in the folder.
+Use the project ID (`b.cGVyc29uYWw6d2l`) and the folder ID (`urn:adsk.wipprod:fs.folder:co.QneBBX7evT2JSrpeQXga0`) to call [POST projects/:project_id/storage](../../data/http-docs/http-projects-project_id-storage-POST.md) to create an empty storage object for the file in the folder.
 
 Note that you need to assign a filename and file extension (PNG or JPG) to the `name` parameter (`My First File.jpg`).
 
@@ -315,9 +315,9 @@ Note the bucket key - `wip.dm.prod` and the object key - `2a6d61f2-49df-4d7b.jpg
 
 ## [Step 6: Generate a Signed S3 URL](#step-6-generate-a-signed-s3-url)
 
-Use the bucket key (`wip.dm.prod`) and the object key (`2a6d61f2-49df-4d7b.jpg`) to call [GET buckets/:bucketKey/objects/:objectKey/signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-GET) to generate a signed URL for the storage object.
+Use the bucket key (`wip.dm.prod`) and the object key (`2a6d61f2-49df-4d7b.jpg`) to call [GET buckets/:bucketKey/objects/:objectKey/signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md) to generate a signed URL for the storage object.
 
-This endpoint supports generating multiple signed URLs, which allows you to upload multiple chunks of the same file in parallel. For more information, see [GET signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-GET).
+This endpoint supports generating multiple signed URLs, which allows you to upload multiple chunks of the same file in parallel. For more information, see [GET signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md).
 
 ### Request
 
@@ -361,7 +361,7 @@ Note that a successful call (`200`) returns an empty response.
 
 ## [Step 8: Complete the Upload](#step-8-complete-the-upload)
 
-Use the bucket key (`wip.dm.prod`) the object key (`` 2a6d61f2-49df-4d7b.jpg` ``) and the upload key (`AQICAHifrJ6-BSHUmjAat4..........QWI-fuvghN23akgePMdmykV`) to call [POST buckets/:bucket_key/objects/:object_key/signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-POST) to complete the upload.
+Use the bucket key (`wip.dm.prod`) the object key (`` 2a6d61f2-49df-4d7b.jpg` ``) and the upload key (`AQICAHifrJ6-BSHUmjAat4..........QWI-fuvghN23akgePMdmykV`) to call [POST buckets/:bucket_key/objects/:object_key/signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-POST.md) to complete the upload.
 
 This endpoint needs to be called within 24 hours from the time you began uploading the file.
 
@@ -392,7 +392,7 @@ The file has been uploaded to the storage object.
 
 ## [Step 9: Create the First Version of the File](#step-9-create-the-first-version-of-the-file)
 
-Use the project ID (`b.cGVyc29uYWw6d2l`), the folder ID (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`), and the Object ID (`urn:adsk.objects:os.object:wip.dm.prod/2a6d61f2-49df-4d7b.jpg`) to call [POST projects/:project_id/items](/en/docs/data/v2/reference/http/projects-project_id-items-POST) to create the first version of the uploaded file.
+Use the project ID (`b.cGVyc29uYWw6d2l`), the folder ID (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`), and the Object ID (`urn:adsk.objects:os.object:wip.dm.prod/2a6d61f2-49df-4d7b.jpg`) to call [POST projects/:project_id/items](../../data/http-docs/http-projects-project_id-items-POST.md) to create the first version of the uploaded file.
 
 ### Request
 
@@ -521,7 +521,7 @@ Note the item ID (`data.id`) - `urn:adsk.wipprod:dm.lineage:AeYgDtcTSuqYoyMweWFh
 
 ## [Step 10: Create Additional Versions of the File](#step-10-create-additional-versions-of-the-file)
 
-To create an additional version of the file, you need to create a new storage object (step 5), upload the new version to the object (step 6), and use the item ID you retrieved in step 7 to call [POST projects/:project_id/versions](/en/docs/data/v2/reference/http/projects-project_id-versions-POST).
+To create an additional version of the file, you need to create a new storage object (step 5), upload the new version to the object (step 6), and use the item ID you retrieved in step 7 to call [POST projects/:project_id/versions](../../data/http-docs/http-projects-project_id-versions-POST.md).
 
 ### Request
 

@@ -8,7 +8,7 @@ Autodesk.Viewing
 
 # ErrorCodes
 
-Error code constants These constants will be used in [Callbacks#onGenericError](/en/docs/viewer/v7/reference/Callbacks/onGenericError/) functions.
+Error code constants These constants will be used in [Callbacks#onGenericError](https://aps.autodesk.com/en/docs/viewer/v7/reference/Callbacks/onGenericError/) functions.
 
 # Constants
 

@@ -12,9 +12,9 @@ GET
 
 Retrieves all attachments for a specific issue in a project.
 
-For details about retrieving metadata for a specific attachment, see the [Retrieve Issue Attachment](/en/docs/acc/v1/tutorials/issues/retrieve-issue-attachments/) tutorial.
+For details about retrieving metadata for a specific attachment, see the [Retrieve Issue Attachment](../how-to-docs/issues-retrieve-issue-attachments.md) tutorial.
 
-For details about downloading an attachment, see the [Download Issue Attachment](/en/docs/acc/v1/tutorials/issues/download-issue-attachments/) tutorial.
+For details about downloading an attachment, see the [Download Issue Attachment](../how-to-docs/issues-download-issue-attachments.md) tutorial.
 
 ## [Resource Information](#resource-information)
 
@@ -28,7 +28,7 @@ For details about downloading an attachment, see the [Download Issue Attachment]
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 
 * Required
@@ -37,8 +37,8 @@ For details about downloading an attachment, see the [Download Issue Attachment]
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring: UUID The ID of the project. Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
-- issueIdstring: UUID The unique identifier of the issue. To find the ID, call [GET issues](/en/docs/acc/v1/reference/http/issues-issues-GET/).
+- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+- issueIdstring: UUID The unique identifier of the issue. To find the ID, call [GET issues](http-issues-issues-GET.md).
 
 ### Response
 
@@ -72,11 +72,11 @@ Expand all
 | versionUrn   string | The URN for the specific file version that was attached to the issue. This may differ from the latest version URN (`tipVersionUrn`) if a newer version of the file exists in Autodesk Docs. |
 | tipVersionUrn   string | The URN for the latest (tip) version of the file. |
 | bubbleUrn   string | Not relevant |
-| createdBy   string | The ID of the user who created the issue attachment. For details about the user, call [GET users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET/). |
+| createdBy   string | The ID of the user who created the issue attachment. For details about the user, call [GET users](http-admin-projectsprojectId-users-GET.md). |
 | createdOn   datetime: ISO 8601 | The date and time when the issue attachment was created, in ISO8601 format. |
 | modifiedBy   string | Not relevant |
 | modifiedOn   datetime: ISO 8601 | Not relevant |
-| deletedBy   string | The ID of the user who deleted the issue attachment, if applicable. For details about the user, call [GET users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET/). |
+| deletedBy   string | The ID of the user who deleted the issue attachment, if applicable. For details about the user, call [GET users](http-admin-projectsprojectId-users-GET.md). |
 | deletedOn   datetime: ISO 8601 | The date and time when the issue attachment was deleted, if applicable. |
 | isDeleted   boolean | `true`: The attachment has been deleted. <br>`false`: (default) The attachment has not been deleted. |
 

@@ -12,9 +12,9 @@ POST
 
 Creates a data request for an authenticated user. The user can optionally limit the request to one project. The user must have executive overview or project administrator permissions.
 
-As a successfully created data request spawns jobs, those jobs will send status email to the data request creator when completed. If the data request contains a callback URL, jobs will also call that URL when completed. Data Connector requests and their resulting jobs are subject to rate limits: an account can create a maximum of 24 jobs within a 24-hour period, and an individual user can create up to 24 jobs within the same timeframe. For more details, see the [Rate Limits](/en/docs/bim360/v1/overview/rate-limits/data-connector-rate-limits/) page.
+As a successfully created data request spawns jobs, those jobs will send status email to the data request creator when completed. If the data request contains a callback URL, jobs will also call that URL when completed. Data Connector requests and their resulting jobs are subject to rate limits: an account can create a maximum of 24 jobs within a 24-hour period, and an individual user can create up to 24 jobs within the same timeframe. For more details, see the [Rate Limits](https://aps.autodesk.com/en/docs/bim360/v1/overview/rate-limits/data-connector-rate-limits/) page.
 
-To understand the basics of requests, the jobs they spawn, and the data extracts returned by the jobs, see the [Data Connector API Field Guide](/en/docs/bim360/v1/overview/field-guide/data-connector/).
+To understand the basics of requests, the jobs they spawn, and the data extracts returned by the jobs, see the [Data Connector API Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/data-connector/).
 
   Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
@@ -30,7 +30,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 
@@ -40,7 +40,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 
 ## [URI Parameters](#uri-parameters)
 
-| accountId   string: UUID | The account ID. You can derive it from your hub ID if necessary: Use [GET hubs](/en/docs/data/v2/reference/http/hubs-GET/) in the Data Management API to retrieve your hub ID. Remove the initial âb.â from the hub ID to get your account ID. |
+| accountId   string: UUID | The account ID. You can derive it from your hub ID if necessary: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial âb.â from the hub ID to get your account ID. |
 | --- | --- |
 
 ### Request

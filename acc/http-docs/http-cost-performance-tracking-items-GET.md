@@ -10,7 +10,7 @@ GET
 
 # v1/containers/{containerId}/performance-tracking-items
 
-Retrieves one or more performance tracking items in the given project. Note that a tracking item contains a subset of the attributes of the budget from which it was created. For more information about performance tracking, see the [Cost Management API Field Guide](/en/docs/bim360/v1/overview/field-guide/cost-management/).
+Retrieves one or more performance tracking items in the given project. Note that a tracking item contains a subset of the attributes of the budget from which it was created. For more information about performance tracking, see the [Cost Management API Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/cost-management/).
 
   Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
@@ -26,8 +26,8 @@ Retrieves one or more performance tracking items in the given project. Note that
 
 ## [Headers](#headers)
 
-- Authorization*string Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow.
-- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](/en/docs/acc/v1/overview/acc-regions) page.To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
+- Authorization*string Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow.
+- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
 
 * Required
 
@@ -35,7 +35,7 @@ Retrieves one or more performance tracking items in the given project. Note that
 
 ## [URI Parameters](#uri-parameters)
 
-| containerId   string: UUID | The ID of the project (the container ID is the same as the project ID). To obtain the project ID, see [GET projects](/en/docs/bim360/v1/reference/http/admin-accounts-accountidprojects-GET/). |
+| containerId   string: UUID | The ID of the project (the container ID is the same as the project ID). To obtain the project ID, see [GET projects](http-admin-accounts-accountidprojects-GET.md). |
 | --- | --- |
 
 ### Request
@@ -47,7 +47,7 @@ Retrieves one or more performance tracking items in the given project. Note that
 | limit   int | The maximum number of records returned per page. Default: `100`. A page may contain fewer records than the limit if there are fewer matching items or if it is the last page of results. |
 | sort   string | Defines the sort order for the results. Each attribute can be sorted in `asc` (default) or `desc` order. For example, `sort=name desc` sorts the results by name in descending order. |
 | filter[id]   array: string: uuid | Returns only the items that are identified by the provided list of item IDs. Separate multiple IDs with commas. For example, `filter[id]=id1,id2`. |
-| filter[budgetId]   array: string: uuid | Returns only tracking item instances that belong to the budgets identified by the provided list of budget IDs (separated with commas). For example, `filter[budgetId]=id1,id2`. Note that you can return the instances that are not linked to any budget using `filter[budgetId]=blank`. To find budget IDs, call [GET budgets](/en/docs/bim360/v1/reference/http/cost-budgets-GET/) and inspect `results.id` in the response. |
+| filter[budgetId]   array: string: uuid | Returns only tracking item instances that belong to the budgets identified by the provided list of budget IDs (separated with commas). For example, `filter[budgetId]=id1,id2`. Note that you can return the instances that are not linked to any budget using `filter[budgetId]=blank`. To find budget IDs, call [GET budgets](http-cost-budgets-GET.md) and inspect `results.id` in the response. |
 | filter[budgetCode]   array: string | Filter data that belong to associated budget code. For example, `filter[budgetCode]=code1,code2`. |
 | filter[lastModifiedSince]   string | Returns only items that were modified since the specified date and time, in ISO 8601 format. For example, `filter[lastModifiedSince]=2020-03-01T13:00:00Z`. |
 

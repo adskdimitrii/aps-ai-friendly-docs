@@ -15,11 +15,11 @@ using the `filter` query string parameter. You can filter the following properti
 the `type` property, the `id` property, and any of the `attributes` object properties. For example,
 you can filter `createTime`, `mimeType`. It returns tip versions (latest versions) of properties where the filter conditions are satisfied.
 To verify the properties of the `attributes` object for a specific version,
-see the [GET projects/:project_id/versions/:version_id](/en/docs/data/v2/reference/http/projects-project_id-versions-version_id-GET/).
+see the [GET projects/:project_id/versions/:version_id](http-projects-project_id-versions-version_id-GET.md).
 
-To filter a folder's data without recursively filtering its subfolders, see the [GET projects/:project_id/folders/:folder_id/contents](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-contents-GET/) endpoint.
+To filter a folder's data without recursively filtering its subfolders, see the [GET projects/:project_id/folders/:folder_id/contents](http-projects-project_id-folders-folder_id-contents-GET.md) endpoint.
 
-**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](/en/docs/acc/v1/overview/).
+**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/).
 
 ## [Resource Information](#resource-information)
 
@@ -33,7 +33,7 @@ To filter a folder's data without recursively filtering its subfolders, see the 
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | x-user-id   string | In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified. |
 
@@ -51,7 +51,7 @@ To filter a folder's data without recursively filtering its subfolders, see the 
 
 ## [Query String Parameters](#query-string-parameters)
 
-| filter[*]   array: string | Filter the data. See the [Filtering](/en/docs/data/v2/overview/filtering/) section for details. |
+| filter[*]   array: string | Filter the data. See the [Filtering](https://aps.autodesk.com/en/docs/data/v2/overview/filtering/) section for details. |
 | --- | --- |
 | page[number]   int | Specifies what page to return. Page numbers start at 0, so the first page is page 0. The minimum value to specify is 0 and the maximum is 49. For fewer results to page through, consider searching an inner folder. |
 
@@ -105,7 +105,7 @@ Expand all
 | schema   object | An object containing an API link property. |
 | href   string | A hyperlink reference to this resource. |
 | data   object | Additional properties that the resourceâs data possesses. |
-| conformingStatus   enum:string | A status indicating whether or not this version conforms to its parent folderâs file naming standard. <br>Possible values:<br>`NONE`: The conforming status is not applicable for the version.`CONFORMING`: The version conforms to its parent folderâs file naming standard.`NON_CONFORMING`: The version does not conform to its parent folderâs file naming standard.<br>In the event of a `NON_CONFORMING` status, call [GET folders/folder_id](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-GET) to get the file naming standards IDs that have been applied to the versionâs parent folder, and then use the ID to call [GET naming-standards](/en/docs/bim360/v1/reference/http/document-management-naming-standards-id-GET/) to get the details of the file naming standard.<br>Note that this feature is only available for BIM 360 projects.<br>To learn more about the file naming standard feature, see the [BIM 360 File Naming Standard](https://help.autodesk.com/view/BIM360D/ENU/?guid=Common_Data_Environment) help documentation. |
+| conformingStatus   enum:string | A status indicating whether or not this version conforms to its parent folderâs file naming standard. <br>Possible values:<br>`NONE`: The conforming status is not applicable for the version.`CONFORMING`: The version conforms to its parent folderâs file naming standard.`NON_CONFORMING`: The version does not conform to its parent folderâs file naming standard.<br>In the event of a `NON_CONFORMING` status, call [GET folders/folder_id](http-projects-project_id-folders-folder_id-GET.md) to get the file naming standards IDs that have been applied to the versionâs parent folder, and then use the ID to call [GET naming-standards](../../acc/http-docs/http-document-management-naming-standards-id-GET.md) to get the details of the file naming standard.<br>Note that this feature is only available for BIM 360 projects.<br>To learn more about the file naming standard feature, see the [BIM 360 File Naming Standard](https://help.autodesk.com/view/BIM360D/ENU/?guid=Common_Data_Environment) help documentation. |
 | relationships   object | Information on other resources that shares a relationship with this resource. |
 | item   object | Information on resources that are found above this resource. |
 | links   object | The object containing information on links of related resources. |
@@ -177,7 +177,7 @@ Expand all
 | href   string | A hyperlink reference to this resource. |
 | data   object | Additional properties that the resource data possesses. <br>Contains extended properties for this resource based on the extension schema type and version. The properties documented under this object may not always be present. |
 | description   string | The itemâs description property. <br>**Note:**<br>This attribute is available only for items in BIM 360 Docs or ACC projects. |
-| reviewState   string | Indicates the current status of items/lineages. <br>This parameter denotes the state of extracted document sheets, showing if they are awaiting publication. It applies to PDFs, IFCs, and DWFs in the [BIM360 Plans folder](https://help.autodesk.com/view/BIM360D/ENU/?guid=GUID-1B49B17A-12C3-47A1-9AAC-EFC46AF9D7AD) It tracks the progression through review and publication stages. Key states are `NEEDS_REVIEW` and `ACCEPTED`.<br>**Note:**<br>This attribute is available only for items in BIM 360 Docs or ACC projects.It does not indicate the status of BIM360 project files or ACC docs in the review process <br>  To check review status of BIM360 project files, use [BIM360 Batch GET](/en/docs/bim360/v1/reference/http/document-management-versionsbatch-get-POST/) instead  To check the review status of ACC docs, use [ACC Batch GET](/en/docs/acc/v1/reference/http/document-management-versionsbatch-get-POST/) instead It does not track ACC Sheets extraction status from Revit/DWG files. Use [Review Sheets](/en/docs/acc/v1/reference/http/sheets-review-sheets-GET/) for that purpose. |
+| reviewState   string | Indicates the current status of items/lineages. <br>This parameter denotes the state of extracted document sheets, showing if they are awaiting publication. It applies to PDFs, IFCs, and DWFs in the [BIM360 Plans folder](https://help.autodesk.com/view/BIM360D/ENU/?guid=GUID-1B49B17A-12C3-47A1-9AAC-EFC46AF9D7AD) It tracks the progression through review and publication stages. Key states are `NEEDS_REVIEW` and `ACCEPTED`.<br>**Note:**<br>This attribute is available only for items in BIM 360 Docs or ACC projects.It does not indicate the status of BIM360 project files or ACC docs in the review process <br>  To check review status of BIM360 project files, use [BIM360 Batch GET](../../acc/http-docs/http-document-management-versionsbatch-get-POST.md) instead  To check the review status of ACC docs, use [ACC Batch GET](../../acc/http-docs/http-document-management-versionsbatch-get-POST.md) instead It does not track ACC Sheets extraction status from Revit/DWG files. Use [Review Sheets](../../acc/http-docs/http-sheets-review-sheets-GET.md) for that purpose. |
 | pathInProject   string | The relative path of the item starting from projectâs root folder. <br>Note: this attribute is not available in search results. |
 | relationships   object | Information on other resources that shares a relationship with this item. |
 | parent   object | Information on resources that are found above this resource. |

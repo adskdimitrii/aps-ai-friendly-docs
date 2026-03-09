@@ -8,7 +8,7 @@ Type Definitions
 
 # PropertyResult
 
-Element type for [GetPropertiesResult.properties](/en/docs/viewer/v7/reference/globals/TypeDefs/GetPropertiesResult/).
+Element type for [GetPropertiesResult.properties](globals-TypeDefs-GetPropertiesResult.md).
 
 # Properties
 

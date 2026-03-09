@@ -17,7 +17,7 @@ Each time you retrieve the signed URLs, they are newly generated and valid for 1
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps), and select the Data Management and Autodesk Construction Cloud APIs.
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with the `data:read` scope.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:read` scope.
 - Verify that you have access to the relevant ACC or BIM 360 account, project, and folder.
 - Ensure that the Revit model has been published to the cloud from Revit, and that it is a Cloud Workshared model.
 
@@ -25,7 +25,7 @@ Each time you retrieve the signed URLs, they are newly generated and valid for 1
 
 The first four steps show how to use Data Management endpoints to locate the version ID of the Revit host model. You first need to find the ID of the hub (account) that contains the project where the Revit host model is stored.
 
-Call [GET hubs](/en/docs/data/v2/reference/http/hubs-GET/) to retrieve a list of the BIM 360 or ACC accounts your app has access to.
+Call [GET hubs](../../data/http-docs/http-hubs-GET.md) to retrieve a list of the BIM 360 or ACC accounts your app has access to.
 
 Note that the BIM 360 account ID corresponds to a Data Management hub ID. To convert an account ID into a hub ID you need to add a â**b.**" prefix. For example, the account ID `c8b0c73d-3ae9` becomes `b.c8b0c73d-3ae9`.
 
@@ -79,9 +79,9 @@ Find the hub in the response (`data.attributes.name`), and note the hub ID (`dat
 
 Find the project that contains the Cloud Workshared Revit model from which you want to retrieve the linked RVT files.
 
-Use the hub ID (`b.35da59e5-4acb-4979-85f1-518047215eaa`) to call [GET hubs/:hub_id/projects](/en/docs/data/v2/reference/http/hubs-hub_id-projects-GET) to get a list of all the projects in the hub. Find the project ID of the project that contains the folder of the Cloud Workshared Revit model from which you want to retrieve the linked RVT files.
+Use the hub ID (`b.35da59e5-4acb-4979-85f1-518047215eaa`) to call [GET hubs/:hub_id/projects](../../data/http-docs/http-hubs-hub_id-projects-GET.md) to get a list of all the projects in the hub. Find the project ID of the project that contains the folder of the Cloud Workshared Revit model from which you want to retrieve the linked RVT files.
 
-Note that the project ID in BIM 360 corresponds to the project ID in the [Data Management API](/en/docs/data/v2/). To convert a project ID in BIM 360 or ACC to a project ID in the Data Management API, you need to add a â**b.**" prefix. For example, a project ID of `a4be0c34a-4ab7` translates to a project ID of `b.a4be0c34a-4ab7`.
+Note that the project ID in BIM 360 corresponds to the project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in BIM 360 or ACC to a project ID in the Data Management API, you need to add a â**b.**" prefix. For example, a project ID of `a4be0c34a-4ab7` translates to a project ID of `b.a4be0c34a-4ab7`.
 
 ### Request
 
@@ -129,7 +129,7 @@ Find the project (`data.attributes.name`), and note the project ID (`data.id`) -
 
 Find the folder where the Cloud Workshared Revit model is stored. Most models are stored in the Project Files folder.
 
-Use the hub ID (`b.35da59e5-4acb-4979-85f1-518047215eaa`) and the project ID (`b.12cd67f0-07e5-4e54-b66b-fb8d1785357a`) to call [GET hubs/:hub_id/projects/:project_id/topFolders](/en/docs/data/v2/reference/http/hubs-hub_id-projects-project_id-topFolders-GET) to get the Project Files folder ID.
+Use the hub ID (`b.35da59e5-4acb-4979-85f1-518047215eaa`) and the project ID (`b.12cd67f0-07e5-4e54-b66b-fb8d1785357a`) to call [GET hubs/:hub_id/projects/:project_id/topFolders](../../data/http-docs/http-hubs-hub_id-projects-project_id-topFolders-GET.md) to get the Project Files folder ID.
 
 ### Request
 
@@ -193,7 +193,7 @@ Find the folder (`data.attributes.name`); in this example, the Project Files fol
 
 ## [Step 4: Find the Latest Published Version ID](#step-4-find-the-latest-published-version-id)
 
-Use the project ID and the folder ID to call [GET projects/:project_id/folders/:folder_id/contents](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-contents-GET) to get the tip version ID of the Cloud Workshared Revit model from which you want to retreive the linked RVT files.
+Use the project ID and the folder ID to call [GET projects/:project_id/folders/:folder_id/contents](../../data/http-docs/http-projects-project_id-folders-folder_id-contents-GET.md) to get the tip version ID of the Cloud Workshared Revit model from which you want to retreive the linked RVT files.
 
 To filter out non-cloud workshared Revit files, apply the `items:autodesk.bim360:C4RModel` filter.
 
@@ -281,7 +281,7 @@ Find the model in the response (`included[i].attributes.displayName`), and note 
 
 ## [Step 5: Retrieve Signed URLs for the Host and Linked Models](#step-5-retrieve-signed-urls-for-the-host-and-linked-models)
 
-Use the project ID (`b.12cd67f0-07e5-4e54-b66b-fb8d1785357a`) and the version ID (`urn:adsk.wipprod:fs.file:vf.hPW2BlBbQG2L5HjCOh7Z8Q?version=3`) of the published Cloud Workshared Revit model to call [GET construction/rcm/v1/projects/:project_id/published-versions/:version_id/linked-files](/en/docs/acc/v1/reference/http/rcm-getlinkedfiles-GET). This call retrieves metadata and temporary download links (signed URLs) for:
+Use the project ID (`b.12cd67f0-07e5-4e54-b66b-fb8d1785357a`) and the version ID (`urn:adsk.wipprod:fs.file:vf.hPW2BlBbQG2L5HjCOh7Z8Q?version=3`) of the published Cloud Workshared Revit model to call [GET construction/rcm/v1/projects/:project_id/published-versions/:version_id/linked-files](https://aps.autodesk.com/en/docs/acc/v1/reference/http/rcm-getlinkedfiles-GET/). This call retrieves metadata and temporary download links (signed URLs) for:
 
 - The published version of the host model (unless you set `includeHost=false`)
 - Any Revit files that are linked into that version of the model.

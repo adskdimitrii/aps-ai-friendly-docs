@@ -8,4 +8,4 @@ Properties
 
 # AttributeType
 
-Numeric values and their meanings associated to [PropertyResult.type](/en/docs/viewer/v7/reference/globals/TypeDefs/PropertyResult/).
+Numeric values and their meanings associated to [PropertyResult.type](globals-TypeDefs-PropertyResult.md).

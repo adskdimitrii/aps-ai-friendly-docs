@@ -27,15 +27,15 @@ Query all the partner companies in a specific BIM 360 account.
 
 ## [Headers](#headers)
 
-| Authorization   yes | Must be `Bearer <token>`, where `<token>` is obtained via a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) OAuth flow. |
+| Authorization   yes | Must be `Bearer <token>`, where `<token>` is obtained via a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) OAuth flow. |
 | --- | --- |
-| Region   no | Specifies the region where the service is located. Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](/en/docs/acc/v1/overview/acc-regions) page. |
+| Region   no | Specifies the region where the service is located. Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
 
 ### Request
 
 ## [URI Parameters](#uri-parameters)
 
-| account_id   string: UUID | The account ID of the company. This corresponds to hub ID in the [Data Management API](/en/docs/data/v2/). To convert a hub ID into an account ID you need to remove the â**b.**" prefix. For example, a hub ID of **b.**c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. |
+| account_id   string: UUID | The account ID of the company. This corresponds to hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID you need to remove the â**b.**" prefix. For example, a hub ID of **b.**c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. |
 | --- | --- |
 
 ### Request
@@ -71,13 +71,13 @@ A successful response is an array of companies, flat JSON objects with the follo
 | --- | --- |
 | account_id   string: UUID | Account ID |
 | name   string | Company name should be unique under an account       Max length: 255 |
-| trade   string | Trade type based on specialization       Refer to the `trade` list in the [Parameters](/en/docs/bim360/v1/overview/parameters) guide. |
+| trade   string | Trade type based on specialization       Refer to the `trade` list in the [Parameters](https://aps.autodesk.com/en/docs/bim360/v1/overview/parameters/) guide. |
 | address_line_1   string | Company address line 1       Max length: 255 |
 | address_line_2   string | Company address line 2       Max length: 255 |
 | city   string | City in which company is located       Max length: 255 |
-| state_or_province   enum: string | State or province in which company is located       Max length: 255       Note that the `state_or_province` value depends on the selected `country` value; see the valid values in the `state_or_province` list in the [Parameters](/en/docs/bim360/v1/overview/parameters) guide. |
+| state_or_province   enum: string | State or province in which company is located       Max length: 255       Note that the `state_or_province` value depends on the selected `country` value; see the valid values in the `state_or_province` list in the [Parameters](https://aps.autodesk.com/en/docs/bim360/v1/overview/parameters/) guide. |
 | postal_code   string | Postal code for the company location       Max length: 255 |
-| country   enum: string | Country for this company       Refer to the `country` list in the [Parameters](/en/docs/bim360/v1/overview/parameters) guide. |
+| country   enum: string | Country for this company       Refer to the `country` list in the [Parameters](https://aps.autodesk.com/en/docs/bim360/v1/overview/parameters/) guide. |
 | phone   string | Business phone number for the company       Max length: 255 |
 | website_url   string | Company website       Max length: 255 |
 | description   string | Short description or overview for company       Max length: 255 |

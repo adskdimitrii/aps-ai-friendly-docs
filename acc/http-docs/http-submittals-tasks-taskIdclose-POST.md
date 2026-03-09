@@ -10,11 +10,11 @@ POST
 
 # projects/{projectId}/items/{itemId}/steps/{stepId}/tasks/{taskId}:close
 
-Closes a task by adding a required review response, marking it as complete within the submittal review workflow. This action updates the taskâs status and, when the last required task in a review step is closed, transitions the submittal item to the next step in the workflow. Note that the ability to close a task depends on the userâs permitted actions, which can be retrieved by calling [GET Item/:id](/en/docs/acc/v1/reference/http/submittals-items-itemId-GET/) to check available transitions.
+Closes a task by adding a required review response, marking it as complete within the submittal review workflow. This action updates the taskâs status and, when the last required task in a review step is closed, transitions the submittal item to the next step in the workflow. Note that the ability to close a task depends on the userâs permitted actions, which can be retrieved by calling [GET Item/:id](http-submittals-items-itemId-GET.md) to check available transitions.
 
 The submittal item progresses to the `Close and distribute` state only after all review steps and required tasks are completed. Note that closing a task corresponds to adding a review in the UI.
 
-For a detailed overview of the submittal workflow, see the [Manage Submittal Item Transitions tutorial](/en/docs/acc/v1/tutorials/submittals/submittal-transitions.rst/).
+For a detailed overview of the submittal workflow, see the [Manage Submittal Item Transitions tutorial](../how-to-docs/submittals-submittal-transitions.rst.md).
 
 For more information about submittals and their lifecycle, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Process_Submittal).
 
@@ -30,7 +30,7 @@ For more information about submittals and their lifecycle, see the [Help documen
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 
@@ -40,21 +40,21 @@ For more information about submittals and their lifecycle, see the [Help documen
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
-| itemId   string | The ID of the submittal item. To find the item ID, call [GET items](/en/docs/acc/v1/reference/http/submittals-items-GET/). |
-| stepId   string | The ID of the review step associated with the submittal item. To find the step ID, call [GET steps](/en/docs/acc/v1/reference/http/submittals-steps-GET/). |
-| taskId   string | The ID of the task. To get the task ID, call [GET tasks](/en/docs/acc/v1/reference/http/submittals-tasks-GET/). |
+| itemId   string | The ID of the submittal item. To find the item ID, call [GET items](http-submittals-items-GET.md). |
+| stepId   string | The ID of the review step associated with the submittal item. To find the step ID, call [GET steps](http-submittals-steps-GET.md). |
+| taskId   string | The ID of the task. To get the task ID, call [GET tasks](http-submittals-tasks-GET.md). |
 
 ### Request
 
 ## [Body Structure](#body-structure)
 
-| responseId*   string | The ID of the response associated with the task, linking to the specific feedback or action taken. To retrieve this ID, call [GET responses](/en/docs/acc/v1/reference/http/submittals-responses-GET/). |
+| responseId*   string | The ID of the response associated with the task, linking to the specific feedback or action taken. To retrieve this ID, call [GET responses](http-submittals-responses-GET.md). |
 | --- | --- |
 | responseComment   string | The body of the response comment, containing feedback or instructions related to the task. |
 | saveAttachmentDrafts   array: string | Not relevant |
-| duplicateAttachments   array: string | A list of attachment IDs to duplicate from a submittal itemâs previous stage in the workflow. To retrieve available attachments, call [GET items/:itemId/attachments](/en/docs/acc/v1/reference/http/submittals-items-itemId-attachments-GET/). |
+| duplicateAttachments   array: string | A list of attachment IDs to duplicate from a submittal itemâs previous stage in the workflow. To retrieve available attachments, call [GET items/:itemId/attachments](http-submittals-items-itemId-attachments-GET.md). |
 
 * Required
 

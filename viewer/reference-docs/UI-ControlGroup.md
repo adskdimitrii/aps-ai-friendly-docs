@@ -32,7 +32,7 @@ Adds a control to this control group.
 
 Expand all
 
-| control*   [Autodesk.Viewing.UI.Control](/en/docs/viewer/v7/reference/UI/Control/) | The control to add. |
+| control*   [Autodesk.Viewing.UI.Control](UI-Control.md) | The control to add. |
 | --- | --- |
 | options   object | An option dictionary of options. |
 | index   object | The index to insert the control at. |
@@ -51,7 +51,7 @@ Returns the index of a control in this group. -1 if the item isnât found.
 
 ### Parameters
 
-| control*   string, [Autodesk.Viewing.UI.Control](/en/docs/viewer/v7/reference/UI/Control/) | The control ID or control instance to find. |
+| control*   string, [Autodesk.Viewing.UI.Control](UI-Control.md) | The control ID or control instance to find. |
 | --- | --- |
 
 * Required
@@ -68,7 +68,7 @@ Removes a control from this control group.
 
 ### Parameters
 
-| control*   string, [Autodesk.Viewing.UI.Control](/en/docs/viewer/v7/reference/UI/Control/) | The control ID or control instance to remove. |
+| control*   string, [Autodesk.Viewing.UI.Control](UI-Control.md) | The control ID or control instance to remove. |
 | --- | --- |
 
 * Required
@@ -94,7 +94,7 @@ Returns the control with the corresponding ID if it is in this control group.
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.UI.Control](/en/docs/viewer/v7/reference/UI/Control/) | The control or null if it doesnât exist. |
+| [Autodesk.Viewing.UI.Control](UI-Control.md) | The control or null if it doesnât exist. |
 
 ## [getControlId(index)](#getcontrolid-index)
 

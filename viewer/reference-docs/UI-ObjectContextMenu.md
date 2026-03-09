@@ -14,7 +14,7 @@ Context Menu object is the base class for the viewerâs context menus.
 
 ### Parameters
 
-| viewer*   [Autodesk.Viewing.Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) | Viewer instance. |
+| viewer*   [Autodesk.Viewing.Viewer3D](Viewing-Viewer3D.md) | Viewer instance. |
 | --- | --- |
 
 * Required

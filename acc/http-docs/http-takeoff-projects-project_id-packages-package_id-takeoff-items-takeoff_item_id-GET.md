@@ -30,9 +30,9 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
-| region   string | Specifies the region where the service is located. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](/en/docs/acc/v1/overview/acc-regions) page. |
+| region   string | Specifies the region where the service is located. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
 
 * Required
 
@@ -40,10 +40,10 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>This corresponds to project ID in the [Data Management API](/en/docs/data/v2/), and can be specified in the form of âUUIDâ or b.âUUIDâ.<br>To learn how to find the project ID, see the [Retrieve ACC Account and project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. |
+| projectId   string: UUID | The ID of the project. <br>This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/), and can be specified in the form of âUUIDâ or b.âUUIDâ.<br>To learn how to find the project ID, see the [Retrieve ACC Account and project ID](../how-to-docs/getting-started-retrieve-account-and-project-id.md) tutorial. |
 | --- | --- |
-| packageId   string: UUID | The takeoff package ID. <br>To find the ID, call [GET packages](/en/docs/acc/v1/reference/http/takeoff-projects-project_id-packages-GET/). |
-| takeoffItemId   string: UUID | The takeoff item ID. <br>To find the ID, call [GET takeoff-items](/en/docs/acc/v1/reference/http/takeoff-projects-project_id-packages-package_id-takeoff-items-GET/). |
+| packageId   string: UUID | The takeoff package ID. <br>To find the ID, call [GET packages](http-takeoff-projects-project_id-packages-GET.md). |
+| takeoffItemId   string: UUID | The takeoff item ID. <br>To find the ID, call [GET takeoff-items](http-takeoff-projects-project_id-packages-package_id-takeoff-items-GET.md). |
 
 ### Response
 
@@ -96,7 +96,7 @@ Expand all
 | version   one of | The content view version. |
 | Model identifier   string | The 3D model ID. |
 | Sheet identifier   string: UUID | The 2D sheet ID. |
-| locationId   string: UUID | The location ID associated with the takeoff item. <br>For more information about the location, see [GET nodes](/en/docs/acc/v1/reference/http/locations-nodes-GET/). |
+| locationId   string: UUID | The location ID associated with the takeoff item. <br>For more information about the location, see [GET nodes](http-locations-nodes-GET.md). |
 | createdAt   datetime: ISO 8601 | The date and time when the resource was created, in the following format: `YYYY-MM-DDThh:mm:ssZ`. |
 | updatedAt   datetime: ISO 8601 | The date and time when the resource was last updated, in the following format: `YYYY-MM-DDThh:mm:ssZ`. |
 | updatedByName   string | The name of the user who last updated the resource. |

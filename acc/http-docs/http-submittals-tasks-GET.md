@@ -16,7 +16,7 @@ Tasks represent individual actions assigned to reviewers within a review step of
 
 Currently, the public API does not support creating new steps, but tasks and their statuses can be queried for each step.
 
-To learn more about using this endpoint within the submittal workflow, see the [Process Submittal Items tutorial](/en/docs/acc/v1/tutorials/submittals/submittal-transitions.rst/).
+To learn more about using this endpoint within the submittal workflow, see the [Process Submittal Items tutorial](../how-to-docs/submittals-submittal-transitions.rst.md).
 
 For more information about submittals and their lifecycle, see the [Process Submittal Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Process_Submittal).
 
@@ -32,7 +32,7 @@ For more information about submittals and their lifecycle, see the [Process Subm
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 
 * Required
@@ -41,10 +41,10 @@ For more information about submittals and their lifecycle, see the [Process Subm
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
-| itemId   string | The ID of the submittal item. To find the item ID, call [GET items](/en/docs/acc/v1/reference/http/submittals-items-GET/). |
-| stepId   string | The ID of the review step associated with the submittal item. To find the step ID, call [GET steps](/en/docs/acc/v1/reference/http/submittals-steps-GET/). |
+| itemId   string | The ID of the submittal item. To find the item ID, call [GET items](http-submittals-items-GET.md). |
+| stepId   string | The ID of the review step associated with the submittal item. To find the step ID, call [GET steps](http-submittals-steps-GET.md). |
 
 ### Request
 

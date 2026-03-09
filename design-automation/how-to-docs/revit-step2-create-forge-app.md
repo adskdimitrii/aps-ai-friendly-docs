@@ -14,11 +14,11 @@ You use the following operations in this task:
 
 | HTTP Request | Operation |
 | --- | --- |
-| POST /authenticate | [Get a two-legged access token](/en/docs/oauth/v2/reference/http/gettoken-POST/) |
+| POST /authenticate | [Get a two-legged access token](../../oauth/http-docs/http-gettoken-POST.md) |
 
 ## [Step 1 - Register an App](#step-1-register-an-app)
 
-Follow the instructions on [Create an App](/en/docs/oauth/v2/tutorials/create-app/) to register the App you will create for this walkthrough.
+Follow the instructions on [Create an App](../../oauth/how-to-docs/create-app.md) to register the App you will create for this walkthrough.
 
 ## [Step 2 - Convert Client ID and Secret to Base64 encoded string](#step-2-convert-client-id-and-secret-to-base64-encoded-string)
 
@@ -45,7 +45,7 @@ You must combine your Client ID with the Client Secret and convert it to a Base6
 
 ## [Step 3 - Use encoded string to obtain an Access Token](#step-3-use-encoded-string-to-obtain-an-access-token)
 
-Call the [POST token](/en/docs/oauth/v2/reference/http/gettoken-POST) endpoint:
+Call the [POST token](../../oauth/http-docs/http-gettoken-POST.md) endpoint:
 
 The Base64 encoded Client ID + Client Secret are passed through the `Authorization` header. The `grant_type` and `scope` are specified as form fields in the request body.
 

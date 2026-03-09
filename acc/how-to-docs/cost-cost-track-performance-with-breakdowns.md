@@ -13,13 +13,13 @@ Note that the Cost API timesheets endpoints used in this tutorial are designed o
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps).
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:create`, `data:read`, and `data:write` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create`, `data:read`, and `data:write` scopes.
 - Verify that you have access to the relevant BIM 360 account and project.
-- Retrieve the project ID for your project. To obtain a project ID, use [GET projects](/en/docs/bim360/v1/reference/http/admin-accounts-accountidprojects-GET/).
+- Retrieve the project ID for your project. To obtain a project ID, use [GET projects](../http-docs/http-admin-accounts-accountidprojects-GET.md).
 
 ## [Step 1: Retrieve a Tracking Item Instance from Autodesk Cost Management](#step-1-retrieve-a-tracking-item-instance-from-autodesk-cost-management)
 
-To obtain the ID of the tracking item instance you want to retrieve, use the projectâs cost container ID (`e94b9bc8-1775-4d76-9b1d-c613e120ccff` in this example) to call [GET performance-tracking-item-instances](/en/docs/bim360/v1/reference/http/cost-performance-tracking-item-instances-GET/).
+To obtain the ID of the tracking item instance you want to retrieve, use the projectâs cost container ID (`e94b9bc8-1775-4d76-9b1d-c613e120ccff` in this example) to call [GET performance-tracking-item-instances](../http-docs/http-cost-performance-tracking-item-instances-GET.md).
 
 ### Request
 
@@ -79,7 +79,7 @@ The tracking app aggregates the `inputQuantity` and `outputQuantity` values ente
 
 ## [Step 3: Synchronize Timesheets with Autodesk Cost Management](#step-3-synchronize-timesheets-with-autodesk-cost-management)
 
-To capture the timesheet data from your tracking app, use the tracking item instance ID noted in step 1 (`1df59db0-9484-11e8-a7ec-7ddae203e404`) to call [POST time-sheets](/en/docs/bim360/v1/reference/http/cost-time-sheets-POST/) to create a timesheet object for the specified tracking item instance.
+To capture the timesheet data from your tracking app, use the tracking item instance ID noted in step 1 (`1df59db0-9484-11e8-a7ec-7ddae203e404`) to call [POST time-sheets](../http-docs/http-cost-time-sheets-POST.md) to create a timesheet object for the specified tracking item instance.
 
 You can apply a time range (`startDate` and `endDate`) if the timesheet data covers multiple days, and the required `endDate` will be used to calculate the tracking item instance performance. Also required are `inputQuantity` and `outputQuantity`.
 

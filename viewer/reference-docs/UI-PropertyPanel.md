@@ -7,7 +7,7 @@ Source: https://aps.autodesk.com/en/docs/viewer/v7/reference/UI/PropertyPanel/
 Autodesk.Viewing.UI
 
 # PropertyPanel
-> Extends [Autodesk.Viewing.UI.DockingPanel](/en/docs/viewer/v7/reference/UI/DockingPanel)
+> Extends [Autodesk.Viewing.UI.DockingPanel](UI-DockingPanel.md)
 
 ## [new PropertyPanel(parentContainer, id, title, options)](#new-propertypanel-parentcontainer-id-title-options)
 

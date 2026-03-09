@@ -42,7 +42,7 @@ Returns the OTG viewable from an otg manifest (if available, otherwise undefined
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/), undefined |  |
+| [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md), undefined |  |
 
 ## [getPropertyDbManifest(viewableID)](#getpropertydbmanifest-viewableid)
 
@@ -59,7 +59,7 @@ Returns a list of property database files. Previously, for v1, this list was har
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | Top-most bubble node. |
+| [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | Top-most bubble node. |
 
 ## [isForgeManifest()](#isforgemanifest)
 
@@ -166,7 +166,7 @@ Retrieves the lineageUrn of the node. Note that models uploaded to OSS directly 
 
 | type | description |
 | --- | --- |
-| [BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | The LOD node. |
+| [BubbleNode](Viewing-BubbleNode.md) | The LOD node. |
 
 ## [isGeometry()](#isgeometry)
 
@@ -236,7 +236,7 @@ Retrieves the lineageUrn of the node. Note that models uploaded to OSS directly 
 
 | type | description |
 | --- | --- |
-| [BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | The default geometry if any, and otherwise the full data set. For SVF: A geometry node marked as being the default (for SVF: `useAsDefault=true`). When none is found, it returns the first element from `this.search({'type': 'geometry'})`. |
+| [BubbleNode](Viewing-BubbleNode.md) | The default geometry if any, and otherwise the full data set. For SVF: A geometry node marked as being the default (for SVF: `useAsDefault=true`). When none is found, it returns the first element from `this.search({'type': 'geometry'})`. |
 
 ## [getPlacementTransform()](#getplacementtransform)
 
@@ -260,7 +260,7 @@ Retrieves the lineageUrn of the node. Note that models uploaded to OSS directly 
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | First parent in the hierarchy that is a viewable. If called on the top level design node, returns the first child of the design node that is a viewable. |
+| [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | First parent in the hierarchy that is a viewable. If called on the top level design node, returns the first child of the design node that is a viewable. |
 
 ## [findParentGeom2Dor3D(options)](#findparentgeom2dor3d-options)
 
@@ -270,13 +270,13 @@ Expand all
 
 | options   object | Advance usage options |
 | --- | --- |
-| fallbackParent   [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | Gets returned when no geometry node is available after iterating through the parent chain. |
+| fallbackParent   [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | Gets returned when no geometry node is available after iterating through the parent chain. |
 
 ### Returns
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | First parent in the hierarchy that is a 2D or 3D geometry. |
+| [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | First parent in the hierarchy that is a 2D or 3D geometry. |
 
 ## [findAllViewables()](#findallviewables)
 
@@ -330,7 +330,7 @@ Note that some GUIDs in the bubble are not unique, you have to be sure you are l
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | Matching bubble node, or null. |
+| [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | Matching bubble node, or null. |
 
 ## [search(propsToMatch)](#search-propstomatch)
 

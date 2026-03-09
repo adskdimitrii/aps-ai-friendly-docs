@@ -15,7 +15,7 @@ Frame rate declines when too many custom geometries are added into overlay scene
 
 Custom geometry uses the main scene depth buffer for depth testing, allowing the custom geometry to appear within the loaded model.
 
-Use the [SceneBuilder](/en/docs/viewer/v7/developers_guide/advanced_options/scene-builder) API to add objects that can be rendered progressively.
+Use the [SceneBuilder](advanced_options-scene-builder.md) API to add objects that can be rendered progressively.
 
 ## [Step 1: Create custom geometry](#step-1-create-custom-geometry)
 
@@ -73,6 +73,6 @@ geom.dispose();
 
 ## [Whatâs next?](#what-s-next)
 
-To view an interactive example, check out [Customizing Viewer Scene](/en/docs/viewer/v7/developers_guide/interactive_examples/example_5/).
+To view an interactive example, check out [Customizing Viewer Scene](interactive_examples-example_5.md).
 
-For all available methods, see the [OverlayManager](/en/docs/viewer/v7/reference/Viewing/OverlayManager) API documentation page.
+For all available methods, see the [OverlayManager](../reference-docs/Viewing-OverlayManager.md) API documentation page.

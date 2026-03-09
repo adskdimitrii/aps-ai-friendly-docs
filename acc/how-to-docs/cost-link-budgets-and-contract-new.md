@@ -13,14 +13,14 @@ Note that this workflow is replacing the current workflow that can only link a s
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:read` and `data:write` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` and `data:write` scopes.
 - Verify that you have access to the relevant BIM 360 or ACC account and BIM 360 or ACC project.
-- Retrieve the project ID for your project. To obtain a project ID, use [GET projects](/en/docs/bim360/v1/reference/http/admin-accounts-accountidprojects-GET/).
+- Retrieve the project ID for your project. To obtain a project ID, use [GET projects](../http-docs/http-admin-accounts-accountidprojects-GET.md).
 - Ensure that you have created or imported multiple budgets and, if needed, multiple contracts for linking and unlinking operations in your project.
 
 ## [Step 1: Find a List of Contracts](#step-1-find-a-list-of-contracts)
 
-To find a list of contracts you want to link to, use the containter ID (`18ece8b1-204d-11e8-ad71-d73b169f902a`), to call [GET Contracts](/en/docs/bim360/v1/reference/http/cost-contracts-GET/).
+To find a list of contracts you want to link to, use the containter ID (`18ece8b1-204d-11e8-ad71-d73b169f902a`), to call [GET Contracts](../http-docs/http-cost-contracts-GET.md).
 
 ### Request
 
@@ -60,7 +60,7 @@ In this example, assume that the contracts you want to link to are `Contract 1` 
 
 ## [Step 2: Find the Relevant Budgets](#step-2-find-the-relevant-budgets)
 
-To find the IDs of the budgets you want to link to the contract, use the containter ID (`18ece8b1-204d-11e8-ad71-d73b169f902a`), to call [GET Budgets](/en/docs/bim360/v1/reference/http/cost-budgets-GET/).
+To find the IDs of the budgets you want to link to the contract, use the containter ID (`18ece8b1-204d-11e8-ad71-d73b169f902a`), to call [GET Budgets](../http-docs/http-cost-budgets-GET.md).
 
 ### Request
 
@@ -105,7 +105,7 @@ In this example, assume that the budgets you want to link to contracts are `Door
 
 ## [Step 3: Link Budgets to Contracts](#step-3-link-budgets-to-contracts)
 
-To link budgets to contracts, use the containter ID (`18ece8b1-204d-11e8-ad71-d73b169f902a`), the contract IDs (`55254a50-44d9-11e9-99d7-79aa05d3109e`, `55254a50-44d9-11e9-99d7-79aa05d3109f`), and the budget IDs (`5573e292-4355-4d00-a204-2cba97b7025a`, `f7840135-dd11-45d2-9b54-b0887ab3c29b`, `f7840135-dd11-45d2-9b54-b0887ab3c29c`) to call [POST budgets-contracts:link](/en/docs/bim360/v1/reference/http/cost-budgets-contractslink-POST/).
+To link budgets to contracts, use the containter ID (`18ece8b1-204d-11e8-ad71-d73b169f902a`), the contract IDs (`55254a50-44d9-11e9-99d7-79aa05d3109e`, `55254a50-44d9-11e9-99d7-79aa05d3109f`), and the budget IDs (`5573e292-4355-4d00-a204-2cba97b7025a`, `f7840135-dd11-45d2-9b54-b0887ab3c29b`, `f7840135-dd11-45d2-9b54-b0887ab3c29c`) to call [POST budgets-contracts:link](../http-docs/http-cost-budgets-contractslink-POST.md).
 
 In this example, weâll link two budgets (`5573e292-4355-4d00-a204-2cba97b7025a` and `f7840135-dd11-45d2-9b54-b0887ab3c29b`) to Contract 1 (`55254a50-44d9-11e9-99d7-79aa05d3109e`) and one budget(`f7840135-dd11-45d2-9b54-b0887ab3c29c`) to Contract 2 (`55254a50-44d9-11e9-99d7-79aa05d3109f`)
 

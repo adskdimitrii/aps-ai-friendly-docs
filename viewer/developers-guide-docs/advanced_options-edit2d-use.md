@@ -16,7 +16,7 @@ This tutorial shows you how to:
 
 Some code samples are provided in this tutorial, but most of the content demonstrates how Edit2D works for end users after being loaded in the Viewer SDK app. Google Chrome is required to complete this tutorial.
 
-You should complete the [Setting Up Edit2D](/en/docs/viewer/v7/developers_guide/advanced_options/edit2d-setup) tutorial before using this tutorial. Additional tutorials, which demonstrate how to customize Edit2D and how to manually draw Edit2D shapes using JavaScript, are linked at the end of this tutorial.
+You should complete the [Setting Up Edit2D](advanced_options-edit2d-setup.md) tutorial before using this tutorial. Additional tutorials, which demonstrate how to customize Edit2D and how to manually draw Edit2D shapes using JavaScript, are linked at the end of this tutorial.
 
 ## [Step 1: Run the Edit2D Playground](#step-1-run-the-edit2d-playground)
 
@@ -66,7 +66,7 @@ This step demonstrates how to use the following Edit2D tools:
 - PolygonEditTool
 - InsertSymbolTool
 
-These tools become available when you call `registerDefaultTools()`. We did this when we loaded the extension in the [Set Up Edit2D](/en/docs/viewer/v7/developers_guide/advanced_options/edit2d-setup) tutorial. Weâll load these tools in the console to demonstrate how each one works.
+These tools become available when you call `registerDefaultTools()`. We did this when we loaded the extension in the [Set Up Edit2D](advanced_options-edit2d-setup.md) tutorial. Weâll load these tools in the console to demonstrate how each one works.
 
 ### 2.1 PolygonTool: Drawing Polygons and Rectangles
 
@@ -213,7 +213,7 @@ Edit 2D uses the same units and length calibration as the MeasureExtension. You 
 
 ![../../../../_images/UnitsCalibration.jpg](../../../../_images/UnitsCalibration.jpg)
 
-If you use Edit2D without the MeasureExtension, it will display all coordinates in model units. You can customize units by modifying or replacing `DefaultUnitHandler`. More information is available in the [Customize Edit2D](/en/docs/viewer/v7/developers_guide/advanced_options/edit2d-customize) tutorial.
+If you use Edit2D without the MeasureExtension, it will display all coordinates in model units. You can customize units by modifying or replacing `DefaultUnitHandler`. More information is available in the [Customize Edit2D](advanced_options-edit2d-customize.md) tutorial.
 
 ### 3.3 Creating Custom Labels
 
@@ -330,5 +330,5 @@ The following image shows an example of the third case. The intersection of a pe
 
 To learn more about Edit2D, check out these tutorials:
 
-- [Drawing Edit2D Shapes Manually](/en/docs/viewer/v7/developers_guide/advanced_options/edit2d-manual)
-- [Customizing Edit2D](/en/docs/viewer/v7/developers_guide/advanced_options/edit2d-customize)
+- [Drawing Edit2D Shapes Manually](advanced_options-edit2d-manual.md)
+- [Customizing Edit2D](advanced_options-edit2d-customize.md)

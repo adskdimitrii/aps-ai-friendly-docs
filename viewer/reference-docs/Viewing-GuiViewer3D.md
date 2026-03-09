@@ -11,7 +11,7 @@ Autodesk.Viewing
 
 ## [new GuiViewer3D(container, config)](#new-guiviewer3d-container-config)
 
-Viewer component based on [Autodesk.Viewing.Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) with added UI.
+Viewer component based on [Autodesk.Viewing.Viewer3D](Viewing-Viewer3D.md) with added UI.
 
 ### Parameters
 
@@ -160,7 +160,7 @@ Initializes the viewer and loads any extensions specified in the constructorâ
 
 ## [setUp(config)](#setup-config)
 
-Loading extensions and initializing canvas interactions. Invoked automatically by [Autodesk.Viewing.Viewer3D#start](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#start/) method.
+Loading extensions and initializing canvas interactions. Invoked automatically by [Autodesk.Viewing.Viewer3D#start](Viewing-Viewer3D.md#start/) method.
 
 ### Parameters
 
@@ -173,7 +173,7 @@ Expand all
 
 ## [tearDown(isUnloadModelsWanted)](#teardown-isunloadmodelswanted)
 
-Unloads extensions and the loaded models. Invoked automatically by [Autodesk.Viewing.Viewer3D#finish](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#finish/) method.
+Unloads extensions and the loaded models. Invoked automatically by [Autodesk.Viewing.Viewer3D#finish](Viewing-Viewer3D.md#finish/) method.
 
 ### Parameters
 
@@ -186,7 +186,7 @@ When selection has changed set the pivot point to be in the middle, if Autodesk.
 
 ## [run()](#run)
 
-Triggers the Viewerâs render loop. Invoked automatically by [Autodesk.Viewing.Viewer3D#start](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#start/) method. Refer to [ViewerConfig.startOnInitialize](#fixMe/) to change startâs method behavior.
+Triggers the Viewerâs render loop. Invoked automatically by [Autodesk.Viewing.Viewer3D#start](Viewing-Viewer3D.md#start/) method. Refer to [ViewerConfig.startOnInitialize](#fixMe/) to change startâs method behavior.
 
 ## [localize()](#localize)
 
@@ -211,7 +211,7 @@ Expand all
 | url*   string | The url to the model. |
 | --- | --- |
 | options   object | Dictionary of options. |
-| fileLoader   [Autodesk.Viewing.FileLoader](/en/docs/viewer/v7/reference/Viewing/FileLoader/) | The file loader to use for this url. Required for unsupported file types. |
+| fileLoader   [Autodesk.Viewing.FileLoader](Viewing-FileLoader.md) | The file loader to use for this url. Required for unsupported file types. |
 | keepCurrentModels   boolean | Flag indicating whether viewer should keep or unload all other models. |
 | loadOptions   object | May contain params that are specific for certain loaders/filetypes. |
 | sharedPropertyDbPath   string | Optional path to shared property database. |
@@ -240,7 +240,7 @@ Expand all
 | propDb   Boolean | Set to false to exclude the property data base loading from consideration. Defaults to true. |
 | textures   Boolean | Set to false to exclude the texture loading from consideration. Defaults to true. |
 | hidden   Boolean | Set to true to include hidden models for consideration. Defaults to false. |
-| onlyModels   [Model](/en/docs/viewer/v7/reference/Viewing/Model/), Array.<Model> | Limits the check to the model or models in this property. Note that checking for textures loaded cannot be limited to models. |
+| onlyModels   [Model](Viewing-Model.md), Array.<Model> | Limits the check to the model or models in this property. Note that checking for textures loaded cannot be limited to models. |
 
 ### Returns
 
@@ -262,7 +262,7 @@ Expand all
 | propDb   Boolean | Set to false to exclude the property data base loading from consideration. Defaults to true. |
 | textures   Boolean | Set to false to exclude the texture loading from consideration. Defaults to true. |
 | hidden   Boolean | Set to true to include hidden models for consideration. Defaults to false. |
-| onlyModels   [Model](/en/docs/viewer/v7/reference/Viewing/Model/), Array.<Model> | Limits the wait to the model or models in this property. Note that waiting for textures loaded cannot be limited to models. |
+| onlyModels   [Model](Viewing-Model.md), Array.<Model> | Limits the wait to the model or models in this property. Note that waiting for textures loaded cannot be limited to models. |
 
 ### Returns
 
@@ -272,11 +272,11 @@ Expand all
 
 ## [unloadModel(model)](#unloadmodel-model)
 
-Unloads the specified model. Reference [Autodesk.Viewing.Viewer3D#hideModel](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#hideModel/) to hide the model.
+Unloads the specified model. Reference [Autodesk.Viewing.Viewer3D#hideModel](Viewing-Viewer3D.md#hideModel/) to hide the model.
 
 ### Parameters
 
-| model*   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | The model to unload. |
+| model*   [Autodesk.Viewing.Model](Viewing-Model.md) | The model to unload. |
 | --- | --- |
 
 * Required
@@ -285,10 +285,10 @@ Unloads the specified model. Reference [Autodesk.Viewing.Viewer3D#hideModel](/en
 
 ### Parameters
 
-| avDocument*   [Autodesk.Viewing.Document](/en/docs/viewer/v7/reference/Viewing/Document/) | The Document instance, which owns the model being loaded |
+| avDocument*   [Autodesk.Viewing.Document](Viewing-Document.md) | The Document instance, which owns the model being loaded |
 | --- | --- |
-| manifestNode*   [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | The specific manifest node to load (within the Document) |
-| options   ViewerConfig | Options to pass to [Autodesk.Viewing.Viewer3D#loadModel](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#loadModel/). Will be initialized internally if not specified. The options object will be augmented by automatically determined load parameters. |
+| manifestNode*   [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | The specific manifest node to load (within the Document) |
+| options   ViewerConfig | Options to pass to [Autodesk.Viewing.Viewer3D#loadModel](Viewing-Viewer3D.md#loadModel/). Will be initialized internally if not specified. The options object will be augmented by automatically determined load parameters. |
 
 * Required
 
@@ -302,11 +302,11 @@ Unloads the specified model. Reference [Autodesk.Viewing.Viewer3D#hideModel](/en
 
 Unloads a model previously loaded by loadDocumentNode().
 
-Reference [Autodesk.Viewing.Viewer3D#loadDocumentNode](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#loadDocumentNode/)
+Reference [Autodesk.Viewing.Viewer3D#loadDocumentNode](Viewing-Viewer3D.md#loadDocumentNode/)
 
 ### Parameters
 
-| manifestNode*   [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | The specific manifest node to unload (within the Document) |
+| manifestNode*   [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | The specific manifest node to unload (within the Document) |
 | --- | --- |
 
 * Required
@@ -337,7 +337,7 @@ Resizes the viewer. Required when wrapping div changes dimensions due to CSS cha
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.HotkeyManager](/en/docs/viewer/v7/reference/Viewing/HotkeyManager/) | The hotkey manager. |
+| [Autodesk.Viewing.HotkeyManager](Viewing-HotkeyManager.md) | The hotkey manager. |
 
 ## [getCamera()](#getcamera)
 
@@ -353,7 +353,7 @@ Gets the camera so it can be modified by the client.
 
 Gets the view state as a plain object. A viewer state contains data for the viewport, selection and isolation.
 
-Reference [Autodesk.Viewing.Viewer3D#restoreState](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#restoreState/)
+Reference [Autodesk.Viewing.Viewer3D#restoreState](Viewing-Viewer3D.md#restoreState/)
 
 ### Parameters
 
@@ -370,7 +370,7 @@ Reference [Autodesk.Viewing.Viewer3D#restoreState](/en/docs/viewer/v7/reference/
 
 Restores the viewer state from a given object.
 
-Reference [Autodesk.Viewing.Viewer3D#getState](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#getState/)
+Reference [Autodesk.Viewing.Viewer3D#getState](Viewing-Viewer3D.md#getState/)
 
 ### Parameters
 
@@ -397,7 +397,7 @@ Notice that in order that the view will be properly set according to the modelâ
 
 Expand all
 
-| viewNode*   [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) | bubble node representing the view |
+| viewNode*   [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | bubble node representing the view |
 | --- | --- |
 | options   Object |  |
 | skipTransition   boolean | true to apply instanstly instead of lerping. |
@@ -416,7 +416,7 @@ Expand all
 
 Sets the view from an array of parameters.
 
-To get the view array of the current camera use: [Autodesk.Viewing.Viewer3D#getViewArrayFromCamera](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#getViewArrayFromCamera/). To get the camera object from the view array use [Autodesk.Viewing.Viewer3D#getCameraFromViewArray](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#getCameraFromViewArray/).
+To get the view array of the current camera use: [Autodesk.Viewing.Viewer3D#getViewArrayFromCamera](Viewing-Viewer3D.md#getViewArrayFromCamera/). To get the camera object from the view array use [Autodesk.Viewing.Viewer3D#getCameraFromViewArray](Viewing-Viewer3D.md#getCameraFromViewArray/).
 
 ### Parameters
 
@@ -429,13 +429,13 @@ To get the view array of the current camera use: [Autodesk.Viewing.Viewer3D#getV
 
 Returns an object representing a Camera from an unintuitive array of number. Note: To use this function in multi-model scenarios, you must pass the model parameter.
 
-To get the view array of the current camera use: [Autodesk.Viewing.Viewer3D#getViewArrayFromCamera](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#getViewArrayFromCamera/).
+To get the view array of the current camera use: [Autodesk.Viewing.Viewer3D#getViewArrayFromCamera](Viewing-Viewer3D.md#getViewArrayFromCamera/).
 
 ### Parameters
 
 | params*   Array.<Number> | Array with 13 elements describing different aspects of a camera. |
 | --- | --- |
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | Camera is transformed in the same way as the model. Default is this.model (only sufficient for single-view scenarios). |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | Camera is transformed in the same way as the model. Default is this.model (only sufficient for single-view scenarios). |
 
 * Required
 
@@ -447,7 +447,7 @@ To get the view array of the current camera use: [Autodesk.Viewing.Viewer3D#getV
 
 ## [getViewArrayFromCamera()](#getviewarrayfromcamera)
 
-Returns an Array of values that could be inserted back into a manifest to represent a view. To get the camera object from the view array use [Autodesk.Viewing.Viewer3D#getCameraFromViewArray](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#getCameraFromViewArray/).
+Returns an Array of values that could be inserted back into a manifest to represent a view. To get the camera object from the view array use [Autodesk.Viewing.Viewer3D#getCameraFromViewArray](Viewing-Viewer3D.md#getCameraFromViewArray/).
 
 ### Returns
 
@@ -474,7 +474,7 @@ Not applicable to 3D.
 
 Changes the active layer state. Layers is a feature usually available on 2D models and some 3D models.
 
-Reference [Autodesk.Viewing.Viewer3D#getLayerStates](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#getLayerStates/)
+Reference [Autodesk.Viewing.Viewer3D#getLayerStates](Viewing-Viewer3D.md#getLayerStates/)
 
 ### Parameters
 
@@ -485,7 +485,7 @@ Reference [Autodesk.Viewing.Viewer3D#getLayerStates](/en/docs/viewer/v7/referenc
 
 ## [getLayerStates()](#getlayerstates)
 
-Returns information for each layer state: name, description, active. Activate a state through [Autodesk.Viewing.Viewer3D#activateLayerState](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#activateLayerState/).
+Returns information for each layer state: name, description, active. Activate a state through [Autodesk.Viewing.Viewer3D#activateLayerState](Viewing-Viewer3D.md#activateLayerState/).
 
 ### Returns
 
@@ -499,7 +499,7 @@ Sets the view using the default view in the source file.
 
 ### Parameters
 
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | The model, defaults to the loaded model. |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | The model, defaults to the loaded model. |
 | --- | --- |
 
 ## [getProperties(dbid, onSuccessCallback, onErrorCallback)](#getproperties-dbid-onsuccesscallback-onerrorcallback)
@@ -510,8 +510,8 @@ Gets the properties for an ID.
 
 | dbid*   number | The database identifier. |
 | --- | --- |
-| onSuccessCallback   [Callbacks#onPropertiesSuccess](/en/docs/viewer/v7/reference/Callbacks/onPropertiesSuccess/) | Callback for when the properties are fetched. |
-| onErrorCallback   [Callbacks#onGenericError](/en/docs/viewer/v7/reference/Callbacks/onGenericError/) | Callback for when the properties are not found or another error occurs. |
+| onSuccessCallback   [Callbacks#onPropertiesSuccess](https://aps.autodesk.com/en/docs/viewer/v7/reference/Callbacks/onPropertiesSuccess/) | Callback for when the properties are fetched. |
+| onErrorCallback   [Callbacks#onGenericError](https://aps.autodesk.com/en/docs/viewer/v7/reference/Callbacks/onGenericError/) | Callback for when the properties are not found or another error occurs. |
 
 * Required
 
@@ -523,9 +523,9 @@ You can use the model object tree to get information about items in the model. T
 
 ### Parameters
 
-| onSuccessCallback   [Callbacks#onObjectTreeSuccess](/en/docs/viewer/v7/reference/Callbacks/onObjectTreeSuccess/) | Success callback invoked once the object tree is available. |
+| onSuccessCallback   [Callbacks#onObjectTreeSuccess](https://aps.autodesk.com/en/docs/viewer/v7/reference/Callbacks/onObjectTreeSuccess/) | Success callback invoked once the object tree is available. |
 | --- | --- |
-| onErrorCallback   [Callbacks#onGenericError](/en/docs/viewer/v7/reference/Callbacks/onGenericError/) | Error callback invoked when the object tree is not found available. |
+| onErrorCallback   [Callbacks#onGenericError](https://aps.autodesk.com/en/docs/viewer/v7/reference/Callbacks/onGenericError/) | Error callback invoked when the object tree is not found available. |
 
 ## [setCanvasClickBehavior(config)](#setcanvasclickbehavior-config)
 
@@ -579,8 +579,8 @@ Expand all
 
 | text*   string | The search term (not case sensitive). |
 | --- | --- |
-| onSuccessCallback*   [Callbacks#onSearchSuccess](/en/docs/viewer/v7/reference/Callbacks/onSearchSuccess/) | Invoked when the search results are ready. |
-| onErrorCallback*   [Callbacks#onGenericError](/en/docs/viewer/v7/reference/Callbacks/onGenericError/) | Invoke when an error occured during search. |
+| onSuccessCallback*   [Callbacks#onSearchSuccess](https://aps.autodesk.com/en/docs/viewer/v7/reference/Callbacks/onSearchSuccess/) | Invoked when the search results are ready. |
+| onErrorCallback*   [Callbacks#onGenericError](https://aps.autodesk.com/en/docs/viewer/v7/reference/Callbacks/onGenericError/) | Invoke when an error occured during search. |
 | attributeNames   Array.<string> | Restricts search to specific attribute names. |
 | options   Object | Search options. |
 | searchHidden   boolean | Set to true to also search hidden properties |
@@ -594,7 +594,7 @@ Returns an array of the IDs of the currently hidden nodes. When isolation is in 
 
 ### Parameters
 
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | Model object, if passed in the hidden nodes of the model are returned |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | Model object, if passed in the hidden nodes of the model are returned |
 | --- | --- |
 
 ### Returns
@@ -611,7 +611,7 @@ Not yet implemented for 2D.
 
 ### Parameters
 
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | Model object, if passed in the isolated nodes of the model are returned |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | Model object, if passed in the isolated nodes of the model are returned |
 | --- | --- |
 
 ### Returns
@@ -628,7 +628,7 @@ Isolates one of many sub-elements. You can pass in a node or an array of nodes t
 
 | node*   Array.<number>, number | A node ID or array of node IDs from the model tree [BaseViewer#getObjectTree](#fixMe/). |
 | --- | --- |
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | the model that contains the node id. Defaults to the first loaded model. |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | the model that contains the node id. Defaults to the first loaded model. |
 
 * Required
 
@@ -683,7 +683,7 @@ Not yet implemented for 2D.
 
 | dbid*   number |  |
 | --- | --- |
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | the model that contains the dbId. Uses the initial model loaded by default. |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | the model that contains the dbId. Uses the initial model loaded by default. |
 | selectionType*   number | a member of Autodesk.Viewing.SelectionMode. |
 
 * Required
@@ -710,14 +710,14 @@ Currently three ways of node selection are supported:
 
 | dbids*   Array.<number>, number | element or array of elements to select. |
 | --- | --- |
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | the model instance containing the ids. |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | the model instance containing the ids. |
 | selectionType   number | a member of `Autodesk.Viewing.SelectionType`. |
 
 * Required
 
 ## [clearSelection()](#clearselection)
 
-Clears the selection. See [Autodesk.Viewing.Viewer3D#select](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#select/)
+Clears the selection. See [Autodesk.Viewing.Viewer3D#select](Viewing-Viewer3D.md#select/)
 
 ## [getSelectionVisibility()](#getselectionvisibility)
 
@@ -773,7 +773,7 @@ Locks the selection of specific `nodes` (dbIds) in a given model. The `nodes` wi
 | dbIds*   Number, Array.<Number> | dbIds to lock |
 | --- | --- |
 | lock*   Boolean | true to lock, false otherwise |
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | The model that contains the dbId. By default uses the initial model loaded into the scene. |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | The model that contains the dbId. By default uses the initial model loaded into the scene. |
 
 * Required
 
@@ -785,7 +785,7 @@ This function will unlock the specified `nodes` (dbIds) for a specific `model`. 
 
 | dbIds   Array.<Number> | dbIds to unlock |
 | --- | --- |
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | The model associated to the nodes parameters |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | The model associated to the nodes parameters |
 
 ## [isSelectionLocked(dbId, model)](#isselectionlocked-dbid-model)
 
@@ -795,7 +795,7 @@ Checks whether selection is locked for a node
 
 | dbId*   number | the objectâs identifier. |
 | --- | --- |
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | the model that contains the dbId. By default uses the initial model loaded into the scene. |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | the model that contains the dbId. By default uses the initial model loaded into the scene. |
 
 * Required
 
@@ -871,7 +871,7 @@ Ensures the passed in nodes (dbIds) are hidden.
 
 | node*   Array.<number>, number | An array of nodes (dbids) or just a single node. |
 | --- | --- |
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | The model that contains the dbId. By default uses the initial model loaded into the scene. |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | The model that contains the dbId. By default uses the initial model loaded into the scene. |
 
 * Required
 
@@ -883,7 +883,7 @@ Ensures the passed in nodes (dbIds) are shown.
 
 | node*   Array.<number>, number | An array of nodes (dbids) or just a single node. |
 | --- | --- |
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | The model that contains the dbId. By default uses the initial model loaded into the scene. |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | The model that contains the dbId. By default uses the initial model loaded into the scene. |
 
 * Required
 
@@ -905,7 +905,7 @@ Not yet implemented for 2D.
 
 | dbId*   number | the objectâs identifier. |
 | --- | --- |
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | the model that contains the dbId. By default uses the initial model loaded into the scene. |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | the model that contains the dbId. By default uses the initial model loaded into the scene. |
 
 * Required
 
@@ -927,7 +927,7 @@ Returns true if the specified node is visible. The model argument is required on
 
 | nodeId*   number | Geometry node to check if visible. |
 | --- | --- |
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | The model that contains the specified `nodeId`. |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | The model that contains the specified `nodeId`. |
 
 * Required
 
@@ -946,7 +946,7 @@ Ensures the passed in nodes (dbIds) are shown.
 | dbId*   Array.<number>, number | array of nodes or a single node |
 | --- | --- |
 | locked*   boolean | Set to true to lock the nodes visible. Set to false to allow the nodes to be hidden. |
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | The model that contains the dbId. By default uses the initial model loaded into the scene. |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | The model that contains the dbId. By default uses the initial model loaded into the scene. |
 
 * Required
 
@@ -960,7 +960,7 @@ Not yet implemented for 2D.
 
 | dbId*   number | the objectâs identifier. |
 | --- | --- |
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | the model that contains the dbId. By default uses the initial model loaded into the scene. |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | the model that contains the dbId. By default uses the initial model loaded into the scene. |
 
 * Required
 
@@ -974,7 +974,7 @@ Not yet implemented for 2D.
 
 | dbId*   number | the objectâs identifier. |
 | --- | --- |
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | the model that contains the dbId. By default uses the initial model loaded into the scene. |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | the model that contains the dbId. By default uses the initial model loaded into the scene. |
 
 * Required
 
@@ -1037,7 +1037,7 @@ Not applicable to 2D.
 | dbids*   Array.<number>, number | The dbids to lock or unlock |
 | --- | --- |
 | lock*   boolean | Set to true to prevent dbids from exploding. Set to false to allow dbids to explode. |
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | The model containing the dbids. Defaults to this.model |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | The model containing the dbids. Defaults to this.model |
 
 * Required
 
@@ -1057,7 +1057,7 @@ Not applicable to 2D.
 
 | dbid*   number | The dbid to check |
 | --- | --- |
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | The model containing the dbids. Defaults to this.model |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | The model containing the dbids. Defaults to this.model |
 
 * Required
 
@@ -1077,7 +1077,7 @@ Not applicable to 2D.
 
 | dbid*   number | The dbid to lock or unlock |
 | --- | --- |
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | The model containing the dbids. Defaults to this.model |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | The model containing the dbids. Defaults to this.model |
 
 * Required
 
@@ -1230,7 +1230,7 @@ Locks or unlocks navigation controls.
 
 When navigation is locked, certain operations (for example, orbit, pan, or fit-to-view) are disabled.
 
-Reference [Autodesk.Viewing.Viewer3D#setNavigationLockSettings](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#setNavigationLockSettings/)
+Reference [Autodesk.Viewing.Viewer3D#setNavigationLockSettings](Viewing-Viewer3D.md#setNavigationLockSettings/)
 
 ### Parameters
 
@@ -1261,7 +1261,7 @@ Updates the configuration of the navigation lock, i.e., which actions are availa
 
 The configurable actions are âorbitâ, âpanâ, âzoomâ, ârollâ, âfovâ, âwalkâ, or âgotoviewâ. By default, none of the actions are enabled when the navigation is locked.
 
-Reference [Autodesk.Viewing.Viewer3D#setNavigationLock](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#setNavigationLock/)
+Reference [Autodesk.Viewing.Viewer3D#setNavigationLock](Viewing-Viewer3D.md#setNavigationLock/)
 
 ### Parameters
 
@@ -1284,7 +1284,7 @@ Gets the current configuration of the navigation lock.
 
 Swaps the current navigation tool for the tool with the provided name. Will trigger NAVIGATION_MODE_CHANGED event if the mode actually changes.
 
-Reference [Viewer3D#getActiveNavigationTool](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#getActiveNavigationTool/)
+Reference [Viewer3D#getActiveNavigationTool](Viewing-Viewer3D.md#getActiveNavigationTool/)
 
 ### Parameters
 
@@ -1301,7 +1301,7 @@ Reference [Viewer3D#getActiveNavigationTool](/en/docs/viewer/v7/reference/Viewin
 
 Returns the name of the active navigation tool.
 
-Reference [Viewer3D#setActiveNavigationTool](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#setActiveNavigationTool/)
+Reference [Viewer3D#setActiveNavigationTool](Viewing-Viewer3D.md#setActiveNavigationTool/)
 
 ### Returns
 
@@ -1423,7 +1423,7 @@ Fits camera to objects by ID. It fits the entire model if no ID is provided. Ope
 
 | objectIds   Array.<number>, null | array of Ids to fit into the view. Avoid passing this value to fit the entire model. |
 | --- | --- |
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/), null | The model containing the `objectIds`. If falsey, the viewerâs current model will be used. |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md), null | The model containing the `objectIds`. If falsey, the viewerâs current model will be used. |
 | immediate   boolean | true to avoid the default transition. |
 
 ## [setClickConfig(what, where, newAction)](#setclickconfig-what-where-newaction)
@@ -1481,7 +1481,7 @@ Updates viewer settings encapsulated witihn a Profile. This method will also loa
 
 ### Parameters
 
-| profile*   [Autodesk.Viewing.Profile](/en/docs/viewer/v7/reference/Viewing/Profile/) | profile containing settings. |
+| profile*   [Autodesk.Viewing.Profile](Viewing-Profile.md) | profile containing settings. |
 | --- | --- |
 | override   boolean | If set to true this will override all existing preference with the new profile preference. Default: true |
 
@@ -1820,7 +1820,7 @@ Captures the current screen image as Blob URL Blob URL can be used like a regula
 ## [worldToClient(point, camera)](#worldtoclient-point-camera)
 
 Calculates the pixel position in client space coordinates of a point in world space.
-See also [Autodesk.Viewing.Viewer3D#clientToWorld](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#clientToWorld/).
+See also [Autodesk.Viewing.Viewer3D#clientToWorld](Viewing-Viewer3D.md#clientToWorld/).
 
 ### Parameters
 
@@ -1839,9 +1839,9 @@ See also [Autodesk.Viewing.Viewer3D#clientToWorld](/en/docs/viewer/v7/reference/
 ## [clientToWorld(clientX, clientY, ignoreTransparent, ignore2dModelBounds, ignore2dModelsOn3d)](#clienttoworld-clientx-clienty-ignoretransparent-ignore2dmodelbounds-ignore2dmodelson3d)
 
 Given coordinates in pixel screen space it returns information of the underlying geometry node. Hidden nodes will not be taken into account. Returns null if there is no geometry in the specified location. For 2d models, it will return null outside the paper, unless ignore2dModelBounds is true.
-See also [Autodesk.Viewing.Viewer3D#worldToClient](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#worldToClient/).
+See also [Autodesk.Viewing.Viewer3D#worldToClient](Viewing-Viewer3D.md#worldToClient/).
 
-- Activate a state through [Autodesk.Viewing.Viewer3D#activateLayerState](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#activateLayerState/).
+- Activate a state through [Autodesk.Viewing.Viewer3D#activateLayerState](Viewing-Viewer3D.md#activateLayerState/).
 
 ### Parameters
 
@@ -1944,7 +1944,7 @@ Highlight an object with a theming color that is blended with the original objec
 | dbId*   number |  |
 | --- | --- |
 | color*   THREE.Vector4 | (r, g, b, intensity), all in [0,1]. |
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | For multi-model support. |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | For multi-model support. |
 | recursive   boolean | Should apply theming color recursively to all child nodes. |
 
 * Required
@@ -1955,7 +1955,7 @@ Restore original colors for all themed shapes.
 
 ### Parameters
 
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | For multi-model support. |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | For multi-model support. |
 | --- | --- |
 
 ## [setMaterialsToDefaults(model)](#setmaterialstodefaults-model)
@@ -1964,18 +1964,18 @@ Restore original materials of a model if they were overwritten, e.g. by Autodesk
 
 ### Parameters
 
-| model   [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | For multi-model support. |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md) | For multi-model support. |
 | --- | --- |
 
 ## [hideModel(model)](#hidemodel-model)
 
 Temporarily remove a model from the Viewer, but keep loaders, materials, and geometry alive.
 
-Reference [Autodesk.Viewing.Viewer3D#showModel](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#showModel/)
+Reference [Autodesk.Viewing.Viewer3D#showModel](Viewing-Viewer3D.md#showModel/)
 
 ### Parameters
 
-| model*   number, [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | model id or Model object |
+| model*   number, [Autodesk.Viewing.Model](Viewing-Model.md) | model id or Model object |
 | --- | --- |
 
 * Required
@@ -1990,11 +1990,11 @@ Reference [Autodesk.Viewing.Viewer3D#showModel](/en/docs/viewer/v7/reference/Vie
 
 Make a previously hidden model visible again.
 
-Reference [Autodesk.Viewing.Viewer3D#hideModel](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#hideModel/)
+Reference [Autodesk.Viewing.Viewer3D#hideModel](Viewing-Viewer3D.md#hideModel/)
 
 ### Parameters
 
-| model*   number, [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | model id or Model object |
+| model*   number, [Autodesk.Viewing.Model](Viewing-Model.md) | model id or Model object |
 | --- | --- |
 | preserveTools*   boolean | disable automatic activation of default tool |
 
@@ -2040,7 +2040,7 @@ Returns the first model, according to the environment. If we are in 2D, returns 
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.Model](/en/docs/viewer/v7/reference/Viewing/Model/) | A model |
+| [Autodesk.Viewing.Model](Viewing-Model.md) | A model |
 
 ## [getUnderlayRaster(bubbleNode)](#getunderlayraster-bubblenode)
 
@@ -2048,7 +2048,7 @@ When loading a PDF document we optionally add a raster preview. This function re
 
 ### Parameters
 
-| bubbleNode*   [Autodesk.Viewing.BubbleNode](/en/docs/viewer/v7/reference/Viewing/BubbleNode/) |  |
+| bubbleNode*   [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) |  |
 | --- | --- |
 
 * Required
@@ -2205,7 +2205,7 @@ Returns the intersection information for point x,y. If no intersection is found 
 
 | type | description |
 | --- | --- |
-| [Intersection](/en/docs/viewer/v7/reference/globals/TypeDefs/Intersection/), null | Intersection information about closest hit point. |
+| [Intersection](globals-TypeDefs-Intersection.md), null | Intersection information about closest hit point. |
 
 ## [refresh(clear)](#refresh-clear)
 
@@ -2220,7 +2220,7 @@ Clears the screen and redraws the overlays if clear is set to true. Only the ove
 
 ## [chooseProfile()](#chooseprofile)
 
-Function that decides which [Autodesk.Viewing.Profile](/en/docs/viewer/v7/reference/Viewing/Profile/) to use when a model is loaded for the first time.
+Function that decides which [Autodesk.Viewing.Profile](Viewing-Profile.md) to use when a model is loaded for the first time.
 
 Override this method to implement a different logic.
 
@@ -2228,4 +2228,4 @@ Override this method to implement a different logic.
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.Profile](/en/docs/viewer/v7/reference/Viewing/Profile/), null | a Profile |
+| [Autodesk.Viewing.Profile](Viewing-Profile.md), null | a Profile |

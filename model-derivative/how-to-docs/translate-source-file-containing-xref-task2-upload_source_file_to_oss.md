@@ -24,9 +24,9 @@ You will use the following operations in this task:
 
 | Operation | HTTP Request |
 | --- | --- |
-| [Create a Bucket](/en/docs/data/v2/reference/http/buckets-POST/) | POST /buckets |
-| [Get a Signed URL to Upload a File](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-GET) | GET /buckets/{bucketKey}/objects/{objectKey}/signeds3upload |
-| [Finalize File Upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-POST) | POST /buckets/{bucketKey}/objects/{objectKey}/signeds3upload |
+| [Create a Bucket](../../data/http-docs/http-buckets-POST.md) | POST /buckets |
+| [Get a Signed URL to Upload a File](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md) | GET /buckets/{bucketKey}/objects/{objectKey}/signeds3upload |
+| [Finalize File Upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-POST.md) | POST /buckets/{bucketKey}/objects/{objectKey}/signeds3upload |
 
 ## [Step 1 - Create a Bucket](#step-1-create-a-bucket)
 

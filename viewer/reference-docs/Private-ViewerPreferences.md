@@ -18,7 +18,7 @@ extends Autodesk.Viewing.Private.Preferences
 
 Expand all
 
-| viewer*   [Autodesk.Viewing.Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) | Viewer instance. |
+| viewer*   [Autodesk.Viewing.Viewer3D](Viewing-Viewer3D.md) | Viewer instance. |
 | --- | --- |
 | options*   object | Contains configuration parameters used to do initializations. |
 | localStorage   boolean | Whether values get stored and loaded back from localStorage. Defaults to `true`. |

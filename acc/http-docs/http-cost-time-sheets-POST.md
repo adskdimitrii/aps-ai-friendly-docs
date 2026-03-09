@@ -28,10 +28,10 @@ Note that Cost API timesheets endpoints are designed only for use with a third p
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
-| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](/en/docs/acc/v1/overview/acc-regions) page.<br>To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
+| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.<br>To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
 
 * Required
 
@@ -39,7 +39,7 @@ Note that Cost API timesheets endpoints are designed only for use with a third p
 
 ## [URI Parameters](#uri-parameters)
 
-| containerId   string: UUID | The ID of the project (the container ID is the same as the project ID). To obtain the project ID, see [GET projects](/en/docs/bim360/v1/reference/http/admin-accounts-accountidprojects-GET/). |
+| containerId   string: UUID | The ID of the project (the container ID is the same as the project ID). To obtain the project ID, see [GET projects](http-admin-accounts-accountidprojects-GET.md). |
 | --- | --- |
 
 ### Request
@@ -48,10 +48,10 @@ Note that Cost API timesheets endpoints are designed only for use with a third p
 
 The timesheet
 
-| trackingItemInstanceId   string,null | The ID of the tracking item instance to which the timesheet will belong. Required if both `trackingItemInstanceNumber` and `budgetCode` are omitted from this request. To find the instance ID, call [GET performance-tracking-item-instances](/en/docs/bim360/v1/reference/http/cost-performance-tracking-item-instances-GET/) and inspect `results.id` in the response. |
+| trackingItemInstanceId   string,null | The ID of the tracking item instance to which the timesheet will belong. Required if both `trackingItemInstanceNumber` and `budgetCode` are omitted from this request. To find the instance ID, call [GET performance-tracking-item-instances](http-cost-performance-tracking-item-instances-GET.md) and inspect `results.id` in the response. |
 | --- | --- |
-| trackingItemInstanceNumber   string,null | The user-provided code that represents the tracking item instance to which the timesheet will belong. Required if both `trackingItemInstanceId` and `budgetCode` are omitted from this request. To find the instance number, call [GET performance-tracking-item-instances](/en/docs/bim360/v1/reference/http/cost-performance-tracking-item-instances-GET/) and inspect `results.number` in the response. |
-| budgetCode   string,null | The code that identifies the budget to which the timesheet belongs. Required if both `trackingItemInstanceId` and `trackingItemInstanceNumber` are omitted from this request. To find the budget code, call [GET budgets](/en/docs/bim360/v1/reference/http/cost-budgets-GET/) and inspect `results.code` in the response. |
+| trackingItemInstanceNumber   string,null | The user-provided code that represents the tracking item instance to which the timesheet will belong. Required if both `trackingItemInstanceId` and `budgetCode` are omitted from this request. To find the instance number, call [GET performance-tracking-item-instances](http-cost-performance-tracking-item-instances-GET.md) and inspect `results.number` in the response. |
+| budgetCode   string,null | The code that identifies the budget to which the timesheet belongs. Required if both `trackingItemInstanceId` and `trackingItemInstanceNumber` are omitted from this request. To find the budget code, call [GET budgets](http-cost-budgets-GET.md) and inspect `results.code` in the response. |
 | startDate   string | The first date of the time period covered by the timesheet. |
 | endDate*   string | The last date of the time period covered by the timesheet. This is also the date that the tracked `inputQuantity` and `outputQuantity` values are considered to have been reported. |
 | inputQuantity*   number | The hours worked during the time period covered by the timesheet. |

@@ -10,7 +10,7 @@ GET
 
 # accounts/{accountId}/jobs/{jobId}/data/{name}
 
-Returns a signed URL that you can contact to retrieve a single specified file from a specified jobâs data extract. You can examine a data extractâs available files, their names, and their sizes using [GET jobs/:jobId/data-listing](/en/docs/bim360/v1/reference/http/data-connector-jobs-jobid-data-listing-GET/). The information it returns can help you plan what you would like to retrieve using this endpoint, useful if you want to retrieve only part of a data extract to avoid downloading large but unnecessary files. The user must have executive overview or project administrator permissions.
+Returns a signed URL that you can contact to retrieve a single specified file from a specified jobâs data extract. You can examine a data extractâs available files, their names, and their sizes using [GET jobs/:jobId/data-listing](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/data-connector-jobs-jobid-data-listing-GET/). The information it returns can help you plan what you would like to retrieve using this endpoint, useful if you want to retrieve only part of a data extract to avoid downloading large but unnecessary files. The user must have executive overview or project administrator permissions.
 
 Each data extract contains three types of files:
 
@@ -22,9 +22,9 @@ To retrieve the entire data extract, use this endpoint to retrieve the ZIP file.
 
 The secure signed URL this endpoint returns is valid for 60 seconds. If you donât request data from the URL within that time, the URL no longer works. Once youâve requested data, though, the download can take as long as necessary.
 
-To get job IDs for a request, use [GET requests/:requestId/jobs](/en/docs/bim360/v1/reference/http/data-connector-requests-requestid-jobs-GET/).
+To get job IDs for a request, use [GET requests/:requestId/jobs](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/data-connector-requests-requestid-jobs-GET/).
 
-To understand the basics of requests, the jobs they spawn, and the data extracts returned by the jobs, see the [Data Connector API Field Guide](/en/docs/bim360/v1/overview/field-guide/data-connector/).
+To understand the basics of requests, the jobs they spawn, and the data extracts returned by the jobs, see the [Data Connector API Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/data-connector/).
 
   Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
@@ -40,7 +40,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 
 * Required
@@ -49,7 +49,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 
 ## [URI Parameters](#uri-parameters)
 
-| accountId   string: UUID | The account ID. You can derive it from your hub ID if necessary: Use [GET hubs](/en/docs/data/v2/reference/http/hubs-GET/) in the Data Management API to retrieve your hub ID. Remove the initial âb.â from the hub ID to get your account ID. |
+| accountId   string: UUID | The account ID. You can derive it from your hub ID if necessary: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial âb.â from the hub ID to get your account ID. |
 | --- | --- |
 | jobId   string: UUID | The job ID |
 | name   string: UUID | Name of the file to retrieve |

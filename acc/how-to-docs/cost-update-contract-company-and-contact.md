@@ -11,14 +11,14 @@ This tutorial demonstrates how to get the company list from BIM 360 Admin and up
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:read` and `data:write` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` and `data:write` scopes.
 - Verify that you have access to the relevant BIM 360 account and BIM 360 project.
-- Retrieve the project ID for your project. To obtain a project ID, use [GET projects](/en/docs/bim360/v1/reference/http/admin-accounts-accountidprojects-GET/).
+- Retrieve the project ID for your project. To obtain a project ID, use [GET projects](../http-docs/http-admin-accounts-accountidprojects-GET.md).
 - A couple of contracts have been created or imported.
 
 ## [Step 1: Find a Contract in BIM 360 Cost Management](#step-1-find-a-contract-in-bim-360-cost-management)
 
-Find the ID of the contract you want to update by calling [GET Contracts](/en/docs/bim360-private/v1/reference/http/cost-contracts-GET/). In this example, assume that the container ID is `e94b9bc8-1775-4d76-9b1d-c613e120ccff` .
+Find the ID of the contract you want to update by calling [GET Contracts](../http-docs/http-cost-contracts-GET.md). In this example, assume that the container ID is `e94b9bc8-1775-4d76-9b1d-c613e120ccff` .
 
 ### Request
 
@@ -50,7 +50,7 @@ In this example, the contract ID is in the first part of the response (`results[
 
 ## [Step 2: Get the Projectâs Companies from BIM 360 Admin](#step-2-get-the-project-s-companies-from-bim-360-admin)
 
-Use the project ID (`18ece8b1-204d-11e8-ad71-d73b169f902a`) and account ID(`aade5ed8-f16d-4ec0-9c0a-59f5ff7a2134`) to call [GET companies](/en/docs/bim360/v1/reference/http/projects-:project_id-companies-GET/) to get the projectâs companies and find the `member_group_id` of the company you want.
+Use the project ID (`18ece8b1-204d-11e8-ad71-d73b169f902a`) and account ID(`aade5ed8-f16d-4ec0-9c0a-59f5ff7a2134`) to call [GET companies](../http-docs/http-projects--project_id-companies-GET.md) to get the projectâs companies and find the `member_group_id` of the company you want.
 
 ### Request
 
@@ -94,7 +94,7 @@ Find the company you want by name in the response and note its `member_group_id`
 
 ## [Step 3: Update the Contract](#step-3-update-the-contract)
 
-Use the container ID (`e94b9bc8-1775-4d76-9b1d-c613e120ccff`), contract ID(`55254a50-44d9-11e9-99d7-79aa05d3109e`), and company ID (`764893`) noted above to call [PATCH contracts/:id](/en/docs/bim360/v1/reference/http/cost-contracts-contractId-PATCH/) to update the contract.
+Use the container ID (`e94b9bc8-1775-4d76-9b1d-c613e120ccff`), contract ID(`55254a50-44d9-11e9-99d7-79aa05d3109e`), and company ID (`764893`) noted above to call [PATCH contracts/:id](../http-docs/http-cost-contracts-contractId-PATCH.md) to update the contract.
 
 ### Request
 

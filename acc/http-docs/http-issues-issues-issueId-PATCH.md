@@ -12,15 +12,15 @@ PATCH
 
 Updates an issue.
 
-To verify whether a user can update issues for a specific project, call [GET users/me](/en/docs/acc/v1/reference/http/me-GET).
+To verify whether a user can update issues for a specific project, call [GET users/me](https://aps.autodesk.com/en/docs/acc/v1/reference/http/me-GET/).
 
-To verify which attributes the user can update, call [GET issues/:id](/en/docs/acc/v1/reference/http/issues-issuesId-GET) and check the `permittedAttributes` and `permittedStatuses` lists.
+To verify which attributes the user can update, call [GET issues/:id](https://aps.autodesk.com/en/docs/acc/v1/reference/http/issues-issuesId-GET/) and check the `permittedAttributes` and `permittedStatuses` lists.
 
 We support retrieving file-related (pushpin) issues. However, we do not currently support retrieving sheet-related issues from ACC Build Sheets tool.
 
 Updating deleted issues is not allowed.
 
-This endpoint automatically triggers the `issue.updated-1.0` webhook event when an issue is successfully updated. If youâve configured a webhook subscription for this event, your application will receive a notification. For more information, see the [Issues Webhooks section](/en/docs/acc/v1/overview/field-guide/issues/#issues-webhooks) in the Field Guide.
+This endpoint automatically triggers the `issue.updated-1.0` webhook event when an issue is successfully updated. If youâve configured a webhook subscription for this event, your application will receive a notification. For more information, see the [Issues Webhooks section](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/issues/#issues-webhooks) in the Field Guide.
 
 Note that this endpoint is not compatible with BIM 360 projects.
 
@@ -36,9 +36,9 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
-| x-ads-region   string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`.<br>For the full list of supported regions, see the [Regions](/en/docs/acc/v1/overview/acc-regions) page. |
+| x-ads-region   string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`.<br>For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
 | Content-Type*   string | Must be `application/json` |
 
 * Required
@@ -47,8 +47,8 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring: UUID The ID of the project. Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
-- issueIdstring: UUID The unique identifier of the issue. To find the ID, call [GET issues](/en/docs/acc/v1/reference/http/issues-issues-GET/).
+- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+- issueIdstring: UUID The unique identifier of the issue. To find the ID, call [GET issues](http-issues-issues-GET.md).
 
 ### Request
 
@@ -63,8 +63,8 @@ Expand all
 | description   string | A brief description of the issue and its purpose. Maximum 1000 characters. |
 | snapshotUrn   string | Not relevant |
 | issueSubtypeId   string: UUID | The unique identifier of the subtype of the issue. |
-| status   enum:string | The current status of the issue. To check the available statuses for the project, call [GET users/me](/en/docs/acc/v1/reference/http/issues-me-GET) and check the permitted statuses list (`issue.new.permittedStatuses`). For more information about statuses, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Issues_Statuses). Possible values: `draft`, `open`, `pending`, `in_progress`, `completed`, `in_review`, `not_approved`, `in_dispute`, `closed` |
-| assignedTo   string | The Autodesk ID of the member, role, or company you want to assign to the issue. Note that if you select an assignee ID, you also need to select a type (`assignedToType`). <br>We do not currently provide endpoints to programmatically find the member, role, or company IDs that you are permitted to assign to the issue. We recommend using the Data Connector API to extract the permitted IDs. See the [Retrieve Available Members Roles and Companies](/en/docs/acc/v1/tutorials/issues/retrieve-available-members-roles-companies) tutorial for more details. |
+| status   enum:string | The current status of the issue. To check the available statuses for the project, call [GET users/me](https://aps.autodesk.com/en/docs/acc/v1/reference/http/issues-me-GET/) and check the permitted statuses list (`issue.new.permittedStatuses`). For more information about statuses, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Issues_Statuses). Possible values: `draft`, `open`, `pending`, `in_progress`, `completed`, `in_review`, `not_approved`, `in_dispute`, `closed` |
+| assignedTo   string | The Autodesk ID of the member, role, or company you want to assign to the issue. Note that if you select an assignee ID, you also need to select a type (`assignedToType`). <br>We do not currently provide endpoints to programmatically find the member, role, or company IDs that you are permitted to assign to the issue. We recommend using the Data Connector API to extract the permitted IDs. See the [Retrieve Available Members Roles and Companies](../how-to-docs/issues-retrieve-available-members-roles-companies.md) tutorial for more details. |
 | assignedToType   string | The type of the current assignee of this issue. Possible values: `user`, `company`, `role`, `null`. Note that if you select a type, you also need to select the assignee ID (`assignedTo`). |
 | dueDate   string | The due date of the issue, in ISO8601 format. |
 | startDate   string | The start date of the issue, in ISO8601 format. |
@@ -73,7 +73,7 @@ Expand all
 | rootCauseId   string: UUID | The unique identifier of the type of root cause for the issue. |
 | published   boolean | States whether the issue is published. Default value: `false` (e.g. unpublished). |
 | permittedActions   array: string | The list of actions permitted for the user for this issue in its current state. <br>Note that if a user with *View and assign to their company* permissions attempts to assign a user from a another company to the issue, it will return an error.<br>Possible Values: `assign_all` (can assign another user from another company to the issue), `assign_same_company` (can only assign another user from the same company to the issue), `clear_assignee`, `delete`, `add_comment`, `add_attachment`, `remove_attachment`.<br>The following values are not relevant: `add_attachment`, `remove_attachment`. |
-| watchers   array: string | The Autodesk ID of the member you want to assign as a watcher for the issue. <br>We do not currently provide endpoints to programmatically find the member IDs that you are permitted to assign as watchers for the issue. We recommend using the Data Connector API to extract the permitted IDs. See the [Retrieve Available Members](/en/docs/acc/v1/tutorials/issues/retrieve-available-members-roles-companies) tutorial for more details. |
+| watchers   array: string | The Autodesk ID of the member you want to assign as a watcher for the issue. <br>We do not currently provide endpoints to programmatically find the member IDs that you are permitted to assign as watchers for the issue. We recommend using the Data Connector API to extract the permitted IDs. See the [Retrieve Available Members](../how-to-docs/issues-retrieve-available-members-roles-companies.md) tutorial for more details. |
 | customAttributes   array: object | A list of custom attributes of the specific issue. |
 | attributeDefinitionId*   string: UUID | The unique identifier of the custom attribute. |
 | value*   object | Custom attribute value. Possible value types: `string`, `number`, `null`. |
@@ -124,7 +124,7 @@ Expand all
 | urn   string | The ID of the file associated with the issue (pushpin). Note that we do not currently support data associated with the ACC Build Sheet tool. |
 | createdBy   string | The Autodesk ID of the user who created the pushpin issue. |
 | createdAt   datetime: ISO 8601 | The date and time the pushpin was created, in ISO8601 format. |
-| createdAtVersion   int | The version of the file the pushin issue was added to. For information about file versions, see the [Data Management API](/en/docs/data/v2/). |
+| createdAtVersion   int | The version of the file the pushin issue was added to. For information about file versions, see the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). |
 | closedBy   string | The Autodesk ID of the user who closed the pushpin issue. |
 | closedAt   datetime: ISO 8601 | The date and time the pushpin issue was closed, in ISO8601 format. |
 | closedAtVersion   int | The version of the file when the pushpin issue was closed. |
@@ -161,7 +161,7 @@ Expand all
 | createdAt   datetime: ISO 8601 | The date and time the issue was created, in ISO8601 format. |
 | updatedBy   string | The unique identifier of the user who updated the issue. |
 | updatedAt   datetime: ISO 8601 | The date and time the issue was updated, in ISO8601 format. |
-| watchers   array: string | The list of watchers for the issue. To find the name of the watcher, call [GET users](/en/docs/acc/v1/reference/http/users-GET). |
+| watchers   array: string | The list of watchers for the issue. To find the name of the watcher, call [GET users](http-users-GET.md). |
 | customAttributes   array: object | A list of custom attributes of the specific issue. |
 | attributeDefinitionId   string: UUID | The unique identifier of the custom attribute. |
 | value   object | Custom attribute value. Possible value types: `string`, `number`, `null`. |

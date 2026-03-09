@@ -16,7 +16,7 @@ The workflow defines the steps, reviewers, durations, approval statuses, and pos
 
 For more details about approval workflows, see the [Help documentation](https://help.autodesk.com/view/DOCS/ENU/?guid=Reviews_Workflow).
 
-The `Authorization` header token can be obtained through either the [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token/) OAuth flow or the [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token/) OAuth flow with user impersonation, which requires the `x-user-id` header.
+The `Authorization` header token can be obtained through either the [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow or the [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) OAuth flow with user impersonation, which requires the `x-user-id` header.
 
 Note that this endpoint is not compatible with BIM 360 projects.
 
@@ -32,7 +32,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | x-user-id   string | The ID of a user on whose behalf the request is made. Your application has access to all users specified by the administrator in the SaaS Integrations UI. Use this header to specify which user should be affected by the request. <br>This header is only required when using two-legged authentication. It is not needed for three-legged authentication.<br>Only userâs Autodesk ID (`autodeskId`) can be accepted. |
 | Content-Type*   string | Must be `application/json` |
@@ -43,7 +43,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You can provide the project ID with or without the â**b.**" prefix.<br>Example with prefix: **b.563a4c30-e30d-4869-ac02-2a18b6447abe**Example without prefix: **563a4c30-e30d-4869-ac02-2a18b6447abe** |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You can provide the project ID with or without the â**b.**" prefix.<br>Example with prefix: **b.563a4c30-e30d-4869-ac02-2a18b6447abe**Example without prefix: **563a4c30-e30d-4869-ac02-2a18b6447abe** |
 | --- | --- |
 
 ### Request
@@ -79,11 +79,11 @@ Expand all
 | min   int | The minimum number of reviewers required for this step. This field is set automatically when the group review type is set to `MINIMUM`. It is not independently configurable. Valid range: `1â30`. |
 | candidates*   object | (Displayed in the UI when selecting Reviewers/Approvers for a step) Defines the users, roles, or companies to specify for this step of the approval workflow. At least one of the fields (`users`, `roles`, or `companies`) must be provided. |
 | users   array: object | A list of individual users assigned as candidates for this step. |
-| autodeskId*   string | The Autodesk ID of the user. To find the Autodesk IDs of users for a project, call [GET projects/users](/en/docs/acc/v1/reference/http/admin-projectsprojectId-users-GET/). |
+| autodeskId*   string | The Autodesk ID of the user. To find the Autodesk IDs of users for a project, call [GET projects/users](http-admin-projectsprojectId-users-GET.md). |
 | roles   array: object | A list of project roles assigned as candidates for this step. |
 | autodeskId*   string | The Autodesk ID of the role. Note that we do not currently support finding details about roles for a project. |
 | companies   array: object | A list of companies assigned as candidates for this step. |
-| autodeskId*   string | The Autodesk ID of the company. To find the Autodesk IDs of companies for a project, call [GET companies](/en/docs/acc/v1/reference/http/companies-GET/). |
+| autodeskId*   string | The Autodesk ID of the company. To find the Autodesk IDs of companies for a project, call [GET companies](http-companies-GET.md). |
 
 * Required
 

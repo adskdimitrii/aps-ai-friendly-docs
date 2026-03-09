@@ -8,7 +8,7 @@ Autodesk.Viewing
 
 # ProfileManager
 
-The ProfileManager provides a mechanism for registering [profile settings](/en/docs/viewer/v7/reference/globals/TypeDefs/ProfileSettings/) with a specific file type. Any of the registered profiles can be set by using [viewer.setProfile()](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#setProfile/).
+The ProfileManager provides a mechanism for registering [profile settings](globals-TypeDefs-ProfileSettings.md) with a specific file type. Any of the registered profiles can be set by using [viewer.setProfile()](Viewing-Viewer3D.md#setProfile/).
 
 ## [new ProfileManager()](#new-profilemanager)
 
@@ -46,7 +46,7 @@ Registers a profile. The profile will be overridden if a profile was already reg
 
 | fileExt*   String | file extension to register the profile settings with. |
 | --- | --- |
-| profileSettings*   [ProfileSettings](/en/docs/viewer/v7/reference/globals/TypeDefs/ProfileSettings/), [Autodesk.Viewing.Profile](/en/docs/viewer/v7/reference/Viewing/Profile/) | profile settings object or profile instance to register |
+| profileSettings*   [ProfileSettings](globals-TypeDefs-ProfileSettings.md), [Autodesk.Viewing.Profile](Viewing-Profile.md) | profile settings object or profile instance to register |
 
 * Required
 
@@ -76,4 +76,4 @@ Returns a profile that is registered with the specific file type. If the file ty
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.Profile](/en/docs/viewer/v7/reference/Viewing/Profile/) | Profile associated with the file extension. |
+| [Autodesk.Viewing.Profile](Viewing-Profile.md) | Profile associated with the file extension. |

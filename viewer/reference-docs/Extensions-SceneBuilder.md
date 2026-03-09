@@ -18,7 +18,7 @@ The extension id is: `Autodesk.Viewing.SceneBuilder`
 
 Expand all
 
-| viewer*   [Autodesk.Viewing.Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) | The viewer instance loading the extension |
+| viewer*   [Autodesk.Viewing.Viewer3D](Viewing-Viewer3D.md) | The viewer instance loading the extension |
 | --- | --- |
 | options   object | Default options used when calling addNewModel |
 | conserveMemory   boolean | Set to true to turn on memory conservation mode. In this mode [addMesh()]`Autodesk.Viewing.Extensions.SceneBuilder#addMesh <#fixMe/>`_ is not available because a single mesh is shared among all of the fragments in the model. |
@@ -48,7 +48,7 @@ Extension interface method - loads the extension
 
 ## [unload()](#unload)
 
-Extension interface method - unloads the extension Method [Autodesk.Viewing.Extensions.SceneBuilder#addNewModel](/en/docs/viewer/v7/reference/Extensions/SceneBuilder/#addNewModel/) will fail if the extension is unloaded.
+Extension interface method - unloads the extension Method [Autodesk.Viewing.Extensions.SceneBuilder#addNewModel](Extensions-SceneBuilder.md#addNewModel/) will fail if the extension is unloaded.
 
 ## [addNewModel(options)](#addnewmodel-options)
 
@@ -67,4 +67,4 @@ Expand all
 
 | type | description |
 | --- | --- |
-| [Promise (ModelBuilder)](/en/docs/viewer/v7/reference/Extensions/ModelBuilder/) | A Promise that resolves with a ModelBuilder instance for the new model. |
+| [Promise (ModelBuilder)](Extensions-ModelBuilder.md) | A Promise that resolves with a ModelBuilder instance for the new model. |

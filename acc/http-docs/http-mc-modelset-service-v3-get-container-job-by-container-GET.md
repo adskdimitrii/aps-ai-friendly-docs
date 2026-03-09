@@ -14,7 +14,7 @@ Retrieves information about a given container job.
 
 All calls to the containers resource result in a job. You can use this endpoint to track the progress of these jobs.
 
-You can find the `x-ads-region` to use from the `GET hubs` endpoint, under `data.attributes.region`. See [GET hubs/:hub_id](/en/docs/data/v2/reference/http/hubs-hub_id-GET/) for more information.
+You can find the `x-ads-region` to use from the `GET hubs` endpoint, under `data.attributes.region`. See [GET hubs/:hub_id](../../data/http-docs/http-hubs-hub_id-GET.md) for more information.
 
   Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
@@ -30,9 +30,9 @@ You can find the `x-ads-region` to use from the `GET hubs` endpoint, under `data
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token/) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
-| x-ads-region*   enum: string | The region the container resides in. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](/en/docs/acc/v1/overview/acc-regions) page. |
+| x-ads-region*   enum: string | The region the container resides in. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
 
 * Required
 

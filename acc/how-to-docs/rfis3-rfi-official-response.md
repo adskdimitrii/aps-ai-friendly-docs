@@ -11,13 +11,13 @@ This tutorial demonstrates how to create an official response for an RFI in an A
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:write` `account:read` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:write` `account:read` scopes.
 - Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to create an RFI in by following the [Retrieve an Account ID and Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. In this example, assume the account ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`, the project ID is `ce8edd30-ef28-467c-8d99-7d7051097ee0` and the RFI ID is `a1d12f69-3c02-4bba-936d-cccd73f001ee`.
+- Find the relevant project ID for the project you want to create an RFI in by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the account ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`, the project ID is `ce8edd30-ef28-467c-8d99-7d7051097ee0` and the RFI ID is `a1d12f69-3c02-4bba-936d-cccd73f001ee`.
 
 ## [Step 1: Find the RFI ID](#step-1-find-the-rfi-id)
 
-To post an official response, you need the RFI ID. Call [POST rfis:search](/en/docs/acc/v1/reference/http/rfis-V3-rfi-search-POST/) using the project ID (`ce8edd30-ef28-467c-8d99-7d7051097ee0`) to search for RFIs in the project.
+To post an official response, you need the RFI ID. Call [POST rfis:search](https://aps.autodesk.com/en/docs/acc/v1/reference/http/rfis-V3-rfi-search-POST/) using the project ID (`ce8edd30-ef28-467c-8d99-7d7051097ee0`) to search for RFIs in the project.
 
 ### Request
 
@@ -57,7 +57,7 @@ Take note of the RFI ID (`a1d12f69-3c02-4bba-936d-cccd73f001ee`). You will use t
 
 ## [Step 2: Verify Permissions and RFI Status](#step-2-verify-permissions-and-rfi-status)
 
-To confirm the user can create an official response, call [GET rfis/:rfiId](/en/docs/acc/v1/reference/http/rfis-V3-rfisrfiid-GET/) using the project ID and RFI ID.
+To confirm the user can create an official response, call [GET rfis/:rfiId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/rfis-V3-rfisrfiid-GET/) using the project ID and RFI ID.
 
 Only users with Manager permissions can create an official response, and only if:
 > - The RFI `status` is answered.
@@ -524,7 +524,7 @@ Verify the following:
 
 ## [Step 3: (Optional) Upload Attachments](#step-3-optional-upload-attachments)
 
-To include attachments in your official response, first upload the file to Autodeskâs Object Storage Service (OSS). For detailed steps, see the [Upload Attachments tutorial](/en/docs/acc/v1/tutorials/rfi-upload/).
+To include attachments in your official response, first upload the file to Autodeskâs Object Storage Service (OSS). For detailed steps, see the [Upload Attachments tutorial](https://aps.autodesk.com/en/docs/acc/v1/tutorials/rfi-upload/).
 
 After uploading, note the following values from the response:
 > - `objectId` â The unique identifier for the uploaded file.
@@ -542,7 +542,7 @@ These values will be required when adding attachments to your RFI official respo
 
 ## [Step 4: Create the Official Response](#step-4-create-the-official-response)
 
-To create the official response, call [PATCH rfis/:rfiId](/en/docs/acc/v1/reference/http/rfis-V3-rfisrfiid-PATCH/) using the project ID (`ce8edd30-ef28-467c-8d99-7d7051097ee0`), and the RFI ID (`rfiId`) (`a1d12f69-3c02-4bba-936d-cccd73f001ee`).
+To create the official response, call [PATCH rfis/:rfiId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/rfis-V3-rfisrfiid-PATCH/) using the project ID (`ce8edd30-ef28-467c-8d99-7d7051097ee0`), and the RFI ID (`rfiId`) (`a1d12f69-3c02-4bba-936d-cccd73f001ee`).
 
 Set the following fields:
 > - `status` to `closed`

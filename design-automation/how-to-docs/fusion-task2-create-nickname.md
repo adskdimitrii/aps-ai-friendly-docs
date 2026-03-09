@@ -18,7 +18,7 @@ You will use the following API endpoint in this task:
 
 | HTTP Request | Description |
 | --- | --- |
-| [PATCH /forgeapps/{id}](/en/docs/design-automation/v3/reference/http/forgeapps-id-PATCH/) | Creates/updates the nickname for the current app. |
+| [PATCH /forgeapps/{id}](../http-docs/http-forgeapps-id-PATCH.md) | Creates/updates the nickname for the current app. |
 
 ## [Step 1 - Create a nickname](#step-1-create-a-nickname)
 

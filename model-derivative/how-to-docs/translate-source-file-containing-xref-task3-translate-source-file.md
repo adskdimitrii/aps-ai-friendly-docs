@@ -22,9 +22,9 @@ You will use the following operations in this task:
 
 | Operation | HTTP Request |
 | --- | --- |
-| [Start Translation Job](/en/docs/model-derivative/v2/reference/http/job-POST/) | POST /job |
-| [Specify References](/en/docs/model-derivative/v2/reference/http/urn-references-POST/) | POST /{urn}/references |
-| [Fetch Manifest](/en/docs/model-derivative/v2/reference/http/urn-manifest-GET/) | GET /{urn}/manifest |
+| [Start Translation Job](../http-docs/http-job-POST.md) | POST /job |
+| [Specify References](../http-docs/http-urn-references-POST.md) | POST /{urn}/references |
+| [Fetch Manifest](../http-docs/http-urn-manifest-GET.md) | GET /{urn}/manifest |
 
 ## [Step 1 - Link source file to its references](#step-1-link-source-file-to-its-references)
 

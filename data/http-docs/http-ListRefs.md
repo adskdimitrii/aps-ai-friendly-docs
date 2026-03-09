@@ -11,9 +11,9 @@ Commands
 Retrieves the custom relationships between specified versions of items and other resources in the `data` domain service (folders, items, and versions). You can retrieve the relationships of up to 50 versions.
 
 Note that ListRefs is a Data Management command. Commands enable you to perform complex operations on multiple resources
-rather than standard CRUD operations. For more details about commands, see the[Commands](/en/docs/data/v2/overview/commands) overview section.
+rather than standard CRUD operations. For more details about commands, see the[Commands](https://aps.autodesk.com/en/docs/data/v2/overview/commands/) overview section.
 
-**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](/en/docs/acc/v1/overview/).
+**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/).
 
 ## [Resource Information](#resource-information)
 
@@ -27,7 +27,7 @@ rather than standard CRUD operations. For more details about commands, see the[C
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | x-user-id   string | In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified. |
 | Content-Type*   string | Must be `application/vnd.api+json`. |
@@ -62,7 +62,7 @@ Expand all
 | resources*   object | An object that represents related resources.   In this case, it is used to list the resourceâs metadata which should be retrieved. |
 | data*   array:object | The list of versions you want to retrieve the relationships for. |
 | type*   enum:string | The type of resource. Must always be: `versions` |
-| id*   string | The URN of the version; to verify the URN, see the [GET projects/:project_id/items/:item_id/versions](/en/docs/data/v2/reference/http/projects-project_id-items-item_id-versions-GET) endpoint. |
+| id*   string | The URN of the version; to verify the URN, see the [GET projects/:project_id/items/:item_id/versions](http-projects-project_id-items-item_id-versions-GET.md) endpoint. |
 
 * Required
 
@@ -102,7 +102,7 @@ Expand all
 | data   array: object | List of the relationships between the specified versions and other versions, items and folders. Each relationship returns a `type`, an `id`, and a `meta` object. |
 | type   enum:string | The type of resource. Must always be: `versions` |
 | id   string | The URN of the version. |
-| meta   object | Includes metadata about the type and direction of the relationships. For information about the metadata, see the Custom Relationships and Extension Types sections in the [API Basics](/en/docs/model-derivative/v2/overview/basics) section. |
+| meta   object | Includes metadata about the type and direction of the relationships. For information about the metadata, see the Custom Relationships and Extension Types sections in the [API Basics](https://aps.autodesk.com/en/docs/model-derivative/v2/overview/basics/) section. |
 | *included*   array: object | List of relationships for each version that was passed in data.relationships.resources.data. |
 | id   string | The URN of the resource. |
 | type   enum:string | The type of the resource. Possible values: `items`, `versions` |

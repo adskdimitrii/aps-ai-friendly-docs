@@ -16,7 +16,7 @@ The extension id is: `Autodesk.Viewing.FusionOrbit`
 
 ### Parameters
 
-| viewer*   [Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) | Viewer instance |
+| viewer*   [Viewer3D](Viewing-Viewer3D.md) | Viewer instance |
 | --- | --- |
 | options*   object | Configurations for the extension |
 

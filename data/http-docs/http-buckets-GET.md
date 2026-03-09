@@ -24,7 +24,7 @@ This endpoint will return the buckets owned by the application. This endpoint su
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](/en/docs/oauth/v2/reference/http/gettoken-POST). |
+| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
 | --- | --- |
 | region   enum | The region where the buckets reside. Possible values:       - `US` - (Default) Data center for the US region.   - `EMEA` - Data center for the Europe, Middle East, and Africa regions.   - `AUS` - (Beta) Data center for the Australia region.   - `CAN` - Data centre for the Canada region.   - `DEU` - Data centre for the Germany region.   - `IND` - Data centre for the India region.   - `JPN` - Data centre for the Japan region.   - `GBR` - Data centre for the United Kingdom region.       **Note**:       1. Beta features are subject to change. Please avoid using them in production environments.   2. If you specify the `region` header as well as the `region` query parameter, the `region` header takes precedence. |
 

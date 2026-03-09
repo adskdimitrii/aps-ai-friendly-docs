@@ -8,7 +8,7 @@ Autodesk.Viewing.Extensions
 
 # SnappingExtension
 
-Utility extension that provides access to the [Autodesk.Viewing.Extensions.Snapping.Snapper](/en/docs/viewer/v7/reference/Snapping/Snapper/) tool.
+Utility extension that provides access to the [Autodesk.Viewing.Extensions.Snapping.Snapper](Snapping-Snapper.md) tool.
 
 The extension id is: `Autodesk.Snapping`
 
@@ -16,7 +16,7 @@ The extension id is: `Autodesk.Snapping`
 
 ### Parameters
 
-| viewer*   [Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) | Viewer instance |
+| viewer*   [Viewer3D](Viewing-Viewer3D.md) | Viewer instance |
 | --- | --- |
 | options*   object | Configurations for the extension |
 

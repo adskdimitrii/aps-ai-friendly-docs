@@ -229,7 +229,7 @@ Whether mouse scroll wheel (and/or two-finger vertical swipe) will trigger a cam
 
 ## [setModalityMap(map)](#setmodalitymap-map)
 
-Set the modality map for each tool. This function will clear any existing modality map. The map object consists of a key which represents the tool name and a value which is an object that represents which tools to enable and disable. To get the tool names @see [Autodesk.Viewing.ToolController#getToolNames](/en/docs/viewer/v7/reference/Viewing/ToolController/#getToolNames/)
+Set the modality map for each tool. This function will clear any existing modality map. The map object consists of a key which represents the tool name and a value which is an object that represents which tools to enable and disable. To get the tool names @see [Autodesk.Viewing.ToolController#getToolNames](Viewing-ToolController.md#getToolNames/)
 
 ### Parameters
 

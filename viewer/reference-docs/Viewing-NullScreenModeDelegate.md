@@ -7,7 +7,7 @@ Source: https://aps.autodesk.com/en/docs/viewer/v7/reference/Viewing/NullScreenM
 Autodesk.Viewing
 
 # NullScreenModeDelegate
-> Extends [Autodesk.Viewing.ScreenModeDelegate](/en/docs/viewer/v7/reference/Viewing/ScreenModeDelegate)
+> Extends [Autodesk.Viewing.ScreenModeDelegate](Viewing-ScreenModeDelegate.md)
 
 ## [new NullScreenModeDelegate(viewer)](#new-nullscreenmodedelegate-viewer)
 
@@ -15,7 +15,7 @@ Screen mode delegate with no full screen functionality.
 
 ### Parameters
 
-| viewer*   [Autodesk.Viewing.Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) | Viewer instance. |
+| viewer*   [Autodesk.Viewing.Viewer3D](Viewing-Viewer3D.md) | Viewer instance. |
 | --- | --- |
 
 * Required

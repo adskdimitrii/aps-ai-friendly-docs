@@ -15,7 +15,7 @@ At a high-level, the *Client Credentials grant type* has only two steps:
 1. Your application passes its client credentials to the APS Authorization Server.
 2. If the credentials are accurate, the Authorization Server responds with an access token.
 
-We use the Client Credentials type in this case as it is intended for server-side (confidential) client applications with no end user, which normally describes server-to-server communication. See [Client Credentials grant type](/en/docs/oauth/v2/reference/http/gettoken-POST) for more details, and an example.
+We use the Client Credentials type in this case as it is intended for server-side (confidential) client applications with no end user, which normally describes server-to-server communication. See [Client Credentials grant type](../http-docs/http-gettoken-POST.md) for more details, and an example.
 
 [![../../../_images/server-to-server.svg](../../../_images/server-to-server.svg)](../../../_images/server-to-server.svg)
 

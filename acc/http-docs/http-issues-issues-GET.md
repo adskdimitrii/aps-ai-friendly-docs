@@ -28,9 +28,9 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
-| x-ads-region   string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`.<br>For the full list of supported regions, see the [Regions](/en/docs/acc/v1/overview/acc-regions) page. |
+| x-ads-region   string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`.<br>For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
 
 * Required
 
@@ -38,7 +38,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Request
@@ -119,7 +119,7 @@ Expand all
 | urn   string | The ID of the file associated with the issue (pushpin). Note that we do not currently support data associated with the ACC Build Sheet tool. |
 | createdBy   string | The Autodesk ID of the user who created the pushpin issue. |
 | createdAt   datetime: ISO 8601 | The date and time the pushpin was created, in ISO8601 format. |
-| createdAtVersion   int | The version of the file the pushin issue was added to. For information about file versions, see the [Data Management API](/en/docs/data/v2/). |
+| createdAtVersion   int | The version of the file the pushin issue was added to. For information about file versions, see the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). |
 | closedBy   string | The Autodesk ID of the user who closed the pushpin issue. |
 | closedAt   datetime: ISO 8601 | The date and time the pushpin issue was closed, in ISO8601 format. |
 | closedAtVersion   int | The version of the file when the pushpin issue was closed. |
@@ -156,7 +156,7 @@ Expand all
 | createdAt   datetime: ISO 8601 | The date and time the issue was created, in ISO8601 format. |
 | updatedBy   string | The unique identifier of the user who updated the issue. |
 | updatedAt   datetime: ISO 8601 | The date and time the issue was updated, in ISO8601 format. |
-| watchers   array: string | The list of watchers for the issue. To find the name of the watcher, call [GET users](/en/docs/acc/v1/reference/http/users-GET). |
+| watchers   array: string | The list of watchers for the issue. To find the name of the watcher, call [GET users](http-users-GET.md). |
 | customAttributes   array: object | A list of custom attributes of the specific issue. |
 | attributeDefinitionId   string: UUID | The unique identifier of the custom attribute. |
 | value   object | Custom attribute value. Possible value types: `string`, `number`, `null`. |

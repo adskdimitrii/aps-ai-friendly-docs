@@ -18,14 +18,14 @@ To learn more about the inventory tool, see the [ACC Takeoff Inventory](https://
 
 - [Register an app](/myapps), and select Autodesk Construction Cloud API.
 - Provision your app to acquire access to your ACC account.
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with the `data:read` scope.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:read` scope.
 - Verify that you have access to the relevant ACC project.
 
 ## [Step 1: Retrieve the Packages](#step-1-retrieve-the-packages)
 
-Use the project ID (`7388a640-3bff-4328-9dc2-aafe62359958`) to retrieve the packages, by calling [GET packages](/en/docs/acc/v1/reference/http/takeoff-projects-project_id-packages-GET).
+Use the project ID (`7388a640-3bff-4328-9dc2-aafe62359958`) to retrieve the packages, by calling [GET packages](../http-docs/http-takeoff-projects-project_id-packages-GET.md).
 
-To find the project ID, see the [Retrieve ACC Account and project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial.
+To find the project ID, see the [Retrieve ACC Account and project ID](getting-started-retrieve-account-and-project-id.md) tutorial.
 
 ### Request
 
@@ -66,7 +66,7 @@ The response payload includes the package IDs (`results[i].id`).
 
 ### Part A: Get all the Takeoff Types
 
-Use the project ID (`7388a640-3bff-4328-9dc2-aafe62359958`) and package ID (`6e330582-ad88-4299-85e6-b749e8dec40d`) from the previous step to retrieve the takeoff types, by calling [GET takeoff-types](/en/docs/acc/v1/reference/http/takeoff-projects-project_id-packages-package_id-takeoff-types-GET).
+Use the project ID (`7388a640-3bff-4328-9dc2-aafe62359958`) and package ID (`6e330582-ad88-4299-85e6-b749e8dec40d`) from the previous step to retrieve the takeoff types, by calling [GET takeoff-types](../http-docs/http-takeoff-projects-project_id-packages-package_id-takeoff-types-GET.md).
 
 ### Request
 
@@ -145,7 +145,7 @@ Show More
 
 ### Part B: Get all the Takeoff Items
 
-Use the project ID (`7388a640-3bff-4328-9dc2-aafe62359958`) and package ID (`6e330582-ad88-4299-85e6-b749e8dec40d`) from the previous step to retrieve the takeoff items, by calling [GET takeoff-items](/en/docs/acc/v1/reference/http/takeoff-projects-project_id-packages-package_id-takeoff-items-GET).
+Use the project ID (`7388a640-3bff-4328-9dc2-aafe62359958`) and package ID (`6e330582-ad88-4299-85e6-b749e8dec40d`) from the previous step to retrieve the takeoff items, by calling [GET takeoff-items](../http-docs/http-takeoff-projects-project_id-packages-package_id-takeoff-items-GET.md).
 
 ### Request
 
@@ -219,7 +219,7 @@ Below are some examples of how to obtain additional information, relating to a t
 
 ## [Get the Classification Systems](#get-the-classification-systems)
 
-Use the project ID (`7388a640-3bff-4328-9dc2-aafe62359958`) to retrieve the classification systems, by calling [GET classification-systems](/en/docs/acc/v1/reference/http/takeoff-projects-project_id-classification-systems-GET).
+Use the project ID (`7388a640-3bff-4328-9dc2-aafe62359958`) to retrieve the classification systems, by calling [GET classification-systems](../http-docs/http-takeoff-projects-project_id-classification-systems-GET.md).
 
 For more details about classification systems, see the [Configure Takeoff Settings](https://help.autodesk.com/view/TAKEOFF/ENU/?guid=Configure_Takeoff_Settings) help documentation.
 
@@ -258,7 +258,7 @@ The response payload includes the classification system IDs (`results[i].id`).
 
 ## [Get the Classifications for a Classification System](#get-the-classifications-for-a-classification-system)
 
-Use the project ID (`7388a640-3bff-4328-9dc2-aafe62359958`) and classification system ID (`1a07c80a-3892-40b1-8a2f-3d0b05786d70`) from the previous step to retrieve the classifications, by calling [GET classifications](/en/docs/acc/v1/reference/http/takeoff-projects-project_id-classification-systems-system_id-classifications-GET/).
+Use the project ID (`7388a640-3bff-4328-9dc2-aafe62359958`) and classification system ID (`1a07c80a-3892-40b1-8a2f-3d0b05786d70`) from the previous step to retrieve the classifications, by calling [GET classifications](../http-docs/http-takeoff-projects-project_id-classification-systems-system_id-classifications-GET.md).
 
 ### Request
 
@@ -306,7 +306,7 @@ Show More
 
 ## [Get Sheet or Model Information](#get-sheet-or-model-information)
 
-Use the project ID (`7388a640-3bff-4328-9dc2-aafe62359958`) to retrieve the content views, by calling [GET content-views](/en/docs/acc/v1/reference/http/takeoff-projects-project_id-content-views-GET).
+Use the project ID (`7388a640-3bff-4328-9dc2-aafe62359958`) to retrieve the content views, by calling [GET content-views](../http-docs/http-takeoff-projects-project_id-content-views-GET.md).
 
 A content view is either a 3D BIM model view, or a 2D PDF sheet that a user could use to create takeoffs.
 
@@ -363,7 +363,7 @@ For model names, use `results[i].view.lineageUrn` where `results[i].type` is `FI
 
 ## [Get the Model Name](#get-the-model-name)
 
-Use the project ID (`7388a640-3bff-4328-9dc2-aafe62359958`) and `lineageUrn` (`urn:adsk.wipprod:dm.lineage:TwJx1922Sq2MsljlLsTYFQ`) to retrieve the model name, by calling [GET project items](/en/docs/data/v2/reference/http/projects-project_id-items-item_id-tip-GET).
+Use the project ID (`7388a640-3bff-4328-9dc2-aafe62359958`) and `lineageUrn` (`urn:adsk.wipprod:dm.lineage:TwJx1922Sq2MsljlLsTYFQ`) to retrieve the model name, by calling [GET project items](../../data/http-docs/http-projects-project_id-items-item_id-tip-GET.md).
 
 ### Request
 

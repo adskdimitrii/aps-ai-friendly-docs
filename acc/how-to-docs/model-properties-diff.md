@@ -10,11 +10,11 @@ This step-by-step tutorial describes how to create and query a diff.
 
 ## [Step 1: Specify the diff index](#step-1-specify-the-diff-index)
 
-To create a basic diff index, call the [batch status method](/en/docs/acc/v1/reference/http/index-v2-diff-jobs-batch-status-post/).
+To create a basic diff index, call the [batch status method](../http-docs/http-index-v2-diff-jobs-batch-status-post.md).
 
 ### Example Request
 
-In the request below, a `POST` is made to the [diff batch status endpoint](/en/docs/acc/v1/reference/http/index-v2-diff-jobs-batch-status-post/). Index resources will be created for each pair of files in the payload. There are no `query` or `columns` properties set in the payload, so no query results will be generated in response to this operation.
+In the request below, a `POST` is made to the [diff batch status endpoint](../http-docs/http-index-v2-diff-jobs-batch-status-post.md). Index resources will be created for each pair of files in the payload. There are no `query` or `columns` properties set in the payload, so no query results will be generated in response to this operation.
 
 ```
 curl --request POST 'https://developer.api.autodesk.com/construction/index/v2/projects/f83cef12-deef-4771-9feb-4f85643e3c46/diffs:batch-status' \
@@ -88,7 +88,7 @@ The properties returned by this endpoint are as follows:
 
 ## [Step 2: Poll for progress](#step-2-poll-for-progress)
 
-To track the progress of an indexing request send a `GET` request to the [diff index status endpoint](/en/docs/acc/v1/reference/http/index-v2-diff-status-get/) using the `diffId` obtained in the request. When the index has a status of `FINISHED` processing, the index is available for querying and downloading.
+To track the progress of an indexing request send a `GET` request to the [diff index status endpoint](../http-docs/http-index-v2-diff-status-get.md) using the `diffId` obtained in the request. When the index has a status of `FINISHED` processing, the index is available for querying and downloading.
 
 ### Example Request
 
@@ -133,7 +133,7 @@ When an index has been successfully created (`state` equals `FINISHED`), it cont
 
 ## [Step 3: (Optional) Download the manifest](#step-3-optional-download-the-manifest)
 
-To retrieve the diff index manifest, make a `GET` to the [manifest endpoint](/en/docs/acc/v1/reference/http/index-v2-diff-manifest-get/), the format of which is described in the [field guide](/en/docs/acc/v1/overview/field-guide/model-properties).
+To retrieve the diff index manifest, make a `GET` to the [manifest endpoint](../http-docs/http-index-v2-diff-manifest-get.md), the format of which is described in the [field guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/model-properties/).
 
 ### Example Request
 
@@ -234,11 +234,11 @@ curl --request GET 'https://developer.api.autodesk.com/construction/index/v2/pro
 
 Show More
 
-The structure of the manifest resource returned by this endpoint is described in the [field guide](/en/docs/acc/v1/overview/field-guide/model-properties) page.
+The structure of the manifest resource returned by this endpoint is described in the [field guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/model-properties/) page.
 
 ## [Step 4: (Optional) Download the fields](#step-4-optional-download-the-fields)
 
-In order to query a diff index, first [download the fields resource](/en/docs/acc/v1/reference/http/index-v2-diff-fields-get/), which describes the columns available in the index. The index fields are obtained by a call to the `fieldsUrl` returned either by a call to the status endpoint (Step 1) or by polling the state of a running indexing job (Step 2). Skip this step if you already know the field keys you require for your query.
+In order to query a diff index, first [download the fields resource](../http-docs/http-index-v2-diff-fields-get.md), which describes the columns available in the index. The index fields are obtained by a call to the `fieldsUrl` returned either by a call to the status endpoint (Step 1) or by polling the state of a running indexing job (Step 2). Skip this step if you already know the field keys you require for your query.
 
 ### Example Request
 
@@ -269,7 +269,7 @@ TRUNCATED
 
 Show More
 
-The structure of the fields resource returned by this endpoint is described in the [field guide](/en/docs/acc/v1/tutorials/model-properties/overview/) page.
+The structure of the fields resource returned by this endpoint is described in the [field guide](https://aps.autodesk.com/en/docs/acc/v1/tutorials/model-properties/overview/) page.
 
 ## [Step 5: (Optional) Download the raw index](#step-5-optional-download-the-raw-index)
 
@@ -417,11 +417,11 @@ Diff index rows are returned as compressed (gzip) line delimited JSON. The follo
 
 Show More
 
-The structure of the properties resource returned by this endpoint is described in the [field guide](/en/docs/acc/v1/tutorials/model-properties/overview/) page.
+The structure of the properties resource returned by this endpoint is described in the [field guide](https://aps.autodesk.com/en/docs/acc/v1/tutorials/model-properties/overview/) page.
 
 ## [Step 6: Build and run a query](#step-6-build-and-run-a-query)
 
-Once an index has been successfully created it can be queried using the `queries` endpoint for the index via the `diffId` which can be obtained by a call to the status tracking endpoints (Steps 1 or 2 above). Index diff queries are described using a custom JSON schema which is converted to a filter expression and applied line by line to to the index. This documentation includes a [comprehensive query language reference](/en/docs/acc/v1/tutorials/model-properties/query-ref) which describes how to form index and diff queries by example using this JSON schema.
+Once an index has been successfully created it can be queried using the `queries` endpoint for the index via the `diffId` which can be obtained by a call to the status tracking endpoints (Steps 1 or 2 above). Index diff queries are described using a custom JSON schema which is converted to a filter expression and applied line by line to to the index. This documentation includes a [comprehensive query language reference](model-properties-query-ref.md) which describes how to form index and diff queries by example using this JSON schema.
 
 ### Example Request
 

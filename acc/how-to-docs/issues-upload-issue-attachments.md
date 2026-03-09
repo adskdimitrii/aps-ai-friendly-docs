@@ -13,14 +13,14 @@ The steps include finding the ID of the projectâs top-level folder, creatin
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps).
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:read`, `data:write`, and `data:create` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read`, `data:write`, and `data:create` scopes.
 - Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to add an attachment to by following the [Retrieve an Account ID and Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. In this example, assume the account ID is `b.cGVyc29uYWw6cGUyOWNjZjMy`, and the project ID is `b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`.
-- This tutorial assumes you have an existing issue to attach the file to. For more information on creating an issue, see the [Create an Issue](/en/docs/acc/v1/tutorials/issues/create-issues/) tutorial. In this example, assume the issue ID is `d4f9c2e1-3b8a-4c7d-9e2f-1a5b8c9d0e3f`. This is also known as the `domainEntityId`.
+- Find the relevant project ID for the project you want to add an attachment to by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the account ID is `b.cGVyc29uYWw6cGUyOWNjZjMy`, and the project ID is `b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`.
+- This tutorial assumes you have an existing issue to attach the file to. For more information on creating an issue, see the [Create an Issue](issues-create-issues.md) tutorial. In this example, assume the issue ID is `d4f9c2e1-3b8a-4c7d-9e2f-1a5b8c9d0e3f`. This is also known as the `domainEntityId`.
 
 ## [Step 1: Find the Root Folder ID](#step-1-find-the-root-folder-id)
 
-Call [GET projects/:projectId/topFolders](/en/docs/data/v2/reference/http/hubs-hub_id-projects-project_id-topFolders-GET/) using the account ID (`b.cGVyc29uYWw6cGUyOWNjZjMy`) and project ID (`b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`) to get a list of the highest-level folders in the project.
+Call [GET projects/:projectId/topFolders](../../data/http-docs/http-hubs-hub_id-projects-project_id-topFolders-GET.md) using the account ID (`b.cGVyc29uYWw6cGUyOWNjZjMy`) and project ID (`b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`) to get a list of the highest-level folders in the project.
 
 ### Request
 
@@ -140,7 +140,7 @@ The root folder (parent of Project Files) will be used to create the storage obj
 
 ## [Step 2: Create a Storage Object](#step-2-create-a-storage-object)
 
-Use the project ID (`b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`) and the root folder ID (`urn:adsk.wip:fs.folder:co.1838SAGCQ3SPn7lqOXMaJQ`) to call [POST projects/:project_id/storage](/en/docs/data/v2/reference/http/projects-project_id-storage-POST/) to create an empty storage object for the file in the folder.
+Use the project ID (`b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`) and the root folder ID (`urn:adsk.wip:fs.folder:co.1838SAGCQ3SPn7lqOXMaJQ`) to call [POST projects/:project_id/storage](../../data/http-docs/http-projects-project_id-storage-POST.md) to create an empty storage object for the file in the folder.
 
 Note that you must assign a filename and file extension (such as `.pdf`, `.jpg`, `.txt`, etc.) to the `name` parameter (for example, `86360940-0703-4884-9130-9cb30b82e063e.pdf`). You can use a UUID as the `name`.
 
@@ -212,7 +212,7 @@ attachment ID - `a9d330bc-411f-4aaf-874a-9844cc002d00`. This is derived from the
 
 ## [Step 3: Generate a Signed URL](#step-3-generate-a-signed-url)
 
-Use the bucket key (`wip.dm.prod`) and object key (`a9d330bc-411f-4aaf-874a-9844cc002d00.pdf`) to call [GET signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-GET/) to generate a signed URL for the storage object.
+Use the bucket key (`wip.dm.prod`) and object key (`a9d330bc-411f-4aaf-874a-9844cc002d00.pdf`) to call [GET signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md) to generate a signed URL for the storage object.
 
 This endpoint supports generating multiple signed URLs, which allows you to upload multiple chunks of the same file in parallel.
 
@@ -257,7 +257,7 @@ Note that a successful call (`200`) returns an empty response.
 
 ## [Step 5: Complete the Upload](#step-5-complete-the-upload)
 
-Use the bucket key (`wip.dm.prod`) the object key (`` a9d330bc-411f-4aaf-874a-9844cc002d00.pdf` ``) and the upload key (`AQICAHifrJ6-BSHUmjAat4..........QWI-fuvghN23akgePMdmykV`) to call [POST signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-POST) to finalize the upload and register the file in Autodesk Docs.
+Use the bucket key (`wip.dm.prod`) the object key (`` a9d330bc-411f-4aaf-874a-9844cc002d00.pdf` ``) and the upload key (`AQICAHifrJ6-BSHUmjAat4..........QWI-fuvghN23akgePMdmykV`) to call [POST signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-POST.md) to finalize the upload and register the file in Autodesk Docs.
 
 This endpoint needs to be called within 24 hours from the time you began uploading the file.
 
@@ -295,7 +295,7 @@ Note that the `objectId` â `urn:adsk.objects:os.object:wip.dm.prod/a9d330bc
 
 ## [Step 6: Attach the File to the Issue](#step-6-attach-the-file-to-the-issue)
 
-Call [POST attachments](/en/docs/acc/v1/reference/http/issues-attachments-POST/) to attach the uploaded file to an existing issue, using the following values:
+Call [POST attachments](../http-docs/http-issues-attachments-POST.md) to attach the uploaded file to an existing issue, using the following values:
 
 - `domainEntityId` - the ID of the issue to attach the file to. We defined the issue ID in the Before you Begin section.
 - `storageUrn` - the storage URN from step 2 - `urn:adsk.objects:os.object:wip.dm.prod/a9d330bc-411f-4aaf-874a-9844cc002d00.pdf`

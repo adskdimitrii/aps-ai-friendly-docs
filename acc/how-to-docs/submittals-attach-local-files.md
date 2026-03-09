@@ -13,10 +13,10 @@ For information about attaching files to submittals that were already uploaded t
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:read` `data:write` scopes.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` `data:write` scopes.
 - Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to create a submittal item in by following the [Retrieve an Account ID and Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. In this example, assume the project ID is `91b5ea71-e3ea-495b-999d-57443a8af6a4`.
-- This tutorial assumes an item was created in Submit state `sbc-1` by a user with manager permissions. For more information on creating a submittal item, see the [Create a Submittal Item](/en/docs/acc/v1/tutorials/submittals/create-submittal-item/) tutorial. In this example, assume the submittal item ID is `938eb16d-5603-4df9-adcd-00f75d48e145`.
+- Find the relevant project ID for the project you want to create a submittal item in by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `91b5ea71-e3ea-495b-999d-57443a8af6a4`.
+- This tutorial assumes an item was created in Submit state `sbc-1` by a user with manager permissions. For more information on creating a submittal item, see the [Create a Submittal Item](submittals-create-submittal-item.md) tutorial. In this example, assume the submittal item ID is `938eb16d-5603-4df9-adcd-00f75d48e145`.
 - Ensure you have assigned manager-level permissions to at least one user for the project via the UI. To assign a manager to a submittal item, you need to ensure the user has the necessary permissions and roles set within the project. For instructions on setting up roles and permissions see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Submittals_Permissions).
 - The Submittal Item workflow progresses through several sequential states. Below are the states in the UI and their equivalent API names:
     | UI State | API Name |
@@ -29,11 +29,11 @@ For information about attaching files to submittals that were already uploaded t
 
 ## [Step 1: Verify Permissions and Fields](#step-1-verify-permissions-and-fields)
 
-Before uploading an attachment, verify the userâs permissions and gather the mandatory and optional fields required to make the [POST attachment](/en/docs/acc/v1/reference/http/submittals-attachments-POST/) request in step 2.
+Before uploading an attachment, verify the userâs permissions and gather the mandatory and optional fields required to make the [POST attachment](../http-docs/http-submittals-attachments-POST.md) request in step 2.
 
-Call [GET item/:id](/en/docs/acc/v1/reference/http/submittals-items-itemId-GET/) using the project ID (`2570d4e5-9aef-4b41-8e45-a454f2f3fd65`) and the submittal item ID (`938eb16d-5603-4df9-adcd-00f75d48e145`). Check the `permittedActions` object for `Attachment::create`. If this action is listed, the user has permission to create an attachment.
+Call [GET item/:id](../http-docs/http-submittals-items-itemId-GET.md) using the project ID (`2570d4e5-9aef-4b41-8e45-a454f2f3fd65`) and the submittal item ID (`938eb16d-5603-4df9-adcd-00f75d48e145`). Check the `permittedActions` object for `Attachment::create`. If this action is listed, the user has permission to create an attachment.
 
-The `permittedActions` object also provides the `mandatoryFields` and `fields` arrays, which specify the required and optional parameters for the POST attachments request. Calling [GET item/:id](/en/docs/acc/v1/reference/http/submittals-items-itemId-GET) at any stage in the workflow will return the permitted actions for the user at that point for the submittal item.
+The `permittedActions` object also provides the `mandatoryFields` and `fields` arrays, which specify the required and optional parameters for the POST attachments request. Calling [GET item/:id](../http-docs/http-submittals-items-itemId-GET.md) at any stage in the workflow will return the permitted actions for the user at that point for the submittal item.
 
 ### Request
 
@@ -429,7 +429,7 @@ Include these fields in your POST attachment request in Step 2.
 
 ## [Step 2: Create an Attachment Object](#step-2-create-an-attachment-object)
 
-Call [POST attachment](/en/docs/acc/v1/reference/http/submittals-attachments-POST/) to create the attachment object. This step registers the attachment metadata with the submittal item but does not yet upload the file.
+Call [POST attachment](../http-docs/http-submittals-attachments-POST.md) to create the attachment object. This step registers the attachment metadata with the submittal item but does not yet upload the file.
 
 - The `urnTypeId` field must be included in the request and should always have the value `2`.
 - The `categoryId` is typically assigned automatically based on the submittal itemâs current state. In most cases, you do not need to include `categoryId` in your request. However, for specific exceptions, you must provide it explicitly:
@@ -439,7 +439,7 @@ Call [POST attachment](/en/docs/acc/v1/reference/http/submittals-attachments-POS
 
 - For items in the Review (`rev`) state, include the `taskId` field to associate the attachment with a specific task. This ensures the attachment is linked to the relevant task in the review process.
 
-You can retrieve the full list of available `categoryId` values and their corresponding meanings by calling [GET metadata](/en/docs/acc/v1/reference/http/submittals-metadata-GET/), and reviewing the `attachmentCategories` list in the response.
+You can retrieve the full list of available `categoryId` values and their corresponding meanings by calling [GET metadata](../http-docs/http-submittals-metadata-GET.md), and reviewing the `attachmentCategories` list in the response.
 
 ### Request
 
@@ -533,9 +533,9 @@ The upload URN includes the following sections: `<urn:adsk.objects:os.object>:<b
 
 ## [Step 3: Generate a Signed S3 URL](#step-3-generate-a-signed-s3-url)
 
-Use the bucket key from the uploadUrn (`wip.dm.prod`) and the object key (`a9d330bc-411f-4aaf-874a-9844cc002d00.pdf`) to call [GET signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-GET/) to generate a signed URL for the storage object.
+Use the bucket key from the uploadUrn (`wip.dm.prod`) and the object key (`a9d330bc-411f-4aaf-874a-9844cc002d00.pdf`) to call [GET signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md) to generate a signed URL for the storage object.
 
-This endpoint supports generating multiple signed URLs, which allows you to upload multiple chunks of the same file in parallel. For more information, see [GET signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-GET/).
+This endpoint supports generating multiple signed URLs, which allows you to upload multiple chunks of the same file in parallel. For more information, see [GET signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md).
 
 ### Request
 
@@ -581,7 +581,7 @@ Note that a successful call (`200`) returns an empty response.
 
 ## [Step 5: Complete the Upload](#step-5-complete-the-upload)
 
-Use the bucket key (`wip.dm.prod`), the object key (`a9d330bc-411f-4aaf-874a-9844cc002d00.pdf`) and the upload key (`AQICAHgdUabBXKpMwUkoF5ivioCSHNq_j4g7HRbexUuX..........UbHJ5QNz9quo=`) to call [POST signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-POST/) to complete the upload.
+Use the bucket key (`wip.dm.prod`), the object key (`a9d330bc-411f-4aaf-874a-9844cc002d00.pdf`) and the upload key (`AQICAHgdUabBXKpMwUkoF5ivioCSHNq_j4g7HRbexUuX..........UbHJ5QNz9quo=`) to call [POST signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-POST.md) to complete the upload.
 
 This endpoint needs to be called within 24 hours from the time you began uploading the file.
 
@@ -617,7 +617,7 @@ The file has been uploaded to the storage object.
 
 ## [Step 6: Finalize the Attachment Status](#step-6-finalize-the-attachment-status)
 
-Call [PATCH attachment](/en/docs/acc/v1/reference/http/submittals-attachments-attachmentId-PATCH/) with `isFileUploaded=true` to update the attachment status. This step marks the attachment as fully uploaded and ensures it is recognized as complete in the submittal workflow.
+Call [PATCH attachment](../http-docs/http-submittals-attachments-attachmentId-PATCH.md) with `isFileUploaded=true` to update the attachment status. This step marks the attachment as fully uploaded and ensures it is recognized as complete in the submittal workflow.
 
 Use the `id` of the attachment generated in Step 2 and update the status.
 

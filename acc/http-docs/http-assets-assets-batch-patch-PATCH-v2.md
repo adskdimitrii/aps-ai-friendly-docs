@@ -18,7 +18,7 @@ asset attribute updates for the asset.
 Each attribute revision is a key:value pair that specifies an attribute and the value to assign to the
 attribute.
 
-To understand the basics of assets and the Assets settings that define them, see the [Assets Field Guide](/en/docs/acc/v1/overview/field-guide/assets/).
+To understand the basics of assets and the Assets settings that define them, see the [Assets Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/assets/).
 
   Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
@@ -34,7 +34,7 @@ To understand the basics of assets and the Assets settings that define them, see
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 
@@ -53,7 +53,7 @@ To understand the basics of assets and the Assets settings that define them, see
 
 An object keyed by Asset IDs with values that are PatchAssetV2 entities
 
-| object | The request payload for updating an asset V2. The payload is a set of key:value pairs. The key is the asset ID of the asset to revise. The value is a set of one or more asset attributes to revise. <br>Each attribute revision is itself a key:value pair. The key is the attribute name (one of the asset fields supplied in a request to [POST assets:batch-create V2](/en/docs/acc/v1/reference/http/assets-assets-batch-create-POST-v2/)).<br>The value is any permissible defined value for the field as described in [POST assets:batch-create V2](/en/docs/acc/v1/reference/http/assets-assets-batch-create-POST-v2/). |
+| object | The request payload for updating an asset V2. The payload is a set of key:value pairs. The key is the asset ID of the asset to revise. The value is a set of one or more asset attributes to revise. <br>Each attribute revision is itself a key:value pair. The key is the attribute name (one of the asset fields supplied in a request to [POST assets:batch-create V2](http-assets-assets-batch-create-POST-v2.md)).<br>The value is any permissible defined value for the field as described in [POST assets:batch-create V2](http-assets-assets-batch-create-POST-v2.md). |
 | --- | --- |
 
 ### Response

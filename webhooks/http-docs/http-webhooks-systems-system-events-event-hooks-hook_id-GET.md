@@ -22,7 +22,7 @@ Get details of a webhook based on its webhook ID
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [OAuth](/en/docs/oauth/v2/reference/http/gettoken-POST) |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [OAuth](../../oauth/http-docs/http-gettoken-POST.md) |
 | --- | --- |
 | Content-Type*   string | `application/json` |
 | x-ads-region   string | Specifies the geographical location (region) of the server that the request is executed on. Supported values are the following, but the default value is `US`: <br>`US` : (Default) Retrieves information regarding the specified webhook that was previously registered in a data center dedicated to serve the United States.`EMEA` : Retrieves information regarding the specified webhook that was previously registered in a data center dedicated to serve the European Union, Middle East, and Africa.`AUS` : (Beta) Retrieves information regarding the specified webhook that was previously registered in a data center dedicated to serve Australia.`GBR` : Retrieves information regarding the specified webhook that was previously registered in a data center dedicated to serve United Kingdom.`JPN` : Retrieves information regarding the specified webhook that was previously registered in a data center dedicated to serve Japan.`DEU` : Retrieves information regarding the specified webhook that was previously registered in a data center dedicated to serve Germany.`CAN` : Retrieves information regarding the specified webhook that was previously registered in a data center dedicated to serve Canada.`IND` : Retrieves information regarding the specified webhook that was previously registered in a data center dedicated to serve India. |
@@ -35,7 +35,7 @@ Get details of a webhook based on its webhook ID
 
 | system   string | A system for example: `data`   for Data Management |
 | --- | --- |
-| event   string | Type of event. See [Supported Events](/en/docs/webhooks/v1/reference/events) |
+| event   string | Type of event. See [Supported Events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/) |
 | hook_id   string | Id of the webhook to retrieve |
 
 ### Request
@@ -71,8 +71,8 @@ Expand all
 | event   string | Type of event |
 | hookAttribute   object | Custom metadata which will be less than 1KB in size. |
 | scope   object | An object that represents the extent to where the event is monitored. For example, if the scope is folder, the webhooks service generates a notification for the specified event occurring in any sub folder or item within that folder |
-| folder   string | Data Management event scope, see [here](/en/docs/webhooks/v1/tutorials/create-a-hook-data-management/) for more information |
-| workflow   string | Model Derivative event scope, see [here](/en/docs/webhooks/v1/tutorials/create-a-hook-model-derivative/) for more information. |
+| folder   string | Data Management event scope, see [here](../how-to-docs/create-a-hook-data-management.md) for more information |
+| workflow   string | Model Derivative event scope, see [here](../how-to-docs/create-a-hook-model-derivative.md) for more information. |
 | status   string | `active` if webhook is active; otherwise `inactive` |
 | hubId   string | Optional: account ID in the BIM 360 API (if supplied upon hook creation) |
 | projectId   string | Optional: project ID in the BIM 360 API (if supplied upon hook creation) |

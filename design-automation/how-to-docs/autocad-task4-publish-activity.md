@@ -18,10 +18,10 @@ You will use the following operations to handle Activities for this task:
 
 | HTTP Request | Description |
 | --- | --- |
-| [POST /activities](/en/docs/design-automation/v3/reference/http/activities-POST) | Creates a new Activity. |
-| [POST /activities/{id}/aliases](/en/docs/design-automation/v3/reference/http/activities-id-aliases-POST) | Creates a new alias for this Activity. |
-| [POST /activities/{id}/versions](/en/docs/design-automation/v3/reference/http/activities-id-versions-GET) | Creates a new version of the Activity. |
-| [PATCH /activities/{id}/aliases/{aliasId}](/en/docs/design-automation/v3/reference/http/activities-id-aliases-aliasId-PATCH) | Modifies alias details. |
+| [POST /activities](../http-docs/http-activities-POST.md) | Creates a new Activity. |
+| [POST /activities/{id}/aliases](../http-docs/http-activities-id-aliases-POST.md) | Creates a new alias for this Activity. |
+| [POST /activities/{id}/versions](../http-docs/http-activities-id-versions-GET.md) | Creates a new version of the Activity. |
+| [PATCH /activities/{id}/aliases/{aliasId}](../http-docs/http-activities-id-aliases-aliasId-PATCH.md) | Modifies alias details. |
 
 ## [Step 1 - Create a new Activity](#step-1-create-a-new-activity)
 

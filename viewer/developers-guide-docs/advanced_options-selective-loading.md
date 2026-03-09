@@ -20,12 +20,12 @@ Example:
 
 The image on the left shows a model without the loading filters applied.
 The middle image shows an axis-aligned box (blue) being used as the spatial filter to define the portion of the model to load.
-The image on the right shows the model loaded with the filter load-option passed to [loadDocumentNode](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#loaddocumentnode-avdocument-manifestnode-options).
-The same option can be provided to [viewer.loadModel](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#loadmodel-url-options-onsuccesscallback-onerrorcallback).
+The image on the right shows the model loaded with the filter load-option passed to [loadDocumentNode](../reference-docs/Viewing-Viewer3D.md#loaddocumentnode-avdocument-manifestnode-options).
+The same option can be provided to [viewer.loadModel](../reference-docs/Viewing-Viewer3D.md#loadmodel-url-options-onsuccesscallback-onerrorcallback).
 
 ## [Quickstart Example for Load-time Filtering](#quickstart-example-for-load-time-filtering)
 
-To restrict model loading to certain areas or types of geometry, use queries to filter what to load using [loadDocumentNode](/en/docs/viewer/v7/reference/Viewing/Viewer3D/#loaddocumentnode-avdocument-manifestnode-options) options.
+To restrict model loading to certain areas or types of geometry, use queries to filter what to load using [loadDocumentNode](../reference-docs/Viewing-Viewer3D.md#loaddocumentnode-avdocument-manifestnode-options) options.
 A load-time filter can be set by specifying a spatial and/or a property query using the `filter` load-option.
 
 The following example creates a load-time filter using a `spatial_query`.
@@ -155,7 +155,7 @@ viewer.loadDocumentNode(viewerDocument, defaultModel, { // ...options
 
 ## [Property Query Language](#property-query-language)
 
-The property queries use a simplified version of the [ACC Model Property Service Query Language](/en/docs/acc/v1/tutorials/model-properties/query-ref/), but with a reduced feature set.
+The property queries use a simplified version of the [ACC Model Property Service Query Language](../../acc/how-to-docs/model-properties-query-ref.md), but with a reduced feature set.
 Only `$or`, `$and`, `$not`, `$in`, `$eq`, `$ne`, `$like`, `$isnull`, `$notnull`, and `$coalesce` expressions are currently supported.
 
 ### Property Query Examples

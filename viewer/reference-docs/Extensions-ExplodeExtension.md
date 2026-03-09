@@ -16,7 +16,7 @@ The extension id is: `Autodesk.Explode`
 
 ### Parameters
 
-| viewer*   [Viewer3D](/en/docs/viewer/v7/reference/Viewing/Viewer3D/) | Viewer instance |
+| viewer*   [Viewer3D](Viewing-Viewer3D.md) | Viewer instance |
 | --- | --- |
 | options*   object | Configurations for the extension |
 
@@ -47,7 +47,7 @@ Invoked by the viewer when the toolbar UI is available.
 
 ### Parameters
 
-| toolbar*   [Autodesk.Viewing.UI.ToolBar](/en/docs/viewer/v7/reference/UI/ToolBar/) | toolbar instance. |
+| toolbar*   [Autodesk.Viewing.UI.ToolBar](UI-ToolBar.md) | toolbar instance. |
 | --- | --- |
 
 * Required

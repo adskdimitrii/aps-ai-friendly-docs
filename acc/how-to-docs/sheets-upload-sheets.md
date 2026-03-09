@@ -15,16 +15,16 @@ Note the Sheets API currently only supports adding PDF files to ACC sheets. We w
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps), and select Autodesk Construction Cloud API.
-- [Provision your app](/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/) to acquire access to your ACC account.
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:read` and `data:write` scopes.
-- Find the relevant project ID for the project you want to upload the sheets to by following the [Retrieve a Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. In this example, assume the project ID is `9ba6681e-1952-4d54-aac4-9de6d9858dd4`.
+- [Provision your app](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/) to acquire access to your ACC account.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` and `data:write` scopes.
+- Find the relevant project ID for the project you want to upload the sheets to by following the [Retrieve a Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `9ba6681e-1952-4d54-aac4-9de6d9858dd4`.
 - Verify that you have access to the relevant ACC project.
 
 ## [Step 1: Create a Version Set](#step-1-create-a-version-set)
 
 Version sets are used by document managers to group specific versions of sheets together. When adding sheets you need to either add them to an existing version set or to a new version set. In this tutorial we will create a new version set. Note that you are required to select an issuance date (`issuanceDate`) in ISO-8601 format when creating a version set.
 
-Create a version set by calling [POST version-sets](/en/docs/acc/v1/reference/http/sheets-version-sets-POST) using the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and an issuance date (`2021-04-26`).
+Create a version set by calling [POST version-sets](../http-docs/http-sheets-version-sets-POST.md) using the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and an issuance date (`2021-04-26`).
 
 ### request
 
@@ -64,7 +64,7 @@ Show More
 Note the ID (`7c2ecde0-2406-49f9-9199-50176848a0b7`) of the version set.
 
 ## [Step 2: Create a Storage Object](#step-2-create-a-storage-object)
-> To create a storage object for the upload, call [POST storage](/en/docs/acc/v1/reference/http/sheets-storage-POST) using the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and a filename (`example.pdf`).
+> To create a storage object for the upload, call [POST storage](../http-docs/http-sheets-storage-POST.md) using the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and a filename (`example.pdf`).
 
 ### request
 
@@ -90,13 +90,13 @@ curl 'https://developer.api.autodesk.com/construction/sheets/v1/projects/9ba6681
 
 The storage URN includes the following sections: `<urn:adsk.objects:os.object>:<bucket_key>/<object_key>`. In the above response, the bucket key is `bimdocs.9ba6681e-1952-4d54-aac4-9de6d9858dd4` and the object key is `67a2d96a-b1d7-474f-86ba-9e01a5c0f5be.pdf`.
 
-Note that although this endpoint is similar to the Data Management endpoint [Data Management POST storage](/en/docs/data/v2/reference/http/projects-project_id-storage-POST), you can only use Data Management storage objects for uploading ACC files. You can only use the [ACC POST storage](/en/docs/acc/v1/reference/http/sheets-storage-POST) endpoint for uploading sheets.
+Note that although this endpoint is similar to the Data Management endpoint [Data Management POST storage](../../data/http-docs/http-projects-project_id-storage-POST.md), you can only use Data Management storage objects for uploading ACC files. You can only use the [ACC POST storage](../http-docs/http-sheets-storage-POST.md) endpoint for uploading sheets.
 
 ## [Step 3: Generate a Signed S3 URL](#step-3-generate-a-signed-s3-url)
 
-To generate a signed S3 URL for the storage object, call [GET buckets/:bucketKey/objects/:objectKey/signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-GET) using the bucket key (`bimdocs.9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and the object key (`67a2d96a-b1d7-474f-86ba-9e01a5c0f5be.pdf`).
+To generate a signed S3 URL for the storage object, call [GET buckets/:bucketKey/objects/:objectKey/signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md) using the bucket key (`bimdocs.9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and the object key (`67a2d96a-b1d7-474f-86ba-9e01a5c0f5be.pdf`).
 
-This endpoint supports generating multiple signed URLs, which allows you to upload multiple chunks of the same file in parallel. For more information, see [GET signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-GET).
+This endpoint supports generating multiple signed URLs, which allows you to upload multiple chunks of the same file in parallel. For more information, see [GET signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md).
 
 ### request
 
@@ -144,7 +144,7 @@ Note that a successful call (`200`) returns an empty response.
 
 ## [Step 5: Complete the Upload](#step-5-complete-the-upload)
 
-Use the bucket key (`bimdocs.9ba6681e-1952-4d54-aac4-9de6d9858dd4`), the object key (`67a2d96a-b1d7-474f-86ba-9e01a5c0f5be.pdf`) and the upload key (`AQICAHifrJ6-BSHUmjAat4..........QWI-fuvghN23akgePMdmykV`) to call [POST buckets/:bucket_key/objects/:object_key/signeds3upload](/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-signeds3upload-POST) to complete the upload.
+Use the bucket key (`bimdocs.9ba6681e-1952-4d54-aac4-9de6d9858dd4`), the object key (`67a2d96a-b1d7-474f-86ba-9e01a5c0f5be.pdf`) and the upload key (`AQICAHifrJ6-BSHUmjAat4..........QWI-fuvghN23akgePMdmykV`) to call [POST buckets/:bucket_key/objects/:object_key/signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-POST.md) to complete the upload.
 
 This endpoint needs to be called within 24 hours from the time you began uploading the file.
 
@@ -178,7 +178,7 @@ Show More
 
 ## [Step 6: Extract and Split the File into Sheets](#step-6-extract-and-split-the-file-into-sheets)
 
-Extract and split the files into individual sheets by calling [POST uploads](/en/docs/acc/v1/reference/http/sheets-uploads-POST). Use the version set ID created in step 1 (`7c2ecde0-2406-49f9-9199-50176848a0b7`), and the storage URN created in step 2 (`urn:adsk.objects:os.object:bimdocs.9ba6681e-1952-4d54-aac4-9de6d9858dd4/67a2d96a-b1d7-474f-86ba-9e01a5c0f5be.pdf`).
+Extract and split the files into individual sheets by calling [POST uploads](../http-docs/http-sheets-uploads-POST.md). Use the version set ID created in step 1 (`7c2ecde0-2406-49f9-9199-50176848a0b7`), and the storage URN created in step 2 (`urn:adsk.objects:os.object:bimdocs.9ba6681e-1952-4d54-aac4-9de6d9858dd4/67a2d96a-b1d7-474f-86ba-9e01a5c0f5be.pdf`).
 
 Note that you cannot not start extracting and splitting the file into sheets before generating a signed URL.
 
@@ -234,7 +234,7 @@ Note that this endpoint is asynchronous and initiates a job that runs in the bac
 
 ## [Step 7: Check the Upload Status](#step-7-check-the-upload-status)
 
-Check the asynchronous job that was initiated in the previous step is complete by using the upload ID (`5cb5d9da-060e-421e-bca9-97dd8b5cd800`) to call [GET uploads/:uploadId](/en/docs/acc/v1/reference/http/sheets-uploads-uploadId-GET) to get the status of the upload.
+Check the asynchronous job that was initiated in the previous step is complete by using the upload ID (`5cb5d9da-060e-421e-bca9-97dd8b5cd800`) to call [GET uploads/:uploadId](../http-docs/http-sheets-uploads-uploadId-GET.md) to get the status of the upload.
 
 ### request
 
@@ -273,7 +273,7 @@ Note the status. In order to review the sheets, the processing needs have been c
 
 Before reviewing the sheets the status of the upload needs to be `IN_REVIEW`. See previous step.
 
-To review the sheets, use the upload ID (`5cb5d9da-060e-421e-bca9-97dd8b5cd800`) to call [GET uploads/:uploadId/review-sheets](/en/docs/acc/v1/reference/http/sheets-review-sheets-GET).
+To review the sheets, use the upload ID (`5cb5d9da-060e-421e-bca9-97dd8b5cd800`) to call [GET uploads/:uploadId/review-sheets](../http-docs/http-sheets-review-sheets-GET.md).
 
 The review sheets are only available when the upload is in `IN_REVIEW` status. To check the status, call GET uploads/:uploadId.
 
@@ -332,7 +332,7 @@ Note the IDs of the sheets (`results.[id]`).
 Thumbnails provide more viewable information about the review sheets.
 It is recommended to review the thumbnails before you make any updates to the review sheets.
 
-Use the upload ID and review sheet IDs to call [POST thumbnails:batch-get](/en/docs/acc/v1/reference/http/sheets-thumbnailsbatch-get-POST) to get the thumbnails.
+Use the upload ID and review sheet IDs to call [POST thumbnails:batch-get](../http-docs/http-sheets-thumbnailsbatch-get-POST.md) to get the thumbnails.
 
 ### request
 
@@ -389,7 +389,7 @@ For a PDF file, the initial number and title of the review sheets are determined
 
 To update the sheets they need to have a `READY` status. To check the status, call GET uploads/:uploadId.
 
-Use the upload ID and review sheet IDs to call [PATCH uploads/:uploadId/review-sheets](/en/docs/acc/v1/reference/http/sheets-review-sheets-PATCH) to update the review sheets. In this example, we are updating the number and the tags.
+Use the upload ID and review sheet IDs to call [PATCH uploads/:uploadId/review-sheets](../http-docs/http-sheets-review-sheets-PATCH.md) to update the review sheets. In this example, we are updating the number and the tags.
 
 ### request
 
@@ -439,13 +439,13 @@ Show More
 
 Show More
 
-Note that there are some limitations for the number, title, and tag values. See [PATCH uploads/:uploadId/review-sheets](/en/docs/acc/v1/reference/http/sheets-review-sheets-PATCH) for more details.
+Note that there are some limitations for the number, title, and tag values. See [PATCH uploads/:uploadId/review-sheets](../http-docs/http-sheets-review-sheets-PATCH.md) for more details.
 
 ## [Step 11: Publish the Review Sheets](#step-11-publish-the-review-sheets)
 
-Call [POST uploads/:uploadId/review-sheets:publish](/en/docs/acc/v1/reference/http/sheets-review-sheetspublish-POST) to publish the review sheets.
+Call [POST uploads/:uploadId/review-sheets:publish](../http-docs/http-sheets-review-sheetspublish-POST.md) to publish the review sheets.
 
-In order to publish the sheets they need to have either a `READY` status or a `FAILED` status. To check the statuses, call [GET review-sheets](/en/docs/acc/v1/reference/http/sheets-review-sheets-GET).
+In order to publish the sheets they need to have either a `READY` status or a `FAILED` status. To check the statuses, call [GET review-sheets](../http-docs/http-sheets-review-sheets-GET.md).
 
 ### request
 
@@ -456,7 +456,7 @@ curl 'https://developer.api.autodesk.com/construction/sheets/v1/projects/9ba6681
 
 ```
 
-To check the publishing state, call [GET uploads/:uploadId](/en/docs/acc/v1/reference/http/sheets-uploads-uploadId-GET). When publishing is initiated it has a `PUBLISHING` status. When the publishing is complete it has a `COMPLETE` status.
+To check the publishing state, call [GET uploads/:uploadId](../http-docs/http-sheets-uploads-uploadId-GET.md). When publishing is initiated it has a `PUBLISHING` status. When the publishing is complete it has a `COMPLETE` status.
 
 ### response
 
@@ -466,7 +466,7 @@ To check the publishing state, call [GET uploads/:uploadId](/en/docs/acc/v1/refe
 
 ## [Step 12: Retrieve the Published Sheets](#step-12-retrieve-the-published-sheets)
 
-To retrieve the published sheets, use the version set ID to call [GET sheets](/en/docs/acc/v1/reference/http/sheets-sheets-GET).
+To retrieve the published sheets, use the version set ID to call [GET sheets](../http-docs/http-sheets-sheets-GET.md).
 
 Note that in this tutorial because we uploaded the sheets to a new version set it only contains the sheets from this upload. If you upload sheets to an existing version set, it may contain multiple sets of sheets.
 

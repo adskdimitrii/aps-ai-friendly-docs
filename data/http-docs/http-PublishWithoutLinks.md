@@ -15,18 +15,18 @@ To publish the latest model, you need to first:
 - [Initiate collaboration through Revit](https://knowledge.autodesk.com/support/collaboration-for-revit), and select BIM 360 Docs. This creates the first version in BIM 360 Docs.
 - Modify the model locally, and [synchronize the changes with the central model](https://knowledge.autodesk.com/support/collaboration-for-revit/learn-explore/caas/video/youtube/watch-v-RMlxaygDaU8.html).
 
-You can verify whether a model needs to be published with the [GetPublishModelJob](/en/docs/data/v2/reference/http/GetPublishModelJob) command.
+You can verify whether a model needs to be published with the [GetPublishModelJob](http-GetPublishModelJob.md) command.
 
-Note that this command is asynchronous and initiates a job that runs in the background, rather than halting execution of your program. When the model has finished publishing without the links it contains to BIM 360 Docs, a new version of the model is created. The latest version can only be published once, this means that once it has been published without links, it cannot be republished with links. You can track the jobâs progress by using the [GET projects/:project_id/items/:item_id](/en/docs/data/v2/reference/http/projects-project_id-items-item_id-GET) endpoint, or the [Webhooks](/en/docs/webhooks/v1/overview) API.
+Note that this command is asynchronous and initiates a job that runs in the background, rather than halting execution of your program. When the model has finished publishing without the links it contains to BIM 360 Docs, a new version of the model is created. The latest version can only be published once, this means that once it has been published without links, it cannot be republished with links. You can track the jobâs progress by using the [GET projects/:project_id/items/:item_id](http-projects-project_id-items-item_id-GET.md) endpoint, or the [Webhooks](https://aps.autodesk.com/en/docs/webhooks/v1/overview/) API.
 
-For more details about the workflow for using the PublishWithoutLinks command, see the [Publish a C4R Model to BIM 360 Docs](/en/docs/data/v2/tutorials/publish-model/) tutorial.
+For more details about the workflow for using the PublishWithoutLinks command, see the [Publish a C4R Model to BIM 360 Docs](../how-to-docs/publish-model.md) tutorial.
 
-Note that you do not need to create an empty storage object when uploading models using the PublishWithoutLinks command. If you publish a C4R model using the PublishWithoutLinks command, you cannot add new versions to the model using [POST versions](/en/docs/data/v2/reference/http/projects-project_id-versions-POST).
+Note that you do not need to create an empty storage object when uploading models using the PublishWithoutLinks command. If you publish a C4R model using the PublishWithoutLinks command, you cannot add new versions to the model using [POST versions](http-projects-project_id-versions-POST.md).
 
 Note that PublishWithoutLinks is a Data Management command. Commands enable you to perform complex operations on multiple resources
-rather than standard CRUD operations. For more details about commands, see the[Commands](/en/docs/data/v2/overview/commands) overview section.
+rather than standard CRUD operations. For more details about commands, see the[Commands](https://aps.autodesk.com/en/docs/data/v2/overview/commands/) overview section.
 
-**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](/en/docs/acc/v1/overview/).
+**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/).
 
 ## [Resource Information](#resource-information)
 
@@ -40,7 +40,7 @@ rather than standard CRUD operations. For more details about commands, see the[C
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](/en/docs/oauth/v2/tutorials/get-2-legged-token) or [three-legged](/en/docs/oauth/v2/tutorials/get-3-legged-token) OAuth flow. Note that it will not accept a two-legged token, unless you add the `x-user-id` header. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. Note that it will not accept a two-legged token, unless you add the `x-user-id` header. |
 | --- | --- |
 | x-user-id   string | In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified. |
 | Content-Type*   string | Must be `application/vnd.api+json`. |
@@ -76,7 +76,7 @@ Expand all
 | relationships*   object | An object that represents related resources.   In this case, it is used to list the resources which should be published. |
 | resources*   object | An object that represents related resources.   In this case, it is used to list the resources which should be published. |
 | data*   array: object | The list of resources you want to publish. |
-| id*   string | The URN of the resource; for details about finding the URN, follow the initial steps in the [Publish a C4R Model to BIM 360 Docs](/en/docs/data/v2/tutorials/publish-model/) tutorial. |
+| id*   string | The URN of the resource; for details about finding the URN, follow the initial steps in the [Publish a C4R Model to BIM 360 Docs](../how-to-docs/publish-model.md) tutorial. |
 | type*   enum:string | The type of resource. Must always be: `items` |
 
 * Required

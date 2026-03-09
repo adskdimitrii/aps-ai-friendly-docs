@@ -24,7 +24,7 @@ secret token values for a period of time to allow all requests to go through.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [OAuth](/en/docs/oauth/v2/reference/http/gettoken-POST) |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via [OAuth](../../oauth/http-docs/http-gettoken-POST.md) |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 | x-ads-region   string | Specifies the geographical location (region) of the server that the request is executed on. Supported values are the following, but the default value is `US`: <br>`US` : (Default) Updates the token that was previously saved in a data center dedicated to serve the United States.`EMEA` : Updates the token that was previously saved in a data center dedicated to serve the European Union, Middle East, and Africa.`AUS` : (Beta) Updates the token that was previously saved in a data center dedicated to serve Australia.`GBR` : Updates the token that was previously saved in a data center dedicated to serve United Kingdom.`JPN` : Updates the token that was previously saved in a data center dedicated to serve Japan.`DEU` : Updates the token that was previously saved in a data center dedicated to serve Germany.`CAN` : Updates the token that was previously saved in a data center dedicated to serve Canada.`IND` : Updates the token that was previously saved in a data center dedicated to serve India. |

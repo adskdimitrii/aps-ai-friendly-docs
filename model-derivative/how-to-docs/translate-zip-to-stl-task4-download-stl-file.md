@@ -11,7 +11,7 @@ In order to download the translated STL file, you must wait until the translatio
 1. Periodically download and check the manifest.
 2. Set up a webhook to notify you when the job is done.
 
-For this walkthrough you download the manifest and check the status of the job. For more information on webhooks, see the documentation on [Model Derivative webhook events](/en/docs/webhooks/v1/reference/events/model_derivative_events/)
+For this walkthrough you download the manifest and check the status of the job. For more information on webhooks, see the documentation on [Model Derivative webhook events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events/)
 
 By the end of this task you will be able to:
 

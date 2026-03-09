@@ -18,7 +18,7 @@ This tutorial covers the following:
 
 The Viewer provides built-in, ready-to-use profiles that offer the same user experience as desktop products such as Navisworks and Revit.
 
-For more information, see [ProfileSettings](/en/docs/viewer/v7/reference/ProfileSettings)
+For more information, see [ProfileSettings](../reference-docs/ProfileSettings.md)
 
 The following snippet shows how to use the Navisworks profile.
 

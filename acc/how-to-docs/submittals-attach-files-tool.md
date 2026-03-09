@@ -8,21 +8,21 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/submittals/attach-files-t
 
 This tutorial demonstrates how to attach files from the ACC Files tool to a submittal item.
 
-The steps include verifying the user permissions and gathering required fields for attaching the file, finding the folder containing the file in ACC Files, finding the version ID of the file you want to attach, and attaching the file to a submittal item. For information about uploading files to the ACC Files tool, see the [Upload Files to the ACC Files Tool](/en/docs/acc/v1/tutorials/files/upload-document-s3/) tutorial.
+The steps include verifying the user permissions and gathering required fields for attaching the file, finding the folder containing the file in ACC Files, finding the version ID of the file you want to attach, and attaching the file to a submittal item. For information about uploading files to the ACC Files tool, see the [Upload Files to the ACC Files Tool](files-upload-document-s3.md) tutorial.
 
 ACC files are stored in the Data Management service. To access the files, you need to [provision access](https://get-started.aps.autodesk.com/#provision-access-in-other-products) to the Data Management API.
 
-For information about attaching local files to submittals, see the [Attach Local Files to a Submittal Item](/en/docs/acc/v1/tutorials/attach-local-files) tutorial.
+For information about attaching local files to submittals, see the [Attach Local Files to a Submittal Item](https://aps.autodesk.com/en/docs/acc/v1/tutorials/attach-local-files/) tutorial.
 
 For more information about working with submittals, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Create_Submittal).
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](/myapps)
-- Acquire a [3-legged OAuth token](/en/docs/oauth/v2/tutorials/get-3-legged-token/) with `data:read` `data:write` scopes.
-- This tutorial assumes an item was created in Submit state `sbc-1` by a user with manager permissions. For more information on creating a submittal item, see the [Create a Submittal Item](/en/docs/acc/v1/tutorials/submittals/create-submittal-item/) tutorial. In this example, assume the submittal item ID is `463c0b75-7c85-43ce-aa9f-74781aa29070`.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` `data:write` scopes.
+- This tutorial assumes an item was created in Submit state `sbc-1` by a user with manager permissions. For more information on creating a submittal item, see the [Create a Submittal Item](submittals-create-submittal-item.md) tutorial. In this example, assume the submittal item ID is `463c0b75-7c85-43ce-aa9f-74781aa29070`.
 - Verify that you have access to the relevant account and ACC project.
-- Find the relevant account ID and project ID for the account and project that contains the file you want to attach to a submittal item. See the [Retrieve an Account ID and Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial for more details. In this example, assume the account ID (hub ID) is `b.43939999-0bf2-490d-8e4a-c1cb1097125c`, and project ID is `b.55451d9a-b6a5-429d-8bc3-6074765c52e0`.
+- Find the relevant account ID and project ID for the account and project that contains the file you want to attach to a submittal item. See the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial for more details. In this example, assume the account ID (hub ID) is `b.43939999-0bf2-490d-8e4a-c1cb1097125c`, and project ID is `b.55451d9a-b6a5-429d-8bc3-6074765c52e0`.
 - Ensure you have assigned manager-level permissions to at least one user for the project via the UI. To assign a manager to a submittal item, you need to ensure the user has the necessary permissions and roles set within the project. For instructions on setting up roles and permissions see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Submittals_Permissions).
 - The Submittal Item workflow progresses through several sequential states. Below are the states in the UI and their equivalent API names:
     | UI State | API Name |
@@ -35,11 +35,11 @@ For more information about working with submittals, see the [Help documentation]
 
 ## [Step 1: Verify Permissions and Fields](#step-1-verify-permissions-and-fields)
 
-You should first verify that the user has permissions to add an attachment to a submittal item and gather the mandatory and optional fields required when calling the add attachment endpoint ([POST attachment](/en/docs/acc/v1/reference/http/submittals-attachments-POST/)) in step 6.
+You should first verify that the user has permissions to add an attachment to a submittal item and gather the mandatory and optional fields required when calling the add attachment endpoint ([POST attachment](../http-docs/http-submittals-attachments-POST.md)) in step 6.
 
-Call [GET item](/en/docs/acc/v1/reference/http/submittals-items-itemId-GET/) using the project ID (`55451d9a-b6a5-429d-8bc3-6074765c52e0`) and the submittal item ID (`463c0b75-7c85-43ce-aa9f-74781aa29070`). Check the `permittedActions` object for `Attachment::create`. If this action is listed, the user has permission to create an attachment.
+Call [GET item](../http-docs/http-submittals-items-itemId-GET.md) using the project ID (`55451d9a-b6a5-429d-8bc3-6074765c52e0`) and the submittal item ID (`463c0b75-7c85-43ce-aa9f-74781aa29070`). Check the `permittedActions` object for `Attachment::create`. If this action is listed, the user has permission to create an attachment.
 
-The `permittedActions` object also provides the `mandatoryFields` and `fields` arrays, which specify the required and optional parameters for the POST attachments request. Calling [GET item](/en/docs/acc/v1/reference/http/submittals-items-itemId-GET/) at any stage in the workflow will return the permitted actions for the user at that point for the submittal item.
+The `permittedActions` object also provides the `mandatoryFields` and `fields` arrays, which specify the required and optional parameters for the POST attachments request. Calling [GET item](../http-docs/http-submittals-items-itemId-GET.md) at any stage in the workflow will return the permitted actions for the user at that point for the submittal item.
 
 ### Request
 
@@ -435,13 +435,13 @@ Note the following fields that are relevant for calling POST attachments in step
 
 ## [Step 2: Find the Folder ID](#step-2-find-the-folder-id)
 
-When we attach the file to a submittal item we will need to provide the version ID of the file that was uploaded to the ACC Files tool. To find the version ID we need to use several [Data Management API](/en/docs/data/v2/developers_guide/overview/).
+When we attach the file to a submittal item we will need to provide the version ID of the file that was uploaded to the ACC Files tool. To find the version ID we need to use several [Data Management API](https://aps.autodesk.com/en/docs/data/v2/developers_guide/overview/).
 
 Note that the ACC account ID corresponds to a Data Management hub ID. To convert an account ID into a hub ID you need to add a `b.` prefix. For example, an account ID of `c8b0c73d-3ae9` translates to a hub ID of `b.c8b0c73d-3ae9`.
 
 Note that an account in Data Management is called a hub.
 
-Use the account ID (hub ID) (`b.43939999-0bf2-490d-8e4a-c1cb1097125c`) and the project ID (`b.55451d9a-b6a5-429d-8bc3-6074765c52e0`) to call [GET topFolders](/en/docs/data/v2/reference/http/hubs-hub_id-projects-project_id-topFolders-GET/) to get the top-level folders for the project. For details about retrieving account and project IDs, see the [Retrieve an Account ID and Project ID](/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial.
+Use the account ID (hub ID) (`b.43939999-0bf2-490d-8e4a-c1cb1097125c`) and the project ID (`b.55451d9a-b6a5-429d-8bc3-6074765c52e0`) to call [GET topFolders](../../data/http-docs/http-hubs-hub_id-projects-project_id-topFolders-GET.md) to get the top-level folders for the project. For details about retrieving account and project IDs, see the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial.
 
 ### Request
 
@@ -557,11 +557,11 @@ Show More
 
 Assume that the file is in the `Project Files` folder (`data.attributes.name`), and note the folder ID (`data.id`) - `urn:adsk.wipprod:fs.folder:co.-jRpdNhnTAGQPdWTHOqE4w`
 
-If you want to attach a file from a folder nested under the `Project Files` folder, you need to call [GET projects/:project_id/folders/:folder_id/contents](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-contents-GET) repeatedly through the hierarchy of folders until you find the Folder ID of the folder you want to attach to the submittal item. For the first iteration, use the `Project Files` ID (`urn:adsk.wipprod:fs.folder:co.-jRpdNhnTAGQPdWTHOqE4w`).
+If you want to attach a file from a folder nested under the `Project Files` folder, you need to call [GET projects/:project_id/folders/:folder_id/contents](../../data/http-docs/http-projects-project_id-folders-folder_id-contents-GET.md) repeatedly through the hierarchy of folders until you find the Folder ID of the folder you want to attach to the submittal item. For the first iteration, use the `Project Files` ID (`urn:adsk.wipprod:fs.folder:co.-jRpdNhnTAGQPdWTHOqE4w`).
 
 ## [Step 3: Find the Version ID for the File](#step-3-find-the-version-id-for-the-file)
 
-Use the project ID (`b.55451d9a-b6a5-429d-8bc3-6074765c52e0`) and the `Project Files` folder ID (`urn:adsk.wipprod:fs.folder:co.-jRpdNhnTAGQPdWTHOqE4w`) to call [GET contents](/en/docs/data/v2/reference/http/projects-project_id-folders-folder_id-contents-GET/) to get the version ID for the file.
+Use the project ID (`b.55451d9a-b6a5-429d-8bc3-6074765c52e0`) and the `Project Files` folder ID (`urn:adsk.wipprod:fs.folder:co.-jRpdNhnTAGQPdWTHOqE4w`) to call [GET contents](../../data/http-docs/http-projects-project_id-folders-folder_id-contents-GET.md) to get the version ID for the file.
 
 ### Request
 
@@ -983,7 +983,7 @@ Find the file (`included.attributes.name`), and note the version ID `urn:adsk.wi
 
 ## [Step 4: Attach the File to the Submittal Item](#step-4-attach-the-file-to-the-submittal-item)
 
-Call [POST attachment](/en/docs/acc/v1/reference/http/submittals-attachments-POST/) to attach the file identified in the previous steps to the specified submittal item. This registers the file within the submittal workflow..
+Call [POST attachment](../http-docs/http-submittals-attachments-POST.md) to attach the file identified in the previous steps to the specified submittal item. This registers the file within the submittal workflow..
 
 The request must include the following fields:
 
@@ -1001,7 +1001,7 @@ The following fields are optional:
 
 - For items in the Review (`rev`) state, include the `taskId` field to associate the attachment with a specific task. This ensures the attachment is linked to the relevant task in the review process.
 
-You can retrieve the full list of available `categoryId` values and their corresponding meanings by calling [GET metadata](/en/docs/acc/v1/reference/http/submittals-metadata-GET/), and reviewing the `attachmentCategories` list in the response.
+You can retrieve the full list of available `categoryId` values and their corresponding meanings by calling [GET metadata](../http-docs/http-submittals-metadata-GET.md), and reviewing the `attachmentCategories` list in the response.
 
 ### Request
 
