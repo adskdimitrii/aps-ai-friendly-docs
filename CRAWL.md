@@ -49,6 +49,42 @@ find . -type f -name 'crawl_*.py' | sort | while IFS= read -r f; do
 done
 ```
 
+## Post-Processing: Fix Links and Images
+
+After re-crawling, run the cleanup scripts from the repository root to
+normalize links and remove broken image tags.
+
+1. Preview link fixes (dry run):
+
+```bash
+python3 fix_links.py
+```
+
+2. Apply link fixes:
+
+```bash
+python3 fix_links.py --write
+```
+
+3. Preview image removals (dry run):
+
+```bash
+python3 fix_images.py
+```
+
+4. Apply image removals:
+
+```bash
+python3 fix_images.py --write
+```
+
+Recommended order:
+
+1. Run crawlers.
+2. Run `fix_links.py --write`.
+3. Run `fix_images.py --write`.
+4. Review changes with `git diff`.
+
 ## Improve README.md Summaries
 
 Prerequisites:
