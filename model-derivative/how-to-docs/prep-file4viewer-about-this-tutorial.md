@@ -14,10 +14,10 @@ To display a model in the Viewer, you must first translate the model to the SVF2
 
 We also provide a [Postman](https://www.getpostman.com/) Collection containing the HTTP requests used in this walkthrough. On the Postman Collection, requests are grouped by task. The group has the same name as the corresponding task in this walkthrough.
 
-![../../../../_images/tutorial_04_forge_postman_menu_01.png](../../../../_images/tutorial_04_forge_postman_menu_01.png)
+
 
 Similarly, requests are named such that you can easily match a Step in this walkthrough with the corresponding HTTP request in the Postman Collection.
 
-![../../../../_images/tutorial_04_forge_postman_menu_02.png](../../../../_images/tutorial_04_forge_postman_menu_02.png)
+
 
 The Postman Collection is hosted in a [GitHub repository](https://github.com/autodesk-platform-services/aps-tutorial-postman/tree/master/ModelDerivative_04), and is accompanied by a set of instructions.

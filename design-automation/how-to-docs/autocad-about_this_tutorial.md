@@ -19,11 +19,11 @@ So, we have created a Postman Collection so that you donât have to use cURL
 
 On the Postman Collection, requests are grouped by task. The group has the same name as the corresponding task in the cURL walkthrough.
 
-![../../../../_images/aps_portal_2_acad_postman_menu_01.png](../../../../_images/aps_portal_2_acad_postman_menu_01.png)
+
 
 Similarly, requests on Postman are named such that they have the same name as the corresponding step in the cURL walkthrough.
 
-![../../../../_images/aps_portal_2_acad_postman_menu_02.png](../../../../_images/aps_portal_2_acad_postman_menu_02.png)
+
 
 Download the Postman installer from [here.](https://www.getpostman.com/downloads/)
 

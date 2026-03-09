@@ -21,7 +21,7 @@ The URNs for a particular *Folder* can be easily accessed using [Data Management
 
 Example: [GET projects/:project_id/folders/:folder_id](../../data/http-docs/http-projects-project_id-folders-folder_id-GET.md)
 
-![../../../_images/get-dm-folders.png](../../../_images/get-dm-folders.png)
+
 
 ### Field Guide
 

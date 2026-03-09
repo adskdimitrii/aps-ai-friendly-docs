@@ -18,11 +18,11 @@ This gives you the ability to experiment without having to write a single line o
 
 On the Postman Collection, requests are grouped by task. The group has the same name as the corresponding task in the cURL walkthrough on the APS developer portal.
 
-![../../../../_images/aps_portal_2_inventor_postman_menu_01.png](../../../../_images/aps_portal_2_inventor_postman_menu_01.png)
+
 
 Similarly, requests are named such that they have the same names as the corresponding step in the cURL walkthrough on the APS developer portal.
 
-![../../../../_images/aps_portal_2_inventor_postman_menu_02.png](../../../../_images/aps_portal_2_inventor_postman_menu_02.png)
+
 
 ## [Additional resources for C# programmers](#additional-resources-for-c-programmers)
 

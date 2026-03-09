@@ -23,7 +23,7 @@ At a high level, the authorization flow has the following steps:
 5. Your application can now use these tokens to call the resource server (for example, an API) on behalf of the user.
 
 Refer to [Example 2](../http-docs/http-authorize-GET.md#example-2) of this reference to see the complete flow using the Authorization Code grant type with PKCE.
-> [![../../../_images/desktop-mobile-spa.png](../../../_images/desktop-mobile-spa.png)](../../../_images/desktop-mobile-spa.png)
+> [](../../../_images/desktop-mobile-spa.png)
 
 There are a number of concepts that you need to be familiar with relevant to this application type and grant type:
 

@@ -17,7 +17,7 @@ At a high-level, the *Client Credentials grant type* has only two steps:
 
 We use the Client Credentials type in this case as it is intended for server-side (confidential) client applications with no end user, which normally describes server-to-server communication. See [Client Credentials grant type](../http-docs/http-gettoken-POST.md) for more details, and an example.
 
-[![../../../_images/server-to-server.svg](../../../_images/server-to-server.svg)](../../../_images/server-to-server.svg)
+[](../../../_images/server-to-server.svg)
 
 There are a number of concepts that you need to be familiar with relevant to this application type and grant type:
 

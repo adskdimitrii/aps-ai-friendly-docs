@@ -54,4 +54,4 @@ Note:
 
 When the `post_logout_redirect_uri` is not included in the allow listed domain items, the following error message screen is displayed.
 
-![../../../../_images/post_logout_redirect_uri.png](../../../../_images/post_logout_redirect_uri.png)
+

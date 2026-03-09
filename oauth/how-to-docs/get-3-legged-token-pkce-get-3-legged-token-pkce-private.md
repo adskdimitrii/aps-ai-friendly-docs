@@ -24,7 +24,7 @@ Before you begin, follow the [Create an App](create-app.md) walkthrough. Refer t
 
 Refer to the following image to familiarize yourself with the PKCE overall flow:
 
-- **Private client PKCE flow**![../../../_images/authorization-code-3-legged-flow_private.png](../../../_images/authorization-code-3-legged-flow_private.png)
+- **Private client PKCE flow**
 
 ## [Step 1: Direct the User to the Authorization Web Flow with PKCE](#step-1-direct-the-user-to-the-authorization-web-flow-with-pkce)
 
@@ -59,11 +59,11 @@ That `href` attribute is a bit difficult to read. Letâs break it down:
 
 Clicking on this link will take the end user to the Autodesk Sign In page:
 
-![../../../_images/new-sign-in.png](../../../_images/new-sign-in.png)
+
 
 After entering their Autodesk ID credentials and logging in, the user will be redirected to the OAuth consent page:
 
-![../../../_images/consent-dialog.png](../../../_images/consent-dialog.png)
+
 
 When consent has been granted, the user will be redirected back to your callback URL (`redirect_uri`) with an additional `code` query parameter that contains the authorization code with PKCE (e.g., `wroM1vFA4E-Aj241-quh_LVjm7UldawnNgYEHQ8I`).
 

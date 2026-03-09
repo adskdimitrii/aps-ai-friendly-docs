@@ -193,7 +193,7 @@ Show More
 
 Whilst superficially similar, the relationship search and intersect endpoints have been designed to serve two very different use cases. When choosing between search and intersect it is important to remember the relationship domain entity model is hierarchical whilst considering what you are trying to achieve. To recap, a domain can have many entity types and for any given domain entity type there can be one or more instances of this type in the domain, represented by the ID of the instance.
 
-![../../../_images/domain-relationships.png](../../../_images/domain-relationships.png)
+
 
 Both the search and intersect endpoints contain an implicit assumption that users understand the existence of this hierarchy. If searching for relationships to a specific entity the assumption holds that the user will supply not only the entityâs ID but also itâs entity type and domain. Likewise when searching for relationships to specific entity types (omitting an ID) the assumption holds that the user will supply not only the entity type but also the domain. The domain is at the top of the hierarchy so no supplementary qualification is required when searching for relationships to domains.
 

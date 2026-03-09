@@ -20,7 +20,7 @@ Before you begin, follow the [Create an App](create-app.md) walkthrough to creat
 
 Familiarize yourself with the overall flow:
 
-![../../../_images/authorization-code-3-legged-flow.png](../../../_images/authorization-code-3-legged-flow.png)
+
 
 ## [Step 1: Direct the User to the Authorization Web Flow](#step-1-direct-the-user-to-the-authorization-web-flow)
 
@@ -45,11 +45,11 @@ The following is the break down of the above attribute:
 
 Clicking on this link will take the end user to the Autodesk Sign In page:
 
-![../../../_images/new-sign-in.png](../../../_images/new-sign-in.png)
+
 
 After entering their Autodesk ID credentials and logging in, the user will be redirected to the OAuth consent page:
 
-![../../../_images/consent-dialog.png](../../../_images/consent-dialog.png)
+
 
 When consent has been granted, the user will be redirected back to your callback URL (`redirect_uri`) with an additional `code` query parameter that contains the authorization code (e.g., `wroM1vFA4E-Aj241-quh_LVjm7UldawnNgYEHQ8I`).
 

@@ -16,7 +16,7 @@ Minor, known issues in the progressive rendering and the delay in time-to-first-
 
 Example:
 
-![../../../../_images/selective-loading-hyperlink1.png](../../../../_images/selective-loading-hyperlink1.png)
+
 
 The image on the left shows a model without the loading filters applied.
 The middle image shows an axis-aligned box (blue) being used as the spatial filter to define the portion of the model to load.

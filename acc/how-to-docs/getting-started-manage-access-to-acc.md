@@ -17,7 +17,7 @@ Verify that you have Admin access to an Autodesk Construction Cloud (ACC) accoun
 
 Log in to your **ACC account**, and go to **Account Admin**.
 
-![../../../_images/acc-account.jpg](../../../_images/acc-account.jpg)
+
 
 The **Projects** screen appears.
 
@@ -25,11 +25,11 @@ The **Projects** screen appears.
 
 From the left navigation, select **Custom Integrations**.
 
-![../../../_images/acc-integrations.jpg](../../../_images/acc-integrations.jpg)
+
 
 Select the **Add custom integration** button.
 
-![../../../_images/acc-add-integration.jpg](../../../_images/acc-add-integration.jpg)
+
 
 ## [Step 3: Enter App Details](#step-3-enter-app-details)
 
@@ -41,7 +41,7 @@ Enter the following information:
 
 Note that the **APS Client ID** must match the [client ID](/myapps) generated when you created the app. The **Custom Integration Name** does not need to match the original app name.
 
-![../../../_images/acc-add-custom-integration.jpg](../../../_images/acc-add-custom-integration.jpg)
+
 
 ## [Step 4: Save and Confirm](#step-4-save-and-confirm)
 

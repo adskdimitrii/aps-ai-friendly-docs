@@ -165,7 +165,7 @@ curl -v 'https://example.com/6f760056-db07-4239-ba4c-d9739ac50142/scope-version-
 
 This image illustrates the relationship between the JSON objects contained in these three files.
 
-![../../../_images/mc-clash-resource-files.png](../../../_images/mc-clash-resource-files.png)
+
 
 Every clash in scope-version-clash.2.0.0.json.gz is given a stable clash ID (id), 2202 in our example above. The ID is referred to as *stable* because it is invariant between clash tests performed on successive versions of the model set. For this to work, the IDs of the objects that are clashed also need to be stable. The clash[] array property on clash objects in the scope-version-clash.2.0.0.json.gz file contains the two stable object IDs participating in the clash pair (482 and 136, in our example).
 
@@ -177,4 +177,4 @@ To view these objects in the Viewer, you must use another foreign key, ldid and 
 
 The red/green colour coding seen in the BIM 360 Model Coordination app is arbitrary, with the colouration being assigned to the left and right objects participating in the clash instance.
 
-![../../../_images/mc-clash-id-mapping.png](../../../_images/mc-clash-id-mapping.png)
+

@@ -20,7 +20,7 @@ At a high level, the Authorization Code grant type, used with traditional web ap
 
 Refer to this [walkthrough](../how-to-docs/get-3-legged-token.md) to see the complete flow using the Authorization Code grant type.
 
-[![../../../_images/traditional-web-app.svg](../../../_images/traditional-web-app.svg)](../../../_images/traditional-web-app.svg)
+[](../../../_images/traditional-web-app.svg)
 
 There are a number of concepts that you need to be familiar with relevant to this application type and grant type:
 

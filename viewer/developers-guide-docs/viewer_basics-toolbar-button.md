@@ -12,7 +12,7 @@ This example creates a custom toolbar with two buttons on the Viewer canvas.
 Each button has its own tooltip and reacts to click events.
 Clicking one button displays the environment background, while clicking the other hides it.
 
-![../../../../_images/custom_toolbar.jpg](../../../../_images/custom_toolbar.jpg)
+
 
 ## [Before You Begin](#before-you-begin)
 

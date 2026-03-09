@@ -21,7 +21,7 @@ on validating an access token using the public key.
 Signing keys are periodically rotated for security. During key rotation, to allow your applications time to
 update to the new key, the new key is included in the /keys response for seven days before being used for token
 signatures. It is illustrated in the following diagram.
-> ![../../../_images/JWT.png](../../../_images/JWT.png)
+> 
 
 Keys can therefore be safely cached for seven days. For performance reasons, it is recommended to do so.
 The /keys response includes a cache-control header matching this duration that clients using this endpoint may

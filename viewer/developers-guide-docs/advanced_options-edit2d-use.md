@@ -79,7 +79,7 @@ startTool(tools.polygonTool);
 
 The mouse cursor will change to a cross.
 
-![../../../../_images/PolygonTool.jpg](../../../../_images/PolygonTool.jpg)
+
 
 With `PolygonTool` activated, you can:
 
@@ -96,7 +96,7 @@ With `PolygonTool`, you can also click and drag to draw a rectangle:
 2. (Optionally) Hold the `Shift` key to force the rectangle into a square.
 3. Drag mouse to determine the length and width of the rectangle.
 4. Release the mouse to finish the rectangle.
-![../../../../_images/RectangleTool.jpg](../../../../_images/RectangleTool.jpg)
+
 
 ### 2.2 PolylineTool: Drawing Polylines
 
@@ -109,7 +109,7 @@ startTool(tools.polylineTool)
 
 `PolylineTool` is similar to `PolygonTool` and allows you to click point-by-point to draw polylines. You can draw simple lines using a single-drag interaction.
 
-![../../../../_images/PolylineTool.jpg](../../../../_images/PolylineTool.jpg)
+
 
 ### 2.3 PolygonEditTool: Modify Polygons and Paths
 
@@ -126,35 +126,35 @@ With `PolygonEditTool`, you can do the following:
 
 - **Move a shape** by dragging it.
 - **Move vertices** by dragging vertex gizmos.
-![../../../../_images/MoveVertex.jpg](../../../../_images/MoveVertex.jpg)
+
 
 - Hold `Shift` key to **disable snapping**. Snapping is active by default.
 - **Move edges** by dragging edge gizmos. When an edge is moved, neighboring edges get larger or smaller.
-![../../../../_images/MoveEdge.jpg](../../../../_images/MoveEdge.jpg)
+
 
 - **Create Protrusions** by dragging edges. If the moved edge is on the same line as its neighbor, the system adds an extra corner. This feature can be used to quickly edit protrusions for shapes with right angles.
-![../../../../_images/MoveEdgeSpecial.jpg](../../../../_images/MoveEdgeSpecial.jpg)
+
 
 - **Cancel dragging interaction** by using `Esc` key.
 - **Insert new vertex** by right-clicking the edge. This displays the context menu.
-![../../../../_images/ContextMenuAddVertex.jpg](../../../../_images/ContextMenuAddVertex.jpg)
+
 
 - **Remove vertices** by clicking a vertex gizmo and pressing `Backspace`. You can also right-click the vertex gizmo to display the context menu.
 - **Copy/Paste** a shape with `Ctrl-C/Ctrl-V`. Pasting multiple times will create multiple duplicates.
-![../../../../_images/CopyPaste.jpg](../../../../_images/CopyPaste.jpg)
+
 
 - **Change lines to Bezier arcs** by right-clicking an edge and choosing **Change to Arc Segment** in the context menu. As a shortcut, you can select the edge and press `a`.
 - **Change arcs back to lines** by using the context menu of an arc segment. As a shortcut, you can select the edge and press `l`.
-![../../../../_images/ChangeToLine.jpg](../../../../_images/ChangeToLine.jpg)
+
 
 - **Edit tangents of curve segments** by dragging the tangent gizmos of a selected arc edge.
-![../../../../_images/TangentGizmos.jpg](../../../../_images/TangentGizmos.jpg)
+
 
 - **Change segments into ellipse arcs** using the context menu.
-![../../../../_images/ContextMenuEllipseArc.jpg](../../../../_images/ContextMenuEllipseArc.jpg)
+
 
 - **Edit ellipse arcs** by selecting an edge and dragging the purple gizmo at the center of the arc.
-![../../../../_images/EditEllipseArc.jpg](../../../../_images/EditEllipseArc.jpg)
+
 
 ### 2.4 InsertSymbolTool
 
@@ -188,7 +188,7 @@ tools.polygonTool.setAreaLabelVisible(true);
 
 ```
 
-![../../../../_images/PolygonToolLabel.jpg](../../../../_images/PolygonToolLabel.jpg)
+
 
 Similarly, you can display the length of new polylines:
 
@@ -197,7 +197,7 @@ tools.polygonTool.setLengthLabelVisible(true);
 
 ```
 
-![../../../../_images/PolylineToolLabel.jpg](../../../../_images/PolylineToolLabel.jpg)
+
 
 You can use the same functions in PolygonEditTools to display the area and length of a shape.
 
@@ -211,7 +211,7 @@ tools.polygonEditTool.setLengthLabelVisible(true);
 
 Edit 2D uses the same units and length calibration as the MeasureExtension. You can use MeasureExtensionâs calibration panel to specify units and calibration for your Edit2D shapes.
 
-![../../../../_images/UnitsCalibration.jpg](../../../../_images/UnitsCalibration.jpg)
+
 
 If you use Edit2D without the MeasureExtension, it will display all coordinates in model units. You can customize units by modifying or replacing `DefaultUnitHandler`. More information is available in the [Customize Edit2D](advanced_options-edit2d-customize.md) tutorial.
 
@@ -267,7 +267,7 @@ var classRule = new Autodesk.Edit2D.ShapeLabelRule(layer, shape => shape.constru
 
 ```
 
-![../../../../_images/ShapeLabelRule.jpg](../../../../_images/ShapeLabelRule.jpg)
+
 
 ## [Step 4: Snapping](#step-4-snapping)
 
@@ -285,16 +285,16 @@ Snapping is active by default but can be suppressed by holding `Shift`. Geometry
 There are two types of geometry snapping:
 
 - **Point-Snap**: Snap to a unique point. This can be a line vertex, a circle midpoint, or a line intersection. Edit2D displays a square to indicate that you are creating a point-snap.
-![../../../../_images/SnapToVertex.jpg](../../../../_images/SnapToVertex.jpg)
+
 
 - **Segment-Snap**: Snap to a segment (for example, a line or circular arc). The position is not fully snapped, but constrained to a certain segment. Edit2D shows a crosshair of three lines to indicate that you are creating a segment-snap.
-![../../../../_images/SnapToLine.jpg](../../../../_images/SnapToLine.jpg)
+
 
 ### 4.2 Angle Snapping
 
 When using `PolygonTool` or moving vertices with `PolygonEditTool`, angle snapping is indicated by red dashed lines.
 
-![../../../../_images/AngleSnapping.jpg](../../../../_images/AngleSnapping.jpg)
+
 
 By default, we snap to angles that are multiples of 45Â°. You can change this behavior by changing the table of snapping angles in `AngleSnapper`.
 
@@ -310,7 +310,7 @@ Angle snapping always refers to a ânewâ edge that you are currently mo
 
 Angle snapping works if the new edge forms a snapping angle with any other edge in the shape. You can also snap to the perpendicular bisector of another edge.
 
-![../../../../_images/SnapToBisector.jpg](../../../../_images/SnapToBisector.jpg)
+
 
 ### 4.3 Intersection Snapping
 
@@ -324,7 +324,7 @@ The following cases are possible:
 
 The following image shows an example of the third case. The intersection of a perpendicular bisector (angle snap) and a line segment on a sheet (geometry snap).
 
-![../../../../_images/SnapToIntersect.jpg](../../../../_images/SnapToIntersect.jpg)
+
 
 ## [Whatâs Next?](#what-s-next)
 

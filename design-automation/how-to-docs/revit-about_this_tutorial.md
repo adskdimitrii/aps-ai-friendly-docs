@@ -23,14 +23,14 @@ If you are familiar with Postman, you can import this Postman Collection and use
 
 On the Postman Collection, requests are grouped by task. The group has the same name as the corresponding task in the walkthrough.
 
-![../../../../_images/aps_portal_menu_2_postman_menu.png](../../../../_images/aps_portal_menu_2_postman_menu.png)
+
 
 **Note:** Where is Task 1 in the Postman Collection?
 :   Task 1 is performed exclusively on Visual Studio. It does not send any requests to APS. Because Postman deals only with requests, there is no Task 1 in the Postman Collection.
 
 Similarly, requests are named such that they have the same names as the corresponding step within the task.
 
-![../../../../_images/aps_portal_steps_2_postman_menu.png](../../../../_images/aps_portal_steps_2_postman_menu.png)
+
 
 You can install Postman from [here.](https://www.getpostman.com/downloads/)
 

@@ -20,10 +20,10 @@ To extract geometry, you must know the object ID of each geometry to extract. To
 
 We also provide a [Postman](https://www.getpostman.com/) Collection containing the HTTP requests used in this walkthrough. On the Postman Collection, requests are grouped by task. The group has the same name as the corresponding task in this walkthrough.
 
-![../../../../_images/tutorial_06_forge_postman_menu_01.png](../../../../_images/tutorial_06_forge_postman_menu_01.png)
+
 
 Similarly, requests are named such that you can easily match a Step in this walkthrough to the corresponding HTTP request in the Postman Collection.
 
-![../../../../_images/tutorial_06_forge_postman_menu_02.png](../../../../_images/tutorial_06_forge_postman_menu_02.png)
+
 
 The Postman Collection is hosted in a [GitHub repository](https://github.com/autodesk-platform-services/aps-tutorial-postman/tree/master/ModelDerivative_06). It also contains a set of instructions on how to run the collection.

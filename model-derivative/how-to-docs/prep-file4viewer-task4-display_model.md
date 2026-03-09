@@ -20,7 +20,7 @@ To display the SVF2 file you generated, you can create an HTML page and embed th
 2. Take the URL safe Base64-encoded URN of the source file, which you obtained in the previous task, and embed it as described in the section [Load a Model](../../viewer/developers-guide-docs/viewer_basics-starting-html.md#id3) in the topic [Getting Started](../../viewer/developers-guide-docs/viewer_basics-starting-html.md).
 > **Note:** Add `urn:` to the URL safe Base64-encoded URN, when you embed it in the JavaScript code, as show in the following image.
 >
-> ![../../../../_images/tutorial_4_urn_in_viewer.png](../../../../_images/tutorial_4_urn_in_viewer.png)
+> 
 
 ## [Option 2: Enter the Source File URN on an existing HTML page](#option-2-enter-the-source-file-urn-on-an-existing-html-page)
 
@@ -31,7 +31,7 @@ We have created a web page based on the instructions provided in Option 1. You c
 > | SVF2 |
 > | --- |
 > | [Show Web page](https://autodesk-platform-services.github.io/aps-tutorial-postman/display_svf2.html) |
-> | ![../../../../_images/tutorial_4_urn_in_html_page_svf2.png](../../../../_images/tutorial_4_urn_in_html_page_svf2.png) |
+> |  |
 > | [Source](https://github.com/autodesk-platform-services/aps-tutorial-postman/blob/master/docs/display_svf2.html) |
 
 1. In the **Access Token** box, specify the access token you obtained in Task 1 of this tutorial.
@@ -41,4 +41,4 @@ We have created a web page based on the instructions provided in Option 1. You c
 3. Click **Submit**.
     You should see a screen similar to the following.
 
-![../../../../_images/task4_default_viewable.png](../../../../_images/task4_default_viewable.png)
+

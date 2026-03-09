@@ -236,6 +236,6 @@ where
 
 ### Find more examples and sample applications on APS Github
 
-![../../../_images/git-hub-octocat-200px.png](../../../_images/git-hub-octocat-200px.png)
+
 
 Sample models, an extensive set of examples queries and set of PowerShell helper scripts which can be used to test the API are available on APS Github <https://github.com/autodesk-platform-services/aps-model-properties.powershell>

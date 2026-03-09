@@ -238,4 +238,4 @@ To verify the company that is assigned to each user within the project, you need
 1. Use `admin_users.csv` to get the **IDs of the users** of the project. Note the data in the `name` (user name) column and the `id` (user ID) column.
 2. Use `admin_companies.csv` to get the **IDs of the companies**. Note the data in the `name` (company name) column and the `id` (company ID) column.
 3. Use `admin_project_user_companies.csv` to find **the companies that are assigned to the users**. The user IDs that you found in (a) is equivalent to the `user_id` column, and the company IDs that you found in (b) is equivalent to the `company_oxygen_id` column. Use this file to verify the company that is assigned to each user.
-![../../../_images/fetching-permitted-users-step3.png](../../../_images/fetching-permitted-users-step3.png)![../../../_images/fetching-permitted-users-step4-companies.png](../../../_images/fetching-permitted-users-step4-companies.png)![../../../_images/fetching-permitted-users-step4-user-companies.png](../../../_images/fetching-permitted-users-step4-user-companies.png)
+

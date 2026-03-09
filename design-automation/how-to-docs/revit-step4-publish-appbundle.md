@@ -96,7 +96,7 @@ Show More
 
     You can use PackageContents.xml from any existing Autodesk Exchange Revit app with the Automation API. However, the Automation Service reads only the `RuntimeRequirements` and `ComponentEntry` blocks, which are circled in the image shown below.
 
-![PackageContents.xml](https://revitio.s3.amazonaws.com/documentation/PackageContentsXml.PNG)
+
 
 The source code and dependent library associated with this AppBundle are:
 

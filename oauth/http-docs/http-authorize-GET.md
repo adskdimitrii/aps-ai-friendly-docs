@@ -148,6 +148,6 @@ That `href` attribute is a bit difficult to read. Letâs break it down:
 
 Clicking on this [link](https://accounts.autodesk.com/) will take the end user to the Autodesk Sign In page:
 
-![../../../../_images/new-sign-in.png](../../../../_images/new-sign-in.png)
+
 
 After entering your Autodesk ID credentials and logging in, the user will be redirected to the OAuth consent page.

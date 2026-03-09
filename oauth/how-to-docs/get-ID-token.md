@@ -8,7 +8,7 @@ Source: https://aps.autodesk.com/en/docs/oauth/v2/tutorials/get-ID-token/
 
 The ID token is generated in JWT format and has lifetime of 60 minutes. It is used to validate user claims namely the Autodesk ID, if the signature of the ID token is verified & trusted.
 
-![../../../_images/id_token.png](../../../_images/id_token.png)
+
 
 You can get an ID token for an user after they successfully authenticate and it is optimized for confidential clients.
 
@@ -35,7 +35,7 @@ Before you begin, please follow the [Create an App](create-app.md) walkthrough t
 
 Familiarize yourself with the overall flow:
 
-![../../../_images/authorization-code-3-legged-flow.png](../../../_images/authorization-code-3-legged-flow.png)
+
 
 Refer [Authorization code grant type](https://aps.autodesk.com/en/docs/oauth/v2/reference/http/get-3-legged-token/) to authorize and obtain an access token.
 

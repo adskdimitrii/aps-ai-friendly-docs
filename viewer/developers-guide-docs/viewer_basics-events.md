@@ -13,7 +13,7 @@ See the [Viewing Namespace](https://aps.autodesk.com/en/docs/viewer/v7/reference
 This topic demonstrates adding listeners for the `Autodesk.Viewing.SELECTION_CHANGED_EVENT` and `Autodesk.Viewing.NAVIGATION_MODE_CHANGED_EVENT`. We will change the HTML content to
 display how many elements are currently selected and what navigation tool is currently set.
 
-![../../../../_images/events_tutorial.png](../../../../_images/events_tutorial.png)
+
 
 ## [Before You Begin](#before-you-begin)
 
@@ -99,7 +99,7 @@ Notice that you can also toggle the selection with those commands.
 The Viewerâs toolbar features buttons that change the current navigation tool. Tools are responsible for converting user input into actions.
 The Navigation tools in particular deal with navigating the camera around the scene.
 
-![../../../../_images/toolbar_navigation.png](../../../../_images/toolbar_navigation.png)
+
 
 Letâs now listen to `Autodesk.Viewing.NAVIGATION_MODE_CHANGED_EVENT` and display the toolâs name onscreen.
 Start by modifying the initially added HTML as follows.

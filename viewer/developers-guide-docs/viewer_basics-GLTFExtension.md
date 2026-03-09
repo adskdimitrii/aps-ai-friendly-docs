@@ -65,4 +65,4 @@ measuretool.setFreeMeasureMode(true);
 
 Example using glTF 2.0 Loader:
 
-![../../../../_images/gltfextension.gif](../../../../_images/gltfextension.gif)
+

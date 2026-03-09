@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/overview/
 
 # About the Viewer SDK
 
-![../../../_images/viewer_illustration.png](../../../_images/viewer_illustration.png)
+
 
 **The Autodesk Platform Services Viewer SDK lets you create applications to view, share, and interact with design models on your own website from a wide variety of products.** The Viewer can display files from [AutoCAD](http://www.autodesk.com/products/autocad/overview), [Fusion 360](http://www.autodesk.com/products/fusion-360/overview), [Revit](http://www.autodesk.com/products/revit-family/overview), and many more. This JavaScript library enables developers to create applications that combine 2D and 3D visualization with business-oriented data.
 
