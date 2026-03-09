@@ -40,7 +40,7 @@ This tutorial is using the default RFI workflow with a single reviewer. For info
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps)
+- [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create` `data:read` and `data:write` scopes.
 - In this example, assume the project ID is `afc6e536-3a12-4ecf-8302-3f283d50dc6f`.
 

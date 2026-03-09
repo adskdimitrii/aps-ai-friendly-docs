@@ -11,7 +11,7 @@ This walkthrough explains how to enable API access for an application in Autodes
 ## [Before You Begin](#before-you-begin)
 
 Verify that you have Admin access to an Autodesk Construction Cloud (ACC) account.
-- [Register an app](../../oauth/how-to-docs/create-app.md), and note the [client ID](/myapps).
+- [Register an app](../../oauth/how-to-docs/create-app.md), and note the [client ID](https://aps.autodesk.com/myapps).
 
 ## [Step 1: Access Account Administration](#step-1-access-account-administration)
 
@@ -39,7 +39,7 @@ Enter the following information:
 - **Custom Integration Name**.
 - *(Optional)* **Description** for clarity.
 
-Note that the **APS Client ID** must match the [client ID](/myapps) generated when you created the app. The **Custom Integration Name** does not need to match the original app name.
+Note that the **APS Client ID** must match the [client ID](https://aps.autodesk.com/myapps) generated when you created the app. The **Custom Integration Name** does not need to match the original app name.
 
 
 

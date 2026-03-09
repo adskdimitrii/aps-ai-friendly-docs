@@ -16,7 +16,7 @@ Note that this workflow is a temporary method for determining permissions, and w
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps)
+- [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:read` scope.
 - Verify that you have project admin or executive overview permissions.
 - Verify that you have access to the relevant account and ACC project.

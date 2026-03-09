@@ -10,7 +10,7 @@ This tutorial demonstrates how to retrieve forms that are associated with a spec
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps)
+- [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:read` scope.
 - Verify that you have access to the relevant ACC project, and find the project ID. In the example, the project ID is `9ba6681e-1952-4d54-aac4-9de6d9858dd4`.
 

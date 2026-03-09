@@ -14,7 +14,7 @@ For more details about BIM 360 file management, see the [Data Management API](ht
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps)
+- [Register an app](https://aps.autodesk.com/myapps)
 - Acquire an [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create` `data:read` and `data:write` scopes.
 - Verify that you have access to the relevant BIM 360 account and BIM 360 project, and that the app is [integrated into the account](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/).
 - Note the name of the BIM 360 account, project, and folder that contains the file you want to delete.

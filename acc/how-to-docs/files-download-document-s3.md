@@ -12,7 +12,7 @@ For more details about the ACC files management, see the [Data Management API](h
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps), and select the Data Management and Autodesk Construction Cloud APIs.
+- [Register an app](https://aps.autodesk.com/myapps), and select the Data Management and Autodesk Construction Cloud APIs.
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create` `data:read` and `data:write` scopes.
 - Verify that you have access to the relevant ACC account and ACC project.
 - Note the name of the ACC account, project, and folder that contains the file you want to download.

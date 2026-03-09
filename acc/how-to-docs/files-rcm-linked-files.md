@@ -16,7 +16,7 @@ Each time you retrieve the signed URLs, they are newly generated and valid for 1
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps), and select the Data Management and Autodesk Construction Cloud APIs.
+- [Register an app](https://aps.autodesk.com/myapps), and select the Data Management and Autodesk Construction Cloud APIs.
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:read` scope.
 - Verify that you have access to the relevant ACC or BIM 360 account, project, and folder.
 - Ensure that the Revit model has been published to the cloud from Revit, and that it is a Cloud Workshared model.

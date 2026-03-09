@@ -12,7 +12,7 @@ The steps include finding the ID of the projectâs top-level folder, creatin
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps).
+- [Register an app](https://aps.autodesk.com/myapps).
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read`, `data:write`, and `data:create` scopes.
 - Verify that you have access to the relevant account and ACC project.
 - Find the relevant project ID for the project you want to add an attachment to by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the account ID is `b.cGVyc29uYWw6cGUyOWNjZjMy`, and the project ID is `b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`.

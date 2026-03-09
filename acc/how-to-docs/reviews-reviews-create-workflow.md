@@ -12,7 +12,7 @@ Approval workflows control the sequence of steps that files must pass through be
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps), and select `Autodesk Construction Cloud APIs` in the `API Access` dropdown.
+- [Register an app](https://aps.autodesk.com/myapps), and select `Autodesk Construction Cloud APIs` in the `API Access` dropdown.
 - Acquire a [3-legged](../../oauth/how-to-docs/get-3-legged-token.md) or [2-legged](../../oauth/how-to-docs/get-2-legged-token.md) OAuth token with `data:read` and `data:write` scopes for operating approval workflows.
   * For a 3-legged token, ensure that the user is a project administrator.
   * For a 2-legged token, the `x-user-id` header is required. Retrieve the userâs Autodesk ID by calling [GET projects/:projectId/users](../http-docs/http-admin-projectsprojectId-users-GET.md) with your 2-legged OAuth token and the userâs email address. Ensure that the user is a project administrator.

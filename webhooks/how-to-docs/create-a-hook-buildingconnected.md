@@ -19,7 +19,7 @@ For more details about the BuildingConnected API, see the [BuildingConnected Fie
 > - For Bid events subcribe to BuildingConnected Pro.
 > - For Opportunity events subcribe to Bid Board Pro.
 
-- [Register an app](/myapps), and select the BuildingConnected API.
+- [Register an app](https://aps.autodesk.com/myapps), and select the BuildingConnected API.
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` and `data:create` authentication scopes. For information about authentication scopes, see the Scopes section in the [Data Management API Basics](https://aps.autodesk.com/en/docs/data/v2/overview/basics/) page.
 
 ## [Step 1 : Find the Scope ID for BuildingConnected Events](#step-1-find-the-scope-id-for-buildingconnected-events)

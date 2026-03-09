@@ -18,7 +18,7 @@ For more information about working with submittals, see the [Help documentation]
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps)
+- [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` `data:write` scopes.
 - This tutorial assumes an item was created in Submit state `sbc-1` by a user with manager permissions. For more information on creating a submittal item, see the [Create a Submittal Item](submittals-create-submittal-item.md) tutorial. In this example, assume the submittal item ID is `463c0b75-7c85-43ce-aa9f-74781aa29070`.
 - Verify that you have access to the relevant account and ACC project.

@@ -10,7 +10,7 @@ This walkthrough explains how to create a Webhook to register callbacks for [Mod
 
 ## [Before You Begin](#before-you-begin)
 
-- Make sure that you have [registered an app](/myapps) and successfully [acquired an OAuth token](https://aps.autodesk.com/en/docs/oauth/v2/tutorials/) .
+- Make sure that you have [registered an app](https://aps.autodesk.com/myapps) and successfully [acquired an OAuth token](https://aps.autodesk.com/en/docs/oauth/v2/tutorials/) .
 - See the Authentication and Scopes section in the [API Basics](https://aps.autodesk.com/en/docs/data/v2/overview/basics/) for the appropriate token based on the data you are accessing.
 - All requests to the Webhooks Service require the `data:read` scope.
 - You need `data:create` scope to create a hook.

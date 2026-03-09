@@ -13,7 +13,7 @@ access both entities in the proposed relationship.
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps), and select the Data Management and BIM 360 APIs.
+- [Register an app](https://aps.autodesk.com/myapps), and select the Data Management and BIM 360 APIs.
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create` `data:read` and `data:write` scopes.
 - Verify that you have access to the relevant account, project, folder and contents.
 - Find the relationships container ID for the relevant project.

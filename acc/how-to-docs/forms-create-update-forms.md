@@ -12,7 +12,7 @@ For more information about Forms, see the [Forms help documentation](https://hel
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps), and select Autodesk Construction Cloud API
+- [Register an app](https://aps.autodesk.com/myapps), and select Autodesk Construction Cloud API
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` and `data:write` scopes.
 - Find the relevant project ID, by following the [Retrieve a Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `cd13503e-1265-49c3-b2da-477c57cda60c`.
 - Verify that you have access to the relevant ACC project.

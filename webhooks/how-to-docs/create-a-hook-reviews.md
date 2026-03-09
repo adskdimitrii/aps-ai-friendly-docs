@@ -12,7 +12,7 @@ For more details about the Reviews API, see the [Reviews Field Guide](https://ap
 
 ## [Before You Begin](#before-you-begin)
 
-- Make sure that you have [registered an app](/myapps) and successfully [acquired an OAuth token](../../oauth/how-to-docs/create-app.md) .
+- Make sure that you have [registered an app](https://aps.autodesk.com/myapps) and successfully [acquired an OAuth token](../../oauth/how-to-docs/create-app.md) .
 - The Reviews Webhook supports only 3-legged OAuth tokens. See [Get a 3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) to acquire a 3-legged OAuth token with scopes.
 - All requests to the Webhooks Service require the `data:read` scope.
 - You need the `data:create` scope to create a webhook.

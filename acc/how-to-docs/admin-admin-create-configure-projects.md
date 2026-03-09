@@ -12,7 +12,7 @@ For more information about projects, project templates, and project members, see
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps).
+- [Register an app](https://aps.autodesk.com/myapps).
 -
 
 Acquire a [3-legged](../../oauth/how-to-docs/get-3-legged-token.md) or [2-legged](../../oauth/how-to-docs/get-2-legged-token.md) Oauth token with `data:read`, `data:write`, `account:read`, and `account:write` scopes.

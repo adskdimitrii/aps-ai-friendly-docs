@@ -10,7 +10,7 @@ This walkthrough demonstrates how to retrieve your webhooks.
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps)
+- [Register an app](https://aps.autodesk.com/myapps)
 - Successfully [acquire an OAuth token](../../oauth/how-to-docs/get-2-legged-token.md) with appropriate authentication scopes.
 
 ## [Retrieve your webhooks](#id1)

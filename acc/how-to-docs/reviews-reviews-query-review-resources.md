@@ -14,7 +14,7 @@ The workflow snapshot may differ from the current definition of the approval wor
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps), and select `Autodesk Construction Cloud APIs` in the `API Access` dropdown.
+- [Register an app](https://aps.autodesk.com/myapps), and select `Autodesk Construction Cloud APIs` in the `API Access` dropdown.
 - Acquire a [3-legged](../../oauth/how-to-docs/get-3-legged-token.md) or [2-legged](../../oauth/how-to-docs/get-2-legged-token.md) OAuth token with `data:read` scopes for querying.
   * For a 3-legged token, ensure that the user has permission to access the review and the files.
   * For a 2-legged token, the `x-user-id` header is required. Retrieve the userâs Autodesk ID by calling [GET projects/:projectId/users](../http-docs/http-admin-projectsprojectId-users-GET.md) with your 2-legged OAuth token and the userâs email address. Ensure that the user is a project administrator or a candidate of the review.

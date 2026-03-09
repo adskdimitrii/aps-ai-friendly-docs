@@ -15,7 +15,7 @@ This tutorial demonstrates how to retrieve a BIM 360 cost management container I
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps)
+- [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) or a [2-legged OAuth token with user impersonation](../../oauth/how-to-docs/get-2-legged-token.md) with the `data:read` scope.
 - Verify that you have access to the relevant BIM 360 account and BIM 360 project.
 

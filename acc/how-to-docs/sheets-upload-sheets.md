@@ -14,7 +14,7 @@ Note the Sheets API currently only supports adding PDF files to ACC sheets. We w
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps), and select Autodesk Construction Cloud API.
+- [Register an app](https://aps.autodesk.com/myapps), and select Autodesk Construction Cloud API.
 - [Provision your app](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/) to acquire access to your ACC account.
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` and `data:write` scopes.
 - Find the relevant project ID for the project you want to upload the sheets to by following the [Retrieve a Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `9ba6681e-1952-4d54-aac4-9de6d9858dd4`.

@@ -176,6 +176,18 @@ def process_file(md_file: Path, url_index: dict[str, Path], write: bool) -> dict
         text = match.group(1)
         href = match.group(2)
 
+        # Rewrite /myapp* links (e.g. /myapps) to full APS URLs
+        if href.startswith("/myapp"):
+            full_url = APS_BASE + href
+            new_link = f"[{text}]({full_url})"
+            if new_link != match.group(0):
+                stats["rewritten_to_http"] += 1
+                changes.append(f"  HTTP:  {href} -> {full_url}")
+                return new_link
+            else:
+                stats["already_ok"] += 1
+                return match.group(0)
+
         # Only process /en/docs/ links
         if not href.startswith("/en/docs/"):
             stats["already_ok"] += 1

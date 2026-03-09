@@ -12,7 +12,7 @@ For more details about ACC Document management, see the [Data Management API](ht
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps), and select the Data Management and Autodesk Construction Cloud APIs.
+- [Register an app](https://aps.autodesk.com/myapps), and select the Data Management and Autodesk Construction Cloud APIs.
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create` `data:read` and `data:write` scopes.
 - Assume the RFI that you want to add the attachment to is `31a3f98d-34a8-4d4c-a362-3cc9de44f89c`.
 - Verify that you have access to the relevant ACC account, project, and folder.

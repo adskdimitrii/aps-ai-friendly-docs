@@ -34,7 +34,7 @@ Public applications can only use grant types that do not require the use of thei
 
 ## [Client ID](#client-id)
 
-The âclient IDâ is essentially your appâs username and can be found in the [My Apps](/myapps) section.
+The âclient IDâ is essentially your appâs username and can be found in the [My Apps](https://aps.autodesk.com/myapps) section.
 
 On other platforms, this is sometimes called âconsumer keyâ or âAPI keyâ.
 
@@ -42,7 +42,7 @@ It is an alphanumeric string (e.g., `5zw90va0UuwMKTnPS5sLsdgZjDkVYXN7`), and it 
 
 ## [Client Secret](#client-secret)
 
-The âclient secretâ is essentially your appâs password and can be found next to the client ID in the [My Apps](/myapps) section.
+The âclient secretâ is essentially your appâs password and can be found next to the client ID in the [My Apps](https://aps.autodesk.com/myapps) section.
 
 On other platforms, this is sometimes called âconsumer secretâ or âAPI secretâ.
 

@@ -12,7 +12,7 @@ For more details about the Autodesk Construction Cloud (ACC) Issues API, see the
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps) and select the ACC Issues API.
+- [Register an app](https://aps.autodesk.com/myapps) and select the ACC Issues API.
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` and `data:create` scopes. These are required to access the Webhooks API and to create a webhook. For more information about scopes, see the [Scopes section](../../oauth/developers-guide-docs/scopes.md) in the Authentication API.
 - Only users with **Project Admin** permissions can successfully create webhooks for ACC Issues.
 

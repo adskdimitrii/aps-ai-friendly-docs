@@ -12,7 +12,7 @@ For more details about this API, see the [Locations API Field Guide](https://aps
 
 ## [Before you begin](#before-you-begin)
 
-- [Register an app](/myapps)
+- [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` and `data:write` scope.
 - Verify that you have access to the relevant Autodesk Construction Cloud account and project.
 - Use the Data Management API to [retrieve the relevant ACC account and project IDs](getting-started-retrieve-account-and-project-id.md).

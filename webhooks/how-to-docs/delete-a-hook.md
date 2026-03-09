@@ -10,7 +10,7 @@ This walkthrough demonstrates how to delete a webhook.
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps)
+- [Register an app](https://aps.autodesk.com/myapps)
 - Successfully [acquire an OAuth token](../../oauth/how-to-docs/get-2-legged-token.md) with appropriate authentication scopes.
 
 ## [Step 1 : Obtain the webhook ID](#step-1-obtain-the-webhook-id)

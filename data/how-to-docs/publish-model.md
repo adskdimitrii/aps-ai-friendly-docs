@@ -16,7 +16,7 @@ The steps of the walkthrough include finding the ID of the model that you want t
 ## [Before You Begin](#before-you-begin)
 
 - Acquire a subscription to [BIM 360 Design](https://info.bim360.autodesk.com/bim-360-design). Note that anyone subscribed to Revit Collaboration Suite is automatically granted access to BIM 360 Design.
-- [Register an app](/myapps), and select the Data Management, BIM 360, and Webhooks APIs.
+- [Register an app](https://aps.autodesk.com/myapps), and select the Data Management, BIM 360, and Webhooks APIs.
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create` `data:read` and `data:write` scopes.
 - Verify that you have access to the relevant BIM 360 Docs folder.
 

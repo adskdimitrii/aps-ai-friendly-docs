@@ -10,7 +10,7 @@ This walkthrough explains how to create a bucket managed by your app and upload 
 
 ## [Before You Begin](#before-you-begin)
 
-Make sure that you have [registered an app](/myapps) and successfully [acquired an OAuth token](../../oauth/how-to-docs/get-2-legged-token.md) with scopes `bucket:create`, `bucket:read`, and `data:write`. This will allow you to create a bucket, get bucket details, and upload a file.
+Make sure that you have [registered an app](https://aps.autodesk.com/myapps) and successfully [acquired an OAuth token](../../oauth/how-to-docs/get-2-legged-token.md) with scopes `bucket:create`, `bucket:read`, and `data:write`. This will allow you to create a bucket, get bucket details, and upload a file.
 
 ## [Step 1: Create a bucket](#step-1-create-a-bucket)
 

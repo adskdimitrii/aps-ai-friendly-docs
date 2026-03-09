@@ -32,7 +32,7 @@ See the* [Get a 3-Legged Token with Authorization Code Grant](../how-to-docs/get
 | client_id*   string | Client ID of the app |
 | --- | --- |
 | response_type*   string | The value MUST be either `code` for authorization code grant flow or `id_token` for id token flow. |
-| redirect_uri*   string | URL-encoded callback URL that the end user will be redirected to after completing the authorization flow, which can include query parameters and any other valid URL construct       *Note: This must match the pattern of the callback URL field of the appâs registration in the*[My Apps](/myapps) [*](#id1)section. |
+| redirect_uri*   string | URL-encoded callback URL that the end user will be redirected to after completing the authorization flow, which can include query parameters and any other valid URL construct       *Note: This must match the pattern of the callback URL field of the appâs registration in the*[My Apps](https://aps.autodesk.com/myapps) [*](#id1)section. |
 | nonce   string | A string value used to associate a client session with an ID token and to mitigate replay attacks. Mandatory when scope is openid. |
 | scope   string | A URL-encoded, space-separated list of requested scopes. For example, `scope=data:read` requests the `data:read` scope. This value is for the purpose of this example but in your own app, you should request the scope(s) you actually need.       Maximum characters - 3000   Maximum number of scopes - 50       * *See the* [Scopes](https://aps.autodesk.com/en/docs/oauth/v2/overview/scopes/)*page for more information on when scopes are required.* |
 | state*   string | A URL-encoded payload containing arbitrary data that the authentication flow will pass back verbatim in a `state` query parameter to the callback URL. |

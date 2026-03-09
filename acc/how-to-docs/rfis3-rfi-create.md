@@ -10,7 +10,7 @@ This tutorial demonstrates how to create an RFI item for an Autodesk Constructio
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps)
+- [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:write` `account:read` scopes.
 - Verify that you have access to the relevant account and ACC project.
 - Find the relevant project ID for the project you want to create an RFI in by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the account ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`, and the project ID is `ce8edd30-ef28-467c-8d99-7d7051097ee0`.

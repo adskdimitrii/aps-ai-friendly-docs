@@ -12,7 +12,7 @@ Note that this workflow is replacing the current workflow that can only link a s
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps)
+- [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` and `data:write` scopes.
 - Verify that you have access to the relevant BIM 360 or ACC account and BIM 360 or ACC project.
 - Retrieve the project ID for your project. To obtain a project ID, use [GET projects](../http-docs/http-admin-accounts-accountidprojects-GET.md).

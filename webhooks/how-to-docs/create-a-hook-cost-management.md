@@ -12,7 +12,7 @@ For more details about the Cost Management API, see the [Cost Management Field G
 
 ## [Before You Begin](#before-you-begin)
 
-- Make sure that you have [registered an app](/myapps) and successfully [acquired an OAuth token](../../oauth/how-to-docs/create-app.md) .
+- Make sure that you have [registered an app](https://aps.autodesk.com/myapps) and successfully [acquired an OAuth token](../../oauth/how-to-docs/create-app.md) .
 - See the Authentication and Scopes section on the Data Management APIâs [API Basics](https://aps.autodesk.com/en/docs/data/v2/overview/basics/) page for the appropriate token based on the data that youâre accessing.
 - All requests to the Webhooks Service require the `data:read` scope.
 - You need the `data:create` scope to create a webhook.

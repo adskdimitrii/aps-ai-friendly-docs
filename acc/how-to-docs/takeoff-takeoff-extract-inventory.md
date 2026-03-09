@@ -16,7 +16,7 @@ To learn more about the inventory tool, see the [ACC Takeoff Inventory](https://
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps), and select Autodesk Construction Cloud API.
+- [Register an app](https://aps.autodesk.com/myapps), and select Autodesk Construction Cloud API.
 - Provision your app to acquire access to your ACC account.
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:read` scope.
 - Verify that you have access to the relevant ACC project.

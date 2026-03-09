@@ -14,7 +14,7 @@ For more information about exporting files, see the [Export Files help documenta
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps), and select Autodesk Construction Cloud API.
+- [Register an app](https://aps.autodesk.com/myapps), and select Autodesk Construction Cloud API.
 - [Provision your app](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/) to acquire access to your ACC account.
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:write` scope.
 - Find the relevant hub ID and project ID for the project from which you want to export files by following the [Retrieve a Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. Assume that the hub ID is `b.cGVyc29uYWw6cGUyOWNjZjMy`, and the project ID is `b.139532ee-5cdb-4c9e-a293-652693991e65`.

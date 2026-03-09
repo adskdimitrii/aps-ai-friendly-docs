@@ -17,7 +17,7 @@ For more information about exporting sheets, See the [Help documentation](https:
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](/myapps), and select the Autodesk Construction Cloud API.
+- [Register an app](https://aps.autodesk.com/myapps), and select the Autodesk Construction Cloud API.
 - [Provision your app](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/) to acquire access to your ACC account.
 - Acquire a [2-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [3-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth token with `data:write` scope.
 - Find the project ID for the project that contains the sheets you want to export by following the [Retrieve a Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this tutorial, assume that the project ID is `b.139532ee-5cdb-4c9e-a293-652693991e65`.
