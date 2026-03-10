@@ -45,10 +45,11 @@ find . -type f -name 'crawl_*.py' | sort | while IFS= read -r f; do
 done
 ```
 
-## Post-Processing: Fix Links and Images
+## Post-Processing: Fix Links, Images, and Special Characters
 
 After re-crawling, run the cleanup scripts from the repository root to
-normalize links and remove broken image tags.
+normalize links, remove broken image tags, and repair mojibake special
+characters.
 
 1. Preview link fixes (dry run):
 
@@ -74,12 +75,25 @@ python3 fix_images.py
 python3 fix_images.py --write
 ```
 
+5. Preview special character fixes (dry run):
+
+```bash
+python3 fix_special_chars.py
+```
+
+6. Apply special character fixes:
+
+```bash
+python3 fix_special_chars.py --write
+```
+
 Recommended order:
 
 1. Run crawlers.
 2. Run `fix_links.py --write`.
 3. Run `fix_images.py --write`.
-4. Review changes with `git diff`.
+4. Run `fix_special_chars.py --write`.
+5. Review changes with `git diff`.
 
 ## Improve README.md Summaries
 
