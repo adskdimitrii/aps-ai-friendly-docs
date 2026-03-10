@@ -14,7 +14,7 @@ Retrieves the takeoff types for a package.
 
 You need to create the types in the UI. For more information, see the [ACC Takeoff Types](https://help.autodesk.com/view/TAKEOFF/ENU/?guid=Takeoff_Types) help documentation.
 
-To find the takeoff packages for a project, call [GET packages](en/docs/acc/v1/reference/http/takeoff-projects-project_id-packages-GET/).
+To find the takeoff packages for a project, call [GET packages](http-takeoff-projects-project_id-packages-GET.md).
 
 To learn how this endpoint is used, see the [Takeoff Extract Inventory](../how-to-docs/takeoff-takeoff-extract-inventory.md) tutorial.
 

@@ -12,7 +12,7 @@ POST
 
 Request the creation of a new `download` for a specific and supported `file type`.
 The `fileType` specified in the POST body needs to be contained in the list of
-supported file types returned by the [GET projects/:project_id/versions/:version_id/downloadFormats](en/docs/data/v2/reference/http/projects-project_id-versions-version_id-downloadFormats-GET/) endpoint for the specified `version_id`.
+supported file types returned by the [GET projects/:project_id/versions/:version_id/downloadFormats](http-projects-project_id-versions-version_id-downloadFormats-GET.md) endpoint for the specified `version_id`.
 
 ## [Resource Information](#resource-information)
 

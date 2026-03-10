@@ -18,7 +18,7 @@ Note that only the authenticated user who launched the export job may use this e
 
 For more details about exporting files, see the [Export Files](https://help.autodesk.com/view/DOCS/ENU/?guid=Export_Files) tutorial.
 
-**Note that this endpoint is not compatible with BIM 360 projects.** For BIM 360 projects use [GET versions/{version_id}/exports/{export_id}](en/docs/bim360/v1/reference/http/document-management-projects-project_id-versions-version_id-exports-export_id-GET/).
+**Note that this endpoint is not compatible with BIM 360 projects.** For BIM 360 projects use [GET versions/{version_id}/exports/{export_id}](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/document-management-projects-project_id-versions-version_id-exports-export_id-GET/).
 
 ## [Resource Information](#resource-information)
 

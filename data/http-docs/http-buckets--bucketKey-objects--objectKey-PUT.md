@@ -16,12 +16,12 @@ Upload an object.
 
 **We will be deprecating this endpoint.**
 
-We recommend using the [GET buckets/:bucketKey/objects/:objectKey/signeds3upload](http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md) endpoint. See the [App Managed Bucket Tutorial](en/docs/data/v2/tutorials/app-managed-bucket) for step by step workflow.
+We recommend using the [GET buckets/:bucketKey/objects/:objectKey/signeds3upload](http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md) endpoint. See the [App Managed Bucket Tutorial](../how-to-docs/app-managed-bucket.md) for step by step workflow.
 
 Upload an object.
 If the specified object key already exists in the bucket, the uploaded content will overwrite the existing content for the bucket name/object key combination.
 
-Note that for objects larger than 100 MB we recommend using the [PUT buckets/:bucketKey/objects/:objectKey/resumable](en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-resumable-PUT) endpoint.
+Note that for objects larger than 100 MB we recommend using the [PUT buckets/:bucketKey/objects/:objectKey/resumable](http-buckets--bucketKey-objects--objectKey-resumable-PUT.md) endpoint.
 
 ## [Resource Information](#resource-information)
 

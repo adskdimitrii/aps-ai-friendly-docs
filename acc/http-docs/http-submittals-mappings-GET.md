@@ -80,7 +80,7 @@ Expand all
 | id   string: UUID | The unique identifier (UUID) of the user-role mapping record. |
 | userType   enum:string | The ID for the type of user in the record. Possible values: `1` (user), `2` (company), `3` (role). |
 | oxygenId   string | Not relevant |
-| autodeskId   string | The Autodesk ID of the user (`autodeskId`), role (`memberGroupId`), or company (`memberGroupId`). <br>To find details about users, call [GET users](http-admin-projectsprojectId-users-GET.md), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/). Note that we do not currently support finding details about roles for a project. |
+| autodeskId   string | The Autodesk ID of the user (`autodeskId`), role (`memberGroupId`), or company (`memberGroupId`). <br>To find details about users, call [GET users](http-admin-projectsprojectId-users-GET.md), to find details about companies, call [GET companies](http-projects--project_id-companies-GET.md). Note that we do not currently support finding details about roles for a project. |
 | submittalsRole   enum:string | The role of the user in Submittals. Possible values: `1` (manager). |
 | updatedBy   string | Autodesk ID of the last user who updated the record. |
 | updatedAt   datetime: ISO 8601 | When the record was last updated. |

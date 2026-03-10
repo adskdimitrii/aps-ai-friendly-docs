@@ -535,7 +535,7 @@ You can assign project members directly to a cloned or production project:
 - To ensure that the project has at least one project administrator
 - At any time during the project’s lifespan
 
-Call [POST projects/:projectId/users:import](en/docs/acc/v1/reference/http/admin-projects-projectId-users-import-POST/) to assign one or more users to the project at a time. Include at least one project administrator if you haven’t done so already.
+Call [POST projects/:projectId/users:import](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-users-import-POST/) to assign one or more users to the project at a time. Include at least one project administrator if you haven’t done so already.
 
 The administrator can be any user who is currently in the same account as the project. Include the products object in the request, with `products.key` set to `projectAdministration`, and `products.access` set to `administrator`.
 

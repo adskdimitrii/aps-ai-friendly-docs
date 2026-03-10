@@ -50,7 +50,7 @@ Before the user creates an RFI you need to verify that the user has permissions 
 
 Use the project ID (`afc6e536-3a12-4ecf-8302-3f283d50dc6f`) to call [GET users/me](https://aps.autodesk.com/en/docs/acc/v1/reference/http/rfis-v3-users-me-GET/) to verify the user’s permissions for creating RFIs.
 
-Note that only users who are members of a project can potentially create and edit RFIs for the project. To check which users are members of a project, call GET users ([BIM 360](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/admin-v1-projects-projectId-users-GET/) or [ACC](en/docs/acc/v1/reference/http/users-GET)). If a user is not a project member, the endpoint will return an error. Note that although we support grouping users by project for BIM 360 projects, we currently only support grouping users by account for ACC projects.
+Note that only users who are members of a project can potentially create and edit RFIs for the project. To check which users are members of a project, call GET users ([BIM 360](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/admin-v1-projects-projectId-users-GET/) or [ACC](../http-docs/http-users-GET.md)). If a user is not a project member, the endpoint will return an error. Note that although we support grouping users by project for BIM 360 projects, we currently only support grouping users by account for ACC projects.
 
 Note that if a user is not a project member, the endpoint will return an error.
 

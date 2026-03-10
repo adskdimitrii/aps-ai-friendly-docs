@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/translate
 
 # Task 3 – Translate Source File
 
-You can translate the source file to many different formats (see [Supported Translations](en/docs/model-derivative/v2/developers_guide/supported-translations) for details). For the purpose of this walkthrough, we will translate the source file to the STL format.
+You can translate the source file to many different formats (see [Supported Translations](https://aps.autodesk.com/en/docs/model-derivative/v2/developers_guide/supported-translations/) for details). For the purpose of this walkthrough, we will translate the source file to the STL format.
 
 To translate a file, you must kick off a translation job. The translation job produces a manifest, which lists all the files that are generated. It also reports how far translation has progressed as a percentage, for each file listed in the manifest.
 

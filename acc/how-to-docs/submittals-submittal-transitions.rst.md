@@ -1680,7 +1680,7 @@ Note that the `status` field in the Task model is now updated to `completed`, in
 
 ## [Step 8: Transition to Close and Distribute (mgr-2)](#step-8-transition-to-close-and-distribute-mgr-2)
 
-After each reviewer completes their assigned task (representing their review), the system transitions the workflow automatically to the Close and Distribute (`mgr-2`) state. To confirm the transition or check for additional tasks or steps, start by calling [GET steps](en/docs/acc/v1/reference/http/submittals-steps-GET/). This will verify whether there are any remaining tasks or review steps.
+After each reviewer completes their assigned task (representing their review), the system transitions the workflow automatically to the Close and Distribute (`mgr-2`) state. To confirm the transition or check for additional tasks or steps, start by calling [GET steps](../http-docs/http-submittals-steps-GET.md). This will verify whether there are any remaining tasks or review steps.
 
 Once you confirm that all tasks and review steps are complete, use [GET item](../http-docs/http-submittals-items-itemId-GET.md) to verify the submittal’s overall state and retrieve the permitted actions required for transitioning to the Closed (`sbc-2`) state.
 

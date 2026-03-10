@@ -12,7 +12,7 @@ A script uses the Fusion API to add new functionality to Fusion in the form of c
 
 Information on how to create a Fusion script, [can be found here.](https://help.autodesk.com/view/fusion360/ENU/?guid=GUID-A92A4B10-3781-4925-94C6-47DA85A4F65A)
 
-For information on creating an Automation API-ready Fusion script, see the information about the TypeScript Add-In for Fusion [here](en/docs/design-automation/v3/developers_guide/fusion/typescript).
+For information on creating an Automation API-ready Fusion script, see the information about the TypeScript Add-In for Fusion [here](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/fusion/typescript/).
 
 By the end of this task you will be able to:
 
@@ -30,7 +30,7 @@ You will use the following operations to handle AppBundles in this task:
 | [POST /appbundles/{id}/versions](../http-docs/http-appbundles-id-versions-POST.md) | Creates a new version of the AppBundle. |
 | [PATCH /appbundles/{id}/aliases/{aliasId}](../http-docs/http-appbundles-id-aliases-aliasId-DELETE.md) | Modify alias details. |
 
-- More information on AppBundles can be found [here](en/docs/design-automation/v3/reference/http/#appbundles).
+- More information on AppBundles can be found [here](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/#appbundles).
 
 ## [Step 1 - Download or build an Fusion AppBundle](#step-1-download-or-build-an-fusion-appbundle)
 
@@ -174,7 +174,7 @@ of the AppBundle. Consequently, endpoints referencing the AppBundle using the al
 
 - Each AppBundle POST request specifies an `engine` on which the application runs. The following table shows the keywords to specify for the available Fusion engines.
 - It is recommended to always choose the `Autodesk.Fusion+Latest` engine.
-- In rare cases, you might want to access an older engine version. You can obtain the list of available `engines` using the operation listed [here](en/docs/design-automation/v3/reference/http/#engines).
+- In rare cases, you might want to access an older engine version. You can obtain the list of available `engines` using the operation listed [here](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/#engines).
 
 **Notes:**
 

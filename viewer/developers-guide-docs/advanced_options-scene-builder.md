@@ -29,14 +29,14 @@ In this tutorial, you will:
 
 ## [Step 1: Loading the Extension](#step-1-loading-the-extension)
 
-Like other extensions, the Scene Builder extension is loaded using [loadExtension](en/docs/viewer/v7/reference/Viewing/Viewer3D/#loadextension-extensionid-options).
+Like other extensions, the Scene Builder extension is loaded using [loadExtension](../reference-docs/Viewing-Viewer3D.md#loadextension-extensionid-options).
 
 ```
 await viewer.loadExtension('Autodesk.Viewing.SceneBuilder');
 
 ```
 
-Once the extension is loaded get the extension by using [getExtension](en/docs/viewer/v7/reference/Viewing/Viewer3D/#getextension-extensionid-callback).
+Once the extension is loaded get the extension by using [getExtension](../reference-docs/Viewing-Viewer3D.md#getextension-extensionid-callback).
 
 ```
 ext = viewer.getExtension('Autodesk.Viewing.SceneBuilder');
@@ -46,7 +46,7 @@ ext = viewer.getExtension('Autodesk.Viewing.SceneBuilder');
 ## [Step 2: Creating a Model](#step-2-creating-a-model)
 
 After the extension is loaded, you must create a model to hold the objects that you want to display.
-To do that, use the extension method [addNewModel](en/docs/viewer/v7/reference/Extensions/SceneBuilder/#addnewmodel-options). This method creates the model and returns a [ModelBuilder](en/docs/viewer/v7/reference/Extensions/ModelBuilder) API you can use to update the model.
+To do that, use the extension method [addNewModel](../reference-docs/Extensions-SceneBuilder.md#addnewmodel-options). This method creates the model and returns a [ModelBuilder](../reference-docs/Extensions-ModelBuilder.md) API you can use to update the model.
 
 ```
 modelBuilder = await ext.addNewModel({
@@ -154,4 +154,4 @@ Show More
 
 ## [What’s next?](#what-s-next)
 
-Check out the [ModelBuilder](en/docs/viewer/v7/reference/Extensions/ModelBuilder) API documentation page to see all available methods.
+Check out the [ModelBuilder](../reference-docs/Extensions-ModelBuilder.md) API documentation page to see all available methods.

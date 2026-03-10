@@ -37,7 +37,7 @@ You will use the following operations to handle AppBundles in this task:
 | [POST /appbundles/{id}/versions](../http-docs/http-appbundles-id-versions-POST.md) | Creates a new version of the AppBundle. |
 | [PATCH /appbundles/{id}/aliases/{aliasId}](../http-docs/http-appbundles-id-aliases-aliasId-DELETE.md) | Modify alias details. |
 
-- More information on AppBundles can be found [here](en/docs/design-automation/v3/reference/http/#appbundles).
+- More information on AppBundles can be found [here](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/#appbundles).
 
 ## [Step 1 - Download or build an Inventor AppBundle](#step-1-download-or-build-an-inventor-appbundle)
 
@@ -199,6 +199,6 @@ of the AppBundle. Consequently, endpoints referencing the AppBundle using the al
 
 **Notes:**
 
-- For the most current list of `engines` use the operation listed [here](en/docs/design-automation/v3/reference/http/#engines).
+- For the most current list of `engines` use the operation listed [here](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/#engines).
 - If there is an error, refer the section on [troubleshooting](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/troubleshooting/).
 - The exact versions of the Inventor engines currently deployed are listed on [the Inventor Release Notes page](https://aps.autodesk.com/en/docs/design-automation/_change_history/inventor_release_notes/).

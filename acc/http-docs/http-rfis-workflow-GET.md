@@ -63,7 +63,7 @@ Expand all
 | projectRolesMapping   array: object | A list of project roles and their corresponding permitted assignees. |
 | name   string | The name of the project role |
 | permittedAssignees   array: object | A list of users, companies, or roles that can be assigned to this project role. |
-| id   string | The Autodesk ID of the user, company, or role. <br>To find details about users, call [GET users](http-admin-projectsprojectId-users-GET.md), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/).<br>Note that we do not currently support finding details about roles for a project. |
+| id   string | The Autodesk ID of the user, company, or role. <br>To find details about users, call [GET users](http-admin-projectsprojectId-users-GET.md), to find details about companies, call [GET companies](http-projects--project_id-companies-GET.md).<br>Note that we do not currently support finding details about roles for a project. |
 | type   enum:string | The type of assignee. Possible values: `user`, `company`, `role`. |
 
 ## [Example](#example)

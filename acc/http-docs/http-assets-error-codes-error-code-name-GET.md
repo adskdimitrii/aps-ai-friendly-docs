@@ -12,7 +12,7 @@ GET
 
 Retrieves details about an error code by name.
 
-To find a list of error codes, call [GET error-codes](en/docs/acc/v1/reference/http/assets-error-codes-GET/).
+To find a list of error codes, call [GET error-codes](http-assets-error-codes-GET.md).
 
 ## [Resource Information](#resource-information)
 

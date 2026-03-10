@@ -125,7 +125,7 @@ Expand all
 | isApproval   boolean | `true`: if this option is for an approved submittal response. <br>`false`: if this option is for other-typed submittal responses. |
 | defaultValues   object | An object containing the default values for various settings and configurations in the project. |
 | watchers   array: object | A list of project watchers, who can be individual users, roles, or companies. |
-| id   string | The Autodesk ID of the watcher. The watcher can be a user (`autodeskId`), role (`memberGroupId`), or company (`memberGroupId`). <br>To find details about users, call [GET users](http-admin-projectsprojectId-users-GET.md), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/). Note that we do not currently support finding details about roles for a project. |
+| id   string | The Autodesk ID of the watcher. The watcher can be a user (`autodeskId`), role (`memberGroupId`), or company (`memberGroupId`). <br>To find details about users, call [GET users](http-admin-projectsprojectId-users-GET.md), to find details about companies, call [GET companies](http-projects--project_id-companies-GET.md). Note that we do not currently support finding details about roles for a project. |
 | userType   object | The type of watcher assigned to the submittal item. <br>Possible values:<br>`1` (user)`2` (company)`3` (role) |
 | manager   string | The Autodesk ID of the user who is assigned as the manager. |
 | reviewTime   int | The number of days remaining until the review due date. |

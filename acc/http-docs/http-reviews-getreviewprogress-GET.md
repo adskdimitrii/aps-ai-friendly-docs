@@ -47,7 +47,7 @@ For more details about reviews, see the [Help documentation](https://help.autode
 
 - Example with prefix: **b.563a4c30-e30d-4869-ac02-2a18b6447abe**
 - Example without prefix: **563a4c30-e30d-4869-ac02-2a18b6447abe**
-- reviewIdstring: UUID The unique ID of the review. This must be the UUID, not the numeric sequence ID shown in the Reviews UI.To find the review ID, call [GET reviews](en/docs/acc/v1/reference/http/reviews-reviews-GET/).
+- reviewIdstring: UUID The unique ID of the review. This must be the UUID, not the numeric sequence ID shown in the Reviews UI.To find the review ID, call [GET reviews](http-reviews-reviews-GET.md).
 
 ### Request
 

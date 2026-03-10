@@ -42,7 +42,7 @@ viewer.setProfile(profile);
 
 You can also set a custom profile. A custom profile can override existing preferences, load or unload specific extensions, and set preferences to be persistent.
 
-For more information, see [Profile](en/docs/viewer/v7/reference/Viewing/Profile)
+For more information, see [Profile](../reference-docs/Viewing-Profile.md)
 
 The following snippet overrides a couple of preferences, adds new preferences, unloads two extensions, and sets some preferences to be persistent between browser sessions.
 
@@ -91,7 +91,7 @@ Show More
 
 Use the ProfileManager (`viewer.profileManager`) to register a custom profile with a specific file type.
 
-For more information, see [ProfileManager](en/docs/viewer/v7/reference/Viewing/ProfileManager)
+For more information, see [ProfileManager](../reference-docs/Viewing-ProfileManager.md)
 
 To use the registered file profiles be sure to set the following config flag:
 

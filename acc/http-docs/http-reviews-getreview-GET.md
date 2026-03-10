@@ -45,7 +45,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 - Example with prefix: **b.563a4c30-e30d-4869-ac02-2a18b6447abe**
 - Example without prefix: **563a4c30-e30d-4869-ac02-2a18b6447abe**
 - reviewIdstring: UUID The unique ID of the review.
-It must be in UUID format — not the numeric sequence ID shown in the Reviews UI. To find the review ID, call [GET reviews](en/docs/acc/v1/reference/http/reviews-reviews-GET/).
+It must be in UUID format — not the numeric sequence ID shown in the Reviews UI. To find the review ID, call [GET reviews](http-reviews-reviews-GET.md).
 
 ### Response
 

@@ -16,9 +16,9 @@ Takeoff packages organize and contain all takeoff data related to a scope of wor
 
 For more information about takeoff packages, see the [ACC Takeoff - Working with Packages](https://help.autodesk.com/view/TAKEOFF/ENU/?guid=Work_with_Packages) help documentation.
 
-To find the takeoff types in a package, call [GET takeoff-types](en/docs/acc/v1/reference/http/takeoff-projects-project_id-packages-package_id-takeoff-types-GET/).
+To find the takeoff types in a package, call [GET takeoff-types](http-takeoff-projects-project_id-packages-package_id-takeoff-types-GET.md).
 
-To find the takeoff items in a package, call [GET takeoff-items](en/docs/acc/v1/reference/http/takeoff-projects-project_id-packages-package_id-takeoff-items-GET/).
+To find the takeoff items in a package, call [GET takeoff-items](http-takeoff-projects-project_id-packages-package_id-takeoff-items-GET.md).
 
 Note that this endpoint is not compatible with BIM 360 projects.
 

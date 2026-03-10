@@ -18,7 +18,7 @@ The response includes approval statuses, file version names, copied version URNs
 
 For more details about reviews, see the [Help documentation](https://help.autodesk.com/view/DOCS/ENU/?guid=Reviews).
 
-Note that to export reviewing files using these version URNs, see [Step 3 in the PDF File Export](en/docs/acc/v1/tutorials/files/export-pdf-files/#step-3-export-the-files) tutorial.
+Note that to export reviewing files using these version URNs, see [Step 3 in the PDF File Export](../how-to-docs/files-export-pdf-files.md#step-3-export-the-files) tutorial.
 
 Note that this endpoint is not compatible with BIM 360 projects.
 
@@ -49,7 +49,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 - Example with prefix: **b.563a4c30-e30d-4869-ac02-2a18b6447abe**
 - Example without prefix: **563a4c30-e30d-4869-ac02-2a18b6447abe**
 - reviewIdstring: UUID The unique ID of the review.
-It must be in UUID format — not the numeric sequence ID shown in the Reviews UI. To find the review ID, call [GET reviews](en/docs/acc/v1/reference/http/reviews-reviews-GET/).
+It must be in UUID format — not the numeric sequence ID shown in the Reviews UI. To find the review ID, call [GET reviews](http-reviews-reviews-GET.md).
 
 ### Request
 

@@ -308,7 +308,7 @@ Show More
 
 ## [Step 4: Fetch Status Set to Category Assignments](#step-4-fetch-status-set-to-category-assignments)
 
-To get the status set to category assignments, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) and category IDs obtained in Step 3 to call [POST assets/v1/projects/:projectId/category-status-step-sets/status-step-sets:batch-get](en/docs/acc/v1/reference/http/assets-category-status-step-sets-status-step-sets-batch-get-POST/).
+To get the status set to category assignments, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) and category IDs obtained in Step 3 to call [POST assets/v1/projects/:projectId/category-status-step-sets/status-step-sets:batch-get](../http-docs/http-assets-category-status-step-sets-status-step-sets-batch-get-POST.md).
 
 By default this will only return the status sets explicitly assigned to the given categories. If you wish to return each category’s effective status set assignment (taking inheritance into account), you can set the query parameter `includeInherited=true`.
 
@@ -433,7 +433,7 @@ Show More
 
 ## [Step 6: Fetch Category to Asset Custom Attribute Assignments](#step-6-fetch-category-to-asset-custom-attribute-assignments)
 
-To get the Asset custom attributes assigned to a category, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) and category IDs obtained in Step 3 to call [GET assets/v1/projects/:projectId/categories/:categoryId/custom-attributes](en/docs/acc/v1/reference/http/assets-categories-category-id-custom-attributes-GET/).
+To get the Asset custom attributes assigned to a category, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) and category IDs obtained in Step 3 to call [GET assets/v1/projects/:projectId/categories/:categoryId/custom-attributes](../http-docs/http-assets-categories-category-id-custom-attributes-GET.md).
 
 A batch endpoint doe not yet exist for this call, so at this time a call must be made for each category ID individually to get the full set of assignments.
 

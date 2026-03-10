@@ -14,7 +14,7 @@ Retrieves a specified takeoff item for a package.
 
 For more information about takeoff items, see the [ACC Takeoff](https://help.autodesk.com/view/TAKEOFF/ENU/?guid=Takeoff_Types) help documentation.
 
-To find the takeoff packages for a project, call [GET packages](en/docs/acc/v1/reference/http/takeoff-projects-project_id-packages-GET/).
+To find the takeoff packages for a project, call [GET packages](http-takeoff-projects-project_id-packages-GET.md).
 
 Note that this endpoint is not compatible with BIM 360 projects.
 

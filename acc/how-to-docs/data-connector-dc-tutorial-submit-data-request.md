@@ -34,7 +34,7 @@ To make a data request, you’ll have to provide request parameter values that c
 
 ## [Step 2: Create a Data Request](#step-2-create-a-data-request)
 
-Create a data request using the [POST requests](en/docs/bim360/v1/reference/http/data-connector-requests-POST/) endpoint, specifying the account ID of your account. This tutorial demonstrates recurring data requests for two scenarios:
+Create a data request using the [POST requests](../http-docs/http-data-connector-requests-POST.md) endpoint, specifying the account ID of your account. This tutorial demonstrates recurring data requests for two scenarios:
 
 1. Retrieving data for a specific list of projects using `projectIdList`.
 2. Retrieving data for all active projects in the account using `projectStatus`.

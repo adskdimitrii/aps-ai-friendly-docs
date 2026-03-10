@@ -90,7 +90,7 @@ Expand all
 | updatedAt   datetime: ISO 8601 | The date and time when the template was last updated, formatted as YYYY-MM-DDTHH:mm:ss.SSSSSSZ (ISO 8601) in UTC. For example, `2025-01-20T12:00:00.198466Z`. |
 | updatedBy   string | The Autodesk ID of the user that last updated the template. |
 | watchers   array: object | A list of project watchers, who can be individual users, roles, or companies. |
-| id   string | The Autodesk ID of the watcher. The watcher can be a user (`autodeskId`), role (`memberGroupId`), or company (`memberGroupId`). <br>To find details about users, call [GET users](http-admin-projectsprojectId-users-GET.md), to find details about companies, call [GET companies](en/docs/acc/v1/reference/http/projects-:project_id-companies-GET/). Note that we do not currently support finding details about roles for a project. |
+| id   string | The Autodesk ID of the watcher. The watcher can be a user (`autodeskId`), role (`memberGroupId`), or company (`memberGroupId`). <br>To find details about users, call [GET users](http-admin-projectsprojectId-users-GET.md), to find details about companies, call [GET companies](http-projects--project_id-companies-GET.md). Note that we do not currently support finding details about roles for a project. |
 | userType   object | The type of watcher assigned to the submittal item. <br>Possible values:<br>`1` (user)`2` (company)`3` (role) |
 
 ## [Example](#example)

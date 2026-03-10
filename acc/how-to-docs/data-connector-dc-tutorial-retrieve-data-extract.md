@@ -18,7 +18,7 @@ To retrieve the job’s data extract, first use the job ID to retrieve descripti
 
 ## [Step 1: Get a List of Jobs Spawned By Your Data Request](#step-1-get-a-list-of-jobs-spawned-by-your-data-request)
 
-In this example, we’ll assume you don’t have the ID of the job whose data extract you want. Use the [GET requests/:requestId/jobs](en/docs/bim360/v1/reference/http/data-connector-requests-requestId-GET/) endpoint to retrieve a list of the jobs that your data request has spawned, or use the GET jobs endpoint to retrieve a list of all the jobs that were spawned for the project you specify. If you think there are many spawned jobs, you can set request parameters to limit the number of returned job descriptions, offset the point where you start returning requests, and set sort order. We won’t specify any of this, so the endpoint will use default settings of ascending sort order, a limit of 20 requests, and no offset.
+In this example, we’ll assume you don’t have the ID of the job whose data extract you want. Use the [GET requests/:requestId/jobs](../http-docs/http-data-connector-requests-requestId-GET.md) endpoint to retrieve a list of the jobs that your data request has spawned, or use the GET jobs endpoint to retrieve a list of all the jobs that were spawned for the project you specify. If you think there are many spawned jobs, you can set request parameters to limit the number of returned job descriptions, offset the point where you start returning requests, and set sort order. We won’t specify any of this, so the endpoint will use default settings of ascending sort order, a limit of 20 requests, and no offset.
 
 You’ll need the ID of the data request that spawned the jobs, something you retrieved in the previous tutorials.
 
@@ -64,7 +64,7 @@ The response provides an array of job records (in this case, just a single job),
 
 ## [Step 2: Examine the Files Contained in the Job’s Data Extract](#step-2-examine-the-files-contained-in-the-job-s-data-extract)
 
-To see a list of the files contained in your job’s data extract, use the [GET jobs/:jobId/data-listing](en/docs/bim360/v1/reference/http/data-connector-jobs-jobId-data-listing-GET/) endpoint and use the job ID to specify the job.
+To see a list of the files contained in your job’s data extract, use the [GET jobs/:jobId/data-listing](../http-docs/http-data-connector-jobs-jobId-data-listing-GET.md) endpoint and use the job ID to specify the job.
 
 ### Request
 
@@ -119,7 +119,7 @@ The first file is a README file that contains information about the schema used 
 
 ## [Step 3: Retrieve a File From a Data Extract](#step-3-retrieve-a-file-from-a-data-extract)
 
-Once you have a job ID and the filename of the file in the data extract that you’d like to retrieve, use [GET jobs/:jobId/data/:name](en/docs/bim360/v1/reference/http/data-connector-jobs-jobId-data-name-GET/) to get a signed URL where you can retrieve that data, in this case the ZIP file that contains all the files in the extract along with information about the schemas used.
+Once you have a job ID and the filename of the file in the data extract that you’d like to retrieve, use [GET jobs/:jobId/data/:name](../http-docs/http-data-connector-jobs-jobId-data-name-GET.md) to get a signed URL where you can retrieve that data, in this case the ZIP file that contains all the files in the extract along with information about the schemas used.
 
 ### Request
 

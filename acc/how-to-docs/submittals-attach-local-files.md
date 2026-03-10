@@ -8,7 +8,7 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/submittals/attach-local-f
 
 This tutorial demonstrates how to attach local files to a submittal item in an Autodesk Construction Cloud (ACC) project. The steps include verifying the user’s permissions and gathering required fields, creating the attachment object, generating a signed S3 URL, uploading the file to the signed URL, and updating the attachment status. For more information on working with submittals, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Create_Submittal).
 
-For information about attaching files to submittals that were already uploaded to the ACC Files tool, see the [Attach Files to Submittals from the Files Tool](en/docs/acc/v1/tutorials/attach-files-tool/) tutorial.
+For information about attaching files to submittals that were already uploaded to the ACC Files tool, see the [Attach Files to Submittals from the Files Tool](https://aps.autodesk.com/en/docs/acc/v1/tutorials/attach-files-tool/) tutorial.
 
 ## [Before You Begin](#before-you-begin)
 

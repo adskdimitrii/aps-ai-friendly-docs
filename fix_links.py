@@ -125,11 +125,12 @@ def _find_local_file_for_url(url: str, directory: Path) -> Path | None:
     segments = path_key.lstrip("/").split("/")
     # segments: [en, docs, acc, v1, reference, http, some-endpoint-GET]
     # The crawl scripts build full_path as: acc/reference/http/some-endpoint-GET
-    # (without version). But the slug derivation takes parts after first 2
-    # segments of full_path, which maps to segments[4:] here.
+    # (without version). The slug derivation takes parts after the first 2
+    # segments of full_path ([acc, reference]), i.e. [http, some-endpoint-GET],
+    # which maps to segments[5:] here (en/docs/acc/v1/reference → skip 5).
 
-    if len(segments) > 4:
-        relative = "/".join(segments[4:])
+    if len(segments) > 5:
+        relative = "/".join(segments[5:])
     else:
         relative = segments[-1] if segments else ""
 
@@ -187,6 +188,10 @@ def process_file(md_file: Path, url_index: dict[str, Path], write: bool) -> dict
             else:
                 stats["already_ok"] += 1
                 return match.group(0)
+
+        # Normalise en/docs/ links that are missing the leading slash
+        if href.startswith("en/docs/"):
+            href = "/" + href
 
         # Only process /en/docs/ links
         if not href.startswith("/en/docs/"):

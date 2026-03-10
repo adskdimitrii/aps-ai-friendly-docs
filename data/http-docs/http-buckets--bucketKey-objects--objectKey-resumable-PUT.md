@@ -16,11 +16,11 @@ This endpoint allows resumable uploads for large files in chunks.
 
 **We will be deprecating this endpoint.**
 
-We recommend using the [GET buckets/:bucketKey/objects/:objectKey/signeds3upload](http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md) endpoint. See the [App Managed Bucket Tutorial](en/docs/data/v2/tutorials/app-managed-bucket) for step by step workflow.
+We recommend using the [GET buckets/:bucketKey/objects/:objectKey/signeds3upload](http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md) endpoint. See the [App Managed Bucket Tutorial](../how-to-docs/app-managed-bucket.md) for step by step workflow.
 
-Note that for uploading objects smaller than 100 MB we recommend using the [PUT buckets/:bucketKey/objects/:objectKey](en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-PUT) endpoint.
+Note that for uploading objects smaller than 100 MB we recommend using the [PUT buckets/:bucketKey/objects/:objectKey](http-buckets--bucketKey-objects--objectKey-PUT.md) endpoint.
 
-To check the upload status, use the [GET buckets/:bucketKey/objects/:objectKey/status/:sessionId](en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-status-:sessionId-GET) endpoint.
+To check the upload status, use the [GET buckets/:bucketKey/objects/:objectKey/status/:sessionId](http-buckets--bucketKey-objects--objectKey-status--sessionId-GET.md) endpoint.
 
 If you want to validate the integrity of the chunk’s content, then you can send the `x-ads-chunk-sha1` header.
 
