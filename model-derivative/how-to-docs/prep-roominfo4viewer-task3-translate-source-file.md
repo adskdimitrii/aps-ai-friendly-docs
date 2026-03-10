@@ -1,12 +1,12 @@
-# Task 3 â Translate to SVF2
+# Task 3 – Translate to SVF2
 
 Source: https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-roominfo4viewer/task3-translate-source-file/
 
 ---
 
-# Task 3 â Translate to SVF2
+# Task 3 – Translate to SVF2
 
-SVF2 is a newer format designed specifically for larger models with geometry repetition. When larger and complex models are translated to SVF2, they load much faster in the viewer. For details see [Displaying Models in a Browser](https://aps.autodesk.com/en/docs/model-derivative/v2/developers_guide/basics/preperation/) in the Developerâs Guide.
+SVF2 is a newer format designed specifically for larger models with geometry repetition. When larger and complex models are translated to SVF2, they load much faster in the viewer. For details see [Displaying Models in a Browser](https://aps.autodesk.com/en/docs/model-derivative/v2/developers_guide/basics/preperation/) in the Developer’s Guide.
 
 ## [Step 1 - Start a translation job](#step-1-start-a-translation-job)
 
@@ -14,7 +14,7 @@ When you start a translation job, you specify the Base64-encoded URN of the sour
 
 - The header parameter `x-ads-force` is set to `true`. Setting this header parameter removes the derivatives produced by previous translation jobs for this source file, which is mandatory for generating master views.
 
-- The body parameter `advanced` > `generateMasterViews` is set to true. Setting this parameter generates an extra Viewable for each phase. They contain all elements (including âroomâ elements) present in the host model for that phase. If this parameter is not specified, master views are not translated, because they are not part of the 3D view.
+- The body parameter `advanced` > `generateMasterViews` is set to true. Setting this parameter generates an extra Viewable for each phase. They contain all elements (including “room” elements) present in the host model for that phase. If this parameter is not specified, master views are not translated, because they are not part of the 3D view.
 
     **Note:** By specifying this option, translation time increases.
 
@@ -102,7 +102,7 @@ curl  -X GET \
 
 ```
 
-The Revit file ârme_advanced_sample_project.rvtâ contains a phase named `` `New Construction ``. In the response, the manifest will shows the phase as a Viewable named `New Construction` (highlighted on lines 101-178). This Viewable would not be there in the manifest if you had not specified the `generateMaterViews` option. Viewables generated from master views typically have the same name as the phase they are generated from. If a Viewable with that name already exists, the server adds a suffix to the default name.
+The Revit file “rme_advanced_sample_project.rvt” contains a phase named `` `New Construction ``. In the response, the manifest will shows the phase as a Viewable named `New Construction` (highlighted on lines 101-178). This Viewable would not be there in the manifest if you had not specified the `generateMaterViews` option. Viewables generated from master views typically have the same name as the phase they are generated from. If a Viewable with that name already exists, the server adds a suffix to the default name.
 
 ### Response
 

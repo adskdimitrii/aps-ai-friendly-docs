@@ -13,7 +13,7 @@ GET
 Returns a collection of `links` for the given `item_id`-`version_id` object.
 Custom relationships can be established between a version of an item and
 other external resources residing outside the `data` domain service.
-A linkâs `href` defines the target URI to access a resource.
+A link’s `href` defines the target URI to access a resource.
 
 **New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/).
 
@@ -39,7 +39,7 @@ A linkâs `href` defines the target URI to access a resource.
 
 ## [URI Parameters](#uri-parameters)
 
-| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a â**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
+| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a “**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
 | --- | --- |
 | version_id   string | The unique identifier of a version. |
 
@@ -70,14 +70,14 @@ Expand all
 | id   string | The id of the resource. |
 | meta   object | The meta-information of the links of this resource. |
 | extension   object | The extension object of the data. |
-| type   string | The type of the schema that the resourceâs data object adheres to. |
+| type   string | The type of the schema that the resource’s data object adheres to. |
 | version   string | The version of the schema that the data is adhering to. |
 | schema   object | An object containing an API link property. |
 | href   string | A hyperlink reference to this resource. |
-| data   object | Additional properties that the resourceâs data possesses. |
+| data   object | Additional properties that the resource’s data possesses. |
 | link   object | An object containing an API link property. |
 | href   string | A hyperlink reference to this resource. |
-| mimeType   string | Mimetype of the linkâs content. |
+| mimeType   string | Mimetype of the link’s content. |
 | data   object | The object containing meta-information on the data of the links of this resource. |
 | type   string | The type of the resource data. |
 | id   string | The id of the resource. |

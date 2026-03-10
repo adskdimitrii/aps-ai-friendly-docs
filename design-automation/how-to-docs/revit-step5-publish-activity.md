@@ -1,10 +1,10 @@
-# Task 5 â Publish an Activity
+# Task 5 – Publish an Activity
 
 Source: https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/revit/step5-publish-activity/
 
 ---
 
-# Task 5 â Publish an Activity
+# Task 5 – Publish an Activity
 
 An Activity is an action that can be executed on the Automation Service. You create and post Activities to run specific AppBundles.
 
@@ -67,7 +67,7 @@ Show More
 | Attribute | Description |
 | --- | --- |
 | `id` | The name given to your new Activity. |
-| `commandLine` | The command run by this Activity.       - `$(engine.path)\\\\revitcoreconsole.exe` - The full path to the folder from which the engine for Revit executes.      The engine is defined in the request body as `"engine": "Autodesk.Revit+2024"`. More information about engines can be found in the   Additional notes section in [Task 4](revit-step4-publish-appbundle.md#additional-notes).   **Do not edit or alter this âcommandLineâ in the request body of Activity posts.**       - `$(args[rvtFile].path)` - The full path to the folder that contains the input Revit model. `rvtFile` is the parameter that      represents the Revit model to which the Activity `DeleteWallsActivity` applies the AppBundle. The AppBundle is defined in   the request body as `"appbundles": [ "<YOUR_NICKNAME>.DeleteWallsApp\ +test" ]`. |
+| `commandLine` | The command run by this Activity.       - `$(engine.path)\\\\revitcoreconsole.exe` - The full path to the folder from which the engine for Revit executes.      The engine is defined in the request body as `"engine": "Autodesk.Revit+2024"`. More information about engines can be found in the   Additional notes section in [Task 4](revit-step4-publish-appbundle.md#additional-notes).   **Do not edit or alter this “commandLine” in the request body of Activity posts.**       - `$(args[rvtFile].path)` - The full path to the folder that contains the input Revit model. `rvtFile` is the parameter that      represents the Revit model to which the Activity `DeleteWallsActivity` applies the AppBundle. The AppBundle is defined in   the request body as `"appbundles": [ "<YOUR_NICKNAME>.DeleteWallsApp\ +test" ]`. |
 | `parameters` | The parameters that must be passed to this Activity, when it is executed (via a WorkItem).   You will specify values for these parameters in task 6, at the time you submit a WorkItem to execute this Activity |
 | `engine` | The engine on which your Activity runs. The available engine versions are described in the Additional notes section in   [Task 4](revit-step4-publish-appbundle.md#additional-notes). |
 | `appbundles` | The fully qualified id of the AppBundle that this Activity applies to the input rvt file.   It is currently defined as `[ "<YOUR_NICKNAME>.DeleteWallsApp\ +test" ]` ,   where `<YOUR_NICKNAME>` represents the Client ID of the app the AppBundle `DeleteWallsApp` was uploaded to. |
@@ -191,7 +191,7 @@ curl -X POST \
 
 Show More
 
-**Note:** You can omit `id` from the request body. If you include `id` in the request body, set it to `null`. If you donât set it to `null`, the Automation Service returns an error.
+**Note:** You can omit `id` from the request body. If you include `id` in the request body, set it to `null`. If you don’t set it to `null`, the Automation Service returns an error.
 
 ### Response
 

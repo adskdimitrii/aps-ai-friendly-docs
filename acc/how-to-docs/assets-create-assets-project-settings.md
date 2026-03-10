@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/assets/create-assets-proj
 
 # Setup ACC Assets Project Settings
 
-This tutorial demonstrates how to setup a new Autodesk Construction Cloud projectâs Asset settings. This will include:
+This tutorial demonstrates how to setup a new Autodesk Construction Cloud project’s Asset settings. This will include:
 
 - Creating new categories
 - Creating new status sets with Asset statuses

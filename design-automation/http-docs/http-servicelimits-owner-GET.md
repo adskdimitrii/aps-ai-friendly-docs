@@ -8,7 +8,7 @@ GET
 
 # servicelimits/:owner
 
-Gets a userâs service limit configuration.
+Gets a user’s service limit configuration.
 
 ## [Resource Information](#resource-information)
 
@@ -31,7 +31,7 @@ Gets a userâs service limit configuration.
 
 ## [URI Parameters](#uri-parameters)
 
-| owner   string | The user to fetch the service limit configuration for. It should be âmeâ for the call to succeed. |
+| owner   string | The user to fetch the service limit configuration for. It should be “me” for the call to succeed. |
 | --- | --- |
 
 ### Response

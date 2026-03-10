@@ -28,7 +28,7 @@ Grant type is a request body parameter that refers to the method an application 
 
 *Note: Client Authentication (client_id and client_secret) is supported in either header or body for the above mentioned grant types.*
 
-*Passing client authentication in both header and body results in a â400 Bad Requestâ error in the response body.*
+*Passing client authentication in both header and body results in a “400 Bad Request” error in the response body.*
 
 The following sections describe Grant types for both private and public clients with examples. Choose the appropriate section based on your requirements:
 
@@ -146,16 +146,16 @@ All the error codes for the above sections are listed below:
 
 | 200   OK | Successful request; access token returned. |
 | --- | --- |
-| 400   Invalid Request | The token request must specify a valid âgrant_typeâ. |
-| 400   Invalid Request | The request is missing a required parameter âcodeâ. |
-| 400   Invalid Request | The request is missing a required parameter âredirect_uriâ. |
-| 400   Invalid Request | The request is missing a required parameter âcode_verifierâ. |
+| 400   Invalid Request | The token request must specify a valid ‘grant_type’. |
+| 400   Invalid Request | The request is missing a required parameter ‘code’. |
+| 400   Invalid Request | The request is missing a required parameter ‘redirect_uri’. |
+| 400   Invalid Request | The request is missing a required parameter ‘code_verifier’. |
 | 400   Invalid grant | The authorization code is invalid or has expired. |
 | 400   Invalid grant | PKCE verification failed. |
 | 400   Invalid grant | The grant was issued to another client. |
-| 400   Invalid grant | The âredirect_uriâ is invalid. |
+| 400   Invalid grant | The ‘redirect_uri’ is invalid. |
 | 400   Invalid grant | The scope is invalid. |
-| 400   Invalid Request | The âclient_idâ is not supported in the request body when Authorization headers are present. |
+| 400   Invalid Request | The ‘client_id’ is not supported in the request body when Authorization headers are present. |
 | 401   Invalid credentials | No client credentials found. |
 | 401   Invalid credentials | The client credentials are invalid. |
 | 429   Too Many Requests | Rate limit exceeded; wait some time before retrying. |
@@ -311,12 +311,12 @@ All the error codes for the above sections are listed below:
 
 | 200   OK | Successful request; access token returned. |
 | --- | --- |
-| 400   Invalid Request | The token request must specify a valid âgrant_typeâ. |
-| 400   Invalid Request | The request is missing a required parameter ârefresh_tokenâ. |
+| 400   Invalid Request | The token request must specify a valid ‘grant_type’. |
+| 400   Invalid Request | The request is missing a required parameter ‘refresh_token’. |
 | 400   Invalid grant | The refresh token is invalid or expired. |
 | 400   Invalid scope | The requested scope is invalid, unknown, malformed or exceeds the scope granted by the resource owner. |
 | 400   Invalid grant | The scope is invalid. |
-| 400   Invalid Request | The âclient_idâ is not supported in the request body when Authorization headers are present. |
+| 400   Invalid Request | The ‘client_id’ is not supported in the request body when Authorization headers are present. |
 | 401   Invalid credentials | No client credentials found. |
 | 401   Invalid credentials | The client credentials are invalid. |
 | 429   Too Many Requests | Rate limit exceeded; wait some time before retrying. |
@@ -417,10 +417,10 @@ Show More
 
 | 200   OK | Successful request; access token returned. |
 | --- | --- |
-| 400   Invalid Request | The token request must specify a valid âgrant_typeâ. |
+| 400   Invalid Request | The token request must specify a valid ‘grant_type’. |
 | 400   Invalid grant | The scope is invalid. |
 | 400   Invalid scope | The requested scope is invalid, unknown, malformed or exceeds the scope granted by the resource owner. |
-| 400   Invalid Request | The âclient_idâ is not supported in the request body when Authorization headers are present. |
+| 400   Invalid Request | The ‘client_id’ is not supported in the request body when Authorization headers are present. |
 | 401   Invalid credentials | No client credentials found. |
 | 401   Invalid credentials | The client credentials are invalid. |
 | 429   Too Many Requests | Rate limit exceeded; wait some time before retrying. |

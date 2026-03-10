@@ -85,7 +85,7 @@ Expand all
 
 ### Parameters
 
-| onlyPdfSource*   boolean | Set to true in order to verify that the source file of the model is PDF. Some design files can get extracted to PDFs for example, and in that case, when using the flag, weâll get false as a result. |
+| onlyPdfSource*   boolean | Set to true in order to verify that the source file of the model is PDF. Some design files can get extracted to PDFs for example, and in that case, when using the flag, we’ll get false as a result. |
 | --- | --- |
 
 * Required
@@ -150,7 +150,7 @@ Returns the geometry data.
 
 ## [getDocumentNode()](#getdocumentnode)
 
-Returns an object wrapping the bubble/manifest entry for the loaded geometry. Contains data such as the viewableID, guid, roleâ¦
+Returns an object wrapping the bubble/manifest entry for the loaded geometry. Contains data such as the viewableID, guid, role…
 
 ### Returns
 
@@ -166,7 +166,7 @@ Returns the root of the geometry node graph.
 
 | type | description |
 | --- | --- |
-| object | The root of the geometry node graph. Null if it doesnât exist. |
+| object | The root of the geometry node graph. Null if it doesn’t exist. |
 
 ## [getRootId()](#getrootid)
 
@@ -176,7 +176,7 @@ Returns the root of the geometry node graph.
 
 | type | description |
 | --- | --- |
-| number | The ID of the root or 0 if it doesnât exist. |
+| number | The ID of the root or 0 if it doesn’t exist. |
 
 ## [getUnitData(unit)](#getunitdata-unit)
 
@@ -197,33 +197,33 @@ Returns an object that contains the standard unit string (unitString) and the sc
 
 ## [getUnitScale()](#getunitscale)
 
-Returns the scale factor of modelâs distance unit to meters.
+Returns the scale factor of model’s distance unit to meters.
 
 ### Returns
 
 | type | description |
 | --- | --- |
-| number | The scale factor of the modelâs distance unit to meters or unity if the units arenât known. |
+| number | The scale factor of the model’s distance unit to meters or unity if the units aren’t known. |
 
 ## [getUnitString()](#getunitstring)
 
-Returns a standard string representation of the modelâs distance unit.
+Returns a standard string representation of the model’s distance unit.
 
 ### Returns
 
 | type | description |
 | --- | --- |
-| string | Standard representation of modelâs unit distance or null if it is not known. |
+| string | Standard representation of model’s unit distance or null if it is not known. |
 
 ## [getDisplayUnit()](#getdisplayunit)
 
-Returns a standard string representation of the modelâs display unit.
+Returns a standard string representation of the model’s display unit.
 
 ### Returns
 
 | type | description |
 | --- | --- |
-| string | Standard representation of modelâs display unit or null if it is not known. |
+| string | Standard representation of model’s display unit or null if it is not known. |
 
 ## [getMetadata(itemName, subitemName, defaultValue)](#getmetadata-itemname-subitemname-defaultvalue)
 
@@ -254,7 +254,7 @@ Returns the default camera.
 
 | type | description |
 | --- | --- |
-| boolean | True when the âAECâ loader settings were used when loading the model |
+| boolean | True when the “AEC” loader settings were used when loading the model |
 
 ## [hasPageShadow()](#haspageshadow)
 
@@ -304,7 +304,7 @@ Returns true if the model with all its geometries has loaded.
 
 ### Parameters
 
-| checkTextures   boolean | Ensures that the modelâs textures were completely loaded. |
+| checkTextures   boolean | Ensures that the model’s textures were completely loaded. |
 | --- | --- |
 
 ### Returns
@@ -333,7 +333,7 @@ Returns an instance of [PropertyDatabase Loader](Private-PropDbLoader.md), respo
 
 ## [getPropertyHashes(nameRE, categoryRE)](#getpropertyhashes-namere-categoryre)
 
-Enumerates all attributes (types of properties) used for the given model. If the property database is available, for each property a triple with the propertyâs hash, name, and category is created and added to the result array. In addition, regular expression can be used to filter by name and/or category.
+Enumerates all attributes (types of properties) used for the given model. If the property database is available, for each property a triple with the property’s hash, name, and category is created and added to the result array. In addition, regular expression can be used to filter by name and/or category.
 
 ### Parameters
 
@@ -347,13 +347,13 @@ Enumerates all attributes (types of properties) used for the given model. If the
 
 | type | description |
 | --- | --- |
-| Array | Array with triples of the propertiesâ hashes, names, and categories. |
+| Array | Array with triples of the properties’ hashes, names, and categories. |
 
 ### Examples
 
 ```
  const properties = await model.getPropertyHashes(/category/i);
-// -> Array(8) [ (3) [â¦], (3) [â¦], (3) [â¦], (3) [â¦], (3) [â¦], (3) [â¦], (3) [â¦], (3) [â¦] ]
+// -> Array(8) [ (3) […], (3) […], (3) […], (3) […], (3) […], (3) […], (3) […], (3) […] ]
 //     0: Array(3) [ "p5eddc473", "Category", "__category__" ]
 //     1: Array(3) [ "pa7275c45", "CategoryId", "__categoryId__" ]
 //     2: Array(3) [ "p3ed85946", "Subcategory", "Identity Data" ]
@@ -404,7 +404,7 @@ Expand all
 | dbIds*   Array.<number> | IDs of the nodes to return the properties for. |
 | --- | --- |
 | options*   object, undefined | Dictionary with options. |
-| propFilter   Array.<string> | Array of property names to return values for. Use null for no filtering. Filter applies to ânameâ and âexternalIdâ fields also. |
+| propFilter   Array.<string> | Array of property names to return values for. Use null for no filtering. Filter applies to “name” and “externalId” fields also. |
 | ignoreHidden   boolean | Ignore hidden properties |
 | onSuccessCallback*   function | This method is called when request for property db succeeds. |
 | onErrorCallback*   function | This method is called when request for property db fails. |
@@ -422,7 +422,7 @@ Expand all
 | dbIds*   Array.<int> | IDs of the nodes to return the properties for. |
 | --- | --- |
 | options*   object, undefined | Dictionary with options. |
-| propFilter   Array.<string> | Array of property names to return values for. Use null for no filtering. Filter applies to ânameâ and âexternalIdâ fields also. |
+| propFilter   Array.<string> | Array of property names to return values for. Use null for no filtering. Filter applies to “name” and “externalId” fields also. |
 | categoryFilter   Array.<string> | Array of category names to return values for. Use null for no filtering. |
 | ignoreHidden   boolean | Ignore hidden properties |
 | needsExternalId   boolean | Ensures loading of externalID table if necessary. This may consume a lot of memory. Only use if you really need externalIds. |
@@ -442,7 +442,7 @@ Expand all
 | dbIds*   Array.<int> | IDs of the nodes to return the properties for. |
 | --- | --- |
 | options   Object | Dictionary with options. |
-| propFilter   Array.<string> | Array of property names to return values for. Use null for no filtering. Filter applies to ânameâ and âexternalIdâ fields also. |
+| propFilter   Array.<string> | Array of property names to return values for. Use null for no filtering. Filter applies to “name” and “externalId” fields also. |
 | ignoreHidden   boolean | Ignore hidden properties |
 | needsExternalId   boolean | Ensures loading of externalID table if necessary. This may consume a lot of memory. Only use if you really need externalIds. |
 
@@ -469,7 +469,7 @@ Expand all
 | onSuccessCallback*   function | This method is called when request for property db succeeds. |
 | onErrorCallback*   function | This method is called when request for property db fails. |
 | options   Object | Dictionary with options. |
-| propFilter   Array.<string> | Array of property names to return values for. Use null for no filtering. Filter applies to ânameâ and âexternalIdâ fields also. |
+| propFilter   Array.<string> | Array of property names to return values for. Use null for no filtering. Filter applies to “name” and “externalId” fields also. |
 | ignoreHidden   boolean | Ignore hidden properties |
 | needsExternalId   boolean | Ensures loading of externalID table if necessary. This may consume a lot of memory. Only use if you really need externalIds. |
 

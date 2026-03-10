@@ -337,7 +337,7 @@ Show More
 ## [Step 4: Find the storage location of the item](#step-4-find-the-storage-location-of-the-item)
 
 In the above example, we can see the `House Design.rvt` item listed.
-Make note of the itemâs ID `urn:adsk.wipprod:dm.lineage:6bVr4EVDSaOpykczeQYR2Q`.
+Make note of the item’s ID `urn:adsk.wipprod:dm.lineage:6bVr4EVDSaOpykczeQYR2Q`.
 The [GET projects/:project_id/items/:item_id](../http-docs/http-projects-project_id-items-item_id-GET.md) endpoint provides the storage location of the targeted item.
 
 ### Example
@@ -680,7 +680,7 @@ Please refer to the linked endpoint to read more about expiry of signed URLs
 
 The signed url can be used download the requested file as per the following example.
 
-Note: This download is directly from S3 (or a CDN) and as such doesnât need an âAuthorizationâ header.
+Note: This download is directly from S3 (or a CDN) and as such doesn’t need an ‘Authorization’ header.
 
 ### Example
 
@@ -689,7 +689,7 @@ curl -X GET "https://cdn.us.oss.api.autodesk.com/com.autodesk.oss-persistent/us-
 
 ```
 
-Also, if a header in the format of âRange: bytes=<start>-<end>â is included, the url can be used for multithreaded download.
+Also, if a header in the format of ‘Range: bytes=<start>-<end>’ is included, the url can be used for multithreaded download.
 
 ### Example
 

@@ -42,7 +42,7 @@ Note: The JSON body parameters are all optional, but a JSON body is still requir
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+- projectIdstring The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
 - templateIdstring The unique identifier of the form template. Use [GET form-templates](http-forms-form-templates-GET.md) to retrieve the template ID.
 
 ### Request
@@ -53,11 +53,11 @@ Note: The JSON body parameters are all optional, but a JSON body is still requir
 | --- | --- |
 | assigneeType   enum:string | Type of entity to assign the form to. Possible values: `company`, `role`, `user` |
 | description   string | Text for the form description field. <br>Max length: 8000 |
-| name   string | The name of the form instance. If the specified value is `null` or empty, it defaults to the formâs template name. <br>Max length: 100 |
+| name   string | The name of the form instance. If the specified value is `null` or empty, it defaults to the form’s template name. <br>Max length: 100 |
 | formDate   string | Date the form pertains to, must be after 1950-01-01. |
 | id   string: UUID | The unique identifier of the form. If you do not specify an ID, one will be assigned. |
 | locationId   string: UUID | Location associated with the Form. For more information about the location, see [GET nodes](http-locations-nodes-GET.md). |
-| notes   string | Text for the formâs notes section. <br>Max length: 8000 |
+| notes   string | Text for the form’s notes section. <br>Max length: 8000 |
 | userCreatedAt   datetime: ISO 8601 | Date and time indicating when form was created on the client or external system (optional). |
 
 ### Response
@@ -91,10 +91,10 @@ Expand all
 | locationId   string | Location identifier associated with the form. For more information about the location, see [GET nodes](http-locations-nodes-GET.md). |
 | updatedAt   datetime: ISO 8601 | When form was last updated, UTC date and time in ISO-8601 format. |
 | createdBy   string | The unique identifier of the user who created the form. |
-| notes   string | Text for the formâs notes section. |
-| description   string | Text for the formâs description section. |
+| notes   string | Text for the form’s notes section. |
+| description   string | Text for the form’s description section. |
 | name   string | The name of the form instance. <br>Max length: 100 |
-| formTemplate   object | Information about the formâs template. |
+| formTemplate   object | Information about the form’s template. |
 | status   enum:string | Possible values: `active`, `inactive`, `deleted` |
 | id   string | The unique identifier of the template. |
 | projectId   string | Unique indentifier of the project the template belongs to. |
@@ -103,7 +103,7 @@ Expand all
 | pdfValues   array: object | For PDF forms, values extracted from fields in the PDF. |
 | name   string | The name of the PDF field. |
 | value   string | The value of the PDF field. |
-| pdfUrl   string | For PDF forms, the URL to download the formâs PDF. |
+| pdfUrl   string | For PDF forms, the URL to download the form’s PDF. |
 | weather   object | Weather forecast captured on the form. |
 | summaryKey   string | A code describing the the weather (e.g. Clear, PartlyCloudy). |
 | precipitationAccumulation   number | Amount of precipitation accumulated throughout the day. |
@@ -131,7 +131,7 @@ Expand all
 | worklogEntries   array: object | Entries associated with work log table in a Form. |
 | id   string | Unique identifier for the work log row. |
 | deleted   boolean | Indicates if the work log row has been deleted. |
-| trade   string | A text field indicating the workerâs trade. |
+| trade   string | A text field indicating the worker’s trade. |
 | timespan   int | Total duration of work performed (in milliseconds). |
 | headcount   int | Number of workers. |
 | description   string | A text description of the work performed. |
@@ -152,7 +152,7 @@ Expand all
 | customValues   array: object | For non-PDF forms, data stored in the form fields. |
 | fieldId   string | The unique identifier of the field. |
 | sectionLabel   string | Name of the section containing this field. |
-| itemLabel   string | The fieldâs label or question text. |
+| itemLabel   string | The field’s label or question text. |
 | valueName   enum:string | Indicates the type of value used for this item. Possible values: `textVal`, `toggleVal`, `arrayVal`, `numberVal`, `choiceVal`, `dateVal`, `svgVal` |
 | toggleVal   enum:string | A boolean like enum value. Possible values: `Yes`, `No`, `False`, `True`, `Minus`, `Plus`, `Fail`, `Pass`, `NA` |
 | textVal   string | A text value. |
@@ -161,7 +161,7 @@ Expand all
 | choiceVal   string | A single select value. |
 | dateVal   string | A date value. |
 | svgVal   string | A signature value (base64 encoded SVG). |
-| notes   string | Text for the fieldâs notes section. <br>Max length: 8000 |
+| notes   string | Text for the field’s notes section. <br>Max length: 8000 |
 | lastReopenedBy   string | Unique identifier for the user that last re-opened the Form (if applicable). |
 | lastSubmitterSignature   string | Signature of the reviewer who last submitted the Form (if applicable). Signature value (base64 encoded SVG). |
 | userCreatedAt   datetime: ISO 8601 | When form was created on the client, UTC date and time in ISO-8601 format. |

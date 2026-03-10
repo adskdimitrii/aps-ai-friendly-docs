@@ -10,7 +10,7 @@ Autodesk.Viewing.UI
 
 ## [new ObjectContextMenu(viewer)](#new-objectcontextmenu-viewer)
 
-Context Menu object is the base class for the viewerâs context menus.
+Context Menu object is the base class for the viewer’s context menus.
 
 ### Parameters
 

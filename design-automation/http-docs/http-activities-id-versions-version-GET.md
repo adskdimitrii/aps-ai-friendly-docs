@@ -39,7 +39,7 @@ Gets the details of the specified version of the Activity.
 
 ## [HTTP Status Code Summary](#http-status-code-summary)
 
-| 200   OK | Successfully get the details of an Activityâs version. |
+| 200   OK | Successfully get the details of an Activity’s version. |
 | --- | --- |
 | 403   Forbidden | Unauthorized |
 | 404   Not Found | Could not find the item. |
@@ -56,10 +56,10 @@ Expand all
 - *object Type: dictionary<string, [*](#id3)>
 - zipboolean This attribute together with the XrefTreeArgumentBase.PathInZip attribute determine how zip files are handled.
 Default is false.
-For onDemand=âtrueâ the Zip file is just downloaded, not unzipped.
+For onDemand=’true’ the Zip file is just downloaded, not unzipped.
 - localNamestring Provides default name of the file or folder on the processing server for this parameter. Note this name may be overriden in various ways.
 - ondemandboolean The parameter will be accessed by the appbundle on demand and should not be used by the system. Default is false.
-When onDemand=âtrueâ, the next parameterâs âverbâs only valid values are `get` or `head`.
+When onDemand=’true’, the next parameter’s ‘verb’s only valid values are `get` or `head`.
 - verbenum:string Defines the operation for a parameter. get, put, post, patch imply an HTTP operation on the url in the parameter. read implies that the string value of parameter should be read. get and read imply input parameters all others are output.
 Possible values: `get`, `head`, `put`, `post`, `patch`, `read`
 - descriptionstring The description of the parameter.
@@ -78,17 +78,17 @@ Possible values: `get`, `head`, `put`, `post`, `patch`, `read`
 - *string Type: dictionary<string, [*](#id7)>
 - verbenum:string Defines the operation for a parameter. get, put, post, patch imply an HTTP operation on the url in the parameter. read implies that the string value of parameter should be read. get and read imply input parameters all others are output.
 Possible values: `get`, `head`, `put`, `post`, `patch`, `read`
-- multipartsobject Provide [multipart post](http://hc.apache.org/httpclient-3.x/methods/multipartpost.html) method to upload the results and multiparts can be empty if there is no âparameterâ to provide. It supports [Box](https://developer.box.com/reference#upload), [Google Drive](https://developers.google.com/drive/api/v3/manage-uploads#multipart) and [Amazon Simple Storage Service (S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html) services.Examples of using argument âmultipartsâ:Box:
+- multipartsobject Provide [multipart post](http://hc.apache.org/httpclient-3.x/methods/multipartpost.html) method to upload the results and multiparts can be empty if there is no “parameter” to provide. It supports [Box](https://developer.box.com/reference#upload), [Google Drive](https://developers.google.com/drive/api/v3/manage-uploads#multipart) and [Amazon Simple Storage Service (S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html) services.Examples of using argument “multiparts”:Box:
 
-| âmultipartsâ: | {âattributesâ: {ânameâ: âresult.txtâ, âparentâ: {âidâ: âxxxxxâ}}, âmydataâ: âxxxxxâ} |
+| “multiparts”: | {“attributes”: {“name”: “result.txt”, “parent”: {“id”: “xxxxx”}}, “mydata”: “xxxxx”} |
 | --- | --- |
 Google Drive:
 
-| âmultipartsâ: | {âkeysâ: {ânameâ: âresult.txtâ, âparentâ :[âxxxxxâ]}} |
+| “multiparts”: | {“keys”: {“name”: “result.txt”, “parent” :[“xxxxx”]}} |
 | --- | --- |
 Amazon Simple Storage Service (S3):
 
-| âmultipartsâ: | {âkeyâ: âresult.txtâ, âpolicyâ: âxxxxxâ, âx-amz-signatureâ: âxxxxxâ, âx-amz-credentialâ: âxxxxxâ, âx-amz-algorithmâ: âAWS4-HMAC-SHA256â, âx-amz-dateâ: â20190820T000000Zâ, âbucketâ: âxxxxxâ} |
+| “multiparts”: | {“key”: “result.txt”, “policy”: “xxxxx”, “x-amz-signature”: “xxxxx”, “x-amz-credential”: “xxxxx”, “x-amz-algorithm”: “AWS4-HMAC-SHA256”, “x-amz-date”: “20190820T000000Z”, “bucket”: “xxxxx”} |
 | --- | --- |
 - *object Type: dictionary<string, [*](#id9)>
 - descriptionstring Human readable description of the object.
@@ -96,7 +96,7 @@ Amazon Simple Storage Service (S3):
 
 ## [Example](#example)
 
-Successfully get the details of an Activityâs version.
+Successfully get the details of an Activity’s version.
 
 ### Request
 

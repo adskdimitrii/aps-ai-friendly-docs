@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/advanced_opt
 
 # Customizing Your Edit2D Instance
 
-Edit2D defines several defaults when you run it. In the [Setting Up Edit2D](advanced_options-edit2d-setup.md) tutorial, you looked at an application that runs some of those defaults, including Edit2Dâs default toolset and context. There are several ways to customize Edit2D behavior. This tutorial covers some of them.
+Edit2D defines several defaults when you run it. In the [Setting Up Edit2D](advanced_options-edit2d-setup.md) tutorial, you looked at an application that runs some of those defaults, including Edit2D’s default toolset and context. There are several ways to customize Edit2D behavior. This tutorial covers some of them.
 
 This tutorial shows you ho to:
 
@@ -20,7 +20,7 @@ Before completing this tutorial, you should be familiar with how to set up and u
 
 ## [Step 1: Customize Units](#step-1-customize-units)
 
-By default, Edit2Dâs unit handling is configured the same way as the `Measure` extension in Viewer SDK. If the `Measure` extension is not available, values are displayed 1:1 in layer coordinates without units.
+By default, Edit2D’s unit handling is configured the same way as the `Measure` extension in Viewer SDK. If the `Measure` extension is not available, values are displayed 1:1 in layer coordinates without units.
 
 Edit2D sets the default formatting for label text using `DefaultUnitHandler`. `Default Unit Handler` defines how to translate measurements in layers to the text displayed in labels. This includes:
 - The name of the unit
@@ -49,14 +49,14 @@ In the previous tutorial, we set up Edit2D with the default toolset, using the `
 
 It is usually sufficient to use the default toolset, as long as you can be sure that you are the only one who is using Edit2D within your application. However, Edit2D can also be used by different software components within the same application. This may happen, for example, if Edit2D is used in another Viewer extension. In this case, it would produce conflicts if different components are all accessing the same tools and EditLayer.
 
-You can avoid conflicts by registering your own toolset. First, youâll want to register your tool, giving your toolset a name unique for your application.
+You can avoid conflicts by registering your own toolset. First, you’ll want to register your tool, giving your toolset a name unique for your application.
 
 ```
 edit2d.registerTools(MyToolSetName);
 
 ```
 
-Once youâve registered your tools, you need to define your toolset, context, and tools.
+Once you’ve registered your tools, you need to define your toolset, context, and tools.
 
 ```
 const toolSet = edit2d.getToolSet(MyToolSetName);
@@ -67,7 +67,7 @@ const tools   = toolSet.tools;
 
 ## [Step 3: Customize Context Menu](#step-3-customize-context-menu)
 
-When you load Edit2Dâs default toolset, it automatically registers a context menu with features such `addVertex` and `removeVertex`. You can add application-specific items by registering a `contextMenuCallback`. You need to register the callback after updating the Edit2D context menu. This is because the Edit2D context menu replaces Viewer SDKâs default context menu when your user hits an an Edit2D shape.
+When you load Edit2D’s default toolset, it automatically registers a context menu with features such `addVertex` and `removeVertex`. You can add application-specific items by registering a `contextMenuCallback`. You need to register the callback after updating the Edit2D context menu. This is because the Edit2D context menu replaces Viewer SDK’s default context menu when your user hits an an Edit2D shape.
 
 ```
 const myItem = {
@@ -131,7 +131,7 @@ Note: The style parameter may either be the original polygon style or the style 
 
 ## [Step 5: Add More Layers](#step-5-add-more-layers)
 
-When you register your tools, Edit2D creates a single `EditLayer` for your tools to work onâ`context.layer`â and a second one for temporary overlaysâ`context.gizmoLayer`. You can add additional layers to the default setup.
+When you register your tools, Edit2D creates a single `EditLayer` for your tools to work on–`context.layer`– and a second one for temporary overlays–`context.gizmoLayer`. You can add additional layers to the default setup.
 
 ```
 // Create new layer
@@ -139,7 +139,7 @@ const anotherLayer = new Autodesk.Edit2d.EditLayer(viewer);
 
 ```
 
-Once youâve created the layer, you can choose how to display it. By default, additional layers are represented as overlays.
+Once you’ve created the layer, you can choose how to display it. By default, additional layers are represented as overlays.
 
 ```
 this.viewer.impl.addOverlay(OverlayName, layer.scene)
@@ -148,9 +148,9 @@ this.viewer.impl.addOverlay(OverlayName, layer.scene)
 
 More generally, `layer.scene` is a `Three.Scene` with triangulated shapes that you can use in whatever way you want.
 
-## [Whatâs Next?](#what-s-next)
+## [What’s Next?](#what-s-next)
 
-Now that youâve learned how to customize Edit2D, check out these tutorials:
+Now that you’ve learned how to customize Edit2D, check out these tutorials:
 
 - [Using the Edit2D Toolset](advanced_options-edit2d-use.md)
 - [Drawing Edit2D Shapes Manually](advanced_options-edit2d-manual.md)

@@ -18,7 +18,7 @@ The Authentication service sets a separate rate limit for each application makin
 
 ### Violation Notification
 
-If an application exceeds an endpointâs rate limit, the Authentication service returns an `HTTP 429` error (Refer to Notification section of Rate Limits in [APS Rate Limits and Quotas](https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/forge-rate-limits/)).
+If an application exceeds an endpoint’s rate limit, the Authentication service returns an `HTTP 429` error (Refer to Notification section of Rate Limits in [APS Rate Limits and Quotas](https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/forge-rate-limits/)).
 
 ### Endpoint Rate Limits
 

@@ -30,12 +30,12 @@ We recommend using the [GET buckets/:bucketKey/objects/:objectKey/signeds3downlo
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
+| Authorization*   string | Must be “Bearer `<token>`”, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
 | --- | --- |
 | Range   byte range | A range of bytes to download from the specified object. |
 | If-None-Match   string | The value of this header is compared to the ETAG of the object. If they match, the body will not be included in the response. Only the object information will be included. |
 | If-Modified-Since   HTTP date | If the requested object has not been modified since the time specified in this field, an entity will not be returned from the server; instead, a `304` (not modified) response will be returned without any message-body. |
-| Accept-Encoding   string | When gzip is specified, a gzip compressed stream of the objectâs bytes will be returned in the response. Cannot use âAccept-Encoding:gzipâ with Range header containing an end byte range. End byte range will not be honored if âAccept-Encoding: gzipâ header is used. |
+| Accept-Encoding   string | When gzip is specified, a gzip compressed stream of the object’s bytes will be returned in the response. Cannot use “Accept-Encoding:gzip” with Range header containing an end byte range. End byte range will not be honored if “Accept-Encoding: gzip” header is used. |
 
 * Required
 
@@ -56,7 +56,7 @@ We recommend using the [GET buckets/:bucketKey/objects/:objectKey/signeds3downlo
 | 200   SUCCESS |  |
 | --- | --- |
 | 206   PARTIAL CONTENT | The server is delivering only part of the resource due to a range header sent by the client. |
-| 304   NOT MODIFIED | If using the If-None-Match header on the request and it matches the objectâs ETAG, no content will be sent. Or, if using If-Modified-Since header and the object has not been modified since the time specified, no content will be sent. |
+| 304   NOT MODIFIED | If using the If-None-Match header on the request and it matches the object’s ETAG, no content will be sent. Or, if using If-Modified-Since header and the object has not been modified since the time specified, no content will be sent. |
 | 401   AUTHORIZATION FAILURE | The OAuth2 token being used is not present or is invalid. |
 | 403   ACCESS DENIED | The calling service or client application does not have sufficient privileges to download the object from this bucket. |
 | 404   NOT FOUND | The bucket key / object key combination was not found |

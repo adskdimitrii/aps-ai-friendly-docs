@@ -31,7 +31,7 @@ Note that a default tracking item instance is automatically generated when a tra
 | Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
-| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.<br>To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
+| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.<br>To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
 
 * Required
 
@@ -100,11 +100,11 @@ The tracking item instance
 | trackedInputQuantity   number,null | The reported hours worked so far on the tracking item instance. |
 | trackedOutputQuantity   number,null | The reported quantity of material used so far on the tracking item instance |
 | adjustedOutputQuantity   number,null | The overriding output quantity that you specified to reflect a change (if any) in the scope of the tracking item instance. This value will be used instead of the value of `outputQuantity` in future performance tracking and forecasting for this tracking item instance. |
-| performanceRatio   number,null | The tracking item instanceâs planned productivity rate (`inputQuantity`/`outputQuantity`) divided by its tracked productivity rate (`trackedInputQuantity`/`trackedOutputQuantity`). |
+| performanceRatio   number,null | The tracking item instance’s planned productivity rate (`inputQuantity`/`outputQuantity`) divided by its tracked productivity rate (`trackedInputQuantity`/`trackedOutputQuantity`). |
 | creatorId   string,null | The BIM 360/ACC ID of the user who created the tracking item instance. |
 | changedBy   string,null | The BIM 360/ACC ID of the user who made the last change to the tracking item instance. |
 | locations   array,null | A list of the IDs of the project locations where this item applies. <br>For more information, see the Locations [Help documentation](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/locations-nodes-GET/) help. |
-| locationPaths   array,null | A list of the IDs of the project locations where this item applies, along with the node paths of these locations in the projectâs locations tree. <br>For more information, see the Locations [Help documentation](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/locations-nodes-GET/) help. |
+| locationPaths   array,null | A list of the IDs of the project locations where this item applies, along with the node paths of these locations in the project’s locations tree. <br>For more information, see the Locations [Help documentation](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/locations-nodes-GET/) help. |
 | createdAt   datetime: ISO 8601 | The date and time that the item was created, in ISO 8601 format. |
 | updatedAt   datetime: ISO 8601 | The date and time that the item was last updated, in ISO 8601 format. |
 

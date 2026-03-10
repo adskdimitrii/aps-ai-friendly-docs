@@ -42,7 +42,7 @@ Similarly, for BIM 360 Docs, the project ID in the Data Management API correspon
 
 | hub_id   string | The unique identifier of a hub. |
 | --- | --- |
-| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a â**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
+| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a “**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
 
 ### Response
 
@@ -73,11 +73,11 @@ Expand all
 | name   string | Displayable name of the project. |
 | scopes   array: string | The array of scopes applicable to this project. |
 | extension   object | The extension object of the data. |
-| type   string | The type of the schema that the resourceâs data object adheres to. |
+| type   string | The type of the schema that the resource’s data object adheres to. |
 | version   string | The version of the schema that the data is adhering to. |
 | schema   object | An object containing an API link property. |
 | href   string | A hyperlink reference to this resource. |
-| data   object | Additional properties that the resourceâs data possesses. Note that the types of properties in the `data` object changes according to the resource type. |
+| data   object | Additional properties that the resource’s data possesses. Note that the types of properties in the `data` object changes according to the resource type. |
 | projectType   string | The type of project. Only relevant for BIM 360 and ACC projects. Possible values: `BIM360`, `ACC`. |
 | relationships   object | The resources that share a relationship with this project. |
 | hub   object | Information on resources that are found above this resource. |

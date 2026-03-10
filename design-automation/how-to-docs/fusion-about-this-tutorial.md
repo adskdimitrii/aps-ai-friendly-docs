@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/fusion/a
 
 # About this Walkthrough
 
-This walkthrough guides you through the process of loading a Fusion add-in and working with a Fusion file. It doesnât teach you how to create Fusion add-ins. Instead, it points you to resources that can teach you how to create them (See [Task 3](fusion-task3-upload-appbundle.md)).
+This walkthrough guides you through the process of loading a Fusion add-in and working with a Fusion file. It doesn’t teach you how to create Fusion add-ins. Instead, it points you to resources that can teach you how to create them (See [Task 3](fusion-task3-upload-appbundle.md)).
 
 This walkthrough uses [cURL](https://curl.haxx.se/) to send HTTP requests to APS. cURL is able to clearly show request and response information. It, however, is not the best tool to demonstrate a workflow by sending a series of HTTP requests to APS.
 We have hence provided a Postman based walkthrough to make it easier for you to send requests to APS.

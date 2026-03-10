@@ -12,7 +12,7 @@ This callback is displayed as a global member.
 
 ## [Parameters](#parameters)
 
-| key*   string | string with a propertyâs name and category separated by â/â |
+| key*   string | string with a property’s name and category separated by ‘/’ |
 | --- | --- |
 | properties*   Array.<Object> | an array of property objects associated with the key |
 

@@ -1,10 +1,10 @@
-# Task 4 â Display the Model in the Viewer
+# Task 4 – Display the Model in the Viewer
 
 Source: https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-file4viewer/task4-display_model/
 
 ---
 
-# Task 4 â Display the Model in the Viewer
+# Task 4 – Display the Model in the Viewer
 
 To display the SVF2 file you generated, you can create an HTML page and embed the source file URN in it (Option 1 below). Alternatively, you enter the source file URN in an HTML page we have already created for you (Option 2).
 

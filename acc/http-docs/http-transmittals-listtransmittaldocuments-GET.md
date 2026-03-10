@@ -53,7 +53,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 | limit   int | The maximum number of results to return per page. <br>Acceptable values: 1-200.<br>Default value: 20.<br>For example, to limit the response to two results per page, use `limit=2`. |
 | --- | --- |
 | offset   int | The index from which the response starts returning results. <br>Default value: 0.<br>For example, to skip the first three results, use `offset=3`. |
-| sort   enum:string | Sorts the document results by a supported field and order. <br>By default, results are sorted in ascending order by `name` (`name asc`).<br>To sort in descending order, add `desc` after the field name.<br>Format: `sort=<field> [asc or desc]`<br>Possible values: `name`, `title`, `version`, `lastUpdatedAt`, `updatedByName`.<br>Examples:<br>`sort=name asc` â sorts documents alphabetically by name.`sort=lastUpdatedAt desc` â sorts documents by last update time (newest first). |
+| sort   enum:string | Sorts the document results by a supported field and order. <br>By default, results are sorted in ascending order by `name` (`name asc`).<br>To sort in descending order, add `desc` after the field name.<br>Format: `sort=<field> [asc or desc]`<br>Possible values: `name`, `title`, `version`, `lastUpdatedAt`, `updatedByName`.<br>Examples:<br>`sort=name asc` – sorts documents alphabetically by name.`sort=lastUpdatedAt desc` – sorts documents by last update time (newest first). |
 
 ### Response
 
@@ -88,7 +88,7 @@ Expand all
 | lastUpdatedAt   datetime: ISO 8601 | The date and time when the file was last updated, in ISO 8601 format. |
 | updatedByName   string | The name of the user who last modified the document. |
 | updatedBy   string | The Autodesk ID of the user who created the file. For details about the user, call [GET user](http-admin-projectsprojectId-users-userId-GET.md). |
-| isDeleted   boolean | Indicates whether the file is deleted. <br>`true` â The file is deleted, either directly or because its parent folder was deleted.<br>`false` â The file is not deleted. |
+| isDeleted   boolean | Indicates whether the file is deleted. <br>`true` – The file is deleted, either directly or because its parent folder was deleted.<br>`false` – The file is not deleted. |
 | parentFolderUrn   string | The URN of the folder that contains the document. |
 | folderType   string | The type of folder that contains the document. |
 | revisionLabel   string | The revision label assigned to the document. |

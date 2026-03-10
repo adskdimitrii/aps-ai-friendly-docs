@@ -17,7 +17,7 @@ To publish the latest model, you need to first:
 
 You can verify whether a model needs to be published with the [GetPublishModelJob](http-GetPublishModelJob.md) command.
 
-Note that this command is asynchronous and initiates a job that runs in the background, rather than halting execution of your program. When the model has finished publishing to BIM 360 Docs, a new version of the model is created. You can track the jobâs progress by using the [GET projects/:project_id/items/:item_id](http-projects-project_id-items-item_id-GET.md) endpoint, or the [Webhooks](https://aps.autodesk.com/en/docs/webhooks/v1/overview/) API.
+Note that this command is asynchronous and initiates a job that runs in the background, rather than halting execution of your program. When the model has finished publishing to BIM 360 Docs, a new version of the model is created. You can track the job’s progress by using the [GET projects/:project_id/items/:item_id](http-projects-project_id-items-item_id-GET.md) endpoint, or the [Webhooks](https://aps.autodesk.com/en/docs/webhooks/v1/overview/) API.
 
 For more details about the workflow for using the PublishModel command, see the [Publish a C4R Model to BIM 360 Docs](../how-to-docs/publish-model.md) tutorial.
 
@@ -53,7 +53,7 @@ Note that for a three-legged OAuth flow or for a two-legged OAuth flow with user
 
 ## [URI Parameters](#uri-parameters)
 
-| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a â**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
+| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a “**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
 | --- | --- |
 
 ### Request

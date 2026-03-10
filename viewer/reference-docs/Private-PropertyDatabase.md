@@ -8,15 +8,15 @@ Autodesk.Viewing.Private
 
 # PropertyDatabase
 
-The Property Database contains property information for each part of a model. The data is read-only, since it has been packed to optimize memory footprint. Itâs implemented as an Entity-Atribute-Value (EAV) set of tables. LMV keeps the PropertyDatabase in a browser worker thread to prevent compute-intensive methods to block the main browser UI thread. Words âAttributeâ and âPropertyâ are use interchangeably.
+The Property Database contains property information for each part of a model. The data is read-only, since it has been packed to optimize memory footprint. It’s implemented as an Entity-Atribute-Value (EAV) set of tables. LMV keeps the PropertyDatabase in a browser worker thread to prevent compute-intensive methods to block the main browser UI thread. Words “Attribute” and “Property” are use interchangeably.
 
 ## [new PropertyDatabase(dbjsons, fileType)](#new-propertydatabase-dbjsons-filetype)
 
 ### Parameters
 
-| dbjsons*   object | is expected to be of the form {{ attrs: {filename1:x, filename2:y}, ids: {filename1:xâ¦ }, values: {â¦ }, offsets: {â¦ }, avs: {â¦ } } where each of the elements of each array is a pair of the original name and the unzipped raw byte array buffer corresponding to the respective property database constituent. In the current implementation each array is expected to only have one name-value element. |
+| dbjsons*   object | is expected to be of the form {{ attrs: {filename1:x, filename2:y}, ids: {filename1:x… }, values: {… }, offsets: {… }, avs: {… } } where each of the elements of each array is a pair of the original name and the unzipped raw byte array buffer corresponding to the respective property database constituent. In the current implementation each array is expected to only have one name-value element. |
 | --- | --- |
-| fileType*   string | Optional file type (ârvtâ, âdwgâ, etc.) for applying file-specific naming logic |
+| fileType*   string | Optional file type (‘rvt’, ‘dwg’, etc.) for applying file-specific naming logic |
 
 * Required
 
@@ -73,7 +73,7 @@ Obtains all properties for a given database id.
 
 ## [getExternalIdMapping(extIdFilter)](#getexternalidmapping-extidfilter)
 
-Obtains a map between each database id (dbId) and their corresponding external-id. The external-id is the identifier used by the source file. Example: A translated Revit file has a wall with dbId=1, but in Revit (desktop application) the identifier of that wall is âWall-06-some-guid-hereâ.
+Obtains a map between each database id (dbId) and their corresponding external-id. The external-id is the identifier used by the source file. Example: A translated Revit file has a wall with dbId=1, but in Revit (desktop application) the identifier of that wall is “Wall-06-some-guid-here”.
 
 ### Parameters
 
@@ -110,7 +110,7 @@ Given a property name, it returns an array of ids that contain it.
 
 ## [getLayerToNodeIdMapping()](#getlayertonodeidmapping)
 
-Specialized function that returns: { âlayer-name-1â: [id1, id2, â¦, idN], âlayer-name-2â: [idX, idY, â¦, idZ], â¦ }
+Specialized function that returns: { ‘layer-name-1’: [id1, id2, …, idN], ‘layer-name-2’: [idX, idY, …, idZ], … }
 
 ## [getAttributeDef(attrId)](#getattributedef-attrid)
 
@@ -174,7 +174,7 @@ Given an object ID, returns the corresponding value IDs for the given list of at
 
 | dbId*   number | Integer input object ID |
 | --- | --- |
-| desiredAttrIds*   object | An optional map of the requested attribute Ids, where desiredAttrIds[attrId] is âtruthyâ. If not provided, all properties will be returned. |
+| desiredAttrIds*   object | An optional map of the requested attribute Ids, where desiredAttrIds[attrId] is “truthy”. If not provided, all properties will be returned. |
 | dstValIds*   object | A storage target map, such that dstValIds[attrId] will be the resulting value ID. It is the responsibility of the caller to zero initialize this map. |
 
 * Required

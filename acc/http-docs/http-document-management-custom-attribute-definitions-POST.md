@@ -37,7 +37,7 @@ Adds a custom attribute to a folder.
 
 ## [URI Parameters](#uri-parameters)
 
-| project_id   string: UUID | The ID of the project. This corresponds to the project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API to a project ID in the BIM 360 API you need to remove the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| project_id   string: UUID | The ID of the project. This corresponds to the project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API to a project ID in the BIM 360 API you need to remove the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 | folder_id   string | The URL-encoded ID (URN) of the folder. <br>For details about how to find the URN, follow the initial steps (1-3) of the [Download Files](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/document-management/download-document-s3/) tutorial. |
 

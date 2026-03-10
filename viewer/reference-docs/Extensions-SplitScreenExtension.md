@@ -23,7 +23,7 @@ Limitations: Most core features of LMV keep working (2D/3D render, mouse-over, s
 - All canvases must use the same camera. Overcoming this requires to introduce a separate scene graph evaluation too.
 - Subcanvas configuration is currently limited to subcanvases with the same aspect ratio. Extending that will (among others) require support for separate cameras.
 - ZoomToolExtension, SectionTool, and Measure tool are disabled SplitScreen (we hide the UI)
-- GroundShadow is supported, but doesnât apply model filter yet when refreshing the shadow
+- GroundShadow is supported, but doesn’t apply model filter yet when refreshing the shadow
 - GroundReflection in SplitScreen is not supported yet.
 - We currently use only a single background for both. This is hardly noticeable for discreet backgrounds like the AEC default or fixed colors, but may disturb when using more detailed environments.
 
@@ -50,6 +50,6 @@ function(id) { return id === 1; },
 function(id) { return id !== 1; }
 ]
 };
-viewer.loadExtension(âAutodesk.SplitScreenâ, options);
+viewer.loadExtension(‘Autodesk.SplitScreen’, options);
 
 ---

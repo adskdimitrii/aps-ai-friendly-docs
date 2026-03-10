@@ -10,7 +10,7 @@ GET
 
 # JWKS
 
-Retrieves the list of public keys in the JWKS format (JSON Web Key Set). A public key is used to validate the asymmetric JWT signature of an OAuth 2.0 access token by an authorizing end user in both two-legged & three-legged context. From the list of keys returned in the response, identify the key to be used to validate a given token using the tokenâs kid (key ID) parameter.
+Retrieves the list of public keys in the JWKS format (JSON Web Key Set). A public key is used to validate the asymmetric JWT signature of an OAuth 2.0 access token by an authorizing end user in both two-legged & three-legged context. From the list of keys returned in the response, identify the key to be used to validate a given token using the token’s kid (key ID) parameter.
 
 Note: Refer to [asymmetric JWT encryption](../developers-guide-docs/asymmetric-encryption.md), [key rotation](../developers-guide-docs/asymmetric-encryption.md#key-rotation) and [validate access token](../developers-guide-docs/asymmetric-encryption.md#validate-access-token) for more information.
 
@@ -37,7 +37,7 @@ The response body for a successful call is a flat JSON object with the following
 
 | kid   string | Key ID |
 | --- | --- |
-| kty   string | Cryptographic algorithm family for the certificateâs Key pair. Valid Value: `RSA` |
+| kty   string | Cryptographic algorithm family for the certificate’s Key pair. Valid Value: `RSA` |
 | use   string | The use of the key. Valid Value: `sig` |
 | n   string | RSA modulus value |
 | e   string | RSA exponent value |

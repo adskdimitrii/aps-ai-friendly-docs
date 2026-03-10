@@ -8,7 +8,7 @@ Source: https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/App-types/App
 
 This guide describes three types of applications, and their corresponding grant types, that you can register with APS using the **Create App** window in the APS developer portal.
 
-In OAuth 2.0, a *grant type* â sometimes called a *grant flow* â refers to the method by which an application can obtain an *access token*. Using this method, the application is granted limited access to resources such as a service or data, without exposing credentials.
+In OAuth 2.0, a *grant type* — sometimes called a *grant flow* — refers to the method by which an application can obtain an *access token*. Using this method, the application is granted limited access to resources such as a service or data, without exposing credentials.
 
 Based on the needs of your application, some grant types are more appropriate than others. This guide describes the grant type that is best suited to the type of application you are creating.
 

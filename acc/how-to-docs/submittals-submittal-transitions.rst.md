@@ -7,7 +7,7 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/submittals/submittal-tran
 # Manage Submittal Item Transitions
 
 This tutorial demonstrates how to transition submittal items through the submittal lifecycle for an Autodesk Construction Cloud (ACC) project.
-The steps include verifying the userâs permissions and transitioning the submittal item to different states.
+The steps include verifying the user’s permissions and transitioning the submittal item to different states.
 
 For more information about working with submittals, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Create_Submittal).
 
@@ -436,7 +436,7 @@ To promote the submittal item in the workflow and transition it from Submit (`sb
 Use the following mandatory values collected in Step 1:
 
 - `stateId`: The target state ID (`mgr-1`).
-- `manager`: The assigned managerâs ID (`MFEGJ9W5GGQL`).
+- `manager`: The assigned manager’s ID (`MFEGJ9W5GGQL`).
 - `managerType`: The type of manager (`1`).
 
 ### Request
@@ -1322,9 +1322,9 @@ Note the `stateId` which is now in the Review (`rev`) state.
 
 Once transitioned to the Review (`rev`) state, the first review step and task will start and become `in-progress`.
 
-In submittals, a task represents a specific review action within a step. Each task corresponds to a review being carried out, with details about the assigned reviewer provided for context. The main objective of this step is to retrieve the Step ID and Task ID required to perform actions in later steps (e.g., submitting the reviewerâs review in Step 7).
+In submittals, a task represents a specific review action within a step. Each task corresponds to a review being carried out, with details about the assigned reviewer provided for context. The main objective of this step is to retrieve the Step ID and Task ID required to perform actions in later steps (e.g., submitting the reviewer’s review in Step 7).
 
-Additionally, the API identifies `Task::close` in the `permittedActions` array, defining the allowed action for submitting the reviewerâs review. This action requires specific fields, such as `responseId`, to be provided in [POST task/:id:close](../http-docs/http-submittals-tasks-taskIdclose-POST.md), ensuring the review is submitted and the workflow progresses.
+Additionally, the API identifies `Task::close` in the `permittedActions` array, defining the allowed action for submitting the reviewer’s review. This action requires specific fields, such as `responseId`, to be provided in [POST task/:id:close](../http-docs/http-submittals-tasks-taskIdclose-POST.md), ensuring the review is submitted and the workflow progresses.
 
 ### Request
 
@@ -1502,8 +1502,8 @@ Note the following:
 
 - Step ID (`results.id`): `e00a643d-e862-4be1-a6a3-aaa6acb118f0` - identifies the review step.
 - Task ID (`results.tasks.id`): `00369989-8bf3-4ed2-beaf-99352393688c` - identifies the active task for the review.
-- Mandatory Fields for Task Closure: Within the `permittedActions` array, locate the object with `id: "Task::close"`. The `mandatoryFields` property of this object lists the required fields. For example, `responseId` is required to submit the reviewerâs review.
-- `Task::close` Action: This action allows the reviewer to submit their review, transitioning the taskâs status from `in-progress` to `completed` within the review workflow. The `responseId` field is mandatory for this action, as described in Step 7.
+- Mandatory Fields for Task Closure: Within the `permittedActions` array, locate the object with `id: "Task::close"`. The `mandatoryFields` property of this object lists the required fields. For example, `responseId` is required to submit the reviewer’s review.
+- `Task::close` Action: This action allows the reviewer to submit their review, transitioning the task’s status from `in-progress` to `completed` within the review workflow. The `responseId` field is mandatory for this action, as described in Step 7.
 - Assigned Reviewer (`results.tasks.assignedTo`): The `assignedTo` field (`MFEGJ9W5GGQL`) provides the user ID of the reviewer.
 
 ## [Step 6: Retrieve the List of Possible Responses](#step-6-retrieve-the-list-of-possible-responses)
@@ -1607,7 +1607,7 @@ Show More
 
 Select the appropriate Response ID (`results.id`) to complete the review in the next step. For example, `38ffb07d-d734-4aa6-bbf4-cb121c56972f` for `Approved`.
 
-## [Step 7: Submit the Reviewerâs Review](#step-7-submit-the-reviewers-review)
+## [Step 7: Submit the Reviewer’s Review](#step-7-submit-the-reviewers-review)
 
 The reviewer submits a review by adding the selected response using [POST task/:id:close](../http-docs/http-submittals-tasks-taskIdclose-POST.md).
 
@@ -1682,7 +1682,7 @@ Note that the `status` field in the Task model is now updated to `completed`, in
 
 After each reviewer completes their assigned task (representing their review), the system transitions the workflow automatically to the Close and Distribute (`mgr-2`) state. To confirm the transition or check for additional tasks or steps, start by calling [GET steps](en/docs/acc/v1/reference/http/submittals-steps-GET/). This will verify whether there are any remaining tasks or review steps.
 
-Once you confirm that all tasks and review steps are complete, use [GET item](../http-docs/http-submittals-items-itemId-GET.md) to verify the submittalâs overall state and retrieve the permitted actions required for transitioning to the Closed (`sbc-2`) state.
+Once you confirm that all tasks and review steps are complete, use [GET item](../http-docs/http-submittals-items-itemId-GET.md) to verify the submittal’s overall state and retrieve the permitted actions required for transitioning to the Closed (`sbc-2`) state.
 
 ### Request
 

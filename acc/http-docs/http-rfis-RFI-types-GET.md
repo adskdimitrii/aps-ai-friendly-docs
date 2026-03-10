@@ -47,14 +47,14 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Request
 
 ## [Query String Parameters](#query-string-parameters)
 
-| limit   int | The number of RFIs to return in the response. Acceptable values: `1â200`. Default: `10`. For example, to limit the response to two items per page, use `limit=2` |
+| limit   int | The number of RFIs to return in the response. Acceptable values: `1–200`. Default: `10`. For example, to limit the response to two items per page, use `limit=2` |
 | --- | --- |
 | offset   int | The number of items to skip before starting to return results. <br>For example, to begin the results from the fourth item, use `offset=3`. |
 | filter[status]   array: string | Filters the response to only include RFI types with the specified status. Possible values: `active`, `inactive`, `hidden`. |
@@ -101,7 +101,7 @@ Expand all
 | scheduleImpact   string,null | The default schedule impact value for new RFIs of this type. <br>Possible values: `null`, `Yes`, `No`, `Unknown`. |
 | priority   string,null | The default priority for new RFIs of this type. <br>The available priority values are configured in Project Admin.<br>If no default is set, this field is `null`.<br>Note that the API does not auto-populate this value when creating an RFI. Clients are responsible for applying the default if desired.<br>Some possible values: `null`, `High`, `Normal`, `Low`. |
 | discipline   array: string | The list of available disciplines for RFIs. <br>Each discipline is configured in Project Admin. Some possible values: `Architectural`, `Civil/Site`, `Concrete`, `Electrical`, `Exterior Envelope`, `Fire Protection`, `Interior/Finishes`, `Landscaping`, `Masonry`, `Mechanical`, `Plumbing`, `Structural`, `Other`. |
-| category   array: string | A list of predefined categories to assign to the RFI. <br>Categories help group RFIs for filtering and reporting. Each value must match a category configured in the projectâs RFI settings. Categories are case-sensitive and project-specific.<br>RFI categories are configured in Project Admin and may differ between projects.<br>Some possible values: `Code Compliance`, `Constructability`, `Design Coordination`, `Documentation Conflict`, `Documentation Incomplete`, `Field condition`, `Other`. |
+| category   array: string | A list of predefined categories to assign to the RFI. <br>Categories help group RFIs for filtering and reporting. Each value must match a category configured in the project’s RFI settings. Categories are case-sensitive and project-specific.<br>RFI categories are configured in Project Admin and may differ between projects.<br>Some possible values: `Code Compliance`, `Constructability`, `Design Coordination`, `Documentation Conflict`, `Documentation Incomplete`, `Field condition`, `Other`. |
 | reference   string,null | The default value for the Reference field when creating a new RFI. <br>This is typically used when the RFI was created in another system.<br>Note that the API does not auto-populate this value. Clients are responsible for applying the default if desired.<br>Max length: 1000 |
 | bridgeTargetProjectIds   array,null | Not relevant |
 | pagination   object | The pagination object. |

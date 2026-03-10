@@ -10,7 +10,7 @@ PATCH
 
 # projects/:project_id/image
 
-Create or update a projectâs image.
+Create or update a project’s image.
 
   Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
@@ -18,7 +18,7 @@ Create or update a projectâs image.
 
 | Method and URI | PATCH https://developer.api.autodesk.com/hq/v1/accounts/:account_id/projects/:project_id/image |
 | --- | --- |
-| Method and URIï¼Legacyï¼ | PATCH https://developer.api.autodesk.com/hq/v1/regions/eu/accounts/:account_id/projects/:project_id/image |
+| Method and URI（Legacy） | PATCH https://developer.api.autodesk.com/hq/v1/regions/eu/accounts/:account_id/projects/:project_id/image |
 | Authentication Context | app only |
 | Required OAuth Scopes | `account:write` |
 | Data Formats | JSON |
@@ -36,9 +36,9 @@ Create or update a projectâs image.
 
 ## [URI Parameters](#uri-parameters)
 
-| account_id   string: UUID | The account ID of the project. This corresponds to hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID you need to remove the â**b.**" prefix. For example, a hub ID of **b.**c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. |
+| account_id   string: UUID | The account ID of the project. This corresponds to hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID you need to remove the “**b.**" prefix. For example, a hub ID of **b.**c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. |
 | --- | --- |
-| project_id   string: UUID | The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the BIM 360 API you need to remove the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| project_id   string: UUID | The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the BIM 360 API you need to remove the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 
 ### Request
 

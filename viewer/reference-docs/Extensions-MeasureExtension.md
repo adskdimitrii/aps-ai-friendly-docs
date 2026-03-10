@@ -59,9 +59,9 @@ Get the current measurement in the measure tool.
 
 ### Parameters
 
-| unitType   string | Either: âdecimal-ftâ, âftâ, âft-and-decimal-inâ, âdecimal-inâ, âfractional-inâ, âmâ, âcmâ, âmmâ or âm-and-cmâ. |
+| unitType   string | Either: “decimal-ft”, “ft”, “ft-and-decimal-in”, “decimal-in”, “fractional-in”, “m”, “cm”, “mm” or “m-and-cm”. |
 | --- | --- |
-| precision   number | precision index (0: 0, 1: 0.1, 2: 0.01, 3: 0.001, 4: 0.0001, 5: 0.00001). When units type is âftâ, âinâ or âfractional-inâ, then the precisions are 0: 1, 1: 1/2, 2: 1/4, 3: 1/8, 4: 1/16, 5: 1/32, 6: 1/64. |
+| precision   number | precision index (0: 0, 1: 0.1, 2: 0.01, 3: 0.001, 4: 0.0001, 5: 0.00001). When units type is “ft”, “in” or “fractional-in”, then the precisions are 0: 1, 1: 1/2, 2: 1/4, 3: 1/8, 4: 1/16, 5: 1/32, 6: 1/64. |
 
 ### Returns
 
@@ -75,9 +75,9 @@ Get a list of all the measurements that are currently on the screen.
 
 ### Parameters
 
-| unitType   string | Either: âdecimal-ftâ, âftâ, âft-and-decimal-inâ, âdecimal-inâ, âfractional-inâ, âmâ, âcmâ, âmmâ or âm-and-cmâ. |
+| unitType   string | Either: “decimal-ft”, “ft”, “ft-and-decimal-in”, “decimal-in”, “fractional-in”, “m”, “cm”, “mm” or “m-and-cm”. |
 | --- | --- |
-| precision   number | precision index (0: 0, 1: 0.1, 2: 0.01, 3: 0.001, 4: 0.0001, 5: 0.00001). When units type is âftâ, âinâ or âfractional-inâ, then the precisions are 0: 1, 1: 1/2, 2: 1/4, 3: 1/8, 4: 1/16, 5: 1/32, 6: 1/64. |
+| precision   number | precision index (0: 0, 1: 0.1, 2: 0.01, 3: 0.001, 4: 0.0001, 5: 0.00001). When units type is “ft”, “in” or “fractional-in”, then the precisions are 0: 1, 1: 1/2, 2: 1/4, 3: 1/8, 4: 1/16, 5: 1/32, 6: 1/64. |
 
 ### Returns
 
@@ -102,9 +102,9 @@ Activates the tool and UI to start measuring.
 
 ### Parameters
 
-| mode   string | Either âdistanceâ, âangleâ, âareaâ (2D only), âarcâ (2D only), âcalibrateâ or âcustomâ. Default is âdistanceâ. |
+| mode   string | Either ‘distance’, ‘angle’, ‘area’ (2D only), ‘arc’ (2D only), ‘calibrate’ or ‘custom’. Default is ‘distance’. |
 | --- | --- |
-| type   string | Custom measurement type. Required when mode is âcustomâ. |
+| type   string | Custom measurement type. Required when mode is ‘custom’. |
 
 ## [deactivate()](#deactivate)
 
@@ -143,7 +143,7 @@ Enable measuring on non snapped locations.
 
 | allow*   boolean | true to allow measuring on non snapped locations, otherwise false; |
 | --- | --- |
-| useLastViewport*   boolean | override the free measurementâs viewport with a previously created measurementâs viewport. |
+| useLastViewport*   boolean | override the free measurement’s viewport with a previously created measurement’s viewport. |
 
 * Required
 

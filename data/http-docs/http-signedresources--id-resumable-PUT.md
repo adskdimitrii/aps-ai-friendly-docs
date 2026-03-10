@@ -54,7 +54,7 @@ Conditions to call this operation:
 | 202   ACCEPTED | Server acknowledges reception of segment |
 | 400   BAD REQUEST | The request could not be understood by the server due to malformed syntax or missing request headers. The client SHOULD NOT repeat the request without modifications. The response body may give an indication of what is wrong with the request. |
 | 401   UNAUTHORIZED | The supplied Authorization header was not valid or the supplied token scope was not acceptable. Verify Authentication and try again. |
-| 403   FORBIDDEN | The Authorization was successfully validated but permission is not granted. Donât try again unless you solve permissions first. |
+| 403   FORBIDDEN | The Authorization was successfully validated but permission is not granted. Don’t try again unless you solve permissions first. |
 | 404   NOT FOUND | The specified bucket does not exist. |
 | 409   CONFLICT | Unable to persist data |
 | 416   REQUEST RANGE NOT SATISFIABLE | Missing Content-Range header |

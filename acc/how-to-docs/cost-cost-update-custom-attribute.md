@@ -1,12 +1,12 @@
-# Update a PCOâs Custom Attributes
+# Update a PCO’s Custom Attributes
 
 Source: https://aps.autodesk.com/en/docs/acc/tutorials/cost/cost-update-custom-attribute/
 
 ---
 
-# Update a PCOâs Custom Attributes
+# Update a PCO’s Custom Attributes
 
-This tutorial demonstrates how to update a PCOâs custom attributes.
+This tutorial demonstrates how to update a PCO’s custom attributes.
 
 ## [Before You Begin](#before-you-begin)
 
@@ -92,4 +92,4 @@ You get the full content of the updated custom attribute value.
 
 Multiple custom attributes can be updated altogether.
 
-Congratulations! You have successfully updated the PCOâs custom attribute value.
+Congratulations! You have successfully updated the PCO’s custom attribute value.

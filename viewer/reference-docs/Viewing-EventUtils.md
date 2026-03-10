@@ -46,7 +46,7 @@ Contains static utility functions for DOM and viewer events.
 
 ## [waitUntilTransitionEnded(viewer)](#waituntiltransitionended-viewer)
 
-If thereâs no camera transition, return immediately. Otherwise, resolve when the camera transition is finished.
+If there’s no camera transition, return immediately. Otherwise, resolve when the camera transition is finished.
 
 ### Parameters
 

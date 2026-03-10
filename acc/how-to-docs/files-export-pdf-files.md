@@ -95,7 +95,7 @@ If you want to export a file from a folder nested under the parent folder, you n
 
 ## [Step 2: Find the Version IDs of the Files to Export](#step-2-find-the-version-ids-of-the-files-to-export)
 
-To export the files, youâll also need the version IDs of the files. To find the version IDs, use the project ID (`b.139532ee-5cdb-4c9e-a293-652693991e65`), and the folder ID (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`) to call [GET projects/:project_id/folders/:folder_id/contents](../../data/http-docs/http-projects-project_id-folders-folder_id-contents-GET.md).
+To export the files, you’ll also need the version IDs of the files. To find the version IDs, use the project ID (`b.139532ee-5cdb-4c9e-a293-652693991e65`), and the folder ID (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`) to call [GET projects/:project_id/folders/:folder_id/contents](../../data/http-docs/http-projects-project_id-folders-folder_id-contents-GET.md).
 
 Note that you need to URL-encode the folder ID - `urn%3Aadsk.wipprod%3Afs.folder%3Aco.BJU3PTc4Sd2CmXM492XUiA`.
 
@@ -221,7 +221,7 @@ To export the file, use the project ID ((`b.139532ee-5cdb-4c9e-a293-652693991e65
 
 Note that this endpoint is asynchronous and initiates a job that runs in the background rather than halting execution of your program. You can check whether the asynchronous job is complete by calling [GET exports/{exportId}](https://aps.autodesk.com/en/docs/acc/v1/reference/http/files-get-export-status-GET/).
 
-When exporting the markup file, you can also customize the output filename and export the fileâs markup links. For more information about markup links, please see [Markups Links and References Help Documentation](https://help.autodesk.com/view/DOCS/ENU/?guid=Markups_References_Files_Docs).
+When exporting the markup file, you can also customize the output filename and export the file’s markup links. For more information about markup links, please see [Markups Links and References Help Documentation](https://help.autodesk.com/view/DOCS/ENU/?guid=Markups_References_Files_Docs).
 
 This example exports all of the available markup types, published (public) and unpublished (private) markups, and all links attached to standard markups.
 

@@ -31,7 +31,7 @@ You can also use this endpoint to filter out the list of companies by setting th
 | Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Region   string | Specifies the region where your request should be routed. If not set, the request is routed automatically, which may result in a slight increase in latency. <br>Possible values: `US`, `EMEA`. For a complete list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
-| User-Id   string | The ID of a user on whose behalf your request is acting. <br>Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.<br>You can use either the userâs ACC ID (`id`), or their Autodesk ID (`autodeskId`).<br>Note that this header is required for Account Admin POST, PATCH, and DELETE endpoints if you want to use a 2-legged authentication context. This header is optional for Account Admin GET endpoints. |
+| User-Id   string | The ID of a user on whose behalf your request is acting. <br>Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.<br>You can use either the user’s ACC ID (`id`), or their Autodesk ID (`autodeskId`).<br>Note that this header is required for Account Admin POST, PATCH, and DELETE endpoints if you want to use a 2-legged authentication context. This header is optional for Account Admin GET endpoints. |
 
 * Required
 
@@ -39,7 +39,7 @@ You can also use this endpoint to filter out the list of companies by setting th
 
 ## [URI Parameters](#uri-parameters)
 
-| accountId   string: UUID | The ID of the ACC account that contains the project being created or the projects being retrieved. This corresponds to the hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID, remove the â**b.**" prefix. For example, a hub ID of `b.c8b0c73d-3ae9` translates to an account ID of `c8b0c73d-3ae9`. |
+| accountId   string: UUID | The ID of the ACC account that contains the project being created or the projects being retrieved. This corresponds to the hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID, remove the “**b.**" prefix. For example, a hub ID of `b.c8b0c73d-3ae9` translates to an account ID of `c8b0c73d-3ae9`. |
 | --- | --- |
 
 ### Request
@@ -52,12 +52,12 @@ You can also use this endpoint to filter out the list of companies by setting th
 | filter[erpId]   string | Filter companies by ERP Id. Can be a partial match based on the value of filterTextMatch provided. <br>Max length: 255 |
 | filter[taxId]   string | Filter companies by tax Id. Can be a partial match based on the value of filterTextMatch provided. <br>Max length: 255 |
 | filter[updatedAt]   string | Filter companies by updated at date range. The range must be specified with dates in an ISO-8601 format with time required. The start and end dates of the range should be separated by .. One of the dates in the range may be omitted. For example, to get everything on or before June 1, 2019 the range would be ..2019-06-01T23:59:59.999Z. To get everything after June 1, 2019 the range would be 2019-06-01T00:00:00.000Z... <br>Max length: 100 |
-| orFilters   array: string | List of filtered fields to apply an âorâ operator. Valid list of fields are erpId, name, taxId, trade, updatedAt. |
-| filterTextMatch   enum:string | Specifies how text-based filters should match values in supported fields. <br>This parameter can be used in any endpoint that supports text-based filtering (e.g., `filter[name]`, `filter[jobNumber]`, `filter[companyName]`, etc.).<br>Possible values:<br>`contains` (default) â Matches if the field contains the specified text anywhere<br>`startsWith` â Matches if the field starts with the specified text<br>`endsWith` â Matches if the field ends with the specified text<br>`equals` â Matches only if the field exactly matches the specified text<br>Matching is case-insensitive.<br>Wildcards and regular expressions are not supported. |
+| orFilters   array: string | List of filtered fields to apply an “or” operator. Valid list of fields are erpId, name, taxId, trade, updatedAt. |
+| filterTextMatch   enum:string | Specifies how text-based filters should match values in supported fields. <br>This parameter can be used in any endpoint that supports text-based filtering (e.g., `filter[name]`, `filter[jobNumber]`, `filter[companyName]`, etc.).<br>Possible values:<br>`contains` (default) – Matches if the field contains the specified text anywhere<br>`startsWith` – Matches if the field starts with the specified text<br>`endsWith` – Matches if the field ends with the specified text<br>`equals` – Matches only if the field exactly matches the specified text<br>Matching is case-insensitive.<br>Wildcards and regular expressions are not supported. |
 | sort   array: string | The list of fields to sort by. When multiple fields are listed the later property is used to sort the resources where the previous fields have the same value. Each property can be followed by a direction modifier of either asc (ascending) or desc (descending). If no direction is specified then asc is assumed. Valid fields for sorting are name, trade, erpId, taxId, status, createdAt, updatedAt, projectSize and userSize. Default sort is name. |
 | fields   array: string | List of fields to return in the response. Defaults to all fields. Valid list of fields are accountId, name, trade, addresses, websiteUrl, description, erpId, taxId, imageUrl, status, createdAt, updatedAt, projectSize, userSize and originalName. |
 | limit   int | The maximum number of records to return in the response. <br>Default: `20`<br>Minimum: `1`<br>Maximum: `200` (If a larger value is provided, only 200 records are returned) |
-| offset   int | The index of the first record to return. <br>Used for pagination in combination with the `limit` parameter.<br>Example: `limit=20` and `offset=40` returns records 41â60. |
+| offset   int | The index of the first record to return. <br>Used for pagination in combination with the `limit` parameter.<br>Example: `limit=20` and `offset=40` returns records 41–60. |
 
 ### Response
 
@@ -110,7 +110,7 @@ Expand all
 | status   enum:string | The status of the company. Possible values: `deleted`, `active` |
 | createdAt   datetime: ISO 8601 | The timestamp when this company was created. |
 | updatedAt   datetime: ISO 8601 | The timestamp when this company was last updated. This will only reflect changes to the company fields and not changes to any resources in the company. |
-| originalName   null,string | Original name of the company. Only returned when a company is deleted, since, in this case, the company ânameâ will be updated to âremoved at MMDDYYYYâ. |
+| originalName   null,string | Original name of the company. Only returned when a company is deleted, since, in this case, the company “name” will be updated to “removed at MMDDYYYY”. |
 | projectSize   int | The number of projects associated with the company. |
 | userSize   int | The number of users that are associated with the company. |
 

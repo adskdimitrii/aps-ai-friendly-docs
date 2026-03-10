@@ -111,7 +111,7 @@ Show More
 
 Show More
 
-The budget in BIM 360 is now integrated with the external ERP system. The integrated itemsâ information can be retrieved from the external ERP system by calling [GET budgets](../http-docs/http-cost-budgets-budgetId-GET.md).
+The budget in BIM 360 is now integrated with the external ERP system. The integrated items’ information can be retrieved from the external ERP system by calling [GET budgets](../http-docs/http-cost-budgets-budgetId-GET.md).
 
 ## [Option 2: Sync an ERP System to a BIM 360/ACC Budget](#option-2-sync-an-erp-system-to-a-bim-360-acc-budget)
 

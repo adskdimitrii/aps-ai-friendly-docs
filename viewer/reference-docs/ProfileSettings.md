@@ -8,9 +8,9 @@ Autodesk.Viewing
 
 # ProfileSettings
 
-ProfileSettings are used to set the viewerâs profile.
+ProfileSettings are used to set the viewer’s profile.
 
-To generate a profile from the supplied profile settings, please reference [Autodesk.Viewing.Profile](Viewing-Profile.md). To set the viewerâs profile, use [viewer.setProfile(profile)](Viewing-Viewer3D.md#setProfile/).
+To generate a profile from the supplied profile settings, please reference [Autodesk.Viewing.Profile](Viewing-Profile.md). To set the viewer’s profile, use [viewer.setProfile(profile)](Viewing-Viewer3D.md#setProfile/).
 
 # Properties
 
@@ -29,7 +29,7 @@ Default profile settings. It uses the preferences described in [Autodesk.Viewing
 
 ## [AEC](#aec)
 
-AEC profile settings. It inherits the settings from [Autodesk.Viewing.ProfileSettings.Default](ProfileSettings.md#Default/). The following preferences differ from the Default settings: { edgeRendering: true, // on desktop, false on mobile. lightPreset: âBoardwalkâ, envMapBackground: true }
+AEC profile settings. It inherits the settings from [Autodesk.Viewing.ProfileSettings.Default](ProfileSettings.md#Default/). The following preferences differ from the Default settings: { edgeRendering: true, // on desktop, false on mobile. lightPreset: ‘Boardwalk’, envMapBackground: true }
 
 | type |
 | --- |
@@ -45,7 +45,7 @@ Design Collaboration profile settings. Inherits the settings from [Autodesk.View
 
 ## [Navis](#navis)
 
-Navisworks profile settings. Inherits the settings from [Autodesk.Viewing.ProfileSettings.AEC](ProfileSettings.md#AEC/). The following preferences differ from the AEC settings: { bimWalkToolPopup: false, bimWalkNavigatorType: âaecâ, defaultNavigationTool3D: âextractor_definedâ }
+Navisworks profile settings. Inherits the settings from [Autodesk.Viewing.ProfileSettings.AEC](ProfileSettings.md#AEC/). The following preferences differ from the AEC settings: { bimWalkToolPopup: false, bimWalkNavigatorType: ‘aec’, defaultNavigationTool3D: ‘extractor_defined’ }
 
 | type |
 | --- |

@@ -101,7 +101,7 @@ Show More
 Notice that the code above calls method `addClass()`, which adds a CSS class to
 control the appearance of the custom buttons.
 
-For this example, weâll add the style definitions in the HTML file:
+For this example, we’ll add the style definitions in the HTML file:
 
 ```
 <style>

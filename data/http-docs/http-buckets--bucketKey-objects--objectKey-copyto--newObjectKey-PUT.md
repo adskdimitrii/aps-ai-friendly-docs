@@ -24,7 +24,7 @@ Copies an object to another object key in the same bucket.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
+| Authorization*   string | Must be “Bearer `<token>`”, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
 | --- | --- |
 
 * Required
@@ -48,7 +48,7 @@ Copies an object to another object key in the same bucket.
 | --- | --- |
 | 400   BAD REQUEST | The request could not be understood by the server due to malformed syntax or missing request headers. The client SHOULD NOT repeat the request without modifications. The response body may give an indication of what is wrong with the request. |
 | 401   UNAUTHORIZED | The supplied Authorization header was not valid or the supplied token scope was not acceptable. Verify Authentication and try again. |
-| 403   FORBIDDEN | The Authorization was successfully validated but permission is not granted. Donât try again unless you solve permissions first. |
+| 403   FORBIDDEN | The Authorization was successfully validated but permission is not granted. Don’t try again unless you solve permissions first. |
 | 404   NOT FOUND | The specified bucket does not exist. |
 | 500   INTERNAL SERVER ERROR | Internal failure while processing the request, reason depends on error. |
 

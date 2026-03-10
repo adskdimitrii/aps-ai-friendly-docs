@@ -34,7 +34,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 | Region   string | Specifies the region where your request should be routed. If not set, the request is routed automatically, which may result in a slight increase in latency. <br>Possible values: `US`, `EMEA`. For a complete list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
-| User-Id   string | The ID of a user on whose behalf your request is acting. <br>Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.<br>You can use either the userâs ACC ID (`id`), or their Autodesk ID (`autodeskId`).<br>Note that this header is required for Account Admin POST, PATCH, and DELETE endpoints if you want to use a 2-legged authentication context. This header is optional for Account Admin GET endpoints. |
+| User-Id   string | The ID of a user on whose behalf your request is acting. <br>Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.<br>You can use either the user’s ACC ID (`id`), or their Autodesk ID (`autodeskId`).<br>Note that this header is required for Account Admin POST, PATCH, and DELETE endpoints if you want to use a 2-legged authentication context. This header is optional for Account Admin GET endpoints. |
 
 * Required
 
@@ -42,7 +42,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the ACC API you need to remove the â**b.**" prefix. For example, a project ID of `b.a4be0c34a-4ab7` translates to a project ID of `a4be0c34a-4ab7`. |
+| projectId   string: UUID | The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the ACC API you need to remove the “**b.**" prefix. For example, a project ID of `b.a4be0c34a-4ab7` translates to a project ID of `a4be0c34a-4ab7`. |
 | --- | --- |
 | userId   string | The ID of the user. To find the ID call [GET users](http-admin-projectsprojectId-users-GET.md). You can use either the ACC ID (`id`) or the Autodesk ID (`autodeskId`). |
 
@@ -52,7 +52,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 The project user fields to update.
 
-Note that all users must have access to the Autodesk Insight tool, but this endpoint currently doesnât enforce that requirement. Your request must include the `products` parameter with a `key` value of `insight` and an `access` value of `administrator` or `member` as appropriate.
+Note that all users must have access to the Autodesk Insight tool, but this endpoint currently doesn’t enforce that requirement. Your request must include the `products` parameter with a `key` value of `insight` and an `access` value of `administrator` or `member` as appropriate.
 
 Expand all
 
@@ -62,7 +62,7 @@ Expand all
 | roleIds   array: string | A list of IDs of the roles that the user belongs to in the project. |
 | products   array: object | Information about the products activated in the specified project for this user. |
 | key*   enum:string | A machine-readable identifier for the product (e.g., docs, build). <br>Each product has a unique key used throughout the API for identification, filtering, and integration logic (e.g., in query parameters like `filter[key]`).<br>Possible values: ACC - `autoSpecs`, `build`, `cost`, `designCollaboration`, `docs`, `insight`, `modelCoordination`, `projectAdministration`, and `takeoff`.<br>BIM 360 - `assets`, `costManagement`, `designCollaboration`, `documentManagement`, `field`, `fieldManagement`, `glue`, `insight`, `modelCoordination`, `plan`, `projectAdministration`, `projectHome`, `projectManagement`, and `quantification`.<br>Note that this endpoint returns only ACC products. Other endpoints, such as [GET projects](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-accountsaccountidprojects-GET/) and [GET projects/:projectId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-GET/), may return both ACC and BIM 360 projects. In those responses, product keys may include BIM 360 values. |
-| access*   enum:string | The userâs type of access to the product identified by `key`. Possible values: <br>`administrator``member``none`<br>Note that when youâre using a POST or PATCH endpoint to set this value, you must adhere to the following guidelines:<br>If you set a productâs `key` to `projectAdministration` and you set `access` to `none`, all other products should be set to `member` access for the user.If you set a productâs `key` to `projectAdministration` and you set `access` to `administrator`, all other products should be set to `administrator` access for the user.You cannot set a productâs `key` to `projectAdministration` and set `access` to `member`. |
+| access*   enum:string | The user’s type of access to the product identified by `key`. Possible values: <br>`administrator``member``none`<br>Note that when you’re using a POST or PATCH endpoint to set this value, you must adhere to the following guidelines:<br>If you set a product’s `key` to `projectAdministration` and you set `access` to `none`, all other products should be set to `member` access for the user.If you set a product’s `key` to `projectAdministration` and you set `access` to `administrator`, all other products should be set to `administrator` access for the user.You cannot set a product’s `key` to `projectAdministration` and set `access` to `member`. |
 
 * Required
 
@@ -92,19 +92,19 @@ Expand all
 | --- | --- |
 | email   string | The email of the user. <br>Max length: 255 |
 | name   string | The full name of the user. <br>Max length: 255 |
-| firstName   string | The userâs first name. This data syncs from the userâs Autodesk profile. <br>Max length: 255 |
-| lastName   string | The userâs last name. This data syncs from the userâs Autodesk profile. <br>Max length: 255 |
-| addressLine1   string | The userâs address line 1. This data syncs from the userâs Autodesk profile. <br>Max length: 255 |
-| addressLine2   string | The userâs address line 2. This data syncs from the userâs Autodesk profile. <br>Max length: 255 |
-| city   string | The Userâs city. This data syncs from the userâs Autodesk profile. <br>Max length: 255 |
-| stateOrProvince   string | The state or province of the user. The accepted values here change depending on which country is provided. This data syncs from the userâs Autodesk profile. <br>Max length: 255 |
-| postalCode   string | The zip or postal code of the user. This data syncs from the userâs Autodesk profile. <br>Max length: 255 |
-| country   string | The userâs country. This data syncs from the userâs Autodesk profile. <br>Max length: 255 |
-| phone   object | The userâs phone number. This data syncs from the userâs Autodesk profile. |
-| number   string | Userâs phone number |
-| phoneType   enum:string | The userâs phone type. <br>Possible values: `home`, `mobile`, or `office`. Default value: `mobile`. |
-| extension   string | Userâs phone extension. |
-| accessLevels   object | Flags indicating the userâs access levels in the account. |
+| firstName   string | The user’s first name. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
+| lastName   string | The user’s last name. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
+| addressLine1   string | The user’s address line 1. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
+| addressLine2   string | The user’s address line 2. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
+| city   string | The User’s city. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
+| stateOrProvince   string | The state or province of the user. The accepted values here change depending on which country is provided. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
+| postalCode   string | The zip or postal code of the user. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
+| country   string | The user’s country. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
+| phone   object | The user’s phone number. This data syncs from the user’s Autodesk profile. |
+| number   string | User’s phone number |
+| phoneType   enum:string | The user’s phone type. <br>Possible values: `home`, `mobile`, or `office`. Default value: `mobile`. |
+| extension   string | User’s phone extension. |
+| accessLevels   object | Flags indicating the user’s access levels in the account. |
 | accountAdmin   boolean | Indicates whether the user is an account administrator for the account. Possible values: <br>`true`: The user is an account administrator.`false`: The user is not an account administrator. |
 | projectAdmin   boolean | Indicates whether the user is a project administrator for the project. Possible values: <br>`true`: The user is a project administrator.`false`: The user is not a project administrator. |
 | executive   boolean | Indicates whether the user is an executive in the account. Possible values: <br>`true`: The user is an executive.`false`: The user is not an executive. |
@@ -116,17 +116,17 @@ Expand all
 | roles   array: object | A list of the role IDs and names that are associated with the user in the project. |
 | id   string: UUID | The ID of a role that the user belongs to in the project. |
 | name   string | The name of a role that the user belongs to in the project. |
-| status   string | The status of the user on the account. A pending user could be waiting for its products to activate or the user hasnât accepted an email to create an account with Autodesk. <br>Possible values: `active`, `pending`, `disabled`, and `deleted`.â |
+| status   string | The status of the user on the account. A pending user could be waiting for its products to activate or the user hasn’t accepted an email to create an account with Autodesk. <br>Possible values: `active`, `pending`, `disabled`, and `deleted`.’ |
 | products   array: object | Information about the products activated in the specified project for this user. |
 | key   enum:string | A machine-readable identifier for the product (e.g., docs, build). <br>Each product has a unique key used throughout the API for identification, filtering, and integration logic (e.g., in query parameters like `filter[key]`).<br>Possible values: ACC - `autoSpecs`, `build`, `cost`, `designCollaboration`, `docs`, `insight`, `modelCoordination`, `projectAdministration`, and `takeoff`.<br>BIM 360 - `assets`, `costManagement`, `designCollaboration`, `documentManagement`, `field`, `fieldManagement`, `glue`, `insight`, `modelCoordination`, `plan`, `projectAdministration`, `projectHome`, `projectManagement`, and `quantification`.<br>Note that this endpoint returns only ACC products. Other endpoints, such as [GET projects](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-accountsaccountidprojects-GET/) and [GET projects/:projectId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-GET/), may return both ACC and BIM 360 projects. In those responses, product keys may include BIM 360 values. |
-| access   enum:string | The userâs type of access to the product identified by `key`. Possible values: <br>`administrator``member``none`<br>Note that when youâre using a POST or PATCH endpoint to set this value, you must adhere to the following guidelines:<br>If you set a productâs `key` to `projectAdministration` and you set `access` to `none`, all other products should be set to `member` access for the user.If you set a productâs `key` to `projectAdministration` and you set `access` to `administrator`, all other products should be set to `administrator` access for the user.You cannot set a productâs `key` to `projectAdministration` and set `access` to `member`. |
-| imageUrl   string | The URL of the userâs avatar. This data syncs from the userâs Autodesk profile. <br>Max length: 255 |
-| autodeskId   string | The ID of the userâs Autodesk profile. <br>Max length: 255 |
+| access   enum:string | The user’s type of access to the product identified by `key`. Possible values: <br>`administrator``member``none`<br>Note that when you’re using a POST or PATCH endpoint to set this value, you must adhere to the following guidelines:<br>If you set a product’s `key` to `projectAdministration` and you set `access` to `none`, all other products should be set to `member` access for the user.If you set a product’s `key` to `projectAdministration` and you set `access` to `administrator`, all other products should be set to `administrator` access for the user.You cannot set a product’s `key` to `projectAdministration` and set `access` to `member`. |
+| imageUrl   string | The URL of the user’s avatar. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
+| autodeskId   string | The ID of the user’s Autodesk profile. <br>Max length: 255 |
 | analyticsId   string | Not relevant |
-| jobTitle   string | The userâs job title. This data syncs from the userâs Autodesk profile. <br>Max length: 255 |
-| industry   string | The industry the user works in. This data syncs from the userâs Autodesk profile. <br>Max length: 255 |
-| aboutMe   string | A short bio about the user. This data syncs from the userâs Autodesk profile. <br>Max length: 255 |
-| jobId   string: UUID | Not relevant - we donât currently support this field. |
+| jobTitle   string | The user’s job title. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
+| industry   string | The industry the user works in. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
+| aboutMe   string | A short bio about the user. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
+| jobId   string: UUID | Not relevant - we don’t currently support this field. |
 
 ## [Example](#example)
 

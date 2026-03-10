@@ -18,7 +18,7 @@ The response returns a paginated list of transmittals, including key details suc
 
 Some transmittals may still be processing when the endpoint is called.
 
-While a transmittalâs `status` is `SENDING`, certain fieldsâsuch as recipient listsâmay be temporarily empty until processing completes and the status becomes `COMPLETED`.
+While a transmittal’s `status` is `SENDING`, certain fields—such as recipient lists—may be temporarily empty until processing completes and the status becomes `COMPLETED`.
 
 Results are sorted by `sequenceId desc` by default and can be limited or offset using query parameters.
 
@@ -58,13 +58,13 @@ Note that this endpoint is not compatible with BIM 360 projects.
 | limit   int | The maximum number of results to return per page. <br>Acceptable values: 1-200.<br>Default value: 20.<br>For example, to limit the response to two results per page, use `limit=2`. |
 | --- | --- |
 | offset   int | The index from which the response starts returning results. <br>Default value: 0.<br>For example, to skip the first three results, use `offset=3`. |
-| sort   enum:string | Sorts the transmittals by a supported field and order.  > By default, results are sorted by `sequenceId desc` (descending order).<br>To sort in ascending order, add `asc` after the field name.<br>Format: `sort=<field> [asc or desc]`<br>Possible values: `status`, `sequenceId`, `title`, `sentByName`, `createdAt`, `documentsCount`.<br>Examples:<br>`sort=status asc` â sorts transmittals by status in ascending order.`sort=createdAt desc` â sorts transmittals by creation date in descending order. |
+| sort   enum:string | Sorts the transmittals by a supported field and order.  > By default, results are sorted by `sequenceId desc` (descending order).<br>To sort in ascending order, add `asc` after the field name.<br>Format: `sort=<field> [asc or desc]`<br>Possible values: `status`, `sequenceId`, `title`, `sentByName`, `createdAt`, `documentsCount`.<br>Examples:<br>`sort=status asc` – sorts transmittals by status in ascending order.`sort=createdAt desc` – sorts transmittals by creation date in descending order. |
 
 ### Response
 
 ## [HTTP Status Code Summary](#http-status-code-summary)
 
-| 200   OK | Successfully retrieved the list of transmittals <br>If one or more transmittals are still being processed, some fieldsâsuch as `recipients` and `externalMembers`âmay be temporarily empty. |
+| 200   OK | Successfully retrieved the list of transmittals <br>If one or more transmittals are still being processed, some fields—such as `recipients` and `externalMembers`—may be temporarily empty. |
 | --- | --- |
 | 400   Bad Request | Bad request. The input parameters were invalid. |
 | 401   Unauthorized | Unauthorized error |
@@ -84,13 +84,13 @@ Expand all
 | sequenceId   string | A project-specific number automatically assigned when the transmittal is first submitted. It identifies the transmittal within the project and reflects the order in which it was created. |
 | title   string | The title of the transmittal. |
 | message   string | An optional message included with the transmittal. |
-| status   enum:string | The current processing state of the transmittal. <br>`SENDING` â The transmittal is being processed or packaged; some fields may be temporarily empty. The `recipients` and `externalMembers` fields may be temporarily empty.`COMPLETED` â The transmittal has been successfully issued and all data is available.`FAILED` â The transmittal failed to process or send.<br>Possible values: `SENDING`, `COMPLETED`, `FAILED`. |
+| status   enum:string | The current processing state of the transmittal. <br>`SENDING` – The transmittal is being processed or packaged; some fields may be temporarily empty. The `recipients` and `externalMembers` fields may be temporarily empty.`COMPLETED` – The transmittal has been successfully issued and all data is available.`FAILED` – The transmittal failed to process or send.<br>Possible values: `SENDING`, `COMPLETED`, `FAILED`. |
 | sentBy   object | Information about the user who created and sent the transmittal. |
 | autodeskId   string | The Autodesk ID of the transmittal creator. |
 | email   string | The email of the transmittal creator. |
 | name   string | The full name of the transmittal creator. |
-| companyAutodeskId   string | The Autodesk ID of the creatorâs company at the time the transmittal was created. |
-| companyName   string | The name of the creatorâs company at the time the transmittal was created. |
+| companyAutodeskId   string | The Autodesk ID of the creator’s company at the time the transmittal was created. |
+| companyName   string | The name of the creator’s company at the time the transmittal was created. |
 | recipients   object | The list of recipients included in the transmittal, grouped by user, company, and role. <br>For more information on how to add recipients to a transmittal, see the [Create Transmittals](https://help.autodesk.com/view/BUILD/ENU/?guid=Create_Transmittal&p=DOCS) documentation. |
 | users   array: object | The list of individual users who were added as recipients. |
 | autodeskId   string | The Autodesk ID of the user recipient. |
@@ -107,7 +107,7 @@ Expand all
 | createdAt   datetime: ISO 8601 | The date and time when the transmittal was created, in ISO 8601 format. |
 | documentsCount   int | The total number of documents included in the transmittal. |
 | packedStatus   enum:string | Indicates the progress of packaging transmittal files into a ZIP archive. Possible values: `SUCCESS`, `PARTIAL_SUCCESS`, `FAILED`, `PROCESSING`, `EXPIRED`, `NOT_ALLOWED` |
-| displayRecipients   enum:string | Specifies how much recipient information each recipient can see.  > `ALL` â All recipients can view the full recipient list.`LIMITED` â Each recipient can view only their own recipient information.<br>Project Admins and the sender always see the full list. <br>Possible values: `ALL`, `LIMITED` |
+| displayRecipients   enum:string | Specifies how much recipient information each recipient can see.  > `ALL` – All recipients can view the full recipient list.`LIMITED` – Each recipient can view only their own recipient information.<br>Project Admins and the sender always see the full list. <br>Possible values: `ALL`, `LIMITED` |
 | pagination   object | The list of pagination details for the response. |
 | limit   int | The maximum number of results returned per page. |
 | offset   int | The number of results skipped before the current page, starting from zero. |
@@ -118,7 +118,7 @@ Expand all
 
 Successfully retrieved the list of transmittals
 
-If one or more transmittals are still being processed, some fieldsâsuch as `recipients` and `externalMembers`âmay be temporarily empty.
+If one or more transmittals are still being processed, some fields—such as `recipients` and `externalMembers`—may be temporarily empty.
 
 ### Request
 

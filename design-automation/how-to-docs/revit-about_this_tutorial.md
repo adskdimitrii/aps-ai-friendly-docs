@@ -7,7 +7,7 @@ Source: https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/revit/ab
 # About this Walkthrough
 
 This walkthrough guides you through the process of executing a Revit add-in on the Automation Service.
-It doesnât teach you how to create a Revit add-in. Instead, it limits itself teaching you how to run a Revit add-in on the Automation Service.
+It doesn’t teach you how to create a Revit add-in. Instead, it limits itself teaching you how to run a Revit add-in on the Automation Service.
 For instructions on how to create Revit add-ins, visit the [Revit Developer Center](https://www.autodesk.com/developer-network/platform-technologies/revit).
 
 Revit add-ins are typically designed to interact with the Revit User Interface (UI). However, no user interaction is possible on the Automation Service.

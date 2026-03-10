@@ -36,7 +36,7 @@ This example is shown with the redirect uri. As this is an optional parameter, i
 
 ```
 
-That `href` attribute is a bit difficult to read. Letâs break it down:
+That `href` attribute is a bit difficult to read. Let’s break it down:
 
 - `https://developer.api.autodesk.com/authentication/v2/logout`     This is the endpoint URI and should be used verbatim.
 

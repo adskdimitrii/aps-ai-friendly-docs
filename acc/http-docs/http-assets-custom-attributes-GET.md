@@ -16,7 +16,7 @@ This endpoint accepts a set of optional custom attribute query parameters (descr
 parameters to search for and return custom attributes within a project that satisfy those parameters. If no
 parameters are set, this endpoint returns all active custom attributes within a project.
 
-This endpoint paginates returned custom attributes. If you donât specify pagination fields, your query will
+This endpoint paginates returned custom attributes. If you don’t specify pagination fields, your query will
 execute using the default page size. If you want to specify a different a page size, use the limit query
 parameter.
 
@@ -26,7 +26,7 @@ to request the next page in the query, and so on until the response contains no 
 the query is finished returning objects. Note that you should not edit the `nextUrl` value to alter filter and
 sort values.
 
-If you want to create your own sequence of requests to retrieve all of a queryâs pages without using`nextUrl`, you can use the `cursorState` value returned by each request to specify where the next request
+If you want to create your own sequence of requests to retrieve all of a query’s pages without using`nextUrl`, you can use the `cursorState` value returned by each request to specify where the next request
 should start the next page.
 
 To understand the basics of custom attributes, and the Assets settings that define them, see the [Assets Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/assets/).
@@ -54,7 +54,7 @@ To understand the basics of custom attributes, and the Assets settings that defi
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form âb.{UUID}â. |
+| projectId   string | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
 | --- | --- |
 
 ### Request
@@ -63,7 +63,7 @@ To understand the basics of custom attributes, and the Assets settings that defi
 
 | limit   int | The maximum number of objects that can be returned in a page. A request might return fewer objects than the limit if the Assets service runs out of specified objects to return - at the end of a set of paged results, for example. The maximum limit is `200`; the default limit is `25`. |
 | --- | --- |
-| cursorState   string | An opaque cursor token that identifies where the next page of paginated results should start. Itâs returned in each paginated response so that it can be supplied in the next request to continue paginated results. If a paginated response contains no `cursorState` value, then there are no further pages to return. <br>Omit this field to initiate a paginated request or to restart pagination. |
+| cursorState   string | An opaque cursor token that identifies where the next page of paginated results should start. It’s returned in each paginated response so that it can be supplied in the next request to continue paginated results. If a paginated response contains no `cursorState` value, then there are no further pages to return. <br>Omit this field to initiate a paginated request or to restart pagination. |
 | includeDeleted   boolean | Whether or not soft-deleted object should be included in the response. If `true`, soft-deleted objects are returned. If `false`, they are not. The default is `false`. |
 | filter[updatedAt]   string | A string that specifies a date and time or a date and time range at which all returned objects mast have been updated. A single date and time takes this format: `YYYY-MM-DDThh:mm:ss.SSSZ`, A date and time range takes this format: `YYYY-MM-DDThh:mm:ss.SSSZ..YYYY-MM-DDThh:mm:ss.SSSZ`. Range queries can be closed or open in either direction: `YYYY-MM-DDThh:mm:ss.SSSZ..` or `..YYYY-MM-DDThh:mm:ss.SSSZ`. |
 
@@ -89,19 +89,19 @@ Expand all
 | pagination   object |  |
 | --- | --- |
 | limit   int | The maximum number of objects that can be returned in a page. A request might return fewer objects than the limit if the Assets service runs out of specified objects to return - at the end of a set of paged results, for example. The maximum limit is `200`; the default limit is `25`. |
-| cursorState   string | An opaque cursor token that identifies where the next page of paginated results should start. Itâs returned in each paginated response so that it can be supplied in the next request to continue paginated results. If a paginated response contains no `cursorState` value, then there are no further pages to return. <br>Omit this field to initiate a paginated request or to restart pagination. |
+| cursorState   string | An opaque cursor token that identifies where the next page of paginated results should start. It’s returned in each paginated response so that it can be supplied in the next request to continue paginated results. If a paginated response contains no `cursorState` value, then there are no further pages to return. <br>Omit this field to initiate a paginated request or to restart pagination. |
 | nextUrl   string | A URL that requests the next page for this query. |
 | results   array: object | Result custom attributes |
 | displayName   string | The human-readable display name for the Asset custom attribute. This name appears when viewing the custom attribute in the Assets UI, and must be unique within a project. <br>Max length: 100 |
 | description   string | A description of the Asset custom attribute. <br>Max length: 1000 |
 | enumValues   array: string | An array of string values that defines possible values that may be supplied when this custom attributes data type (defined by `dataType`) is set to `select` or `multi_select`. This field is required when the data type is set to `select` or `multi_select`. |
 | requiredOnIngress   boolean | Specifies whether or not this custom attribute is required when creating or editing an asset. If `true`, the custom attribute is required. If `false`, it is not required. Setting this field to `true` does not guarantee that existing or imported assets will have this custom attribute. |
-| maxLengthOnIngress   int | The maximum length that a text value can be for this custom attribute when creating or editing an asset. Setting a value for this field does not guarantee that existing or imported assets with this custom attribute will have this attributeâs value limited to this length. This field only applies when datatype is set to `text`. Default is `250`, which is the maximum value this field can be set to. |
+| maxLengthOnIngress   int | The maximum length that a text value can be for this custom attribute when creating or editing an asset. Setting a value for this field does not guarantee that existing or imported assets with this custom attribute will have this attribute’s value limited to this length. This field only applies when datatype is set to `text`. Default is `250`, which is the maximum value this field can be set to. |
 | defaultValue   one of | The default value for this custom attribute if no value is specified on asset creation. If this field is not specified, the custom attribute does not have a default value. The default value it takes can be any one of three possible value types, defined below. |
 | 0   string | A String value, maximum length: 250 <br>Max length: 250 |
 | 1   array: string | An array of string values that are set for a `multi_select` custom attribute. |
 | 2   boolean | A Boolean value |
-| dataType   enum:string | The data type that this custom attributeâs value must take. Once set, the data type canât be changed. Possible values: <br>`boolean`: `true` or `false``text`: a string`numeric`: a string that parses as a valid floating point number (not localized)`date`: an ISO8601 date string with no time, for example, â2021-04-01â.`select`: a valid ID from the list of values defined by `enumValues`.`multi_select`: an array of valid IDs from the list of values defined by `enumValues`. |
+| dataType   enum:string | The data type that this custom attribute’s value must take. Once set, the data type can’t be changed. Possible values: <br>`boolean`: `true` or `false``text`: a string`numeric`: a string that parses as a valid floating point number (not localized)`date`: an ISO8601 date string with no time, for example, “2021-04-01”.`select`: a valid ID from the list of values defined by `enumValues`.`multi_select`: an array of valid IDs from the list of values defined by `enumValues`. |
 | id   string | The ID of the component. |
 | createdAt   string | The time when the component was created (ISO8601 Date time format in UTC). |
 | createdBy   string | The actor that created the component. This is an Autodesk / Oxygen ID. |
@@ -111,7 +111,7 @@ Expand all
 | deletedBy   string | The actor that deleted the component. This is an Autodesk / Oxygen ID. |
 | isActive   boolean | A flag indicating whether the component is active or inactive (`isActive` is `true` if-and-only-if `deletedAt` is empty). |
 | version   int | A global sequence number that is incremented any time a component of this type is created, updated, or deleted. If you cache components, you can use the version value to compare the cached component to the same component online to see if the component has been updated. If the online component has a higher version value, it has been updated. |
-| projectId   string: UUID | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form âb.{UUID}â. |
+| projectId   string: UUID | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
 | name   string | An autogenerated value, created when an Asset custom attribute is created. The name does not change over the life of the custom attribute. |
 | values   array: object | An array of objects that describe the select values for `select` and `multi_select` Asset custom attributes. |
 | id   string | The ID of the component. |
@@ -123,7 +123,7 @@ Expand all
 | deletedBy   string | The actor that deleted the component. This is an Autodesk / Oxygen ID. |
 | isActive   boolean | A flag indicating whether the component is active or inactive (`isActive` is `true` if-and-only-if `deletedAt` is empty). |
 | version   int | A global sequence number that is incremented any time a component of this type is created, updated, or deleted. If you cache components, you can use the version value to compare the cached component to the same component online to see if the component has been updated. If the online component has a higher version value, it has been updated. |
-| projectId   string: UUID | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form âb.{UUID}â. |
+| projectId   string: UUID | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
 | customAttributeId   string: UUID | The ID of the custom attribute. |
 | displayName   string | The display name of the value. Must be unique within the custom attribute (case-insensitive). Use to generate the `enumValues` field for the custom attribute. |
 

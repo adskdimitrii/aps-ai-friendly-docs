@@ -45,24 +45,24 @@ Opens the NPR Render Options panel.
 
 Changes post-processing setting parameters. The supported param/value combinations are:
 
-- âstyleâ: either âedgingâ, âcelâ, âgraphiteâ, âpencilâ or `null` to turn post-processing off.
-- âedgesâ: `boolean`
-- âidEdgesâ: `boolean`
-- ânormalEdgesâ: `boolean`
-- âdepthEdgesâ: `boolean`
-- âbrightnessâ: `Number`
-- âcontrastâ: `Number`
-- âgrayscaleâ: `boolean`
-- âpreserveColorâ: `boolean`
-- âlevelsâ: `Number`
-- ârepeatsâ: `Number`
-- ârotationâ: `Number` between 0 and 1, around circle (e.g. 0.5 == pi radians, 1.0 == 2*pi)
+- “style”: either “edging”, “cel”, “graphite”, “pencil” or `null` to turn post-processing off.
+- “edges”: `boolean`
+- “idEdges”: `boolean`
+- “normalEdges”: `boolean`
+- “depthEdges”: `boolean`
+- “brightness”: `Number`
+- “contrast”: `Number`
+- “grayscale”: `boolean`
+- “preserveColor”: `boolean`
+- “levels”: `Number`
+- “repeats”: `Number`
+- “rotation”: `Number` between 0 and 1, around circle (e.g. 0.5 == pi radians, 1.0 == 2*pi)
 
 Fires event [RENDER_OPTION_CHANGED_EVENT](https://aps.autodesk.com/en/docs/viewer/v7/reference/Viewing/#render-option-changed-event/).
 
 ### Parameters
 
-| param*   string | Either âstyleâ, âedgesâ, âidEdgesâ, ânormalEdgesâ, âdepthEdgesâ, âbrightnessâ, âcontrastâ, âgrayscaleâ, âpreserveColorâ, âlevelsâ, ârepeatsâ or ârotationâ. |
+| param*   string | Either “style”, “edges”, “idEdges”, “normalEdges”, “depthEdges”, “brightness”, “contrast”, “grayscale”, “preserveColor”, “levels”, “repeats” or “rotation”. |
 | --- | --- |
 | value*   <br> | type depends on the specified `param`. |
 

@@ -35,10 +35,10 @@ Contains viewer setting preference names for 3D models.
 | ENV_MAP_BACKGROUND   string | Toggles environment map for background. |
 | BIM_WALK_TOOL_POPUP   string | Toggles the bimwalk tool popup. |
 | BIM_WALK_NAVIGATOR_TYPE   string | Identifier for the bimWalkNavigatorType preference. This is used to set the BimWalk tool navigator. |
-| BIM_WALK_GRAVITY   string | Identifier for the bimWalkGravity preference. This is used to toggle the BimWalk toolâs gravity. |
+| BIM_WALK_GRAVITY   string | Identifier for the bimWalkGravity preference. This is used to toggle the BimWalk tool’s gravity. |
 | DEFAULT_NAVIGATION_TOOL_3D   string | identifier for the toolToUse preference. This is used to set which navigation tool will be used. |
 | SELECTION_MODE   string | identifier for the selectionMode preference. This is used to set which selection mode (Leaf, First, Last object) wil be used by the viewer. |
 | ENABLE_CUSTOM_ORBIT_TOOL_CURSOR   string | identifier for whether the OrbitDollyPanTool will customize the cursor visuals. |
-| EXPLODE_STRATEGY   string | Specifies which algorithm is used when exploding the model. Supported values are âhierarchyâ (default) and âradialâ. Other values are treated as âradialâ. |
+| EXPLODE_STRATEGY   string | Specifies which algorithm is used when exploding the model. Supported values are ‘hierarchy’ (default) and ‘radial’. Other values are treated as ‘radial’. |
 | FORCE_DOUBLE_SIDED   string | Forces the viewer to render materials as double sided. Otherwise it uses the model specified value. |
 | GPU_MEMORY_LIMIT   string | Sets the maximum amount of GPU memory that can be used by the viewer. (WEBGPU only) |

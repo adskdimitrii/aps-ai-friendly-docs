@@ -20,7 +20,7 @@ Use the [SceneBuilder](advanced_options-scene-builder.md) API to add objects tha
 ## [Step 1: Create custom geometry](#step-1-create-custom-geometry)
 
 The Viewer bundles version 71 of [three.js](https://threejs.org) library and exposes its functionality through the global variable `THREE`.
-Letâs use it to create a red sphere.
+Let’s use it to create a red sphere.
 
 ```
 var geom = new THREE.SphereGeometry(10, 8, 8);
@@ -33,7 +33,7 @@ sphereMesh.position.set(1, 2, 3);
 ## [Step 2: Create overlay scene](#step-2-create-overlay-scene)
 
 Custom geometry must be added to an overlay scene. Multiple custom geometries can coexist in the same scene.
-Scenes are created and identified by name. Be sure to choose a name that wonât conflict with scenes created by the Viewer.
+Scenes are created and identified by name. Be sure to choose a name that won’t conflict with scenes created by the Viewer.
 
 ```
 if (!viewer.overlays.hasScene('custom-scene')) {
@@ -61,7 +61,7 @@ viewer.overlays.removeScene('custom-scene');
 
 ```
 
-The viewer doesnât dispose of the geometry or material used with custom geometry. The application developer can use the following to release the memory.
+The viewer doesn’t dispose of the geometry or material used with custom geometry. The application developer can use the following to release the memory.
 
 ```
 // Once the material and geometries are no longer used by any other
@@ -71,7 +71,7 @@ geom.dispose();
 
 ```
 
-## [Whatâs next?](#what-s-next)
+## [What’s next?](#what-s-next)
 
 To view an interactive example, check out [Customizing Viewer Scene](interactive_examples-example_5.md).
 

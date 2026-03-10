@@ -95,7 +95,7 @@ Show More
 | --- | --- |
 | 400   BAD REQUEST | The request could not be understood by the server due to malformed syntax or missing request headers. The client SHOULD NOT repeat the request without modifications. The response body may give an indication of what is wrong with the request. |
 | 401   UNAUTHORIZED | The supplied Authorization header was not valid or the supplied token scope was not acceptable. Verify Authentication and try again. |
-| 403   FORBIDDEN | The Authorization was successfully validated but permission is not granted. Donât try again unless you solve permissions first. |
+| 403   FORBIDDEN | The Authorization was successfully validated but permission is not granted. Don’t try again unless you solve permissions first. |
 | 409   CONFLICT | The specified bucket key already exists. |
 | 500   INTERNAL SERVER ERROR | Internal failure while processing the request, reason depends on error. |
 
@@ -215,7 +215,7 @@ Show More
 
 Note
 
-Application key is automatically added in the âpermissionsâ array, even if not explicitly included in the POST request.
+Application key is automatically added in the “permissions” array, even if not explicitly included in the POST request.
 
 ## [Example 2](#example-2)
 
@@ -267,7 +267,7 @@ Create Bucket - Conflict (409)
 
 Note
 
-Letâs suppose bucket apptestbucket already exists.
+Let’s suppose bucket apptestbucket already exists.
 
 ### Request
 

@@ -183,7 +183,7 @@ Is the given node selected?
 
 ## [scrollTo(node)](#scrollto-node)
 
-Scrolls the container to reveal the nodeâs DOM element.
+Scrolls the container to reveal the node’s DOM element.
 
 ### Parameters
 

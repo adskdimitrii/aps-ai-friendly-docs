@@ -18,7 +18,7 @@ Expand all
 
 | viewer*   [Autodesk.Viewing.Viewer3D](Viewing-Viewer3D.md) | Viewer instance used to operate on. |
 | --- | --- |
-| options*   object | Same Dictionary object passed into [Viewer3D](Viewing-Viewer3D.md)âs constructor. |
+| options*   object | Same Dictionary object passed into [Viewer3D](Viewing-Viewer3D.md)’s constructor. |
 | markupDisableHotkeys   boolean | Disables hotkeys for copy, cut, paste, duplicate, undo, redo and deselect. |
 | markupToolClass   [Autodesk.Viewing.ToolInterface](Viewing-ToolInterface.md) | Class override for input handling. Use it to override/extend default hotkeys and/or mouse/gesture input. |
 
@@ -36,7 +36,7 @@ See also [show()](Extensions-MarkupsCore.md#show/)
 
 ### Parameters
 
-| layerId*   string | [optional] Identifier for the layer of markups to be edited. Example âLayer1â. |
+| layerId*   string | [optional] Identifier for the layer of markups to be edited. Example “Layer1”. |
 | --- | --- |
 
 * Required
@@ -272,7 +272,7 @@ Deletes a markup from the canvas. Only applies while in [Edit mode](Extensions-M
 
 ## [loadMarkups(markupString, layerId)](#loadmarkups-markupstring-layerid)
 
-Loads data (SVG string) for all markups in a specified layer (layerId) to the Viewerâs canvas.
+Loads data (SVG string) for all markups in a specified layer (layerId) to the Viewer’s canvas.
 
 See also [unloadMarkups()](Extensions-MarkupsCore.md#unloadmarkups-layerid/), and [hideMarkups()](Extensions-MarkupsCore.md#hidemarkups-layerid/).
 
@@ -280,7 +280,7 @@ See also [unloadMarkups()](Extensions-MarkupsCore.md#unloadmarkups-layerid/), an
 
 | markupString*   string | SVG string with markups. See also [generateData()](Extensions-MarkupsCore.md#generatedata/). |
 | --- | --- |
-| layerId*   string | Identifier for the layer where the markup should be loaded to. Example âLayer1â. |
+| layerId*   string | Identifier for the layer where the markup should be loaded to. Example “Layer1”. |
 
 * Required
 

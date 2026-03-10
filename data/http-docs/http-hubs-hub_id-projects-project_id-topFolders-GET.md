@@ -44,7 +44,7 @@ Note that when users have access to a folder, access is automatically granted to
 
 | hub_id   string | The unique identifier of a hub. |
 | --- | --- |
-| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a â**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
+| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a “**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
 
 ### Request
 
@@ -58,7 +58,7 @@ Note that when users have access to a folder, access is automatically granted to
 
 ## [HTTP Status Code Summary](#http-status-code-summary)
 
-| 200   OK | Successful retrieval of the top foldersâ details. |
+| 200   OK | Successful retrieval of the top folders’ details. |
 | --- | --- |
 | 400   Bad Request | The request could not be understood by the server due to malformed syntax or missing request headers. The client SHOULD NOT repeat the request without modifications. The response body may give an indication of what is wrong with the request. |
 | 403   Forbidden | The request was successfully validated but permission is not granted or the application has not been white-listed. Do not try again unless you solve permissions first. |
@@ -89,7 +89,7 @@ Expand all
 | isRoot   boolean | Determines if folder is root folder. |
 | namingStandardIds   array: string | A list of file naming standard IDs that have been applied to the folder. <br>Note that we currently support one file naming standard per project.<br>Note that this feature is only available for BIM 360 projects.<br>To get the details of a file naming standard, call [GET naming-standards](../../acc/http-docs/http-document-management-naming-standards-id-GET.md).<br>To learn more about the file naming standard feature, see the [BIM 360 File Naming Standard](https://help.autodesk.com/view/BIM360D/ENU/?guid=Common_Data_Environment) help documentation. |
 | type   string | The type of resource. |
-| version   string | The version of the folderâs type. |
+| version   string | The version of the folder’s type. |
 | schema   object | An object containing an API link property. |
 | href   string | A hyperlink reference to this resource. |
 | name   string | The name of the folder. |
@@ -102,7 +102,7 @@ Expand all
 | lastModifiedUserId   string | The unique identifier of the user who last modified the folder. |
 | lastModifiedUserName   string | The name of the user who last modified the folder. |
 | lastModifiedTimeRollup   datetime: ISO 8601 | The date and time the folder or any of its children were last updated. |
-| hidden   boolean | The folderâs current visibility state. |
+| hidden   boolean | The folder’s current visibility state. |
 | type   enum:string | The type of this resource. Will always be: `folders` |
 | id   string | The unique identifier of the folder. |
 | relationships   object | The relationship links associated with the folder, including `refs`, `links`, `parent`, and `contents.` |
@@ -135,7 +135,7 @@ Expand all
 
 ## [Example](#example)
 
-Successful retrieval of the top foldersâ details.
+Successful retrieval of the top folders’ details.
 
 ### Request
 

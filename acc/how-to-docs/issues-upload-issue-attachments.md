@@ -8,7 +8,7 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/issues/upload-issue-attac
 
 This tutorial demonstrates how to attach a local file to an issue in an Autodesk Construction Cloud project.
 
-The steps include finding the ID of the projectâs top-level folder, creating an empty storage object for the file, uploading the file to the storage object in OSS, and creating the attachment record in the issue.
+The steps include finding the ID of the project’s top-level folder, creating an empty storage object for the file, uploading the file to the storage object in OSS, and creating the attachment record in the issue.
 
 ## [Before You Begin](#before-you-begin)
 
@@ -134,7 +134,7 @@ curl -v 'https://developer.api.autodesk.com/project/v1/hubs/b.cGVyc29uYWw6cGUyOW
 
 Show More
 
-Note the root folder ID by finding the object where `attributes.name` equals `Project Files`, then use its parent folder ID. In this case, look at `data[0].relationships.parent.data.id` â `urn:adsk.wip:fs.folder:co.1838SAGCQ3SPn7lqOXMaJQ`.
+Note the root folder ID by finding the object where `attributes.name` equals `Project Files`, then use its parent folder ID. In this case, look at `data[0].relationships.parent.data.id` – `urn:adsk.wip:fs.folder:co.1838SAGCQ3SPn7lqOXMaJQ`.
 
 The root folder (parent of Project Files) will be used to create the storage object in the next step.
 
@@ -291,7 +291,7 @@ Show More
 
 The file has been uploaded to the storage object.
 
-Note that the `objectId` â `urn:adsk.objects:os.object:wip.dm.prod/a9d330bc-411f-4aaf-874a-9844cc002d00.pdf` is the same as the storage URN.
+Note that the `objectId` – `urn:adsk.objects:os.object:wip.dm.prod/a9d330bc-411f-4aaf-874a-9844cc002d00.pdf` is the same as the storage URN.
 
 ## [Step 6: Attach the File to the Issue](#step-6-attach-the-file-to-the-issue)
 
@@ -299,10 +299,10 @@ Call [POST attachments](../http-docs/http-issues-attachments-POST.md) to attach 
 
 - `domainEntityId` - the ID of the issue to attach the file to. We defined the issue ID in the Before you Begin section.
 - `storageUrn` - the storage URN from step 2 - `urn:adsk.objects:os.object:wip.dm.prod/a9d330bc-411f-4aaf-874a-9844cc002d00.pdf`
-- `fileName` â the full filename including extension. This is the same as the object key from step 2. In this example - `a9d330bc-411f-4aaf-874a-9844cc002d00.pdf`.
-- `displayName` â a human-readable name for the attachment. In this example, `Project Plans.pdf`. This is what users will see in the ACC interface.
-- `attachmentType` â this is always set to `issue-attachment`.
-- `attachmentId` â the file name derived from step 2 without the extension. In this example, `a9d330bc-411f-4aaf-874a-9844cc002d00`.
+- `fileName` – the full filename including extension. This is the same as the object key from step 2. In this example - `a9d330bc-411f-4aaf-874a-9844cc002d00.pdf`.
+- `displayName` – a human-readable name for the attachment. In this example, `Project Plans.pdf`. This is what users will see in the ACC interface.
+- `attachmentType` – this is always set to `issue-attachment`.
+- `attachmentId` – the file name derived from step 2 without the extension. In this example, `a9d330bc-411f-4aaf-874a-9844cc002d00`.
 
 ### Request
 

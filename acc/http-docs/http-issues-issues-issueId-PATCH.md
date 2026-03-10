@@ -20,7 +20,7 @@ We support retrieving file-related (pushpin) issues. However, we do not currentl
 
 Updating deleted issues is not allowed.
 
-This endpoint automatically triggers the `issue.updated-1.0` webhook event when an issue is successfully updated. If youâve configured a webhook subscription for this event, your application will receive a notification. For more information, see the [Issues Webhooks section](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/issues/#issues-webhooks) in the Field Guide.
+This endpoint automatically triggers the `issue.updated-1.0` webhook event when an issue is successfully updated. If you’ve configured a webhook subscription for this event, your application will receive a notification. For more information, see the [Issues Webhooks section](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/issues/#issues-webhooks) in the Field Guide.
 
 Note that this endpoint is not compatible with BIM 360 projects.
 
@@ -47,7 +47,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
 - issueIdstring: UUID The unique identifier of the issue. To find the ID, call [GET issues](http-issues-issues-GET.md).
 
 ### Request

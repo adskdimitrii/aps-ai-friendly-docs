@@ -72,16 +72,16 @@ A spatial query comprises a *spatial condition* (`<scondition>`).
 
 Spatial conditions are composed of building blocks that determine whether an object should be loaded or not. Usually these are an expression, a primitive, an optional proxy, and in some cases additional parameters:
 > - Primitives define what to test objects against. In the example above, all objects are tested against an axis-aligned box.
-> - Proxies define how to represent objects when testing them against the primitive. This could be the objectâs axis-aligned bounding box, or a bounding sphere, for example. The proxy part of a condition is optional and defaults to the objectâs bounding box, which is the only proxy that is currently supported.
+> - Proxies define how to represent objects when testing them against the primitive. This could be the object’s axis-aligned bounding box, or a bounding sphere, for example. The proxy part of a condition is optional and defaults to the object’s bounding box, which is the only proxy that is currently supported.
 > - Expressions define how to interpret the proxy-primitive check. For example, an object could pass the condition if its bounding box intersects the given primitive, or it could be required to be fully enclosed.
 
 Conditions can be negated, combined and nested as illustrated below.
 
 | Condition | Description |
 | --- | --- |
-| `{ "$intersects": [ <sprimitive> ] }` | True, if the primitive intersects with the objectsâs axis-aligned bounding box. |
-| `{ "$encloses": [ <sprimitive>, <sproxy>?, epsilon? ] }` | True, if the primitive has a volume and fully encloses the objectsâs axis-aligned bounding box. `sproxy` (optional) defines the type of the bounding box. Defaults to `aabbox` if not provided. `epsilon` (optional) is a scalar that expands each dimension of the primitive. Defaults to 0.0 if not provided. |
-| `{ "$extent": [ <threshold> ] }` | True, if the volume of the objectsâs axis-aligned bounding box (world space) passes the threshold. |
+| `{ "$intersects": [ <sprimitive> ] }` | True, if the primitive intersects with the objects’s axis-aligned bounding box. |
+| `{ "$encloses": [ <sprimitive>, <sproxy>?, epsilon? ] }` | True, if the primitive has a volume and fully encloses the objects’s axis-aligned bounding box. `sproxy` (optional) defines the type of the bounding box. Defaults to `aabbox` if not provided. `epsilon` (optional) is a scalar that expands each dimension of the primitive. Defaults to 0.0 if not provided. |
+| `{ "$extent": [ <threshold> ] }` | True, if the volume of the objects’s axis-aligned bounding box (world space) passes the threshold. |
 | `{ "$not": <scondition> }` | Inverts the given condition. |
 | `{ "$or": [ <scondition1>, <scondition2>, ... ] }` | Any of the given conditions must be fulfilled. |
 | `{ "$and": [ <scondition1>, <scondition2>, ... ] }` | All of the given conditions must be fulfilled. |

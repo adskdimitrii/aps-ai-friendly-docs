@@ -31,7 +31,7 @@ Only account administrators can call this endpoint.
 | Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Region   string | Specifies the region where your request should be routed. If not set, the request is routed automatically, which may result in a slight increase in latency. <br>Possible values: `US`, `EMEA`. For a complete list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
-| User-Id   string | The ID of a user on whose behalf your request is acting. <br>Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.<br>You can use either the userâs ACC ID (`id`), or their Autodesk ID (`autodeskId`).<br>Note that this header is required for Account Admin POST, PATCH, and DELETE endpoints if you want to use a 2-legged authentication context. This header is optional for Account Admin GET endpoints. |
+| User-Id   string | The ID of a user on whose behalf your request is acting. <br>Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.<br>You can use either the user’s ACC ID (`id`), or their Autodesk ID (`autodeskId`).<br>Note that this header is required for Account Admin POST, PATCH, and DELETE endpoints if you want to use a 2-legged authentication context. This header is optional for Account Admin GET endpoints. |
 
 * Required
 
@@ -39,7 +39,7 @@ Only account administrators can call this endpoint.
 
 ## [URI Parameters](#uri-parameters)
 
-| accountId   string: UUID | The ID of the ACC account that contains the project being created or the projects being retrieved. This corresponds to the hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID, remove the â**b.**" prefix. For example, a hub ID of `b.c8b0c73d-3ae9` translates to an account ID of `c8b0c73d-3ae9`. |
+| accountId   string: UUID | The ID of the ACC account that contains the project being created or the projects being retrieved. This corresponds to the hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID, remove the “**b.**" prefix. For example, a hub ID of `b.c8b0c73d-3ae9` translates to an account ID of `c8b0c73d-3ae9`. |
 | --- | --- |
 | userId   string | The ID of the user. To find the ID call [GET users](http-admin-projectsprojectId-users-GET.md). You can use either the ACC ID (`id`) or the Autodesk ID (`autodeskId`). |
 
@@ -49,11 +49,11 @@ Only account administrators can call this endpoint.
 
 | filter[projectId]   array: string: uuid | A list of project IDs. Only results where the user is associated with one or more of the specified projects are returned. |
 | --- | --- |
-| filter[key]   array: string | Filters the list of products by product key â a machine-readable identifier for an ACC product (such as `docs`, `build`, or `cost`). <br>You can specify one or more keys to return only those products the user is associated with.<br>Example: `filter[key]=docs,build`<br>Possible values: `accountAdministration`, `autoSpecs`, `build`, `buildingConnected`, `capitalPlanning`, `cloudWorksharing`, `cost`, `designCollaboration`, `docs`, `financials`, `insight`, `modelCoordination`, `projectAdministration`, `takeoff`, and `workshopxr`. |
+| filter[key]   array: string | Filters the list of products by product key — a machine-readable identifier for an ACC product (such as `docs`, `build`, or `cost`). <br>You can specify one or more keys to return only those products the user is associated with.<br>Example: `filter[key]=docs,build`<br>Possible values: `accountAdministration`, `autoSpecs`, `build`, `buildingConnected`, `capitalPlanning`, `cloudWorksharing`, `cost`, `designCollaboration`, `docs`, `financials`, `insight`, `modelCoordination`, `projectAdministration`, `takeoff`, and `workshopxr`. |
 | fields   array: string | List of fields to return in the response. Defaults to all fields. <br>Possible values: `projectIds`, `name` and `icon`. |
 | sort   array: string | The list of fields to sort by. <br>Each property can be followed by a direction modifier of either `asc` (ascending) or `desc` (descending). The default is `asc`.<br>Possible values: `name`.<br>Default is the order in database. |
 | limit   int | The maximum number of records to return in the response. <br>Default: `20`<br>Minimum: `1`<br>Maximum: `200` (If a larger value is provided, only 200 records are returned) |
-| offset   int | The index of the first record to return. <br>Used for pagination in combination with the `limit` parameter.<br>Example: `limit=20` and `offset=40` returns records 41â60. |
+| offset   int | The index of the first record to return. <br>Used for pagination in combination with the `limit` parameter.<br>Example: `limit=20` and `offset=40` returns records 41–60. |
 
 ### Response
 

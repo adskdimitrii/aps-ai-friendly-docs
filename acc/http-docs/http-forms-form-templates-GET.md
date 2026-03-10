@@ -10,7 +10,7 @@ GET
 
 # v1/projects/{projectId}/form-templates
 
-Returns all projectâs form templates the user has access to.
+Returns all project’s form templates the user has access to.
 
 ## [Resource Information](#resource-information)
 
@@ -33,7 +33,7 @@ Returns all projectâs form templates the user has access to.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Request
@@ -78,7 +78,7 @@ Expand all
 | createdBy   string | The unique identifier of the user who created the template. |
 | updatedAt   datetime: ISO 8601 | When the template was last updated, UTC date and time in ISO-8601 format. |
 | isPdf   boolean | A flag that indicates whether the template has a PDF or not. |
-| pdfUrl   string | For PDF forms, the URL to download the formâs PDF. |
+| pdfUrl   string | For PDF forms, the URL to download the form’s PDF. |
 | forms   object | Reference to fetch forms created from this template. |
 | url   string | URL to retrieve resources. |
 | pagination   object | Request pagination information. |

@@ -8,7 +8,7 @@ Autodesk.Viewing.Extensions
 
 # WireframesExtension
 
-Provides the ability of rendering the model in wireframe mode. The method implemented is not very performant, so itâs best to avoid using it with large models.
+Provides the ability of rendering the model in wireframe mode. The method implemented is not very performant, so it’s best to avoid using it with large models.
 
 The extension id is: `Autodesk.Viewing.Wireframes`
 

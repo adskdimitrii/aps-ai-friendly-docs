@@ -12,7 +12,7 @@ The Autodesk Platform Service (APS) provides a set of cloud resources that are s
 
 Rate limits are simple: a rate limit sets the maximum number of API calls an application can make per minute. Rate limits help keep the number of API calls within the capacity of the service, and guard against instability and attacks such as denial-of-service attacks. This ensures availability and consistent quality of service for all users.
 
-The rate limits may vary by each service or by endpoints within a service. Rate limits are currently placed at a generous level that shouldnât cause problems with applications running under normal circumstances. They may come into play and limit an application if the application generates an unusually high volume of API calls.
+The rate limits may vary by each service or by endpoints within a service. Rate limits are currently placed at a generous level that shouldn’t cause problems with applications running under normal circumstances. They may come into play and limit an application if the application generates an unusually high volume of API calls.
 
 Rate limits are not guaranteed service levels. If a service is overloaded for any reason, request rate limits may effectively drop until the overload condition ends.
 
@@ -42,17 +42,17 @@ Content-Length: 44
 
 ## [Quotas](#quotas)
 
-Quotas come into play after a service request is accepted. A quota limits an applicationâs use of resources as the application carries out activities within an APS service. Quotas may limit, for example, file sizes uploaded, downloaded, and processed; the amount of processing time allowed per job; an applicationâs monthly service consumption; and so on. Each APS service may have a set of built-in quotas. They may also offer custom quotas that a user or application can set to lower resource consumption below the built-in limits if desired to further restrict resource use.
+Quotas come into play after a service request is accepted. A quota limits an application’s use of resources as the application carries out activities within an APS service. Quotas may limit, for example, file sizes uploaded, downloaded, and processed; the amount of processing time allowed per job; an application’s monthly service consumption; and so on. Each APS service may have a set of built-in quotas. They may also offer custom quotas that a user or application can set to lower resource consumption below the built-in limits if desired to further restrict resource use.
 
 Note again that quotas are not guaranteed service levels. Quota limits may drop temporarily if a service is overloaded.
 
 ### Notification
 
-Exceeding a quota typically occurs when an API request specifies excessive resource use. The service receiving the request replies with an error response that specifies the quota violation. Sometimes, where resource use doesnât occur until after a request is received (the request places a job on a queue, for example), the quota violation occurs during later execution and throws an error there. In that case the requester may set up a callback to provide error notification. If a callback isnât possible, the requester can poll regularly (but not too frequently) to make sure that execution is carried out correctly.
+Exceeding a quota typically occurs when an API request specifies excessive resource use. The service receiving the request replies with an error response that specifies the quota violation. Sometimes, where resource use doesn’t occur until after a request is received (the request places a job on a queue, for example), the quota violation occurs during later execution and throws an error there. In that case the requester may set up a callback to provide error notification. If a callback isn’t possible, the requester can poll regularly (but not too frequently) to make sure that execution is carried out correctly.
 
 ## [Scope](#scope)
 
-The scope of APS rate limits and quotas (how widely or narrowly they apply) varies across APIs and resource types. Scope is defined by how request rate or resource use is tallied: on the client side whether itâs tallied per user ID or application, for example, and on the service side whether itâs applied across an entire API, for example, or to individual endpoints or resources within an API.
+The scope of APS rate limits and quotas (how widely or narrowly they apply) varies across APIs and resource types. Scope is defined by how request rate or resource use is tallied: on the client side whether it’s tallied per user ID or application, for example, and on the service side whether it’s applied across an entire API, for example, or to individual endpoints or resources within an API.
 
 ### Rate Limit Scope
 
@@ -62,7 +62,7 @@ Rate limits on the client side may apply per user ID or per application. On the 
 
 Quotas on the client side may apply per user ID or per application. On the service side, they may apply to a particular resource type, to the underlying engine servicing a request, to an endpoint, or other qualifying attributes. Because quotas are typically resource-specific, their scope is often narrowly defined.
 
-API specific rate limit and quota pages spell out the scope for each APIâs rate limit and quota.
+API specific rate limit and quota pages spell out the scope for each API’s rate limit and quota.
 
 ## [Requesting Rate Limit and Quota Changes](#requesting-rate-limit-and-quota-changes)
 

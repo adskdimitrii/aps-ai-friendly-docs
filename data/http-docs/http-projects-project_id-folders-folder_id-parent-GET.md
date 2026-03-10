@@ -38,7 +38,7 @@ except the root folder which does not have a parent of its own.
 
 ## [URI Parameters](#uri-parameters)
 
-| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a â**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
+| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a “**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
 | --- | --- |
 | folder_id   string | The unique identifier of a folder. |
 
@@ -78,10 +78,10 @@ Expand all
 | lastModifiedUserId   string | The unique identifier of the user who last modified the folder. |
 | lastModifiedUserName   string | The name of the user who last modified the folder. |
 | lastModifiedTimeRollup   datetime: ISO 8601 | The date and time the folder or any of its children were last updated. |
-| hidden   boolean | The folderâs current visibility state. |
+| hidden   boolean | The folder’s current visibility state. |
 | extension   object | The extension object of the data. |
 | type   string | The type of resource. |
-| version   string | The version of the folderâs type. |
+| version   string | The version of the folder’s type. |
 | schema   object | An object containing an API link property. |
 | href   string | A hyperlink reference to this resource. |
 | data   object | A collection of properties applied to the folder. |

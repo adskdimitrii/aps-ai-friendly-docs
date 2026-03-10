@@ -199,7 +199,7 @@ See the following fields.
 
 ```
 
-This example query uses the `$like` expression combined with `%` wildcard matching to find rows with a structural material description containing âsteelâ that has a Ht dimension of more than 0.5 feet.
+This example query uses the `$like` expression combined with `%` wildcard matching to find rows with a structural material description containing “steel” that has a Ht dimension of more than 0.5 feet.
 
 ```
 {

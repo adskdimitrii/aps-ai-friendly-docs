@@ -47,7 +47,7 @@ Expand all
 
 ## [indexOf(control)](#indexof-control)
 
-Returns the index of a control in this group. -1 if the item isnât found.
+Returns the index of a control in this group. -1 if the item isn’t found.
 
 ### Parameters
 
@@ -94,7 +94,7 @@ Returns the control with the corresponding ID if it is in this control group.
 
 | type | description |
 | --- | --- |
-| [Autodesk.Viewing.UI.Control](UI-Control.md) | The control or null if it doesnât exist. |
+| [Autodesk.Viewing.UI.Control](UI-Control.md) | The control or null if it doesn’t exist. |
 
 ## [getControlId(index)](#getcontrolid-index)
 
@@ -111,7 +111,7 @@ Returns the control ID with for corresponding index if it is in this control gro
 
 | type | description |
 | --- | --- |
-| string | The ID of the control or null if it doesnât exist. |
+| string | The ID of the control or null if it doesn’t exist. |
 
 ## [getNumberOfControls()](#getnumberofcontrols)
 
@@ -138,17 +138,17 @@ Sets the collapsed state of this control group. Iterates over the child controls
 
 | type | description |
 | --- | --- |
-| boolean | True if at least one collapsible childâs state changes. |
+| boolean | True if at least one collapsible child’s state changes. |
 
 ## [getId()](#getid)
 
-Gets this controlâs ID.
+Gets this control’s ID.
 
 ### Returns
 
 | type | description |
 | --- | --- |
-| string | The controlâs ID. |
+| string | The control’s ID. |
 
 ## [setVisible(visible)](#setvisible-visible)
 
@@ -165,7 +165,7 @@ Sets the visibility of this control.
 
 | type | description |
 | --- | --- |
-| boolean | True if the controlâs visibility changed. |
+| boolean | True if the control’s visibility changed. |
 
 ## [isVisible()](#isvisible)
 
@@ -202,7 +202,7 @@ Returns the tooltip text for this control.
 
 | type | description |
 | --- | --- |
-| string | The tooltip text. Null if itâs not set. |
+| string | The tooltip text. Null if it’s not set. |
 
 ## [isCollapsed()](#iscollapsed)
 

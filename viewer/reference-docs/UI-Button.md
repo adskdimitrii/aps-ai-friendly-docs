@@ -102,13 +102,13 @@ Override this method to be notified when the mouse leaves the button.
 
 ## [getId()](#getid)
 
-Gets this controlâs ID.
+Gets this control’s ID.
 
 ### Returns
 
 | type | description |
 | --- | --- |
-| string | The controlâs ID. |
+| string | The control’s ID. |
 
 ## [setVisible(visible)](#setvisible-visible)
 
@@ -125,7 +125,7 @@ Sets the visibility of this control.
 
 | type | description |
 | --- | --- |
-| boolean | True if the controlâs visibility changed. |
+| boolean | True if the control’s visibility changed. |
 
 ## [isVisible()](#isvisible)
 
@@ -162,7 +162,7 @@ Returns the tooltip text for this control.
 
 | type | description |
 | --- | --- |
-| string | The tooltip text. Null if itâs not set. |
+| string | The tooltip text. Null if it’s not set. |
 
 ## [setCollapsed(collapsed)](#setcollapsed-collapsed)
 
@@ -179,7 +179,7 @@ Sets the collapsed state of this control.
 
 | type | description |
 | --- | --- |
-| boolean | True if the controlâs collapsed state changes. |
+| boolean | True if the control’s collapsed state changes. |
 
 ## [isCollapsed()](#iscollapsed)
 

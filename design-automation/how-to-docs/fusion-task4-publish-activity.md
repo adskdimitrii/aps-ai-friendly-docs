@@ -1,10 +1,10 @@
-# Task 4 â Publish an Activity
+# Task 4 – Publish an Activity
 
 Source: https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/fusion/task4-publish-activity/
 
 ---
 
-# Task 4 â Publish an Activity
+# Task 4 – Publish an Activity
 
 An Activity is an action that can be executed in the Automation Service. You create and post Activities to run specific AppBundles.
 
@@ -154,7 +154,7 @@ curl -X POST \
 
 Show More
 
-**Note:** You can omit `id` from the request body. If you include `id` in the request body, set it to `null`. If you donât set it to `null`, the Automation Service throws an error.
+**Note:** You can omit `id` from the request body. If you include `id` in the request body, set it to `null`. If you don’t set it to `null`, the Automation Service throws an error.
 
 ### Response
 

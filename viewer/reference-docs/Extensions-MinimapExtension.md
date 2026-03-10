@@ -58,4 +58,4 @@ Occurs when camera changes
 
 ## [destroyUI()](#destroyui)
 
-Destroys minimapâs UI
+Destroys minimap’s UI

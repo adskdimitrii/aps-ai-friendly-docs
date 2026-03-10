@@ -45,7 +45,7 @@ Account Administrator portal. For more details, see the [Manage Access to Docs](
 
 ## [URI Parameters](#uri-parameters)
 
-| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a â**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
+| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a “**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
 | --- | --- |
 | folder_id   string | The unique identifier of a folder. |
 
@@ -65,7 +65,7 @@ Expand all
 | id*   string | The URN of the folder. <br>For details about how to find the URN, follow the initial steps in the [Download a File](../how-to-docs/download-file.md) tutorial.<br>Note that this should NOT be URL-encoded.<br>Note that you also need to specify the URN of the folder in the URI (`folder_id`). |
 | attributes   object | The attributes of the data object |
 | hidden   boolean | `true` if you want to delete a BIM 360 Docs folder. <br>`false` if you want to restore a BIM 360 Docs folder. |
-| name   string | The new folder name (1-255 characters). <br>Reserved characters: `<`, `>`, `:`, `"`, `/`, `\`, `|`, `?`, `*`, `` ` ``, `\n`, `\r`, `\t`, `\0`, `\f`, `Â¢`, `â¢`, `$`, `Â®`.<br>Restored folders are assigned the original folder name by default, unless you specify a different name.<br>Note that if you assign a deleted folder name to a different folder, you will need to assign a new name to the deleted folder when you restore it. |
+| name   string | The new folder name (1-255 characters). <br>Reserved characters: `<`, `>`, `:`, `"`, `/`, `\`, `|`, `?`, `*`, `` ` ``, `\n`, `\r`, `\t`, `\0`, `\f`, `¢`, `™`, `$`, `®`.<br>Restored folders are assigned the original folder name by default, unless you specify a different name.<br>Note that if you assign a deleted folder name to a different folder, you will need to assign a new name to the deleted folder when you restore it. |
 | relationships   object | The resources that share a relationship with this resource. |
 | parent   object | Information on the parent resource of this resource. |
 | data*   object | The data object. |
@@ -111,13 +111,13 @@ Expand all
 | lastModifiedUserId   string | The unique identifier of the user who last modified the folder. |
 | lastModifiedUserName   string | The name of the user who last modified the folder. |
 | lastModifiedTimeRollup   datetime: ISO 8601 | The date and time the folder or any of its children were last updated. |
-| hidden   boolean | The folderâs current visibility state. |
+| hidden   boolean | The folder’s current visibility state. |
 | extension   object | The extension object of the data. |
-| type   string | The type of the schema that the resourceâs data object adheres to. |
+| type   string | The type of the schema that the resource’s data object adheres to. |
 | version   string | The version of the schema that the data is adhering to. |
 | schema   object | An object containing an API link property. |
 | href   string | A hyperlink reference to this resource. |
-| data   object | Additional properties that the resourceâs data possesses. |
+| data   object | Additional properties that the resource’s data possesses. |
 | relationships   object | The relationship links associated with the folder, including `refs`, `links`, `parent`, and `contents.` |
 | parent   object | Information on resources that are found above this resource. |
 | links   object | The object containing information on links of related resources. |

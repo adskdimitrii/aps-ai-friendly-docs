@@ -8,11 +8,11 @@ Source: https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/advanced_opt
 
 The [Property Database](https://aps.autodesk.com/en/docs/viewer/v7/reference/globals/PropertyDatabase/) contains all of the BIM data for a construction model and the manufacturing data for manufacturing models. The Property Database is kept on a dedicated [web worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) and accessing it is done via asynchronous messages.
 
-In this example weâll be writing a function that queries the Property Database of the model directly inside the web worker execution context.
+In this example we’ll be writing a function that queries the Property Database of the model directly inside the web worker execution context.
 
 ## [Step 1: Writing a custom query function](#step-1-writing-a-custom-query-function)
 
-Letâs start by writing a trivial query function for the Property Database.
+Let’s start by writing a trivial query function for the Property Database.
 
 ```
 function userFunction(pdb) {
@@ -21,7 +21,7 @@ function userFunction(pdb) {
 
 ```
 
-The trivial query function doesnât interact with `pdb`, the Property Database, yet. Weâll implement rhw interaction in Step 3. For now weâll have it return a fixed value of `42`.
+The trivial query function doesn’t interact with `pdb`, the Property Database, yet. We’ll implement rhw interaction in Step 3. For now we’ll have it return a fixed value of `42`.
 
 ## [Step 2: Executing the custom query function](#step-2-executing-the-custom-query-function)
 
@@ -38,15 +38,15 @@ thePromise.then(function(retValue){
 
 ```
 
-After executing this code snippet, youâll see the message **retValue is: 42** in the browserâs developer console.
+After executing this code snippet, you’ll see the message **retValue is: 42** in the browser’s developer console.
 
 ## [Step 3: Querying the Property Database](#step-3-querying-the-property-database)
 
-Now itâs time to modify our `userFunction` to have it interact with the Property Database.
+Now it’s time to modify our `userFunction` to have it interact with the Property Database.
 
-The objective of the custom query function is to return the ids of the heaviest parts in the model. To do this, weâll iterate over all part-ids in the model and check their *Mass* property value.
+The objective of the custom query function is to return the ids of the heaviest parts in the model. To do this, we’ll iterate over all part-ids in the model and check their *Mass* property value.
 
-Due to the Property Database data layout, weâll first need to identify the index for the âMassâ property.
+Due to the Property Database data layout, we’ll first need to identify the index for the “Mass” property.
 Update the custom query function as follows:
 
 ```
@@ -72,7 +72,7 @@ function userFunction(pdb) {
 
 Show More
 
-If the value of `attrIdMass` is different than `-1`, then we know that the modelâs Property Database contains âMassâ data for its parts. Next weâll have the function iterate over all parts and their properties, to find out which one is the largest.
+If the value of `attrIdMass` is different than `-1`, then we know that the model’s Property Database contains “Mass” data for its parts. Next we’ll have the function iterate over all parts and their properties, to find out which one is the largest.
 
 ```
 function userFunction(pdb) {
@@ -132,7 +132,7 @@ function userFunction(pdb) {
 
 Show More
 
-And finally, the Promiseâs `resolve` function from Step 2 will have to be updated, too. In this case, weâll have the viewer select and focus (zoom) on the largest part.
+And finally, the Promise’s `resolve` function from Step 2 will have to be updated, too. In this case, we’ll have the viewer select and focus (zoom) on the largest part.
 
 ```
 var thePromise = viewer.model.getPropertyDb().executeUserFunction( userFunction );
@@ -159,9 +159,9 @@ Show More
 
 ## [Final thoughts](#final-thoughts)
 
-When writing your own `userFunction`, make sure that you avoid referencing objects that live outside the functionâs scope. This is because the function gets serialized when messaged to the web worker.
+When writing your own `userFunction`, make sure that you avoid referencing objects that live outside the function’s scope. This is because the function gets serialized when messaged to the web worker.
 
-## [Whatâs next?](#what-s-next)
+## [What’s next?](#what-s-next)
 
 To view an interactive example, see [Querying Model Properties](interactive_examples-example_3.md).
 

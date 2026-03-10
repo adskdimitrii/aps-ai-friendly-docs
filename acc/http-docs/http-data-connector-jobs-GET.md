@@ -10,7 +10,7 @@ GET
 
 # accounts/{accountId}/jobs
 
-Returns an array of Data Connector jobs spawned by requests from the authenticated user. The array can contain all jobs associated with a specified project, or all jobs associated with all projects in the userâs account. The user must have project administrator or executive overview permissions:
+Returns an array of Data Connector jobs spawned by requests from the authenticated user. The array can contain all jobs associated with a specified project, or all jobs associated with all projects in the user’s account. The user must have project administrator or executive overview permissions:
 
 - Users with project administrator permissions may retrieve jobs for one project.
 - Users with executive overview permissions may retrieve jobs for one project or all projects in their account.
@@ -44,7 +44,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 
 ## [URI Parameters](#uri-parameters)
 
-| accountId   string: UUID | The account ID. You can derive it from your hub ID if necessary: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial âb.â from the hub ID to get your account ID. |
+| accountId   string: UUID | The account ID. You can derive it from your hub ID if necessary: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial “b.” from the hub ID to get your account ID. |
 | --- | --- |
 
 ### Request

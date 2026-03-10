@@ -44,7 +44,7 @@ This method should return the priority of the tool inside the tool stack. A tool
 
 | type | description |
 | --- | --- |
-| number | The toolâs priority. |
+| number | The tool’s priority. |
 
 ## [register()](#register)
 
@@ -56,7 +56,7 @@ This method is called by [Autodesk.Viewing.ToolController#deregisterTool](Viewin
 
 ## [activate(name, viewerApi)](#activate-name-viewerapi)
 
-The activate method is called by the ToolController when it adds this tool to the list of those to receive event handling calls. Once activated, a toolâs âhandle*â methods may be called if no other higher priority tool handles the given event. Each active toolâs âupdateâ method also gets called once during each redraw loop.
+The activate method is called by the ToolController when it adds this tool to the list of those to receive event handling calls. Once activated, a tool’s “handle*” methods may be called if no other higher priority tool handles the given event. Each active tool’s “update” method also gets called once during each redraw loop.
 
 ### Parameters
 
@@ -68,7 +68,7 @@ The activate method is called by the ToolController when it adds this tool to th
 
 ## [deactivate(name)](#deactivate-name)
 
-The deactivate method is called by the ToolController when it removes this tool from the list of those to receive event handling calls. Once deactivated, a toolâs âhandle*â methods and âupdateâ method will no longer be called.
+The deactivate method is called by the ToolController when it removes this tool from the list of those to receive event handling calls. Once deactivated, a tool’s “handle*” methods and “update” method will no longer be called.
 
 ### Parameters
 

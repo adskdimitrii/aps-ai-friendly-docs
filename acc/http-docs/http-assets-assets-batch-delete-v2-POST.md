@@ -42,7 +42,7 @@ To understand the basics of assets and the Assets settings that define them, see
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form âb.{UUID}â. |
+| projectId   string | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
 | --- | --- |
 
 ### Request

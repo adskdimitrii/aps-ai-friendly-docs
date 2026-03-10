@@ -42,14 +42,14 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Response
 
 ## [HTTP Status Code Summary](#http-status-code-summary)
 
-| 200   OK | A successfully retrieved submittal projectâs metadata. |
+| 200   OK | A successfully retrieved submittal project’s metadata. |
 | --- | --- |
 | 401   Unauthorized | Invalid or missing authorization header. Verify the Bearer token and try again. |
 | 403   Forbidden | The user is not authorized to perform this action. |
@@ -135,7 +135,7 @@ Expand all
 
 ## [Example](#example)
 
-A successfully retrieved submittal projectâs metadata.
+A successfully retrieved submittal project’s metadata.
 
 ### Request
 

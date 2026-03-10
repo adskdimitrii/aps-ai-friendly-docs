@@ -1,10 +1,10 @@
-# Task 3 â Upload an AppBundle to the Automation Service
+# Task 3 – Upload an AppBundle to the Automation Service
 
 Source: https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/fusion/task3-upload-appbundle/
 
 ---
 
-# Task 3 â Upload an AppBundle to the Automation Service
+# Task 3 – Upload an AppBundle to the Automation Service
 
 An AppBundle is a zipped folder containing the TypeScript file. The file is saved to a specific structure, and is accompanied by a file named *PackageContents.xml*, which describes the content of the folder.
 
@@ -179,4 +179,4 @@ of the AppBundle. Consequently, endpoints referencing the AppBundle using the al
 **Notes:**
 
 - If there is an error, refer the section on [troubleshooting](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/troubleshooting/).
-- For information about the changes between releases, [see the Fusion Whatâs New blog posts](https://www.autodesk.com/products/fusion-360/blog/tag/whats-new/).
+- For information about the changes between releases, [see the Fusion What’s New blog posts](https://www.autodesk.com/products/fusion-360/blog/tag/whats-new/).

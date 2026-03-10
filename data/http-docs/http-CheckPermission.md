@@ -10,7 +10,7 @@ Commands
 
 Checks if a user has permission to perform specified actions on specified resources.
 
-The userâs identity is derived from the *x-user-id* header parameter (in a 2-Legged call), or from the Authorization Bearer token (in a 3-Legged call). The actions being checked for and the resources are specified in the JSON payload sent with the request. The resources can be folders, items, or even specified versions of an item.
+The user’s identity is derived from the *x-user-id* header parameter (in a 2-Legged call), or from the Authorization Bearer token (in a 3-Legged call). The actions being checked for and the resources are specified in the JSON payload sent with the request. The resources can be folders, items, or even specified versions of an item.
 
 The JSON response contains an array named `permissions`, where each element represents a resource that was checked. Each element of the array contains a `permission` attribute, which becomes `true` only if the user is permitted to perform all the specified actions for that resource. It becomes `false` even if one action is not permitted. To determine what action was not permitted, inspect the `details` object.
 
@@ -74,7 +74,7 @@ The following table compares the terms used by BIM 360 Team, Fusion Team, and A3
 
 ## [URI Parameters](#uri-parameters)
 
-| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a â**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
+| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a “**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
 | --- | --- |
 
 ### Request
@@ -94,7 +94,7 @@ Expand all
 | extension*   object | The extension object of the data. |
 | type*   enum:string | The type of command. Must always be: `commands:autodesk.core:CheckPermission` |
 | version*   string | The version of the command. |
-| data*   object | Additional properties that the resourceâs data possesses. |
+| data*   object | Additional properties that the resource’s data possesses. |
 | requiredActions*   array: enum:string | An array containing the list of permitted actions to check for. Possible values: `read`, `view`, `download`, `collaborate`, `write`, `create`, `upload`, `updateMetaData`, `delete`, `admin`, `share`   See the tables under the initial description of the command for details. |
 | relationships*   object | An object that specifies information about related resources.   In the context of this command, it is used to specify the resources to check. |
 | resources*   object | An object that represents related resources.   In the context of this command, it is used to specify the resources to check. |
@@ -134,7 +134,7 @@ Expand all
 | version   string | The version of the schema that the data is adhering to. |
 | schema   object | An object containing an API link property. |
 | href   string | A hyperlink reference to this resource. |
-| data   object | Additional properties that the resourceâs data possesses. |
+| data   object | Additional properties that the resource’s data possesses. |
 | requiredActions   array: enum:string | List of permitted actions that were checked for. Possible values: `read`, `view`, `download`, `collaborate`, `write`, `create`, `upload`, `updateMetaData`, `delete`, `admin`, `share`. |
 | permissions   array: object | An array of objects representing the resources that were checked. |
 | id   string | The URN of the resource. |

@@ -8,7 +8,7 @@ Functions
 
 # cloneHTMLElementsToWrapperElement
 
-Helper method to create a wrapper HTML element that contains all HTML elements specified. CSS styles are preserved. The wrapper element is sized to match the viewerâs canvas size, and the elements are positioned relative to the viewerâs canvas. This is useful for capturing HTML elements in a screenshot using html2canvas.
+Helper method to create a wrapper HTML element that contains all HTML elements specified. CSS styles are preserved. The wrapper element is sized to match the viewer’s canvas size, and the elements are positioned relative to the viewer’s canvas. This is useful for capturing HTML elements in a screenshot using html2canvas.
 
 ## [Parameters](#parameters)
 

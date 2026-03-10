@@ -31,7 +31,7 @@ Lists all available AppBundles, including AppBundles shared with this app.
 
 ## [Query String Parameters](#query-string-parameters)
 
-| page   string | Access an additional âpageâ of data when necessary, based on the âpaginationTokenâ returned from a previous invocation. |
+| page   string | Access an additional ‘page’ of data when necessary, based on the ‘paginationToken’ returned from a previous invocation. |
 | --- | --- |
 
 ### Response

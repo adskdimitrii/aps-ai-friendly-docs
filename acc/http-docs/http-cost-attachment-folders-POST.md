@@ -29,7 +29,7 @@ Find or create an attachment folder in BIM 360 Docs for a given item. That folde
 | Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
-| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.<br>To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
+| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.<br>To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
 
 * Required
 
@@ -74,7 +74,7 @@ The associated item of the folder.
 | id   string: UUID | System identifier of the folder. |
 | --- | --- |
 | creatorId   string | The user who created the folder. This is the ID of a user managed by BIM 360 Admin. |
-| scope   string | Scope of the folderâs use. For example, Attachment, Template, and so on. |
+| scope   string | Scope of the folder’s use. For example, Attachment, Template, and so on. |
 | urn   string | Object URN of the folder in the Autodesk Data Management service. |
 | createdAt   datetime: ISO 8601 | The date and time that the item was created, in ISO 8601 format. |
 | updatedAt   datetime: ISO 8601 | The date and time that the item was last updated, in ISO 8601 format. |

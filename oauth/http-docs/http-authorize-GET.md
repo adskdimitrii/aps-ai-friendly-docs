@@ -10,7 +10,7 @@ GET
 
 # authorize
 
-This is the browser URL to redirect an end user in order to acquire the userâs consent for your app to access the specified resources. Hence, this endpoint authenticates the user and retrieves an authorization code grant.
+This is the browser URL to redirect an end user in order to acquire the user’s consent for your app to access the specified resources. Hence, this endpoint authenticates the user and retrieves an authorization code grant.
 
 The auth_code hence generated is only valid for 5 minutes and id token hence generated is only valid for 60 minutes.
 
@@ -32,7 +32,7 @@ See the* [Get a 3-Legged Token with Authorization Code Grant](../how-to-docs/get
 | client_id*   string | Client ID of the app |
 | --- | --- |
 | response_type*   string | The value MUST be either `code` for authorization code grant flow or `id_token` for id token flow. |
-| redirect_uri*   string | URL-encoded callback URL that the end user will be redirected to after completing the authorization flow, which can include query parameters and any other valid URL construct       *Note: This must match the pattern of the callback URL field of the appâs registration in the*[My Apps](https://aps.autodesk.com/myapps) [*](#id1)section. |
+| redirect_uri*   string | URL-encoded callback URL that the end user will be redirected to after completing the authorization flow, which can include query parameters and any other valid URL construct       *Note: This must match the pattern of the callback URL field of the app’s registration in the*[My Apps](https://aps.autodesk.com/myapps) [*](#id1)section. |
 | nonce   string | A string value used to associate a client session with an ID token and to mitigate replay attacks. Mandatory when scope is openid. |
 | scope   string | A URL-encoded, space-separated list of requested scopes. For example, `scope=data:read` requests the `data:read` scope. This value is for the purpose of this example but in your own app, you should request the scope(s) you actually need.       Maximum characters - 3000   Maximum number of scopes - 50       * *See the* [Scopes](https://aps.autodesk.com/en/docs/oauth/v2/overview/scopes/)*page for more information on when scopes are required.* |
 | state*   string | A URL-encoded payload containing arbitrary data that the authentication flow will pass back verbatim in a `state` query parameter to the callback URL. |
@@ -59,15 +59,15 @@ An HTML Link in a Web App for Authorization Code Grant
 
 ```
 
-That `href` attribute is a bit difficult to read. Letâs break it down:
+That `href` attribute is a bit difficult to read. Let’s break it down:
 
 - `https://developer.api.autodesk.com/authentication/v2/authorize`     This is the endpoint URI and should be used verbatim.
 
 - `response_type=code`     This is what tells the OAuth server that you are using the `Authorization Code` grant type and should be used verbatim.
 
-- `client_id=obQDn8P0GanGFQha4ngKKVWcxwyvFAGE`     Replace the value here with your appâs client ID.
+- `client_id=obQDn8P0GanGFQha4ngKKVWcxwyvFAGE`     Replace the value here with your app’s client ID.
 
-- `redirect_uri=http%3A%2F%2Fsampleapp.com%2Foauth%2Fcallback%3Ffoo%3Dbar`     This is the URL-encoded callback URL you want the user redirected to after they grant consent. In this example, that URL is `http://sampleapp.com/oauth/callback?foo=bar`. Replace the value here with the appropriate URL for your web app. Note that it must match the pattern specified for the callback URL in your appâs registration in the APS developer portal.
+- `redirect_uri=http%3A%2F%2Fsampleapp.com%2Foauth%2Fcallback%3Ffoo%3Dbar`     This is the URL-encoded callback URL you want the user redirected to after they grant consent. In this example, that URL is `http://sampleapp.com/oauth/callback?foo=bar`. Replace the value here with the appropriate URL for your web app. Note that it must match the pattern specified for the callback URL in your app’s registration in the APS developer portal.
 
 - `scope=data:read`     This requests the `data:read` scope. You can leave this value as-is for purposes of this example, but in your own app, you should request the scope(s) you actually need.
 
@@ -90,15 +90,15 @@ An HTML Link in a Web App for Authorization Code Grant with PKCE (For public cli
 
 ```
 
-That `href` attribute is a bit difficult to read. Letâs break it down:
+That `href` attribute is a bit difficult to read. Let’s break it down:
 
 - `https://developer.api.autodesk.com/authentication/v2/authorize`     This is the endpoint URI and should be used verbatim.
 
 - `response_type=code`     This is what tells the OAuth server that you are using the `Authentication Code` grant type and should be used verbatim.
 
-- `client_id=obQDn8P0GanGFQha4ngKKVWcxwyvFAGE`     Replace the value here with your appâs client ID.
+- `client_id=obQDn8P0GanGFQha4ngKKVWcxwyvFAGE`     Replace the value here with your app’s client ID.
 
-- `redirect_uri=http%3A%2F%2Fsampleapp.com%2Foauth%2Fcallback%3Ffoo%3Dbar`     This is the URL-encoded callback URL you want the user redirected to after they grant consent. In this example, that URL is `http://sampleapp.com/oauth/callback?foo=bar`. Replace the value here with the appropriate URL for your web app. Note that it must match the pattern specified for the callback URL in your appâs registration in the APS developer portal.
+- `redirect_uri=http%3A%2F%2Fsampleapp.com%2Foauth%2Fcallback%3Ffoo%3Dbar`     This is the URL-encoded callback URL you want the user redirected to after they grant consent. In this example, that URL is `http://sampleapp.com/oauth/callback?foo=bar`. Replace the value here with the appropriate URL for your web app. Note that it must match the pattern specified for the callback URL in your app’s registration in the APS developer portal.
 
 - `scope=data:read`     This requests the `data:read` scope. You can leave this value as-is for purposes of this example, but in your own app, you should request the scope(s) you actually need.
 
@@ -126,17 +126,17 @@ An HTML Link in a Web App for Re-verification flow. For this example, you can ge
 
 ```
 
-That `href` attribute is a bit difficult to read. Letâs break it down:
+That `href` attribute is a bit difficult to read. Let’s break it down:
 
 - `https://developer.api.autodesk.com/authentication/v2/authorize`     This is the endpoint URI and should be used verbatim.
 
-- `response_type=id_token`     This is what tells the OAuth server that you are using the âid_tokenâ grant type and should be used verbatim.
+- `response_type=id_token`     This is what tells the OAuth server that you are using the “id_token” grant type and should be used verbatim.
 
-- `response_mode=form_post` The response_mode can be âform_postâ or not included in the response would be sent back as a query string parameter. This would be sent back in fragment.
+- `response_mode=form_post` The response_mode can be “form_post” or not included in the response would be sent back as a query string parameter. This would be sent back in fragment.
 
-- `client_id=obQDn8P0GanGFQha4ngKKVWcxwyvFAGE`     Replace the value here with your appâs client ID.
+- `client_id=obQDn8P0GanGFQha4ngKKVWcxwyvFAGE`     Replace the value here with your app’s client ID.
 
-- `redirect_uri=http%3A%2F%2Fsampleapp.com%2Foauth%2Fcallback%3Ffoo%3Dbar`     This is the URL-encoded callback URL you want the user redirected to after they grant consent. In this example, that URL is `http://sampleapp.com/oauth/callback?foo=bar`. Replace the value here with the appropriate URL for your web app. Note that it must match the pattern specified for the callback URL in your appâs registration in the APS developer portal.
+- `redirect_uri=http%3A%2F%2Fsampleapp.com%2Foauth%2Fcallback%3Ffoo%3Dbar`     This is the URL-encoded callback URL you want the user redirected to after they grant consent. In this example, that URL is `http://sampleapp.com/oauth/callback?foo=bar`. Replace the value here with the appropriate URL for your web app. Note that it must match the pattern specified for the callback URL in your app’s registration in the APS developer portal.
 
 - `scope=openid`     This requests the `openid` scope. You can leave this value as-is for purposes of this example, but in your own app, you should request the scope(s) you actually need.
 

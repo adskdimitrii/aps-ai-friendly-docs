@@ -27,7 +27,7 @@ Typically, you load the document from APS, parse it for the required content (fo
 
 ## [load(documentId, onSuccessCallback, onErrorCallback, options)](#load-documentid-onsuccesscallback-onerrorcallback-options)
 
-Static method to load the translationâs manifest data from an APS endpoint.
+Static method to load the translation’s manifest data from an APS endpoint.
 
 ### Parameters
 

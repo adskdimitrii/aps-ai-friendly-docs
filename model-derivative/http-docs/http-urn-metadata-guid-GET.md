@@ -93,7 +93,7 @@ Expand all
 | data   object | Envelope that contains the returned data. |
 | --- | --- |
 | type   string | The type of data that is returned. Always `objects`. |
-| objects   array: object | Collection of âobjectsâ that constitute the nodes of the object tree. |
+| objects   array: object | Collection of “objects” that constitute the nodes of the object tree. |
 | objectid   number | A non-persistent ID that is assigned to an object at translation time. |
 | name   string | Name of the object. |
 | objects   array: object | An optional array of objects of type `object` where each object represents a child of the current node on the object tree. |

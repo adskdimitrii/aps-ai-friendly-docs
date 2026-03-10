@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/rfis3/rfi-official-respon
 
 # Create RFI Official Response
 
-This tutorial demonstrates how to create an official response for an RFI in an Autodesk Construction Cloud (ACC) project. The steps include verifying the userâs permissions, creating an official response, and optionally adding attachments. You can only create an official response for an RFI that is in open status and that has not yet received an official response. You must be assigned to the RFI or included in its list of permitted reviewers.
+This tutorial demonstrates how to create an official response for an RFI in an Autodesk Construction Cloud (ACC) project. The steps include verifying the user’s permissions, creating an official response, and optionally adding attachments. You can only create an official response for an RFI that is in open status and that has not yet received an official response. You must be assigned to the RFI or included in its list of permitted reviewers.
 
 ## [Before You Begin](#before-you-begin)
 
@@ -524,11 +524,11 @@ Verify the following:
 
 ## [Step 3: (Optional) Upload Attachments](#step-3-optional-upload-attachments)
 
-To include attachments in your official response, first upload the file to Autodeskâs Object Storage Service (OSS). For detailed steps, see the [Upload Attachments tutorial](https://aps.autodesk.com/en/docs/acc/v1/tutorials/rfi-upload/).
+To include attachments in your official response, first upload the file to Autodesk’s Object Storage Service (OSS). For detailed steps, see the [Upload Attachments tutorial](https://aps.autodesk.com/en/docs/acc/v1/tutorials/rfi-upload/).
 
 After uploading, note the following values from the response:
-> - `objectId` â The unique identifier for the uploaded file.
-> - `objectKey` â The file name used in storage.
+> - `objectId` – The unique identifier for the uploaded file.
+> - `objectKey` – The file name used in storage.
 
 ```
 {
@@ -1205,4 +1205,4 @@ Show More
 
 Show More
 
-Congratulations! Youâve successfully created an official response for the RFI.
+Congratulations! You’ve successfully created an official response for the RFI.

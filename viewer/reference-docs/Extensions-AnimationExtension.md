@@ -79,7 +79,7 @@ Rewinds and pauses the animation.
 
 ## [setTimelineValue(scale)](#settimelinevalue-scale)
 
-Sets the animation at the very beginning (0), at the end(1) or anywhere in between. For example, use value 0.5 to set the animation half way through itâs completion. Will pause a playing animation.
+Sets the animation at the very beginning (0), at the end(1) or anywhere in between. For example, use value 0.5 to set the animation half way through it’s completion. Will pause a playing animation.
 
 ### Parameters
 
@@ -159,7 +159,7 @@ Whether a playing animation updates the camera position.
 
 | type | description |
 | --- | --- |
-| boolean | Whether animations will update the cameraâs position (true) or not (false) |
+| boolean | Whether animations will update the camera’s position (true) or not (false) |
 
 ## [setSpeedModifier(value)](#setspeedmodifier-value)
 
@@ -167,7 +167,7 @@ Changes the speed at which the animation is played. Use value 1 to run the anima
 
 ### Parameters
 
-| value*   number | A multiplier for the animationâs elapsed time. |
+| value*   number | A multiplier for the animation’s elapsed time. |
 | --- | --- |
 
 * Required

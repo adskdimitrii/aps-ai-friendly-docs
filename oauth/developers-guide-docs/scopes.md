@@ -10,10 +10,10 @@ A scope is a permission that is set on a token, a context in which that token ma
 
 Scopes serve two principal functions:
 
-1. Privacy and Control: In a three-legged context, they act as a mechanism for requesting and securing permission to act on an end userâs behalf in specified ways.
+1. Privacy and Control: In a three-legged context, they act as a mechanism for requesting and securing permission to act on an end user’s behalf in specified ways.
 2. Security: In both two- and three-legged contexts, they ensure that if you lose control of your token, it cannot be misused to access resources for which it was not intended.
 
-Expanding on the âCommon Authentication and Authorization Flowsâ section of the [API Basics](https://aps.autodesk.com/en/docs/oauth/v2/overview/basics/) page, scopes are requested through the following endpoints:
+Expanding on the “Common Authentication and Authorization Flows” section of the [API Basics](https://aps.autodesk.com/en/docs/oauth/v2/overview/basics/) page, scopes are requested through the following endpoints:
 
 - [GET authorize](../http-docs/http-authorize-GET.md): This is the Autodesk login and authorization page that an end user is redirected to in order to explicitly consent to granting the app the requested scopes.
 - [POST gettoken](../http-docs/http-gettoken-POST.md): This obtains a new three-legged token with either all or a subset of the scopes granted to the original token.
@@ -26,14 +26,14 @@ The structure of scope values is `<namespace>:<operation>`, where `<namespace>` 
 
 | Value | Display Message on Consent Page   (in three-legged OAuth flow) | Meaning |
 | --- | --- | --- |
-| `user-profile:read` | View your profile info | The application will be able to read the end userâs profile data (not including associated products and services). |
-| `user:read` | View your profile info | The application will be able to read the end userâs profile data, including associated products and services. |
-| `user:write` | Manage your profile info | The application will be able to create, update, and delete the end userâs profile data, including associated products and services. |
-| `viewables:read` | View your viewable data | The application will only be able to read the end userâs viewable data (e.g., PNG and SVF files) within the Autodesk ecosystem. |
-| `data:read` | View your data | The application will be able to read all the end userâs data (viewable and non-viewable) within the Autodesk ecosystem. |
+| `user-profile:read` | View your profile info | The application will be able to read the end user’s profile data (not including associated products and services). |
+| `user:read` | View your profile info | The application will be able to read the end user’s profile data, including associated products and services. |
+| `user:write` | Manage your profile info | The application will be able to create, update, and delete the end user’s profile data, including associated products and services. |
+| `viewables:read` | View your viewable data | The application will only be able to read the end user’s viewable data (e.g., PNG and SVF files) within the Autodesk ecosystem. |
+| `data:read` | View your data | The application will be able to read all the end user’s data (viewable and non-viewable) within the Autodesk ecosystem. |
 | `data:write` | Manage your data | The application will be able to create, update, and delete data on behalf of the end user within the Autodesk ecosystem. |
 | `data:create` | Write data | The application will be able to create data on behalf of the end user within the Autodesk ecosystem. |
-| `data:search` | Search across your data | The application will be able to search the end userâs data within the Autodesk ecosystem. |
+| `data:search` | Search across your data | The application will be able to search the end user’s data within the Autodesk ecosystem. |
 | `bucket:create` | Create new buckets | The application will be able to create an OSS bucket it will own. |
 | `bucket:read` | View your buckets | The application will be able to read the metadata and list contents for OSS buckets that it has access to. |
 | `bucket:update` | Update your buckets | The application will be able to set permissions and entitlements for OSS buckets that it has permission to modify. |
@@ -46,4 +46,4 @@ The structure of scope values is `<namespace>:<operation>`, where `<namespace>` 
 
 ## [Scopes and Viewer Security Vulnerability](#scopes-and-viewer-security-vulnerability)
 
-The [Viewer](https://aps.autodesk.com/en/docs/viewer/v7/) requires that the server hosting it (the REST API app) pass it a valid token, so that it can communicate with the [Model Derivative API](https://aps.autodesk.com/en/docs/model-derivative/v2/) directly via JavaScript to acquire the assets it needs to manifest design files in the browser. Because this means that the token is exposed on the client-side, it is important to make sure that the token is restricted for Viewer calls to the `viewables:read` scope, which limits access to the end userâs viewable output files (SVF, PNG, etc). This is particularly important in a two-legged context, where a malicious end user could use an unscoped token to take actions across the platform on the developerâs behalf and compromise the developerâs data.
+The [Viewer](https://aps.autodesk.com/en/docs/viewer/v7/) requires that the server hosting it (the REST API app) pass it a valid token, so that it can communicate with the [Model Derivative API](https://aps.autodesk.com/en/docs/model-derivative/v2/) directly via JavaScript to acquire the assets it needs to manifest design files in the browser. Because this means that the token is exposed on the client-side, it is important to make sure that the token is restricted for Viewer calls to the `viewables:read` scope, which limits access to the end user’s viewable output files (SVF, PNG, etc). This is particularly important in a two-legged context, where a malicious end user could use an unscoped token to take actions across the platform on the developer’s behalf and compromise the developer’s data.

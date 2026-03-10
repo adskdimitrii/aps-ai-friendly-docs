@@ -33,13 +33,13 @@ There are three modification types:
 
 A list of all configuration options for the DiffTool LMV extension:
 
-| primaryModels*   Autodesk.Viewing.Model | An array of loaded âAutodesk.Viewing.Modelâ instances that are compared by the DiffTool. |
+| primaryModels*   Autodesk.Viewing.Model | An array of loaded “Autodesk.Viewing.Model” instances that are compared by the DiffTool. |
 | --- | --- |
 | diffModels*   Autodesk.Viewing.Model | An array of other loaded Autodesk.Viewing.Model instances that participate in the diff operation as the previous state. Length must match primaryModels to define pairs of models to be compared. |
-| versionA*   string | Version identifier for the primary models, such as â2â, âVersion 2â, or â02/26/2018â. Note that you must provide a localized string if you are using something other than numbers or dates. |
+| versionA*   string | Version identifier for the primary models, such as “2”, “Version 2”, or “02/26/2018”. Note that you must provide a localized string if you are using something other than numbers or dates. |
 | versionB*   string | Version identifier of the diff models, usually a previous version |
-| mimeType*   string | âapplication/vnd.autodesk.revitâ: Revitâapplication/vnd.autodesk.r360â: Revitâapplication/vnd.autodesk.fusion360â: For Fusion 360âapplication/vnd.autodesk.f3dâ: For Fusion 360âapplication/vnd.autodesk.inventor.assemblyâ: For Inventor (IAM)âapplication/vnd.autodesk.navisworksâ[`](#id1): For Navisworks (NWD)âapplication/vnd.autodesk.cadâ: For IFCâapplication/vnd.autodesk.dxfâ: For DXFâapplication/vnd.autodesk.autocad.dwgâ: For DWG |
-| propertyFilter   {Object.<string,Array<string>} | An object representing a category and properties key-value pair to ignore for diff computation. Example: {âDimensionsâ:[âAreaâ,âLengthâ], âMechanical - Flowâ:[âFlowâ]} |
+| mimeType*   string | ‘application/vnd.autodesk.revit’: Revit‘application/vnd.autodesk.r360’: Revit‘application/vnd.autodesk.fusion360’: For Fusion 360‘application/vnd.autodesk.f3d’: For Fusion 360‘application/vnd.autodesk.inventor.assembly’: For Inventor (IAM)‘application/vnd.autodesk.navisworks’[`](#id1): For Navisworks (NWD)‘application/vnd.autodesk.cad’: For IFC‘application/vnd.autodesk.dxf’: For DXF‘application/vnd.autodesk.autocad.dwg’: For DWG |
+| propertyFilter   {Object.<string,Array<string>} | An object representing a category and properties key-value pair to ignore for diff computation. Example: {“Dimensions”:[“Area”,”Length”], “Mechanical - Flow”:[“Flow”]} |
 
 * Required
 

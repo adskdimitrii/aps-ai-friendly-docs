@@ -51,7 +51,7 @@ Returns the current type of plane that will cut-though the geometry.
 
 | type | description |
 | --- | --- |
-| null, string | Either âXâ or âYâ or âZâ or âBOXâ or null. |
+| null, string | Either “X” or “Y” or “Z” or “BOX” or null. |
 
 ## [setSectionStyle(style, preserveSection)](#setsectionstyle-style-preservesection)
 
@@ -59,7 +59,7 @@ Sets the Section plane style.
 
 ### Parameters
 
-| style*   string | Accepted values are âXâ, âYâ, âZâ and âBOXâ (in Caps) |
+| style*   string | Accepted values are ‘X’, ‘Y’, ‘Z’ and ‘BOX’ (in Caps) |
 | --- | --- |
 | preserveSection   boolean | Whether sending the current style value resets the cut planes. |
 
@@ -123,7 +123,7 @@ Activates a section plane for user to interact with. It performs the same action
 
 ### Parameters
 
-| mode*   string | Accepted values are âxâ, âyâ, âzâ and âboxâ (in lowercase) |
+| mode*   string | Accepted values are ‘x’, ‘y’, ‘z’ and ‘box’ (in lowercase) |
 | --- | --- |
 
 * Required

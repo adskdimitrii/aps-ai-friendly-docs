@@ -107,7 +107,7 @@ In this example, assume that the budgets you want to link to contracts are `Door
 
 To link budgets to contracts, use the containter ID (`18ece8b1-204d-11e8-ad71-d73b169f902a`), the contract IDs (`55254a50-44d9-11e9-99d7-79aa05d3109e`, `55254a50-44d9-11e9-99d7-79aa05d3109f`), and the budget IDs (`5573e292-4355-4d00-a204-2cba97b7025a`, `f7840135-dd11-45d2-9b54-b0887ab3c29b`, `f7840135-dd11-45d2-9b54-b0887ab3c29c`) to call [POST budgets-contracts:link](../http-docs/http-cost-budgets-contractslink-POST.md).
 
-In this example, weâll link two budgets (`5573e292-4355-4d00-a204-2cba97b7025a` and `f7840135-dd11-45d2-9b54-b0887ab3c29b`) to Contract 1 (`55254a50-44d9-11e9-99d7-79aa05d3109e`) and one budget(`f7840135-dd11-45d2-9b54-b0887ab3c29c`) to Contract 2 (`55254a50-44d9-11e9-99d7-79aa05d3109f`)
+In this example, we’ll link two budgets (`5573e292-4355-4d00-a204-2cba97b7025a` and `f7840135-dd11-45d2-9b54-b0887ab3c29b`) to Contract 1 (`55254a50-44d9-11e9-99d7-79aa05d3109e`) and one budget(`f7840135-dd11-45d2-9b54-b0887ab3c29c`) to Contract 2 (`55254a50-44d9-11e9-99d7-79aa05d3109f`)
 
 ### Request
 

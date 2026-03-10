@@ -48,7 +48,7 @@ Stops intercepting pointer events. Invoked automatically by the [ToolController]
 
 ## [isSnapped()](#issnapped)
 
-Checks whether the toolâs last update resulted on a snap.
+Checks whether the tool’s last update resulted on a snap.
 
 ### Returns
 
@@ -69,7 +69,7 @@ Checks whether the toolâs last update resulted on a snap.
 
 ## [extractLineGeometry(edge, geometry)](#extractlinegeometry-edge-geometry)
 
-Get Edge geometry for the case that the hittest result contained a 3D lines. For this case, we have no Face3, so that faceSnapping and edgeSnapping donât work.
+Get Edge geometry for the case that the hittest result contained a 3D lines. For this case, we have no Face3, so that faceSnapping and edgeSnapping don’t work.
 
 ### Parameters
 

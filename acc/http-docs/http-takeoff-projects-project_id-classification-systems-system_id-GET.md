@@ -43,7 +43,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 ## [URI Parameters](#uri-parameters)
 
 - systemIdstring: UUID The classification system ID. To find the ID, call [GET classification-systems](http-takeoff-projects-project_id-classification-systems-GET.md).
-- projectIdstring: UUID The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/), and can be specified in the form of âUUIDâ or b.âUUIDâ.To learn how to find the project ID, see the [Retrieve ACC Account and project ID](../how-to-docs/getting-started-retrieve-account-and-project-id.md) tutorial.
+- projectIdstring: UUID The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/), and can be specified in the form of “UUID” or b.”UUID”.To learn how to find the project ID, see the [Retrieve ACC Account and project ID](../how-to-docs/getting-started-retrieve-account-and-project-id.md) tutorial.
 
 ### Response
 
@@ -55,7 +55,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 | 401   Unauthorized | The provided bearer token is not valid. |
 | 403   Forbidden | The user or service represented by the bearer token does not have permission to perform this operation. |
 | 404   Not Found | The requested resource could not be found. |
-| 429   Too Many Requests | Rate limit exceeded; wait some time before retrying. The âRetry-Afterâ header might provide the amount of the time to wait. |
+| 429   Too Many Requests | Rate limit exceeded; wait some time before retrying. The ‘Retry-After’ header might provide the amount of the time to wait. |
 | 500   Internal Server Error | An unknown error occurred on the server. |
 
 ### Response

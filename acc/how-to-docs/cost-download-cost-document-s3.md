@@ -49,7 +49,7 @@ curl -X GET 'https://developer.api.autodesk.com/cost/v1/containers/18ece8b1-204d
 
 Show More
 
-The response payload includes the SCO ID (`results[0].id`) with a value of `55254a50-44d9-11e9-99d7-79aa05d3109e`. Youâll use it in the next step.
+The response payload includes the SCO ID (`results[0].id`) with a value of `55254a50-44d9-11e9-99d7-79aa05d3109e`. You’ll use it in the next step.
 
 ## [Step 2: Find the Document Generated for the SCO](#step-2-find-the-document-generated-for-the-sco)
 
@@ -79,9 +79,9 @@ The `urn` value in the response (`urn:adsk.wipprod:fs.file:vf.kYtkYWBsSKSCMXYzEY
 
 ## [Step 3: Find the Storage Object ID](#step-3-find-the-storage-object-id)
 
-Use Mozillaâs [encodeURIComponent](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) operation to encode the object ID `urn:adsk.wipprod:fs.file:vf.kYtkYWBsSKSCMXYzEYe80w?version=1` as `urn%3Aadsk.wipprod%3Afs.file%3Avf.kYtkYWBsSKSCMXYzEYe80w%3Fversion%3D1`.
+Use Mozilla’s [encodeURIComponent](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) operation to encode the object ID `urn:adsk.wipprod:fs.file:vf.kYtkYWBsSKSCMXYzEYe80w?version=1` as `urn%3Aadsk.wipprod%3Afs.file%3Avf.kYtkYWBsSKSCMXYzEYe80w%3Fversion%3D1`.
 
-Next, use the encoded ID as the version ID to call the Data Management APIâs [GET projects/:project_id/versions/:version_id](../../data/http-docs/http-projects-project_id-versions-version_id-GET.md).
+Next, use the encoded ID as the version ID to call the Data Management API’s [GET projects/:project_id/versions/:version_id](../../data/http-docs/http-projects-project_id-versions-version_id-GET.md).
 
 ### Request
 
@@ -149,17 +149,17 @@ curl -X GET 'https://developer.api.autodesk.com/data/v1/projects/b.e8d3c2a0-b913
 
 Show More
 
-The response contains the storage objectâs ID in `data.relationships.storage.data.id`, with a value of `urn:adsk.objects:os.object:wip.dm.prod/af47b92e-7096-4c1f-b090-f77b1d83485f.docx`. The object ID parses into three sections:
+The response contains the storage object’s ID in `data.relationships.storage.data.id`, with a value of `urn:adsk.objects:os.object:wip.dm.prod/af47b92e-7096-4c1f-b090-f77b1d83485f.docx`. The object ID parses into three sections:
 
 - `urn:adsk.objects:os.object`
 - `wip.dm.prod` (the bucket key)
 - `af47b92e-7096-4c1f-b090-f77b1d83485f.docx` (the object name)
 
-Youâll use this ID to access the storage service in the next step.
+You’ll use this ID to access the storage service in the next step.
 
 ## [Step 4: Generate a Signed S3 URL](#step-4-generate-a-signed-s3-url)
 
-Use the Data Management APIâs [GET buckets/:bucketKey/objects/:objectKey/signeds3download](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3download-GET.md) endpoint to generate a signed URL for the storage object, which you can use to download the file directly from S3. Include the bucket key (`wip.dm.prod`) and the object name (`af47b92e-7096-4c1f-b090-f77b1d83485f.docx`) that you retrieved in the previous step.
+Use the Data Management API’s [GET buckets/:bucketKey/objects/:objectKey/signeds3download](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3download-GET.md) endpoint to generate a signed URL for the storage object, which you can use to download the file directly from S3. Include the bucket key (`wip.dm.prod`) and the object name (`af47b92e-7096-4c1f-b090-f77b1d83485f.docx`) that you retrieved in the previous step.
 
 ### Request
 
@@ -187,7 +187,7 @@ curl -X GET "https://developer.api.autodesk.com/oss/v2/buckets/wip.dm.prod/objec
 
 Show More
 
-Note the `url` response attribute, which contains the signed URL youâll use in the following step.
+Note the `url` response attribute, which contains the signed URL you’ll use in the following step.
 
 ## [Step 5: Download the File](#step-5-download-the-file)
 

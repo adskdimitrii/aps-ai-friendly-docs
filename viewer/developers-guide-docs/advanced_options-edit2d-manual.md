@@ -68,7 +68,7 @@ You can now check x/y values with `box.min` and `box.max`.
 
 ## [Step 3: Draw Polygons and Polylines](#step-3-draw-polygons-and-polylines)
 
-Letâs start by drawing a polygon. Enter the following snippet to add a triangle to your sheet. Remember to adjust the coordinates so that the triangle is visible on your PDF or sheet.
+Let’s start by drawing a polygon. Enter the following snippet to add a triangle to your sheet. Remember to adjust the coordinates so that the triangle is visible on your PDF or sheet.
 
 ```
 // Create simple triangle
@@ -105,7 +105,7 @@ Show More
 
 ## [Step 4: Add Shape Styles](#step-4-add-shape-styles)
 
-All Edit2D shapes have a `style` that configures their appearance. Letâs modify the style of the polygon we created.
+All Edit2D shapes have a `style` that configures their appearance. Let’s modify the style of the polygon we created.
 
 ```
 // Configure shape style
@@ -136,7 +136,7 @@ For simplicity, we manipulated the layer directly in our examples. If you are us
 
 To make sure your manual changes are tracked in the undo/redo history, wrap your modifications into an action.
 
-If you are using Edit2Dâs default toolset, the `Edit2DContext` provides shortcuts for tracking your manual changes.
+If you are using Edit2D’s default toolset, the `Edit2DContext` provides shortcuts for tracking your manual changes.
 
 ```
 edit2d.defaultContext.clearLayer();
@@ -183,7 +183,7 @@ Show More
 
 The arc segment is specified by 4 control points P0, P1, P2, P3;
 
-- P0 and P3 define the start and end point. These points are specified in advance by the start and end positions of the edgeâs vertex.
+- P0 and P3 define the start and end point. These points are specified in advance by the start and end positions of the edge’s vertex.
 - P1 and P2 are points that control the start and end tangents of the arc.
 
 As previously noted, you need `layer.update()` for shapes that are already visible to show the changes from calling `setBezierArc(..)`.
@@ -312,9 +312,9 @@ shape.toSVG({exportStyle: true});
 
 ```
 
-**Example output**: <path d=âM 12.79,21.51 H 18.7 V 18.56 H 12.79 Zâ stroke=ârgb(0,0,128)â fill=ârgb(0,0,128)â stroke-width=â3â fill-opacity=â0.2â/>
+**Example output**: <path d=”M 12.79,21.51 H 18.7 V 18.56 H 12.79 Z” stroke=”rgb(0,0,128)” fill=”rgb(0,0,128)” stroke-width=”3” fill-opacity=”0.2”/>
 
-You can also serialize Edit2Dâs layer content 1:1 into an xml file and download it.
+You can also serialize Edit2D’s layer content 1:1 into an xml file and download it.
 
 ```
 function download(filename, text) {
@@ -351,9 +351,9 @@ function downloadLayerAsSvg() {
 
 Show More
 
-## [Whatâs Next?](#what-s-next)
+## [What’s Next?](#what-s-next)
 
-Now that youâve learned how to draw shapes manually, check out these other Edit2D tutorials:
+Now that you’ve learned how to draw shapes manually, check out these other Edit2D tutorials:
 
 - [Using the Edit2D Toolset](advanced_options-edit2d-use.md)
 - [Customizing Edit2D](advanced_options-edit2d-customize.md)

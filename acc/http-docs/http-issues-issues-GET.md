@@ -38,7 +38,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Request
@@ -60,14 +60,14 @@ Note that this endpoint is not compatible with BIM 360 projects.
 | filter[updatedBy]   array: string | Filter issues by the unique identifier of the user who updated the issue. Separate multiple values with commas. For Example: `A3RGM375QTZ7`. |
 | filter[assignedTo]   array: string | Filter issues by the unique Autodesk ID of the User/Company/Role identifier of the current assignee of this issue. Separate multiple values with commas. For Example: `A3RGM375QTZ7`. |
 | filter[rootCauseId]   array: string: uuid | Filter issues by the unique identifier of the type of root cause for the issue. Separate multiple values with commas. |
-| filter[locationId]   array: string: uuid | Retrieves issues associated with the specified location but not the locationâs sublocations. To also retrieve issues that relate to the locationsâs sublocations use the `sublocationId` filter. Separate multiple values with commas. |
+| filter[locationId]   array: string: uuid | Retrieves issues associated with the specified location but not the location’s sublocations. To also retrieve issues that relate to the locations’s sublocations use the `sublocationId` filter. Separate multiple values with commas. |
 | filter[subLocationId]   array: string: uuid | Retrieves issues associated with the specified unique LBS (Location Breakdown Structure) identifier, as well as issues associated with the sub locations of the LBS identifier. Separate multiple values with commas. |
 | filter[closedBy]   array: string | Filter issues by the unique identifier of the user who closed the issue. Separate multiple values with commas. For Example: `A3RGM375QTZ7`. |
 | filter[closedAt]   datetime: ISO 8601 | Filter issues closed at the specified date and time, in one of the following URL-encoded formats: YYYY-MM-DDThh:mm:ss.sz or YYYY-MM-DD. Separate multiple values with commas. We support the following filtering options: <br>Date range: e.g., `2022-03-02..2022-03-03` or `2022-02-28T22:00:00.000Z..2022-03-28T22:00:00.000Z`Specific day: e.g., `2022-03-02` or `2022-02-28T22:00:00.000Z`Specific start date: e.g., `2022-03-02..` or `2022-02-28T22:00:00.000Z..`Specific end date: e.g., `..2022-03-02` or `..2022-02-28T22:00:00.000Z`<br>For more details, see [JSON API Filtering](http://jsonapi.org/format/#fetching-filtering). |
-| filter[search]   string | Filter issues using âsearchâ criteria. this will filter both title and issues display ID. For example, use filter[search]=300 |
+| filter[search]   string | Filter issues using ‘search’ criteria. this will filter both title and issues display ID. For example, use filter[search]=300 |
 | filter[displayId]   int | Filter issues by the chronological user-friendly identifier. Separate multiple values with commas. |
 | filter[assignedToType]   string | Filter issues by the type of the current assignee of this issue. Separate multiple values with commas. Possible values: Possible values: `user`, `company`, `role`, `null`. For Example: `user`. |
-| filter[customAttributes]   array: string | Filter issues by the custom attributes. Each custom attribute filter should be defined by itâs uuid. For example: `filter[customAttributes][f227d940-ae9b-4722-9297-389f4411f010]=1,2,3`. Separate multiple values with commas. |
+| filter[customAttributes]   array: string | Filter issues by the custom attributes. Each custom attribute filter should be defined by it’s uuid. For example: `filter[customAttributes][f227d940-ae9b-4722-9297-389f4411f010]=1,2,3`. Separate multiple values with commas. |
 | filter[valid]   boolean | Only return valid issues (=no empty type/subtype). Default value: `undefined` (meaning will return both valid & invalid issues). |
 | limit   int | Return specified number of issues. Acceptable values are 1-100. Default value: `100`. |
 | offset   int | Return issues starting from the specified offset number. Default value: `0`. |

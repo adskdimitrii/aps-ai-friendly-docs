@@ -47,7 +47,7 @@ If the WorkItem has already finished processing, then it has no effect on the pr
 | 204   No Content | OK. |
 | --- | --- |
 | 403   Forbidden | The user is not authorized to modify the WorkItem status. |
-| 404   Not Found | The WorkItem doesnât exist. |
+| 404   Not Found | The WorkItem doesn’t exist. |
 | 409   Conflict | Conflict. |
 | 500   Internal Server Error | Unknown error. |
 

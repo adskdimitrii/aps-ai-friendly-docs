@@ -131,7 +131,7 @@ Specifies the algorithm used for exploding models.
 
 ### Parameters
 
-| strategy*   string | Either âhierarchyâ or âradialâ. |
+| strategy*   string | Either ‘hierarchy’ or ‘radial’. |
 | --- | --- |
 
 * Required
@@ -148,7 +148,7 @@ Returns an identifier for the algorithm used for exploding models.
 
 ## [setUIEnabled(enable)](#setuienabled-enable)
 
-Enable / Disable the explode button & slider. Doesnât affect the state of the explode scale itself.
+Enable / Disable the explode button & slider. Doesn’t affect the state of the explode scale itself.
 
 ### Parameters
 

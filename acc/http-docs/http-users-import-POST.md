@@ -36,7 +36,7 @@ Bulk import users to the master member directory in a BIM 360 account. (50 users
 
 ## [URI Parameters](#uri-parameters)
 
-| account_id   string: UUID | The account ID of the users. This corresponds to hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID you need to remove the â**b.**" prefix. For example, a hub ID of **b.**c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. |
+| account_id   string: UUID | The account ID of the users. This corresponds to hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID you need to remove the “**b.**" prefix. For example, a hub ID of **b.**c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. |
 | --- | --- |
 
 ### Request
@@ -45,25 +45,25 @@ Bulk import users to the master member directory in a BIM 360 account. (50 users
 
 The POST body is an array of flat JSON objects with the following attributes:
 
-| company_id   string: UUID | The userâs default company ID in BIM 360 |
+| company_id   string: UUID | The user’s default company ID in BIM 360 |
 | --- | --- |
-| email*   string | Userâs email       Max length: 255 |
+| email*   string | User’s email       Max length: 255 |
 | nickname   string | Nick name for user       Max length: 255 |
-| first_name   string | Userâs first name       Max length: 255 |
-| last_name   string | Userâs last name       Max length: 255 |
-| image_url   string | URL for userâs profile image       Max length: 255 |
-| address_line_1   string | Userâs address line 1       Max length: 255 |
-| address_line_2   string | Userâs address line 2       Max length: 255 |
+| first_name   string | User’s first name       Max length: 255 |
+| last_name   string | User’s last name       Max length: 255 |
+| image_url   string | URL for user’s profile image       Max length: 255 |
+| address_line_1   string | User’s address line 1       Max length: 255 |
+| address_line_2   string | User’s address line 2       Max length: 255 |
 | city   string | City in which user is located       Max length: 255 |
 | state_or_province   enum: string | State or province in which user is located       Max length: 255       Note that the `state_or_province` value depends on the selected `country` value; see the valid values in the `state_or_province` list in the [Parameters](https://aps.autodesk.com/en/docs/bim360/v1/overview/parameters/) guide. |
-| postal_code   string | Postal code for the userâs location       Max length: 255 |
+| postal_code   string | Postal code for the user’s location       Max length: 255 |
 | country   enum: string | Country for this user       Refer to the `country` list in the [Parameters](https://aps.autodesk.com/en/docs/bim360/v1/overview/parameters/) guide. |
 | phone   string | Contact phone number for the user       Max length: 255 |
 | company   string | Company information from the Autodesk user profile       Max length: 255       Note that this is different from company in BIM 360. |
-| job_title   string | Userâs job title       Max length: 255 |
+| job_title   string | User’s job title       Max length: 255 |
 | industry   string | Industry information for user       Max length: 255 |
 | about_me   string | Short description about the user       Max length: 255 |
-| default_role   string | The userâs default role       Max length: 255 |
+| default_role   string | The user’s default role       Max length: 255 |
 
 * Required
 

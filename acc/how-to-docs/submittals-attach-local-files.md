@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/submittals/attach-local-f
 
 # Attach Local Files to Submittals
 
-This tutorial demonstrates how to attach local files to a submittal item in an Autodesk Construction Cloud (ACC) project. The steps include verifying the userâs permissions and gathering required fields, creating the attachment object, generating a signed S3 URL, uploading the file to the signed URL, and updating the attachment status. For more information on working with submittals, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Create_Submittal).
+This tutorial demonstrates how to attach local files to a submittal item in an Autodesk Construction Cloud (ACC) project. The steps include verifying the user’s permissions and gathering required fields, creating the attachment object, generating a signed S3 URL, uploading the file to the signed URL, and updating the attachment status. For more information on working with submittals, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Create_Submittal).
 
 For information about attaching files to submittals that were already uploaded to the ACC Files tool, see the [Attach Files to Submittals from the Files Tool](en/docs/acc/v1/tutorials/attach-files-tool/) tutorial.
 
@@ -29,7 +29,7 @@ For information about attaching files to submittals that were already uploaded t
 
 ## [Step 1: Verify Permissions and Fields](#step-1-verify-permissions-and-fields)
 
-Before uploading an attachment, verify the userâs permissions and gather the mandatory and optional fields required to make the [POST attachment](../http-docs/http-submittals-attachments-POST.md) request in step 2.
+Before uploading an attachment, verify the user’s permissions and gather the mandatory and optional fields required to make the [POST attachment](../http-docs/http-submittals-attachments-POST.md) request in step 2.
 
 Call [GET item/:id](../http-docs/http-submittals-items-itemId-GET.md) using the project ID (`2570d4e5-9aef-4b41-8e45-a454f2f3fd65`) and the submittal item ID (`938eb16d-5603-4df9-adcd-00f75d48e145`). Check the `permittedActions` object for `Attachment::create`. If this action is listed, the user has permission to create an attachment.
 
@@ -432,7 +432,7 @@ Include these fields in your POST attachment request in Step 2.
 Call [POST attachment](../http-docs/http-submittals-attachments-POST.md) to create the attachment object. This step registers the attachment metadata with the submittal item but does not yet upload the file.
 
 - The `urnTypeId` field must be included in the request and should always have the value `2`.
-- The `categoryId` is typically assigned automatically based on the submittal itemâs current state. In most cases, you do not need to include `categoryId` in your request. However, for specific exceptions, you must provide it explicitly:
+- The `categoryId` is typically assigned automatically based on the submittal item’s current state. In most cases, you do not need to include `categoryId` in your request. However, for specific exceptions, you must provide it explicitly:
 
 > * Prepare for Review (`mgr-1`): By default, when the submittal item is in the Prepare for Review state, the `categoryId` is assigned automatically as `2` (for-review). If you want the attachment to be tagged as a Submit state attachment instead, you must explicitly set `categoryId` to `1` in the request.
 > * Final Response Attachments: If you are closing a submittal item from a state other than Close and Distribute (`mgr-2`), and you want the attachment to be marked as a final response, explicitly set `categoryId` to `4`.

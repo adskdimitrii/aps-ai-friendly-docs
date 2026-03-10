@@ -19,7 +19,7 @@ This tutorial demonstrates how to retrieve submittal logs that have been importe
 
 In order to retrieve the ID of the project in which you want to retrieve the Smart Register, you first need to retrieve the ID of the relevant account. Call [GET hubs](../../data/http-docs/http-hubs-GET.md) to find the hub ID for the ACC account that contains the Smart Register you want to retrieve.
 
-Note that the ACC account ID corresponds to a Data Management hub ID. To convert an account ID into a hub ID you need to add a â**b.**" prefix. For example, an account ID of `d952a4eb-ad57-4d64-b9ab-d540b3b4522e` translates to a hub ID of `**b.**\d952a4eb-ad57-4d64-b9ab-d540b3b4522e`.
+Note that the ACC account ID corresponds to a Data Management hub ID. To convert an account ID into a hub ID you need to add a “**b.**" prefix. For example, an account ID of `d952a4eb-ad57-4d64-b9ab-d540b3b4522e` translates to a hub ID of `**b.**\d952a4eb-ad57-4d64-b9ab-d540b3b4522e`.
 
 ### Request
 
@@ -71,7 +71,7 @@ Find the hub (`data.name`), and note the hub ID - `b.86b832e9-b22b-2acf-344b-454
 
 Use the hub ID (`b.86b832e9-b22b-2acf-344b-454b3431ac8c`) to call [GET hubs/:hub_id/projects](../../data/http-docs/http-hubs-hub_id-projects-GET.md) to get a list of all the projects in the account.
 
-Note that the project ID in ACC corresponds to the project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in ACC to a project ID in the Data Management API, you need to add a â**b.**" prefix. For example, a project ID of `75c643d1-c80b-4bca-800f-111a1111aa1a` translates to a project ID of `**b.**\75c643d1-c80b-4bca-800f-111a1111aa1a`.
+Note that the project ID in ACC corresponds to the project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in ACC to a project ID in the Data Management API, you need to add a “**b.**" prefix. For example, a project ID of `75c643d1-c80b-4bca-800f-111a1111aa1a` translates to a project ID of `**b.**\75c643d1-c80b-4bca-800f-111a1111aa1a`.
 
 ### Request
 
@@ -117,7 +117,7 @@ Find the project (`data.attributes.name`), and note the project ID (`data.id`) -
 
 Use the project ID (`75c643d1-c80b-4bca-800f-111a1111aa1a`) to call [GET metadata](../http-docs/http-autospecs-getprojectmetadata-GET.md) to get a list of the spec versions for the project.
 
-Note that you need to remove the â**b.**" prefix from the project ID.
+Note that you need to remove the “**b.**" prefix from the project ID.
 
 ### Request
 

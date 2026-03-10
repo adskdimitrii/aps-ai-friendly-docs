@@ -95,7 +95,7 @@ Converts coordinates from { x: Longitude, y: Latitude, z: Height (meters) } in W
 
 ## [openGoogleMaps(pointLL84)](#opengooglemaps-pointll84)
 
-Returns a Google Maps URL with a PIN on the specified GPS location. When no argument is provided, the URL will use the Modelâs geolocation if available.
+Returns a Google Maps URL with a PIN on the specified GPS location. When no argument is provided, the URL will use the Model’s geolocation if available.
 
 ### Parameters
 
@@ -104,10 +104,10 @@ Returns a Google Maps URL with a PIN on the specified GPS location. When no argu
 
 ## [getCurrentPositionLmv()](#getcurrentpositionlmv)
 
-Returns a Promise that resolves with a position in Viewer-space coordinates based on the deviceâs real world GPS position.
+Returns a Promise that resolves with a position in Viewer-space coordinates based on the device’s real world GPS position.
 
 ### Returns
 
 | type | description |
 | --- | --- |
-| Promise | that resolves with a THREE.Vector3 containing Viewer-space coordinates. It rejects if deviceâs real world GPS position is not available. |
+| Promise | that resolves with a THREE.Vector3 containing Viewer-space coordinates. It rejects if device’s real world GPS position is not available. |

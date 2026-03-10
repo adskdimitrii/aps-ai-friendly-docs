@@ -195,7 +195,7 @@ Whilst superficially similar, the relationship search and intersect endpoints ha
 
 
 
-Both the search and intersect endpoints contain an implicit assumption that users understand the existence of this hierarchy. If searching for relationships to a specific entity the assumption holds that the user will supply not only the entityâs ID but also itâs entity type and domain. Likewise when searching for relationships to specific entity types (omitting an ID) the assumption holds that the user will supply not only the entity type but also the domain. The domain is at the top of the hierarchy so no supplementary qualification is required when searching for relationships to domains.
+Both the search and intersect endpoints contain an implicit assumption that users understand the existence of this hierarchy. If searching for relationships to a specific entity the assumption holds that the user will supply not only the entity’s ID but also it’s entity type and domain. Likewise when searching for relationships to specific entity types (omitting an ID) the assumption holds that the user will supply not only the entity type but also the domain. The domain is at the top of the hierarchy so no supplementary qualification is required when searching for relationships to domains.
 
 The search endpoint is a `GET` method requiring users to supply search criteria which will be used to match either end of the relationships stored for the project. For example, it can be used to search for all the relationships between (with) the issues domain and asset entity types in the assets domain. By further qualifying the search we can retrieve relationships between coordination issues types in the issues domain and asset entity types in the assets domain. Finally we can specify a specific entity instance and intersect it with either a domain, entity type and domain or another fully qualified entity.
 
@@ -203,7 +203,7 @@ By contrast the intersect endpoint makes more specific starting assumptions abou
 
 ## [Search Relationships](#search-relationships)
 
-The [relationship search endpoint](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/relationships-search-relationships-GET/) can be used to retrieve relationships using the domain, entity type and id hierarchy [implicit in the relationship serviceâs data model](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/relationships/). The search endpoint uses the `domain`, `type`, `id`, `withDomain`, `withType` and `withId` query parameters to control the search endpointâs behaviour. `Deleted` relationships will only be returned if the `includeDeleted` query parameter is set to true. Remember the importance of supplying fully qualified search qualifiers `domain+entityType+id`, `domain+entityType` or `domain` on either side of the search.
+The [relationship search endpoint](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/relationships-search-relationships-GET/) can be used to retrieve relationships using the domain, entity type and id hierarchy [implicit in the relationship service’s data model](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/relationships/). The search endpoint uses the `domain`, `type`, `id`, `withDomain`, `withType` and `withId` query parameters to control the search endpoint’s behaviour. `Deleted` relationships will only be returned if the `includeDeleted` query parameter is set to true. Remember the importance of supplying fully qualified search qualifiers `domain+entityType+id`, `domain+entityType` or `domain` on either side of the search.
 
 ### Example Request
 
@@ -383,7 +383,7 @@ In the response above only two assets in the request are returned. This indicate
 
 ## [Relationship Sync](#relationship-sync)
 
-The relationship service supports full data synchronisation via the [relationship sync endpoint](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/relationships-relationships-sync-POST/). This endpoint allows callers to replicate ALL of the relationships stored in the relationship service to an external repository. After relationships have been initially replicated subsequent calls to the the sync endpoint can be used to discover changes which have occurred between the time the initial synchronisation ended and ânowâ.
+The relationship service supports full data synchronisation via the [relationship sync endpoint](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/relationships-relationships-sync-POST/). This endpoint allows callers to replicate ALL of the relationships stored in the relationship service to an external repository. After relationships have been initially replicated subsequent calls to the the sync endpoint can be used to discover changes which have occurred between the time the initial synchronisation ended and “now”.
 
 ### Bootstrapping Sync with no syncToken
 
@@ -486,7 +486,7 @@ Show More
 
 ### Relationship Sync Status
 
-The [relationship service sync status endpoint](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/relationships-relationships-sync-status-POST/) can be used to check if there is new data or changes available for a given syncToken. This endpoint accepts multiple syncTokens and returns a response for each syncToken passed. If `moreData` is set to `true` then a call to the [relationship sync endpoint](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/relationships-relationships-sync-POST/) with the syncToken passed in the status check will yield updated relationships. The `overwrite` flag instructs callers âre-setâ their copy of the relationship data if it is set to `true`.
+The [relationship service sync status endpoint](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/relationships-relationships-sync-status-POST/) can be used to check if there is new data or changes available for a given syncToken. This endpoint accepts multiple syncTokens and returns a response for each syncToken passed. If `moreData` is set to `true` then a call to the [relationship sync endpoint](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/relationships-relationships-sync-POST/) with the syncToken passed in the status check will yield updated relationships. The `overwrite` flag instructs callers “re-set” their copy of the relationship data if it is set to `true`.
 
 ```
 curl -v 'https://developer.api.autodesk.com/bim360/relationship/v2/containers/04074497-ed5d-4ea3-861d-1f146418f5bb/relationships:syncStatus' \

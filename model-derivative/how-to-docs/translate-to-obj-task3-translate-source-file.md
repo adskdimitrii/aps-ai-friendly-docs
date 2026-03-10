@@ -1,10 +1,10 @@
-# Task 3 â Translate Source File
+# Task 3 – Translate Source File
 
 Source: https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-to-obj/task3-translate-source-file/
 
 ---
 
-# Task 3 â Translate Source File
+# Task 3 – Translate Source File
 
 You can translate the source file to many different formats (see [Supported Translations](en/docs/model-derivative/v2/developers_guide/supported-translations) for details). For the purpose of this walkthrough, we will translate the source file to the OBJ format.
 

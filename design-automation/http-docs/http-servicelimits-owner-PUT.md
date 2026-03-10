@@ -37,7 +37,7 @@ LimitProcessingTimeSec cannot be set greater than the maximum processing time li
 
 ## [URI Parameters](#uri-parameters)
 
-| owner   string | The user to associate the configuration to. It should be âmeâ for the call to succeed. |
+| owner   string | The user to associate the configuration to. It should be “me” for the call to succeed. |
 | --- | --- |
 
 ### Request

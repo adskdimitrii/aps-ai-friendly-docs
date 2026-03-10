@@ -35,7 +35,7 @@ Search partner companies in a specific BIM 360 account by name.
 
 ## [URI Parameters](#uri-parameters)
 
-| account_id   string: UUID | The account ID of the company. This corresponds to hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID you need to remove the â**b.**" prefix. For example, a hub ID of **b.**c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. |
+| account_id   string: UUID | The account ID of the company. This corresponds to hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID you need to remove the “**b.**" prefix. For example, a hub ID of **b.**c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. |
 | --- | --- |
 
 ### Request
@@ -47,7 +47,7 @@ Search partner companies in a specific BIM 360 account by name.
 | trade   string | Company trade to match   Max length: 255 |
 | operator   enum: string | Boolean operator to use: `OR` (default) or `AND` |
 | partial   bool | If `true` (default), perform a fuzzy match |
-| limit   int | Response arrayâs size   Default value: `10`   Max limit: `100` |
+| limit   int | Response array’s size   Default value: `10`   Max limit: `100` |
 | offset   int | Offset of response array   Default value: `0` |
 | sort   string | Comma-separated fields to sort by in ascending order       Prepending a field with `-` sorts in descending order.   Invalid fields and whitespaces will be ignored. |
 | field   string | Comma-separated fields to include in response       `id` will always be returned.   Invalid fields will be ignored. |

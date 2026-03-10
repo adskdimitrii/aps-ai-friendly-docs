@@ -8,7 +8,7 @@ GET
 
 # health/:engine
 
-Gets the health status by Engine or for all Engines (Inventor, AutoCAD â¦).
+Gets the health status by Engine or for all Engines (Inventor, AutoCAD …).
 
 ## [Resource Information](#resource-information)
 

@@ -117,7 +117,7 @@ Show More
 
 ## [Step 2: Find the project that has your resource](#step-2-find-the-project-that-has-your-resource)
 
-In the above example, assume that your resource exists in âJohnâs Hubâ. Make
+In the above example, assume that your resource exists in “John’s Hub”. Make
 note of the the hub ID (`a.cGVyc29uYWw6d2lwMWZxYWUyOWNlZGY4`). The ID can be
 used with the [GET hubs/:hub_id/projects](../http-docs/http-hubs-hub_id-projects-GET.md) endpoint to obtain a list of all the
 projects the user has access to within the hub.
@@ -237,7 +237,7 @@ Show More
 
 ## [Step 3: Create a storage location](#step-3-create-a-storage-location)
 
-In the above example, assume that your resource exists in âJohnâs Second Projectâ.
+In the above example, assume that your resource exists in “John’s Second Project”.
 Make note of the the project and folder IDs (`a.cGVyc29uYWw6d2lwMWZxYWUyOWNlZGY4I0QyMDE2MDQxODM5NDM2NzM` and `urn:adsk.wipprod:fs.folder:co.mgS-lb-BThaTdHnhiN_mbA` respectively).
 
 The [POST projects/:project_id/storage](../http-docs/http-projects-project_id-storage-POST.md) endpoint creates a storage location in the OSS where files can be uploaded to.
@@ -329,7 +329,7 @@ Show More
 
 The file itself can then be uploaded to the signed url as per the following example.
 
-Note: This upload is directly to S3 and as such doesnât need an âAuthorizationâ header.
+Note: This upload is directly to S3 and as such doesn’t need an ‘Authorization’ header.
 
 ### Example
 

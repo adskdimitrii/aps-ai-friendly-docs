@@ -1,10 +1,10 @@
-# Task 3 â Translate Source File
+# Task 3 – Translate Source File
 
 Source: https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-source-file-containing-xref/task3-translate-source-file/
 
 ---
 
-# Task 3 â Translate Source File
+# Task 3 – Translate Source File
 
 You can translate the source file to many different formats (see [Supported Translations](en/docs/model-derivative/v2/developers_guide/supported-translations) for details). For the purpose of this walkthrough, we will translate the source file to the STL format.
 
@@ -108,7 +108,7 @@ curl  -X POST \
 
 Show More
 
-Note the use of the `checkReferences` attribute in the JSON payload. This attribute instructs Model Derivative to check for references and download all referenced files. If you donât specify this attribute, translation fails.
+Note the use of the `checkReferences` attribute in the JSON payload. This attribute instructs Model Derivative to check for references and download all referenced files. If you don’t specify this attribute, translation fails.
 
 ### Response
 

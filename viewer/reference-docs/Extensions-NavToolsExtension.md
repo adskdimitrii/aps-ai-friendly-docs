@@ -46,7 +46,7 @@ Performs the corresponding button action.
 
 ## [deactivate()](#deactivate)
 
-Deactivates the current mode and activates the default viewerâs navigation tool.
+Deactivates the current mode and activates the default viewer’s navigation tool.
 
 ### Returns
 

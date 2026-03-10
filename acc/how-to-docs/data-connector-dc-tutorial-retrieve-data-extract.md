@@ -8,19 +8,19 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/data-connector/dc-tutoria
 
 When an active data request spawns a job, the job extracts data for specified services. To retrieve and examine that data, you need the ID of the job. You receive that ID through the email notification that the job sends on completion and, if you specified a callback URL, a post that the job sends on completion. You may also retrieve a list of jobs spawned by the data request. There you can find the ID of a job whose data extract you wish to examine.
 
-To retrieve the jobâs data extract, first use the job ID to retrieve descriptions of the files in the data extract. You can use those descriptions to determine which of the files youâd like to examine, and then request a URL where you can retrieve your desired files.
+To retrieve the job’s data extract, first use the job ID to retrieve descriptions of the files in the data extract. You can use those descriptions to determine which of the files you’d like to examine, and then request a URL where you can retrieve your desired files.
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](https://aps.autodesk.com/myapps)
-- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create`, `data:read`, and `data:write` scopes. The tokenâs authenticated user must have executive overview permissions.
-- Verify that you have access to a relevant BIM 360 account that contains at least one project. If you donât know your account ID, you can derive it from your hub ID: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial âb.â from the hub ID to get your account ID. For example, a hub ID of `b.c8b0c73d-3ae9` translates to an account ID of `c8b0c73d-3ae9`.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create`, `data:read`, and `data:write` scopes. The token’s authenticated user must have executive overview permissions.
+- Verify that you have access to a relevant BIM 360 account that contains at least one project. If you don’t know your account ID, you can derive it from your hub ID: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial “b.” from the hub ID to get your account ID. For example, a hub ID of `b.c8b0c73d-3ae9` translates to an account ID of `c8b0c73d-3ae9`.
 
 ## [Step 1: Get a List of Jobs Spawned By Your Data Request](#step-1-get-a-list-of-jobs-spawned-by-your-data-request)
 
-In this example, weâll assume you donât have the ID of the job whose data extract you want. Use the [GET requests/:requestId/jobs](en/docs/bim360/v1/reference/http/data-connector-requests-requestId-GET/) endpoint to retrieve a list of the jobs that your data request has spawned, or use the GET jobs endpoint to retrieve a list of all the jobs that were spawned for the project you specify. If you think there are many spawned jobs, you can set request parameters to limit the number of returned job descriptions, offset the point where you start returning requests, and set sort order. We wonât specify any of this, so the endpoint will use default settings of ascending sort order, a limit of 20 requests, and no offset.
+In this example, we’ll assume you don’t have the ID of the job whose data extract you want. Use the [GET requests/:requestId/jobs](en/docs/bim360/v1/reference/http/data-connector-requests-requestId-GET/) endpoint to retrieve a list of the jobs that your data request has spawned, or use the GET jobs endpoint to retrieve a list of all the jobs that were spawned for the project you specify. If you think there are many spawned jobs, you can set request parameters to limit the number of returned job descriptions, offset the point where you start returning requests, and set sort order. We won’t specify any of this, so the endpoint will use default settings of ascending sort order, a limit of 20 requests, and no offset.
 
-Youâll need the ID of the data request that spawned the jobs, something you retrieved in the previous tutorials.
+You’ll need the ID of the data request that spawned the jobs, something you retrieved in the previous tutorials.
 
 ### Request
 
@@ -60,11 +60,11 @@ curl -X GET 'https://developer.api.autodesk.com/data-connector/v1/accounts/<acco
 
 Show More
 
-The response provides an array of job records (in this case, just a single job), each with information about a jobâs status. The beginning of each record is the ID of the job, which youâll use to specify the job in subsequent endpoint calls.
+The response provides an array of job records (in this case, just a single job), each with information about a job’s status. The beginning of each record is the ID of the job, which you’ll use to specify the job in subsequent endpoint calls.
 
-## [Step 2: Examine the Files Contained in the Jobâs Data Extract](#step-2-examine-the-files-contained-in-the-job-s-data-extract)
+## [Step 2: Examine the Files Contained in the Job’s Data Extract](#step-2-examine-the-files-contained-in-the-job-s-data-extract)
 
-To see a list of the files contained in your jobâs data extract, use the [GET jobs/:jobId/data-listing](en/docs/bim360/v1/reference/http/data-connector-jobs-jobId-data-listing-GET/) endpoint and use the job ID to specify the job.
+To see a list of the files contained in your job’s data extract, use the [GET jobs/:jobId/data-listing](en/docs/bim360/v1/reference/http/data-connector-jobs-jobId-data-listing-GET/) endpoint and use the job ID to specify the job.
 
 ### Request
 
@@ -119,7 +119,7 @@ The first file is a README file that contains information about the schema used 
 
 ## [Step 3: Retrieve a File From a Data Extract](#step-3-retrieve-a-file-from-a-data-extract)
 
-Once you have a job ID and the filename of the file in the data extract that youâd like to retrieve, use [GET jobs/:jobId/data/:name](en/docs/bim360/v1/reference/http/data-connector-jobs-jobId-data-name-GET/) to get a signed URL where you can retrieve that data, in this case the ZIP file that contains all the files in the extract along with information about the schemas used.
+Once you have a job ID and the filename of the file in the data extract that you’d like to retrieve, use [GET jobs/:jobId/data/:name](en/docs/bim360/v1/reference/http/data-connector-jobs-jobId-data-name-GET/) to get a signed URL where you can retrieve that data, in this case the ZIP file that contains all the files in the extract along with information about the schemas used.
 
 ### Request
 

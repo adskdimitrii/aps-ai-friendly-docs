@@ -27,7 +27,7 @@ The first four steps show how to use Data Management endpoints to locate the ver
 
 Call [GET hubs](../../data/http-docs/http-hubs-GET.md) to retrieve a list of the BIM 360 or ACC accounts your app has access to.
 
-Note that the BIM 360 account ID corresponds to a Data Management hub ID. To convert an account ID into a hub ID you need to add a â**b.**" prefix. For example, the account ID `c8b0c73d-3ae9` becomes `b.c8b0c73d-3ae9`.
+Note that the BIM 360 account ID corresponds to a Data Management hub ID. To convert an account ID into a hub ID you need to add a “**b.**" prefix. For example, the account ID `c8b0c73d-3ae9` becomes `b.c8b0c73d-3ae9`.
 
 ### Request
 
@@ -73,7 +73,7 @@ Show More
 
 In this example, assume that the Cloud Workshared Revit model from which you want to retrieve the linked RVT files is stored in a hub called `ACME Construction - East Coast`.
 
-Find the hub in the response (`data.attributes.name`), and note the hub ID (`data.id`) â `b.35da59e5-4acb-4979-85f1-518047215eaa`.
+Find the hub in the response (`data.attributes.name`), and note the hub ID (`data.id`) — `b.35da59e5-4acb-4979-85f1-518047215eaa`.
 
 ## [Step 2: Find the Project ID](#step-2-find-the-project-id)
 
@@ -81,7 +81,7 @@ Find the project that contains the Cloud Workshared Revit model from which you w
 
 Use the hub ID (`b.35da59e5-4acb-4979-85f1-518047215eaa`) to call [GET hubs/:hub_id/projects](../../data/http-docs/http-hubs-hub_id-projects-GET.md) to get a list of all the projects in the hub. Find the project ID of the project that contains the folder of the Cloud Workshared Revit model from which you want to retrieve the linked RVT files.
 
-Note that the project ID in BIM 360 corresponds to the project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in BIM 360 or ACC to a project ID in the Data Management API, you need to add a â**b.**" prefix. For example, a project ID of `a4be0c34a-4ab7` translates to a project ID of `b.a4be0c34a-4ab7`.
+Note that the project ID in BIM 360 corresponds to the project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in BIM 360 or ACC to a project ID in the Data Management API, you need to add a “**b.**" prefix. For example, a project ID of `a4be0c34a-4ab7` translates to a project ID of `b.a4be0c34a-4ab7`.
 
 ### Request
 
@@ -277,7 +277,7 @@ Show More
 
 In this example, assume that the model from which you want to retrieve the linked RVT files is called `DemoModel`.
 
-Find the model in the response (`included[i].attributes.displayName`), and note the latest published version ID (`included[i].id`) â `urn:adsk.wipprod:fs.file:vf.hPW2BlBbQG2L5HjCOh7Z8Q?version=3`.
+Find the model in the response (`included[i].attributes.displayName`), and note the latest published version ID (`included[i].id`) — `urn:adsk.wipprod:fs.file:vf.hPW2BlBbQG2L5HjCOh7Z8Q?version=3`.
 
 ## [Step 5: Retrieve Signed URLs for the Host and Linked Models](#step-5-retrieve-signed-urls-for-the-host-and-linked-models)
 
@@ -359,8 +359,8 @@ Show More
 
 The response includes two top-level keys:
 
-- `hostFile` â Contains metadata and a signed URL for the host model. This object is returned by default unless `includeHost=false` is explicitly set in the request.
-- `linkedFiles` â Contains metadata and signed URLs for any Revit models that are linked into the specified version of the host model.
+- `hostFile` – Contains metadata and a signed URL for the host model. This object is returned by default unless `includeHost=false` is explicitly set in the request.
+- `linkedFiles` – Contains metadata and signed URLs for any Revit models that are linked into the specified version of the host model.
 
 ## [Step 6: Download the RVT Files](#step-6-download-the-rvt-files)
 

@@ -29,9 +29,9 @@ Creates a new version of the AppBundle.
 
     -F content-type = application/octet-stream
 
-    -F policy = eyJleHBpcmF0aW9uIjoiMjAxOC0wNi0yMVQxMzoâ¦(trimmed)
+    -F policy = eyJleHBpcmF0aW9uIjoiMjAxOC0wNi0yMVQxMzo…(trimmed)
 
-    -F x-amz-signature = 800e52d73579387757e1c1cd88762â¦(trimmed)
+    -F x-amz-signature = 800e52d73579387757e1c1cd88762…(trimmed)
 
     -F x-amz-credential = AKIAIOSFODNN7EXAMPLE/20180621/us-east-1/s3/aws4_request/
 
@@ -41,7 +41,7 @@ Creates a new version of the AppBundle.
 
     -F file=@E:myfile.zip
 
-    The âfileâ field must be at the end, all fields after âfileâ will be ignored.
+    The ‘file’ field must be at the end, all fields after ‘file’ will be ignored.
 
 ## [Resource Information](#resource-information)
 
@@ -99,7 +99,7 @@ Expand all
 - uploadParametersobject The parameters needed to POST an AppBundle.
 - endpointURLstring The URL to upload the AppBundle package to.
 - formDataobject FormData parameters to be used in the body of the AppBundle package upload request.
-Must be followed by a âfileâ parameter indicating the package file location.
+Must be followed by a ‘file’ parameter indicating the package file location.
 - *string Type: dictionary<string, [*](#id4)>
 - idstring Name of AppBundle, see the example section.
 - enginestring The actual processing engine that runs the WorkItem job and processes the Activity.
@@ -115,17 +115,17 @@ Must be followed by a âfileâ parameter indicating the package file loc
 - *string Type: dictionary<string, [*](#id8)>
 - verbenum:string Defines the operation for a parameter. get, put, post, patch imply an HTTP operation on the url in the parameter. read implies that the string value of parameter should be read. get and read imply input parameters all others are output.
 Possible values: `get`, `head`, `put`, `post`, `patch`, `read`
-- multipartsobject Provide [multipart post](http://hc.apache.org/httpclient-3.x/methods/multipartpost.html) method to upload the results and multiparts can be empty if there is no âparameterâ to provide. It supports [Box](https://developer.box.com/reference#upload), [Google Drive](https://developers.google.com/drive/api/v3/manage-uploads#multipart) and [Amazon Simple Storage Service (S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html) services.Examples of using argument âmultipartsâ:Box:
+- multipartsobject Provide [multipart post](http://hc.apache.org/httpclient-3.x/methods/multipartpost.html) method to upload the results and multiparts can be empty if there is no “parameter” to provide. It supports [Box](https://developer.box.com/reference#upload), [Google Drive](https://developers.google.com/drive/api/v3/manage-uploads#multipart) and [Amazon Simple Storage Service (S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html) services.Examples of using argument “multiparts”:Box:
 
-| âmultipartsâ: | {âattributesâ: {ânameâ: âresult.txtâ, âparentâ: {âidâ: âxxxxxâ}}, âmydataâ: âxxxxxâ} |
+| “multiparts”: | {“attributes”: {“name”: “result.txt”, “parent”: {“id”: “xxxxx”}}, “mydata”: “xxxxx”} |
 | --- | --- |
 Google Drive:
 
-| âmultipartsâ: | {âkeysâ: {ânameâ: âresult.txtâ, âparentâ :[âxxxxxâ]}} |
+| “multiparts”: | {“keys”: {“name”: “result.txt”, “parent” :[“xxxxx”]}} |
 | --- | --- |
 Amazon Simple Storage Service (S3):
 
-| âmultipartsâ: | {âkeyâ: âresult.txtâ, âpolicyâ: âxxxxxâ, âx-amz-signatureâ: âxxxxxâ, âx-amz-credentialâ: âxxxxxâ, âx-amz-algorithmâ: âAWS4-HMAC-SHA256â, âx-amz-dateâ: â20190820T000000Zâ, âbucketâ: âxxxxxâ} |
+| “multiparts”: | {“key”: “result.txt”, “policy”: “xxxxx”, “x-amz-signature”: “xxxxx”, “x-amz-credential”: “xxxxx”, “x-amz-algorithm”: “AWS4-HMAC-SHA256”, “x-amz-date”: “20190820T000000Z”, “bucket”: “xxxxx”} |
 | --- | --- |
 - *object Type: dictionary<string, [*](#id10)>
 - descriptionstring Human readable description of the object.

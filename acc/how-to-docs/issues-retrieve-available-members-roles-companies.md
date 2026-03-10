@@ -110,9 +110,9 @@ Show More
 
 Note the `jobId` (`b0783d6e-791f-4430-ac6d-35864cf266db`) for the extraction, which you will need to use to retrieve the extracted data.
 
-## [Step 3: Examine the Files Contained in the Jobâs Data Extract](#step-3-examine-the-files-contained-in-the-job-s-data-extract)
+## [Step 3: Examine the Files Contained in the Job’s Data Extract](#step-3-examine-the-files-contained-in-the-job-s-data-extract)
 
-To see a list of the files contained in your jobâs data extract, call [GET jobs/:jobId/data-listing](en/docs/bim360/v1/reference/http/data-connector-jobs-jobId-data-listing-GET/) using the job ID (`b0783d6e-791f-4430-ac6d-35864cf266db`).
+To see a list of the files contained in your job’s data extract, call [GET jobs/:jobId/data-listing](en/docs/bim360/v1/reference/http/data-connector-jobs-jobId-data-listing-GET/) using the job ID (`b0783d6e-791f-4430-ac6d-35864cf266db`).
 
 ### Request
 

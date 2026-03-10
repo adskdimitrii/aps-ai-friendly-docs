@@ -18,7 +18,7 @@ Notes:
 - For DWG files, 2D views can only be exported from DWG files uploaded after May 1, 2023.
 - For RVT files, 2D views and sheets can only be exported from RVT files created with Revit 2022 or newer versions. The name of each sheet or view in the exported result is a combination of the type, level name, and sheet/view name, e.g., Sheets - A001, Views - Structure Plan - A001.
 
-The files can be exported once theyâve been successfully uploaded and processed. For more details about uploading files, see the [Upload Files](https://help.autodesk.com/view/DOCS/ENU/?guid=Upload_files#upload-files) help documentation. For DWG or RVT file, if it is not processed completely, the exporting will skip it and the status will be `partialSuccess`.
+The files can be exported once they’ve been successfully uploaded and processed. For more details about uploading files, see the [Upload Files](https://help.autodesk.com/view/DOCS/ENU/?guid=Upload_files#upload-files) help documentation. For DWG or RVT file, if it is not processed completely, the exporting will skip it and the status will be `partialSuccess`.
 
 A user must have at least download permission to perform this export operation. For more information about permissions, see the [Folder Permissions](https://help.autodesk.com/view/DOCS/ENU/?guid=Folder_Permissions) help documentation.
 
@@ -50,7 +50,7 @@ For more details about exporting files, see the [Export Files](https://help.auto
 
 | Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
-| x-user-id   string | The ID of a user on whose behalf your API request is acting. Required if youâre using a 2-legged authentication context, which must be 2-legged OAuth2 security with user impersonation. <br>The app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified.<br>You can use either the userâs ACC ID (id), or their Autodesk ID (autodeskId). |
+| x-user-id   string | The ID of a user on whose behalf your API request is acting. Required if you’re using a 2-legged authentication context, which must be 2-legged OAuth2 security with user impersonation. <br>The app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified.<br>You can use either the user’s ACC ID (id), or their Autodesk ID (autodeskId). |
 | Content-Type*   string | Must be `application/json` |
 
 * Required
@@ -59,7 +59,7 @@ For more details about exporting files, see the [Export Files](https://help.auto
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/developers_guide/overview/) to retrieve the project ID. For more information, see the [Retrieve a Project ID tutorial](../how-to-docs/getting-started-retrieve-account-and-project-id.md). You can use a project ID either with a âb.â prefix or without a âb.â prefix. For instance, a project ID of âb.a4be0c34a-4ab7â can also be referred to as âa4be0c34a-4ab7â. |
+| projectId   string: UUID | The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/developers_guide/overview/) to retrieve the project ID. For more information, see the [Retrieve a Project ID tutorial](../how-to-docs/getting-started-retrieve-account-and-project-id.md). You can use a project ID either with a “b.” prefix or without a “b.” prefix. For instance, a project ID of “b.a4be0c34a-4ab7” can also be referred to as “a4be0c34a-4ab7”. |
 | --- | --- |
 
 ### Request

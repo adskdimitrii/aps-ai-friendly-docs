@@ -1,10 +1,10 @@
-# Task 3 â Translate to SVF2
+# Task 3 – Translate to SVF2
 
 Source: https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-file4viewer/task3-translate-source-file/
 
 ---
 
-# Task 3 â Translate to SVF2
+# Task 3 – Translate to SVF2
 
 ## [Step 1 - Start a translation job](#step-1-start-a-translation-job)
 

@@ -27,11 +27,11 @@ Specifically, ID Token contains only registered claims so far that are recommend
 
 Note that this walkthrough does not show you how to write server-side code. Instead, it uses cURL commands to illustrate the calls you need to instrument in your code.
 
-This walkthrough presupposes that the app is a web app and that it needs to read the userâs data.
+This walkthrough presupposes that the app is a web app and that it needs to read the user’s data.
 
 ## [Before You Begin](#before-you-begin)
 
-Before you begin, please follow the [Create an App](create-app.md) walkthrough to create your app on APS. Specify your appâs callback URL and note your client ID and secret.
+Before you begin, please follow the [Create an App](create-app.md) walkthrough to create your app on APS. Specify your app’s callback URL and note your client ID and secret.
 
 Familiarize yourself with the overall flow:
 
@@ -41,7 +41,7 @@ Refer [Authorization code grant type](https://aps.autodesk.com/en/docs/oauth/v2/
 
 ## [Re-verification Flow](#re-verification-flow)
 
-At some point in the UI of your web app, you will find that you need to get the end userâs consent to access APS resources on the userâs behalf. Depending on your app, you may do this when the user first starts using the app, or you may wait until your app actually needs to access the resource. Whatever the case, you will redirect the user to the [GET authorize](../http-docs/http-authorize-GET.md) endpoint in their browser.
+At some point in the UI of your web app, you will find that you need to get the end user’s consent to access APS resources on the user’s behalf. Depending on your app, you may do this when the user first starts using the app, or you may wait until your app actually needs to access the resource. Whatever the case, you will redirect the user to the [GET authorize](../http-docs/http-authorize-GET.md) endpoint in their browser.
 
 Refer [Re-verification flow](../http-docs/http-authorize-GET.md#example-3) (scroll down to example 3) to get an ID token for an user after they successfully authenticate and it is optimized for confidential clients.
 

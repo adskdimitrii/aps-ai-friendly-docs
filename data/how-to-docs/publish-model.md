@@ -454,7 +454,7 @@ Show More
 
 ## [Step 7: Verify the Model Has Finished Publishing](#step-7-verify-the-model-has-finished-publishing)
 
-The [PublishModel](../http-docs/http-PublishModel.md) and [PublishWithoutLinks](../http-docs/http-PublishWithoutLinks.md) commands are asynchronous and initiate a job that runs in the background, rather than halting execution of your program. When the model has finished publishing to BIM 360 Docs, a new version of the model is created. There are two ways that you can track the jobâs progress:
+The [PublishModel](../http-docs/http-PublishModel.md) and [PublishWithoutLinks](../http-docs/http-PublishWithoutLinks.md) commands are asynchronous and initiate a job that runs in the background, rather than halting execution of your program. When the model has finished publishing to BIM 360 Docs, a new version of the model is created. There are two ways that you can track the job’s progress:
 
 ### a) Manually Poll for the Status
 
@@ -554,7 +554,7 @@ Show More
 
 ### b) Set up Automatic Notifications
 
-You can also track the jobâs progress by setting up [webhooks](https://aps.autodesk.com/en/docs/webhooks/v1/overview/) to send automatic notifications whenever the folder that you published the model to is updated.
+You can also track the job’s progress by setting up [webhooks](https://aps.autodesk.com/en/docs/webhooks/v1/overview/) to send automatic notifications whenever the folder that you published the model to is updated.
 
 [Register the webhook](../../webhooks/how-to-docs/create-a-hook-data-management.md) (`scope.folder`) to the Project Files folder (`urn:adsk.wipprod:fs.folder:co.BJU3PTc4Sd2CmXM492XUiA`), and set up notifications to be triggered when a file is modified (`dm.version.modified`) in the folder.
 

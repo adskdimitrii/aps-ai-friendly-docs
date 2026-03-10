@@ -33,7 +33,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 | Content-Type*   string | Must be `application/json` |
 | Accept-Language   string | This header is not currently supported in the Account Admin API. |
 | Region   string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
-| User-Id   string | Note that this header is not relevant for Account Admin GET endpoints. <br>The ID of a user on whose behalf your API request is acting. Required if youâre using a 2-legged authentication context, which must be *2-legged OAuth2 security with user impersonation*.<br>Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.<br>You can use either the userâs ACC ID (`id`), or their Autodesk ID (`autodeskId`). |
+| User-Id   string | Note that this header is not relevant for Account Admin GET endpoints. <br>The ID of a user on whose behalf your API request is acting. Required if you’re using a 2-legged authentication context, which must be *2-legged OAuth2 security with user impersonation*.<br>Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.<br>You can use either the user’s ACC ID (`id`), or their Autodesk ID (`autodeskId`). |
 
 * Required
 
@@ -41,7 +41,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the ACC API you need to remove the â**b.**" prefix. For example, a project ID of `b.a4be0c34a-4ab7` translates to a project ID of `a4be0c34a-4ab7`. |
+| projectId   string: UUID | The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the ACC API you need to remove the “**b.**" prefix. For example, a project ID of `b.a4be0c34a-4ab7` translates to a project ID of `a4be0c34a-4ab7`. |
 | --- | --- |
 
 ### Request
@@ -59,10 +59,10 @@ Expand all
 | email*   string | The email of the user. <br>Max length: 255 |
 | userId   string | Not relevant |
 | companyId   null,string | The ID of the company that the user is representing in the project. To obtain a list of all company IDs associated with a project, call [GET projects/:projectId/companies](http-projects--project_id-companies-GET.md). |
-| roleIds   array: string | A list of the IDs of the userâs roles in the project. <br>To obtain role IDs for this parameter, you can call [GET projects/:projectId/users](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-users-GET/) endpoint or [GET projects/:projectId/users/:userId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-users-userId-GET/) and inspect the `roleId` field in the response. |
+| roleIds   array: string | A list of the IDs of the user’s roles in the project. <br>To obtain role IDs for this parameter, you can call [GET projects/:projectId/users](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-users-GET/) endpoint or [GET projects/:projectId/users/:userId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-users-userId-GET/) and inspect the `roleId` field in the response. |
 | products*   array: object | Information about the products activated in the specified project for this imported user. |
 | key*   string | A keyword that identifies the product. <br>Possible values: `autoSpecs`, `build`, `cost`, `designCollaboration`, `docs`, `insight`, `modelCoordination`, `projectAdministration`, and `takeoff`. |
-| access*   enum:string | The userâs type of access to the product identified by `key`. Possible values: <br>`administrator``member``none`<br>Note that when youâre using a POST or PATCH endpoint to set this value, you must adhere to the following guidelines:<br>If you set a productâs `key` to `projectAdministration` and you set `access` to `none`, all other products should be set to `member` access for the user.If you set a productâs `key` to `projectAdministration` and you set `access` to `administrator`, all other products should be set to `administrator` access for the user.You cannot set a productâs `key` to `projectAdministration` and set `access` to `member`. |
+| access*   enum:string | The user’s type of access to the product identified by `key`. Possible values: <br>`administrator``member``none`<br>Note that when you’re using a POST or PATCH endpoint to set this value, you must adhere to the following guidelines:<br>If you set a product’s `key` to `projectAdministration` and you set `access` to `none`, all other products should be set to `member` access for the user.If you set a product’s `key` to `projectAdministration` and you set `access` to `administrator`, all other products should be set to `administrator` access for the user.You cannot set a product’s `key` to `projectAdministration` and set `access` to `member`. |
 
 * Required
 
@@ -88,7 +88,7 @@ Expand all
 
 ## [Body Structure (202)](#body-structure-202)
 
-| jobId   string: UUID | We donât currently support this field, but expect to in a future release. <br>If the response returns `jobId` with a valid UUID value, the user import operation was successful. |
+| jobId   string: UUID | We don’t currently support this field, but expect to in a future release. <br>If the response returns `jobId` with a valid UUID value, the user import operation was successful. |
 | --- | --- |
 
 ## [Example](#example)

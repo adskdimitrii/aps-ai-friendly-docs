@@ -93,7 +93,7 @@ The following examples return raw HTTP headers and JSON objects. For a more deve
 
 ## [Example](#example)
 
-This example demonstrates the successful retrieval of derivativeâs metadata (200).
+This example demonstrates the successful retrieval of derivative’s metadata (200).
 
 ### Request
 

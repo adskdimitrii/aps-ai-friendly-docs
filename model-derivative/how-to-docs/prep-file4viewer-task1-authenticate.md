@@ -1,10 +1,10 @@
-# Task 1 â Obtain an Access Token
+# Task 1 – Obtain an Access Token
 
 Source: https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-file4viewer/task1-authenticate/
 
 ---
 
-# Task 1 â Obtain an Access Token
+# Task 1 – Obtain an Access Token
 
 This task produces a two-legged token with a scope sufficient to authenticate the remaining tasks in this walkthrough.
 
@@ -18,7 +18,7 @@ You use the following operation for this task:
 
 ## [Step 1 - Register an App](#step-1-register-an-app)
 
-Follow the instructions in the walkthrough [Create an app](../../oauth/how-to-docs/create-app.md) to register an app for this walkthrough. Note down the Client ID and Client Secret you recieve for the app. When specifying details of the app, make sure that the âModel Derivative APIâ and âData Management APIâ are selected.
+Follow the instructions in the walkthrough [Create an app](../../oauth/how-to-docs/create-app.md) to register an app for this walkthrough. Note down the Client ID and Client Secret you recieve for the app. When specifying details of the app, make sure that the “Model Derivative API” and “Data Management API” are selected.
 
 ## [Step 2: Encode your Client ID and Client Secret](#step-2-encode-your-client-id-and-client-secret)
 
@@ -83,7 +83,7 @@ string encodedText = Convert.ToBase64String(bytesToEncode);
 
 ```
   Show More
-    **Note:** There are online tools that you can use to convert the combined string to a Base64 encoded string. However, we donât recommend that you use such tools. Exposing your Client ID and Client Secret to an online tool can pose a security threat.
+    **Note:** There are online tools that you can use to convert the combined string to a Base64 encoded string. However, we don’t recommend that you use such tools. Exposing your Client ID and Client Secret to an online tool can pose a security threat.
 
     You should receive a string that looks like `RjZEbjh5cGVtMWo4UDZzVXo4SVgzcG1Tc09BOTlHVVQ6QVNOa3c4S3F6MXQwV1hISw==`.
 

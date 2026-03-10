@@ -66,7 +66,7 @@ curl -X GET \
 
 ```
 
-**Note:** This download is directly from S3 (or a CDN). So, it doesnât need an `Authorization` header.
+**Note:** This download is directly from S3 (or a CDN). So, it doesn’t need an `Authorization` header.
 
 ### Response
 
@@ -113,7 +113,7 @@ curl -X GET \
 
 ```
 
-**Note:** This download is directly from S3 (or a CDN). So, it doesnât need an `Authorization` header.
+**Note:** This download is directly from S3 (or a CDN). So, it doesn’t need an `Authorization` header.
 
 ### Response
 

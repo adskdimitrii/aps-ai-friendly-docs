@@ -57,13 +57,13 @@ Expand all
 | clusterfck   Object | Dependency-Injection of clusterfck library (enables clustering of Bookmark icons) |
 | viewerStartOptions   Object | Options passed to the viewer initialization process |
 | ignoreGlobalOffset   boolean | Forces globalOffset to undefined for all loaded models. Effect of this is that all models are auto-centered using the model bbox. Note that this does only work if you never show more than one 3D viewable at once |
-| unloadUnfinishedModels   boolean | By setting unloadUnfinishedModels, when calling hide(bubbleNode), it will unload models that havenât been fully loaded. Used in order to reduce amount of file loaders when switching between models |
+| unloadUnfinishedModels   boolean | By setting unloadUnfinishedModels, when calling hide(bubbleNode), it will unload models that haven’t been fully loaded. Used in order to reduce amount of file loaders when switching between models |
 | useDynamicGlobalOffset   boolean | If true, the globalOffset is applied dynamically after loading |
 | cameraValidator   boolean | Called with a (camera, model) when using a model camera as start or home camera. This allows for clients to apply optional custom repairs for models with messy camera data |
-| propagateInputEventTypes   Array.<string> | By default, LMV ToolController âeatsâ all handled events so that they donât reach any other widgets. Specify an array of event types that you want this behaviour disabled for. For example [âmouseupâ, âmousedownâ] allows alloy to detect mouse outside clicks to close pending dropdown menus |
+| propagateInputEventTypes   Array.<string> | By default, LMV ToolController “eats” all handled events so that they don’t reach any other widgets. Specify an array of event types that you want this behaviour disabled for. For example [‘mouseup’, ‘mousedown’] allows alloy to detect mouse outside clicks to close pending dropdown menus |
 | createModelAlignmentService*   function | Factory function to create AlignmentService implementation for loading/saving model transforms. See AlignmentServices above for details |
 | getCustomLoadOptions   function | Allows for applying custom options to be used for all model loading. The callback returns an options object that is applied by default in all model-load calls. The signature should look like: function(av.BubbleNode)=>Object |
-| viewerUnits   string | If specified, all models are re-scaled from model units to this unit. Must be a GNU unit format string, e.g. âmâ. |
+| viewerUnits   string | If specified, all models are re-scaled from model units to this unit. Must be a GNU unit format string, e.g. “m”. |
 | forceWorldUpDirection   Array.<number> | If specified, the world up direction is forced to the given vector. Models with different world up directions in the manifest are rotated to align with the given vector. Must be an array of three numbers, e.g. [0, 1, 0]. |
 | multiViewerFactory   Autodesk.Viewing.MultiViewerFactory | Optional multi viewer factory. Used to create multiple viewers with shared resources |
 | useConsolidation   boolean | Optional flag to enable / disable mesh consolidation. Defaults to true. |
@@ -124,7 +124,7 @@ const model = view.getModel(nodes[0]);
 
 ## [getModelAndWait(node, checkIfVisible)](#getmodelandwait-node-checkifvisible)
 
-Find a model for given bubbleNode or key. If the model is not available yet, wait until itâs ready.
+Find a model for given bubbleNode or key. If the model is not available yet, wait until it’s ready.
 
 ### Parameters
 
@@ -343,7 +343,7 @@ view.unloadAll((item) => {
 Set camera in global coords.
 
 - The current global offset is automatically subtracted
-- You donât have to specify all members, e.g., can leave out up or fov. Only defined values are replaced.
+- You don’t have to specify all members, e.g., can leave out up or fov. Only defined values are replaced.
 - You can call it independent of loading state: If no model is loaded yet, the camera change is applied after first model add
 - Note that the call only has effect on current view, i.e., is discarded on reset/viewSwitch calls.
 
@@ -416,8 +416,8 @@ Expand all
 | bubbleNodes*   [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md), Array.<Autodesk.Viewing.BubbleNode> | The nodes to be shown |
 | --- | --- |
 | diffConfig   Object | Options to activate diff views. |
-| primaryBubbles   Array.<Autodesk.Viewing.BubbleNode> | A subset of âbubbleNodesâ that participates in the diff. If âbubbleNodesâ contains more, these will be ghosted. These nodes represent the current/as-is state |
-| diffBubbles   Array.<Autodesk.Viewing.BubbleNode> | Length must match primaryBubbles. For each node primaryBubbles[i], diffBubbles[i] provides the corresponding âbeforeâ state to compare against |
+| primaryBubbles   Array.<Autodesk.Viewing.BubbleNode> | A subset of ‘bubbleNodes’ that participates in the diff. If ‘bubbleNodes’ contains more, these will be ghosted. These nodes represent the current/as-is state |
+| diffBubbles   Array.<Autodesk.Viewing.BubbleNode> | Length must match primaryBubbles. For each node primaryBubbles[i], diffBubbles[i] provides the corresponding “before” state to compare against |
 | diff   [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | If svfs are sheet nodes, diff.supportModels must provide the bubbleNodes for the corresponding 3D support models. { diff, primary } |
 | primary   [Autodesk.Viewing.BubbleNode](Viewing-BubbleNode.md) | Primary bubble node to do the diff comparison on |
 | autoDetect   boolean | If true, support models are automatically found - works for Revit models with master views |
@@ -432,7 +432,7 @@ Expand all
 
 ## [isLoadDone()](#isloaddone)
 
-Returns true if all pending loading is finished. More concrete, it means that there is noâ¦
+Returns true if all pending loading is finished. More concrete, it means that there is no…
 
 - model-root loading
 - geometry loading, or
@@ -458,9 +458,9 @@ Returns a promise that resolves when [isLoadDone()](Viewing-AggregatedView.md#is
 
 ## [findDiffSupportModel(sheetNode)](#finddiffsupportmodel-sheetnode)
 
-âSupport modelsâ are 3D models that augment 2D diffs for better results: Instead of comparing the 2D objects directly, the correspodning 3D counterparts are compared. This is more reliable and avoids false positives due to irrelevant plotting differences. We use master views as support models, because they contain all objects of a given phase.
+“Support models” are 3D models that augment 2D diffs for better results: Instead of comparing the 2D objects directly, the correspodning 3D counterparts are compared. This is more reliable and avoids false positives due to irrelevant plotting differences. We use master views as support models, because they contain all objects of a given phase.
 
-Given a bubble node referring to a 2D sheet node, this function returns the bubbleNode of the corresponding 3D master view that belongs to the same phase. This can be used as âsupport modelâ to obtain better results for 2D diff.
+Given a bubble node referring to a 2D sheet node, this function returns the bubbleNode of the corresponding 3D master view that belongs to the same phase. This can be used as “support model” to obtain better results for 2D diff.
 
 ### Parameters
 

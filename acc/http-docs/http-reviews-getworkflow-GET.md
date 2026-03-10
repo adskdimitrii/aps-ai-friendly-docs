@@ -34,7 +34,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 | Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
-| x-user-id   string | The ID of a user on whose behalf the request is made. Your application has access to all users specified by the administrator in the SaaS Integrations UI. Use this header to specify which user should be affected by the request. <br>This header is only required when using two-legged authentication. It is not needed for three-legged authentication.<br>Only userâs Autodesk ID (`autodeskId`) can be accepted. |
+| x-user-id   string | The ID of a user on whose behalf the request is made. Your application has access to all users specified by the administrator in the SaaS Integrations UI. Use this header to specify which user should be affected by the request. <br>This header is only required when using two-legged authentication. It is not needed for three-legged authentication.<br>Only user’s Autodesk ID (`autodeskId`) can be accepted. |
 
 * Required
 
@@ -42,7 +42,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You can provide the project ID with or without the â**b.**" prefix.
+- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You can provide the project ID with or without the “**b.**" prefix.
 
 - Example with prefix: **b.563a4c30-e30d-4869-ac02-2a18b6447abe**
 - Example without prefix: **563a4c30-e30d-4869-ac02-2a18b6447abe**
@@ -81,12 +81,12 @@ Expand all
 | steps   array: object | A list of steps defined in the approval workflow. Each step defines who reviews the files, how long they have, and whether it involves multiple reviewers. |
 | name   string | The name of the step, as defined in the workflow. It appears in the UI and is used in workflow configuration. Maximum length: 255 characters. <br>Max length: 255 |
 | type   enum:string | Indicates the step type in the workflow. Possible values: <br>`INITIATOR`: the first step. It typically represents the person who launches the review.`REVIEWER`: an intermediate step. It allows one or more reviewers to evaluate the files.`APPROVER`: the final step. It represents the decision maker who approves or rejects the files. |
-| duration   int | (`Time allowed` in the UI) The number of days allocated to complete this step. <br>This field applies only to `REVIEWER` and `APPROVER` steps. It is used to calculate the due date based on the selected `dueDateType`.<br>Valid range: `1â99`. |
+| duration   int | (`Time allowed` in the UI) The number of days allocated to complete this step. <br>This field applies only to `REVIEWER` and `APPROVER` steps. It is used to calculate the due date based on the selected `dueDateType`.<br>Valid range: `1–99`. |
 | dueDateType   enum:string | Specifies how the due date is calculated for this step. It works together with duration. <br>This field applies only to `REVIEWER` and `APPROVER` steps.<br>Possible values:<br>`CALENDAR_DAY` (default): the due date includes all calendar days, including weekends and holidays.`WORKDAY`: the due date excludes weekends and project holidays. |
 | groupReview   object | (`Reviewer Type` in the UI) Defines whether multiple reviewers can participate in this step and how their responses are handled. It applies only to `REVIEWER` steps. |
 | enabled   boolean | Indicates whether group review is enabled for this step. <br>`true`: multiple reviewers can participate in the step.<br>`false`: (default) only a single reviewer is allowed. |
 | type   enum:string | (Displayed under `More options` in the UI) Specifies the group review rule for this step. <br>Possible values:<br>`ALL`: every reviewer assigned to the step must submit a response (up to 30).`MINIMUM`: only a specified number of reviewers must respond, as defined in `min`. |
-| min   int | The minimum number of reviewers required for this step. This field is set automatically when the group review type is set to `MINIMUM`. It is not independently configurable. Valid range: `1â30`. |
+| min   int | The minimum number of reviewers required for this step. This field is set automatically when the group review type is set to `MINIMUM`. It is not independently configurable. Valid range: `1–30`. |
 | id   string | The ID of the step. |
 | candidates   object | (Displayed in the UI when selecting reviewers for a step) Lists the users, roles, or companies that were configured as reviewers for this step. <br>These candidates are defined during workflow setup and determine who will be invited to participate in the step during a review. |
 | roles   array: object | A list of project roles assigned as candidates for this step. |
@@ -107,7 +107,7 @@ Expand all
 | disableOverrideMarkupSetting   boolean | (`Allow approvers to change whether or not markups are included` in the UI) Controls whether approvers or admins can change the markup inclusion setting when starting the review. <br>`true`: the markup setting is locked and cannot be changed.<br>`false`: the setting can be changed during review setup. |
 | attachedAttributes   array: object | (`Update Attributes` in the UI) The list of attributes added in the `Update Attributes` action. <br>These attributes will be applied to the approved files in the target folder, or optionally also in the source folder depending on the configuration. |
 | id   int | The ID of the custom attribute to be applied after review completion. |
-| required   boolean | (`Attribute â Required by approver` in the UI) Indicates whether the approver must enter a value for this attribute to submit the review. <br>`true`: the attribute is required.<br>`false`: (default) the attribute is optional. |
+| required   boolean | (`Attribute – Required by approver` in the UI) Indicates whether the approver must enter a value for this attribute to submit the review. <br>`true`: the attribute is required.<br>`false`: (default) the attribute is optional. |
 | updateAttributesOptions   object | The configuration for applying attribute updates when a review is completed. This applies only if the workflow includes a file copy action and the `Update Attributes` action is enabled. |
 | enableAttachedAttributes   boolean | (`Update attributes` in the UI) Indicates whether the `Update Attributes` action is enabled. <br>`true`: attributes will be applied after the review.<br>`false`: (default) attributes will not be updated. |
 | updateSourceAndCopiedFiles   boolean | (`Update attributes both for target folder and source folder` or `Update attributes only for target folder` in the UI) Determines whether attributes are updated only for files in the target folder, or for both the target and source folders. <br>`true`: update attributes in both folders.<br>`false`: (default) update only the target folder.<br>Only available when the approval workflow includes a copy post-action. |

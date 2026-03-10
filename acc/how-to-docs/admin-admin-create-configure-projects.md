@@ -17,7 +17,7 @@ For more information about projects, project templates, and project members, see
 
 Acquire a [3-legged](../../oauth/how-to-docs/get-3-legged-token.md) or [2-legged](../../oauth/how-to-docs/get-2-legged-token.md) Oauth token with `data:read`, `data:write`, `account:read`, and `account:write` scopes.
 :   * For a 3-legged token, ensure that the user is an account administrator (or a project administrator if **Allow project administrators to create projects and project templates** is enabled in Account Settings).
-      * For a 2-legged token, the `User-Id` header is required to process the Account Admin endpoints. Retrieve the user ID by calling [GET users/search](../http-docs/http-users-search-GET.md) with your 2-legged OAuth token and the userâs email address. Ensure that the user is an account administrator (or a project administrator if **Allow project administrators to create projects and project templates** is enabled in Account Settings).
+      * For a 2-legged token, the `User-Id` header is required to process the Account Admin endpoints. Retrieve the user ID by calling [GET users/search](../http-docs/http-users-search-GET.md) with your 2-legged OAuth token and the user’s email address. Ensure that the user is an account administrator (or a project administrator if **Allow project administrators to create projects and project templates** is enabled in Account Settings).
 
 - Verify that you have access to the relevant account.
 - Find the relevant account ID for the account you want to create a project in by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the account ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`.
@@ -26,10 +26,10 @@ Acquire a [3-legged](../../oauth/how-to-docs/get-3-legged-token.md) or [2-legged
 
 You can create a project in two ways:
 
-- Option 1A â Clone the project from a project template. This assumes an appropriate project template has been created and configured. We strongly recommend this if you expect to implement multiple similar projects.
-- Option 1B â Create the project directly. This option works well for a one-off project when you donât have a project template.
+- Option 1A — Clone the project from a project template. This assumes an appropriate project template has been created and configured. We strongly recommend this if you expect to implement multiple similar projects.
+- Option 1B — Create the project directly. This option works well for a one-off project when you don’t have a project template.
 
-Note that you can use [POST projects](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-accountsaccountidprojects-POST/) to create a project template, then use the ACC Build UI to edit the template details and permissions, add project members to the template, and configure the templateâs notification settings. For more information about working with project templates, see [Project Administration > Project Templates](https://help.autodesk.com/view/BUILD/ENU/?guid=Templates_About) and [Account Administration > Project Templates](https://help.autodesk.com/view/BUILD/ENU/?guid=Account_Admin_Project_Templates) in Build Help.
+Note that you can use [POST projects](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-accountsaccountidprojects-POST/) to create a project template, then use the ACC Build UI to edit the template details and permissions, add project members to the template, and configure the template’s notification settings. For more information about working with project templates, see [Project Administration > Project Templates](https://help.autodesk.com/view/BUILD/ENU/?guid=Templates_About) and [Account Administration > Project Templates](https://help.autodesk.com/view/BUILD/ENU/?guid=Account_Admin_Project_Templates) in Build Help.
 
 ### Option 1A: Clone the project from a project template
 
@@ -68,7 +68,7 @@ curl -X 'POST' 'https://developer.api.autodesk.com/construction/admin/v1/account
         "currentPhase": "Design",
         "businessUnitId": "802a4a61-3507-4d4e-8e3c-242a31cc0549",
         "template": {
-            âprojectIdâ: âljsdfdlskfjsâ
+            “projectId”: “ljsdfdlskfjs”
         }
     }'
 
@@ -147,7 +147,7 @@ Show More
 
 Find and note the project ID (`id`) - `3e354e66-ac8b-41dd-9bc1-93fc182c25dd`.
 
-Note that this operation does not automatically assign the template project members to the cloned project. You will do this in a later step. Continue to check the projectâs activation status (Step 2).
+Note that this operation does not automatically assign the template project members to the cloned project. You will do this in a later step. Continue to check the project’s activation status (Step 2).
 
 ### Option 1B: Create the project directly
 
@@ -324,7 +324,7 @@ Note that currently, you cannot use `jobId` to check the progress of product act
 
 ## [Step 2: Check Project Activation Status by Polling](#step-2-check-project-activation-status-by-polling)
 
-Before you can continue configuring your new project, it must be active. The activation process occurs automatically, but doesnât finish immediately. Call [GET projects/:projectId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-GET/) to check its activation status. The activation process is complete when the value of the project-level `status` field in the response is `active`.
+Before you can continue configuring your new project, it must be active. The activation process occurs automatically, but doesn’t finish immediately. Call [GET projects/:projectId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-GET/) to check its activation status. The activation process is complete when the value of the project-level `status` field in the response is `active`.
 
 ### Request
 
@@ -413,8 +413,8 @@ It is strongly recommended that you assign at least a project administrator to y
 
 How you assign project members depends on how you created your project:
 
-- Option 3A â You just cloned your project from a template. Import the template project members in bulk from the template.
-- Option 3B â You created your project directly. Assign one or more project members directly.
+- Option 3A — You just cloned your project from a template. Import the template project members in bulk from the template.
+- Option 3B — You created your project directly. Assign one or more project members directly.
 
 ### Option 3A: Import template project members (if applicable)
 
@@ -522,9 +522,9 @@ Show More
 
 Show More
 
-Note that you identify the user by `email` in the request, and the response contains the userâs new project `id`.
+Note that you identify the user by `email` in the request, and the response contains the user’s new project `id`.
 
-Note that if you assign a project administrator who isnât in the cloned projectâs account, the template project members are not automatically assigned to the new project. In that case, you can assign the same members (as well as additional users from the same account) directly to the project (Option 3B).
+Note that if you assign a project administrator who isn’t in the cloned project’s account, the template project members are not automatically assigned to the new project. In that case, you can assign the same members (as well as additional users from the same account) directly to the project (Option 3B).
 
 ### Option 3B: Assign one or more project members directly
 
@@ -533,9 +533,9 @@ You can assign project members directly to a cloned or production project:
 - If Option 3A was unsuccessful for a cloned project
 - As the first step after creating a production project
 - To ensure that the project has at least one project administrator
-- At any time during the projectâs lifespan
+- At any time during the project’s lifespan
 
-Call [POST projects/:projectId/users:import](en/docs/acc/v1/reference/http/admin-projects-projectId-users-import-POST/) to assign one or more users to the project at a time. Include at least one project administrator if you havenât done so already.
+Call [POST projects/:projectId/users:import](en/docs/acc/v1/reference/http/admin-projects-projectId-users-import-POST/) to assign one or more users to the project at a time. Include at least one project administrator if you haven’t done so already.
 
 The administrator can be any user who is currently in the same account as the project. Include the products object in the request, with `products.key` set to `projectAdministration`, and `products.access` set to `administrator`.
 
@@ -702,11 +702,11 @@ curl -X 'GET' 'https://developer.api.autodesk.com/construction/admin/v1/projects
 
 Show More
 
-Find the userâs project status (`results.status`) and verify thet its value is `active`.
+Find the user’s project status (`results.status`) and verify thet its value is `active`.
 
 ## [(Optional) Step 5: Configure Project Member Access to Products](#optional-step-5-configure-project-member-access-to-products)
 
-If circumstances produce a change in the access to a product (e.g. build, takeoff, or docs) that a project member requires, call [PATCH users/:userId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-users-userId-PATCH/) to update the project memberâs access. This example adds two new role IDs along with member access to the Takeoff product for the specified project member.
+If circumstances produce a change in the access to a product (e.g. build, takeoff, or docs) that a project member requires, call [PATCH users/:userId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-users-userId-PATCH/) to update the project member’s access. This example adds two new role IDs along with member access to the Takeoff product for the specified project member.
 
 ### Request
 

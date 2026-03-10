@@ -21,8 +21,8 @@ We recommend the code in this example to be encapsulated in an [extension](viewe
 
 ## [Step 1: Add Selection Counter to HTML](#step-1-add-selection-counter-to-html)
 
-Letâs begin by adding an HTML element that displays how many nodes are currently selected.
-Add the HTML block after the Viewerâs `div`.
+Let’s begin by adding an HTML element that displays how many nodes are currently selected.
+Add the HTML block after the Viewer’s `div`.
 
 ```
 <div class="my-custom-ui">
@@ -61,8 +61,8 @@ The content of `#MySelectionValue` changes whenever `Autodesk.Viewing.SELECTION_
 ## [Step 2: Listen and react to an event](#step-2-listen-and-react-to-an-event)
 
 Events are dispatched through the [Viewer3D](../reference-docs/Viewing-Viewer3D.md) instance.
-Letâs now add a function to handle selection change events.
-We will also call `addEventListener()` on the extensionâs `load()` function and call `removeEventListener()` on the extensionsâs `unload()` function.
+Let’s now add a function to handle selection change events.
+We will also call `addEventListener()` on the extension’s `load()` function and call `removeEventListener()` on the extensions’s `unload()` function.
 
 ```
 // Event handler for Autodesk.Viewing.SELECTION_CHANGED_EVENT
@@ -96,12 +96,12 @@ Notice that you can also toggle the selection with those commands.
 
 ## [Step 3: Another event](#step-3-another-event)
 
-The Viewerâs toolbar features buttons that change the current navigation tool. Tools are responsible for converting user input into actions.
+The Viewer’s toolbar features buttons that change the current navigation tool. Tools are responsible for converting user input into actions.
 The Navigation tools in particular deal with navigating the camera around the scene.
 
 
 
-Letâs now listen to `Autodesk.Viewing.NAVIGATION_MODE_CHANGED_EVENT` and display the toolâs name onscreen.
+Let’s now listen to `Autodesk.Viewing.NAVIGATION_MODE_CHANGED_EVENT` and display the tool’s name onscreen.
 Start by modifying the initially added HTML as follows.
 
 ```
@@ -155,5 +155,5 @@ EventsTutorial.prototype.onNavigationModeEvent = function(event) {
 
 ```
 
-Now that the event is hooked, try clicking through the navigation buttons in the Viewerâs toolbar. Youâll find that the
+Now that the event is hooked, try clicking through the navigation buttons in the Viewer’s toolbar. You’ll find that the
 event handler will pick up the tool change event!

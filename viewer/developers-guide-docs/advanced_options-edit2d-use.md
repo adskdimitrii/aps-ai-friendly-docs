@@ -55,7 +55,7 @@ var startTool = function(tool) {
 
 Show More
 
-Setting up the Edit2D playground gives you quick access to some Edit2D functions. Note that because the functions are mechanisms for testing, they should not be used for production code or environment. Weâve used them in this tutorial to show you how the Edit2D extension works after loading it in your application.
+Setting up the Edit2D playground gives you quick access to some Edit2D functions. Note that because the functions are mechanisms for testing, they should not be used for production code or environment. We’ve used them in this tutorial to show you how the Edit2D extension works after loading it in your application.
 
 ## [Step 2: Use Edit2D Tools to Make Shapes](#step-2-use-edit2d-tools-to-make-shapes)
 
@@ -66,7 +66,7 @@ This step demonstrates how to use the following Edit2D tools:
 - PolygonEditTool
 - InsertSymbolTool
 
-These tools become available when you call `registerDefaultTools()`. We did this when we loaded the extension in the [Set Up Edit2D](advanced_options-edit2d-setup.md) tutorial. Weâll load these tools in the console to demonstrate how each one works.
+These tools become available when you call `registerDefaultTools()`. We did this when we loaded the extension in the [Set Up Edit2D](advanced_options-edit2d-setup.md) tutorial. We’ll load these tools in the console to demonstrate how each one works.
 
 ### 2.1 PolygonTool: Drawing Polygons and Rectangles
 
@@ -165,7 +165,7 @@ startTool(tools.insertSymbolTool);
 
 ```
 
-The default shape is a circle. You can replace the default by changing the symbol property of the tool. In the following example, weâll change `InsertSymbolTool` so that it creates horizontal lines of length 1 centered at the mouse position:
+The default shape is a circle. You can replace the default by changing the symbol property of the tool. In the following example, we’ll change `InsertSymbolTool` so that it creates horizontal lines of length 1 centered at the mouse position:
 
 ```
 let line = new Autodesk.Edit2D.Polyline().makeLine(-1, -1, 1, 1);
@@ -175,7 +175,7 @@ tools.insertSymbolTool.symbol=line;
 
 ## [Step 3: Display Labels](#step-3-display-labels)
 
-With some basic shapes in place, letâs add meaning to the shapes by creating labels. You can use Labels to display anything you want. For example, we will use a label to display the area and length of a shape.
+With some basic shapes in place, let’s add meaning to the shapes by creating labels. You can use Labels to display anything you want. For example, we will use a label to display the area and length of a shape.
 
 ### 3.1 Labels for Area and Length
 
@@ -209,7 +209,7 @@ tools.polygonEditTool.setLengthLabelVisible(true);
 
 ### 3.2 Units for Areas and Lengths
 
-Edit 2D uses the same units and length calibration as the MeasureExtension. You can use MeasureExtensionâs calibration panel to specify units and calibration for your Edit2D shapes.
+Edit 2D uses the same units and length calibration as the MeasureExtension. You can use MeasureExtension’s calibration panel to specify units and calibration for your Edit2D shapes.
 
 
 
@@ -296,14 +296,14 @@ When using `PolygonTool` or moving vertices with `PolygonEditTool`, angle snappi
 
 
 
-By default, we snap to angles that are multiples of 45Â°. You can change this behavior by changing the table of snapping angles in `AngleSnapper`.
+By default, we snap to angles that are multiples of 45°. You can change this behavior by changing the table of snapping angles in `AngleSnapper`.
 
 ```
 edit2d.defaultContext.snapper.angleSnapper.snapAngles
 
 ```
 
-Angle snapping always refers to a ânewâ edge that you are currently modifying.
+Angle snapping always refers to a “new” edge that you are currently modifying.
 
 - In `PolygonTool`, this refers to the new edge that you would get when adding the next vertex at the current mouse position.
 - In `PolyEditTool`, when moving a vertex, it refers to the edges that start/end at the vertex being moved.
@@ -326,7 +326,7 @@ The following image shows an example of the third case. The intersection of a pe
 
 
 
-## [Whatâs Next?](#what-s-next)
+## [What’s Next?](#what-s-next)
 
 To learn more about Edit2D, check out these tutorials:
 

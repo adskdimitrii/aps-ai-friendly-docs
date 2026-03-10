@@ -10,13 +10,13 @@ POST
 
 # projects/{project_id}/versions:batch-get
 
-Retrieves a list of custom attribute values for multiple BIM 360 Document Management documents. For information about custom attributes, see the [Help documentation](http://help.autodesk.com/view/BIM360D/ENU/?guid=GUID-244FAB32-8E3B-4D1B-A1EB-C982DB93ABB3). This endpoint also retrieves information about a documentâs approval status and revision number.
+Retrieves a list of custom attribute values for multiple BIM 360 Document Management documents. For information about custom attributes, see the [Help documentation](http://help.autodesk.com/view/BIM360D/ENU/?guid=GUID-244FAB32-8E3B-4D1B-A1EB-C982DB93ABB3). This endpoint also retrieves information about a document’s approval status and revision number.
 
 You can either retrieve the custom attributes using the version ID or the item ID. If you use the item ID it returns the custom attributes for the latest (tip) version of the file. For information about finding the version ID and item ID for a document, see the initial steps of the [Download File](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/document-management/download-document-s3/) tutorial.
 
-Note that this endpoint only retrieves custom attributes that have been assigned a value. To retrieve the full list of the documentâs custom attributes including custom attributes that have not been assigned a value, call [GET custom-attribute-definitions](http-document-management-custom-attribute-definitions-GET.md).
+Note that this endpoint only retrieves custom attributes that have been assigned a value. To retrieve the full list of the document’s custom attributes including custom attributes that have not been assigned a value, call [GET custom-attribute-definitions](http-document-management-custom-attribute-definitions-GET.md).
 
-To assign values to a documentâs custom attributes or to clear custom attribute values, call [POST custom-attributes:batch-update](http-document-management-custom-attributesbatch-update-POST.md).
+To assign values to a document’s custom attributes or to clear custom attribute values, call [POST custom-attributes:batch-update](http-document-management-custom-attributesbatch-update-POST.md).
 
 For more details about custom attributes, see the [Update Custom Attributes](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/document-management/download-document/update-custom-attribute-values/) tutorial.
 
@@ -45,7 +45,7 @@ For more details about custom attributes, see the [Update Custom Attributes](htt
 
 ## [URI Parameters](#uri-parameters)
 
-| project_id   string | The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the BIM 360 API you need to remove the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| project_id   string | The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the BIM 360 API you need to remove the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Request
@@ -87,8 +87,8 @@ Expand all
 | lastModifiedTime   string | The time and date the version was last modified. |
 | lastModifiedUserId   string | The ID of the user who last modified the version. |
 | lastModifiedUserName   string | The name of the user who last modified the version. |
-| storageUrn   string | The ID of the versionâs storage object. This is only relevant for documents that were not split into sheets when they were uploaded to BIM 360 Document Management. |
-| storageSize   int | The file size of the versionâs storage object, in bytes. This is only relevant for documents that were not split into sheets when they were uploaded to BIM 360 Document Management. |
+| storageUrn   string | The ID of the version’s storage object. This is only relevant for documents that were not split into sheets when they were uploaded to BIM 360 Document Management. |
+| storageSize   int | The file size of the version’s storage object, in bytes. This is only relevant for documents that were not split into sheets when they were uploaded to BIM 360 Document Management. |
 | entityType   enum:string | The type of version. Possible values: <br>`SEED_FILE`: Documents that were not split into sheets when they were uploaded to BIM 360 Document Management.`DOCUMENT`: Documents that were split into sheets when they were uploaded to BIM 360 Document Management. |
 | revisionNumber   int | The revision number of the version. The revision number increases when you completely replace the version. For example when you reupload a document and overwrite the current document. Note that this is not the same as the version number, which increases when you update the document. For example, when you save the document. The revision number corresponds to the version in BIM 360 Document Management. |
 | processState   enum:string | The process state of the version. Possible values: `NEEDS_PROCESSING`, `PROCESSING`, `PREVIOUS_SEED_PENDING`, `EXTRACTION_PENDING`, `SPLITTING`, `PREVIOUS_DOC_PENDING`, `PROCESSING_ABORTING`, `PROCESSING_ABORTED`, `PROCESSING_COMPLETE`, `PROCESSING_PROMOTION`, `PROCESSING_COPY`, `PROCESSING_PROMOTING`, `PROCESSING_COPYING`, `PROCESSING_SUSPEND` |

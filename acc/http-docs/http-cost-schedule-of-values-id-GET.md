@@ -27,7 +27,7 @@ Retrieves one schedule of values (SOV) item in the given project by ID..
 ## [Headers](#headers)
 
 - Authorization*string Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow.
-- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
+- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
 
 * Required
 
@@ -43,7 +43,7 @@ Retrieves one schedule of values (SOV) item in the given project by ID..
 
 ## [Query String Parameters](#query-string-parameters)
 
-| include   array: string | Return the specified nested resources in the response. For example, `include=subitems` returns the projectâs SOV items, `include=attributes` will return custom attributes which represents the âpropertiesâ in the response. Note that for a value of `idOnly`, the response includes only a list of SOV item IDs, and other `include` values are ignored. <br>Possible values: `subitems`, `attributes`, `idOnly`. |
+| include   array: string | Return the specified nested resources in the response. For example, `include=subitems` returns the project’s SOV items, `include=attributes` will return custom attributes which represents the “properties” in the response. Note that for a value of `idOnly`, the response includes only a list of SOV item IDs, and other `include` values are ignored. <br>Possible values: `subitems`, `attributes`, `idOnly`. |
 | --- | --- |
 
 ### Response
@@ -67,7 +67,7 @@ Retrieves one schedule of values (SOV) item in the given project by ID..
 
 | id   string: UUID | The unique ID of the schedule of values (SOV) item. |
 | --- | --- |
-| parentId   string,null | The ID of the SOV itemâs parent item, the default value is `null`. For root SOV items, this value is `null`. |
+| parentId   string,null | The ID of the SOV item’s parent item, the default value is `null`. For root SOV items, this value is `null`. |
 | contractId   string | The ID of the contract to which the SOV item belongs. |
 | budgetId   string,null | The ID of the budget to which the SOV item belongs. |
 | code   string | The code of the SOV item. <br>Max length: 255 |
@@ -82,12 +82,12 @@ Retrieves one schedule of values (SOV) item in the given project by ID..
 | bulk   number | The converted quantity of the SOV item. |
 | associationId   string,null | The ID of a change order or cost item that this SOV item was originally created from. |
 | associationType   string,null | The type of object from which the SOV item was created:a change order or a cost item. |
-| exchangeRate   number,string,null | The exchange rate that applies to the SOV itemâs base currency price. For example, provide the value `0.7455` for a foreign currency thatâs worth `0.7455` of your base currency. |
+| exchangeRate   number,string,null | The exchange rate that applies to the SOV item’s base currency price. For example, provide the value `0.7455` for a foreign currency that’s worth `0.7455` of your base currency. |
 | position   number | The position of the SOV item in the list of SOV items. |
 | hasBudgetLinked   boolean | Not relevant |
 | createdAt   datetime: ISO 8601 | The date and time that the item was created, in ISO 8601 format. |
 | updatedAt   datetime: ISO 8601 | The date and time that the item was last updated, in ISO 8601 format. |
-| externalId   string | The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the itemâs ID in the external system. <br>Max length: 255 |
+| externalId   string | The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the item’s ID in the external system. <br>Max length: 255 |
 | externalSystem   string | The name of the external ERP system integrated with Cost Management. Use this name to identify and search for data within the integrated system. <br>Max length: 255 |
 | externalMessage   string | A message generated by the external ERP system that explains the sync status of the integration. For example, common values include `success` or `fail` to indicate the result of the integration operation. <br>Max length: 255 |
 | lastSyncTime   datetime: ISO 8601 | The date and time when the item was last synchronized with the external ERP system. This value is updated by the external system and is in ISO 8601 format. |

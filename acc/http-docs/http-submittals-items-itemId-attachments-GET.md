@@ -36,7 +36,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 ## [URI Parameters](#uri-parameters)
 
 - itemIdstring The ID of the submittal item. To find the item ID, call [GET items](http-submittals-items-GET.md).
-- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
 
 ### Request
 
@@ -100,7 +100,7 @@ Expand all
 | permittedActions   array: object | A list of actions that the user is allowed to perform on the attachment. |
 | id   string | The ID of the action in the format `type_of_object::action`. For example, `Attachment::retrieve`. |
 | fields   object | A mapping of field names to lists of possible values for each field. Note that an empty array indicates that there is no specific set of values for those fields. |
-| mandatoryFields   array: string | Fields required to perform specific actions. The required fields depend on the userâs role and the action. |
+| mandatoryFields   array: string | Fields required to perform specific actions. The required fields depend on the user’s role and the action. |
 | transitions   array: string | Not relevant |
 
 ## [Example](#example)

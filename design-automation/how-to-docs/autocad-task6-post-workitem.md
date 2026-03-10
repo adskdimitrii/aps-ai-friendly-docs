@@ -1,14 +1,14 @@
-# Task 6 â Submit a WorkItem
+# Task 6 – Submit a WorkItem
 
 Source: https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/autocad/task6-post-workitem/
 
 ---
 
-# Task 6 â Submit a WorkItem
+# Task 6 – Submit a WorkItem
 
 When you post a WorkItem to the Automation Service, you are instructing the service to execute an Activity.
 
-The relationship between an Activity and a WorkItem can be thought of as the relationship between a âfunction definitionâ and âfunction callâ.
+The relationship between an Activity and a WorkItem can be thought of as the relationship between a “function definition” and “function call”.
 Named parameters of the Activity have corresponding named arguments of the WorkItem.
 Like in function calls, optional parameters of the Activity can be skipped and left unspecified while posting a WorkItem.
 
@@ -63,8 +63,8 @@ To create a WorkItem to execute the Activity ListLayersActivity:
 >
 > | Attribute | Description |
 > | --- | --- |
-> | `activityId` | The target Activity defined by âowner.activity+aliasâ this WorkItem will execute. |
-> | `arguments` | The argument list that is required by the Activity (`ListLayersActivity`):       - `InputDwg` - Details of the input file that must be downloaded from OSS and then processed by the WorkItem.   - `result` - Details of the output that must be âputâ (uploaded) to OSS. |
+> | `activityId` | The target Activity defined by “owner.activity+alias” this WorkItem will execute. |
+> | `arguments` | The argument list that is required by the Activity (`ListLayersActivity`):       - `InputDwg` - Details of the input file that must be downloaded from OSS and then processed by the WorkItem.   - `result` - Details of the output that must be “put” (uploaded) to OSS. |
 >
 > The response contains the `id` of the posted WorkItem:
 
@@ -84,7 +84,7 @@ To create a WorkItem to execute the Activity ListLayersActivity:
 ## [Step 2 - Check status of a WorkItem](#step-2-check-status-of-a-workitem)
 
 WorkItems are queued before they are processed.
-A WorkItemâs processing time will vary depending on the size and complexity of the input files, the type of processing done by the AppBundle, and the size of the output files.
+A WorkItem’s processing time will vary depending on the size and complexity of the input files, the type of processing done by the AppBundle, and the size of the output files.
 
 In this walkthrough, you will be checking the WorkItem status to see if it has completed.
 However, the best practice is to use the `onComplete` argument when submitting a WorkItem.
@@ -129,4 +129,4 @@ Show More
 | Attribute | Description |
 | --- | --- |
 | `status` | Indicates if execution is pending, successful, failed or cancelled. |
-| `reportUrl` | The URL to get the report log for this WorkItemâs execution. |
+| `reportUrl` | The URL to get the report log for this WorkItem’s execution. |

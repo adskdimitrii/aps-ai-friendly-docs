@@ -29,7 +29,7 @@ Creates a contract in the specific project.
 | Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
-| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.<br>To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
+| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.<br>To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
 
 * Required
 
@@ -73,24 +73,24 @@ Expand all
 | materialsRetentionPercent   number,null | The materials retention percentage of the contract amount. |
 | retentionCap   number,null | The maximum percentage of the total contract amount which can be used as the retention amount. |
 | status   string,null | The status of this contract. Possible values: `draft`, `pending`, `submitted`, `revise`, `sent`, `signed`, `executed`, `closed`, `inReview` |
-| subStatus   string,null | The subStatus is used when the contract is in an `executed` state and may have additional statuses under it. For example, if a contract is âexecutedâ but requires the supplier to provide additional information, the status will be executed and the subStatus will be pending. In other cases, subStatus is always `null`. Possible values: `null`, `pending`, `submitted`, `revise`. Default value: `null`. |
-| currency   string | The code of the currency specified for the contract if itâs awarded in a foreign currency. |
-| exchangeRate   number,string,null | The final exchange rate for the specified `currency`, applied as a multiplier of the contractâs base currency. For example, 1 base currency = 0.7455 foreign currency. |
+| subStatus   string,null | The subStatus is used when the contract is in an `executed` state and may have additional statuses under it. For example, if a contract is “executed” but requires the supplier to provide additional information, the status will be executed and the subStatus will be pending. In other cases, subStatus is always `null`. Possible values: `null`, `pending`, `submitted`, `revise`. Default value: `null`. |
+| currency   string | The code of the currency specified for the contract if it’s awarded in a foreign currency. |
+| exchangeRate   number,string,null | The final exchange rate for the specified `currency`, applied as a multiplier of the contract’s base currency. For example, 1 base currency = 0.7455 foreign currency. |
 | forecastExchangeRate   number,string,null | The forecast exchange rate. Default value: `null`. |
 | forecastExchangeRateUpdatedAt   datetime: ISO 8601 | The last time that the forecast exchange rate was updated, in ISO 8601 format. |
 | awardedAt   string,null | The date and time of the contract award, in ISO 8601 format. |
 | sentAt   string,null | The date and time of contract transmission to the supplier, in ISO 8601 format. |
-| respondedAt   string,null | The date and time of the supplierâs response, in ISO 8601 format. |
+| respondedAt   string,null | The date and time of the supplier’s response, in ISO 8601 format. |
 | responseDue   string,null | The date and time by which the supplier response is due, in ISO 8601 format. |
 | returnedAt   string,null | The date and time of the signed contract return, in ISO 8601 format. |
-| onsiteAt   string,null | The date and time of the supplierâs arrival on-site, in ISO 8601 format. |
+| onsiteAt   string,null | The date and time of the supplier’s arrival on-site, in ISO 8601 format. |
 | offsiteAt   string,null | The date and time of job completion by the supplier, in ISO 8601 format. |
 | procuredAt   string,null | The date and time of purchase, in ISO 8601 format. This is designed for Purchase Order contracts. |
 | approvedAt   string,null | The date and time of contract approval, in ISO 8601 format. |
 | executedAt   string,null | The date and time of contract execution, in ISO 8601 format. |
 | internalId   string,null | Not relevant |
 | internalSystem   string,null | Not relevant |
-| externalId   string | The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the itemâs ID in the external system. <br>Max length: 255 |
+| externalId   string | The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the item’s ID in the external system. <br>Max length: 255 |
 | externalSystem   string | The name of the external ERP system integrated with Cost Management. Use this name to identify and search for data within the integrated system. <br>Max length: 255 |
 | externalMessage   string | A message generated by the external ERP system that explains the sync status of the integration. For example, common values include `success` or `fail` to indicate the result of the integration operation. <br>Max length: 255 |
 | lastSyncTime   datetime: ISO 8601 | The date and time when the item was last synchronized with the external ERP system. This value is updated by the external system and is in ISO 8601 format. |
@@ -144,18 +144,18 @@ Expand all
 | materialsRetentionPercent   number,null | The materials retention percentage of the contract amount. |
 | retentionCap   number,null | The maximum percentage of the total contract amount which can be used as the retention amount. |
 | status   string,null | The status of this contract. Possible values: `draft`, `pending`, `submitted`, `revise`, `sent`, `signed`, `executed`, `closed`, `inReview` |
-| subStatus   string,null | The subStatus is used when the contract is in an `executed` state and may have additional statuses under it. For example, if a contract is âexecutedâ but requires the supplier to provide additional information, the status will be executed and the subStatus will be pending. In other cases, subStatus is always `null`. Possible values: `null`, `pending`, `submitted`, `revise`. Default value: `null`. |
-| currency   string | The code of the currency specified for the contract if itâs awarded in a foreign currency. |
-| exchangeRate   number,string,null | The final exchange rate for the specified `currency`, applied as a multiplier of the contractâs base currency. For example, 1 base currency = 0.7455 foreign currency. |
+| subStatus   string,null | The subStatus is used when the contract is in an `executed` state and may have additional statuses under it. For example, if a contract is “executed” but requires the supplier to provide additional information, the status will be executed and the subStatus will be pending. In other cases, subStatus is always `null`. Possible values: `null`, `pending`, `submitted`, `revise`. Default value: `null`. |
+| currency   string | The code of the currency specified for the contract if it’s awarded in a foreign currency. |
+| exchangeRate   number,string,null | The final exchange rate for the specified `currency`, applied as a multiplier of the contract’s base currency. For example, 1 base currency = 0.7455 foreign currency. |
 | forecastExchangeRate   number,string,null | The forecast exchange rate. Default value: `null`. |
 | forecastExchangeRateUpdatedAt   datetime: ISO 8601 | The last time that the forecast exchange rate was updated, in ISO 8601 format. |
 | awardedAt   string,null | The date and time of the contract award, in ISO 8601 format. |
 | statusChangedAt   datetime: ISO 8601 | The date and time of the last status change, in ISO 8601 format. |
 | sentAt   string,null | The date and time of contract transmission to the supplier, in ISO 8601 format. |
-| respondedAt   string,null | The date and time of the supplierâs response, in ISO 8601 format. |
+| respondedAt   string,null | The date and time of the supplier’s response, in ISO 8601 format. |
 | responseDue   string,null | The date and time by which the supplier response is due, in ISO 8601 format. |
 | returnedAt   string,null | The date and time of the signed contract return, in ISO 8601 format. |
-| onsiteAt   string,null | The date and time of the supplierâs arrival on-site, in ISO 8601 format. |
+| onsiteAt   string,null | The date and time of the supplier’s arrival on-site, in ISO 8601 format. |
 | offsiteAt   string,null | The date and time of job completion by the supplier, in ISO 8601 format. |
 | procuredAt   string,null | The date and time of purchase, in ISO 8601 format. This is designed for Purchase Order contracts. |
 | approvedAt   string,null | The date and time of contract approval, in ISO 8601 format. |
@@ -164,7 +164,7 @@ Expand all
 | internalSystem   string,null | Not relevant |
 | companyERPId   string,null | Not relevant |
 | companyTaxId   string,null | Not relevant |
-| externalId   string | The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the itemâs ID in the external system. <br>Max length: 255 |
+| externalId   string | The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the item’s ID in the external system. <br>Max length: 255 |
 | externalSystem   string | The name of the external ERP system integrated with Cost Management. Use this name to identify and search for data within the integrated system. <br>Max length: 255 |
 | externalMessage   string | A message generated by the external ERP system that explains the sync status of the integration. For example, common values include `success` or `fail` to indicate the result of the integration operation. <br>Max length: 255 |
 | lastSyncTime   datetime: ISO 8601 | The date and time when the item was last synchronized with the external ERP system. This value is updated by the external system and is in ISO 8601 format. |

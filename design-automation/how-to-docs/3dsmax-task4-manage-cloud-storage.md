@@ -120,7 +120,7 @@ Show More
 
 The file itself can then be uploaded to the signed url as per the following example.
 
-**Note:** This upload is directly to S3 and doesnât need an `Authorization` header.
+**Note:** This upload is directly to S3 and doesn’t need an `Authorization` header.
 
 ### Request
 
@@ -207,7 +207,7 @@ Show More
 
 The file itself can then be uploaded to the signed url as per the following example.
 
-**Note:** This upload is directly to S3 and doesnât need an `Authorization` header.
+**Note:** This upload is directly to S3 and doesn’t need an `Authorization` header.
 
 ### Request
 

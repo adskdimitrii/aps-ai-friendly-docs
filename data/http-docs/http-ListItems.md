@@ -38,7 +38,7 @@ rather than standard CRUD operations. For more details about commands, see the[C
 
 ## [URI Parameters](#uri-parameters)
 
-| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a â**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
+| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a “**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
 | --- | --- |
 
 ### Request
@@ -58,10 +58,10 @@ Expand all
 | extension*   object | The extension object of the data. |
 | type*   enum:string | The type of command. Will always be: `commands:autodesk.core:ListItems` |
 | version*   string | The version of the command. |
-| data   object | Additional properties that the resourceâs data possesses. |
-| includePathInProject   boolean | Specify whether to return pathInProject attribute in response for BIM 360 Docs projects. pathInProject is the relative path of the item starting from projectâs root folder. <br>`true`: response will include pathInProject attribute for BIM 360 Docs projects.<br>`false` (default): response will not include pathInProject attribute for BIM 360 Docs projects. |
-| relationships*   object | An object that represents related resources.   In this case, it is used to list the resourceâs metadata which should be retrieved. |
-| resources*   object | An object that represents related resources.   In this case, it is used to list the resourceâs metadata which should be retrieved. |
+| data   object | Additional properties that the resource’s data possesses. |
+| includePathInProject   boolean | Specify whether to return pathInProject attribute in response for BIM 360 Docs projects. pathInProject is the relative path of the item starting from project’s root folder. <br>`true`: response will include pathInProject attribute for BIM 360 Docs projects.<br>`false` (default): response will not include pathInProject attribute for BIM 360 Docs projects. |
+| relationships*   object | An object that represents related resources.   In this case, it is used to list the resource’s metadata which should be retrieved. |
+| resources*   object | An object that represents related resources.   In this case, it is used to list the resource’s metadata which should be retrieved. |
 | data*   array:object | List of items. Each item requires a `type` and `id` |
 | type*   string | The type of resource. Will always be: `items` |
 | id*   string | The URN of the item; to verify a URN, see the [GET projects/:project_id/items/:item_id](http-projects-project_id-items-item_id-GET.md) endpoint. |
@@ -97,8 +97,8 @@ Expand all
 | type   enum:string | The type of command. Will always be: `commands:autodesk.core:ListItems` |
 | version   string | The version of the command. |
 | schema   string | The link to the schema. |
-| relationships   object | An object that represents related resources.   In this case, it is used to list the resourceâs metadata. |
-| resources   object | An object that represents related resources.   In this case, it is used to list the resourceâs metadata. |
+| relationships   object | An object that represents related resources.   In this case, it is used to list the resource’s metadata. |
+| resources   object | An object that represents related resources.   In this case, it is used to list the resource’s metadata. |
 | data   array:object | List of metadata for the specified items. |
 | type   string | The type of resource. Will always be: `items` |
 | id   string | The URN of the item; to verify a URN, see the [GET projects/:project_id/items/:item_id](http-projects-project_id-items-item_id-GET.md) endpoint. |
@@ -112,7 +112,7 @@ Expand all
 | name   string | The filename used when synced to local disk. |
 | displayName   string | Displayable name of the version. |
 | versionNumber   int | Version number of this versioned file. |
-| mimeType   string | Mimetype of the versionâs content. |
+| mimeType   string | Mimetype of the version’s content. |
 | fileType   string | File type, only present if this version represents a file. |
 | storageSize   int | File size in bytes, only present if this version represents a file. |
 | createTime   datetime: ISO 8601 | The time that the resource was created at. |
@@ -122,11 +122,11 @@ Expand all
 | lastModifiedUserId   string | The userId that last modified the resource. |
 | lastModifiedUserName   string | The username that last modified the resource. |
 | extension   object | The extension object of the data. |
-| type   string | The type of the schema that the resourceâs data object adheres to. |
+| type   string | The type of the schema that the resource’s data object adheres to. |
 | version   string | The version of the schema that the data is adhering to. |
 | schema   object | An object containing an API link property. |
 | href   string | A hyperlink reference to this resource. |
-| data   object | Additional properties that the resourceâs data possesses. |
+| data   object | Additional properties that the resource’s data possesses. |
 | relationships   object | Information on other resources that shares a relationship with this resource. |
 | item   object | Information on resources that are found above this resource. |
 | links   object | The object containing information on links of related resources. |

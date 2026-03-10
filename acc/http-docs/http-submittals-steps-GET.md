@@ -39,7 +39,7 @@ For more information about submittals and their lifecycle, see the [Help documen
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
 - itemIdstring The ID of the submittal item. To find the item ID, call [GET items](http-submittals-items-GET.md).
 
 ### Request
@@ -104,7 +104,7 @@ Expand all
 | permittedActions   array: object | A list of actions that the user is allowed to perform on the task within the submittal workflow. |
 | id   string | The ID of the action in the format `type_of_object::action`. For example, `partial_update`. |
 | fields   object | A mapping of field names to lists of possible values for each field. Note that an empty array indicates that there is no specific set of values for those fields. |
-| mandatoryFields   array: string | Fields required to perform specific actions, such as closing a task. The required fields depend on the userâs role and the action. |
+| mandatoryFields   array: string | Fields required to perform specific actions, such as closing a task. The required fields depend on the user’s role and the action. |
 | transitions   array: string | Not relevant |
 | createdAt   datetime: ISO 8601 | The date and time when the step was created, formatted as YYYY-MM-DDTHH:mm:ss.SSSSSSZ (ISO 8601) in UTC. For example, `2025-01-20T12:00:00.198466Z`. |
 | createdBy   string | The Autodesk ID of the user that created the step. |
@@ -115,7 +115,7 @@ Expand all
 | permittedActions   array: object | A list of actions that the user is allowed to perform on the step. |
 | id   string | The ID of the action in the format `type_of_object::action`. For example, `Step::partial_update`. |
 | fields   object | A mapping of field names to lists of possible values for each field. If a field does not require a specific value, it will be returned as an empty array. |
-| mandatoryFields   array: string | A list of fields required to perform specific actions on a step, such as `tasks` for the `Step::partial_update` action. The required fields depend on the userâs role and the action. |
+| mandatoryFields   array: string | A list of fields required to perform specific actions on a step, such as `tasks` for the `Step::partial_update` action. The required fields depend on the user’s role and the action. |
 | transitions   array: string | Not relevant |
 
 ## [Example](#example)

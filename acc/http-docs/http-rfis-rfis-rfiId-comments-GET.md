@@ -35,14 +35,14 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+- projectIdstring The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
 - rfiIdstring The ID of the RFI. To find the ID, call [POST search:rfis](http-rfis-rfi-search-POST.md).
 
 ### Request
 
 ## [Query String Parameters](#query-string-parameters)
 
-| limit   int | The number of RFIs to return in the response. Acceptable values: `1â200`. Default: `10`. For example, to limit the response to two items per page, use `limit=2` |
+| limit   int | The number of RFIs to return in the response. Acceptable values: `1–200`. Default: `10`. For example, to limit the response to two items per page, use `limit=2` |
 | --- | --- |
 | offset   int | The number of items to skip before starting to return results. <br>For example, to begin the results from the fourth item, use `offset=3`. |
 | sort   array: string | The fields to sort the list by |
@@ -75,7 +75,7 @@ Expand all
 | createdBy   string | The Autodesk ID of the user who created the comment. <br>To check the name of the user, call [GET users](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-v1-projects-projectId-users-GET/). |
 | createdAt   datetime: ISO 8601 | The timestamp of the date and time the comment was created, in the following format: `YYYY-MM-DDThh:mm:ss.sz`. |
 | updatedAt   datetime: ISO 8601 | The timestamp of the date and time the comment was updated, in the following format: `YYYY-MM-DDThh:mm:ss.sz`. |
-| source   enum:string | The source of the comment. Indicates how the comment was created. Possible values:  > `web` â The comment was created through the web interface or API.`email` â The comment was created by replying via email. |
+| source   enum:string | The source of the comment. Indicates how the comment was created. Possible values:  > `web` – The comment was created through the web interface or API.`email` – The comment was created by replying via email. |
 | pagination   object | The pagination object. |
 | limit   int | The number of items returned per page. |
 | offset   int | The number of items skipped before this page of results. |

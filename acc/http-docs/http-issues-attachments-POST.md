@@ -40,7 +40,7 @@ For more information about uploading attachments, see the [Upload Issue Attachme
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Request
@@ -58,7 +58,7 @@ Expand all
 | displayName*   string | The human-readable display name for the attachment, including the file extension (for example, `.pdf`, `.jpg`, `.dwg`). This name appears in the ACC web UI and is used when downloading the file from the issue. |
 | fileName*   string | The unique filename of the attachment, typically formatted as {attachmentId}.{fileExtension}. <br>This value must exactly match the name of the file stored in Autodesk Docs (OSS) that you uploaded via the OSS process.<br>For more information, see the [Upload Issue Attachment](../how-to-docs/issues-upload-issue-attachments.md) tutorial. |
 | attachmentType*   enum:string | The type of attachment to create. Set to `issue-attachment`. Will always be: `issue-attachment` |
-| storageUrn*   string | The Object Storage Service (OSS) URN that uniquely identifies where the file is stored in Autodeskâs cloud infrastructure. You obtain this value after uploading the file to OSS (see the [Upload Issue Attachment](../how-to-docs/issues-upload-issue-attachments.md) tutorial) or by retrieving it from an existing attachment (see the [Downloading Issue Attachments](../how-to-docs/issues-download-issue-attachments.md) tutorial). |
+| storageUrn*   string | The Object Storage Service (OSS) URN that uniquely identifies where the file is stored in Autodesk’s cloud infrastructure. You obtain this value after uploading the file to OSS (see the [Upload Issue Attachment](../how-to-docs/issues-upload-issue-attachments.md) tutorial) or by retrieving it from an existing attachment (see the [Downloading Issue Attachments](../how-to-docs/issues-download-issue-attachments.md) tutorial). |
 
 * Required
 
@@ -87,11 +87,11 @@ Expand all
 | displayName   string | The human-readable display name for the attachment, including the file extension (for example, `.pdf`, `.jpg`, `.dwg`). This name appears in the ACC web UI and is used when downloading the file from the issue. |
 | fileName   string | The unique filename of the attachment, as stored in Autodesk Docs (OSS). This is the name assigned to the uploaded file in the system, typically formatted as {attachmentId}.{fileExtension}. |
 | attachmentType   enum:string | The type of attachment. For issue attachments, this value is always `issue-attachment`. Will always be: `issue-attachment` |
-| storageUrn   string | The Object Storage Service (OSS) URN identifying where the attachment file is stored in Autodeskâs cloud infrastructure. Use this value when downloading the file (see the Download Issue Attachment </en/docs/acc/v1/tutorials/issues/download-issue-attachments/>_ tutorial). |
+| storageUrn   string | The Object Storage Service (OSS) URN identifying where the attachment file is stored in Autodesk’s cloud infrastructure. Use this value when downloading the file (see the Download Issue Attachment </en/docs/acc/v1/tutorials/issues/download-issue-attachments/>_ tutorial). |
 | fileSize   int | The size of the file in bytes. |
 | fileType   string | The file extension (without the dot), for example `pdf` or `jpg`. |
 | domainEntityId   string: UUID | The ID of the issue that owns the attachment. |
-| lineageUrn   string | The document lineage URN for the attachmentâs source file. |
+| lineageUrn   string | The document lineage URN for the attachment’s source file. |
 | version   int | The document version number. |
 | versionUrn   string | The URN for the specific file version that was attached to the issue. This may differ from the latest version URN (`tipVersionUrn`) if a newer version of the file exists in Autodesk Docs. |
 | tipVersionUrn   string | The URN for the latest (tip) version of the file. |

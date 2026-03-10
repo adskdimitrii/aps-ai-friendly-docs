@@ -12,7 +12,7 @@ Extension description
 
 The glTF extension lets you view glTF 2.0 models in the Viewer. This extension lets you have efficient glTF 2.0 models in your application.
 
-The extension id is: âAutodesk.glTFâ
+The extension id is: ‘Autodesk.glTF’
 
 ## [new glTF(viewer, options)](#new-gltf-viewer-options)
 

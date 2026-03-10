@@ -50,7 +50,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Query String Parameters](#query-string-parameters)
 
-| targetNodeId   string: UUID | Unique identifier of a node that will be the new nodeâs immediate sibling in the locations tree. The target nodeâs `parentId` must match the `body.parentId` field in the request. <br>Note that nodes in a given tier of the tree have a defined sequence order. The new node will be created in the same tier, either before or after the target node. You specify the sequence position of the new node using the `insertOption` parameter.<br>Note that this parameter is unavailable if this request is creating an existing nodeâs first child node.<br>Required only when `insertOption` is also included in the request. |
+| targetNodeId   string: UUID | Unique identifier of a node that will be the new node’s immediate sibling in the locations tree. The target node’s `parentId` must match the `body.parentId` field in the request. <br>Note that nodes in a given tier of the tree have a defined sequence order. The new node will be created in the same tier, either before or after the target node. You specify the sequence position of the new node using the `insertOption` parameter.<br>Note that this parameter is unavailable if this request is creating an existing node’s first child node.<br>Required only when `insertOption` is also included in the request. |
 | --- | --- |
 | insertOption   enum:string | Where to insert the new node relative to the target node that you specified with `targetNodeId`. The nodes in a given tier of the tree have a defined sequence order, and `insertOption` specifies whether the new node comes before or after the target node. <br>Required only when `targetNodeId` is also included in the request. Possible values: `After`, `Before` |
 
@@ -88,7 +88,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 | name   string | The name of this LBS node. <br>Max length: 255 |
 | description   string | Not relevant |
 | barcode   string | The barcode that represents this LBS node. This value must be unique per project. <br>Max length: 255 |
-| order   int | This nodeâs position relative to its sibling nodes. Nodes with the same parent have a defined sequence order. A node with a lower `order` value will be positioned before a node with a higher `order` value. <br>This is zero-based; for example, a node with an `order` value of `3` is the fourth node among its sibling nodes.<br>If an existing sibling node has the same or higher `order` value, that value will be incremented to make room for the new node. |
+| order   int | This node’s position relative to its sibling nodes. Nodes with the same parent have a defined sequence order. A node with a lower `order` value will be positioned before a node with a higher `order` value. <br>This is zero-based; for example, a node with an `order` value of `3` is the fourth node among its sibling nodes.<br>If an existing sibling node has the same or higher `order` value, that value will be incremented to make room for the new node. |
 | documentCount   int | This field is reserved for future use. |
 
 ## [Example](#example)

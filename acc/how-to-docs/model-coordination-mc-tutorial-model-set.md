@@ -216,7 +216,7 @@ Show More
 
 ## [Querying model set versions](#querying-model-set-versions)
 
-Once a model set is defined, it is automatically âenabledâ by the system. An enabled model set results in the system automatically creating model set versions as users interact with BIM 360 Docs. If a user changes the file content in a folder associated with a model set, the system automatically scans the tip versions of the 3D model content in the folder. If this scan yields a set of file versions different to any proceeding scan, a new model set version is created. Model set versions are sequential for a model set and have sequential version numbers. To page through the model set versions for a model set, you call its [GET modelsets/:modelSetId/versions](../http-docs/http-mc-modelset-service-v3-get-model-set-versions-GET.md) endpoint.
+Once a model set is defined, it is automatically “enabled” by the system. An enabled model set results in the system automatically creating model set versions as users interact with BIM 360 Docs. If a user changes the file content in a folder associated with a model set, the system automatically scans the tip versions of the 3D model content in the folder. If this scan yields a set of file versions different to any proceeding scan, a new model set version is created. Model set versions are sequential for a model set and have sequential version numbers. To page through the model set versions for a model set, you call its [GET modelsets/:modelSetId/versions](../http-docs/http-mc-modelset-service-v3-get-model-set-versions-GET.md) endpoint.
 
 ### Example Request
 

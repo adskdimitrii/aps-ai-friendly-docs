@@ -10,7 +10,7 @@ This walkthrough demonstrates how to generate code challenge for PKCE in OAuth 2
 
 ## [Code Challenge](#code-challenge)
 
-To authenticate public applications or single-page applications against Authorization server, it is recommended to adapt the Authorization Code flow with PKCE (Proof Key for Code Exchange). Hereâs how it works.
+To authenticate public applications or single-page applications against Authorization server, it is recommended to adapt the Authorization Code flow with PKCE (Proof Key for Code Exchange). Here’s how it works.
 
 - When the user initiates an authorization flow, the application computes a `code_verifier`. This is a random string between 43 and 128 characters and must contain only alphanumeric characters and punctuation characters `-`, `.`, `_`, `~`.
 - Next up, the application computes a `code_challenge` starting from the `code_verifier`.

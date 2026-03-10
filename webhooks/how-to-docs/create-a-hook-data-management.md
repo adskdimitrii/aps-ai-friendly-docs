@@ -29,7 +29,7 @@ For more information about scope and webhook take a look at our [Field Guide](ht
 
 ## [Step 2 : Choose event type to register the Webhook on](#step-2-choose-event-type-to-register-the-webhook-on)
 
-Webhooks service currently exposes the following types of Data Management events. Wildcards can also be specified by using the character â*â to represent the matching
+Webhooks service currently exposes the following types of Data Management events. Wildcards can also be specified by using the character “*” to represent the matching
 placeholder to substitute zero or more characters in the event type.
 
 See [Supported Events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/) for more information about event types and wildcards.

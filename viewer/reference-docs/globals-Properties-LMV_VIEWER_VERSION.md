@@ -8,4 +8,4 @@ Properties
 
 # LMV_VIEWER_VERSION
 
-Contains the Viewerâs version.
+Contains the Viewer’s version.

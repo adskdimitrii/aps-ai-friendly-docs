@@ -14,7 +14,7 @@ This tutorial demonstrates how to open a potential change order (PCO) through a 
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create` `data:read` and `data:write` scopes.
 - Verify that you have access to the relevant BIM 360 account and BIM 360 project.
 - Retrieve the project ID for your project. To obtain a project ID, use [GET projects](../http-docs/http-admin-accounts-accountidprojects-GET.md).
-- Ensure that there is a PCO in the project. If there isnât a PCO in the project, see [Create a Potential Change Order (PCO)](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/create-pco/) to create one.
+- Ensure that there is a PCO in the project. If there isn’t a PCO in the project, see [Create a Potential Change Order (PCO)](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/create-pco/) to create one.
 
 ## [Step 1: Find a PCO in BIM 360 Cost Management](#step-1-find-a-pco-in-bim-360-cost-management)
 
@@ -46,7 +46,7 @@ curl 'https://developer.api.autodesk.com/cost/v1/containers/18ece8b1-204d-11e8-a
 
 Show More
 
-In this example, the PCO ID is in the first part of the response (`results[0].id`) which is `55254a50-44d9-11e9-99d7-79aa05d3109e`. Youâll use it in the next step.
+In this example, the PCO ID is in the first part of the response (`results[0].id`) which is `55254a50-44d9-11e9-99d7-79aa05d3109e`. You’ll use it in the next step.
 
 ## [Step 2: Find the Available Actions For the PCO](#step-2-find-the-available-actions-for-the-pco)
 

@@ -1,10 +1,10 @@
-# Task 2 â Upload Source File to OSS
+# Task 2 – Upload Source File to OSS
 
 Source: https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-roominfo4viewer/task2-upload_source_file_to_oss/
 
 ---
 
-# Task 2 â Upload Source File to OSS
+# Task 2 – Upload Source File to OSS
 
 The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Data Management API. You must upload the source file to OSS before you can translate it.
 For this task, you upload the Revit file *rme_advanced_sample_project.rvt* to OSS, which is available in the *walkthrough_data* folder of the GitHub repository containing the Postman Collection for this walkthrough. This Revit file is an MEP file that contains space and zone information.

@@ -13,7 +13,7 @@ GET
 Returns the current user permissions.
 
 Note that if a user with *View and assign issues for their company* permissions attempts to assign a user from a another company to the issue, it will return an error.
-You can verify a userâs assignment permissions by checking the `permittedActions` or `permissionLevels` attributes.
+You can verify a user’s assignment permissions by checking the `permittedActions` or `permissionLevels` attributes.
 
 This operation is available to everyone.
 
@@ -41,7 +41,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Response
@@ -61,7 +61,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 Expand all
 
-| id   string | The userâs Autodesk ID. |
+| id   string | The user’s Autodesk ID. |
 | --- | --- |
 | isProjectAdmin   boolean | States whether the current logged in user is a system admin. |
 | canManageTemplates   boolean | Not relevant |
@@ -75,7 +75,7 @@ Expand all
 | permitted_statuses   array: string | Not relevant |
 | filter   object | Not relevant |
 | permittedStatuses   array: string | Not relevant |
-| permissionLevels   array: string | The permission level of the user. Each permission level corresponds to a combination of values in the response. For example, a combination of `read` and `create` in the response, corresponds to a *Full visibility* permission level. <br>Note that if a user with *View and assign issues for their company* permissions attempts to assign a user from a another company to the issue, it will return an error. In addition, the user can both create and view issues for their own company. You can also verify a userâs assignment permissions by checking the `permittedActions` or `permissionLevels` attributes.<br>*Edit, view, and assign* This permission level is split into two sub-levels:  > *View and assign to their company* (previously known as *Create for my company*) : `create` and the `permittedActions` array must include `assign-same-company`  *View issues for their company. Assign issues to anyone.* : `create` and the `permittedActions` array must include `assign-all` *Full visibility* (previously known as *Create for other companies*): `create`, `read`*Manage issues*: `create`, `read`, `write`<br>Possible values: `create`, `read`, `write`.<br>For more details about the permission levels, see [Issues Permissions](https://help.autodesk.com/view/BUILD/ENU/?guid=Issues_Permissions). |
+| permissionLevels   array: string | The permission level of the user. Each permission level corresponds to a combination of values in the response. For example, a combination of `read` and `create` in the response, corresponds to a *Full visibility* permission level. <br>Note that if a user with *View and assign issues for their company* permissions attempts to assign a user from a another company to the issue, it will return an error. In addition, the user can both create and view issues for their own company. You can also verify a user’s assignment permissions by checking the `permittedActions` or `permissionLevels` attributes.<br>*Edit, view, and assign* This permission level is split into two sub-levels:  > *View and assign to their company* (previously known as *Create for my company*) : `create` and the `permittedActions` array must include `assign-same-company`  *View issues for their company. Assign issues to anyone.* : `create` and the `permittedActions` array must include `assign-all` *Full visibility* (previously known as *Create for other companies*): `create`, `read`*Manage issues*: `create`, `read`, `write`<br>Possible values: `create`, `read`, `write`.<br>For more details about the permission levels, see [Issues Permissions](https://help.autodesk.com/view/BUILD/ENU/?guid=Issues_Permissions). |
 
 ## [Example](#example)
 

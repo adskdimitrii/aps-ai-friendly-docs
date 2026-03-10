@@ -1,10 +1,10 @@
-# Task 6 â Prepare Cloud Storage
+# Task 6 – Prepare Cloud Storage
 
 Source: https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/revit/step6-prepare-cloud-storage/
 
 ---
 
-# Task 6 â Prepare Cloud Storage
+# Task 6 – Prepare Cloud Storage
 
 In Task 7 you use a WorkItem to execute the Activity you created in the previous task. At that time, the Automation Service takes a Revit file as input, processes it, and uploads the result back to cloud storage.
 The Automation Service does not retain the inputs or outputs. It simply downloads the input files, processes them, and saves the output files back to cloud storage. After that, it discards the local copies of the files.
@@ -123,7 +123,7 @@ Show More
 
 The file itself can then be uploaded to the signed url as per the following example.
 
-**Note:** This upload is directly to S3 and doesnât need an `Authorization` header.
+**Note:** This upload is directly to S3 and doesn’t need an `Authorization` header.
 
 ### Example
 

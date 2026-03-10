@@ -12,7 +12,7 @@ POST
 
 Creates a new category.
 
-This endpoint creates a new category within a projectâs category tree. The new category must be a child category
+This endpoint creates a new category within a project’s category tree. The new category must be a child category
 of an existing category within the tree. This endpoint does not explicitly associate a status set or Asset
 custom attributes with the new category.
 
@@ -49,7 +49,7 @@ To understand the basics of categories, category inheritance, and the Assets set
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form âb.{UUID}â. |
+| projectId   string | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
 | --- | --- |
 
 ### Request
@@ -66,7 +66,7 @@ To understand the basics of categories, category inheritance, and the Assets set
 | name*   string | The name of the category. Must be unique among children of the same parent category. This name is displayed for the category in the Assets user interface where a user chooses categories. |
 | --- | --- |
 | description   string | A description of the category. |
-| parentId*   string | The ID of the new categoryâs parent category. |
+| parentId*   string | The ID of the new category’s parent category. |
 
 * Required
 
@@ -100,10 +100,10 @@ To understand the basics of categories, category inheritance, and the Assets set
 | name   string | The name of the category. Must be unique among children of the same parent category. This name is displayed for the category in the Assets user interface where a user chooses categories. |
 | description   string | A description of the category. |
 | uid   string | The globally-unique ID of a `Category` from the `v3` (upcoming) Category APIs. This is provided for interoperability with other APIs that use the globally-unique category ID. Only included if the `includeUid=true` query param is included. |
-| parentId   string | The ID of the categoryâs parent category. |
-| isRoot   boolean | Whether or not this category is the root category of the category tree. If `true`, itâs the root; if `false`, itâs not. There will only ever be one (immutable) root category for a project, which is created automatically when the project is created. |
-| isLeaf   boolean | Whether or not this category is a leaf category of the category tree. If `true`, itâs a leaf; if `false`, itâs not. <br>Note that this is a derived field and should not be persisted as this field may be updated without updating the category itself. |
-| subcategoryIds   array: string | An array of category IDs of this categoryâs child categories. <br>Note that this is a derived field and should not be persisted as this field may be updated without updating the category itself. As such, it is highly recommended to use the `parentId` field to construct the tree locally instead of `subcategoryIds`. |
+| parentId   string | The ID of the category’s parent category. |
+| isRoot   boolean | Whether or not this category is the root category of the category tree. If `true`, it’s the root; if `false`, it’s not. There will only ever be one (immutable) root category for a project, which is created automatically when the project is created. |
+| isLeaf   boolean | Whether or not this category is a leaf category of the category tree. If `true`, it’s a leaf; if `false`, it’s not. <br>Note that this is a derived field and should not be persisted as this field may be updated without updating the category itself. |
+| subcategoryIds   array: string | An array of category IDs of this category’s child categories. <br>Note that this is a derived field and should not be persisted as this field may be updated without updating the category itself. As such, it is highly recommended to use the `parentId` field to construct the tree locally instead of `subcategoryIds`. |
 
 ## [Example](#example)
 

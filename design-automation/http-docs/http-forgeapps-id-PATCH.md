@@ -15,8 +15,8 @@ it MUST be used instead of the Client ID.
 
 The new nickname cannot be in use by any other app.
 
-The app cannot have any data when this endpoint is invoked. Use the âDELETE /forgeapps/meâ
-endpoint (cautiously!!!) to remove all data from this app. âDELETE /forgeapps/meâ is
+The app cannot have any data when this endpoint is invoked. Use the ‘DELETE /forgeapps/me’
+endpoint (cautiously!!!) to remove all data from this app. ‘DELETE /forgeapps/me’ is
 also the only way to remove the nickname.
 
 Note the nickname is supplied in the body, not as a query-parameter.
@@ -43,7 +43,7 @@ Note the nickname is supplied in the body, not as a query-parameter.
 
 ## [URI Parameters](#uri-parameters)
 
-| id   string | Must be âmeâ for the call to succeed. |
+| id   string | Must be “me” for the call to succeed. |
 | --- | --- |
 
 ### Request
@@ -62,7 +62,7 @@ Expand all
 
 ## [HTTP Status Code Summary](#http-status-code-summary)
 
-| 200   OK | Successfully update the userâs nickname. |
+| 200   OK | Successfully update the user’s nickname. |
 | --- | --- |
 | 403   Forbidden | Forbidden. |
 | 409   Conflict | Conflict (in use by someone else). |
@@ -70,7 +70,7 @@ Expand all
 
 ## [Example](#example)
 
-Successfully update the userâs nickname.
+Successfully update the user’s nickname.
 
 ### Request
 

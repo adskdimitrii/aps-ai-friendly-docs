@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/data/v2/tutorials/create-attachment/
 
 # Create an Attachment
 
-This walkthrough explains how to attach one version of a file to another. The pre-requisite is to have two of your files uploaded to the âdataâ domain service. This can be done using A360 or the Data Management API. For details on the latter see
+This walkthrough explains how to attach one version of a file to another. The pre-requisite is to have two of your files uploaded to the ‘data’ domain service. This can be done using A360 or the Data Management API. For details on the latter see
 the [Upload a File](upload-file.md) walkthrough.
 
 ## [Before You Begin](#before-you-begin)
@@ -23,7 +23,7 @@ HTTP `POST` requests to the Data service require the `data:create` scope, but ca
 
 ## [Step 1: Create an attachment](#step-1-create-an-attachment)
 
-Suppose you have an Excel spreadsheet you want to attach to a DWG file, version 2 to version 2 respectively. For this example, letâs assume the DWGâs version ID is `urn:adsk.wipprod:fs.file:vf.J_9fiaqVSa-GSc88OErcAg?version=2` and the spreadsheetâs is `urn:adsk.wipprod:fs.file:vf.ooWjwAQJR0uEoPRyfEnvew?version=2`. Also, the project these files reside in has the ID, `a.YnVzaW5lc3M6YXV0b2Rlc2sxODcjMjAxNjA1MTcxMjgwOTc2`.
+Suppose you have an Excel spreadsheet you want to attach to a DWG file, version 2 to version 2 respectively. For this example, let’s assume the DWG’s version ID is `urn:adsk.wipprod:fs.file:vf.J_9fiaqVSa-GSc88OErcAg?version=2` and the spreadsheet’s is `urn:adsk.wipprod:fs.file:vf.ooWjwAQJR0uEoPRyfEnvew?version=2`. Also, the project these files reside in has the ID, `a.YnVzaW5lc3M6YXV0b2Rlc2sxODcjMjAxNjA1MTcxMjgwOTc2`.
 
 The [POST projects/:project_id/version/:version_id/relationships/refs](../http-docs/http-projects-project_id-versions-version_id-relationships-refs-POST.md) endpoint can create a custom relationship between the two versions which represents a file attachment. Notice the extension type comes from the Autodesk Schema Service, where the ref type is `auxiliary` and the extension type is `autodesk.core:Attachment`.
 

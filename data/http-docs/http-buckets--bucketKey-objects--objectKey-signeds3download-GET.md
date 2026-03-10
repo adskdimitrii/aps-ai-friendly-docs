@@ -20,11 +20,11 @@ If your download request to S3 fails after 2 minutes elapses, you can call this 
 
 A successful call to this endpoint requires object read access.
 
-Note that resumable uploads store each chunk individually. After upload completes, an async process merges all the chunks and creates the definitive OSS file. This async process can take time. If you request an S3 download URL before the async process completes, the response returns a map of S3 URLs, one per chunk where the key is the corresponding range bytes. In case you donât want multiple URLs in the response, you can use [OSS signed URL functionality](http-buckets--bucketKey-objects--objectKey-signed-POST.md) , with the `public-resource-fallback` query parameter set to `true`.
+Note that resumable uploads store each chunk individually. After upload completes, an async process merges all the chunks and creates the definitive OSS file. This async process can take time. If you request an S3 download URL before the async process completes, the response returns a map of S3 URLs, one per chunk where the key is the corresponding range bytes. In case you don’t want multiple URLs in the response, you can use [OSS signed URL functionality](http-buckets--bucketKey-objects--objectKey-signed-POST.md) , with the `public-resource-fallback` query parameter set to `true`.
 
 **Note:** While this endpoint does not support range headers, the returned URL(s) can be used for ranged downloads. This way, downloads can be parallelized using multiple ranges for maximum speed.
 
-** DISCLAIMER When generating signed URLs, itâs important to use the smallest possible expiration time, in order to avoid longer access in case of exposure of the URL.
+** DISCLAIMER When generating signed URLs, it’s important to use the smallest possible expiration time, in order to avoid longer access in case of exposure of the URL.
 
 ## [Resource Information](#resource-information)
 
@@ -38,7 +38,7 @@ Note that resumable uploads store each chunk individually. After upload complete
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
+| Authorization*   string | Must be “Bearer `<token>`”, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
 | --- | --- |
 | If-None-Match   string | If the value of this header matches the ETag of the object, an entity will not be returned from the server; instead a `304` (not modified) response will be returned without any message-body. |
 | If-Modified-Since   HTTP date | If the requested object has not been modified since the time specified in this field, an entity will not be returned from the server; instead, a `304` (not modified) response will be returned without any message-body. |
@@ -73,10 +73,10 @@ Note that resumable uploads store each chunk individually. After upload complete
 
 | 200   OK |  |
 | --- | --- |
-| 304   NOT MODIFIED | If the `If-None-Match` header was specified in the request, and it matches the objectâs ETAG, no content will be sent. Or, if the `If-Modified-Since` header was specified and the object has not been modified since the time specified, no content will be sent. |
+| 304   NOT MODIFIED | If the `If-None-Match` header was specified in the request, and it matches the object’s ETAG, no content will be sent. Or, if the `If-Modified-Since` header was specified and the object has not been modified since the time specified, no content will be sent. |
 | 400   BAD REQUEST | The request could not be understood by the server due to malformed syntax or missing request headers. The client SHOULD NOT repeat the request without modifications. The response body may give an indication of what is wrong with the request. |
 | 401   UNAUTHORIZED | The supplied Authorization header was not valid or the supplied token scope was not acceptable. Verify Authentication and try again. |
-| 403   FORBIDDEN | The Authorization was successfully validated but permission is not granted. Donât try again unless you solve permissions first. |
+| 403   FORBIDDEN | The Authorization was successfully validated but permission is not granted. Don’t try again unless you solve permissions first. |
 | 404   NOT FOUND | Object or bucket does not exist |
 | 500   INTERNAL SERVER ERROR | Internal failure while processing the request, reason depends on error |
 

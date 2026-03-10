@@ -31,7 +31,7 @@ Activates either ZoomWindow or dolly/zoom tool.
 
 ### Parameters
 
-| mode   string | Either âzoomwindowâ or âdollyâ |
+| mode   string | Either ‘zoomwindow’ or ‘dolly’ |
 | --- | --- |
 
 ## [deactivate()](#deactivate)

@@ -45,6 +45,6 @@ Note that the **APS Client ID** must match the [client ID](https://aps.autodesk.
 
 ## [Step 4: Save and Confirm](#step-4-save-and-confirm)
 
-Click **âAddâ** to finalize the integration.
+Click **“Add”** to finalize the integration.
 
 The name of the app will appear in the **Custom integrations** screen.

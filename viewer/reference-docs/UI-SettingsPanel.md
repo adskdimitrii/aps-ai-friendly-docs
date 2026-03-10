@@ -24,8 +24,8 @@ Expand all
 | id*   string | The id to assign this panel. |
 | title*   string | The title of this panel. |
 | options   object | An optional dictionary of options. |
-| width   number | Override panelâs minimum width |
-| heightAdjustment   number | Override panelâs extra content height, to account for non-scrolling elements. |
+| width   number | Override panel’s minimum width |
+| heightAdjustment   number | Override panel’s extra content height, to account for non-scrolling elements. |
 
 * Required
 

@@ -11,7 +11,7 @@ GET
 # projects/{projectId}/transmittals/{transmittalId}/recipients
 
 Retrieves all recipients of a specific transmittal, including project members and external members.
-> Recipient visibility in the response depends on the transmittalâs recipient visibility setting, which is configured in the Transmittals UI:
+> Recipient visibility in the response depends on the transmittal’s recipient visibility setting, which is configured in the Transmittals UI:
 
 - If the visibility setting is `ALL`, project members can see all recipients.
 - If the visibility setting is `LIMITED`, project members can see only their own recipient information.
@@ -71,9 +71,9 @@ Expand all
 | --- | --- |
 | autodeskId   string | The Autodesk ID of the recipient. |
 | email   string | The recipients email address. |
-| name   string | The recipientâs name. |
-| companyAutodeskId   string | The Autodesk ID of the recipientâs company at the time the transmittal was issued. |
-| companyName   string | The name of the recipientâs company at the time the transmittal was issued. |
+| name   string | The recipient’s name. |
+| companyAutodeskId   string | The Autodesk ID of the recipient’s company at the time the transmittal was issued. |
+| companyName   string | The name of the recipient’s company at the time the transmittal was issued. |
 | receivedAt   datetime: ISO 8601 | The date and time when the recipient received the transmittal (ISO 8601 format). |
 | viewedAt   datetime: ISO 8601 | The date and time when the recipient first viewed the transmittal (ISO 8601 format). |
 | downloadedAt   datetime: ISO 8601 | The date and time when the recipient first downloaded the transmittal (ISO 8601 format). |

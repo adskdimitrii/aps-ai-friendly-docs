@@ -12,7 +12,7 @@ Autodesk.Viewing
 
 Variety of utilities convenient to navigation and tool development.
 
-This class is instantiated internally and made available to all registered interaction tools via their âutilitiesâ property.
+This class is instantiated internally and made available to all registered interaction tools via their “utilities” property.
 
 ### Parameters
 
@@ -66,7 +66,7 @@ This method performs a hit test with the current model using a ray cast from the
 
 ## [activatePivot(fadeIt)](#activatepivot-fadeit)
 
-This method activates the in scene pivot indicator. The pivot is positioned at the current cameraâs pivot point.
+This method activates the in scene pivot indicator. The pivot is positioned at the current camera’s pivot point.
 
 ### Parameters
 
@@ -83,7 +83,7 @@ This method changes the display state of the in scene pivot indicator. If the cu
 
 | state*   boolean | The requested display state for the indicator. |
 | --- | --- |
-| fadeIt*   boolean | If true and âstateâ is also true, the indicator will be displayed and then fade away after a short period. |
+| fadeIt*   boolean | If true and “state” is also true, the indicator will be displayed and then fade away after a short period. |
 
 * Required
 
@@ -99,7 +99,7 @@ Set the current pivot point and pivot set flag. If the pivot indicator is active
 
 | newPivot*   THREE.Vector3 | The world space position of the new pivot point. |
 | --- | --- |
-| preserveView*   boolean | If false the cameraâs view direction will change to look at the new pivot point. If true the cameraâs view will not be changed. |
+| preserveView*   boolean | If false the camera’s view direction will change to look at the new pivot point. If true the camera’s view will not be changed. |
 | isset*   boolean | The new state of the pivot set flag. |
 
 * Required

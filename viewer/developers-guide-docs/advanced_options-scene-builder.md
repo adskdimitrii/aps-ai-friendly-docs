@@ -11,15 +11,15 @@ Using the Scene Builder extension, you can create models and add your own object
 - Only 3D objects are supported, including 3D lines and other geometry.
 - Only THREE.BufferGeometry objects can be used.
 - Lines are not rendered using THREE.Line objects. You must set the property `isLine: true` on the BufferGeometry.
-- The same BufferGeometry canât be used for lines and triangles.
+- The same BufferGeometry can’t be used for lines and triangles.
 - Similarly, use the BufferGeometry property `isPoint: true` to draw points.
-- The model doesnât have a property database. You can assign database ids and they can be used to collect multiple objects together, but there are no properties associated with the objects.
-- The model is flat and doesnât have an instance tree.
+- The model doesn’t have a property database. You can assign database ids and they can be used to collect multiple objects together, but there are no properties associated with the objects.
+- The model is flat and doesn’t have an instance tree.
 - The only materials that you can use with the Scene Builder are MeshPhong, MeshBasic, LineBasic and Prism.
 
 The objects you add using the SceneBuilder render just like models that are downloaded. Unlike using overlays,
 the framerate is not impacted when you add objects. However, it takes longer to fully render the model if you are rendering many objects. It should be noted that the spatial accelerator
-hasnât been implemented for the Scene Builder models.
+hasn’t been implemented for the Scene Builder models.
 
 In this tutorial, you will:
 
@@ -60,7 +60,7 @@ Notice the two optional arguments to addNewModel, `conserveMemory` and `modelNam
 arguments on the new model:
 
 - conserveMemory: Changes the way LMV stores meshes. This defaults to false and setting it to true will cause lmv to conserve memory by sharing a single mesh object for all of the fragments in the model. If you set this to true, then the `addMesh()` method cannot be used to add fragments.
-- modelNameOverride: Sets a name that you want to display in the model browser panel. If you donât set this option LMV will generate a name - `Scene Builder Model n` - where n is the model id of the new model.
+- modelNameOverride: Sets a name that you want to display in the model browser panel. If you don’t set this option LMV will generate a name - `Scene Builder Model n` - where n is the model id of the new model.
 
 ## [Step 3: Adding custom graphics to the model](#step-3-adding-custom-graphics-to-the-model)
 
@@ -114,7 +114,7 @@ The `addFragment` method returns an id that you can use to delete or change the 
 ### 3.2 Adding graphics using THREE objects
 
 An alternate mechanism for adding graphics is using THREE objects. ModelBuilder checks to see if the objects have
-been added and adds them if they havenât. You canât share THREE objects between models and the operation fails if any of the objects were added to a different
+been added and adds them if they haven’t. You can’t share THREE objects between models and the operation fails if any of the objects were added to a different
 model. ModelBuilder generates a name to use when adding the material. The generated name is `!!mtl-n`, where n is the value of the `id` property of the material.
 
 ```
@@ -136,7 +136,7 @@ Show More
 
 ### 3.3 Adding graphics using THREE Mesh
 
-Adding graphics using THREE Mesh is like adding graphics using THREE objects, and the same limitations apply to both. Using THREE Mesh is a good option when you want to hold all of the THREE objects in the THREE mesh. This option only works if the conserveMemory method is not presentâor is set to falseâwhen calling a new model.
+Adding graphics using THREE Mesh is like adding graphics using THREE objects, and the same limitations apply to both. Using THREE Mesh is a good option when you want to hold all of the THREE objects in the THREE mesh. This option only works if the conserveMemory method is not present–or is set to false–when calling a new model.
 
 ```
 mesh = new THREE.Mesh(torus, purple);
@@ -152,6 +152,6 @@ modelBuilder.addMesh(mesh);
 
 Show More
 
-## [Whatâs next?](#what-s-next)
+## [What’s next?](#what-s-next)
 
 Check out the [ModelBuilder](en/docs/viewer/v7/reference/Extensions/ModelBuilder) API documentation page to see all available methods.

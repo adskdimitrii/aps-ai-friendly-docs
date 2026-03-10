@@ -14,7 +14,7 @@ Returns status set assignments associated with a specified set of categories. It
 status set assignments or both explicitly and inherited status set assignments.
 
 An explicitly-assigned status set is assigned to a category so that the status set overrides the status set
-that would otherwise be inherited from the categoryâs parent.
+that would otherwise be inherited from the category’s parent.
 
 When this endpoint is set to return both explicitly-defined and inherited status set assignments, it returns a
 status set assignment for each of the specified categories. If some of these categories have inherited status
@@ -25,7 +25,7 @@ record to indicate which category the status set assignment is inherited from.
 When this endpoint is set to return only explicit status set assignments, it ignores any specified categories
 that inherit their status set. Returned status set assignments appear once each and show their category
 associations with the category where the status set was assigned. Any specified categories with inherited
-status sets donât return a status set.
+status sets don’t return a status set.
 
 To understand the basics of status sets, inheritance, and the Assets settings that define them, see the [Assets Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/assets/).
 
@@ -53,7 +53,7 @@ To understand the basics of status sets, inheritance, and the Assets settings th
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form âb.{UUID}â. |
+| projectId   string | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
 | --- | --- |
 
 ### Request

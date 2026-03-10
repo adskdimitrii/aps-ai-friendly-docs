@@ -14,7 +14,7 @@ Retrieves the status of an export job. The S3 signed URL (in `result.output.sign
 
 The export job ID is obtained from [POST /projects/{projectId}/exports](https://forge.autodesk.com/en/docs/acc/v1/reference/http/files-export-pdf-files-POST/).
 
-Note that only the authenticated user who launched the export job may use this endpoint to retrieve the signed URL. The signed URL will be available for **1 hour**, and will expire thereafter. If you havenât downloaded the file yet, you must create a new export job for the same files.
+Note that only the authenticated user who launched the export job may use this endpoint to retrieve the signed URL. The signed URL will be available for **1 hour**, and will expire thereafter. If you haven’t downloaded the file yet, you must create a new export job for the same files.
 
 For more details about exporting files, see the [Export Files](https://help.autodesk.com/view/DOCS/ENU/?guid=Export_Files) tutorial.
 
@@ -34,7 +34,7 @@ For more details about exporting files, see the [Export Files](https://help.auto
 
 | Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
-| x-user-id   string | The ID of a user on whose behalf your API request is acting. Required if youâre using a 2-legged authentication context, which must be 2-legged OAuth2 security with user impersonation. <br>The app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified.<br>You can use either the userâs ACC ID (id), or their Autodesk ID (autodeskId). |
+| x-user-id   string | The ID of a user on whose behalf your API request is acting. Required if you’re using a 2-legged authentication context, which must be 2-legged OAuth2 security with user impersonation. <br>The app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified.<br>You can use either the user’s ACC ID (id), or their Autodesk ID (autodeskId). |
 
 * Required
 
@@ -42,7 +42,7 @@ For more details about exporting files, see the [Export Files](https://help.auto
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/developers_guide/overview/) to retrieve the project ID. For more information, see the [Retrieve a Project ID tutorial](../how-to-docs/getting-started-retrieve-account-and-project-id.md). You can use a project ID either with a âb.â prefix or without a âb.â prefix. For instance, a project ID of âb.a4be0c34a-4ab7â can also be referred to as âa4be0c34a-4ab7â.
+- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/developers_guide/overview/) to retrieve the project ID. For more information, see the [Retrieve a Project ID tutorial](../how-to-docs/getting-started-retrieve-account-and-project-id.md). You can use a project ID either with a “b.” prefix or without a “b.” prefix. For instance, a project ID of “b.a4be0c34a-4ab7” can also be referred to as “a4be0c34a-4ab7”.
 - exportIdstring The ID of the export job. The export ID is generated when you initialize an export job using [POST exports](https://aps.autodesk.com/en/docs/acc/v1/reference/http/export-pdf-files-POST/).
 
 ### Response
@@ -66,7 +66,7 @@ Expand all
 | id   string: UUID | The ID of the PDF export job. |
 | --- | --- |
 | status   string | The status of the PDF export job. |
-| result   object | The result of a completed export job: <br>If the exporting jobâs `status` value is `successful`, the downloadable signed url will be included in the `result.output` objectIf the exporting jobâs `status` value is `failed` (e.g. the files have been deleted), the `result.error` object will be present with details.If the exporting jobâs `status` value is `partialSuccess` (e.g. when some dwg/rvt files do not contain any exportable views or sheets), the `result.output.failedFiles` object will be present with file urn and reason. |
+| result   object | The result of a completed export job: <br>If the exporting job’s `status` value is `successful`, the downloadable signed url will be included in the `result.output` objectIf the exporting job’s `status` value is `failed` (e.g. the files have been deleted), the `result.error` object will be present with details.If the exporting job’s `status` value is `partialSuccess` (e.g. when some dwg/rvt files do not contain any exportable views or sheets), the `result.output.failedFiles` object will be present with file urn and reason. |
 | output   object | The output containing the downloadable signed URL. |
 | signedUrl   string | The signed URL to download the PDF or ZIP file. Expires in 1 hour. |
 | failedFiles   array: object | Only for dwg/rvt files. |

@@ -10,7 +10,7 @@ Once you have a running custom AppBundle with an Activity and a WorkItem, you ca
 
 This walkthrough will explain how you can optimize data downloads using so called onDemand inputs in Activities and WorkItems. This mechanism allows your AppBundle to ask for additional data to be downloaded using an http call during WorkItem processing only on an as-needed basis.
 
-Conceptually, onDemand inputs allow your AppBundle to access additional resources based on the actual run of a given WorkItem, using a url that can be parameterized to query exactly the data you need right now. It can either access additional specific design files on your storage, or call your own serverâs http API to query for json data etc.
+Conceptually, onDemand inputs allow your AppBundle to access additional resources based on the actual run of a given WorkItem, using a url that can be parameterized to query exactly the data you need right now. It can either access additional specific design files on your storage, or call your own server’s http API to query for json data etc.
 
 There are several steps you need to take in order to be able to use onDemand inputs. First, when you are creating your activity, you must specify some of the input arguments as being onDemand. Note that onDemand can only be used when the parameter verb is `get` or `head`.
 
@@ -122,15 +122,15 @@ GetOnDemandFile("OptionalIpt", "optPart.ipt", "", $"file://optPart.ipt");
 | name | name of the onDemand input parameter as specified in the Activity |
 | suffix | a query string - optional parameters that can be addded to the url defined in the WorkItem |
 | headers | http call headers |
-| responseFile | tells the system the filename under which the onDemand file is saved by the http call, must start with âfile://â |
+| responseFile | tells the system the filename under which the onDemand file is saved by the http call, must start with “file://” |
 
 The tricky pieces here are:
 
-- the special beggining of the trace line (â!ACESAPI:acesHttpOperationâ),
+- the special beggining of the trace line (“!ACESAPI:acesHttpOperation”),
 - the way to identify that the http operation has finished (and how) - check the test of char read from console in the function code sample above.
 
 The method to support onDemand calls from an add-in is part of the [Inventor Visual Studio template](https://marketplace.visualstudio.com/items?itemName=Autodesk.DesignAutomation2) .
 
 ## [Known issues:](#known-issues)
 
-- when you use the parameter zip=âtrueâ with parameter onDemand=âtrueâ then a zip file will be downloaded, not unzipped.
+- when you use the parameter zip=’true’ with parameter onDemand=’true’ then a zip file will be downloaded, not unzipped.

@@ -1,10 +1,10 @@
-# Task 3 â Publish an Activity
+# Task 3 – Publish an Activity
 
 Source: https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/3dsmax/task3-create-activity/
 
 ---
 
-# Task 3 â Publish an Activity
+# Task 3 – Publish an Activity
 
 An Activity describes an action that can be executed on the Automation Service.
 In this walkthrough, you will create an Activity that takes the following inputs:
@@ -75,7 +75,7 @@ Show More
 | Attribute | Description |
 | --- | --- |
 | `id` | The name given to your new Activity. |
-| `commandLine` | The command run by this Activity.   The variables used in the command line are replaced with actual values before executing the Activity.   This mechanism lets you replace the file path(s) you used in the command line while testing locally   with file paths that makes sense in the Automation Service environment.       The variables used in the command line are:       - `$(engine.path)` - Will be replaced by the path to the folder containing the engine.      The engine is specified under the `engine` attribute in the JSON payload as `"engine": "Autodesk.3dsMax+2021`.   **Do not edit or alter this âcommandLineâ in the request body of Activity posts.**       - `$(args[InputMaxScene].path)` - Will be replaced by the path to a file specified by the parameter named `InputMaxScene`.       - `$(args[MaxscriptToExecute].path)` - Will be replaced by the path to a file specified by the parameter named `MaxscriptToExecute`.       For more information see [Command lines](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/field-guide/#command-lines) |
+| `commandLine` | The command run by this Activity.   The variables used in the command line are replaced with actual values before executing the Activity.   This mechanism lets you replace the file path(s) you used in the command line while testing locally   with file paths that makes sense in the Automation Service environment.       The variables used in the command line are:       - `$(engine.path)` - Will be replaced by the path to the folder containing the engine.      The engine is specified under the `engine` attribute in the JSON payload as `"engine": "Autodesk.3dsMax+2021`.   **Do not edit or alter this “commandLine” in the request body of Activity posts.**       - `$(args[InputMaxScene].path)` - Will be replaced by the path to a file specified by the parameter named `InputMaxScene`.       - `$(args[MaxscriptToExecute].path)` - Will be replaced by the path to a file specified by the parameter named `MaxscriptToExecute`.       For more information see [Command lines](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/field-guide/#command-lines) |
 | `engine` | The engine on which the Activity must run. |
 
 ### Response

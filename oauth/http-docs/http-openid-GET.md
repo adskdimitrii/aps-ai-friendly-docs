@@ -38,7 +38,7 @@ The response body for a successful call is a flat JSON object with the following
 
 | issuer   string | Issuer URL |
 | --- | --- |
-| authorization_endpoint   string | Browser URL to redirect an end user in order to acquire the userâs consent for your app to access the specified resources. |
+| authorization_endpoint   string | Browser URL to redirect an end user in order to acquire the user’s consent for your app to access the specified resources. |
 | token_endpoint   string | Retrieves a two-legged or three-legged access token. |
 | userinfo_endpoint   string | Retrieves the user information. |
 | jwks_uri   string | Retrieves the list of public keys in the JWKS format. |

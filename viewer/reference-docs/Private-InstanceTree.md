@@ -27,7 +27,7 @@ Whether a node id is hidden.
 
 ### Parameters
 
-| dbId*   number | The nodeâs database id |
+| dbId*   number | The node’s database id |
 | --- | --- |
 
 * Required
@@ -40,11 +40,11 @@ Whether a node id is hidden.
 
 ## [isNodeVisibleLocked(dbId)](#isnodevisiblelocked-dbid)
 
-Whether a node idâs visiblitly is locked.
+Whether a node id’s visiblitly is locked.
 
 ### Parameters
 
-| dbId*   number | The nodeâs database id |
+| dbId*   number | The node’s database id |
 | --- | --- |
 
 * Required
@@ -57,11 +57,11 @@ Whether a node idâs visiblitly is locked.
 
 ## [isNodeExplodeLocked(dbId)](#isnodeexplodelocked-dbid)
 
-Whether a node idâs explode is locked.
+Whether a node id’s explode is locked.
 
 ### Parameters
 
-| dbId*   number | The nodeâs database id |
+| dbId*   number | The node’s database id |
 | --- | --- |
 
 * Required
@@ -78,7 +78,7 @@ Gets the type associated with the node, such as assmebly, layer, model, geometry
 
 ### Parameters
 
-| dbId*   number | The nodeâs database id |
+| dbId*   number | The node’s database id |
 | --- | --- |
 
 * Required
@@ -95,7 +95,7 @@ Whether the node is a selectable entity.
 
 ### Parameters
 
-| dbId*   number | The nodeâs database id |
+| dbId*   number | The node’s database id |
 | --- | --- |
 
 * Required
@@ -108,11 +108,11 @@ Whether the node is a selectable entity.
 
 ## [getNodeParentId(dbId)](#getnodeparentid-dbid)
 
-Gets the database id of the nodeâs parent.
+Gets the database id of the node’s parent.
 
 ### Parameters
 
-| dbId*   number | The nodeâs database id |
+| dbId*   number | The node’s database id |
 | --- | --- |
 
 * Required
@@ -125,7 +125,7 @@ Gets the database id of the nodeâs parent.
 
 ## [getRootId()](#getrootid)
 
-Gets the modelâs root database id.
+Gets the model’s root database id.
 
 ### Returns
 
@@ -139,7 +139,7 @@ Gets the name associated to the id.
 
 ### Parameters
 
-| dbId*   number | The nodeâs database id |
+| dbId*   number | The node’s database id |
 | --- | --- |
 | includeCount*   boolean | True if must include count |
 
@@ -157,7 +157,7 @@ Get number of children under the specified id.
 
 ### Parameters
 
-| dbId*   number | The nodeâs database id |
+| dbId*   number | The node’s database id |
 | --- | --- |
 
 * Required
@@ -174,7 +174,7 @@ Get number of fragments under the specified id.
 
 ### Parameters
 
-| dbId*   number | The nodeâs database id |
+| dbId*   number | The node’s database id |
 | --- | --- |
 
 * Required
@@ -191,7 +191,7 @@ Sets the bounding box values for a particular id on the 2nd argument provided. T
 
 ### Parameters
 
-| dbId*   number | The nodeâs database id |
+| dbId*   number | The node’s database id |
 | --- | --- |
 | dst*   Float32Array | An array holding 6 number values: (min-x, min-y, min-z, max-x, max-y, max-z) |
 

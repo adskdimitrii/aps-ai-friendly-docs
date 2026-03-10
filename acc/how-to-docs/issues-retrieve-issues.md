@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/issues/retrieve-issues/
 
 # Retrieve Issues
 
-This tutorial demonstrates how to retrieve information about a projectâs issues, including details about their associated comments and attachments.
+This tutorial demonstrates how to retrieve information about a project’s issues, including details about their associated comments and attachments.
 
 Note that we do not currently support document-related (pusphin) issues or linked documents.
 
@@ -19,7 +19,7 @@ Note that we do not currently support document-related (pusphin) issues or linke
 
 ## [Find Issue Information](#find-issue-information)
 
-Use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to retrieve the projectâs issues, by calling [GET issues](../http-docs/http-issues-issues-GET.md).
+Use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to retrieve the project’s issues, by calling [GET issues](../http-docs/http-issues-issues-GET.md).
 
 ### Request
 

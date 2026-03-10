@@ -1,10 +1,10 @@
-# Task 1 â Convert Revit Add-in to an Automation API Compatible Add-in
+# Task 1 – Convert Revit Add-in to an Automation API Compatible Add-in
 
 Source: https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/revit/step1-convert-addin/
 
 ---
 
-# Task 1 â Convert Revit Add-in to an Automation API Compatible Add-in
+# Task 1 – Convert Revit Add-in to an Automation API Compatible Add-in
 
 This task converts an add-in that runs on Revit to an add-in that runs on the Automation Service.
 
@@ -91,7 +91,7 @@ In the *.cs* file that implements your add-in (*DeleteWalls.cs* in this case):
 
 ## [Step 5 - Convert IExternalApplication or IExternalCommand to IExternalDBApplication](#step-5-convert-iexternalapplication-or-iexternalcommand-to-iexternaldbapplication)
 
-Since there is no UI interaction on the Automation Service, you canât use the Revit UI to initiate commands.
+Since there is no UI interaction on the Automation Service, you can’t use the Revit UI to initiate commands.
 In order to initiate commands with the Automation Service, you must implement `OnStartup` and `OnShutdown` in your add-in.
 These functions receive a `ControlledApplication` instead of a `UIControlledApplication`. The functions return an `ExternalDBApplicationResult` object:
 
@@ -123,7 +123,7 @@ Show More
 
 ## [Step 6 - Add an event handler for DesignAutomationReady](#step-6-add-an-event-handler-for-designautomationready)
 
-`DesignAutomationBridge` defines the event `DesignAutomationReadyEvent`. The Revit engine raises the `DesignAutomationReadyEvent` when itâs ready to run your add-in. The event handler is the entry point to your code.
+`DesignAutomationBridge` defines the event `DesignAutomationReadyEvent`. The Revit engine raises the `DesignAutomationReadyEvent` when it’s ready to run your add-in. The event handler is the entry point to your code.
 
 1. Set the success/failure argument to `DesignAutomationReadyEventArgs.Succeeded` so that the Automation Service knows your code succeeded.
 
@@ -187,7 +187,7 @@ During the execution of your add-in, all files you load from the disk or write t
 
 When an add-in runs on Revit, the add-in uses the UI to communicate warnings and errors. Since there is no UI interaction on the Automation Service, you must use an alternate strategy to handle failures.
 
-For this walkthrough, you will use the default error handler. You donât need to add any code to enable the default error handler because it comes by default with the Automation Service Bridge (formerly known as the Design Automation Bridge).
+For this walkthrough, you will use the default error handler. You don’t need to add any code to enable the default error handler because it comes by default with the Automation Service Bridge (formerly known as the Design Automation Bridge).
 The default error handler suppresses warnings and resolves errors automatically by applying the default options. If resolution of an error fails, it rolls back the failed action.
 
 For more information refer [Handling Revit Failures](https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/handling-failures/) .

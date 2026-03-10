@@ -12,7 +12,7 @@ PATCH
 
 Updates the specified timesheet in the given project.
 
-Note that Cost API timesheets endpoints are designed only for use with a third party tracking app that youâve synchronized with Cost Management. For more information, see [Performance Tracking](https://help.autodesk.com/view/BUILD/ENU/?guid=Cost_Performance_Tracking).
+Note that Cost API timesheets endpoints are designed only for use with a third party tracking app that you’ve synchronized with Cost Management. For more information, see [Performance Tracking](https://help.autodesk.com/view/BUILD/ENU/?guid=Cost_Performance_Tracking).
 
   Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
@@ -31,7 +31,7 @@ Note that Cost API timesheets endpoints are designed only for use with a third p
 | Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
-| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.<br>To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
+| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.<br>To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
 
 * Required
 

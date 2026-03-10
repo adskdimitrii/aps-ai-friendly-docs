@@ -12,7 +12,7 @@ Core interface to add and remove canvas interactions to the viewer.
 
 ## [new ToolController(viewerImpl, viewerApi, autocam, utilities, defaultHandler)](#new-toolcontroller-viewerimpl-viewerapi-autocam-utilities-defaulthandler)
 
-This class is created internally by the Viewer api and is available via the âtoolControllerâ property of the Viewer3D api object. Client implementations should not normally instantiate this class directly.
+This class is created internally by the Viewer api and is available via the “toolController” property of the Viewer3D api object. Client implementations should not normally instantiate this class directly.
 
 ### Parameters
 
@@ -29,7 +29,7 @@ This class is created internally by the Viewer api and is available via the â
 
 ## [registerTool(tool, onStateChanged)](#registertool-tool-onstatechanged)
 
-This method registers an event handling tool with the controller. This makes the tool available for activation and deactivation. Tools are registered under one or more names which must be provided via their âgetNamesâ method. The tools âgetNamesâ method must return an array of one or more names. Typically a tool will only have one name but if it wishes to operate in different modes it can use different names to activate the modes. Registered tools have the properties named âutilitiesâ and âcontrollerâ added to them which refer to the ViewingUtilities object and this controller respectively. Tools may not use the name âdefaultâ which is reserved.
+This method registers an event handling tool with the controller. This makes the tool available for activation and deactivation. Tools are registered under one or more names which must be provided via their “getNames” method. The tools “getNames” method must return an array of one or more names. Typically a tool will only have one name but if it wishes to operate in different modes it can use different names to activate the modes. Registered tools have the properties named “utilities” and “controller” added to them which refer to the ViewingUtilities object and this controller respectively. Tools may not use the name “default” which is reserved.
 
 ### Parameters
 
@@ -41,7 +41,7 @@ This method registers an event handling tool with the controller. This makes the
 
 ## [deregisterTool(tool)](#deregistertool-tool)
 
-This method deregisters an event handling tool with the controller afterwhich it will no longer be available for activation and deactivation. All names that the tool is registered under will be deregistered. If any tool is active at the time of deregistration will first be deactivated and itâs âdeactivateâ method will be called.
+This method deregisters an event handling tool with the controller afterwhich it will no longer be available for activation and deactivation. All names that the tool is registered under will be deregistered. If any tool is active at the time of deregistration will first be deactivated and it’s “deactivate” method will be called.
 
 ### Parameters
 
@@ -69,7 +69,7 @@ This method returns the tool registered under the given name.
 
 ## [getActiveToolName()](#getactivetoolname)
 
-This method returns the name of the topmost tool on the tool stack. If no tools are active the name of the default tool is returned (which is âdefaultâ).
+This method returns the name of the topmost tool on the tool stack. If no tools are active the name of the default tool is returned (which is “default”).
 
 ### Returns
 
@@ -79,7 +79,7 @@ This method returns the name of the topmost tool on the tool stack. If no tools 
 
 ## [getActiveTool()](#getactivetool)
 
-This method returns the name of the topmost tool on the tool stack. If no tools are active the name of the default tool is returned (which is âdefaultâ).
+This method returns the name of the topmost tool on the tool stack. If no tools are active the name of the default tool is returned (which is “default”).
 
 ### Returns
 
@@ -99,11 +99,11 @@ Return the current tool stack.
 
 ## [rearrangeByPriorities()](#rearrangebypriorities)
 
-Sorts the toolStack according to the toolsâ priority. Useful when a toolâs priority gets changed after activation.
+Sorts the toolStack according to the tools’ priority. Useful when a tool’s priority gets changed after activation.
 
 ## [activateToolModality(toolName)](#activatetoolmodality-toolname)
 
-Disables or enables tools in the toolâs modality map
+Disables or enables tools in the tool’s modality map
 
 ### Parameters
 
@@ -114,7 +114,7 @@ Disables or enables tools in the toolâs modality map
 
 ## [activateTool(toolName)](#activatetool-toolname)
 
-Activates the tool registered under the given name. Activation implies pushing the tool on a stack of âactiveâ tools, each of which (starting from the top of the stack) is given the opportunity to handle incoming events. Tools may âconsumeâ events by returning true from their event handling methods, or they may allow events to be passed down to the next tool on the stack by returning false from the handling methods. Upon activation the tools âactivateâ method is called with the name under which it has been activated. Activation is not allowed while the controller is in a âlockedâ state (see the methods âsetIsLockedâ and âgetIsLockedâ). Tools must be registered prior to activation (see the methods âregisterToolâ and âderegisterToolâ). Each tool has its own priority property (default 0), such that a tool with higher priority will get events first.
+Activates the tool registered under the given name. Activation implies pushing the tool on a stack of “active” tools, each of which (starting from the top of the stack) is given the opportunity to handle incoming events. Tools may “consume” events by returning true from their event handling methods, or they may allow events to be passed down to the next tool on the stack by returning false from the handling methods. Upon activation the tools “activate” method is called with the name under which it has been activated. Activation is not allowed while the controller is in a “locked” state (see the methods “setIsLocked” and “getIsLocked”). Tools must be registered prior to activation (see the methods “registerTool” and “deregisterTool”). Each tool has its own priority property (default 0), such that a tool with higher priority will get events first.
 
 ### Parameters
 
@@ -131,7 +131,7 @@ Activates the tool registered under the given name. Activation implies pushing t
 
 ## [deactivateTool(toolName)](#deactivatetool-toolname)
 
-The first tool found on the active stack with the given name is removed and its âdeactivateâ method is called. Once deactivated the tool will no longer receive events via its handler methods. Deactivation is not allowed while the controller is in a âlockedâ state (see the methods âsetIsLockedâ and âgetIsLockedâ).
+The first tool found on the active stack with the given name is removed and its “deactivate” method is called. Once deactivated the tool will no longer receive events via its handler methods. Deactivation is not allowed while the controller is in a “locked” state (see the methods “setIsLocked” and “getIsLocked”).
 
 ### Parameters
 
@@ -192,7 +192,7 @@ Set the controller into a locked or unlocked state. While locked, tool activatio
 
 | type | description |
 | --- | --- |
-| boolean | The previous state of the lock (this may be used to restore the lock to itâs previous state). |
+| boolean | The previous state of the lock (this may be used to restore the lock to it’s previous state). |
 
 ## [getIsLocked()](#getislocked)
 
@@ -233,7 +233,7 @@ Set the modality map for each tool. This function will clear any existing modali
 
 ### Parameters
 
-| map*   object | Object describing each toolâs modality with other tools. |
+| map*   object | Object describing each tool’s modality with other tools. |
 | --- | --- |
 
 * Required
@@ -264,7 +264,7 @@ Get the modality map.
 
 ## [getToolModality(name)](#gettoolmodality-name)
 
-Get a specific toolâs modality map.
+Get a specific tool’s modality map.
 
 ### Parameters
 
@@ -277,7 +277,7 @@ Get a specific toolâs modality map.
 
 | type | description |
 | --- | --- |
-| object | an object describing the toolâs modality map. |
+| object | an object describing the tool’s modality map. |
 
 ## [setToolModality(name, map)](#settoolmodality-name-map)
 

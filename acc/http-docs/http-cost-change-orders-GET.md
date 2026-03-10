@@ -11,7 +11,7 @@ GET
 # v1/containers/{containerId}/change-orders
 
 Retrieves a list of all change orders in a specified project, including PCO (potential change orders), RFQ (requests for quote), SCO (supplier change orders), RCO (requests for change order), and OCO (owner change orders). The fields returned in the response vary according to the type of change order.
-Note that requests for change order (RCO) may be referred to as âchange order requestsâ (COR) in some Construction Cloud contexts. These two terms are interchangeable.
+Note that requests for change order (RCO) may be referred to as “change order requests” (COR) in some Construction Cloud contexts. These two terms are interchangeable.
 
   Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
@@ -28,7 +28,7 @@ Note that requests for change order (RCO) may be referred to as âchange ord
 ## [Headers](#headers)
 
 - Authorization*string Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow.
-- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
+- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
 
 * Required
 

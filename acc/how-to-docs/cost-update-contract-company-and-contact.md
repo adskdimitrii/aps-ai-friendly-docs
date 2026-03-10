@@ -1,10 +1,10 @@
-# Update a Contractâs Company
+# Update a Contract’s Company
 
 Source: https://aps.autodesk.com/en/docs/acc/tutorials/cost/update-contract-company-and-contact/
 
 ---
 
-# Update a Contractâs Company
+# Update a Contract’s Company
 
 This tutorial demonstrates how to get the company list from BIM 360 Admin and update the supplier company of a contract.
 
@@ -46,11 +46,11 @@ curl 'https://developer.api.autodesk.com/cost/v1/containers/e94b9bc8-1775-4d76-9
 
 Show More
 
-In this example, the contract ID is in the first part of the response (`results[0].id`). Itâs `55254a50-44d9-11e9-99d7-79aa05d3109e`. Youâll use it in the next step.
+In this example, the contract ID is in the first part of the response (`results[0].id`). It’s `55254a50-44d9-11e9-99d7-79aa05d3109e`. You’ll use it in the next step.
 
-## [Step 2: Get the Projectâs Companies from BIM 360 Admin](#step-2-get-the-project-s-companies-from-bim-360-admin)
+## [Step 2: Get the Project’s Companies from BIM 360 Admin](#step-2-get-the-project-s-companies-from-bim-360-admin)
 
-Use the project ID (`18ece8b1-204d-11e8-ad71-d73b169f902a`) and account ID(`aade5ed8-f16d-4ec0-9c0a-59f5ff7a2134`) to call [GET companies](../http-docs/http-projects--project_id-companies-GET.md) to get the projectâs companies and find the `member_group_id` of the company you want.
+Use the project ID (`18ece8b1-204d-11e8-ad71-d73b169f902a`) and account ID(`aade5ed8-f16d-4ec0-9c0a-59f5ff7a2134`) to call [GET companies](../http-docs/http-projects--project_id-companies-GET.md) to get the project’s companies and find the `member_group_id` of the company you want.
 
 ### Request
 
@@ -90,7 +90,7 @@ curl -v 'https://developer.api.autodesk.com/hq/v1/accounts/aade5ed8-f16d-4ec0-9c
 
 Show More
 
-Find the company you want by name in the response and note its `member_group_id` value. This is the company ID. Weâll use it to update the contractâs company.
+Find the company you want by name in the response and note its `member_group_id` value. This is the company ID. We’ll use it to update the contract’s company.
 
 ## [Step 3: Update the Contract](#step-3-update-the-contract)
 
@@ -105,7 +105,7 @@ curl -v 'https://developer.api.autodesk.com/cost/v1/containers/e94b9bc8-1775-4d7
 
 ### Response
 
-Youâll get the full content of the updated contract.
+You’ll get the full content of the updated contract.
 
 ```
 {
@@ -122,4 +122,4 @@ Youâll get the full content of the updated contract.
 
 Show More
 
-Congratulations! You have successfully updated the contractâs company.
+Congratulations! You have successfully updated the contract’s company.

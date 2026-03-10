@@ -1,10 +1,10 @@
-# Task 3 â Upload an AppBundle to the Automation Service
+# Task 3 – Upload an AppBundle to the Automation Service
 
 Source: https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/autocad/task3-upload-appbundle/
 
 ---
 
-# Task 3 â Upload an AppBundle to the Automation Service
+# Task 3 – Upload an AppBundle to the Automation Service
 
 An AppBundle is a package that contains the files of an AutoCAD plug-in.
 
@@ -33,7 +33,7 @@ You need to download a CRX plug-in called *command.dll* from the GitHub reposito
 
 ## [Step 2 - Build an AppBundle](#step-2-build-an-appbundle)
 
-An AppBundle is a zip file that includes the AutoCAD CRX plug-in, a manifest file called PackageContents.xml, and related files organized in a specific way. It follows a format similar to an Autodesk Exchange Appâs Autoloader. AppBundle allows you to upload the plug-in and its dependencies for execution. The PackageContents.xml file provides runtime instructions to the Automation Service, helping it locate and load the plug-in.
+An AppBundle is a zip file that includes the AutoCAD CRX plug-in, a manifest file called PackageContents.xml, and related files organized in a specific way. It follows a format similar to an Autodesk Exchange App’s Autoloader. AppBundle allows you to upload the plug-in and its dependencies for execution. The PackageContents.xml file provides runtime instructions to the Automation Service, helping it locate and load the plug-in.
 
 1. Create a folder named *ListLayers.bundle*, and within it, create a folder named *Contents*.
 2. Place the file *commands.dll* (the file you downloaded in the previous step) inside the *Contents* folder.
@@ -208,10 +208,10 @@ of the AppBundle. Consequently, endpoints referencing the AppBundle using the al
 
 | Engine | Description | JSON in AppBundle post |
 | --- | --- | --- |
-| `Autodesk.AutoCAD+24` | AutoCAD 2021 | âengineâ: âAutodesk.AutoCAD+24â |
-| `Autodesk.AutoCAD+24_1` | AutoCAD 2022 | âengineâ: âAutodesk.AutoCAD+24_1â |
-| `Autodesk.AutoCAD+24_2` | AutoCAD 2023 | âengineâ: âAutodesk.AutoCAD+24_2â |
-| `Autodesk.AutoCAD+24_3` | AutoCAD 2024 | âengineâ: âAutodesk.AutoCAD+24_3â |
+| `Autodesk.AutoCAD+24` | AutoCAD 2021 | “engine”: “Autodesk.AutoCAD+24” |
+| `Autodesk.AutoCAD+24_1` | AutoCAD 2022 | “engine”: “Autodesk.AutoCAD+24_1” |
+| `Autodesk.AutoCAD+24_2` | AutoCAD 2023 | “engine”: “Autodesk.AutoCAD+24_2” |
+| `Autodesk.AutoCAD+24_3` | AutoCAD 2024 | “engine”: “Autodesk.AutoCAD+24_3” |
 
 **Notes:**
 
@@ -232,7 +232,7 @@ A CRX plug-in is a module that has been coded against the *AcCoreMgd.dll* instea
 
 - [Developing a CRX App](https://adndevblog.typepad.com/autocad/2012/11/developing-a-crx-app.html)
 
-  A blog post that contains a table that lists the libraries a CRX module can access, as well as the libraries it canât.
+  A blog post that contains a table that lists the libraries a CRX module can access, as well as the libraries it can’t.
 
 - [AutoCAD Scripting from the Core (AutoCAD Core Console)](https://www.autodesk.com/autodesk-university/class/AutoCAD-Scripting-Core-AutoCAD-Core-Console-2018)
 

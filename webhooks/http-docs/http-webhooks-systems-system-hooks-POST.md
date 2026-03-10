@@ -46,12 +46,12 @@ Add new webhooks to receive the notification on all the events.
 | scope*   object | An object that represents the extent to where the event is monitored. For example, if the scope is folder, the webhooks service generates a notification for the specified event occurring in any sub folder or item within that folder. Please refer to the individual event specification pages for valid scopes. For example, [Data Management events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/data_management_events/). |
 | hookAttribute   object | A user-defined JSON object, which you can use to store/set some custom information. The maximum size of the JSON object (content) should be less than 1KB |
 | filter   string | JsonPath expression that can be used by you to filter the callbacks you receive. |
-| hubId   string | Optional field which should be provided if the user is a member of a large number of projects. This hub ID corresponds to an account ID in the BIM 360 API, prefixed by âb.â |
-| projectId   string | Optional field which should be provided if the user is a member of a large number of projects. This project ID corresponds to the project ID in the BIM 360 API, prefixed by âb.â |
+| hubId   string | Optional field which should be provided if the user is a member of a large number of projects. This hub ID corresponds to an account ID in the BIM 360 API, prefixed by “b.” |
+| projectId   string | Optional field which should be provided if the user is a member of a large number of projects. This project ID corresponds to the project ID in the BIM 360 API, prefixed by “b.” |
 | tenant   string | The tenant that the event is from. If the tenant is specified on the hook, then either the tenant or the scopeValue of the event must match the tenant of the hook. |
 | autoReactivateHook   boolean | Optional. Flag to enable the hook for the automatic reactivation flow. Please see [Event Delivery Guarantees](https://aps.autodesk.com/en/docs/webhooks/v1/developers_guide/event-delivery-guarantees/) for more details. |
 | hookExpiry   string | Optional. ISO8601 formatted date and time when the hook should expire and automatically be deleted. Not providing this parameter means the hook never expires. |
-| callbackWithEventPayloadOnly   boolean | Optional. If âtrueâ, the callback request payload only contains the event payload, without additional information on the hook. Hook attributes will not be accessible if this is âtrueâ. Defaults to âfalseâ. |
+| callbackWithEventPayloadOnly   boolean | Optional. If “true”, the callback request payload only contains the event payload, without additional information on the hook. Hook attributes will not be accessible if this is “true”. Defaults to “false”. |
 
 * Required
 

@@ -187,7 +187,7 @@ Expand all
 
 Expand all
 
-| result   string | A message indicating the result of the translation job request. Returns âsuccessâ when the job is accepted and processing begins. |
+| result   string | A message indicating the result of the translation job request. Returns ‘success’ when the job is accepted and processing begins. |
 | --- | --- |
 | urn   string | The URL-safe Base64 encoded URN of the source design that was submitted for translation. This value uniquely identifies the design file in the system. |
 | acceptedJobs   object | List of the requested outputs. |
@@ -421,7 +421,7 @@ Show More
 
 ## [Example 2](#example-2)
 
-This example demonstrates the behavior when you initiate a job for a source file that has already been translated. Although the request is identical as Example 1, youâll notice a different response. This is because this file was previously processed during the execution of Example 1.
+This example demonstrates the behavior when you initiate a job for a source file that has already been translated. Although the request is identical as Example 1, you’ll notice a different response. This is because this file was previously processed during the execution of Example 1.
 
 ### Request
 

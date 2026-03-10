@@ -43,7 +43,7 @@ use the [PATCH projects/:project_id/folders/:folder_id](http-projects-project_id
 
 ## [URI Parameters](#uri-parameters)
 
-| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a â**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
+| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a “**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
 | --- | --- |
 
 ### Request
@@ -60,7 +60,7 @@ Expand all
 | data*   object | The data object. |
 | type*   enum:string | The type of this resource. Will always be: `folders` |
 | attributes*   object | The attributes of the data object. |
-| name*   string | The name of new folder (1-255 characters). <br>Reserved characters: `<`, `>`, `:`, `"`, `/`, `\`, `|`, `?`, `*`, `` ` ``, `\n`, `\r`, `\t`, `\0`, `\f`, `Â¢`, `â¢`, `$`, `Â®`. |
+| name*   string | The name of new folder (1-255 characters). <br>Reserved characters: `<`, `>`, `:`, `"`, `/`, `\`, `|`, `?`, `*`, `` ` ``, `\n`, `\r`, `\t`, `\0`, `\f`, `¢`, `™`, `$`, `®`. |
 | extension*   object | The object containing information on the base attributes of the extension of an object. |
 | type*   string | The type of folder extension. <br>For BIM 360 Docs folders, use `folders:autodesk.bim360:Folder`.<br>For all other services, use `folders:autodesk.core:Folder`. |
 | version*   string | The version of the folder extension type. The current version is `1.0.` |
@@ -111,10 +111,10 @@ Expand all
 | lastModifiedUserId   string | The unique identifier of the user who last modified the folder. |
 | lastModifiedUserName   string | The name of the user who last modified the folder. |
 | lastModifiedTimeRollup   datetime: ISO 8601 | The date and time the folder or any of its children were last updated. |
-| hidden   boolean | The folderâs current visibility state. |
+| hidden   boolean | The folder’s current visibility state. |
 | extension   object | The extension object of the data. |
 | type   string | The type of resource. |
-| version   string | The version of the folderâs type. |
+| version   string | The version of the folder’s type. |
 | schema   object | An object containing an API link property. |
 | href   string | A hyperlink reference to this resource. |
 | data   object | A collection of properties applied to the folder. |

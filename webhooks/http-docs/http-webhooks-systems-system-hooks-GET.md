@@ -39,7 +39,7 @@ Retrieves a paginated list of all the webhooks for a specified system. If the pa
 
 ## [Query String Parameters](#query-string-parameters)
 
-| status   string | Status of the hooks. Options: â*active*â, â*inactive*â |
+| status   string | Status of the hooks. Options: ‘*active*’, ‘*inactive*’ |
 | --- | --- |
 | pageState   string | Base64 encoded string used to return the next page of the list of webhooks. This can be obtained from the `next` field of the previous page. PagingState instances are not portable and implementation is subject to change across versions. Default page size is 200. |
 | region   string | Optional parameter to specify the region the request will be run in. Supported values are the following, but the default value is `US`: <br>`US` : (Default) Retrieves the webhooks that were registered in a data center dedicated to serve the United States.`EMEA` : Retrieves the webhooks that were registered in a data center dedicated to serve the European Union, Middle East, and Africa.`AUS` : (Beta) Retrieves the webhooks that were registered in a data center dedicated to serve Australia.`GBR` : Retrieves the webhooks that were registered in a data center dedicated to serve United Kingdom.`JPN` : Retrieves the webhooks that were registered in a data center dedicated to serve Japan.`DEU` : Retrieves the webhooks that were registered in a data center dedicated to serve Germany.`CAN` : Retrieves the webhooks that were registered in a data center dedicated to serve Canada.`IND` : Retrieves the webhooks that were registered in a data center dedicated to serve India.<br>The `x-ads-region` header also specifies the region. If you specify both, `x-ads-region` has precedence. |

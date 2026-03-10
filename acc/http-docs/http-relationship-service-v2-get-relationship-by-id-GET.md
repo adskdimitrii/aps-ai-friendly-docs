@@ -10,7 +10,7 @@ GET
 
 # containers/:containerId/relationships/:relationshipId
 
-Retrieves a requested relationship based on the relationshipâs ID.
+Retrieves a requested relationship based on the relationship’s ID.
 
 Returns the requested relationship object.
 

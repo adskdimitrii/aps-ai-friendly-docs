@@ -1,10 +1,10 @@
-# Task 4 â Extract Metadata
+# Task 4 – Extract Metadata
 
 Source: https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/xtract-metadata/task4-extract_metadata/
 
 ---
 
-# Task 4 â Extract Metadata
+# Task 4 – Extract Metadata
 
 In order to extract metadata, you must wait until the translation job is done. There are two ways by which you can do this:
 

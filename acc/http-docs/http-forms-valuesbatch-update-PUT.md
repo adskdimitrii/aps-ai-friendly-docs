@@ -10,7 +10,7 @@ PUT
 
 # v1/projects/{projectId}/forms/{formId}/values:batch-update
 
-Updates a formâs main form fields, both tabular and non-tabular. Note that we do not currently support updating PDF forms.
+Updates a form’s main form fields, both tabular and non-tabular. Note that we do not currently support updating PDF forms.
 
 To edit form values, the form needs to be in draft status and the user must have permissions to edit the form. See the [Forms help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Build_Forms_templates_html) for information about template configuration.
 
@@ -18,7 +18,7 @@ To update non-tabular fields you need to use the relevant value type. For exampl
 
 See the [Manage Forms tutorial](../how-to-docs/forms-create-update-forms.md) for more details about how to update forms.
 
-To update the formâs details, use [PATCH forms/:formId API](http-forms-forms-formId-PATCH.md).
+To update the form’s details, use [PATCH forms/:formId API](http-forms-forms-formId-PATCH.md).
 
 Note that we do not currently support adding issues or photos.
 
@@ -44,7 +44,7 @@ Note that we do not currently support adding issues or photos.
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+- projectIdstring The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
 - formIdstring The unique identifier of the form. Use [GET forms](http-forms-forms-GET.md) to retrieve the form ID.
 
 ### Request
@@ -56,14 +56,14 @@ Expand all
 | customValues   array: object | The list of non-tabular fields. |
 | --- | --- |
 | fieldId*   string: UUID | The unique identifier of the field. |
-| notes   string | Text for the fieldâs notes section. This is relevant for all fields. <br>Max length: 8000 |
-| textVal   string | The attribute used for updating text value fields, For example, `textVal: This is my response!`. <br>Each non-tabular field is assigned a specific value type, which you need to specify when updating the field. `textVal` is only relevant for updating text value fields. To verify whether the field you want to update is a text value field, call GET forms and check the fieldâs `valueName`.<br>Max length: 8000 |
-| choiceVal   string | The attribute used for updating single-select and dropdown fields. For example, `choiceVal: Answer 3`. <br>Each non-tabular field is assigned a specific value type, which you need to specify when updating the field. `choiceVal` is only relevant for updating single-select and dropdown fields. To verify whether the field you want to update is a single-select or dropdown field, call GET forms and check the fieldâs `valueName`. |
-| arrayVal   array: string | The attribute used for updating multi-select fields. For example, `arrayVal:` `["Answer 1", "Answer 2"]`. <br>Each non-tabular field is assigned a specific value type, which you need to specify when updating the field. `arrayVal` is only relevant for updating multi-select fields. To verify whether the field you want to update is a multi-select field, call GET forms and check the fieldâs `valueName`. |
-| dateVal   string | The attribute used for updating date fields, in the following format `(YYYY-MM-DD)`. For example, `"dateVal": "1999-12-31"`. <br>Each non-tabular field is assigned a specific value type, which you need to specify when updating the field. `dateVal` is only relevant for updating date fields. To verify whether the field you want to update is a date field, call GET forms and check the fieldâs `valueName`. |
-| numberVal   number | The attribute used for updating number fields. For example, `"numberVal": "42"`. <br>Each non-tabular field is assigned a specific value type, which you need to specify when updating the field. `numberVal` is only relevant for updating number fields. To verify whether the field you want to update is a number field, call GET forms and check the fieldâs `valueName`. |
-| toggleVal   enum:string | The attribute used for updating preconfigured fields. For example, âtoggleValâ: âYesâ. <br>Each non-tabular field is assigned a specific value type, which you need to specify when updating the field. `toggleVal` is only relevant for updating preconfigured fields. To verify whether the field you want to update is a preconfigured field, call GET forms and check the fieldâs `valueName`. Possible values: `Yes`, `No`, `False`, `True`, `Minus`, `Plus`, `Fail`, `Pass`, `NA` |
-| svgVal   string | The attribute used for updating signature fields. <br>Each non-tabular field is assigned a specific value type, which you need to specify when updating the field. `svgVal` is only relevant for updating signature fields. To verify whether the field you want to update is a signature field, call GET forms and check the fieldâs `valueName`.<br>The signature needs to be in SVG format and it needs to be base64 encoded. |
+| notes   string | Text for the field’s notes section. This is relevant for all fields. <br>Max length: 8000 |
+| textVal   string | The attribute used for updating text value fields, For example, `textVal: This is my response!`. <br>Each non-tabular field is assigned a specific value type, which you need to specify when updating the field. `textVal` is only relevant for updating text value fields. To verify whether the field you want to update is a text value field, call GET forms and check the field’s `valueName`.<br>Max length: 8000 |
+| choiceVal   string | The attribute used for updating single-select and dropdown fields. For example, `choiceVal: Answer 3`. <br>Each non-tabular field is assigned a specific value type, which you need to specify when updating the field. `choiceVal` is only relevant for updating single-select and dropdown fields. To verify whether the field you want to update is a single-select or dropdown field, call GET forms and check the field’s `valueName`. |
+| arrayVal   array: string | The attribute used for updating multi-select fields. For example, `arrayVal:` `["Answer 1", "Answer 2"]`. <br>Each non-tabular field is assigned a specific value type, which you need to specify when updating the field. `arrayVal` is only relevant for updating multi-select fields. To verify whether the field you want to update is a multi-select field, call GET forms and check the field’s `valueName`. |
+| dateVal   string | The attribute used for updating date fields, in the following format `(YYYY-MM-DD)`. For example, `"dateVal": "1999-12-31"`. <br>Each non-tabular field is assigned a specific value type, which you need to specify when updating the field. `dateVal` is only relevant for updating date fields. To verify whether the field you want to update is a date field, call GET forms and check the field’s `valueName`. |
+| numberVal   number | The attribute used for updating number fields. For example, `"numberVal": "42"`. <br>Each non-tabular field is assigned a specific value type, which you need to specify when updating the field. `numberVal` is only relevant for updating number fields. To verify whether the field you want to update is a number field, call GET forms and check the field’s `valueName`. |
+| toggleVal   enum:string | The attribute used for updating preconfigured fields. For example, “toggleVal”: “Yes”. <br>Each non-tabular field is assigned a specific value type, which you need to specify when updating the field. `toggleVal` is only relevant for updating preconfigured fields. To verify whether the field you want to update is a preconfigured field, call GET forms and check the field’s `valueName`. Possible values: `Yes`, `No`, `False`, `True`, `Minus`, `Plus`, `Fail`, `Pass`, `NA` |
+| svgVal   string | The attribute used for updating signature fields. <br>Each non-tabular field is assigned a specific value type, which you need to specify when updating the field. `svgVal` is only relevant for updating signature fields. To verify whether the field you want to update is a signature field, call GET forms and check the field’s `valueName`.<br>The signature needs to be in SVG format and it needs to be base64 encoded. |
 | name   string | The name of the person who signed the form. By default, it is the name of the logged in user. It is only relevant for signature fields. To update the name you need to use the signature field ID. |
 | tabularValues   array: object | The list of tabular fields. |
 | id*   string: UUID | The ID of the table row. You need to generarte the ID (UUID) for the row. |
@@ -107,10 +107,10 @@ Expand all
 | locationId   string | Location identifier associated with the form. For more information about the location, see [GET nodes](http-locations-nodes-GET.md). |
 | updatedAt   datetime: ISO 8601 | When form was last updated, UTC date and time in ISO-8601 format. |
 | createdBy   string | The unique identifier of the user who created the form. |
-| notes   string | Text for the formâs notes section. |
-| description   string | Text for the formâs description section. |
+| notes   string | Text for the form’s notes section. |
+| description   string | Text for the form’s description section. |
 | name   string | The name of the form instance. <br>Max length: 100 |
-| formTemplate   object | Information about the formâs template. |
+| formTemplate   object | Information about the form’s template. |
 | status   enum:string | Possible values: `active`, `inactive`, `deleted` |
 | id   string | The unique identifier of the template. |
 | projectId   string | Unique indentifier of the project the template belongs to. |
@@ -119,7 +119,7 @@ Expand all
 | pdfValues   array: object | For PDF forms, values extracted from fields in the PDF. |
 | name   string | The name of the PDF field. |
 | value   string | The value of the PDF field. |
-| pdfUrl   string | For PDF forms, the URL to download the formâs PDF. |
+| pdfUrl   string | For PDF forms, the URL to download the form’s PDF. |
 | weather   object | Weather forecast captured on the form. |
 | summaryKey   string | A code describing the the weather (e.g. Clear, PartlyCloudy). |
 | precipitationAccumulation   number | Amount of precipitation accumulated throughout the day. |
@@ -147,7 +147,7 @@ Expand all
 | worklogEntries   array: object | Entries associated with work log table in a Form. |
 | id   string | Unique identifier for the work log row. |
 | deleted   boolean | Indicates if the work log row has been deleted. |
-| trade   string | A text field indicating the workerâs trade. |
+| trade   string | A text field indicating the worker’s trade. |
 | timespan   int | Total duration of work performed (in milliseconds). |
 | headcount   int | Number of workers. |
 | description   string | A text description of the work performed. |
@@ -168,7 +168,7 @@ Expand all
 | customValues   array: object | For non-PDF forms, data stored in the form fields. |
 | fieldId   string | The unique identifier of the field. |
 | sectionLabel   string | Name of the section containing this field. |
-| itemLabel   string | The fieldâs label or question text. |
+| itemLabel   string | The field’s label or question text. |
 | valueName   enum:string | Indicates the type of value used for this item. Possible values: `textVal`, `toggleVal`, `arrayVal`, `numberVal`, `choiceVal`, `dateVal`, `svgVal` |
 | toggleVal   enum:string | A boolean like enum value. Possible values: `Yes`, `No`, `False`, `True`, `Minus`, `Plus`, `Fail`, `Pass`, `NA` |
 | textVal   string | A text value. |
@@ -177,7 +177,7 @@ Expand all
 | choiceVal   string | A single select value. |
 | dateVal   string | A date value. |
 | svgVal   string | A signature value (base64 encoded SVG). |
-| notes   string | Text for the fieldâs notes section. <br>Max length: 8000 |
+| notes   string | Text for the field’s notes section. <br>Max length: 8000 |
 | lastReopenedBy   string | Unique identifier for the user that last re-opened the Form (if applicable). |
 | lastSubmitterSignature   string | Signature of the reviewer who last submitted the Form (if applicable). Signature value (base64 encoded SVG). |
 | userCreatedAt   datetime: ISO 8601 | When form was created on the client, UTC date and time in ISO-8601 format. |

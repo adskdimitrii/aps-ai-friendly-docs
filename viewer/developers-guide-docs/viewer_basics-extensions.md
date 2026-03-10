@@ -8,7 +8,7 @@ Source: https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basic
 
 ## [What is an Extension?](#what-is-an-extension)
 
-An extension is JavaScript code that extends or modifies the Viewerâs behavior. You can use extensions to add specialized functionality to the Viewer SDK.
+An extension is JavaScript code that extends or modifies the Viewer’s behavior. You can use extensions to add specialized functionality to the Viewer SDK.
 
 Many extensions are bundled with the Viewer. For a complete list of included extensions, see the API Reference section for [Extensions](https://aps.autodesk.com/en/docs/viewer/v7/reference/Extensions/). If the functionality you need is not included, you can write your own extensions.
 
@@ -65,10 +65,10 @@ Autodesk.Viewing.theExtensionManager.registerExtension('MyAwesomeExtension', MyA
 
 Show More
 
-An extension will successfully get loaded into The Viewerâs lifecycle only if `load()` returns `true`.
+An extension will successfully get loaded into The Viewer’s lifecycle only if `load()` returns `true`.
 Likewise, an extension will get successfully unloaded if `unload()` returns `true`.
 
-Notice that the string `'MyAwesomeExtension'` used in `registerExtension()` doesnât need to match the
+Notice that the string `'MyAwesomeExtension'` used in `registerExtension()` doesn’t need to match the
 function name declaration.
 
 **Note:** The extension does not get loaded when refreshing the HTML page.
@@ -93,7 +93,7 @@ viewer.loadModel(...);
 
 Show More
 
-Refreshing the HTML page displays the `alert()` message found in the extensionâs `load()` method.
+Refreshing the HTML page displays the `alert()` message found in the extension’s `load()` method.
 
 ## [Step 4: Add HTML buttons](#step-4-add-html-buttons)
 
@@ -108,8 +108,8 @@ Add two simple HTML buttons after the Viewer div:
 
 ## [Step 5: Add button handlers](#step-5-add-button-handlers)
 
-To enhance the extensionâs `load()` method to handle the HTML buttonsâ click events:
-Notice our extension has property `this.viewer`, the main access point for most of The Viewerâs features and customizations.
+To enhance the extension’s `load()` method to handle the HTML buttons’ click events:
+Notice our extension has property `this.viewer`, the main access point for most of The Viewer’s features and customizations.
 
 ```
 MyAwesomeExtension.prototype.load = function() {
@@ -134,7 +134,7 @@ MyAwesomeExtension.prototype.load = function() {
 
 Show More
 
-**Note:** The extension property `this.viewer` is the main access point for most of the Viewerâs features and customizations.
+**Note:** The extension property `this.viewer` is the main access point for most of the Viewer’s features and customizations.
 
 Reload the HTML and use the mouse to move the camera around. Then click `Lock it!` and notice how you can
 no longer modify the camera with the mouse. You will notice that some UI buttons get hidden as well.
@@ -143,7 +143,7 @@ Now click the `Unlock it!` button to enable camera interactions once again.
 
 ## [Step 6: Cleanup on unload](#step-6-cleanup-on-unload)
 
-Itâs a good practice to remove added event listeners to DOM elements when the extension is unloaded.
+It’s a good practice to remove added event listeners to DOM elements when the extension is unloaded.
 
 To perform all cleanup operations in the unload method:
 
@@ -204,7 +204,7 @@ Show More
 To fully test that the extension is working as expected, you can manually force the
 extension to be loaded and unloaded.
 
-From the browserâs console type the following to check whether your extension is loaded or not.
+From the browser’s console type the following to check whether your extension is loaded or not.
 At this point, the extension should be loaded and the function call should return `true`:
 
 ```

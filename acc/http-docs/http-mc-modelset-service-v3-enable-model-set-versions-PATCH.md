@@ -12,7 +12,7 @@ PATCH
 
 Enables automatic version creation for a given model set.
 
-If enabled, model set version creation is triggered when the model set foldersâ content changes, or if a call is explicitly made to the âPOST Create Model Set Versionsâ endpoint. If disabled, only an explicit call to the âPOST Create Model Set Versionsâ endpoint triggers new version creation.
+If enabled, model set version creation is triggered when the model set folders’ content changes, or if a call is explicitly made to the ‘POST Create Model Set Versions’ endpoint. If disabled, only an explicit call to the ‘POST Create Model Set Versions’ endpoint triggers new version creation.
 
 The response contains information about the created model set job.
 

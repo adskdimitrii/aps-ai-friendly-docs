@@ -7,11 +7,11 @@ Source: https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/autocad/
 # About this Walkthrough
 
 This walkthrough guides you through the process of loading an AutoCAD CRX plug-in and running a custom command on a drawing file using the Automation API.
-It doesnât teach you how to create an AutoCAD plug-in. We assume you already know how to create plug-ins or are able to obtain the required AutoCAD plug-ins.
+It doesn’t teach you how to create an AutoCAD plug-in. We assume you already know how to create plug-ins or are able to obtain the required AutoCAD plug-ins.
 The [additional notes section in Task 3](autocad-task3-upload-appbundle.md#additional-notes) provides links to resources that can teach you how to create AutoCAD plug-ins.
 
 This walkthrough uses [cURL](https://curl.haxx.se/) to send HTTP requests to APS. cURL is able to clearly show request and response information. It, however, is not the best tool to demonstrate a workflow by sending a series of HTTP requests to APS.
-So, we have created a Postman Collection so that you donât have to use cURL to try out the walkthrough.
+So, we have created a Postman Collection so that you don’t have to use cURL to try out the walkthrough.
 
 ## [Postman walkthrough](#postman-walkthrough)
 

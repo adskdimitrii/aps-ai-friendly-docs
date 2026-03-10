@@ -42,14 +42,14 @@ To understand the basics of assets and the Assets settings that define them, see
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form âb.{UUID}â. |
+| projectId   string | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
 | --- | --- |
 
 ### Request
 
 ## [Query String Parameters](#query-string-parameters)
 
-| includeCustomAttributes   boolean | Specifies whether or not returned assets include custom attributes or not. If `true`, theyâre included. If `false`, theyâre not. Default is `false`. |
+| includeCustomAttributes   boolean | Specifies whether or not returned assets include custom attributes or not. If `true`, they’re included. If `false`, they’re not. Default is `false`. |
 | --- | --- |
 | includeDeleted   boolean | Whether or not soft-deleted object should be included in the response. If `true`, soft-deleted objects are returned. If `false`, they are not. The default is `false`. |
 
@@ -92,13 +92,13 @@ Expand all
 | deletedBy   string | The actor that deleted the component. This is an Autodesk / Oxygen ID. |
 | isActive   boolean | A flag indicating whether the component is active or inactive (`isActive` is `true` if-and-only-if `deletedAt` is empty). |
 | version   int | A global sequence number that is incremented any time a component of this type is created, updated, or deleted. If you cache components, you can use the version value to compare the cached component to the same component online to see if the component has been updated. If the online component has a higher version value, it has been updated. |
-| clientAssetId   string | An identifying name for the asset such as âlaundry 220V outletâ. The name need not be unique, and shouldnât be confused with the asset âidâ field, which is created and assigned when the asset is created. This value appears as âAsset IDâ in the Assets UI, and may sometimes be called âNameâ in asset exports. |
+| clientAssetId   string | An identifying name for the asset such as “laundry 220V outlet”. The name need not be unique, and shouldn’t be confused with the asset ‘id’ field, which is created and assigned when the asset is created. This value appears as “Asset ID” in the Assets UI, and may sometimes be called “Name” in asset exports. |
 | categoryId   string | The ID of the category to which the asset belongs. |
-| statusId   string: UUID | The ID of the status assigned to the asset. The status must belong to the status set specified by the assetâs category. |
+| statusId   string: UUID | The ID of the status assigned to the asset. The status must belong to the status set specified by the asset’s category. |
 | description   string | A brief description of the asset. Currently limited to `1000` characters. |
 | locationId   string: UUID | The ID of the location of the asset. This value is supplied through the Locations API. |
 | barcode   string | A string that lists a barcode value that may be assigned to the asset. The string uses whatever format your barcode system supports. |
-| customAttributes   object | An optional JSON dictionary specifying one or more custom attributes and values to be assigned to the asset. The custom attributes must belong to the set of custom attributes specified by the assetâs category. <br>The dictionary is a set of key:value pairs that each starts with the unique custom attribute name (not to be confused with the custom attributeâs display name) followed by the attribute value. The value must use the data type defined by the attribute:<br>For `text`, the value is a string.<br>For `date`, the value is an ISO8601 date string with no time, for example, â2020-04-10â.<br>For `select`, the value is a valid ID from the list of values defined for this custom attribute.<br>For `multi-select`, the value is an array of valid IDs from the list of values defined for this custom attribute.<br>For `boolean`, the value is a boolean.<br>For `numeric`, the value is a string that parses as a valid floating point number (not localized). |
+| customAttributes   object | An optional JSON dictionary specifying one or more custom attributes and values to be assigned to the asset. The custom attributes must belong to the set of custom attributes specified by the asset’s category. <br>The dictionary is a set of key:value pairs that each starts with the unique custom attribute name (not to be confused with the custom attribute’s display name) followed by the attribute value. The value must use the data type defined by the attribute:<br>For `text`, the value is a string.<br>For `date`, the value is an ISO8601 date string with no time, for example, “2020-04-10”.<br>For `select`, the value is a valid ID from the list of values defined for this custom attribute.<br>For `multi-select`, the value is an array of valid IDs from the list of values defined for this custom attribute.<br>For `boolean`, the value is a boolean.<br>For `numeric`, the value is a string that parses as a valid floating point number (not localized). |
 | *   one of |  |
 | 0   string | A String value <br>Max length: 250 |
 | 1   array: string | An array of String values |

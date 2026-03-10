@@ -8,7 +8,7 @@ GET
 
 # forgeapps/:id
 
-Return the given appâs nickname.
+Return the given app’s nickname.
 
 If the app has no nickname, this route will return its id.
 
@@ -33,21 +33,21 @@ If the app has no nickname, this route will return its id.
 
 ## [URI Parameters](#uri-parameters)
 
-| id   string | Must be âmeâ for the call to succeed. |
+| id   string | Must be “me” for the call to succeed. |
 | --- | --- |
 
 ### Response
 
 ## [HTTP Status Code Summary](#http-status-code-summary)
 
-| 200   OK | Successfully get the userâs nickname. |
+| 200   OK | Successfully get the user’s nickname. |
 | --- | --- |
 | 403   Forbidden | Forbidden. |
 | 500   Internal Server Error | Unknown error. |
 
 ## [Example](#example)
 
-Successfully get the userâs nickname.
+Successfully get the user’s nickname.
 
 ### Request
 

@@ -12,11 +12,11 @@ GET
 
 Retrieves a transmittal by ID within the specified project.
 
-The response includes the transmittalâs metadata, status, sender, recipients, and other related details.
+The response includes the transmittal’s metadata, status, sender, recipients, and other related details.
 
-If the transmittal is still being processed (`status = SENDING`), some fieldsâsuch as `recipients` and `externalMembers`âmay be temporarily empty until processing completes.
+If the transmittal is still being processed (`status = SENDING`), some fields—such as `recipients` and `externalMembers`—may be temporarily empty until processing completes.
 
-The visibility of recipient details also depends on the transmittalâs `displayRecipients` setting.
+The visibility of recipient details also depends on the transmittal’s `displayRecipients` setting.
 
 For information about creating transmittals, see the [Create Transmittals](https://help.autodesk.com/view/BUILD/ENU/?guid=Create_Transmittal&p=DOCS) tutorial.
 
@@ -73,13 +73,13 @@ Expand all
 | sequenceId   string | A project-specific number automatically assigned when the transmittal is first submitted. It identifies the transmittal within the project and reflects the order in which it was created. |
 | title   string | The title of the transmittal. |
 | message   string | An optional message included with the transmittal. |
-| status   enum:string | The current processing state of the transmittal. <br>`SENDING` â The transmittal is being processed or packaged; some fields may be temporarily empty. The `recipients` and `externalMembers` fields may be temporarily empty.`COMPLETED` â The transmittal has been successfully issued and all data is available.`FAILED` â The transmittal failed to process or send.<br>Possible values: `SENDING`, `COMPLETED`, `FAILED`. |
+| status   enum:string | The current processing state of the transmittal. <br>`SENDING` – The transmittal is being processed or packaged; some fields may be temporarily empty. The `recipients` and `externalMembers` fields may be temporarily empty.`COMPLETED` – The transmittal has been successfully issued and all data is available.`FAILED` – The transmittal failed to process or send.<br>Possible values: `SENDING`, `COMPLETED`, `FAILED`. |
 | sentBy   object | Information about the user who created and sent the transmittal. |
 | autodeskId   string | The Autodesk ID of the transmittal creator. |
 | email   string | The email of the transmittal creator. |
 | name   string | The full name of the transmittal creator. |
-| companyAutodeskId   string | The Autodesk ID of the creatorâs company at the time the transmittal was created. |
-| companyName   string | The name of the creatorâs company at the time the transmittal was created. |
+| companyAutodeskId   string | The Autodesk ID of the creator’s company at the time the transmittal was created. |
+| companyName   string | The name of the creator’s company at the time the transmittal was created. |
 | recipients   object | The list of recipients included in the transmittal, grouped by user, company, and role. <br>For more information on how to add recipients to a transmittal, see the [Create Transmittals](https://help.autodesk.com/view/BUILD/ENU/?guid=Create_Transmittal&p=DOCS) documentation. |
 | users   array: object | The list of individual users who were added as recipients. |
 | autodeskId   string | The Autodesk ID of the user recipient. |
@@ -96,7 +96,7 @@ Expand all
 | createdAt   datetime: ISO 8601 | The date and time when the transmittal was created, in ISO 8601 format. |
 | documentsCount   int | The total number of documents included in the transmittal. |
 | packedStatus   enum:string | Indicates the progress of packaging transmittal files into a ZIP archive. Possible values: `SUCCESS`, `PARTIAL_SUCCESS`, `FAILED`, `PROCESSING`, `EXPIRED`, `NOT_ALLOWED` |
-| displayRecipients   enum:string | Specifies how much recipient information each recipient can see.  > `ALL` â All recipients can view the full recipient list.`LIMITED` â Each recipient can view only their own recipient information.<br>Project Admins and the sender always see the full list. <br>Possible values: `ALL`, `LIMITED` |
+| displayRecipients   enum:string | Specifies how much recipient information each recipient can see.  > `ALL` – All recipients can view the full recipient list.`LIMITED` – Each recipient can view only their own recipient information.<br>Project Admins and the sender always see the full list. <br>Possible values: `ALL`, `LIMITED` |
 
 ## [Example](#example)
 

@@ -1,10 +1,10 @@
-# Task 3 â Translate to SVF2
+# Task 3 – Translate to SVF2
 
 Source: https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/xtract-metadata/task3-translate-source-file/
 
 ---
 
-# Task 3 â Translate to SVF2
+# Task 3 – Translate to SVF2
 
 For the server to extract metadata from a model, you must first translate the model to a viewer-friendly format. Because SVF2 handles larger models better, Autodesk recommends SVF2 over SVF.
 

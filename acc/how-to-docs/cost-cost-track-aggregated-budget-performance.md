@@ -6,11 +6,11 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/cost/cost-track-aggregate
 
 # Track Aggregated Budget Performance
 
-This tutorial demonstrates how to use the Cost Management API to track the performance of a project budget based on its budget code. The performance tracking item that represents a budget is tracked by one or more timesheets, each of which is linked to one of the tracking itemâs instances. The tutorial aggregates the tracking data from all of the timesheets associated with a given budget. The steps include retrieving the budget code, logging and aggregating timesheets, synchronizing the timesheets with Autodesk Cost Management, and adjusting the forecast.
+This tutorial demonstrates how to use the Cost Management API to track the performance of a project budget based on its budget code. The performance tracking item that represents a budget is tracked by one or more timesheets, each of which is linked to one of the tracking item’s instances. The tutorial aggregates the tracking data from all of the timesheets associated with a given budget. The steps include retrieving the budget code, logging and aggregating timesheets, synchronizing the timesheets with Autodesk Cost Management, and adjusting the forecast.
 
-Budget codes are synchronized from Autodesk Cost Management or other external systems e.g. ERP/accounting system (assume theyâre always synchronized).
+Budget codes are synchronized from Autodesk Cost Management or other external systems e.g. ERP/accounting system (assume they’re always synchronized).
 
-Note that the Cost API timesheets endpoints used in this tutorial are designed only for use with a third party timesheet reporting (tracking) app (e.g. Riskcast, Rhumbix, QuickBooks Time, or ClickUp) that youâve integrated with Cost Management.
+Note that the Cost API timesheets endpoints used in this tutorial are designed only for use with a third party timesheet reporting (tracking) app (e.g. Riskcast, Rhumbix, QuickBooks Time, or ClickUp) that you’ve integrated with Cost Management.
 
 ## [Before You Begin](#before-you-begin)
 
@@ -102,11 +102,11 @@ curl -v 'https://developer.api.autodesk.com/cost/v1/containers/e94b9bc8-1775-4d7
 
 Show More
 
-Note the budget code (`results.budgetCode`) â `84720010121001FEE`.
+Note the budget code (`results.budgetCode`) — `84720010121001FEE`.
 
 ## [Step 2: Log and Aggregate the Timesheets](#step-2-log-and-aggregate-the-timesheets)
 
-A field user uses your integrated tracking app to log their progress in the appâs timesheets against the budget code noted in the previous step.
+A field user uses your integrated tracking app to log their progress in the app’s timesheets against the budget code noted in the previous step.
 
 The tracking app aggregates the `inputQuantity` and `outputQuantity` values entered by the user into timesheets by day and budget code. Assume the unit of measurement of `inputQuantity` to be `hr` (hour).
 
@@ -172,7 +172,7 @@ Show More
 
 Show More
 
-The new timesheet object is associated with the first (default) tracking item instance of the budgetâs performance tracking item.
+The new timesheet object is associated with the first (default) tracking item instance of the budget’s performance tracking item.
 
 ## [Step 4: Adjust the Forecast](#step-4-adjust-the-forecast)
 

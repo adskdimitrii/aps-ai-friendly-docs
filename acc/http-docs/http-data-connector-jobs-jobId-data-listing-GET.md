@@ -14,7 +14,7 @@ Returns an array of information about the files contained within the data extrac
 
 The array provides a name, creation date, and size for each file in the data extract. You can retrieve any or all of the files using [GET jobs/:jobId/data/:name](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/data-connector-jobs-jobid-data-name-GET/). Its reference page describes the file types within a data extract.
 
-If the job was cancelled or otherwise failed to create a data extract, this endpoint returns a 404 error âThe requested resource does not exist.â
+If the job was cancelled or otherwise failed to create a data extract, this endpoint returns a 404 error “The requested resource does not exist.”
 
 To get job IDs for a request, use [GET requests/:requestId/jobs](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/data-connector-requests-requestid-jobs-GET/).
 
@@ -43,7 +43,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 
 ## [URI Parameters](#uri-parameters)
 
-| accountId   string: UUID | The account ID. You can derive it from your hub ID if necessary: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial âb.â from the hub ID to get your account ID. |
+| accountId   string: UUID | The account ID. You can derive it from your hub ID if necessary: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial “b.” from the hub ID to get your account ID. |
 | --- | --- |
 | jobId   string: UUID | The job ID |
 

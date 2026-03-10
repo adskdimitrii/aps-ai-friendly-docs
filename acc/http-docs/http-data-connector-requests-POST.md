@@ -40,7 +40,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 
 ## [URI Parameters](#uri-parameters)
 
-| accountId   string: UUID | The account ID. You can derive it from your hub ID if necessary: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial âb.â from the hub ID to get your account ID. |
+| accountId   string: UUID | The account ID. You can derive it from your hub ID if necessary: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial “b.” from the hub ID to get your account ID. |
 | --- | --- |
 
 ### Request
@@ -49,7 +49,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 
 | description   string | The user-entered description of this data request. |
 | --- | --- |
-| isActive   boolean | The data requestâs active/inactive status. Possible values: `true` the request is active; `false` the request is inactive. If not supplied, the default value is `true`. |
+| isActive   boolean | The data request’s active/inactive status. Possible values: `true` the request is active; `false` the request is inactive. If not supplied, the default value is `true`. |
 | scheduleInterval   string | The scheduling interval unit for jobs spawned by this data request. This value is multiplied by the `reoccurringInterval` attribute to specify the length of the recurring interval at which jobs run. Possible values: <br>`ONE_TIME`: Run the job only once`DAY`: Set the recurring job interval in days`WEEK`: Set the recurring job interval in weeks`MONTH`: Set the recurring job interval in months`YEAR`: Set the recurring job interval in years<br>Note that recurring jobs start at the day and time when the request first spawns a job. This may be at the date and time specified in the attribute `effectiveFrom`. |
 | reoccuringInterval   int | The number of `scheduleInterval` units to wait between job execution for the request. For example, a `scheduleInterval` value of `WEEK` and a `reoccuringInterval` value of `2` means the job will run every two weeks. <br>This value is required and must be a non-zero integer for all values of `scheduleInterval` except for a `scheduleInterval` value of `ONE_TIME`, in which case this value is ignored. |
 | effectiveFrom   datetime: ISO 8601 | The date and time when a one-time job execution or a recurring interval schedule begins, presented in ISO 8601 format. If the date and time is before the current time, execution of scheduling begins immediately. This value is required. |
@@ -85,7 +85,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 | id   string: UUID | The ID of the data request. |
 | --- | --- |
 | description   string | The user-entered description of this data request. If not supplied, the default value is a null string. |
-| isActive   boolean | The data requestâs active/inactive status. Possible values: `true` the request is active; `false` the request is inactive. |
+| isActive   boolean | The data request’s active/inactive status. Possible values: `true` the request is active; `false` the request is inactive. |
 | accountId   string: UUID | The account ID. |
 | projectId   string: UUID | (Legacy): A single project ID for the data request. Superseded by `projectIdList`. |
 | projectIdList   array: string | A list of up to 50 project IDs included in the data request. This field contains the project IDs for which data is being extracted. If both `projectId` and `projectIdList` were included in the request, this field contains the values from `projectIdList`. |

@@ -12,7 +12,7 @@ PATCH
 
 Updates the attributes of an existing data request created earlier by the authenticated user. Note that the user must have executive overview or project administrator permissions.
 
-The attribute values provided in this requestâs body structure are the values used in the update. You need only specify the attribute values you want to update. Any attributes not specified are not updated.
+The attribute values provided in this request’s body structure are the values used in the update. You need only specify the attribute values you want to update. Any attributes not specified are not updated.
 
 The attribute values returned in the response body structure describe the current attribute values of the updated data request.
 
@@ -44,7 +44,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 
 ## [URI Parameters](#uri-parameters)
 
-| accountId   string: UUID | The account ID. You can derive it from your hub ID if necessary: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial âb.â from the hub ID to get your account ID. |
+| accountId   string: UUID | The account ID. You can derive it from your hub ID if necessary: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial “b.” from the hub ID to get your account ID. |
 | --- | --- |
 | requestId   string: UUID | The ID of the specified request |
 
@@ -52,7 +52,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 
 ## [Body Structure](#body-structure)
 
-| isActive   boolean | The data requestâs active/inactive status. Possible values: `true` the request is active; `false` the request is inactive. |
+| isActive   boolean | The data request’s active/inactive status. Possible values: `true` the request is active; `false` the request is inactive. |
 | --- | --- |
 | description   string | The user-entered description of this data request. |
 | scheduleInterval   string | The scheduling interval unit for jobs spawned by this data request. This value is multiplied by the `reoccurringInterval` attribute to specify the length of the recurring interval at which jobs run. Possible values: <br>`ONE_TIME`: Run the job only once`DAY`: Set the recurring job interval in days`WEEK`: Set the recurring job interval in weeks`MONTH`: Set the recurring job interval in months`YEAR`: Set the recurring job interval in years<br>Note that recurring jobs start at the day and time when the request first spawns a job. This may be at the date and time specified in the attribute `effectiveFrom`.<br>This value is required. |
@@ -88,7 +88,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 | id   string: UUID | The ID of the data request. |
 | --- | --- |
 | description   string | The user-entered description of this data request. If not supplied, the default value is a null string. |
-| isActive   boolean | The data requestâs active/inactive status. Possible values: `true` the request is active; `false` the request is inactive. |
+| isActive   boolean | The data request’s active/inactive status. Possible values: `true` the request is active; `false` the request is inactive. |
 | accountId   string: UUID | The account ID. |
 | projectId   string: UUID | (Legacy): A single project ID for the data request. Superseded by `projectIdList`. |
 | projectIdList   array: string | A list of up to 50 project IDs included in the data request. This field contains the project IDs for which data is being extracted. If both `projectId` and `projectIdList` were included in the request, this field contains the values from `projectIdList`. |

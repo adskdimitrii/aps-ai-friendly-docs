@@ -23,9 +23,9 @@ This tutorial demonstrates how to retrieve a BIM 360 cost management container I
 
 You must first call [GET hubs](../../data/http-docs/http-hubs-GET.md) to find the account ID for your BIM 360 account.
 
-Note that the BIM 360 account ID corresponds to a Data Management hub ID. To convert an account ID into a hub ID you need to add a âb.â prefix. For example, an account ID of `c8b0c73d-3ae9` translates to a hub ID of `b.c8b0c73d-3ae9`.
+Note that the BIM 360 account ID corresponds to a Data Management hub ID. To convert an account ID into a hub ID you need to add a “b.” prefix. For example, an account ID of `c8b0c73d-3ae9` translates to a hub ID of `b.c8b0c73d-3ae9`.
 
-In this example, assume that the project for which you want the container is part of the âJohnâs Accountâ hub.
+In this example, assume that the project for which you want the container is part of the “John’s Account” hub.
 
 ### Request
 
@@ -33,10 +33,10 @@ In this example, assume that the project for which you want the container is par
 
 ## [Step 2: Find the Container ID for the Project](#step-2-find-the-container-id-for-the-project)
 
-Use the BIM 360 hub ID that you retrieved in the previous step (`b.cGVyc29uYWw6cGUyOWNjZjMy`) to call [GET hubs/:hub_id/projects](../../data/http-docs/http-hubs-hub_id-projects-GET.md), and retrieve a list of all the projects in the hub to which the user has access. In this example, we have added a filter to return only details of a specific project âDemo Project.â
+Use the BIM 360 hub ID that you retrieved in the previous step (`b.cGVyc29uYWw6cGUyOWNjZjMy`) to call [GET hubs/:hub_id/projects](../../data/http-docs/http-hubs-hub_id-projects-GET.md), and retrieve a list of all the projects in the hub to which the user has access. In this example, we have added a filter to return only details of a specific project “Demo Project.”
 
 ### Request
 
 ### Response
 
-The response payload includes the container ID (`data.relationships.cost.data.id`). Youâll use this ID in Cost API calls for this project.
+The response payload includes the container ID (`data.relationships.cost.data.id`). You’ll use this ID in Cost API calls for this project.

@@ -45,14 +45,14 @@ Note that to access BIM 360 Docs files using the Data Management API you need to
 
 ## [URI Parameters](#uri-parameters)
 
-| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a â**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
+| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a “**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
 | --- | --- |
 
 ### Request
 
 ## [Query String Parameters](#query-string-parameters)
 
-- copyFromstring Only relevant for copying files to BIM 360 Docs - the version ID (URN) of the file to copy. For details about finding the URN, follow the initial steps in the [Download a File](../how-to-docs/download-file.md) tutorial.You can only copy files to the Plans folder or to subfolders of the Plans folder with an `item:autodesk.bim360:Document` item extension type, and you can only copy files to the Project Files folder or to subfolders of the Project Files folder with an `item:autodesk.bim360:File` item extension type.To verify an itemâs extension type, use [GET item](http-projects-project_id-items-item_id-GET.md), and check the `attributes.extension.type` attribute.Note that if you copy a file to the Plans folder or to a subfolder of the Plans folder, the copied file inherits the permissions of the source file. For example, if the end user did not have permission to download files in the source folder, but does have permission to download files in the target folder, he/she will not be able to download the copied file.Note that you cannot copy a file if it is in the middle of being uploaded, updated, or copied. To verify the current process state of a file, call [GET item](http-projects-project_id-items-item_id-GET.md), and check the `attributes.extension.data.processState` attribute.
+- copyFromstring Only relevant for copying files to BIM 360 Docs - the version ID (URN) of the file to copy. For details about finding the URN, follow the initial steps in the [Download a File](../how-to-docs/download-file.md) tutorial.You can only copy files to the Plans folder or to subfolders of the Plans folder with an `item:autodesk.bim360:Document` item extension type, and you can only copy files to the Project Files folder or to subfolders of the Project Files folder with an `item:autodesk.bim360:File` item extension type.To verify an item’s extension type, use [GET item](http-projects-project_id-items-item_id-GET.md), and check the `attributes.extension.type` attribute.Note that if you copy a file to the Plans folder or to a subfolder of the Plans folder, the copied file inherits the permissions of the source file. For example, if the end user did not have permission to download files in the source folder, but does have permission to download files in the target folder, he/she will not be able to download the copied file.Note that you cannot copy a file if it is in the middle of being uploaded, updated, or copied. To verify the current process state of a file, call [GET item](http-projects-project_id-items-item_id-GET.md), and check the `attributes.extension.data.processState` attribute.
 
 ### Request
 
@@ -68,7 +68,7 @@ Expand all
 | data*   object | The data object. |
 | type*   enum:string | The type of this resource. Will always be: `items` |
 | attributes*   object | The attributes of the data object. |
-| displayName   string | The name of the file (1-255 characters). Reserved characters: `<`, `>`, `:`, `"`, `/`, `\`, `|`, `?`, `*`, `` ` ``, `\n`, `\r`, `\t`, `\0`, `\f`, `Â¢`, `â¢`, `$`, `Â®`. This must be the same as `included[i].attributes.name`. <br>Copied files are assigned the `displayName` of the source file by default, unless you specify a different name.<br>Note that you need to add the same file extension that you added when you [created a storage location for the file](http-projects-project_id-storage-POST.md).<br>Note that for A360 projects, this field is required.<br>Note that for BIM 360 projects, this field is reserved for future releases and should not be used. Use `included[0].attributes.name` for the file name. |
+| displayName   string | The name of the file (1-255 characters). Reserved characters: `<`, `>`, `:`, `"`, `/`, `\`, `|`, `?`, `*`, `` ` ``, `\n`, `\r`, `\t`, `\0`, `\f`, `¢`, `™`, `$`, `®`. This must be the same as `included[i].attributes.name`. <br>Copied files are assigned the `displayName` of the source file by default, unless you specify a different name.<br>Note that you need to add the same file extension that you added when you [created a storage location for the file](http-projects-project_id-storage-POST.md).<br>Note that for A360 projects, this field is required.<br>Note that for BIM 360 projects, this field is reserved for future releases and should not be used. Use `included[0].attributes.name` for the file name. |
 | extension*   object | Extended information on the resource. |
 | type   string | Only relevant for creating files - the type of file extension. <br>For BIM 360 Docs files, use `items:autodesk.bim360:File`.<br>For all other services, use `items:autodesk.core:File`. |
 | version   string | The version of the item extension type (`data.attributes.extension.type`). The current version is `1.0`. |
@@ -86,11 +86,11 @@ Expand all
 | type*   enum:string | The type of this resource. Will always be: `versions` |
 | id*   enum:string | The id of the resource. Will always be: `1` |
 | attributes*   object | The attributes of the resource. |
-| name*   string | The name of the version of the file (1-255 characters). Reserved characters: `<`, `>`, `:`, `"`, `/`, `\`, `|`, `?`, `*`, `` ` ``, `\n`, `\r`, `\t`, `\0`, `\f`, `Â¢`, `â¢`, `$`, `Â®`. <br>Copied files are assigned the name of the source file by default, unless you specify a name. |
+| name*   string | The name of the version of the file (1-255 characters). Reserved characters: `<`, `>`, `:`, `"`, `/`, `\`, `|`, `?`, `*`, `` ` ``, `\n`, `\r`, `\t`, `\0`, `\f`, `¢`, `™`, `$`, `®`. <br>Copied files are assigned the name of the source file by default, unless you specify a name. |
 | extension*   object | Extended information on the resource. |
 | type   string | Only relevant for creating files - the type of version extension. <br>For BIM 360 Docs files, use `versions:autodesk.bim360:File`.<br>For A360 composite design files, use `versions:autodesk.a360:CompositeDesign`.<br>For A360 Personal, Fusion Team, or BIM 360 Team files, use `versions:autodesk.core:File`. |
 | version   string | The version of the version extension type (`included[i].attributes.extension.type`). The current version is `1.0`. |
-| data   object | The properties of the itemâs version. The property should conform to schema requirements; otherwise, it will be ignored. |
+| data   object | The properties of the item’s version. The property should conform to schema requirements; otherwise, it will be ignored. |
 | relationships   object | The object containing information on other resources that are related to this resource. |
 | storage   object | The object containing information on the storage resource. |
 | data*   object | The data object. |
@@ -142,7 +142,7 @@ Expand all
 | type   enum:string | The type of this resource. Will always be: `items` |
 | id   string | The unique identifier of the item. |
 | attributes   object | Attributes of the latest version of an item. |
-| displayName   string | Displayable name of an item. Note that for BIM 360 projects, this field is reserved for future releases and should not be used. Use versionâs `attributes.name` for the file name. |
+| displayName   string | Displayable name of an item. Note that for BIM 360 projects, this field is reserved for future releases and should not be used. Use version’s `attributes.name` for the file name. |
 | createTime   datetime: ISO 8601 | The time the item was created, in the following format: `YYYY-MM-DDThh:mm:ss.sz`. |
 | createUserId   string | The unique identifier of the user who created the item. |
 | createUserName   string | The name of the user who created the item. |
@@ -155,11 +155,11 @@ Expand all
 | reservedUserId   string | The unique identifier of the user who reserved the item. |
 | reservedUserName   string | The name of the user who reserved the item. |
 | extension   object | The extension object of the data. |
-| type   string | The type of the schema that the resourceâs data object adheres to. |
+| type   string | The type of the schema that the resource’s data object adheres to. |
 | version   string | The version of the schema that the data is adhering to. |
 | schema   object | An object containing an API link property. |
 | href   string | A hyperlink reference to this resource. |
-| data   object | Additional properties that the resourceâs data possesses. |
+| data   object | Additional properties that the resource’s data possesses. |
 | relationships   object | Information on other resources that shares a relationship with this item. |
 | parent   object | Information on resources that are found above this resource. |
 | links   object | The object containing information on links of related resources. |
@@ -199,9 +199,9 @@ Expand all
 | id   string | The id of the resource. |
 | attributes   object | The attributes of the resource. |
 | name   string | The filename used when synced to local disk. |
-| displayName   string | Displayable name of the version. Note that for BIM 360 projects, this field is reserved for future releases and should not be used. Use versionâs `attributes.name` for the file name. |
+| displayName   string | Displayable name of the version. Note that for BIM 360 projects, this field is reserved for future releases and should not be used. Use version’s `attributes.name` for the file name. |
 | versionNumber   int | Version number of this versioned file. |
-| mimeType   string | Mimetype of the versionâs content. |
+| mimeType   string | Mimetype of the version’s content. |
 | fileType   string | File type, only present if this version represents a file. |
 | storageSize   int | File size in bytes, only present if this version represents a file. |
 | createTime   datetime: ISO 8601 | The time that the resource was created at. |
@@ -211,12 +211,12 @@ Expand all
 | lastModifiedUserId   string | The userId that last modified the resource. |
 | lastModifiedUserName   string | The username that last modified the resource. |
 | extension   object | The extension object of the data. |
-| type   string | The type of the schema that the resourceâs data object adheres to. |
+| type   string | The type of the schema that the resource’s data object adheres to. |
 | version   string | The version of the schema that the data is adhering to. |
 | schema   object | An object containing an API link property. |
 | href   string | A hyperlink reference to this resource. |
-| data   object | Additional properties that the resourceâs data possesses. |
-| conformingStatus   enum:string | A status indicating whether or not this version conforms to its parent folderâs file naming standard. <br>Possible values:<br>`NONE`: The conforming status is not applicable for the version.`CONFORMING`: The version conforms to its parent folderâs file naming standard.`NON_CONFORMING`: The version does not conform to its parent folderâs file naming standard.<br>In the event of a `NON_CONFORMING` status, call [GET folders/folder_id](http-projects-project_id-folders-folder_id-GET.md) to get the file naming standards IDs that have been applied to the versionâs parent folder, and then use the ID to call [GET naming-standards](../../acc/http-docs/http-document-management-naming-standards-id-GET.md) to get the details of the file naming standard.<br>Note that this feature is only available for BIM 360 projects.<br>To learn more about the file naming standard feature, see the [BIM 360 File Naming Standard](https://help.autodesk.com/view/BIM360D/ENU/?guid=Common_Data_Environment) help documentation. |
+| data   object | Additional properties that the resource’s data possesses. |
+| conformingStatus   enum:string | A status indicating whether or not this version conforms to its parent folder’s file naming standard. <br>Possible values:<br>`NONE`: The conforming status is not applicable for the version.`CONFORMING`: The version conforms to its parent folder’s file naming standard.`NON_CONFORMING`: The version does not conform to its parent folder’s file naming standard.<br>In the event of a `NON_CONFORMING` status, call [GET folders/folder_id](http-projects-project_id-folders-folder_id-GET.md) to get the file naming standards IDs that have been applied to the version’s parent folder, and then use the ID to call [GET naming-standards](../../acc/http-docs/http-document-management-naming-standards-id-GET.md) to get the details of the file naming standard.<br>Note that this feature is only available for BIM 360 projects.<br>To learn more about the file naming standard feature, see the [BIM 360 File Naming Standard](https://help.autodesk.com/view/BIM360D/ENU/?guid=Common_Data_Environment) help documentation. |
 | relationships   object | Information on other resources that shares a relationship with this resource. |
 | item   object | Information on resources that are found above this resource. |
 | links   object | The object containing information on links of related resources. |

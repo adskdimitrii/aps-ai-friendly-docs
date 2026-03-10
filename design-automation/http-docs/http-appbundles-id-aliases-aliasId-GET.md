@@ -39,7 +39,7 @@ Get alias details.
 
 ## [HTTP Status Code Summary](#http-status-code-summary)
 
-| 200   OK | Successfully get the details of an AppBundleâs alias. |
+| 200   OK | Successfully get the details of an AppBundle’s alias. |
 | --- | --- |
 | 403   Forbidden | Unauthorized |
 | 404   Not Found | Not found. |
@@ -56,7 +56,7 @@ Get alias details.
 
 ## [Example](#example)
 
-Successfully get the details of an AppBundleâs alias.
+Successfully get the details of an AppBundle’s alias.
 
 ### Request
 

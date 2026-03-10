@@ -28,7 +28,7 @@ If you set the URL to expire after it is used the first time, it will expire whe
 | --- | --- |
 | If-None-Match   string | The value of this header is compared to the ETAG of the object. If they match, the body will not be included in the response. Only the object information will be included. |
 | If-Modified-Since   HTTP date | If the requested object has not been modified since the time specified in this field, an entity will not be returned from the server; instead, a 304 (not modified) response will be returned without any message-body. |
-| Accept-Encoding   string | When gzip is specified, a gzip compressed stream of the objectâs bytes will be returned in the response. Cannot use âAccept-Encoding:gzipâ with Range header containing an end byte range. End byte range will not be honored if âAccept-Encoding: gzipâ header is used. |
+| Accept-Encoding   string | When gzip is specified, a gzip compressed stream of the object’s bytes will be returned in the response. Cannot use “Accept-Encoding:gzip” with Range header containing an end byte range. End byte range will not be honored if “Accept-Encoding: gzip” header is used. |
 
 ### Request
 
@@ -54,7 +54,7 @@ If you set the URL to expire after it is used the first time, it will expire whe
 | --- | --- |
 | 400   BAD REQUEST | The request could not be understood by the server due to malformed syntax or missing request headers. The client SHOULD NOT repeat the request without modifications. The response body may give an indication of what is wrong with the request. |
 | 401   UNAUTHORIZED | The supplied authorization header was not valid or the supplied token scope was not acceptable. Verify authentication and try again. |
-| 403   FORBIDDEN | The authorization was successfully validated but permission is not granted. Donât try again unless permission is resolved first. |
+| 403   FORBIDDEN | The authorization was successfully validated but permission is not granted. Don’t try again unless permission is resolved first. |
 | 404   NOT FOUND | The specified resource does not exist. |
 | 412   PRECONDITION FAILED |  |
 | 500   INTERNAL SERVER ERROR | Internal failure while processing the request, reason depends on error. |

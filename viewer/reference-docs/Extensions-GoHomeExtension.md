@@ -10,7 +10,7 @@ Autodesk.Viewing.Extensions
 
 ## [new GoHomeExtension(viewer, options)](#new-gohomeextension-viewer-options)
 
-Use its `activate()` method to animate the camera back to its default, home view. The extension doesnât provide any UI.
+Use its `activate()` method to animate the camera back to its default, home view. The extension doesn’t provide any UI.
 
 The extension id is: `Autodesk.GoHome`
 
@@ -39,4 +39,4 @@ Animates the camera back to its home location.
 
 ## [activate()](#id1)
 
-It doesnât do anything.
+It doesn’t do anything.

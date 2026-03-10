@@ -11,7 +11,7 @@ GET
 Gets all Shares (AppBundles and Activities) shared by this app (shared to other
 :   apps for them to use).
 
-Sharing of AppBundles and Activities is controlled via the use of âaliasesâ.
+Sharing of AppBundles and Activities is controlled via the use of ‘aliases’.
 
 ## [Resource Information](#resource-information)
 
@@ -34,7 +34,7 @@ Sharing of AppBundles and Activities is controlled via the use of âaliases�
 
 ## [Query String Parameters](#query-string-parameters)
 
-| page   string | Used to get subsequent âpagesâ of data. |
+| page   string | Used to get subsequent ‘pages’ of data. |
 | --- | --- |
 
 ### Response

@@ -12,12 +12,12 @@ POST
 
 Adds a model set visual inspection issue, represented as a BIM360 issue.
 
-The data associated with `pushpin` is supported by the Viewerâs Pushpin extension. See the [pushpin tutorial](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/pushpins/) for more information.
+The data associated with `pushpin` is supported by the Viewer’s Pushpin extension. See the [pushpin tutorial](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/pushpins/) for more information.
 
 The created job performs the following steps:
 
 1. Creates a BIM 360 Issue with the requested information.
-2. Uploads any provided screenshots to the projectâs photos folder, and attaches them to the newly created BIM 360 Issue.
+2. Uploads any provided screenshots to the project’s photos folder, and attaches them to the newly created BIM 360 Issue.
 
 The response contains information about the created model set job.
 

@@ -44,7 +44,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Response
@@ -70,7 +70,7 @@ Expand all
 | permittedActions   array: object | A list of actions that the user is allowed to perform |
 | id   string | ID of the action in the format `type_of_object::action`. For example, `item::create`, `Spec::create`. |
 | fields   object | A mapping of field names to lists of possible values for each field, specific to the associated action. An empty array indicates that there is no specific set of values for those fields. <br>For example, in the action `Spec::create`, fields might contain mapping for title (`title`) and identifier (`identifier`). |
-| mandatoryFields   array: string | A subset of fields (`fields`) that are required to perform specific actions, such as creating or transitioning a submittal item. The required fields depend on the userâs role and the action. <br>For example, creating a submittal item in the `mgr-1` state as a manager or in the `sbc-1` state as a subcontractor requires different fields. For example, [`stateId`, `specId`, `title`, `typeId`, `manager`, `managerType`]. |
+| mandatoryFields   array: string | A subset of fields (`fields`) that are required to perform specific actions, such as creating or transitioning a submittal item. The required fields depend on the user’s role and the action. <br>For example, creating a submittal item in the `mgr-1` state as a manager or in the `sbc-1` state as a subcontractor requires different fields. For example, [`stateId`, `specId`, `title`, `typeId`, `manager`, `managerType`]. |
 | transitions   array: object | list of possible transitions |
 | id   string | The ID of the transition in the format `from-state::to-state`. Possible values: `create::mgr-1`, `create::sbc-1`. |
 | name   string | The descriptive name of the transition. Possible values: `Create`, `Send to Manager`, `Send to void`. |

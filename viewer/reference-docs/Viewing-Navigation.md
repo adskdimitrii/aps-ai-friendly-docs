@@ -10,7 +10,7 @@ Autodesk.Viewing
 
 ## [new Navigation(camera)](#new-navigation-camera)
 
-This is the core interface to camera controls and navigation. The active navigation object can normally be obtained from the ânavigationâ property of the Viewer3D instance. Client implementations should not normally instantiate this class directly.
+This is the core interface to camera controls and navigation. The active navigation object can normally be obtained from the “navigation” property of the Viewer3D instance. Client implementations should not normally instantiate this class directly.
 
 ### Parameters
 
@@ -76,7 +76,7 @@ Sets the current view to the given LookAt, while keeping other camera properties
 
 ## [orientCameraUp(force)](#orientcameraup-force)
 
-Orient the cameraâs up direction with the current world up direction
+Orient the camera’s up direction with the current world up direction
 
 ### Parameters
 
@@ -206,7 +206,7 @@ Limits zoom in to show 1/factor-th of the entire 2D page. Applies only on 2D vec
 
 ## [setZoomOutLimitFactor(factor)](#setzoomoutlimitfactor-factor)
 
-Limits zoom out to a multiplier of the modelâs bounding box dimensions. Applies only on 2D vectorized models.
+Limits zoom out to a multiplier of the model’s bounding box dimensions. Applies only on 2D vectorized models.
 
 ### Parameters
 
@@ -238,7 +238,7 @@ Returns true if the point is visible.
 
 | type | description |
 | --- | --- |
-| boolean | True if the point is within the cameraâs frustum. |
+| boolean | True if the point is within the camera’s frustum. |
 
 ## [setVerticalFov(fov, adjustPosition)](#setverticalfov-fov-adjustposition)
 
@@ -304,7 +304,7 @@ Compute camera position and look at point which will fit the given bounding box 
 
 | type | description |
 | --- | --- |
-| object | Object with properties âpositionâ and âtargetâ. |
+| object | Object with properties “position” and “target”. |
 
 ## [computeOrthogonalUp(pos, coi)](#computeorthogonalup-pos-coi)
 
@@ -342,7 +342,7 @@ Causes the current camera position to be changed in order to fit the given bound
 
 | type | description |
 | --- | --- |
-| object | Object with properties âpositionâ and âtargetâ. |
+| object | Object with properties “position” and “target”. |
 
 ## [updateCamera()](#updatecamera)
 

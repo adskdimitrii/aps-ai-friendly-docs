@@ -12,7 +12,7 @@ POST
 
 Creates a batch of new assigned clash groups for the given clash test.
 
-The data associated with `pushpin` is supported by the Viewerâs Pushpin extension. See the [pushpin tutorial](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/pushpins/) for more information.
+The data associated with `pushpin` is supported by the Viewer’s Pushpin extension. See the [pushpin tutorial](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/pushpins/) for more information.
 
 Clash groups that need resolving via a design change are stored as assigned clash groups. In addition, a BIM 360 issue is created and associated with the assigned clash group.
 

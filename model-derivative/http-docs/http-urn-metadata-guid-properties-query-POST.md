@@ -115,7 +115,7 @@ Expand all
 | totalResults   number | The total number of properties to be returned. |
 | data   object | Container for the data returned by the Fetch Specific Properties operation. |
 | type   string | The type of data that is returned. Always `properties`. |
-| collection   array: object | Array of objects with their âpropertiesâ as a non-hierarchical list. |
+| collection   array: object | Array of objects with their “properties” as a non-hierarchical list. |
 | objectid   number | Unique identifier of the object. <br>**Note:** The `objectid` is a non-persistent session specific ID assigned to an object when a source design is translated to SVF or SVF2. So:<br>The `objectid` of an object can change if the design is translated to SVF or SVF2 again.If you require a persistent ID to reference an object, use `externalId`. |
 | name   string | Name of the object. |
 | externalId   string | A unique identifier of the object as defined in the source design. For example, `UniqueID` in Revit files. |
@@ -596,7 +596,7 @@ Show More
 
 ## [Example 3](#example-3)
 
-This example retrieves only the âAnalytical Propertiesâ for objects with the specified external IDs. The model is a Revit file translated to SVF/SVF2 format. Revit models contain the richest metadata among all Autodesk products.
+This example retrieves only the “Analytical Properties” for objects with the specified external IDs. The model is a Revit file translated to SVF/SVF2 format. Revit models contain the richest metadata among all Autodesk products.
 
 ### Request
 
@@ -1034,7 +1034,7 @@ Show More
 
 ## [Example 5](#example-5)
 
-This example retrieves objects with âFloorâ in their name and gets all properties that begin with âtypeâ. The wildcard `*` is used to return matching properties regardless of their category. The model is a Revit file translated to SVF/SVF2 format. Revit models contain the richest metadata among all Autodesk products.
+This example retrieves objects with “Floor” in their name and gets all properties that begin with “type”. The wildcard `*` is used to return matching properties regardless of their category. The model is a Revit file translated to SVF/SVF2 format. Revit models contain the richest metadata among all Autodesk products.
 
 **Note:** Objects without the requested properties are shown a `{}`.
 
@@ -1352,7 +1352,7 @@ Show More
 
 ## [Example 6](#example-6)
 
-This example retrieves objects that contain the words âSH_Resinâ and âConcreteâ in their `Material and Finishes` property. Note that the request specifically asks for the second page of results. The model is a Revit file translated to SVF/SVF2 format. Revit models contain the richest metadata among all Autodesk products.
+This example retrieves objects that contain the words “SH_Resin” and “Concrete” in their `Material and Finishes` property. Note that the request specifically asks for the second page of results. The model is a Revit file translated to SVF/SVF2 format. Revit models contain the richest metadata among all Autodesk products.
 
 ### Request
 

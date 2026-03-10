@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/issues/add-references-to-
 
 # Add References To Issues
 
-This tutorial demonstrates how to add references such as ACC photos to ACC issues. The steps include verifying the userâs permissions, finding the ID of the references (in this example, the photo) you want to add to the issue, and using the Relationships API to add it to the issue.
+This tutorial demonstrates how to add references such as ACC photos to ACC issues. The steps include verifying the user’s permissions, finding the ID of the references (in this example, the photo) you want to add to the issue, and using the Relationships API to add it to the issue.
 
 ## [Before You Begin](#before-you-begin)
 
@@ -17,7 +17,7 @@ This tutorial demonstrates how to add references such as ACC photos to ACC issue
 
 Note that we do not currently support document-related (pusphin) issues or linked documents.
 
-## [Step 1: Verify the Userâs Permissions](#step-1-verify-the-user-s-permissions)
+## [Step 1: Verify the User’s Permissions](#step-1-verify-the-user-s-permissions)
 
 We recommend that you call [GET users/me](../http-docs/http-issues-users-me-GET.md) to verify that the user has permissions to add photos to issues. The user can add photos if the `issues.new` object appears in the response. See the [Permissions Table](https://help.autodesk.com/view/BUILD/ENU/?guid=Issues_Permissions) for more information about permissions.
 

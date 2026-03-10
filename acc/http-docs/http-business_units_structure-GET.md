@@ -18,7 +18,7 @@ Query all the business units in a specific BIM 360 account.
 
 | Method and URI | GET https://developer.api.autodesk.com/hq/v1/accounts/:account_id/business_units_structure |
 | --- | --- |
-| Method and URIï¼Legacyï¼ | GET https://developer.api.autodesk.com/hq/v1/regions/eu/accounts/:account_id/business_units_structure |
+| Method and URI（Legacy） | GET https://developer.api.autodesk.com/hq/v1/regions/eu/accounts/:account_id/business_units_structure |
 | Authentication Context | app only |
 | Required OAuth Scopes | `account:read` |
 | Data Formats | JSON |
@@ -35,7 +35,7 @@ Query all the business units in a specific BIM 360 account.
 
 ## [URI Parameters](#uri-parameters)
 
-| account_id   string: UUID | The account ID of the business unit. This corresponds to hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID you need to remove the â**b.**" prefix. For example, a hub ID of **b.**c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. |
+| account_id   string: UUID | The account ID of the business unit. This corresponds to hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID you need to remove the “**b.**" prefix. For example, a hub ID of **b.**c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. |
 | --- | --- |
 
 ### Response

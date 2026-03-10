@@ -10,7 +10,7 @@ GET
 
 # v1/containers/{containerId}/workflows/{associationType}/{associationId}/actions
 
-List the actions that can execute on the specified item according to the itemâs current state.
+List the actions that can execute on the specified item according to the item’s current state.
 
   Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
@@ -27,7 +27,7 @@ List the actions that can execute on the specified item according to the itemâ�
 ## [Headers](#headers)
 
 - Authorization*string Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow.
-- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
+- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
 
 * Required
 
@@ -66,7 +66,7 @@ Expand all
 | transforms   array: object | The list of changes that you can perform on the associated item. |
 | key   string | The name of the attribute that will be changed as a result of performing the action on the item; usually the status of the item. |
 | to   string | The new value assigned to the attribute after the action is performed. For example, update `budgetStatus` to `open`. |
-| rules   array: object | The list of conditions that are required in order to be able to perform the action. For example, you can only open a PCOâs budgetStatus and costStatus when they are in a draft state. |
+| rules   array: object | The list of conditions that are required in order to be able to perform the action. For example, you can only open a PCO’s budgetStatus and costStatus when they are in a draft state. |
 | key   string | The name of the attribute on the associated item that will be checked against before performing the action. |
 | only   array: string | The value of the attribute that will be checked against before performing the action. |
 

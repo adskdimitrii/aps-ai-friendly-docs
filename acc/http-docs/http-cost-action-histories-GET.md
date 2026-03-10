@@ -27,7 +27,7 @@ Retrieves the action history records associated with specified cost items, such 
 ## [Headers](#headers)
 
 - Authorization*string Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow.
-- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
+- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
 
 * Required
 
@@ -48,7 +48,7 @@ Retrieves the action history records associated with specified cost items, such 
 | cursorState   string | A cursor token used for paginating results. <br>This value is returned in the response when additional pages of data are available. Pass the returned cursorState into a subsequent request to retrieve the next page of results.<br>The cursor token is an opaque string. Do not modify or parse its contents. |
 | associationId*   array: string | The object ID of the item is associated to. For example, ID of the budget, contract or cost item. Use comma separated string for multiple IDs. |
 | associationType*   enum:string | The type of the item is associated to. Possible values `Contract`, `Payment`, `BudgetPayment`, `CostPayment`, `Expense`, `PCO`, `OCO`, `SCO`, `RCO`, `RFQ`, `DistributionItem`. |
-| filter[type]   string | Filters the results by action history type. <br>Possible values:<br>`Approval` â actions related to approval workflows (e.g., approve, reject).<br>`Normal` â other types of non-approval actions (e.g., created, updated).<br>If not specified, both types are included.<br>Values are case-sensitive. |
+| filter[type]   string | Filters the results by action history type. <br>Possible values:<br>`Approval` – actions related to approval workflows (e.g., approve, reject).<br>`Normal` – other types of non-approval actions (e.g., created, updated).<br>If not specified, both types are included.<br>Values are case-sensitive. |
 
 * Required
 
@@ -88,7 +88,7 @@ Expand all
 | name   string | The full name of the user who performed the action. |
 | email   string | The email address of the user who performed the action. |
 | autodeskId   string | The Autodesk ID of the user who performed the action. |
-| options   object | Additional context for the action. The fields present in this object depend on the action history type. <br>For Approval workflows, the object includes:<br>`stepName` â the name of the workflow step.<br>`taskDefinitionKey` â the key that identifies the workflow task.<br>`workflowInstanceId` â the ID of the workflow instance.<br>These fields provide task-level process information.<br>For Normal workflows, the object may include fields such as to and from that indicate a change in status. |
+| options   object | Additional context for the action. The fields present in this object depend on the action history type. <br>For Approval workflows, the object includes:<br>`stepName` – the name of the workflow step.<br>`taskDefinitionKey` – the key that identifies the workflow task.<br>`workflowInstanceId` – the ID of the workflow instance.<br>These fields provide task-level process information.<br>For Normal workflows, the object may include fields such as to and from that indicate a change in status. |
 | stepName   string | The name of the workflow step where the action occurred. |
 | taskDefinitionKey   string | The key that identifies the specific workflow task. |
 | workflowInstanceId   string | The ID of the workflow instance the action belongs to. |

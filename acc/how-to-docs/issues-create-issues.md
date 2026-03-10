@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/issues/create-issues/
 
 # Create Issues
 
-This tutorial demonstrates how to create an ACC issue for a project. The steps include verifying the userâs permissions, finding the issue type ID, optionally, finding custom fields to add to the new issue, finding the ID of the assignee, and creating the issue.
+This tutorial demonstrates how to create an ACC issue for a project. The steps include verifying the user’s permissions, finding the issue type ID, optionally, finding custom fields to add to the new issue, finding the ID of the assignee, and creating the issue.
 
 ## [Before You Begin](#before-you-begin)
 
@@ -15,7 +15,7 @@ This tutorial demonstrates how to create an ACC issue for a project. The steps i
 - Verify that you have access to the relevant account and ACC project.
 - Find the relevant project ID for the project you want to create an issue in by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the account ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`, and the project ID is `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`.
 
-## [Step 1: Verify the Userâs Permissions](#step-1-verify-the-user-s-permissions)
+## [Step 1: Verify the User’s Permissions](#step-1-verify-the-user-s-permissions)
 
 We recommend that you call [GET users/me](../http-docs/http-issues-users-me-GET.md) to verify that the user has permissions to create issues for the account. The user can create issues if the `issues.new` object appears in the response. See the [Permissions Table](https://help.autodesk.com/view/BUILD/ENU/?guid=Issues_Permissions) for more information about permissions.
 

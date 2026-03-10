@@ -74,7 +74,7 @@ Expand all
 | longitude   number | Longitude in decimal degrees |
 | mediaType   enum:string | The type of the media (`NORMAL` is for a normal photo) Possible values: `NORMAL`, `INFRARED`, `PHOTOSPHERE`, `VIDEO` |
 | projectId   string: UUID | The id of the project <br>Max length: 36 |
-| signedUrls   object | URLs to the mediaâs assets. Accessible by anyone but is short-lived. Must be explicitly requested via `` `include `` field |
+| signedUrls   object | URLs to the media’s assets. Accessible by anyone but is short-lived. Must be explicitly requested via `` `include `` field |
 | fileUrl   string | Signed url to the original asset |
 | thumbnailUrl   string | Signed url to the thumbnail asset |
 | size   number | Filesize of the media in bytes |
@@ -83,7 +83,7 @@ Expand all
 | type   enum:string | The type of object this media was initially added with Possible values: `FIELD-REPORT`, `FORM`, `ISSUE`, `RFI`, `MARKUP`, `ASSET`, `GALLERY`, `MEETING`, `SUBMITTAL`, `LOGO` |
 | updatedAt   datetime: ISO 8601 | The time when the media was last updated (ISO8601 Date time format in UTC). |
 | updatedBy   string | The actor that last updated the media. This is an Autodesk ID. |
-| urls   object | URLs to the mediaâs assets. Requires API auth headers (<data:read>) to access it. |
+| urls   object | URLs to the media’s assets. Requires API auth headers (<data:read>) to access it. |
 | fileUrl   string | URL to the original asset |
 | thumbnailUrl   string | URL to the thumbnail asset |
 | userCreatedAt   datetime: ISO 8601 | The time when the media was added to the project at (whether it was offline/locally or online) at (ISO8601 Date time format in UTC). |

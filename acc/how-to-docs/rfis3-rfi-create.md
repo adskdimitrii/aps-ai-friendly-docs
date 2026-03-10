@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/rfis3/rfi-create/
 
 # Create an RFI
 
-This tutorial demonstrates how to create an RFI item for an Autodesk Construction Cloud (ACC) project. The steps include verifying the userâs permissions, retrieving the RFI type ID, retrieving the next custom identifier (optional), identifying the assigneeâs ID, and creating the RFI.
+This tutorial demonstrates how to create an RFI item for an Autodesk Construction Cloud (ACC) project. The steps include verifying the user’s permissions, retrieving the RFI type ID, retrieving the next custom identifier (optional), identifying the assignee’s ID, and creating the RFI.
 
 ## [Before You Begin](#before-you-begin)
 
@@ -15,7 +15,7 @@ This tutorial demonstrates how to create an RFI item for an Autodesk Constructio
 - Verify that you have access to the relevant account and ACC project.
 - Find the relevant project ID for the project you want to create an RFI in by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the account ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`, and the project ID is `ce8edd30-ef28-467c-8d99-7d7051097ee0`.
 
-## [Step 1: Verify the Userâs Permissions](#step-1-verify-the-user-s-permissions)
+## [Step 1: Verify the User’s Permissions](#step-1-verify-the-user-s-permissions)
 
 To check if the user has permission to create RFIs, call [GET users/me](https://aps.autodesk.com/en/docs/acc/v1/reference/http/rfis-v3-users-me-GET/).
 
@@ -624,7 +624,7 @@ From the response above, you can extract the required information to build your 
   * Required attributes: `title` and `assignedTo`.
   * Permitted `assignedTo` values: `2UDYLKMEVARC`, `336SNF7WG2KU`, `V3KTJ2YVRF29`.
 
-In the next step, youâll use these values to build the request body. Make sure the status and required fields you send match whatâs allowed for your workflow, or the request will be rejected.
+In the next step, you’ll use these values to build the request body. Make sure the status and required fields you send match what’s allowed for your workflow, or the request will be rejected.
 
 ## [Step 2: Find the RFI Type ID](#step-2-find-the-rfi-type-id)
 

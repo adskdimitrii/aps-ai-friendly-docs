@@ -11,14 +11,14 @@ Autodesk.Viewing.Extensions
 CrossFadeEffects extension provides API for implementing smooth fading effects in LMV, e.g.
 
 - CrossFading between models or model configurations (e.g. color theming, hiding objects etc.)
-- Image-based âghostingâ effect, i.e. showing a semitransparent snapshot of a model on top of another one.
+- Image-based “ghosting” effect, i.e. showing a semitransparent snapshot of a model on top of another one.
 
 The extension id is: `Autodesk.CrossFadeEffects`
 
 Note:
 
 - Note that CrossFadeEffects require 2 extra RenderTargets. So, they should only be used for optional effects that can be skipped on weak devices.
-- CrossFade effects can only be used for one purpose at a time. When using them for a new feature, you have to make sure that they donât conflict with existing features.
+- CrossFade effects can only be used for one purpose at a time. When using them for a new feature, you have to make sure that they don’t conflict with existing features.
 
 ## [new CrossFadeEffects()](#new-crossfadeeffects)
 
@@ -43,7 +43,7 @@ Disables cross frade effects.
 
 ## [acquireControl(clientId, onClientChanged)](#acquirecontrol-clientid-onclientchanged)
 
-Fading targets may be used by different clients for different purposes. Thatâs okay as long as it does not happen concurrently.
+Fading targets may be used by different clients for different purposes. That’s okay as long as it does not happen concurrently.
 
 In case of conflicts, the last caller takes precedence.
 

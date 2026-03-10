@@ -141,7 +141,7 @@ forEachExtension(function(ext){
 
 ## [start(url, options, onSuccessCallback, onErrorCallback, initOptions)](#start-url-options-onsuccesscallback-onerrorcallback-initoptions)
 
-Initializes the viewer and loads any extensions specified in the constructorâs config parameter. If the optional parameters are specified, the start() function will use an optimized initialization sequence that results in faster model load. The parameters are the same as the ones for Viewer3D.loadModel and you do not need to call loadModel subsequently if the model is loaded via the call to start().
+Initializes the viewer and loads any extensions specified in the constructor’s config parameter. If the optional parameters are specified, the start() function will use an optimized initialization sequence that results in faster model load. The parameters are the same as the ones for Viewer3D.loadModel and you do not need to call loadModel subsequently if the model is loaded via the call to start().
 
 ### Parameters
 
@@ -186,7 +186,7 @@ When selection has changed set the pivot point to be in the middle, if Autodesk.
 
 ## [run()](#run)
 
-Triggers the Viewerâs render loop. Invoked automatically by [Autodesk.Viewing.Viewer3D#start](Viewing-Viewer3D.md#start/) method. Refer to [ViewerConfig.startOnInitialize](#fixMe/) to change startâs method behavior.
+Triggers the Viewer’s render loop. Invoked automatically by [Autodesk.Viewing.Viewer3D#start](Viewing-Viewer3D.md#start/) method. Refer to [ViewerConfig.startOnInitialize](#fixMe/) to change start’s method behavior.
 
 ## [localize()](#localize)
 
@@ -219,16 +219,16 @@ Expand all
 | loadAsHidden   boolean | By default, a new model is instantly shown and triggers viewer refreshes during loading. Setting this option avoids that. The model can then be shown later by calling showModel(). |
 | modelNameOverride   string | Allows host application to override model name used in UI. |
 | placementTransform   LmvMatrix4 | Applied to the model during loading. |
-| applyScaling   string, Object | Unit-Scaling that is applied to the model on load, e.g. { from: âftâ, to: âmâ }. If âfromâ is not set, it is determined from model metadata (if provided). If only âtoâ is set, you can just assign a string directly, e.g. applyScaling = âmâ is the same as applyScaling = { to: âmâ }. |
+| applyScaling   string, Object | Unit-Scaling that is applied to the model on load, e.g. { from: ‘ft’, to: ‘m’ }. If ‘from’ is not set, it is determined from model metadata (if provided). If only ‘to’ is set, you can just assign a string directly, e.g. applyScaling = ‘m’ is the same as applyScaling = { to: ‘m’ }. |
 | applyPlacementInModelUnits   boolean | Only relevant if options.placementTransform and options.applyScaling are both used at once. In this way, it controls the order in which placement and scaling happen: - False: Placement happens in viewer world-units. That is, applyScaling is done first, then the custom placementMatrix is applied. (Default behavior) - True: Placement happens in model units. That is, custom placementMatrix is applied first, then the unit scaling. |
-| onSuccessCallback   Autodesk.Viewing.Viewer3D~onLoadModelSuccess | A method that gets called when modelâs metadata loading is done and geometry streaming starts. |
+| onSuccessCallback   Autodesk.Viewing.Viewer3D~onLoadModelSuccess | A method that gets called when model’s metadata loading is done and geometry streaming starts. |
 | onErrorCallback   Autodesk.Viewing.Viewer3D~onLoadModelFailure | A method that gets called when loading fails. |
 
 * Required
 
 ## [isLoadDone(include)](#isloaddone-include)
 
-Check whether models are completely loaded This method checks all models in the model queue and load requests that havenât loaded the root model yet. A model is completely loaded when the root model is loaded, all of the geometry is loaded, the property database, if present is loaded and no textures are being loaded.
+Check whether models are completely loaded This method checks all models in the model queue and load requests that haven’t loaded the root model yet. A model is completely loaded when the root model is loaded, all of the geometry is loaded, the property database, if present is loaded and no textures are being loaded.
 
 ### Parameters
 
@@ -250,7 +250,7 @@ Expand all
 
 ## [waitForLoadDone(include)](#waitforloaddone-include)
 
-Wait for models to be completely loaded This method checks all models in the model queue and load requests that havenât loaded the root model yet. A model is completely loaded when the root model is loaded, all of the geometry is loaded, the property database, if there is one, is loaded and no textures are being loaded. If this method is called before the viewer is started, then it will wait until the viewer starts and at least one model start loading to check for the load completing
+Wait for models to be completely loaded This method checks all models in the model queue and load requests that haven’t loaded the root model yet. A model is completely loaded when the root model is loaded, all of the geometry is loaded, the property database, if there is one, is loaded and no textures are being loaded. If this method is called before the viewer is started, then it will wait until the viewer starts and at least one model start loading to check for the load completing
 
 ### Parameters
 
@@ -391,7 +391,7 @@ Reference [Autodesk.Viewing.Viewer3D#getState](Viewing-Viewer3D.md#getState/)
 
 Loads a view specified in the Manifest JSON. For 3D models it will use the camera values. For 2D models it will use the viewBox values.
 
-Notice that in order that the view will be properly set according to the modelâs transformation, the model has to be loaded first.
+Notice that in order that the view will be properly set according to the model’s transformation, the model has to be loaded first.
 
 ### Parameters
 
@@ -491,7 +491,7 @@ Returns information for each layer state: name, description, active. Activate a 
 
 | type | description |
 | --- | --- |
-| Array.<Object>, null | Array of layer states. If layers donât exist or are hidden, this methods returns null. |
+| Array.<Object>, null | Array of layer states. If layers don’t exist or are hidden, this methods returns null. |
 
 ## [setViewFromFile(model)](#setviewfromfile-model)
 
@@ -565,7 +565,7 @@ Sets the click behavior on the canvas to follow config. This is used to change t
 
 Show More
 
-Actions can be any of the following: âselectOnlyâ, âselectToggleâ, âdeselectAllâ, âisolateâ, âshowAllâ, âsetCOIâ, âfocusâ, âhideâ
+Actions can be any of the following: “selectOnly”, “selectToggle”, “deselectAll”, “isolate”, “showAll”, “setCOI”, “focus”, “hide”
 
 ---
 
@@ -779,7 +779,7 @@ Locks the selection of specific `nodes` (dbIds) in a given model. The `nodes` wi
 
 ## [unlockSelection(dbIds, model)](#unlockselection-dbids-model)
 
-This function will unlock the specified `nodes` (dbIds) for a specific `model`. If the `nodes` parameter is omitted then the specified `model`âs locked nodes will be unlocked. If the `model` parameter is omitted then the specified `nodes` will be unlocked for the viewer.model. If both parameters are omitted then all of the models in the viewer will release their locked nodes.
+This function will unlock the specified `nodes` (dbIds) for a specific `model`. If the `nodes` parameter is omitted then the specified `model`’s locked nodes will be unlocked. If the `model` parameter is omitted then the specified `nodes` will be unlocked for the viewer.model. If both parameters are omitted then all of the models in the viewer will release their locked nodes.
 
 ### Parameters
 
@@ -793,7 +793,7 @@ Checks whether selection is locked for a node
 
 ### Parameters
 
-| dbId*   number | the objectâs identifier. |
+| dbId*   number | the object’s identifier. |
 | --- | --- |
 | model   [Autodesk.Viewing.Model](Viewing-Model.md) | the model that contains the dbId. By default uses the initial model loaded into the scene. |
 
@@ -903,7 +903,7 @@ Not yet implemented for 2D.
 
 ### Parameters
 
-| dbId*   number | the objectâs identifier. |
+| dbId*   number | the object’s identifier. |
 | --- | --- |
 | model   [Autodesk.Viewing.Model](Viewing-Model.md) | the model that contains the dbId. By default uses the initial model loaded into the scene. |
 
@@ -958,7 +958,7 @@ Not yet implemented for 2D.
 
 ### Parameters
 
-| dbId*   number | the objectâs identifier. |
+| dbId*   number | the object’s identifier. |
 | --- | --- |
 | model   [Autodesk.Viewing.Model](Viewing-Model.md) | the model that contains the dbId. By default uses the initial model loaded into the scene. |
 
@@ -972,7 +972,7 @@ Not yet implemented for 2D.
 
 ### Parameters
 
-| dbId*   number | the objectâs identifier. |
+| dbId*   number | the object’s identifier. |
 | --- | --- |
 | model   [Autodesk.Viewing.Model](Viewing-Model.md) | the model that contains the dbId. By default uses the initial model loaded into the scene. |
 
@@ -1028,7 +1028,7 @@ Not applicable to 2D.
 
 ## [lockExplode(dbids, lock, model)](#lockexplode-dbids-lock-model)
 
-Lock node (dbid) so that it doesnât explode
+Lock node (dbid) so that it doesn’t explode
 
 Not applicable to 2D.
 
@@ -1049,7 +1049,7 @@ Not applicable to 2D.
 
 ## [isExplodeLocked(dbid, model)](#isexplodelocked-dbid-model)
 
-Check whether a dbid is locked so it doesnât explode.
+Check whether a dbid is locked so it doesn’t explode.
 
 Not applicable to 2D.
 
@@ -1069,7 +1069,7 @@ Not applicable to 2D.
 
 ## [toggleLockExplode(dbid, model)](#togglelockexplode-dbid-model)
 
-Toggle dbid lock so it doesnât explode
+Toggle dbid lock so it doesn’t explode
 
 Not applicable to 2D.
 
@@ -1243,7 +1243,7 @@ Reference [Autodesk.Viewing.Viewer3D#setNavigationLockSettings](Viewing-Viewer3D
 
 | type | description |
 | --- | --- |
-| boolean | The previous state of the lock (this may be used to restore the lock to itâs previous state). |
+| boolean | The previous state of the lock (this may be used to restore the lock to it’s previous state). |
 
 ## [getNavigationLock()](#getnavigationlock)
 
@@ -1259,7 +1259,7 @@ Gets the current state of the navigation lock.
 
 Updates the configuration of the navigation lock, i.e., which actions are available when navigation is locked.
 
-The configurable actions are âorbitâ, âpanâ, âzoomâ, ârollâ, âfovâ, âwalkâ, or âgotoviewâ. By default, none of the actions are enabled when the navigation is locked.
+The configurable actions are ‘orbit’, ‘pan’, ‘zoom’, ‘roll’, ‘fov’, ‘walk’, or ‘gotoview’. By default, none of the actions are enabled when the navigation is locked.
 
 Reference [Autodesk.Viewing.Viewer3D#setNavigationLock](Viewing-Viewer3D.md#setNavigationLock/)
 
@@ -1307,7 +1307,7 @@ Reference [Viewer3D#setActiveNavigationTool](Viewing-Viewer3D.md#setActiveNaviga
 
 | type | description |
 | --- | --- |
-| string | The toolâs name. |
+| string | The tool’s name. |
 
 ## [setDefaultNavigationTool(toolName)](#setdefaultnavigationtool-toolname)
 
@@ -1417,13 +1417,13 @@ Turns edge topology display on/off (where available).
 
 ## [fitToView(objectIds, model, immediate)](#fittoview-objectids-model-immediate)
 
-Fits camera to objects by ID. It fits the entire model if no ID is provided. Operation will fit to the modelâs bounding box when its object tree is not available.
+Fits camera to objects by ID. It fits the entire model if no ID is provided. Operation will fit to the model’s bounding box when its object tree is not available.
 
 ### Parameters
 
 | objectIds   Array.<number>, null | array of Ids to fit into the view. Avoid passing this value to fit the entire model. |
 | --- | --- |
-| model   [Autodesk.Viewing.Model](Viewing-Model.md), null | The model containing the `objectIds`. If falsey, the viewerâs current model will be used. |
+| model   [Autodesk.Viewing.Model](Viewing-Model.md), null | The model containing the `objectIds`. If falsey, the viewer’s current model will be used. |
 | immediate   boolean | true to avoid the default transition. |
 
 ## [setClickConfig(what, where, newAction)](#setclickconfig-what-where-newaction)
@@ -1432,10 +1432,10 @@ Modifies a click action configuration entry.
 
 ### Parameters
 
-| what*   string | which click config to modify (one of âclickâ, âclickAltâ, âclickCtrlâ, âclickShiftâ, âclickCtrlShiftâ). |
+| what*   string | which click config to modify (one of “click”, “clickAlt”, “clickCtrl”, “clickShift”, “clickCtrlShift”). |
 | --- | --- |
-| where*   string | hit location selector (one of âonObjectâ, âoffObjectâ). |
-| newAction*   Array.<string> | action list (containing any of âsetCOIâ, âselectOnlyâ, âselectToggleâ, âdeselectAllâ, âdeselectAllâ, âisolateâ, âshowAllâ, âhideâ, âfocusâ). |
+| where*   string | hit location selector (one of “onObject”, “offObject”). |
+| newAction*   Array.<string> | action list (containing any of “setCOI”, “selectOnly”, “selectToggle”, “deselectAll”, “deselectAll”, “isolate”, “showAll”, “hide”, “focus”). |
 
 * Required
 
@@ -1451,9 +1451,9 @@ Fetch a click action configuration entry.
 
 ### Parameters
 
-| what*   string | which click config to fetch (one of âclickâ, âclickAltâ, âclickCtrlâ, âclickShiftâ, âclickCtrlShiftâ). |
+| what*   string | which click config to fetch (one of “click”, “clickAlt”, “clickCtrl”, “clickShift”, “clickCtrlShift”). |
 | --- | --- |
-| where*   string | hit location selector (one of âonObjectâ, âoffObjectâ). |
+| where*   string | hit location selector (one of “onObject”, “offObject”). |
 
 * Required
 
@@ -1654,7 +1654,7 @@ Set units for quantities displayed in the property panel. Only setting linear (d
 
 ### Parameters
 
-| value*   string | display units to set. The units can be ââ (file units), âmmâ, âcmâ, âmâ, âinâ, âftâ, âft-and-fractional-inâ, âft-and-decimal-inâ, âdecimal-inâ, âdecimal-ftâ, âfractional-inâ, âm-and-cmâ, |
+| value*   string | display units to set. The units can be “” (file units), “mm”, “cm”, “m”, “in”, “ft”, “ft-and-fractional-in”, “ft-and-decimal-in”, “decimal-in”, “decimal-ft”, “fractional-in”, “m-and-cm”, |
 | --- | --- |
 
 * Required
@@ -1665,7 +1665,7 @@ Set the precision for quantities displayed in the property panel.
 
 ### Parameters
 
-| value*   number | precision for the units The value is the number of decimal values after the â.â. For e.g., a value of 5 would be either 0.12345 or 1/32 (2^5) for fraction type units Values greater than 6 is not supported If value is not specified, it defaults to the precision in the file |
+| value*   number | precision for the units The value is the number of decimal values after the “.”. For e.g., a value of 5 would be either 0.12345 or 1/32 (2^5) for fraction type units Values greater than 6 is not supported If value is not specified, it defaults to the precision in the file |
 | --- | --- |
 
 * Required
@@ -1826,7 +1826,7 @@ See also [Autodesk.Viewing.Viewer3D#clientToWorld](Viewing-Viewer3D.md#clientToW
 
 | point*   THREE.Vector3 | Point in world space coordinates. |
 | --- | --- |
-| camera*   THREE.Camera | Optional camera to use - default is the viewerâs native camera. |
+| camera*   THREE.Camera | Optional camera to use - default is the viewer’s native camera. |
 
 * Required
 
@@ -1849,7 +1849,7 @@ See also [Autodesk.Viewing.Viewer3D#worldToClient](Viewing-Viewer3D.md#worldToCl
 | --- | --- |
 | clientY*   Number | Y coordinate where 0 is top |
 | ignoreTransparent   Boolean | Ignores transparent materials |
-| ignore2dModelBounds   boolean | For 2d models - whether to return a result outside of the modelâs bounds. |
+| ignore2dModelBounds   boolean | For 2d models - whether to return a result outside of the model’s bounds. |
 | ignore2dModelsOn3d   boolean | Whether to ignore 2d models when in 3d mode. |
 
 * Required
@@ -1926,18 +1926,18 @@ viewer.set2dSelectionColor(new THREE.Color(0xFF0000), 0.1); // red color, opacit
 
 ## [setTheme(name)](#settheme-name)
 
-Sets the current UI theme of the viewer. Supported values are âlight-themeâ and âdark-themeâ, which is the default.
+Sets the current UI theme of the viewer. Supported values are “light-theme” and “dark-theme”, which is the default.
 
 ### Parameters
 
-| name*   string | Name of the theme, it will be added to the viewerâs container class list. |
+| name*   string | Name of the theme, it will be added to the viewer’s container class list. |
 | --- | --- |
 
 * Required
 
 ## [setThemingColor(dbId, color, model, recursive)](#setthemingcolor-dbid-color-model-recursive)
 
-Highlight an object with a theming color that is blended with the original objectâs material.
+Highlight an object with a theming color that is blended with the original object’s material.
 
 ### Parameters
 
@@ -1960,7 +1960,7 @@ Restore original colors for all themed shapes.
 
 ## [setMaterialsToDefaults(model)](#setmaterialstodefaults-model)
 
-Restore original materials of a model if they were overwritten, e.g. by Autodesk.Viewing.Viewer3D#setView.â
+Restore original materials of a model if they were overwritten, e.g. by Autodesk.Viewing.Viewer3D#setView.”
 
 ### Parameters
 
@@ -2034,7 +2034,7 @@ Returns all models loaded in the viewer.
 
 ## [getFirstModel()](#getfirstmodel)
 
-Returns the first model, according to the environment. If we are in 2D, returns the first sheet. If we are in 3D, returns the first 3D model, regardless if a 2D sheet was loaded before. Note: If thereâs only 2D models in a 3D environment it will return null.
+Returns the first model, according to the environment. If we are in 2D, returns the first sheet. If we are in 3D, returns the first 3D model, regardless if a 2D sheet was loaded before. Note: If there’s only 2D models in a 3D environment it will return null.
 
 ### Returns
 
@@ -2186,7 +2186,7 @@ Get a list of all the modes that are available for the given extensionID.
 
 | type | description |
 | --- | --- |
-| Array.<string> | array of the extensionâs modes. |
+| Array.<string> | array of the extension’s modes. |
 
 ## [hitTest(x, y, ignoreTransparent)](#hittest-x-y-ignoretransparent)
 

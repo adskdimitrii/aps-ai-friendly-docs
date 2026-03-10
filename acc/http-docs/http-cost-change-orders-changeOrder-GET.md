@@ -11,7 +11,7 @@ GET
 # v1/containers/{containerId}/change-orders/{changeOrder}
 
 Retrieves a list of change orders of a specified change order type, including PCO (potential change orders), RFQ (requests for quote), SCO (supplier change orders), RCO (requests for change order), and OCO (owner change orders). The fields returned in the response vary according to the type of change order that you request.
-Note that requests for change order (RCO) may be referred to as âchange order requestsâ (COR) in some Construction Cloud contexts. These two terms are interchangeable.
+Note that requests for change order (RCO) may be referred to as “change order requests” (COR) in some Construction Cloud contexts. These two terms are interchangeable.
 
   Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
@@ -28,7 +28,7 @@ Note that requests for change order (RCO) may be referred to as âchange ord
 ## [Headers](#headers)
 
 - Authorization*string Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow.
-- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
+- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
 
 * Required
 
@@ -53,7 +53,7 @@ Note that requests for change order (RCO) may be referred to as âchange ord
 | filter[sourceId]   string: UUID | Returns only change orders that were generated from the PCO with the provided ID, in UUID format. |
 | filter[contractId]   array: string: uuid | Returns only items associated with the contracts identified on this list of IDs. Separate multiple IDs with commas; for example:`filter[contractId]=id1,id2`. <br>You can also provide a value of `blank` to return items that are not linked to any contract; for example:`filter[contractId]=blank`. |
 | filter[mainContractId]   array: string: uuid | The Main Contract ID. Separate multiple IDs with commas. For example, `filter[mainContractId]=id1,id2`, or filter these items that are not linked to any main contract `filter[mainContractId]=blank`. |
-| include   array: string | Include nested resources in the response. For example, `include=costItems` will return the related cost items with the change order. `include=attributes` will return custom attributes which represents the âpropertiesâ in the response. Possible values: `costItems`, `costItems[changeOrders]`, `attributes`, `comments`. |
+| include   array: string | Include nested resources in the response. For example, `include=costItems` will return the related cost items with the change order. `include=attributes` will return custom attributes which represents the “properties” in the response. Possible values: `costItems`, `costItems[changeOrders]`, `attributes`, `comments`. |
 | filter[budgetStatus]   array: string | Returns only the items that are linked to budgets that have the specified status codes. Separate multiple codes with commas. For example, `filter[budgetStatus]=draft,open`. Possible values `draft`, `open`, `submitted`, `accepted`, `approved`, `executed`, `rejected`. For more information about cost item budget statuses, see [Cost Item Statuses](https://help.autodesk.com/view/BUILD/ENU/?guid=Cost_Change_Order_Statuses#cost-item-statuses). |
 | filter[costStatus]   array: string | Returns only the items that have the specified status codes. Separate multiple codes with commas. For example, `filter[budgetStatus]=draft,open`. Possible values `draft`, `open`, `pricing`, `proposed`, `accepted`, `approved`, `executed`, `rejected`. For more information about cost item cost statuses, see [Cost Item Statuses](https://help.autodesk.com/view/BUILD/ENU/?guid=Cost_Change_Order_Statuses#cost-item-statuses). |
 | filter[lastModifiedSince]   string | Returns only items that were modified since the specified date and time, in ISO 8601 format. For example, `filter[lastModifiedSince]=2020-03-01T13:00:00Z`. |
@@ -99,8 +99,8 @@ Expand all
 | description   string | The detail description of the Change Order. <br>Max length: 2048 |
 | type   string,null | The type of the change order. It is customizable by the project admin. |
 | scope   enum:string | The scope of the change order. Possible values: `out`, `in`, `tbd` , `budgetOnly`, `contingency`. |
-| creatorId   string | The ID of the change orderâs creator, a project user managed by BIM 360 Admin. |
-| ownerId   string | The ID of the change orderâs owner, a project user managed by BIM 360 Admin. |
+| creatorId   string | The ID of the change order’s creator, a project user managed by BIM 360 Admin. |
+| ownerId   string | The ID of the change order’s owner, a project user managed by BIM 360 Admin. |
 | changedBy   string | The ID of the person who lastly changed the change order, a project user managed by BIM 360 Admin. |
 | markupFormulaId   string | Not relevant |
 | appliedBy   string,null | Not relevant |
@@ -119,12 +119,12 @@ Expand all
 | proposedRevisedCompletionDate   string,null | The proposed revised completion date of the change order. |
 | note   string | The note to the change order. Tiptap formatted rich text (<https://tiptap.dev/introduction/>). |
 | sourceId   string,null | The ID of the source of the RFQ, ususally the PCO ID. |
-| externalId   string | The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the itemâs ID in the external system. <br>Max length: 255 |
+| externalId   string | The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the item’s ID in the external system. <br>Max length: 255 |
 | externalSystem   string | The name of the external ERP system integrated with Cost Management. Use this name to identify and search for data within the integrated system. <br>Max length: 255 |
 | externalMessage   string | A message generated by the external ERP system that explains the sync status of the integration. For example, common values include `success` or `fail` to indicate the result of the integration operation. <br>Max length: 255 |
 | lastSyncTime   datetime: ISO 8601 | The date and time when the item was last synchronized with the external ERP system. This value is updated by the external system and is in ISO 8601 format. |
 | integrationState   string,null | The state of the item during the integration with the external ERP system (such as SignNow). An item can be a `budget`, `contract`, `main contract`, `main contract item`, `cost item`, `expense`, `expense item`, `change order`, or `schedule of value`. For more details, see [Integrate with External System](../how-to-docs/cost-integrate-with-external-system.md) tutorial. Possible values: <br>`locked`: the item is currently locked within the ERP system, preventing modifications until unlocked. To unlock and modify the item, use the relevant PATCH endpoint to set `integrationState` to `null`. For example, for a budget, call [PATCH budgets](en/docs/bim360/v1/reference/http/cost-budgets-budgetId-PATCH/). For a contract, call [PATCH contracts](en/docs/bim360/v1/reference/http/cost-contracts-contractId-PATCH/). For more details, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Integrated_and_Locked).<br>`integrated`: the item has been successfully added to the ERP system.<br>`failed`: the item encountered an error during the integration process and was not successfully added to the ERP system. For example, if a user tries to integrate `contracts` from an ERP system and the updates fail, the `integrationState` can be set to `failed`. Retry the sync process or analyze the issue if it continues to fail.<br>`null`: The item has not been integrated with the ERP system. This is default value.<br>For more information regarding integrations within the Cost Management system, see [Integrations in Cost Management](https://help.autodesk.com/view/BUILD/ENU/?guid=Cost_Integrations). |
-| integrationStateChangedAt   string,null | The date and time that the itemâs integration status was last changed. |
+| integrationStateChangedAt   string,null | The date and time that the item’s integration status was last changed. |
 | integrationStateChangedBy   string,null | The user who last changed the integration status. This is the ID of a user managed by the BIM 360/ACC Admin. |
 | createdAt   datetime: ISO 8601 | The date and time that the item was created, in ISO 8601 format. |
 | updatedAt   datetime: ISO 8601 | The date and time that the item was last updated, in ISO 8601 format. |
@@ -141,7 +141,7 @@ Expand all
 | variableMarkupFormulaItems   array: object | The variables when apply markup formula. |
 | id   string | The id of the markup formula item. |
 | amount   number,string,null | The amount of the markup formula item. |
-| companyId   string,null | The BIM360/ACC ID of the company. For RFQ & SCO itâs the supplier company. For OCO and OCO itâs the owner company. For PCO, when PCO acts as RFQ itâs the supplier company, when PCO asts as RCO itâs the owner company, otherwise itâs empty. |
+| companyId   string,null | The BIM360/ACC ID of the company. For RFQ & SCO it’s the supplier company. For OCO and OCO it’s the owner company. For PCO, when PCO acts as RFQ it’s the supplier company, when PCO asts as RCO it’s the owner company, otherwise it’s empty. |
 | companyUid   string,null | The unique ID (UUID) of the company in this account. Detailed company information can be retrieved using this UUID by calling [GET companies/:company_id](en/docs/bim360/v1/reference/http/companies-:company_id-GET/) in the response. |
 | architectCompanyId   string,null | The BIM360/ACC ID of the architecture firm. |
 | architectCompanyUid   string,null | The unique ID (UUID) of the company in this account. Detailed company information can be retrieved using this UUID by calling [GET companies/:company_id](en/docs/bim360/v1/reference/http/companies-:company_id-GET/) in the response. |
@@ -156,7 +156,7 @@ Expand all
 | comments   array: object | The list of comments associated with the change order. |
 | createdAt   string | The date and time when the comment was created, in ISO 8601 format. |
 | content   string | The text content of the comment. |
-| creatorId   string | The BIM 360/ACC user ID of the commentâs author. For details about the author, see [GET users](http-admin-projectsprojectId-users-GET.md). |
+| creatorId   string | The BIM 360/ACC user ID of the comment’s author. For details about the author, see [GET users](http-admin-projectsprojectId-users-GET.md). |
 
 ## [Example](#example)
 

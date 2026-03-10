@@ -234,7 +234,7 @@ List of errors
 
 | 200   OK | Successful request; information of token returned. |
 | --- | --- |
-| 400   Invalid Request | The request is missing a required parameter âtokenâ. |
-| 400   Invalid Request | The âclient_idâ is not supported in the request body when Authorization headers are present. |
+| 400   Invalid Request | The request is missing a required parameter ‘token’. |
+| 400   Invalid Request | The ‘client_id’ is not supported in the request body when Authorization headers are present. |
 | 401   Invalid credentials | The client credentials are invalid. |
 | 500   Internal Server Error | Generic internal server error. |

@@ -22,7 +22,7 @@ Return name of the tool returned as an array
 
 | type | description |
 | --- | --- |
-| Array.<string> | [âhotkeysâ] |
+| Array.<string> | [“hotkeys”] |
 
 ## [getName()](#getname)
 
@@ -32,7 +32,7 @@ Return name of HotkeyManager tool
 
 | type | description |
 | --- | --- |
-| string | âhotkeysâ |
+| string | “hotkeys” |
 
 ## [pushHotkeys(id, hotkeys, options)](#pushhotkeys-id-hotkeys-options)
 

@@ -22,7 +22,7 @@ Note that for uploading objects smaller than 100 MB we recommend using the [PUT 
 
 To check the upload status, use the [GET buckets/:bucketKey/objects/:objectKey/status/:sessionId](en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectKey-status-:sessionId-GET) endpoint.
 
-If you want to validate the integrity of the chunkâs content, then you can send the `x-ads-chunk-sha1` header.
+If you want to validate the integrity of the chunk’s content, then you can send the `x-ads-chunk-sha1` header.
 
 Note this header must be the SHA-1 checksum of the chunk represented as a hexadecimal string, it is not a mechanism for validating the integrity of the entire file.
 
@@ -38,7 +38,7 @@ Note this header must be the SHA-1 checksum of the chunk represented as a hexade
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
+| Authorization*   string | Must be “Bearer `<token>`”, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
 | --- | --- |
 | Content-Disposition   string | OSS will record the value of the header and on download, would send the header contents down. |
 | Content-Length*   integer | Size in bytes of the data chunk being uploaded.   We recommend uploading 5 MB chunks.   Note that chunks must be larger than 2 MB. |
@@ -64,7 +64,7 @@ Note this header must be the SHA-1 checksum of the chunk represented as a hexade
 | 202   ACCEPTED | Server acknowledges receiving data chunk. |
 | 400   BAD REQUEST | The request could not be understood by the server due to malformed syntax or missing request headers. The client SHOULD NOT repeat the request without modifications. The response body may give an indication of what is wrong with the request. |
 | 401   UNAUTHORIZED | The supplied Authorization header was not valid or the supplied token scope was not acceptable. Verify Authentication and try again. |
-| 403   FORBIDDEN | The Authorization was successfully validated but permission is not granted. Donât try again unless you solve permissions first. |
+| 403   FORBIDDEN | The Authorization was successfully validated but permission is not granted. Don’t try again unless you solve permissions first. |
 | 404   NOT FOUND | The specified bucket does not exist. |
 | 409   CONFLICT | Unable to persist data. |
 | 416   REQUEST RANGE NOT SATISFIABLE | Missing Content-Range header. |
@@ -127,11 +127,11 @@ This is an example where an object could be uploaded in seven steps. It is not n
 
 - Upload 1 byte: 0-0/100, Response 202
 - Upload 15 bytes: 46-60/100, Response 202
-- â¦
+- …
 - Final Update: Response 200
 
 Initial byte is 0, final is 99, total is 100.
-âRange=bytes=0-0,1-15,16-30,31-45,46-60,61-90,91-99â;
+“Range=bytes=0-0,1-15,16-30,31-45,46-60,61-90,91-99”;
 Each non-final step will return a 202 Accepted.
 
 ### Request
@@ -197,8 +197,8 @@ Show More
 Invalid Content-Range Header (416)
 
 Body length should be compatible with Content-Range.
-âContent-Range=bytes 15-30/100â requires 16 bytes in body, [15,16,17,..,30] but found 15.
-âContent-Range=bytes 16-30/100â would be valid for this case.
+“Content-Range=bytes 15-30/100” requires 16 bytes in body, [15,16,17,..,30] but found 15.
+“Content-Range=bytes 16-30/100” would be valid for this case.
 
 ### Request
 

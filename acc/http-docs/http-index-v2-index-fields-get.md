@@ -61,7 +61,7 @@ Retrieve a specific fields dictionary associated with a properties index. Since 
 | category   string | The property database attribute category, can be null. |
 | type   enum: string | field data type. <br>Possible values: `Unknown`, `Boolean`, `Integer`, `Double`, `Blob`, `DbKey`, `String`, `LocalizableString`, `DateTime`, `GeoLocation`, `Position` |
 | name   string | The property database attribute name. |
-| uom   string | The property database attribute data type context or unit of measurement, e.g., âmâ, âftâ, âm^2â, âkip/inch^2â. |
+| uom   string | The property database attribute data type context or unit of measurement, e.g., “m”, “ft”, “m^2”, “kip/inch^2”. |
 
 ### Response
 
@@ -72,7 +72,7 @@ Retrieve a specific fields dictionary associated with a properties index. Since 
 | category   string | The property database attribute category, can be null. |
 | type   enum: string | field data type. <br>Possible values: `Unknown`, `Boolean`, `Integer`, `Double`, `Blob`, `DbKey`, `String`, `LocalizableString`, `DateTime`, `GeoLocation`, `Position` |
 | name   string | The property database attribute name. |
-| uom   string | The property database attribute data type context or unit of measurement, e.g., âmâ, âftâ, âm^2â, âkip/inch^2â. |
+| uom   string | The property database attribute data type context or unit of measurement, e.g., “m”, “ft”, “m^2”, “kip/inch^2”. |
 
 ### Response
 

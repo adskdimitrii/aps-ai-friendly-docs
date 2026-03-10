@@ -39,7 +39,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 
 ## [URI Parameters](#uri-parameters)
 
-| accountId   string: UUID | The account ID. You can derive it from your hub ID if necessary: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial âb.â from the hub ID to get your account ID. |
+| accountId   string: UUID | The account ID. You can derive it from your hub ID if necessary: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial “b.” from the hub ID to get your account ID. |
 | --- | --- |
 
 ### Request
@@ -81,7 +81,7 @@ Expand all
 | results   array: object | The returned array of data request records. |
 | id   string: UUID | The ID of the data request. |
 | description   string | The user-entered description of this data request. If not supplied, the default value is a null string. |
-| isActive   boolean | The data requestâs active/inactive status. Possible values: `true` the request is active; `false` the request is inactive. |
+| isActive   boolean | The data request’s active/inactive status. Possible values: `true` the request is active; `false` the request is inactive. |
 | accountId   string: UUID | The account ID. |
 | projectId   string: UUID | (Legacy): A single project ID for the data request. Superseded by `projectIdList`. |
 | projectIdList   array: string | A list of up to 50 project IDs included in the data request. This field contains the project IDs for which data is being extracted. If both `projectId` and `projectIdList` were included in the request, this field contains the values from `projectIdList`. |

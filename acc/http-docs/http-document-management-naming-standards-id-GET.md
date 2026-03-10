@@ -42,7 +42,7 @@ Note that we currently support one file naming standard per project.
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring: UUID The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the BIM 360 API you need to remove the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.To learn how to find the project ID, see the [Retrieve BIM 360 Account and Project ID](../how-to-docs/getting-started-retrieve-account-and-project-id.md) tutorial.
+- projectIdstring: UUID The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the BIM 360 API you need to remove the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.To learn how to find the project ID, see the [Retrieve BIM 360 Account and Project ID](../how-to-docs/getting-started-retrieve-account-and-project-id.md) tutorial.
 - idstring: UUID The ID of the file naming standard. The file naming standard is applied to the project files folder or its subfolders. To find the ID:
 
 - For the project files folder, call [GET hubs/:hub_id/projects/:project_id/topFolders](../../data/http-docs/http-hubs-hub_id-projects-project_id-topFolders-GET.md).
@@ -72,7 +72,7 @@ Expand all
 | name   string | The name of the file naming standard. |
 | definition   object | The file naming standard format. |
 | delimiter   string | A specified character, separating between multiple fields of a file name. <br>Possible values:<br>`-`: Hyphen.`_`: Underscore.`.`: Point.<br>Note that you cannot use the delimiter within a field name. |
-| fields   array: object | A list of objects defining a fileâs field names. <br>Note that the order of the objects that the endpoint returns in the response corresponds to the order of the fields that you set for the naming standard in the UI. |
+| fields   array: object | A list of objects defining a file’s field names. <br>Note that the order of the objects that the endpoint returns in the response corresponds to the order of the fields that you set for the naming standard in the UI. |
 | name   string | The name of the field. <br>Max length: 32 |
 | type   enum:string | The field type. <br>Possible values:<br>`ALPHANUMERIC`: Accepts all characters.`NONNUMERIC_TEXT`: Accepts all characters, excluding `0-9`.`NUMERIC`: Accepts `0-9`, comma `','`, plus `'+'`, minus `'-'`, percent `'%'`, period `'.'`, underscore `'_'`.`ARRAY`: A drop-down list.<br>Note that the `minLength` and `maxLength` properties are not included in the response for the `ARRAY` type. |
 | attributeId   number | The ID of the field. |
@@ -84,7 +84,7 @@ Expand all
 | value   string | A drop-down list value. |
 | description   string | A description of the drop-down list value. |
 | description   string | A description of the field. <br>Max length: 255 |
-| metadata   array: object | A list of objects defining a fileâs related attributes. These attributes do not appear in the file name. |
+| metadata   array: object | A list of objects defining a file’s related attributes. These attributes do not appear in the file name. |
 | attributeId   number | The ID of the related attribute. |
 | name   string | The name of the related attribute. <br>Max length: 32 |
 | type   enum:string | The related attribute type. <br>Possible values:<br>`ALPHANUMERIC`: Accepts all characters.`NONNUMERIC_TEXT`: Accepts all characters, excluding `0-9`.`NUMERIC`: Includes `0-9`, comma `','`, plus `'+'`, minus `'-'`, percent `'%'`, period `'.'`, underscore `'_'`.`ARRAY`: A drop-down list.`CLASSIFICATION`: Only relevant for a classification attribute.<br>Note that the `minLength` and `maxLength` properties are not included in the response for the `ARRAY` type. |

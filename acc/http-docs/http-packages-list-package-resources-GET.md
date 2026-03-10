@@ -10,7 +10,7 @@ GET
 
 # projects/{projectId}/packages/{packageId}/resources
 
-Retrieves a list of file versions (âresourcesâ) within a specified package.
+Retrieves a list of file versions (“resources”) within a specified package.
 
 With two-legged authentication, returns all resources in the package. With two-legged authentication and the `x-user-id` header, or with three-legged authentication, returns only the resources the current user has permission to access.
 
@@ -86,13 +86,13 @@ Expand all
 | updatedByName   string | The name of the user who last modified the file version. |
 | name   string | The file name in ACC Files. <br>Max length: 255 |
 | description   string | The description of the file version. |
-| isDeleted   boolean | Indicates whether the file version has been deleted. <br>`true` â The file version is deleted, either directly or because its parent folder was deleted.<br>`false` â The file version is not deleted. |
-| entityType   enum:string | The type of file version. Possible values:  > `SEED_FILE` â A document that was not split into sheets when uploaded to ACC Files.`DOCUMENT` â A document that was split into sheets when uploaded to ACC Files. |
+| isDeleted   boolean | Indicates whether the file version has been deleted. <br>`true` – The file version is deleted, either directly or because its parent folder was deleted.<br>`false` – The file version is not deleted. |
+| entityType   enum:string | The type of file version. Possible values:  > `SEED_FILE` – A document that was not split into sheets when uploaded to ACC Files.`DOCUMENT` – A document that was split into sheets when uploaded to ACC Files. |
 | parentFolderUrn   string | The ID (URN) of the parent folder that contains the file version. |
-| storageUrn   string | The URN of the file versionâs storage object. |
+| storageUrn   string | The URN of the file version’s storage object. |
 | customAttributes   array: object | A list of custom attributes assigned to the file version. <br>For more information, see [Customize Documents with Attributes](https://help.autodesk.com/view/DOCS/ENU/?guid=File_attributes). |
 | id   int | The unique identifier of the custom attribute. |
-| type   enum:string | The data type of the custom attribute. Possible values:  > `string` â Text field.`date` â Date field.`array` â Drop-down list. |
+| type   enum:string | The data type of the custom attribute. Possible values:  > `string` – Text field.`date` – Date field.`array` – Drop-down list. |
 | name   string | The name of the custom attribute. |
 | value   string | The value of the custom attribute. |
 | version   int | The version number of the resource in ACC Files. <br>This number increases when the file is completely replaced (for example, re-uploaded and overwritten), not when it is merely updated or saved. |

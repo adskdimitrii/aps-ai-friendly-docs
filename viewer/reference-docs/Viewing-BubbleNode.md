@@ -8,7 +8,7 @@ Autodesk.Viewing
 
 # BubbleNode
 
-Wrapper and helper for âbubbleâ data.
+Wrapper and helper for “bubble” data.
 
 Bubble is a container of various 2D or 3D viewables (and additional data) that may be generated from a single seed file. The bubble is a JSON structure of nodes that have different roles, for example, they may represent sheets, nested 2D/3D geometry, etc.
 
@@ -50,7 +50,7 @@ Returns a list of property database files. Previously, for v1, this list was har
 
 ### Parameters
 
-| viewableID   string | The viewable ID to get the property DB manifest for, defaults to this nodeâs GUID |
+| viewableID   string | The viewable ID to get the property DB manifest for, defaults to this node’s GUID |
 | --- | --- |
 
 ## [getRootNode()](#getrootnode)
@@ -71,7 +71,7 @@ Finds shared property DB if there is one.
 
 ### Parameters
 
-| viewableID   string | The viewable ID to use for looking up the property DB, defaults to this nodeâs GUID |
+| viewableID   string | The viewable ID to use for looking up the property DB, defaults to this node’s GUID |
 | --- | --- |
 
 ### Returns
@@ -86,7 +86,7 @@ Finds shared property DB if there is one.
 
 | type | description |
 | --- | --- |
-| string | The nodeâs name. |
+| string | The node’s name. |
 
 ## [guid()](#guid)
 
@@ -94,7 +94,7 @@ Finds shared property DB if there is one.
 
 | type | description |
 | --- | --- |
-| string | The nodeâs GUID. |
+| string | The node’s GUID. |
 
 ## [type()](#type)
 
@@ -102,7 +102,7 @@ Finds shared property DB if there is one.
 
 | type | description |
 | --- | --- |
-| string | The nodeâs type. |
+| string | The node’s type. |
 
 ## [extensions()](#extensions)
 
@@ -305,7 +305,7 @@ Looks for the viewable root path in this node and all its children.
 
 ## [getNamedViews()](#getnamedviews)
 
-Returns all the named view in the viewable. Named views are obtained from the documentâs manifest which contains camera information and a string identifier.
+Returns all the named view in the viewable. Named views are obtained from the document’s manifest which contains camera information and a string identifier.
 
 ### Returns
 
@@ -356,19 +356,19 @@ Finds nodes from the bubble matching one or more properties.
 
 ```
 
-// { âpropertyâ:âvalueâ [, âpropertyâ:âvalueâ, â¦] }
+// { “property”:”value” [, “property”:”value”, …] }
 // or use named preset objects:
-// BubbleNode.MODEL_NODE { âroleâ:â3dâ, âtypeâ:âgeometryâ }
-// BubbleNode.GEOMETRY_SVF_NODE { âroleâ:âgraphicsâ, âmimeâ: âapplication/autodesk-svfâ }
-// BubbleNode.SHEET_NODE { âroleâ:â2dâ, âtypeâ:âgeometryâ }
-// BubbleNode.LEAFLET_NODE { âroleâ:âleafletâ }
-// BubbleNode.IMAGE_NODE { âroleâ:âimageâ }
-// BubbleNode.GEOMETRY_F2D_NODE { âroleâ:âgraphicsâ, âmimeâ: âapplication/autodesk-f2dâ }
-// BubbleNode.VIEWABLE_NODE { âroleâ:âviewableâ }
-// BubbleNode.AEC_MODEL_DATA { âroleâ:âAutodesk.AEC.ModelDataâ}
+// BubbleNode.MODEL_NODE { “role”:”3d”, “type”:”geometry” }
+// BubbleNode.GEOMETRY_SVF_NODE { “role”:”graphics”, “mime”: “application/autodesk-svf” }
+// BubbleNode.SHEET_NODE { “role”:”2d”, “type”:”geometry” }
+// BubbleNode.LEAFLET_NODE { “role”:”leaflet” }
+// BubbleNode.IMAGE_NODE { “role”:”image” }
+// BubbleNode.GEOMETRY_F2D_NODE { “role”:”graphics”, “mime”: “application/autodesk-f2d” }
+// BubbleNode.VIEWABLE_NODE { “role”:”viewable” }
+// BubbleNode.AEC_MODEL_DATA { “role”:”Autodesk.AEC.ModelData”}
 
-var singleProps = myBubbleNode.search({ âtypeâ:âgeometryâ });
-var multiProps = myBubbleNode.search({ âroleâ:â3dâ, âtypeâ:âgeometryâ });
+var singleProps = myBubbleNode.search({ “type”:”geometry” });
+var multiProps = myBubbleNode.search({ “role”:”3d”, “type”:”geometry” });
 var presetProps = myBubbleNode.search( myBubbleNode.SHEET_NODE );
 
 ---

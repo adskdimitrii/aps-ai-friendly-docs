@@ -6,17 +6,17 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/data-connector/dc-tutoria
 
 # Find and Update a Data Request
 
-This tutorial shows how to find and update an existing data request stored by the Data Connector service. For this example, weâll change the description of the data request created in the last tutorial. Weâll start by retrieving all your currently saved data requests so that we can find the appropriate data request and its data request ID. Weâll then examine the data requestâs current settings, and change its description.
+This tutorial shows how to find and update an existing data request stored by the Data Connector service. For this example, we’ll change the description of the data request created in the last tutorial. We’ll start by retrieving all your currently saved data requests so that we can find the appropriate data request and its data request ID. We’ll then examine the data request’s current settings, and change its description.
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](https://aps.autodesk.com/myapps)
-- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create`, `data:read`, and `data:write` scopes. The tokenâs authenticated user must have executive overview permissions.
-- Verify that you have access to a relevant BIM 360 account that contains at least one project. If you donât know your account ID, you can derive it from your hub ID: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial âb.â from the hub ID to get your account ID. For example, a hub ID of `b.c8b0c73d-3ae9` translates to an account ID of `c8b0c73d-3ae9`.
+- Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create`, `data:read`, and `data:write` scopes. The token’s authenticated user must have executive overview permissions.
+- Verify that you have access to a relevant BIM 360 account that contains at least one project. If you don’t know your account ID, you can derive it from your hub ID: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial “b.” from the hub ID to get your account ID. For example, a hub ID of `b.c8b0c73d-3ae9` translates to an account ID of `c8b0c73d-3ae9`.
 
 ## [Step 1: Get a List of Saved Requests](#step-1-get-a-list-of-saved-requests)
 
-Use [GET requests](en/docs/bim360/v1/reference/http/data-connector-requests-GET) to retrieve a list of your saved data requests. This endpoint retrieves a list that is restricted to the requesterâs saved data requests, so it wonât list any data requests created by other users. If you have many saved data requests, you can set request parameters to limit the number of returned requests, offset the point where you start returning requests, and set sort order. We wonât specify any of this, so the endpoint will use default settings of ascending sort order, a limit of 20 requests, and no offset.
+Use [GET requests](en/docs/bim360/v1/reference/http/data-connector-requests-GET) to retrieve a list of your saved data requests. This endpoint retrieves a list that is restricted to the requester’s saved data requests, so it won’t list any data requests created by other users. If you have many saved data requests, you can set request parameters to limit the number of returned requests, offset the point where you start returning requests, and set sort order. We won’t specify any of this, so the endpoint will use default settings of ascending sort order, a limit of 20 requests, and no offset.
 
 ### Request
 
@@ -71,13 +71,13 @@ curl -X GET 'https://developer.api.autodesk.com/data-connector/v1/accounts/<acco
 
 Show More
 
-The results returned by this endpoint report the ID, settings, and status of each data request (in this case just the single data request we created in the last tutorial). Weâll use the ID of the data request in the next step when we update the data request.
+The results returned by this endpoint report the ID, settings, and status of each data request (in this case just the single data request we created in the last tutorial). We’ll use the ID of the data request in the next step when we update the data request.
 
-Note that if you have the ID of a single data request for which you want to see status, you can use the [GET requests/:requestId](en/docs/bim360/v1/reference/http/data-connector-requests-requestId-GET/) endpoint instead of this endpoint to retrieve the requestâs status without having to list other data requests.
+Note that if you have the ID of a single data request for which you want to see status, you can use the [GET requests/:requestId](en/docs/bim360/v1/reference/http/data-connector-requests-requestId-GET/) endpoint instead of this endpoint to retrieve the request’s status without having to list other data requests.
 
-## [Step 2: Change Your Requestâs Active Status](#step-2-change-your-request-s-active-status)
+## [Step 2: Change Your Request’s Active Status](#step-2-change-your-request-s-active-status)
 
-To update your data requestâs description, use the [PATCH requests](en/docs/bim360/v1/reference/http/data-connector-requests-requestId-PATCH/) endpoint. It accepts a set of parameter settings that you want to change in the data request. You donât need to specify all the parameters settings, just the one you want to change. In this example, itâs description. Weâll change it to âMy Updated Weekly Extractâ.
+To update your data request’s description, use the [PATCH requests](en/docs/bim360/v1/reference/http/data-connector-requests-requestId-PATCH/) endpoint. It accepts a set of parameter settings that you want to change in the data request. You don’t need to specify all the parameters settings, just the one you want to change. In this example, it’s description. We’ll change it to “My Updated Weekly Extract”.
 
 ### Request
 

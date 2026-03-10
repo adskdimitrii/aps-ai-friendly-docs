@@ -1,14 +1,14 @@
-# Task 5 â Submit a WorkItem
+# Task 5 – Submit a WorkItem
 
 Source: https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/fusion/task5-post-workitem/
 
 ---
 
-# Task 5 â Submit a WorkItem
+# Task 5 – Submit a WorkItem
 
 When you post a WorkItem to the Automation Service, you are instructing the service to execute an Activity.
 
-The relationship between an Activity and a WorkItem can be thought of as the relationship between a âfunction definitionâ and âfunction callâ.
+The relationship between an Activity and a WorkItem can be thought of as the relationship between a “function definition” and “function call”.
 Named parameters of the Activity have corresponding named arguments of the WorkItem.
 Like in function calls, optional parameters of the Activity can be skipped and left unspecified while posting a WorkItem.
 
@@ -26,13 +26,13 @@ You will use the following operations to work with WorkItems in this task:
 
 ## [Step 1 - Generate a Personal Access Token](#step-1-generate-a-personal-access-token)
 
-To get a personal access token (PAT), simply access your autodesk profile via the following link: <https://profile.autodesk.com/security> and follow the instructions. Generate a PAT for product scope âFusion Automation APIâ or âProject Alpineâ. Either product scope will work.
+To get a personal access token (PAT), simply access your autodesk profile via the following link: <https://profile.autodesk.com/security> and follow the instructions. Generate a PAT for product scope “Fusion Automation API” or “Project Alpine”. Either product scope will work.
 
 The table below describes the different options for authentication and authorization for submitting Fusion WorkItems to the Automation Service.
 
 | Option | OAuth Type | Required Body Content | Notes | Use Case |
 | --- | --- | --- | --- | --- |
-| Submit for your activity on behalf of yourself as Fusion user | 2LO | PAT of Fusion user | The owner of the app of the 2LO token must be same as the user that has created the PAT. | Access is needed for a âservice userâsâ data that is aggregated from customers into one account |
+| Submit for your activity on behalf of yourself as Fusion user | 2LO | PAT of Fusion user | The owner of the app of the 2LO token must be same as the user that has created the PAT. | Access is needed for a “service user’s” data that is aggregated from customers into one account |
 | Submit for your activity on behalf of a different Fusion user | 3LO | PAT of Fusion user + Signed Activity ID | 3LO token must be for the same user as the PAT | Access is needed for direct customer data that logs in and allows it |
 
 ## [Step 2 - Create a WorkItem](#step-2-create-a-workitem)
@@ -62,7 +62,7 @@ To create a WorkItem to execute the Activity ConfigureDesignActivity:
 > | Attribute | Description |
 > | --- | --- |
 > | `activityId` | The fully qualified id of the activity (owner.activity+alias) this WorkItem will execute. |
-> | `arguments` | Contains all the parameters that need to be passed to the Activity specified by activityId. They must match the parameters you specified in Task 5, when you created the Activity. In this case we send over the PAT so DA4Fusion can access files on Fusion teams, aswell as âd3â: â40mmâ as in a map of parameters to change the height of the nut to 40mm, additonal to the fileURN of the design we want to change. |
+> | `arguments` | Contains all the parameters that need to be passed to the Activity specified by activityId. They must match the parameters you specified in Task 5, when you created the Activity. In this case we send over the PAT so DA4Fusion can access files on Fusion teams, aswell as “d3”: “40mm” as in a map of parameters to change the height of the nut to 40mm, additonal to the fileURN of the design we want to change. |
 >
 > The response contains the `id` of the posted WorkItem:
 >
@@ -80,7 +80,7 @@ To create a WorkItem to execute the Activity ConfigureDesignActivity:
 ## [Step 3 - Check status of the WorkItem](#step-3-check-status-of-the-workitem)
 
 WorkItems are queued before they are processed.
-A WorkItemâs processing time will vary depending on the size and complexity of the input files, the type of processing done by the AppBundle, and the size of the output files.
+A WorkItem’s processing time will vary depending on the size and complexity of the input files, the type of processing done by the AppBundle, and the size of the output files.
 
 In this walkthrough, you will be checking the WorkItem status to see if it has completed.
 However, the best practice is to use the `onComplete` argument when submitting a WorkItem.
@@ -125,4 +125,4 @@ Show More
 | Attribute | Description |
 | --- | --- |
 | `status` | Indicates if execution is pending, successful, failed or cancelled. |
-| `reportUrl` | The URL to get the report log for this WorkItemâs execution. |
+| `reportUrl` | The URL to get the report log for this WorkItem’s execution. |

@@ -84,7 +84,7 @@ curl -v 'https://developer.api.autodesk.com/construction/issues/v1/projects/b8c4
 
 Show More
 
-Note the ID of the issue for which you want to retrieve attachments. In this example, weâll use the first issue (`d4f9c2e1-3b8a-4c7d-9e2f-1a5b8c9d0e3f`) which has 3 attachments (`attachmentCount: 3`).
+Note the ID of the issue for which you want to retrieve attachments. In this example, we’ll use the first issue (`d4f9c2e1-3b8a-4c7d-9e2f-1a5b8c9d0e3f`) which has 3 attachments (`attachmentCount: 3`).
 
 ## [Step 2: Retrieve Attachments for a Specific Issue](#step-2-retrieve-attachments-for-a-specific-issue)
 

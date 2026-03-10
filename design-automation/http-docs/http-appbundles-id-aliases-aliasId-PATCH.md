@@ -48,7 +48,7 @@ Modify alias details.
 
 ## [HTTP Status Code Summary](#http-status-code-summary)
 
-| 200   OK | Successfully modify an AppBundleâs alias. |
+| 200   OK | Successfully modify an AppBundle’s alias. |
 | --- | --- |
 | 400   Bad Request | The request is invalid. |
 | 403   Forbidden | Maximum number of items exceeded. |
@@ -67,7 +67,7 @@ Modify alias details.
 
 ## [Example](#example)
 
-Successfully modify an AppBundleâs alias.
+Successfully modify an AppBundle’s alias.
 
 ### Request
 

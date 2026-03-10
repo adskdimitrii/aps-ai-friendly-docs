@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/oauth/v2/tutorials/get-3-legged-token-p
 
 # Get a 3-Legged Token with Authorization Code Grant (PKCE) for Public Clients
 
-If you need an end user to authorize your app to act on the userâs behalf, please refer this walkthrough.
+If you need an end user to authorize your app to act on the user’s behalf, please refer this walkthrough.
 
 The authorization code grant type with PKCE is used to obtain both access tokens and refresh tokens and is optimized for public clients.
 
@@ -16,11 +16,11 @@ This flow is very similar to the authorization code flow. However, in this case 
 
 Note that this walkthrough does not show you how to write server-side code. Instead, it uses cURL commands to illustrate the calls you need to instrument in your code.
 
-This walkthrough presupposes that the app is a web app and that it needs to read the userâs data.
+This walkthrough presupposes that the app is a web app and that it needs to read the user’s data.
 
 ## [Before You Begin](#before-you-begin)
 
-Before you begin, follow the [Create an App](create-app.md) walkthrough. Refer to the section, Step 2: Register an App and select Desktop, Mobile, Single-Page App to create your app on the APS developer Platform. Specify your appâs callback URL and note your client ID.
+Before you begin, follow the [Create an App](create-app.md) walkthrough. Refer to the section, Step 2: Register an App and select Desktop, Mobile, Single-Page App to create your app on the APS developer Platform. Specify your app’s callback URL and note your client ID.
 
 Refer to the following image to familiarize yourself with the PKCE overall flow:
 
@@ -28,22 +28,22 @@ Refer to the following image to familiarize yourself with the PKCE overall flow:
 
 ## [Step 1: Direct the User to the Authorization Web Flow with PKCE](#step-1-direct-the-user-to-the-authorization-web-flow-with-pkce)
 
-At some point in the UI of your web app, you will find that you need to get the end userâs consent to access APS resources on the userâs behalf. Depending on your app, you may do this when the user first starts using the app, or you may wait until your app actually needs to access the resource. Whatever the case, you will redirect the user to the [GET authorize](../http-docs/http-authorize-GET.md) endpoint in their browser. For example, you might provide a link that looks like the following:
+At some point in the UI of your web app, you will find that you need to get the end user’s consent to access APS resources on the user’s behalf. Depending on your app, you may do this when the user first starts using the app, or you may wait until your app actually needs to access the resource. Whatever the case, you will redirect the user to the [GET authorize](../http-docs/http-authorize-GET.md) endpoint in their browser. For example, you might provide a link that looks like the following:
 
 ```
 <a href="https://developer.api.autodesk.com/authentication/v2/authorize?response_type=code&client_id=GCi5oTYLE36CTUlcL7wWbhq9mC5DzG9w&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Foauth%2Fcallback%2F&nonce=1232132&scope=data:read&prompt=login&state=12321321&code_challenge=fePr9SDGJIToHximLHTRokkzkfzZksznrDIx9bexsto&code_challenge_method=S256">Click here to grant access to your data!</a>
 
 ```
 
-That `href` attribute is a bit difficult to read. Letâs break it down:
+That `href` attribute is a bit difficult to read. Let’s break it down:
 
 - `https://developer.api.autodesk.com/authentication/v2/authorize`     This is the endpoint URI and should be used verbatim.
 
-- `response_type=code`     This is what tells the OAuth server that youâre using the âAuthentication Codeâ grant type and should be used verbatim.
+- `response_type=code`     This is what tells the OAuth server that you’re using the “Authentication Code” grant type and should be used verbatim.
 
-- `client_id=GCi5oTYLE36CTUlcL7wWbhq9mC5DzG9w`     Replace the value here with your appâs client ID.
+- `client_id=GCi5oTYLE36CTUlcL7wWbhq9mC5DzG9w`     Replace the value here with your app’s client ID.
 
-- `redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Foauth%2Fcallback%2F`     This is the URL-encoded callback URL you want the user redirected to after they grant consent. In this example, the URL is `http://localhost:8080/oauth/callback/`. Replace the value here with the appropriate URL for your web app. Note that it must match the pattern specified for the callback URL in your appâs registration in the APS developer portal.
+- `redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Foauth%2Fcallback%2F`     This is the URL-encoded callback URL you want the user redirected to after they grant consent. In this example, the URL is `http://localhost:8080/oauth/callback/`. Replace the value here with the appropriate URL for your web app. Note that it must match the pattern specified for the callback URL in your app’s registration in the APS developer portal.
 
 - `scope=data:read`     This requests the `data:read` scope. You can leave this value as it is for the purpose of this example, but in your own app, you should request one or more scopes you actually need. If you need to include multiple scopes, you can include them all as space-delimited items. For example: `scope=data:create%20data:read%20data:write` includes `data:read`, `data:write`, and `data:create` scopes.
 
@@ -94,7 +94,7 @@ curl -v 'https://developer.api.autodesk.com/authentication/v2/token'
 
 Show More
 
-For this flow, you wouldnât be running cURL commands in your terminal anyway, but you can use this example to instrument the correct call in your server-side code.
+For this flow, you wouldn’t be running cURL commands in your terminal anyway, but you can use this example to instrument the correct call in your server-side code.
 
 A successful response, in relevant part, will look like this (the example is formatted for ease of reading):
 
@@ -108,4 +108,4 @@ A successful response, in relevant part, will look like this (the example is for
 
 ```
 
-Use the appropriate methods in your server-side code to extract the relevant information returned by the endpoint. You will then be able to use the access token to make calls to other API endpoints on behalf of the end user that require the `data:read` scope and have a âuser context requiredâ or âuser context optionalâ authentication context.
+Use the appropriate methods in your server-side code to extract the relevant information returned by the endpoint. You will then be able to use the access token to make calls to other API endpoints on behalf of the end user that require the `data:read` scope and have a “user context required” or “user context optional” authentication context.

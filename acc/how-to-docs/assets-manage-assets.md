@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/assets/manage-assets/
 
 # Managing ACC Assets
 
-Managing assets is the core of the functionality the Autodesk Construction Cloud Assets service provides. This tutorial demonstrates how to use the ACC Assets API to manage a ACC projectâs assets. This will include:
+Managing assets is the core of the functionality the Autodesk Construction Cloud Assets service provides. This tutorial demonstrates how to use the ACC Assets API to manage a ACC project’s assets. This will include:
 
 - Creating new assets
 - Updating existing assets
@@ -14,7 +14,7 @@ Managing assets is the core of the functionality the Autodesk Construction Cloud
 - Creating new relationships between assets and other entities (e.g. forms)
 - Deleting relationships between assets and other entities
 
-This tutorial assumes that the projectâs Asset settings have already been set up. For more details on how to do this,
+This tutorial assumes that the project’s Asset settings have already been set up. For more details on how to do this,
 see the [Setup ACC Assets Project Settings](assets-create-assets-project-settings.md) tutorial.
 
 ## [Batch Endpoints](#batch-endpoints)
@@ -23,7 +23,7 @@ In order to reduce the number of calls needed to manage assets, many of the Asse
 
 The specific syntax varies a bit between endpoints, but in general batch endpoints will accept a set of items, assets to create or category IDs to fetch for example, and return the relevant set of entities.
 
-When fetching entities in batch, invalid entities that are requested will simply be omitted from the response. It is the clientâs responsibility to ensure the requested entities are indeed present in the response.
+When fetching entities in batch, invalid entities that are requested will simply be omitted from the response. It is the client’s responsibility to ensure the requested entities are indeed present in the response.
 
 Batch endpoints generally support operating on up to 100 entities at a given time, unless otherwise noted in the endpoint documentation.
 
@@ -42,7 +42,7 @@ To create new assets, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`
 
 This is a batch endpoint that can be used to create multiple assets at a time. The endpoint accepts a set of asset definitions and returns the set of created assets.
 
-Unlike batch fetch endpoints, batch creating assets is âall-or-nothingâ. If any of the asset definitions in the request are invalid, none of the assets will be created and a `400 - Error: Bad Request` will be returned with a list of the violations that need to be corrected before the request can succeed.
+Unlike batch fetch endpoints, batch creating assets is “all-or-nothing”. If any of the asset definitions in the request are invalid, none of the assets will be created and a `400 - Error: Bad Request` will be returned with a list of the violations that need to be corrected before the request can succeed.
 
 For more details on finding out which categories, statuses, and custom attributes are available and required, see the [Retrieve ACC Assets Data](assets-retrieve-assets-data.md) tutorial.
 
@@ -134,7 +134,7 @@ To update existing assets, like the assets that were created in Step 1 above, us
 
 This is a batch endpoint that can be used to modify multiple assets at a time. The endpoint accepts a map of asset IDs to the desired asset patch updates, and returns the set of updated assets. Note that this is a patch and not a full update, so only the fields specified in the request body will be updated and the remaining fields will be left unaltered.
 
-Unlike batch fetch endpoints, batch updating assets is âall-or-nothingâ. If any of the asset patches in the request are invalid, none of the assets will be updated and a `400 - Error: Bad Request` will be returned with a list of the violations that need to be corrected before the request can succeed.
+Unlike batch fetch endpoints, batch updating assets is “all-or-nothing”. If any of the asset patches in the request are invalid, none of the assets will be updated and a `400 - Error: Bad Request` will be returned with a list of the violations that need to be corrected before the request can succeed.
 
 For more details on finding out which categories, statuses, and custom attributes are available and required, see the [Retrieve ACC Assets Data](assets-retrieve-assets-data.md) tutorial.
 
@@ -423,7 +423,7 @@ This is a batch endpoint that can be used to delete multiple assets at a time. T
 
 Note that when assets are deleted, they are always *soft* deleted. This means that the deleted assets are not fully removed from the assets service, but will not be returned when fetching assets unless you include the query parameter `includeDeleted=true`. Soft-deleted assets can be identified as having `isActive=false`.
 
-Unlike batch fetch endpoints, batch deleting assets is âall-or-nothingâ. If any of the asset IDs in the request are invalid, none of the assets will be deleted and a `400 - Error: Bad Request` will be returned with a list of the violations that need to be corrected before the request can succeed.
+Unlike batch fetch endpoints, batch deleting assets is “all-or-nothing”. If any of the asset IDs in the request are invalid, none of the assets will be deleted and a `400 - Error: Bad Request` will be returned with a list of the violations that need to be corrected before the request can succeed.
 
 ### Request
 

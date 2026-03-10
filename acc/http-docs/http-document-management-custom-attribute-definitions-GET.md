@@ -12,9 +12,9 @@ GET
 
 Retrieves a complete list of custom attribute definitions for all the documents in a specific folder, including custom attributes that have not been assigned a value, as well as the potential drop-down (`array`) values.
 
-To assign values to a documentâs custom attributes or to clear custom attribute values, call [POST custom-attributes:batch-update](http-document-management-custom-attributesbatch-update-POST.md).
+To assign values to a document’s custom attributes or to clear custom attribute values, call [POST custom-attributes:batch-update](http-document-management-custom-attributesbatch-update-POST.md).
 
-To retrieve the values that were assigned to a documentâs custom attributes, call [POST versions:batch-get](http-document-management-versionsbatch-get-POST.md).
+To retrieve the values that were assigned to a document’s custom attributes, call [POST versions:batch-get](http-document-management-versionsbatch-get-POST.md).
 
 For more details about custom attributes, see the [Update Custom Attributes](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/document-management/download-document/update-custom-attribute-values/) tutorial.
 
@@ -42,7 +42,7 @@ For more details about custom attributes, see the [Update Custom Attributes](htt
 
 ## [URI Parameters](#uri-parameters)
 
-| project_id   string: UUID | The ID of the project. This corresponds to the project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API to a project ID in the BIM 360 API you need to remove the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| project_id   string: UUID | The ID of the project. This corresponds to the project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API to a project ID in the BIM 360 API you need to remove the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 | folder_id   string | The URL-encoded ID (URN) of the folder. <br>For details about how to find the URN, follow the initial steps (1-3) of the [Download Files](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/document-management/download-document-s3/) tutorial. |
 

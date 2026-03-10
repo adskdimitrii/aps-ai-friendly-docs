@@ -1,10 +1,10 @@
-# Task 4 â Download STL file
+# Task 4 – Download STL file
 
 Source: https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-source-file-containing-xref/task4-download-stl-file/
 
 ---
 
-# Task 4 â Download STL file
+# Task 4 – Download STL file
 
 In order to download the translated STL file, you must wait until the translation job is complete. There are two ways you can do this:
 

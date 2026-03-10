@@ -35,7 +35,7 @@ Authentication errors are typically indicated by a 4xx HTTP status code in the r
 | ERR-001 | Rate limit of this API request is exceeded. Retry after some time. |
 | ERR-003 | Generic internal server error. |
 | ERR-004 | Your trial period has expired. |
-| ID-AUTH-005 | The token has been rejected. The given ID does not match the Userâs ID that authorized the token. |
+| ID-AUTH-005 | The token has been rejected. The given ID does not match the User’s ID that authorized the token. |
 | ID-GE-004 | The application encountered an unexpected error. |
 | ID-GE-005 | Unsupported media type. |
 | ID-GE-006 | Invalid input. The input passed to the API was either null, empty or not of the expected type. |
@@ -43,7 +43,7 @@ Authentication errors are typically indicated by a 4xx HTTP status code in the r
 | ID-GE-011 | Invalid characters found in the input data. This will come user enters firstname or lastname within <script> tag. |
 | ID-GP-001 | The Group does not exist in the system. TenantId or GroupId is wrong. |
 | ID-GP-007 | The user cannot be found in the system. |
-| ID-GP-014 | The value of user status is invalid. Allowed values are âenabledâ, âdisabledâ, and âallâ. |
+| ID-GP-014 | The value of user status is invalid. Allowed values are ‘enabled’, ‘disabled’, and ‘all’. |
 | ID-GP-018 | The user is not included in any group. |
 | ID-TN-020 | The domain name is already associated with other master tenant. |
 | ID-UU-002 | The first name field was too long. The first name is longer than the maximum of 75 characters or 128 bytes in UTF-8 encoding. |
@@ -109,6 +109,6 @@ APS services use standard HTTP status response codes in the response header to i
 | 403 | The request is understood, but it has been refused or access is not allowed. The response payload body provides further details of the error. |
 | 404 | The requested resource does not exist. Sometimes, when it is prudent to hide the existence of a resource from an unauthorized client, a 403 error may be generated instead of this error. |
 | 406 | An invalid format is specified in the request. |
-| 429 | The applicationâs rate limit for the resource has been exhausted. |
+| 429 | The application’s rate limit for the resource has been exhausted. |
 | 500 | Something is broken. This is usually a temporary error, for example in a high load situation or if an endpoint is temporarily having issues. |
 | 502 | API is down, or being upgraded. |

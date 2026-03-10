@@ -1,17 +1,17 @@
-# Task 5 â Prepare Cloud Storage
+# Task 5 – Prepare Cloud Storage
 
 Source: https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/autocad/task5-prepare_cloud_storage/
 
 ---
 
-# Task 5 â Prepare Cloud Storage
+# Task 5 – Prepare Cloud Storage
 
 In Task 6 you use a WorkItem to execute the Activity you created in the previous task. At that time, the Automation Service takes a drawing file from a cloud storage repository as input, processes it, and uploads the text file containing layer names back to cloud storage.
 The Automation Service does not retain the inputs or outputs. It simply downloads the input files, processes them, and saves the output files back to cloud storage. After that it discards the local copies of the files.
 
 While you can use any cloud storage service, in this task. you use the Data Management API to access the Object Storage Service (OSS) to store the input drawing file as well as define a placeholder for the output text file.
 
-The OSS is a cloud storage service that uses âBucketsâ as containers of data. The input and output files are stored as âObjectsâ in a Bucket.
+The OSS is a cloud storage service that uses “Buckets” as containers of data. The input and output files are stored as “Objects” in a Bucket.
 For more information on the OSS, refer the [Data Management API documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/).
 
 By the end of this task, you will be able to:
@@ -122,7 +122,7 @@ Show More
 
 The file itself can then be uploaded to the signed url as per the following example.
 
-**Note:** This upload is directly to S3 and doesnât need an `Authorization` header.
+**Note:** This upload is directly to S3 and doesn’t need an `Authorization` header.
 
 ### Request
 

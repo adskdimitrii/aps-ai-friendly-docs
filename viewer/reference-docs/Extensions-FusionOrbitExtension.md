@@ -35,13 +35,13 @@ viewer.loadExtension('Autodesk.Viewing.FusionOrbit')
 
 ## [activate(mode)](#activate-mode)
 
-Activates the extensionâs tool.
+Activates the extension’s tool.
 
 ### Parameters
 
-| mode   string | Either âfusionorbitâ (default) or âfusionfreeorbitâ. |
+| mode   string | Either ‘fusionorbit’ (default) or ‘fusionfreeorbit’. |
 | --- | --- |
 
 ## [deactivate()](#deactivate)
 
-Deactivates the extensionâs tool.
+Deactivates the extension’s tool.

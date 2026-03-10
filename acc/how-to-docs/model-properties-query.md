@@ -356,7 +356,7 @@ Show More
 
 ### Example Response
 
-The response from the `queries` endpoint is very similar to the response from the index status endpoints. The only additional property returned by this endpoint is a `queryId` value. This `queryId` is a unique identifier for the query execution and can be used to poll the progress of the query job. As with index status operations, a query is successful when its `state` is set to `FINISHED`. Index queries also have the standard `manifestUrl`, `fieldsUrl`, and `propertiesUrl` values that point to the index resources used when performing the query. In addition the `queries` endpoint also returns a `queryResultsUrl` property that points to a gzipâd, line delimited JSON resource that contains the filtered index rows that match the query filter expression when the query reaches the `FINISHED` state.
+The response from the `queries` endpoint is very similar to the response from the index status endpoints. The only additional property returned by this endpoint is a `queryId` value. This `queryId` is a unique identifier for the query execution and can be used to poll the progress of the query job. As with index status operations, a query is successful when its `state` is set to `FINISHED`. Index queries also have the standard `manifestUrl`, `fieldsUrl`, and `propertiesUrl` values that point to the index resources used when performing the query. In addition the `queries` endpoint also returns a `queryResultsUrl` property that points to a gzip’d, line delimited JSON resource that contains the filtered index rows that match the query filter expression when the query reaches the `FINISHED` state.
 
 ```
 {

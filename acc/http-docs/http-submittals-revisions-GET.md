@@ -10,7 +10,7 @@ GET
 
 # projects/{projectId}/items/{itemId}/revisions
 
-Retrieves the revision history of a specified submittal item, returning previous versions of its fields and associated workflow details. Each revision contains information about the itemâs previous states.
+Retrieves the revision history of a specified submittal item, returning previous versions of its fields and associated workflow details. Each revision contains information about the item’s previous states.
 
 To retrieve the most recent version of a submittal item, call [GET item](http-submittals-items-itemId-GET.md).
 
@@ -39,7 +39,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
 - itemIdstring The ID of the submittal item. To find the item ID, call [GET items](http-submittals-items-GET.md).
 
 ### Request
@@ -98,7 +98,7 @@ Expand all
 | respondedBy   string | The Autodesk ID of the user that gave the response to the submittal item. |
 | reviewerDueDate   datetime: ISO 8601 | Not relevant |
 | steps   array: object | A list of workflow steps for the submittal item at a specific revision. |
-| stepId   string: UUID | The unique identifier of the step within the submittal itemâs workflow for this revision. |
+| stepId   string: UUID | The unique identifier of the step within the submittal item’s workflow for this revision. |
 | revision   int | The revision number of the submittal item when this step was recorded. |
 | stepNumber   number | The order of the step in the workflow at this revision. The first step is `1`. |
 | daysToRespond   number | A way to specify a dynamic due date instead of the the regular dueDate field. When the step will start the due date will be calculated and assigned according to this field. |
@@ -108,7 +108,7 @@ Expand all
 | createdAt   datetime: ISO 8601 | The date when the step was created, formatted as YYYY-MM-DDTHH:mm:ss.SSSSSSZ (ISO 8601) in UTC. For example, `2018-02-15T12:09:24.198466Z`. |
 | updatedAt   datetime: ISO 8601 | The date when the step was last updated, formatted as YYYY-MM-DDTHH:mm:ss.SSSSSSZ (ISO 8601) in UTC. For example, `2018-02-15T12:09:24.198466Z`. |
 | tasks   array: object | A list of tasks related to a specific step within the workflow. |
-| taskId   string: UUID | The unique identifier of the task within this step, specific to the submittal itemâs revision. |
+| taskId   string: UUID | The unique identifier of the task within this step, specific to the submittal item’s revision. |
 | stepId   string: UUID | The ID of the step associated with this task in this revision. |
 | itemId   string: UUID | The ID of the submittal item associated with the task. |
 | revision   int | The revision number of the submittal item. |

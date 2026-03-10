@@ -994,7 +994,7 @@ The request must include the following fields:
 
 The following fields are optional:
 
-- The `categoryId` is typically assigned automatically based on the submittal itemâs current state. In most cases, you do not need to include `categoryId` in your request. However, for specific exceptions, you must provide it explicitly:
+- The `categoryId` is typically assigned automatically based on the submittal item’s current state. In most cases, you do not need to include `categoryId` in your request. However, for specific exceptions, you must provide it explicitly:
 
 > * Prepare for Review (`mgr-1`): By default, when the submittal item is in the Prepare for Review state, the `categoryId` is assigned automatically as `2` (for-review). If you want the attachment to be tagged as a Submit state attachment instead, you must explicitly set `categoryId` to `1` in the request.
 > * Final Response Attachments: If you are closing a submittal item from a state other than Close and Distribute (`mgr-2`), and you want the attachment to be marked as a final response, explicitly set `categoryId` to `4`.

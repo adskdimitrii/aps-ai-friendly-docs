@@ -8,11 +8,11 @@ Source: https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/field-guide/
 
 ## [Client](#client)
 
-The âClientâ is the application requesting access to a protected resource on behalf of the Resource Owner (User). There are 2 types of Clients namely Confidential Clients and Public Clients.
+The “Client” is the application requesting access to a protected resource on behalf of the Resource Owner (User). There are 2 types of Clients namely Confidential Clients and Public Clients.
 
 ### Confidential Clients
 
-Confidential clients are those who have the capability to keep the client_secret confidential. Mostly, these clients are only apps that run on a server under the developerâs control, with no access to the source code by the user.
+Confidential clients are those who have the capability to keep the client_secret confidential. Mostly, these clients are only apps that run on a server under the developer’s control, with no access to the source code by the user.
 
 A web application with a secure backend that uses the Authorization Code Flow is considered a Confidential application.
 
@@ -34,17 +34,17 @@ Public applications can only use grant types that do not require the use of thei
 
 ## [Client ID](#client-id)
 
-The âclient IDâ is essentially your appâs username and can be found in the [My Apps](https://aps.autodesk.com/myapps) section.
+The “client ID” is essentially your app’s username and can be found in the [My Apps](https://aps.autodesk.com/myapps) section.
 
-On other platforms, this is sometimes called âconsumer keyâ or âAPI keyâ.
+On other platforms, this is sometimes called “consumer key” or “API key”.
 
 It is an alphanumeric string (e.g., `5zw90va0UuwMKTnPS5sLsdgZjDkVYXN7`), and it is passed as the value for the `client_id` query parameter and JSON attribute.
 
 ## [Client Secret](#client-secret)
 
-The âclient secretâ is essentially your appâs password and can be found next to the client ID in the [My Apps](https://aps.autodesk.com/myapps) section.
+The “client secret” is essentially your app’s password and can be found next to the client ID in the [My Apps](https://aps.autodesk.com/myapps) section.
 
-On other platforms, this is sometimes called âconsumer secretâ or âAPI secretâ.
+On other platforms, this is sometimes called “consumer secret” or “API secret”.
 
 It is an alphanumeric string (e.g., `7I6uN1rjneirxiMW`), and it is passed as the value for the `client_secret` query parameter.
 
@@ -60,7 +60,7 @@ The authorization code is a 40-character string (e.g., `wroM1vFA4E-Aj241-quh_LVj
 
 ## [Access Token](#access-token)
 
-An access token (sometimes just âtokenâ or âbearer tokenâ) is returned at the end of a successful authentication flow.
+An access token (sometimes just “token” or “bearer token”) is returned at the end of a successful authentication flow.
 
 The token is used in subsequent API calls to APS. The platform keeps track of what resources the token is entitled to access and either allows or denies access at call time.
 

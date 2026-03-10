@@ -61,7 +61,7 @@ We recommend including the `<script>` tag to load the Viewer JavaScript library 
 
 #### Viewer Versions
 
-The `<script>` tag specifies the location of the Viewerâs JavaScript code, as well as the version of the library to download. In the example HTML above, the specified version is `7.*`, which pulls the latest minor version available for the major version 7 release.
+The `<script>` tag specifies the location of the Viewer’s JavaScript code, as well as the version of the library to download. In the example HTML above, the specified version is `7.*`, which pulls the latest minor version available for the major version 7 release.
 
 For example, if versions `7.0`, `7.1` and `7.2` are available, then requesting Viewer version `7.*` retrieves version `7.2`.
 
@@ -113,7 +113,7 @@ var options = {
     }
 };
 
-Autodesk.Viewing.FeatureFlags.set(âDS_ENDPOINTSâ, true); // Enable automatic region routing
+Autodesk.Viewing.FeatureFlags.set(‘DS_ENDPOINTS’, true); // Enable automatic region routing
 
 Autodesk.Viewing.Initializer(options, function() {
 

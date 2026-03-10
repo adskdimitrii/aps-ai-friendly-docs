@@ -78,7 +78,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 | name   string | The name of this LBS node. <br>Max length: 255 |
 | description   string | Not relevant |
 | barcode   string | The barcode that represents this LBS node. This value must be unique per project. <br>Max length: 255 |
-| order   int | This nodeâs position relative to its sibling nodes. Nodes with the same parent have a defined sequence order. A node with a lower `order` value will be positioned before a node with a higher `order` value. <br>This is zero-based; for example, a node with an `order` value of `3` is the fourth node among its sibling nodes.<br>If an existing sibling node has the same or higher `order` value, that value will be incremented to make room for the new node. |
+| order   int | This node’s position relative to its sibling nodes. Nodes with the same parent have a defined sequence order. A node with a lower `order` value will be positioned before a node with a higher `order` value. <br>This is zero-based; for example, a node with an `order` value of `3` is the fourth node among its sibling nodes.<br>If an existing sibling node has the same or higher `order` value, that value will be incremented to make room for the new node. |
 
 ## [Example](#example)
 

@@ -15,7 +15,7 @@ This tutorial covers:
 
 ## [Step 1: Load the Extension](#step-1-load-the-extension)
 
-To start using Edit2D, you first need to load the extension. In this example, we will register Edit2Dâs default toolset. You can learn how to create your own toolset, along with other customizations, in the [Customizing Edit2D](advanced_options-edit2d-customize.md) tutorial.
+To start using Edit2D, you first need to load the extension. In this example, we will register Edit2D’s default toolset. You can learn how to create your own toolset, along with other customizations, in the [Customizing Edit2D](advanced_options-edit2d-customize.md) tutorial.
 
 ```
 // Load Edit2D extension
@@ -35,7 +35,7 @@ Show More
 
 ## [Step 2: Connect Your App with Edit2D](#step-2-connect-your-app-with-edit2d)
 
-After youâve loaded the extension, make sure that the Edit2D toolset responds to your Viewer SDK application. Do this by setting up the Edit2D Context and configuring event handling.
+After you’ve loaded the extension, make sure that the Edit2D toolset responds to your Viewer SDK application. Do this by setting up the Edit2D Context and configuring event handling.
 
 ### 2.1 Set Edit2D Context
 
@@ -91,7 +91,7 @@ You can also synchronize selection with Edit2D for certain items in your UI usin
 
 One way to do this is to register a handler. The handler ensures the application is notified if selection changes.
 
-In the following example, weâve set the handler to listen for mouse clicks.
+In the following example, we’ve set the handler to listen for mouse clicks.
 
 ```
 // Register your handler
@@ -118,9 +118,9 @@ ctx.selection.setHoverID(shape.id);
 
 ```
 
-## [Whatâs Next?](#what-s-next)
+## [What’s Next?](#what-s-next)
 
-Now that youâve set up Edit2D, check out these tutorials:
+Now that you’ve set up Edit2D, check out these tutorials:
 
 - [Using the Edit2D Toolset](advanced_options-edit2d-use.md)
 - [Drawing Edit2D Shapes Manually](advanced_options-edit2d-manual.md)

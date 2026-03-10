@@ -10,7 +10,7 @@ Autodesk.Viewing.Extensions
 
 ## [new FullScreenExtension(viewer, options)](#new-fullscreenextension-viewer-options)
 
-Use its `activate()` method to enter fullscreen mode. It performs the same action as the toolbarâs fullscreen button.
+Use its `activate()` method to enter fullscreen mode. It performs the same action as the toolbar’s fullscreen button.
 
 The extension id is: `Autodesk.FullScreen`
 

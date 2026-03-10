@@ -10,7 +10,7 @@ PATCH
 
 # companies/:company_id/image
 
-Create or update a specific partner companyâs image.
+Create or update a specific partner company’s image.
 
   Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
 
@@ -37,7 +37,7 @@ Create or update a specific partner companyâs image.
 
 ## [URI Parameters](#uri-parameters)
 
-| account_id   string: UUID | The account ID of the company. This corresponds to hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID you need to remove the â**b.**" prefix. For example, a hub ID of **b.**c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. |
+| account_id   string: UUID | The account ID of the company. This corresponds to hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID you need to remove the “**b.**" prefix. For example, a hub ID of **b.**c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. |
 | --- | --- |
 | company_id   string: UUID | Company ID |
 

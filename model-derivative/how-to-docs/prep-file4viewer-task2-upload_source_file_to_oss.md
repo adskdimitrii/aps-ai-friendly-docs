@@ -1,10 +1,10 @@
-# Task 2 â Upload Source File to OSS
+# Task 2 – Upload Source File to OSS
 
 Source: https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-file4viewer/task2-upload_source_file_to_oss/
 
 ---
 
-# Task 2 â Upload Source File to OSS
+# Task 2 – Upload Source File to OSS
 
 The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Data Management API. In this task, you upload a zip file that contains an Inventor model to OSS.
 While you can use any model, for the purpose of learning we recommend that you use the model we provide ( *Suspension.zip* ). You can download this file from the *walkthrough_data* folder of the GitHub repository containing the Postman Collection for this walkthrough.

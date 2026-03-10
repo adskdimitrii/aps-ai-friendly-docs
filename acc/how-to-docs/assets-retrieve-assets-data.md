@@ -310,7 +310,7 @@ Show More
 
 To get the status set to category assignments, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) and category IDs obtained in Step 3 to call [POST assets/v1/projects/:projectId/category-status-step-sets/status-step-sets:batch-get](en/docs/acc/v1/reference/http/assets-category-status-step-sets-status-step-sets-batch-get-POST/).
 
-By default this will only return the status sets explicitly assigned to the given categories. If you wish to return each categoryâs effective status set assignment (taking inheritance into account), you can set the query parameter `includeInherited=true`.
+By default this will only return the status sets explicitly assigned to the given categories. If you wish to return each category’s effective status set assignment (taking inheritance into account), you can set the query parameter `includeInherited=true`.
 
 ### Request
 
@@ -571,7 +571,7 @@ For the Relationship API, your Container ID will simply be your Project ID.
 
 See the [Relationship v2 APIs documentation](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/#bim-360-relationships-api).
 
-You can search for all relationships in your project which include an âassetâ type using the following query parameters:
+You can search for all relationships in your project which include an “asset” type using the following query parameters:
 
 | Query Parameter | Value(s) |
 | --- | --- |

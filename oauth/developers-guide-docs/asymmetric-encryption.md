@@ -28,7 +28,7 @@ The /keys response includes a cache-control header matching this duration that c
 follow.
 
 As multiple keys are retrieved in the response, applications can identify the key to be used to validate a given
-token using the tokenâs kid (key ID) parameter. From the list of keys returned in the /keys response, choose the
+token using the token’s kid (key ID) parameter. From the list of keys returned in the /keys response, choose the
 key corresponding to the key ID to validate the signature.
 
 ## [Validate Access Token](#validate-access-token)
@@ -42,7 +42,7 @@ When validating an access token,
 > - Verify the claims added to the access token
 
 You can use an online interactive JWT debugger to try out the validation steps. This helps to verify your JWT for
-the token expiration time, the time it was issued and other relevant details. Refer to â<https://jwt.io/>â for an
+the token expiration time, the time it was issued and other relevant details. Refer to ‘<https://jwt.io/>’ for an
 example.
 
 We have listed a few code samples to perform these steps for you. It is helpful if you are using one of them. But,

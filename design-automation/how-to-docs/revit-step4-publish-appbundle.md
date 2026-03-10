@@ -1,10 +1,10 @@
-# Task 4 â Upload an AppBundle to the Automation Service
+# Task 4 – Upload an AppBundle to the Automation Service
 
 Source: https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/revit/step4-publish-appbundle/
 
 ---
 
-# Task 4 â Upload an AppBundle to the Automation Service
+# Task 4 – Upload an AppBundle to the Automation Service
 
 An AppBundle is a package of binaries and supporting files that make a Revit add-in.
 
@@ -91,7 +91,7 @@ Show More
 
 **Notes:**
 
-- `Type` must be `DBApplication`. The Automation Service doesnât support applications that need Revitâs UI functionality. `Assembly` must be a relative path to the DLL.
+- `Type` must be `DBApplication`. The Automation Service doesn’t support applications that need Revit’s UI functionality. `Assembly` must be a relative path to the DLL.
     You can find examples of the *bundle* folder and *PackageContent.xml* file in the presentation on Autodesk Exchange Revit Apps in [this presentation](https://github.com/ADN-DevTech/typepad-migration-dump/raw/refs/heads/main/AEC/Blog/_data/_assets/3_20Autodesk_20Exchange_20Publish_20Revit_20Apps_20-_20Preparing_20Apps_20for_20the_20Store_Guidelines.pptx?download=).
 
     You can use PackageContents.xml from any existing Autodesk Exchange Revit app with the Automation API. However, the Automation Service reads only the `RuntimeRequirements` and `ComponentEntry` blocks, which are circled in the image shown below.
@@ -235,7 +235,7 @@ curl -X POST \
 
 Show More
 
-**Note:** You can omit `id` from the request body. If you include `id` in the request body, set it to `null`. If you donât set it to `null`, the Automation Service returns an error.
+**Note:** You can omit `id` from the request body. If you include `id` in the request body, set it to `null`. If you don’t set it to `null`, the Automation Service returns an error.
 
 ### Response
 
@@ -322,17 +322,17 @@ curl -X PATCH \
 ## [Additional notes](#additional-notes)
 
 - Each AppBundle POST request specifies an `engine` on which the application runs. The following table shows the keywords to specify for the available Revit engines.
-- The `engine` must match the `SeriesMin` and `SeriesMax` settings specified in the AppBundleâs PackageContent.xml.
+- The `engine` must match the `SeriesMin` and `SeriesMax` settings specified in the AppBundle’s PackageContent.xml.
 - The active engine version aliases are:
 
 | Engine | Description | JSON in AppBundle post | DesignAutomationBridge DLL |
 | --- | --- | --- | --- |
-| `Autodesk.Revit+2021` | Revit 2021.1.7 | âengineâ: âAutodesk.Revit+2021â | [DesignAutomationBridge.dll](https://www.nuget.org/packages/Autodesk.Forge.DesignAutomation.Revit/2021.0.2) for 2021. |
-| `Autodesk.Revit+2022` | Revit 2022.1.3 | âengineâ: âAutodesk.Revit+2022â | [DesignAutomationBridge.dll](https://www.nuget.org/packages/Autodesk.Forge.DesignAutomation.Revit/2022.0.1) for 2022. |
-| `Autodesk.Revit+2023` | Revit 2023.1.1 | âengineâ: âAutodesk.Revit+2023â | [DesignAutomationBridge.dll](https://www.nuget.org/packages/Autodesk.Forge.DesignAutomation.Revit/2023.0.2) for 2023. |
-| `Autodesk.Revit+2024` | Revit 2024.0.0 | âengineâ: âAutodesk.Revit+2024â | [DesignAutomationBridge.dll](https://www.nuget.org/packages/Autodesk.Forge.DesignAutomation.Revit/2024.0.2) for 2024. |
-| `Autodesk.Revit+2025` | Revit 2025.3.0 | âengineâ: âAutodesk.Revit+2025â | [DesignAutomationBridge.dll](https://www.nuget.org/packages/Autodesk.Forge.DesignAutomation.Revit/2025.0.1) for 2025. |
-| `Autodesk.Revit+2026` | Revit 2026.3.0 | âengineâ: âAutodesk.Revit+2026â | [DesignAutomationBridge.dll](https://www.nuget.org/packages/Autodesk.Forge.DesignAutomation.Revit/2026.0.0) for 2026. |
+| `Autodesk.Revit+2021` | Revit 2021.1.7 | “engine”: “Autodesk.Revit+2021” | [DesignAutomationBridge.dll](https://www.nuget.org/packages/Autodesk.Forge.DesignAutomation.Revit/2021.0.2) for 2021. |
+| `Autodesk.Revit+2022` | Revit 2022.1.3 | “engine”: “Autodesk.Revit+2022” | [DesignAutomationBridge.dll](https://www.nuget.org/packages/Autodesk.Forge.DesignAutomation.Revit/2022.0.1) for 2022. |
+| `Autodesk.Revit+2023` | Revit 2023.1.1 | “engine”: “Autodesk.Revit+2023” | [DesignAutomationBridge.dll](https://www.nuget.org/packages/Autodesk.Forge.DesignAutomation.Revit/2023.0.2) for 2023. |
+| `Autodesk.Revit+2024` | Revit 2024.0.0 | “engine”: “Autodesk.Revit+2024” | [DesignAutomationBridge.dll](https://www.nuget.org/packages/Autodesk.Forge.DesignAutomation.Revit/2024.0.2) for 2024. |
+| `Autodesk.Revit+2025` | Revit 2025.3.0 | “engine”: “Autodesk.Revit+2025” | [DesignAutomationBridge.dll](https://www.nuget.org/packages/Autodesk.Forge.DesignAutomation.Revit/2025.0.1) for 2025. |
+| `Autodesk.Revit+2026` | Revit 2026.3.0 | “engine”: “Autodesk.Revit+2026” | [DesignAutomationBridge.dll](https://www.nuget.org/packages/Autodesk.Forge.DesignAutomation.Revit/2026.0.0) for 2026. |
 
 **Notes:**
 

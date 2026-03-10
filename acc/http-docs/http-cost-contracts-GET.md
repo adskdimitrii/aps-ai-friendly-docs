@@ -27,7 +27,7 @@ Retrieves the details of all contracts in the specified project.
 ## [Headers](#headers)
 
 - Authorization*string Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow.
-- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
+- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
 
 * Required
 
@@ -53,7 +53,7 @@ Retrieves the details of all contracts in the specified project.
 | filter[type]   array: string | Returns only contracts that are identified by the provided list of types. Separate multiple types with commas; for example:`filter[type]=type1,type2`. |
 | filter[externalSystem]   string | The name of the external ERP system. Use this name to identify or search within the integrated system. For example, `filter[externalSystem]=Sage300`. <br>Max length: 255 |
 | filter[externalId]   array: string | The ID of the item in the external ERP system. Use this ID to track or look up data in an integrated ERP system. For example, `filter[externalId]=id1,id2`. |
-| include   array: string | A list of resources related to the contract to include in the response. For example, `include=budgets` returns budgets related to the contract. `include=attributes` will return custom attributes which represents the âpropertiesâ in the response. If `idOnly` is set, the response contains only the contract IDs (`id`), and the other include items are ignored. Possible values: `budgets`, `attributes`, `idOnly`, `scheduleOfValues`, `compounded`, `companyERPId`, `companyTaxId`. |
+| include   array: string | A list of resources related to the contract to include in the response. For example, `include=budgets` returns budgets related to the contract. `include=attributes` will return custom attributes which represents the “properties” in the response. If `idOnly` is set, the response contains only the contract IDs (`id`), and the other include items are ignored. Possible values: `budgets`, `attributes`, `idOnly`, `scheduleOfValues`, `compounded`, `companyERPId`, `companyTaxId`. |
 | filter[lastModifiedSince]   string | Returns only items that were modified since the specified date and time, in ISO 8601 format. For example, `filter[lastModifiedSince]=2020-03-01T13:00:00Z`. |
 
 ### Response
@@ -109,18 +109,18 @@ Expand all
 | materialsRetentionPercent   number,null | The materials retention percentage of the contract amount. |
 | retentionCap   number,null | The maximum percentage of the total contract amount which can be used as the retention amount. |
 | status   string,null | The status of this contract. Possible values: `draft`, `pending`, `submitted`, `revise`, `sent`, `signed`, `executed`, `closed`, `inReview` |
-| subStatus   string,null | The subStatus is used when the contract is in an `executed` state and may have additional statuses under it. For example, if a contract is âexecutedâ but requires the supplier to provide additional information, the status will be executed and the subStatus will be pending. In other cases, subStatus is always `null`. Possible values: `null`, `pending`, `submitted`, `revise`. Default value: `null`. |
-| currency   string | The code of the currency specified for the contract if itâs awarded in a foreign currency. |
-| exchangeRate   number,string,null | The final exchange rate for the specified `currency`, applied as a multiplier of the contractâs base currency. For example, 1 base currency = 0.7455 foreign currency. |
+| subStatus   string,null | The subStatus is used when the contract is in an `executed` state and may have additional statuses under it. For example, if a contract is “executed” but requires the supplier to provide additional information, the status will be executed and the subStatus will be pending. In other cases, subStatus is always `null`. Possible values: `null`, `pending`, `submitted`, `revise`. Default value: `null`. |
+| currency   string | The code of the currency specified for the contract if it’s awarded in a foreign currency. |
+| exchangeRate   number,string,null | The final exchange rate for the specified `currency`, applied as a multiplier of the contract’s base currency. For example, 1 base currency = 0.7455 foreign currency. |
 | forecastExchangeRate   number,string,null | The forecast exchange rate. Default value: `null`. |
 | forecastExchangeRateUpdatedAt   datetime: ISO 8601 | The last time that the forecast exchange rate was updated, in ISO 8601 format. |
 | awardedAt   string,null | The date and time of the contract award, in ISO 8601 format. |
 | statusChangedAt   datetime: ISO 8601 | The date and time of the last status change, in ISO 8601 format. |
 | sentAt   string,null | The date and time of contract transmission to the supplier, in ISO 8601 format. |
-| respondedAt   string,null | The date and time of the supplierâs response, in ISO 8601 format. |
+| respondedAt   string,null | The date and time of the supplier’s response, in ISO 8601 format. |
 | responseDue   string,null | The date and time by which the supplier response is due, in ISO 8601 format. |
 | returnedAt   string,null | The date and time of the signed contract return, in ISO 8601 format. |
-| onsiteAt   string,null | The date and time of the supplierâs arrival on-site, in ISO 8601 format. |
+| onsiteAt   string,null | The date and time of the supplier’s arrival on-site, in ISO 8601 format. |
 | offsiteAt   string,null | The date and time of job completion by the supplier, in ISO 8601 format. |
 | procuredAt   string,null | The date and time of purchase, in ISO 8601 format. This is designed for Purchase Order contracts. |
 | approvedAt   string,null | The date and time of contract approval, in ISO 8601 format. |
@@ -150,7 +150,7 @@ Expand all
 | documentGeneratedAt   datetime: ISO 8601 | The date and time when the contract document was generated, in ISO 8601 format. |
 | scopeOfWork   string | Scope of work agreed upon and signed by all parties of the contract. This is a Tiptap formatted rich text (<https://tiptap.dev/introduction/>). |
 | note   string | A note related to the contract. This is a Tiptap formatted rich text (<https://tiptap.dev/introduction/>) |
-| compounded   object | The calculated values based on the contractâs customized columns. |
+| compounded   object | The calculated values based on the contract’s customized columns. |
 | paymentDue   int | Not relevant |
 | paymentDueType   string,null | Not relevant |
 | budgetIds   array: string | Not relevant |
@@ -159,7 +159,7 @@ Expand all
 | mainContractId   string: UUID | Not relevant |
 | scheduleOfValues   array: object | The schedule of values for the contract. |
 | id   string: UUID | The unique ID of the schedule of values (SOV) item. |
-| parentId   string,null | The ID of the SOV itemâs parent item, the default value is `null`. For root SOV items, this value is `null`. |
+| parentId   string,null | The ID of the SOV item’s parent item, the default value is `null`. For root SOV items, this value is `null`. |
 | contractId   string | The ID of the contract to which the SOV item belongs. |
 | budgetId   string,null | The ID of the budget to which the SOV item belongs. |
 | code   string | The code of the SOV item. <br>Max length: 255 |
@@ -174,12 +174,12 @@ Expand all
 | bulk   number | The converted quantity of the SOV item. |
 | associationId   string,null | The ID of a change order or cost item that this SOV item was originally created from. |
 | associationType   string,null | The type of object from which the SOV item was created:a change order or a cost item. |
-| exchangeRate   number,string,null | The exchange rate that applies to the SOV itemâs base currency price. For example, provide the value `0.7455` for a foreign currency thatâs worth `0.7455` of your base currency. |
+| exchangeRate   number,string,null | The exchange rate that applies to the SOV item’s base currency price. For example, provide the value `0.7455` for a foreign currency that’s worth `0.7455` of your base currency. |
 | position   number | The position of the SOV item in the list of SOV items. |
 | hasBudgetLinked   boolean | Not relevant |
 | createdAt   datetime: ISO 8601 | The date and time that the item was created, in ISO 8601 format. |
 | updatedAt   datetime: ISO 8601 | The date and time that the item was last updated, in ISO 8601 format. |
-| externalId   string | The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the itemâs ID in the external system. <br>Max length: 255 |
+| externalId   string | The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the item’s ID in the external system. <br>Max length: 255 |
 | externalSystem   string | The name of the external ERP system integrated with Cost Management. Use this name to identify and search for data within the integrated system. <br>Max length: 255 |
 | externalMessage   string | A message generated by the external ERP system that explains the sync status of the integration. For example, common values include `success` or `fail` to indicate the result of the integration operation. <br>Max length: 255 |
 | lastSyncTime   datetime: ISO 8601 | The date and time when the item was last synchronized with the external ERP system. This value is updated by the external system and is in ISO 8601 format. |
@@ -187,12 +187,12 @@ Expand all
 | lockState   string | Not relevant |
 | lockedBy   string | Not relevant |
 | lockedAt   datetime: ISO 8601 | Not relevant |
-| externalId   string | The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the itemâs ID in the external system. <br>Max length: 255 |
+| externalId   string | The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the item’s ID in the external system. <br>Max length: 255 |
 | externalSystem   string | The name of the external ERP system integrated with Cost Management. Use this name to identify and search for data within the integrated system. <br>Max length: 255 |
 | externalMessage   string | A message generated by the external ERP system that explains the sync status of the integration. For example, common values include `success` or `fail` to indicate the result of the integration operation. <br>Max length: 255 |
 | lastSyncTime   datetime: ISO 8601 | The date and time when the item was last synchronized with the external ERP system. This value is updated by the external system and is in ISO 8601 format. |
 | integrationState   string,null | The state of the item during the integration with the external ERP system (such as SignNow). An item can be a `budget`, `contract`, `main contract`, `main contract item`, `cost item`, `expense`, `expense item`, `change order`, or `schedule of value`. For more details, see [Integrate with External System](../how-to-docs/cost-integrate-with-external-system.md) tutorial. Possible values: <br>`locked`: the item is currently locked within the ERP system, preventing modifications until unlocked. To unlock and modify the item, use the relevant PATCH endpoint to set `integrationState` to `null`. For example, for a budget, call [PATCH budgets](en/docs/bim360/v1/reference/http/cost-budgets-budgetId-PATCH/). For a contract, call [PATCH contracts](en/docs/bim360/v1/reference/http/cost-contracts-contractId-PATCH/). For more details, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Integrated_and_Locked).<br>`integrated`: the item has been successfully added to the ERP system.<br>`failed`: the item encountered an error during the integration process and was not successfully added to the ERP system. For example, if a user tries to integrate `contracts` from an ERP system and the updates fail, the `integrationState` can be set to `failed`. Retry the sync process or analyze the issue if it continues to fail.<br>`null`: The item has not been integrated with the ERP system. This is default value.<br>For more information regarding integrations within the Cost Management system, see [Integrations in Cost Management](https://help.autodesk.com/view/BUILD/ENU/?guid=Cost_Integrations). |
-| integrationStateChangedAt   string,null | The date and time that the itemâs integration status was last changed. |
+| integrationStateChangedAt   string,null | The date and time that the item’s integration status was last changed. |
 | integrationStateChangedBy   string,null | The user who last changed the integration status. This is the ID of a user managed by the BIM 360/ACC Admin. |
 | createdAt   datetime: ISO 8601 | The date and time that the item was created, in ISO 8601 format. |
 | updatedAt   datetime: ISO 8601 | The date and time that the item was last updated, in ISO 8601 format. |

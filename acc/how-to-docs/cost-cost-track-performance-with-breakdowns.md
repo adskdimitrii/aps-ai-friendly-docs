@@ -6,9 +6,9 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/cost/cost-track-performan
 
 # Track Budget Performance with Breakdowns
 
-This tutorial demonstrates how to use the Cost Management API to track the performance of a project budget with breakdowns using timesheets. A performance tracking item (which represents a budget) is tracked by one or more timesheets, each associated with one of the tracking itemâs instances. The tutorial breaks out the tracking data to track each of the timesheets associated with a given budget. The steps include retrieving a tracking item instance, logging and aggregating the instanceâs timesheets, synchronizing the timesheets with Autodesk Cost Management, and adjusting the forecast.
+This tutorial demonstrates how to use the Cost Management API to track the performance of a project budget with breakdowns using timesheets. A performance tracking item (which represents a budget) is tracked by one or more timesheets, each associated with one of the tracking item’s instances. The tutorial breaks out the tracking data to track each of the timesheets associated with a given budget. The steps include retrieving a tracking item instance, logging and aggregating the instance’s timesheets, synchronizing the timesheets with Autodesk Cost Management, and adjusting the forecast.
 
-Note that the Cost API timesheets endpoints used in this tutorial are designed only for use with a third party timesheet reporting (tracking) app (e.g. Riskcast, Rhumbix, QuickBooks Time, or ClickUp) that youâve integrated with Cost Management.
+Note that the Cost API timesheets endpoints used in this tutorial are designed only for use with a third party timesheet reporting (tracking) app (e.g. Riskcast, Rhumbix, QuickBooks Time, or ClickUp) that you’ve integrated with Cost Management.
 
 ## [Before You Begin](#before-you-begin)
 
@@ -19,7 +19,7 @@ Note that the Cost API timesheets endpoints used in this tutorial are designed o
 
 ## [Step 1: Retrieve a Tracking Item Instance from Autodesk Cost Management](#step-1-retrieve-a-tracking-item-instance-from-autodesk-cost-management)
 
-To obtain the ID of the tracking item instance you want to retrieve, use the projectâs cost container ID (`e94b9bc8-1775-4d76-9b1d-c613e120ccff` in this example) to call [GET performance-tracking-item-instances](../http-docs/http-cost-performance-tracking-item-instances-GET.md).
+To obtain the ID of the tracking item instance you want to retrieve, use the project’s cost container ID (`e94b9bc8-1775-4d76-9b1d-c613e120ccff` in this example) to call [GET performance-tracking-item-instances](../http-docs/http-cost-performance-tracking-item-instances-GET.md).
 
 ### Request
 
@@ -69,11 +69,11 @@ curl -X GET 'https://developer.api.autodesk.com/cost/v1/containers/e94b9bc8-1775
 
 Show More
 
-Note the tracking item instance ID (`results.id`) â `1df59db0-9484-11e8-a7ec-7ddae203e404`, the budget code (`results.budgetCode`) â `84720010121001FEE`, and the item instance sequence number (`results.number`) â `84720010121001FEE-0001` in the response.
+Note the tracking item instance ID (`results.id`) — `1df59db0-9484-11e8-a7ec-7ddae203e404`, the budget code (`results.budgetCode`) — `84720010121001FEE`, and the item instance sequence number (`results.number`) — `84720010121001FEE-0001` in the response.
 
 ## [Step 2: Log and Aggregate the Timesheets](#step-2-log-and-aggregate-the-timesheets)
 
-A field user uses your integrated tracking app to log their progress in the appâs timesheets against the tracking item instance ID noted in the previous step.
+A field user uses your integrated tracking app to log their progress in the app’s timesheets against the tracking item instance ID noted in the previous step.
 
 The tracking app aggregates the `inputQuantity` and `outputQuantity` values entered by the user into timesheets by day and tracking instance, distinguished, for example, by location. Assume the unit of measurement of `inputQuantity` to be `hr` (hour).
 

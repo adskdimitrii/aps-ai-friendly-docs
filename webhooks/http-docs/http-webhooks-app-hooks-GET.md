@@ -35,8 +35,8 @@ If the pageState query string is not specified, the first page is returned.
 
 | pageState   String | Base64 encoded string used to return the next page of the list of webhooks. This can be obtained from the `next` field of the previous page. PagingState instances are not portable and implementation is subject to change across versions. Default page size is 200. |
 | --- | --- |
-| status   String | Status of the hooks. Options: â*active*â, â*inactive*â. Default is â*active*â. |
-| sort   String | Sort order of the hooks based on last updated time. Options: â*asc*â, â*desc*â. Default is â*desc*â. |
+| status   String | Status of the hooks. Options: ‘*active*’, ‘*inactive*’. Default is ‘*active*’. |
+| sort   String | Sort order of the hooks based on last updated time. Options: ‘*asc*’, ‘*desc*’. Default is ‘*desc*’. |
 | region   string | Specifies the geographical location (region) of the server that the request is executed on. Supported values are the following, but the default value is `US`: <br>`US` : (Default) Retrieves the webhooks that were registered in a data center dedicated to serve the United States.`EMEA` : Retrieves the webhooks that were registered in a data center dedicated to serve the European Union, Middle East, and Africa.`AUS` : (Beta) Retrieves the webhooks that were registered in a data center dedicated to serve Australia.`GBR` : Retrieves the webhooks that were registered in a data center dedicated to serve United Kingdom.`JPN` : Retrieves the webhooks that were registered in a data center dedicated to serve Japan.`DEU` : Retrieves the webhooks that were registered in a data center dedicated to serve Germany.`CAN` : Retrieves the webhooks that were registered in a data center dedicated to serve Canada.`IND` : Retrieves the webhooks that were registered in a data center dedicated to serve India.<br>The `x-ads-region` header also specifies the region. If you specify both, `x-ads-region` has precedence. |
 
 ### Response

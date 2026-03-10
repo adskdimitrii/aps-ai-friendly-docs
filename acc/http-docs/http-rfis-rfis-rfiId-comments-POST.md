@@ -36,7 +36,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+- projectIdstring The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
 - rfiIdstring The ID of the RFI. To find the ID, call [POST search:rfis](http-rfis-rfi-search-POST.md).
 
 ### Request
@@ -68,7 +68,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 | createdBy   string | The Autodesk ID of the user who created the comment. <br>To check the name of the user, call [GET users](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-v1-projects-projectId-users-GET/). |
 | createdAt   datetime: ISO 8601 | The timestamp of the date and time the comment was created, in the following format: `YYYY-MM-DDThh:mm:ss.sz`. |
 | updatedAt   datetime: ISO 8601 | The timestamp of the date and time the comment was updated, in the following format: `YYYY-MM-DDThh:mm:ss.sz`. |
-| source   enum:string | The source of the comment. Indicates how the comment was created. Possible values:  > `web` â The comment was created through the web interface or API.`email` â The comment was created by replying via email. |
+| source   enum:string | The source of the comment. Indicates how the comment was created. Possible values:  > `web` – The comment was created through the web interface or API.`email` – The comment was created by replying via email. |
 | rfiId   string | The ID of the RFI associated with this comment. |
 
 ## [Example](#example)

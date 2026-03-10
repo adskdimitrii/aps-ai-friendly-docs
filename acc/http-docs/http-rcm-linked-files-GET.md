@@ -38,7 +38,7 @@ Note that for a 3-legged OAuth flow or for a 2-legged OAuth flow with user imper
 
 | Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
-| x-user-id   string | The ID of the user on whose behalf the request is made. This header is only required when using two-legged authentication with user impersonation. It is not needed for three-legged authentication. <br>By providing this header, the API call is limited to act on behalf of the user specified. The user must have at least download permission to the host model.<br>Your application can act on behalf of any user who has been authorized in the SaaS Integrations UI. You can only provide the userâs Autodesk ID (`autodeskId`) as the value of this header. |
+| x-user-id   string | The ID of the user on whose behalf the request is made. This header is only required when using two-legged authentication with user impersonation. It is not needed for three-legged authentication. <br>By providing this header, the API call is limited to act on behalf of the user specified. The user must have at least download permission to the host model.<br>Your application can act on behalf of any user who has been authorized in the SaaS Integrations UI. You can only provide the user’s Autodesk ID (`autodeskId`) as the value of this header. |
 
 * Required
 
@@ -46,7 +46,7 @@ Note that for a 3-legged OAuth flow or for a 2-legged OAuth flow with user imper
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](../how-to-docs/getting-started-retrieve-account-and-project-id.md) tutorial. You can provide the project ID with or without the â**b.**" prefix.
+- projectIdstring The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](../how-to-docs/getting-started-retrieve-account-and-project-id.md) tutorial. You can provide the project ID with or without the “**b.**" prefix.
 
 - Example with prefix: `b.563a4c30-e30d-4869-ac02-2a18b6447abe`
 - Example without prefix: `563a4c30-e30d-4869-ac02-2a18b6447abe`
@@ -60,7 +60,7 @@ Note that for a 3-legged OAuth flow or for a 2-legged OAuth flow with user imper
 | --- | --- |
 | offset   int | The index at which the endpoint starts returning results. Used for pagination. Default: `0`. <br>This is a zero-based index (if set to `100`, results start from the 101st entry). |
 | filter   object | Specifies criteria for filtering the linked files by name or publish status. <br>Filter by file name:  > Example: `filter[name]=StructuralModel_2023.rvt&filter[name]=ArchitecturalModel_2023.rvt` Filter by publish status:  > Published files: `filter[publishStatus]=published`  Unpublished files: `filter[publishStatus]=notPublished`  Both published and unpublished: `filter[publishStatus]=published,notPublished` |
-| includeHost   boolean | Indicates whether to include the signed URL for the host model in the response. <br>`true` (default): the host modelâs signed URL is included.<br>`false`: only includes the signed URLs of the linked files. |
+| includeHost   boolean | Indicates whether to include the signed URL for the host model in the response. <br>`true` (default): the host model’s signed URL is included.<br>`false`: only includes the signed URLs of the linked files. |
 
 ### Response
 
@@ -87,7 +87,7 @@ Expand all
 | itemId   string | The URN of the host model. |
 | versionId   string | The version ID of the host model. |
 | size   int | The file size of the host model in bytes. |
-| publishStatus   enum:string | Indicates whether the host model has been published. Possible values: <br>`published` â The model has been published.<br>`notPublished` â The model has not been published. |
+| publishStatus   enum:string | Indicates whether the host model has been published. Possible values: <br>`published` – The model has been published.<br>`notPublished` – The model has not been published. |
 | linkedFiles   object | A list of linked Revit (RVT) models associated with the requested published model version. This object contains a list of linked files and pagination details. |
 | pagination   object | Contains pagination details, including the number of results, starting offset, and total available results. |
 | limit   int | The number of results returned in this response. This may be lower than the requested limit if fewer results are available. |
@@ -100,7 +100,7 @@ Expand all
 | signedUrl   string | A temporary URL used to download the linked model. Signed URLs are valid for 1 hour. |
 | itemId   string | The URN of the linked model. |
 | versionId   string | The version ID of the linked model. If the model is unpublished, this field is omitted from the response. |
-| publishStatus   enum:string | Indicates whether the linked model has been published. Possible values: <br>`published` â The model has been published.<br>`notPublished` â The model has not been published. |
+| publishStatus   enum:string | Indicates whether the linked model has been published. Possible values: <br>`published` – The model has been published.<br>`notPublished` – The model has not been published. |
 
 ## [Example](#example)
 

@@ -206,7 +206,7 @@ Expand all
 | isPoint   boolean | Optional bool to mark point geometry |
 | fragId   number | The fragment id for the mesh. This must not be defined when addMesh() is called and the Viewer sets this property to the new fragment id. |
 | modeId   number | The id of the model. This must not be defined when addMesh() is called and the Viewer will set this to the id of the model for this ModelBuilder. |
-| dbId   number | An optional object id for the mesh. Meshes with the same object id are selected as a unit. Internal tables are maintained to link fragments and dbIds. If a mesh is in the scene you shouldnât change this value direcly. Call [Autodesk.Viewing.Extensions.ModelBuilder#changeFragmentsDbId](Extensions-ModelBuilder.md#changeFragmentsDbId/) to change it to insure the tables are updated. |
+| dbId   number | An optional object id for the mesh. Meshes with the same object id are selected as a unit. Internal tables are maintained to link fragments and dbIds. If a mesh is in the scene you shouldn’t change this value direcly. Call [Autodesk.Viewing.Extensions.ModelBuilder#changeFragmentsDbId](Extensions-ModelBuilder.md#changeFragmentsDbId/) to change it to insure the tables are updated. |
 
 * Required
 
@@ -235,14 +235,14 @@ Remove a mesh from the model. Meshes can only be removed from the model when [Au
 
 ## [updateMesh(meshes, skipGeom, skipTransform)](#updatemesh-meshes-skipgeom-skiptransform)
 
-Use this method to inform the Viewer when you directly update a mesh you added to the model. If you change a mesh directly without calling this method, it may not display properly. You donât need to call this if you use the ModelBuilder API to update a mesh.
+Use this method to inform the Viewer when you directly update a mesh you added to the model. If you change a mesh directly without calling this method, it may not display properly. You don’t need to call this if you use the ModelBuilder API to update a mesh.
 
 ### Parameters
 
 | meshes*   THREE.Mesh, Array.<THREE.Mesh> | The meshes that were changed. |
 | --- | --- |
-| skipGeom   boolean | Set to true if the geometry in the meshes wasnât updated |
-| skipTransform   boolean | Set to true if the tranforms in the meshes werenât update |
+| skipGeom   boolean | Set to true if the geometry in the meshes wasn’t updated |
+| skipTransform   boolean | Set to true if the tranforms in the meshes weren’t update |
 
 * Required
 
@@ -268,9 +268,9 @@ Add a fragment to a model. A fragment is the combination of a geometry, a materi
 
 ### Parameters
 
-| geometry*   number, THREE.BufferGeometry | The geometry or the id of the geometry for the fragment. Use a falsey value if the geometry for the fragment isnât ready. If the geometry hasnât been added to the model, this method will add it. Geometry must not be used in a different model. |
+| geometry*   number, THREE.BufferGeometry | The geometry or the id of the geometry for the fragment. Use a falsey value if the geometry for the fragment isn’t ready. If the geometry hasn’t been added to the model, this method will add it. Geometry must not be used in a different model. |
 | --- | --- |
-| material*   string, THREE.material | The material or the name of the material instance for the fragment. A material name must be used by a material in the model, but a material will be added to the model if it hasnât already. |
+| material*   string, THREE.material | The material or the name of the material instance for the fragment. A material name must be used by a material in the model, but a material will be added to the model if it hasn’t already. |
 | transform   THREE.Matrix, Array.<number> | The transform for the fragment. Default is the identity transform. If an array is used it is a 4x3 matrix in column major order. |
 | bbox   THREE.Box3, Array.<number> | Bounding box for the fragment. Default is calculated from the geometry bounding box and the transform. When [Autodesk.Viewing.Extensions.ModelBuilder#isConservingMemory](Extensions-ModelBuilder.md#isConservingMemory/) is true then this argument is ignored and the default is used. If an array is used it contains the minimum x, y, z followed by the maximum x, y, z. |
 
@@ -290,8 +290,8 @@ Change the geometry and transform for a fragment.
 
 | fragment*   number, THREE.Mesh | The mesh or fragment id whose geometry is to be set. |
 | --- | --- |
-| geometry*   number, THREE.BufferGeometry | The geometry or the id of the geometry for the fragment. Use a falsey value if the geometry for the fragment isnât ready. If the geometry hasnât been added to the model, this method will add it. Geometry must not be used in a different model. |
-| transform   THREE.Matrix, Array.<number> | The transform for the fragment. If not present the transform isnât changed. If an array is used it is a 4x3 matrix in column major order. |
+| geometry*   number, THREE.BufferGeometry | The geometry or the id of the geometry for the fragment. Use a falsey value if the geometry for the fragment isn’t ready. If the geometry hasn’t been added to the model, this method will add it. Geometry must not be used in a different model. |
+| transform   THREE.Matrix, Array.<number> | The transform for the fragment. If not present the transform isn’t changed. If an array is used it is a 4x3 matrix in column major order. |
 | bbox   THREE.Box3, Array.<number> | Bounding box for the fragment. Default is calculated from the geometry bounding box and the transform. When [Autodesk.Viewing.Extensions.ModelBuilder#isConservingMemory](Extensions-ModelBuilder.md#isConservingMemory/) is true then this argument is ignored and the default is used. If an array is used it contains the minimum x, y, z followed by the maximum x, y, z. |
 
 * Required
@@ -310,7 +310,7 @@ Change the material for a fragment.
 
 | fragment*   number, THREE.Mesh | The mesh or fragment id whose material is to be set. |
 | --- | --- |
-| material*   string, THREE.material | The material or the name of the material for the fragment. A material name must be used by a material in the model, but a material will be added to the model if it hasnât been. |
+| material*   string, THREE.material | The material or the name of the material for the fragment. A material name must be used by a material in the model, but a material will be added to the model if it hasn’t been. |
 
 * Required
 

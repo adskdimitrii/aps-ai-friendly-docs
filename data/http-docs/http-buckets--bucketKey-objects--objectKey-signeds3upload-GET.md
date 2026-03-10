@@ -16,7 +16,7 @@ As with the download equivalent, the signed URL/s returned by this endpoint will
 
 You can successfully call the upload endpoint if you are managing your own OSS buckets (e.g. you are the bucket creator)
 
-** DISCLAIMER When generating signed URLs, itâs important to use the smallest possible expiration time, in order to avoid longer access in case of exposure of the URL.
+** DISCLAIMER When generating signed URLs, it’s important to use the smallest possible expiration time, in order to avoid longer access in case of exposure of the URL.
 
 ## [Resource Information](#resource-information)
 
@@ -30,7 +30,7 @@ You can successfully call the upload endpoint if you are managing your own OSS b
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
+| Authorization*   string | Must be “Bearer `<token>`”, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
 | --- | --- |
 
 * Required
@@ -53,7 +53,7 @@ You can successfully call the upload endpoint if you are managing your own OSS b
 | --- | --- |
 | firstPart   integer | For a multipart upload, is the starting index when getting upload part URL. If this parameter is not specified the default value is firstPart = 1.   Example: To retrieve the parts from 10 to 15 you should pass firstPart = 10 and parts = 6, this will retrieve the parts 10, 11, 12, 13, 14 and 15. |
 | parts   integer | For a multipart upload, the number of chunk URLs to return. If this parameter is not specified the default value is parts = 1. Maximum number of parts is 25.   Example: To retrieve the parts from 1 to 5 you should pass parts = 5, this will retrieve 5 parts starting from 1 as follows 1, 2, 3, 4 and 5. |
-| useAcceleration   boolean | Whether or not to generate an accelerated signed URL (ie: URLs of the form â¦s3-accelerate.amazonaws.comâ¦ vs â¦s3.amazonaws.comâ¦). When not specified, defaults to true. Providing non-boolean values will result in a 400 error. |
+| useAcceleration   boolean | Whether or not to generate an accelerated signed URL (ie: URLs of the form …s3-accelerate.amazonaws.com… vs …s3.amazonaws.com…). When not specified, defaults to true. Providing non-boolean values will result in a 400 error. |
 | minutesExpiration   integer | The custom expiration time within the 1 to 60 minutes range, if not specified, default is 2 minutes. |
 
 ### Response
@@ -64,7 +64,7 @@ You can successfully call the upload endpoint if you are managing your own OSS b
 | --- | --- |
 | 400   BAD REQUEST | The request could not be understood by the server due to malformed syntax or missing request headers. The client SHOULD NOT repeat the request without modifications.   The response body may give an indication of what is wrong with the request. |
 | 401   UNAUTHORIZED | The supplied Authorization header was not valid or the supplied token scope was not acceptable. Verify Authentication and try again. |
-| 403   FORBIDDEN | The Authorization was successfully validated but permission is not granted. Donât try again unless you solve permissions first. |
+| 403   FORBIDDEN | The Authorization was successfully validated but permission is not granted. Don’t try again unless you solve permissions first. |
 | 404   NOT FOUND | Object or bucket does not exist |
 | 429   RATE-LIMIT EXCEEDED | The maximum number of API calls that an app can make per minute was exceeded. |
 | 500   INTERNAL SERVER ERROR | Internal failure while processing the request, reason depends on error |

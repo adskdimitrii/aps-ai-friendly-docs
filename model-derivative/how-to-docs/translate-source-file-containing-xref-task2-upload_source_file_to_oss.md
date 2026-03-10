@@ -1,10 +1,10 @@
-# Task 2 â Upload Source File to OSS
+# Task 2 – Upload Source File to OSS
 
 Source: https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-source-file-containing-xref/task2-upload_source_file_to_oss/
 
 ---
 
-# Task 2 â Upload Source File to OSS
+# Task 2 – Upload Source File to OSS
 
 The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Data Management API. In this task, you upload an Inventor Assembly file (a *.iam* file) and also the three Part files (*.ipt* files) it references. The following image shows the folder structure that must be maintained between the Assembly file and Part files.
 

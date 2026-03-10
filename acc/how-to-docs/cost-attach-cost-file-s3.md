@@ -8,7 +8,7 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/cost/attach-cost-file-s3/
 
 This tutorial demonstrates how to attach local files directly to a cost item in BIM 360 Cost Management.
 
-Note that the *attachment folder* is a hidden folder that doesnât appear in the BIM 360 Document Management UI. If you directly attach a local file, it doesnât get associated with other BIM 360 features such as BIM 360 Document Management; it remains as an attachment only for the cost item.
+Note that the *attachment folder* is a hidden folder that doesn’t appear in the BIM 360 Document Management UI. If you directly attach a local file, it doesn’t get associated with other BIM 360 features such as BIM 360 Document Management; it remains as an attachment only for the cost item.
 
 The steps here include finding the folder for the cost item, creating an empty storage object in the folder, uploading the file to the storage object, creating a *version* of the file, and attaching the file version to the cost item.
 
@@ -52,11 +52,11 @@ curl -X GET 'https://developer.api.autodesk.com/cost/v1/containers/18ece8b1-204d
 
 Show More
 
-The response payload includes the cost item ID (`results[0].id`) value of `328f3a40-3167-11e8-a044-01a43a3d152c`. Youâll use it in the next step.
+The response payload includes the cost item ID (`results[0].id`) value of `328f3a40-3167-11e8-a044-01a43a3d152c`. You’ll use it in the next step.
 
 ## [Step 2: Find the attachment folder of the cost item](#step-2-find-the-attachment-folder-of-the-cost-item)
 
-Use the [POST attachment-folders](../http-docs/http-cost-attachment-folders-POST.md) endpoint to retrieve the cost itemâs attachment folder. Provide an `associationType` value of `CostItem`, and an `associationId` value of the cost item ID that you retrieved in the previous step (`328f3a40-3167-11e8-a044-01a43a3d152c`).
+Use the [POST attachment-folders](../http-docs/http-cost-attachment-folders-POST.md) endpoint to retrieve the cost item’s attachment folder. Provide an `associationType` value of `CostItem`, and an `associationId` value of the cost item ID that you retrieved in the previous step (`328f3a40-3167-11e8-a044-01a43a3d152c`).
 
 ### Request
 
@@ -82,15 +82,15 @@ curl -X POST 'https://developer.api.autodesk.com/cost/v1/containers/18ece8b1-204
 
 ```
 
-The `urn` value in the response (`urn:adsk.wipprod:fs.folder:co.p0G_54wNRUuAfQQc4DCPEA`) is the folder URN youâll use to access the storage service in the next step. Youâll use the returned attachment folder ID (`80b446f0-4261-11e9-9f1f-e19f7c813519`) to create attachments in the last step to attach the file to the cost item.
+The `urn` value in the response (`urn:adsk.wipprod:fs.folder:co.p0G_54wNRUuAfQQc4DCPEA`) is the folder URN you’ll use to access the storage service in the next step. You’ll use the returned attachment folder ID (`80b446f0-4261-11e9-9f1f-e19f7c813519`) to create attachments in the last step to attach the file to the cost item.
 
 Note: Instead of using this folder, you can use an existing folder retrieved from BIM 360 Docs. Follow the tutorial [Upload Files to BIM 360 Document Management](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/document-management/upload-document-s3/) to upload a file to BIM 360 Docs directly, then jump to step 6 to add the file as an attachment to the cost item.
 
-Note that the following steps 3 to 5 are the same as the generic uploading process if youâre already familiar with the Data Management API.
+Note that the following steps 3 to 5 are the same as the generic uploading process if you’re already familiar with the Data Management API.
 
 ## [Step 3: Create a storage object in the attachment folder](#step-3-create-a-storage-object-in-the-attachment-folder)
 
-Use the Data Management APIâs [POST projects/:project_id/storage](../../data/http-docs/http-projects-project_id-storage-POST.md) endpoint to create an empty storage object for the file in the folder.
+Use the Data Management API’s [POST projects/:project_id/storage](../../data/http-docs/http-projects-project_id-storage-POST.md) endpoint to create an empty storage object for the file in the folder.
 
 Provide a project ID value `b.6b975448-835b-4625-ad1a-0e9961749de3` (the prefix `b.` denotes this as a BIM 360 project). The attachment folder URN is `urn:adsk.wipprod:fs.folder:co.p0G_54wNRUuAfQQc4DCPEA`.
 
@@ -150,7 +150,7 @@ Show More
 
 Show More
 
-The response contains the empty storage objectâs ID (`data.id`) value of `urn:adsk.objects:os.object:wip.dm.prod/2a6d61f2-49df-4d7b.jpg`. The object ID parses into three sections:
+The response contains the empty storage object’s ID (`data.id`) value of `urn:adsk.objects:os.object:wip.dm.prod/2a6d61f2-49df-4d7b.jpg`. The object ID parses into three sections:
 
 - `urn:adsk.objects:os.object`
 - `wip.dm.prod` (the bucket key)
@@ -158,7 +158,7 @@ The response contains the empty storage objectâs ID (`data.id`) value of `u
 
 ## [Step 4: Generate a signed S3 URL](#step-4-generate-a-signed-s3-url)
 
-Use the Data Management APIâs [GET buckets/:bucketKey/objects/:objectKey/signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md) endpoint to generate a signed URL for the storage object. Include the bucket key (`wip.dm.prod`) and the object name (`2a6d61f2-49df-4d7b.jpg`) that you retrieved in the previous step. This endpoint supports generating multiple signed URLs, which enables you to upload multiple chunks of the same file in parallel.
+Use the Data Management API’s [GET buckets/:bucketKey/objects/:objectKey/signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md) endpoint to generate a signed URL for the storage object. Include the bucket key (`wip.dm.prod`) and the object name (`2a6d61f2-49df-4d7b.jpg`) that you retrieved in the previous step. This endpoint supports generating multiple signed URLs, which enables you to upload multiple chunks of the same file in parallel.
 
 ### Request
 
@@ -184,7 +184,7 @@ curl -X GET "https://developer.api.autodesk.com/oss/v2/buckets/wip.dm.prod/objec
 
 Show More
 
-Note the `urls` and `uploadKey` response attributes, which youâll use in the following steps.
+Note the `urls` and `uploadKey` response attributes, which you’ll use in the following steps.
 
 ## [Step 5: Initiate upload of a file to the signed URL](#step-5-initiate-upload-of-a-file-to-the-signed-url)
 
@@ -203,7 +203,7 @@ A successful call (`200`) returns an empty response.
 
 ## [Step 6: Complete the upload](#step-6-complete-the-upload)
 
-Use the Data Management APIâs [POST buckets/:bucket_key/objects/:object_key/signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-POST.md) endpoint to complete the upload. Include the bucket key (`wip.dm.prod`), the object name (`` 2a6d61f2-49df-4d7b.jpg` ``), and the upload key (`AQICAHifrJ6-BSHUmjAat4..........QWI-fuvghN23akgePMdmykV`) returned by the previous two steps.
+Use the Data Management API’s [POST buckets/:bucket_key/objects/:object_key/signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-POST.md) endpoint to complete the upload. Include the bucket key (`wip.dm.prod`), the object name (`` 2a6d61f2-49df-4d7b.jpg` ``), and the upload key (`AQICAHifrJ6-BSHUmjAat4..........QWI-fuvghN23akgePMdmykV`) returned by the previous two steps.
 
 Note that this endpoint must be called within 24 hours from the time you began uploading the file.
 
@@ -238,7 +238,7 @@ The file has been uploaded to the storage object.
 
 ## [Step 7: Create a version of the uploaded file](#step-7-create-a-version-of-the-uploaded-file)
 
-Before attaching the file to the cost item, use the Data Management APIâs [POST projects/:project_id/items](../../data/http-docs/http-projects-project_id-items-POST.md) endpoint to create the first version of the file. Include the project ID (`b.6b975448-835b-4625-ad1a-0e9961749de3`), the folder URN (`urn:adsk.wipprod:fs.folder:co.p0G_54wNRUuAfQQc4DCPEA`), and the Object ID (`urn:adsk.objects:os.object:wip.dm.prod/2a6d61f2-49df-4d7b.jpg`) in the request.
+Before attaching the file to the cost item, use the Data Management API’s [POST projects/:project_id/items](../../data/http-docs/http-projects-project_id-items-POST.md) endpoint to create the first version of the file. Include the project ID (`b.6b975448-835b-4625-ad1a-0e9961749de3`), the folder URN (`urn:adsk.wipprod:fs.folder:co.p0G_54wNRUuAfQQc4DCPEA`), and the Object ID (`urn:adsk.objects:os.object:wip.dm.prod/2a6d61f2-49df-4d7b.jpg`) in the request.
 
 ### Request
 
@@ -301,14 +301,14 @@ Show More
 
 ### Response
 
-The file is now ready to be attached to the cost item. Note the versioned file `included.id` value of `urn:adsk.wipprod:fs.file:vf.AeYgDtcTSuqYoyMweWFhhQ?version=1`. Youâll use it in the next step.
+The file is now ready to be attached to the cost item. Note the versioned file `included.id` value of `urn:adsk.wipprod:fs.file:vf.AeYgDtcTSuqYoyMweWFhhQ?version=1`. You’ll use it in the next step.
 
 ## [Step 8: Attach the file to the Cost item](#step-8-attach-the-file-to-the-cost-item)
 
 Use the [POST cost/v1/containers/{containerId}/attachments](../http-docs/http-cost-attachments-POST.md) endpoint to attach the file. Include the
 container ID (`18ece8b1-204d-11e8-ad71-d73b169f902a`), the cost item ID (`328f3a40-3167-11e8-a044-01a43a3d152c`), and the versioned file ID (`urn:adsk.wipprod:fs.file:vf.AeYgDtcTSuqYoyMweWFhhQ?version=1`) in the request.
 
-Note that `folderId` is not required if youâre saving the attachment into an existing folder in BIM 360 Docs. In this example, the folderId is from the Step 2 above.
+Note that `folderId` is not required if you’re saving the attachment into an existing folder in BIM 360 Docs. In this example, the folderId is from the Step 2 above.
 
 ### Request
 

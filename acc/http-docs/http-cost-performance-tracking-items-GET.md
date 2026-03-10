@@ -27,7 +27,7 @@ Retrieves one or more performance tracking items in the given project. Note that
 ## [Headers](#headers)
 
 - Authorization*string Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow.
-- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
+- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
 
 * Required
 
@@ -81,18 +81,18 @@ Expand all
 | results   array: object | The performance tracking item list. |
 | id   string: UUID | The ID of the tracking item. |
 | containerId   string: UUID | The ID of the cost container for the project to which this tracking item belongs. |
-| budgetId   string: UUID | The ID of the tracking itemâs underlying budget. |
-| name   string | The name of the tracking itemâs underlying budget. |
-| description   string | The description of the tracking itemâs underlying budget. |
-| code   string | The code of the tracking itemâs underlying budget. |
-| quantity   number | The quantity of the performance tracking itemâs underlying budget. |
-| unit   string | The unit of the performance tracking itemâs underlying budget. |
-| unitPrice   number,string,null | The unit price of the performance tracking itemâs underlying budget. |
+| budgetId   string: UUID | The ID of the tracking item’s underlying budget. |
+| name   string | The name of the tracking item’s underlying budget. |
+| description   string | The description of the tracking item’s underlying budget. |
+| code   string | The code of the tracking item’s underlying budget. |
+| quantity   number | The quantity of the performance tracking item’s underlying budget. |
+| unit   string | The unit of the performance tracking item’s underlying budget. |
+| unitPrice   number,string,null | The unit price of the performance tracking item’s underlying budget. |
 | originalAmount   number | Original amount of the budget, equals to `quantity` * `unitPrice` |
-| plannedStartDate   datetime: ISO 8601 | The planned start date of the performance tracking itemâs underlying budget. |
-| plannedEndDate   datetime: ISO 8601 | The planned end date of the performance tracking itemâs underlying budget. |
+| plannedStartDate   datetime: ISO 8601 | The planned start date of the performance tracking item’s underlying budget. |
+| plannedEndDate   datetime: ISO 8601 | The planned end date of the performance tracking item’s underlying budget. |
 | locations   array,null | A list of the IDs of the project locations where this item applies. <br>For more information, see the Locations [Help documentation](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/locations-nodes-GET/) help. |
-| locationPaths   array,null | A list of the IDs of the project locations where this item applies, along with the node paths of these locations in the projectâs locations tree. <br>For more information, see the Locations [Help documentation](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/locations-nodes-GET/) help. |
+| locationPaths   array,null | A list of the IDs of the project locations where this item applies, along with the node paths of these locations in the project’s locations tree. <br>For more information, see the Locations [Help documentation](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/locations-nodes-GET/) help. |
 
 ## [Example](#example)
 

@@ -11,7 +11,7 @@ POST
 # containers/:containerId/relationships:delete
 > Deletes one or more relationships by passing an array of relationship UUIDs.
 
-Note that when a relationship is deleted, it is âsoftâ deleted, meaning it can still be retrieved by using the search endpoints. See [GET relationships:search](http-relationship-service-v2-search-relationships-GET.md) for more information.
+Note that when a relationship is deleted, it is “soft” deleted, meaning it can still be retrieved by using the search endpoints. See [GET relationships:search](http-relationship-service-v2-search-relationships-GET.md) for more information.
 
 Note that in order to delete a relationship, you must have access to both entities in the relationship.
 

@@ -43,7 +43,7 @@ Delete a signed URL. A successful call to this endpoint requires bucket owner ac
 | 200   OK |  |
 | --- | --- |
 | 401   UNAUTHORIZED | The supplied Authorization header was not valid or the supplied token scope was not acceptable. Verify authentication and try again. |
-| 403   FORBIDDEN | The Authorization was successfully validated but permission is not granted. Donât try again unless you solve permissions first. |
+| 403   FORBIDDEN | The Authorization was successfully validated but permission is not granted. Don’t try again unless you solve permissions first. |
 | 404   NOT FOUND | Hash does not exist. |
 | 500   INTERNAL SERVER ERROR | Internal failure while processing the request, reason depends on error. |
 

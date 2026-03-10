@@ -14,7 +14,7 @@ Base class for extending the functionality of the viewer.
 
 Derive from this class and implement methods `load()` and `unload()`.
 
-Register this extension by calling: [``](#id1)Autodesk.Viewing.theExtensionManager.registerExtension(âyour_extension_idâ, YOUR_EXTENSION_CLASS); ``
+Register this extension by calling: [``](#id1)Autodesk.Viewing.theExtensionManager.registerExtension(‘your_extension_id’, YOUR_EXTENSION_CLASS); ``
 
 Extensions are registered and loaded automatically by adding the Extension ID to the config object passed to the viewer constructor.
 
@@ -30,7 +30,7 @@ Extensions are registered and loaded automatically by adding the Extension ID to
 
 ## [load()](#load)
 
-Override the load method to add functionality to the viewer. Use the Viewerâs APIs to add/modify/replace/delete UI, register event listeners, etc.
+Override the load method to add functionality to the viewer. Use the Viewer’s APIs to add/modify/replace/delete UI, register event listeners, etc.
 
 ### Returns
 
@@ -183,7 +183,7 @@ var locales = {
 
 ## [getCache()](#getcache)
 
-Returns an object that persists throughout an extensionâs unload->load operation sequence. Cache object is kept by the [Autodesk.Viewing.Viewer3D](Viewing-Viewer3D.md) instance. Cache object lives only in RAM, there is no localStorage persistence.
+Returns an object that persists throughout an extension’s unload->load operation sequence. Cache object is kept by the [Autodesk.Viewing.Viewer3D](Viewing-Viewer3D.md) instance. Cache object lives only in RAM, there is no localStorage persistence.
 
 ### Returns
 

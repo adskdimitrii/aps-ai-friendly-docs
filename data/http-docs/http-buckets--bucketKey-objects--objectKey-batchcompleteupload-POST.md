@@ -30,7 +30,7 @@ This endpoint accepts batch sizes of up to 25. Any larger and the request will f
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
+| Authorization*   string | Must be “Bearer `<token>`”, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
 | --- | --- |
 
 * Required
@@ -75,7 +75,7 @@ This endpoint accepts batch sizes of up to 25. Any larger and the request will f
 | --- | --- |
 | 400   BAD REQUEST | The request could not be understood by the server due to malformed syntax or missing request headers. The client SHOULD NOT repeat the request without modifications. The response body may give an indication of what is wrong with the request. |
 | 401   UNAUTHORIZED | The supplied Authorization header was not valid or the supplied token scope was not acceptable. Verify Authentication and try again. |
-| 403   FORBIDDEN | The Authorization was successfully validated but permission is not granted. Donât try again unless you solve permissions first. |
+| 403   FORBIDDEN | The Authorization was successfully validated but permission is not granted. Don’t try again unless you solve permissions first. |
 | 500   INTERNAL SERVER ERROR | Internal failure while processing the request, reason depends on error |
 
 ### Response
@@ -87,7 +87,7 @@ This endpoint accepts batch sizes of up to 25. Any larger and the request will f
 
 ## [Results object Structure](#results-object-structure)
 
-| status   string | A string indicating whether the object completion failed. If this is not present, assume the completion succeeded. If this is âerrorâ, then the object completion failed. |
+| status   string | A string indicating whether the object completion failed. If this is not present, assume the completion succeeded. If this is “error”, then the object completion failed. |
 | --- | --- |
 | bucketKey   string | The key of the bucket into which the object was uploaded. |
 | objectId   string | The URN of the object. |
@@ -98,7 +98,7 @@ This endpoint accepts batch sizes of up to 25. Any larger and the request will f
 | contentEncoding   string | The Content-Encoding stored for the object, if provided. |
 | cacheControl   string | The Cache-Control stored for the object, if provided. |
 | parts   integer | See the parts object structure. |
-| reason   string | The reason for the failure, if the status is âerrorâ. |
+| reason   string | The reason for the failure, if the status is “error”. |
 
 ## [Size object Structure](#size-object-structure)
 

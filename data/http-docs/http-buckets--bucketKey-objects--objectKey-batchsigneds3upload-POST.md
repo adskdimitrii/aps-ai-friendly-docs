@@ -18,7 +18,7 @@ You can request a maximum of 25 URLs in a single request.
 
 You can successfully call the batch upload endpoint if you are managing your own OSS buckets (e.g. you are the bucket creator)
 
-** DISCLAIMER When generating signed URLs, itâs important to use the smallest possible expiration time, in order to avoid longer access in case of exposure of the URL.
+** DISCLAIMER When generating signed URLs, it’s important to use the smallest possible expiration time, in order to avoid longer access in case of exposure of the URL.
 
 ## [Resource Information](#resource-information)
 
@@ -32,7 +32,7 @@ You can successfully call the batch upload endpoint if you are managing your own
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be âBearer `<token>`â, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
+| Authorization*   string | Must be “Bearer `<token>`”, where `<token>` is obtained via [POST token](../../oauth/http-docs/http-gettoken-POST.md). |
 | --- | --- |
 
 * Required
@@ -50,7 +50,7 @@ You can successfully call the batch upload endpoint if you are managing your own
 
 ## [Query String Parameters](#query-string-parameters)
 
-| useAcceleration   boolean | Whether or not to generate an accelerated signed URL (ie: URLs of the form â¦s3-accelerate.amazonaws.comâ¦ vs â¦s3.amazonaws.comâ¦). When not specified, defaults to true. Providing non-boolean values will result in a 400 error. |
+| useAcceleration   boolean | Whether or not to generate an accelerated signed URL (ie: URLs of the form …s3-accelerate.amazonaws.com… vs …s3.amazonaws.com…). When not specified, defaults to true. Providing non-boolean values will result in a 400 error. |
 | --- | --- |
 | minutesExpiration   integer | The custom expiration time within the 1 to 60 minutes range, if not specified, default is 2 minutes. |
 
@@ -65,7 +65,7 @@ You can successfully call the batch upload endpoint if you are managing your own
 
 ## [Requests object Structure](#requests-object-structure)
 
-| objectKey*   string | The key/name of the object for which to create an S3 upload URL. If neither the âpartâ nor âpartsâ attribute is provided, OSS will return a single upload URL with which to upload the entire object. |
+| objectKey*   string | The key/name of the object for which to create an S3 upload URL. If neither the “part” nor “parts” attribute is provided, OSS will return a single upload URL with which to upload the entire object. |
 | --- | --- |
 | firstPart   integer | The index of an individual part for which to retrieve a chunk upload URL. |
 | parts   integer | For a multipart upload, the number of chunk URLs to return. If X is provided, the response will include chunk URLs from 1 to X. If none provided, the response will include only a single URL with which to upload an entire object. |
@@ -81,7 +81,7 @@ You can successfully call the batch upload endpoint if you are managing your own
 | --- | --- |
 | 400   BAD REQUEST | The request could not be understood by the server due to malformed syntax or missing request headers. The client SHOULD NOT repeat the request without modifications. The response body may give an indication of what is wrong with the request. |
 | 401   UNAUTHORIZED | The supplied Authorization header was not valid or the supplied token scope was not acceptable. Verify Authentication and try again. |
-| 403   FORBIDDEN | The Authorization was successfully validated but permission is not granted. Donât try again unless you solve permissions first. |
+| 403   FORBIDDEN | The Authorization was successfully validated but permission is not granted. Don’t try again unless you solve permissions first. |
 | 404   NOT FOUND | The bucket does not exist. |
 | 429   RATE-LIMIT EXCEEDED | The maximum number of API calls that an app can make per minute was exceeded. |
 | 500   INTERNAL SERVER ERROR | Internal failure while processing the request, reason depends on error |

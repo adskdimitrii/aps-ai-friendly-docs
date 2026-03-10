@@ -24,9 +24,9 @@ The extension id is: `Autodesk.PDF`
 Autodesk.Viewing.Initializer(options, function() {
 :   var viewer = new Autodesk.Viewing.Viewer3D(div,config3d);
     viewer.start();
-    viewer.loadExtension(âAutodesk.PDFâ).then(function() {
+    viewer.loadExtension(‘Autodesk.PDF’).then(function() {
     > // URL parameter page will override value passed to loadModel
-    > viewer.loadModel(âpath/to/file.pdfâ, { page: 1 });
+    > viewer.loadModel(‘path/to/file.pdf’, { page: 1 });
 
     });
 

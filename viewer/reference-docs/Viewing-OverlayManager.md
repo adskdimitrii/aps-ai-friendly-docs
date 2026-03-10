@@ -46,7 +46,7 @@ Removes a scene along with all the meshes in it.
 
 | type | description |
 | --- | --- |
-| boolean | true if the overlay was removed or if it doesnât exist |
+| boolean | true if the overlay was removed or if it doesn’t exist |
 
 ## [clearScene(name)](#clearscene-name)
 

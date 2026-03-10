@@ -35,7 +35,7 @@ Query the details of a specific user.
 
 ## [URI Parameters](#uri-parameters)
 
-| account_id   string: UUID | The account ID of the user. This corresponds to hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID you need to remove the â**b.**" prefix. For example, a hub ID of **b.**c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. |
+| account_id   string: UUID | The account ID of the user. This corresponds to hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID you need to remove the “**b.**" prefix. For example, a hub ID of **b.**c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. |
 | --- | --- |
 | user_id   string: UUID | User ID |
 
@@ -63,28 +63,28 @@ A successful response is a user, a flat JSON object with the following attribute
 | account_id   string: UUID | Account ID |
 | role   string | The role of the user in the account       Possible values:   `account_admin`: user has BIM 360 account administration access   `account_user` : normal project user   `project_admin`: user has Project administration privileges at a service level |
 | status   string | Status of the user in the system       Possible values:   `active`: user is active and has logged into the system sucessfully   `inactive`: user is disabled   `pending`: user is invited and is yet to accept the invitation   `not_invited`: user is not invited |
-| company_id   string: UUID | The userâs default company ID in BIM 360 |
-| company_name   string | The name of the userâs default company name in BIM 360 |
-| last_sign_in   datetime: ISO 8601 | The time and date of the userâs most recent sign-in, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss.sssZ`). Note that this field is not supported by ACC Unified products. The value is updated only when the user logs into one of the following services associated with the specified BIM 360 account: BIM 360 Account Admin, BIM 360 Project Admin, BIM 360 Document Management, BIM 360 Field (Classic), or BIM 360 Plan. |
-| email   string | Userâs email       Max length: 255 |
+| company_id   string: UUID | The user’s default company ID in BIM 360 |
+| company_name   string | The name of the user’s default company name in BIM 360 |
+| last_sign_in   datetime: ISO 8601 | The time and date of the user’s most recent sign-in, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss.sssZ`). Note that this field is not supported by ACC Unified products. The value is updated only when the user logs into one of the following services associated with the specified BIM 360 account: BIM 360 Account Admin, BIM 360 Project Admin, BIM 360 Document Management, BIM 360 Field (Classic), or BIM 360 Plan. |
+| email   string | User’s email       Max length: 255 |
 | name   string | Default display name       Max length: 255 |
 | nickname   string | Nick name for user       Max length: 255 |
-| first_name   string | Userâs first name       Max length: 255 |
-| last_name   string | Userâs last name       Max length: 255 |
-| uid   string | Userâs Autodesk ID |
-| image_url   string | URL for userâs profile image       Max length: 255 |
-| address_line_1   string | Userâs address line 1       Max length: 255 |
-| address_line_2   string | Userâs address line 2       Max length: 255 |
+| first_name   string | User’s first name       Max length: 255 |
+| last_name   string | User’s last name       Max length: 255 |
+| uid   string | User’s Autodesk ID |
+| image_url   string | URL for user’s profile image       Max length: 255 |
+| address_line_1   string | User’s address line 1       Max length: 255 |
+| address_line_2   string | User’s address line 2       Max length: 255 |
 | city   string | City in which user is located       Max length: 255 |
 | state_or_province   enum: string | State or province in which user is located       Max length: 255       Note that the `state_or_province` value depends on the selected `country` value; see the valid values in the `state_or_province` list in the [Parameters](https://aps.autodesk.com/en/docs/bim360/v1/overview/parameters/) guide. |
-| postal_code   string | Postal code for the userâs location       Max length: 255 |
+| postal_code   string | Postal code for the user’s location       Max length: 255 |
 | country   enum: string | Country for this user       Refer to the `country` list in the [Parameters](https://aps.autodesk.com/en/docs/bim360/v1/overview/parameters/) guide. |
 | phone   string | Contact phone number for the user       Max length: 255 |
 | company   string | Company information from the Autodesk user profile       Max length: 255       Note that this is different from company in BIM 360. |
-| job_title   string | Userâs job title       Max length: 255 |
+| job_title   string | User’s job title       Max length: 255 |
 | industry   string | Industry information for user       Max length: 255 |
 | about_me   string | Short description about the user       Max length: 255 |
-| default_role   string | The userâs default role. |
+| default_role   string | The user’s default role. |
 | default_role_id   string | The ID of the default role. |
 | created_at   datetime: ISO 8601 | `YYYY-MM-DDThh:mm:ss.sssZ` format |
 | updated_at   datetime: ISO 8601 | `YYYY-MM-DDThh:mm:ss.sssZ` format |

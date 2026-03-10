@@ -38,7 +38,7 @@ rather than standard CRUD operations. For more details about commands, see the[C
 
 ## [URI Parameters](#uri-parameters)
 
-| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a â**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
+| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a “**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
 | --- | --- |
 
 ### Request
@@ -58,8 +58,8 @@ Expand all
 | extension*   object | The extension object of the data. |
 | type*   enum:string | The type of command. Must always be: `commands:autodesk.core:ListRefs` |
 | version*   string | The version of the command. |
-| relationships*   object | An object that represents related resources.   In this case, it is used to list the resourceâs metadata which should be retrieved. |
-| resources*   object | An object that represents related resources.   In this case, it is used to list the resourceâs metadata which should be retrieved. |
+| relationships*   object | An object that represents related resources.   In this case, it is used to list the resource’s metadata which should be retrieved. |
+| resources*   object | An object that represents related resources.   In this case, it is used to list the resource’s metadata which should be retrieved. |
 | data*   array:object | The list of versions you want to retrieve the relationships for. |
 | type*   enum:string | The type of resource. Must always be: `versions` |
 | id*   string | The URN of the version; to verify the URN, see the [GET projects/:project_id/items/:item_id/versions](http-projects-project_id-items-item_id-versions-GET.md) endpoint. |
@@ -97,8 +97,8 @@ Expand all
 | version   string | The version of the command. |
 | schema   object | An object containing an API link property. |
 | href   string | A hyperlink reference to this resource. |
-| relationships   object | An object that represents related resources.   In this case, it is used to list the resourceâs metadata. |
-| resources   object | An object that represents related resources.   In this case, it is used to list the resourceâs metadata. |
+| relationships   object | An object that represents related resources.   In this case, it is used to list the resource’s metadata. |
+| resources   object | An object that represents related resources.   In this case, it is used to list the resource’s metadata. |
 | data   array: object | List of the relationships between the specified versions and other versions, items and folders. Each relationship returns a `type`, an `id`, and a `meta` object. |
 | type   enum:string | The type of resource. Must always be: `versions` |
 | id   string | The URN of the version. |
@@ -114,7 +114,7 @@ Expand all
 | reservedUserId   string | The unique identifier of the user who reserved the item. |
 | reservedUserName   string | The name of the user who reserved the item. |
 | versionNumber   int | Version number of this versioned file. |
-| mimeType   string | Mimetype of the versionâs content. |
+| mimeType   string | Mimetype of the version’s content. |
 | fileType   string | File type, only present if this version represents a file. |
 | storageSize   int | File size in bytes, only present if this version represents a file. |
 | createTime   datetime: ISO 8601 | The time that the resource was created at. |
@@ -124,11 +124,11 @@ Expand all
 | lastModifiedUserId   string | The userId that last modified the resource. |
 | lastModifiedUserName   string | The username that last modified the resource. |
 | extension   object | The extension object of the resource. |
-| type   string | The type of the schema that the resourceâs data object adheres to. |
+| type   string | The type of the schema that the resource’s data object adheres to. |
 | version   string | The version of the schema that the data is adhering to. |
 | schema   object | An object containing an API link property. |
 | href   string | A hyperlink reference to this resource. |
-| data   object | Additional properties that the resourceâs data possesses. |
+| data   object | Additional properties that the resource’s data possesses. |
 | relationships   object | Information on other resources that shares a relationship with this resource. |
 | item   object | Information on resources that are found above this resource. |
 | links   object | The object containing information on links of related resources. |

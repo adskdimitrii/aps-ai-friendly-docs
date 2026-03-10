@@ -16,7 +16,7 @@ Note that you cannot delete permission for project admins, who are always assign
 
 For more information about folder permissions, see the [BIM 360 Help documentation](http://help.autodesk.com/view/BIM360D/ENU/?guid=GUID-2643FEEF-B48A-45A1-B354-797DAD628C37) or the [ACC Files Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Folder_Permissions).
 
-In addition to the permissions that were assigned to the user for this folder, the user also inherits permissions from any parent folder. After deleting permissions for the folder, the user will still continue to have permissions that were inherited from any parent folder. In order to completely delete the userâs permissions, you need to also delete the userâs permissions from all parent folders.
+In addition to the permissions that were assigned to the user for this folder, the user also inherits permissions from any parent folder. After deleting permissions for the folder, the user will still continue to have permissions that were inherited from any parent folder. In order to completely delete the user’s permissions, you need to also delete the user’s permissions from all parent folders.
 
 Note that in addition to inherited permissions, the user might also have been assigned permissions for the folder if a company or roles were assigned to both the user and the folder. To check which company and roles were assigned to the user, call [GET /users/user_id](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/admin-v1-projects-projectId-users-userId-GET/). To check which roles and companies were assigned to the folder, call [GET permissions](http-document-management-projects-project_id-folders-folder_id-permissions-GET.md). To remove the copmpany or roles permissions for the user from the folder, either remove the company or roles from the folder by calling this endpoint, or remove the company or roles from the user using [PATCH /users/user_id](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/projects-project_id-users-user_id-PATCH/).
 
@@ -47,7 +47,7 @@ If you are calling this endpoint on behalf of a user, the user needs to have `CO
 
 ## [URI Parameters](#uri-parameters)
 
-| project_id   string: UUID | The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the BIM 360 API you need to remove the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| project_id   string: UUID | The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the BIM 360 API you need to remove the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 | folder_id   string | The ID (URN) of the folder. <br>For details about how to find the URN, follow the initial steps (1-3) in the [Download Files](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/document-management/download-document-s3/) tutorial. |
 

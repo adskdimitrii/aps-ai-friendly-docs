@@ -12,11 +12,11 @@ GET
 
 Retrieves the full approval records and review references of a specific file version.
 
-This includes all reviews the version has participated in, along with each reviewâs status (e.g., `OPEN`, `CLOSED`) and the fileâs approval status (e.g., `APPROVED`, `REJECTED`) within that review.
+This includes all reviews the version has participated in, along with each review’s status (e.g., `OPEN`, `CLOSED`) and the file’s approval status (e.g., `APPROVED`, `REJECTED`) within that review.
 
-The results are sorted in reverse chronological order within each group: those in the âIn Reviewâ status and those in the âFinished Reviewâ status (Approved or Rejected), based on the reviewâs `sequenceId`.
+The results are sorted in reverse chronological order within each group: those in the “In Review” status and those in the “Finished Review” status (Approved or Rejected), based on the review’s `sequenceId`.
 
-This endpoint is typically used in the Files tool, where you can view the fileâs activity across multiple reviews.
+This endpoint is typically used in the Files tool, where you can view the file’s activity across multiple reviews.
 
 For more context, see the [Help documentation](https://help.autodesk.com/view/DOCS/ENU/?guid=BIM360D_Document_Management_About_Reviews_Reviews_FAQs_Reference_html).
 
@@ -36,7 +36,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 | Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
-| x-user-id   string | The ID of a user on whose behalf the request is made. Your application has access to all users specified by the administrator in the SaaS Integrations UI. Use this header to specify which user should be affected by the request. <br>This header is only required when using two-legged authentication. It is not needed for three-legged authentication.<br>Only userâs Autodesk ID (`autodeskId`) can be accepted. |
+| x-user-id   string | The ID of a user on whose behalf the request is made. Your application has access to all users specified by the administrator in the SaaS Integrations UI. Use this header to specify which user should be affected by the request. <br>This header is only required when using two-legged authentication. It is not needed for three-legged authentication.<br>Only user’s Autodesk ID (`autodeskId`) can be accepted. |
 
 * Required
 
@@ -44,7 +44,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You can provide the project ID with or without the â**b.**" prefix.
+- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You can provide the project ID with or without the “**b.**" prefix.
 
 - Example with prefix: **b.563a4c30-e30d-4869-ac02-2a18b6447abe**
 - Example without prefix: **563a4c30-e30d-4869-ac02-2a18b6447abe**
@@ -54,7 +54,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Query String Parameters](#query-string-parameters)
 
-| limit   int | The maximum number of results to return in the response. Possible values: `1â50`. Maximum: `50`. Default: `50`. For example: `limit=2`. |
+| limit   int | The maximum number of results to return in the response. Possible values: `1–50`. Maximum: `50`. Default: `50`. For example: `limit=2`. |
 | --- | --- |
 | offset   int | The number of results to skip from the beginning of the list. Used for pagination. Default: `0`. For example: `offset=10`. |
 
@@ -77,7 +77,7 @@ Expand all
 
 | results   array: object | A list of approval statuses and related review information for the specified file version. |
 | --- | --- |
-| approvalStatus   object | The fileâs approval status within a specific review. |
+| approvalStatus   object | The file’s approval status within a specific review. |
 | id   string | The ID of the approval status option. |
 | label   string | The custom text used to describe the approval status. <br>Max length: 255 |
 | value   enum:string | The value of the approval status. Possible values: `APPROVED`, `REJECTED`, `IN_REVIEW`. |

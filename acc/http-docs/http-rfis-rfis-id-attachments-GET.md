@@ -39,14 +39,14 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+- projectIdstring The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
 - rfiIdstring The ID of the RFI. To find the ID, call [POST search:rfis](http-rfis-rfi-search-POST.md).
 
 ### Request
 
 ## [Query String Parameters](#query-string-parameters)
 
-| limit   int | The number of attachments to return in the response. Possible values: `1â200`. Default: `10`. <br>For example, to limit the response to two attachments per page, use `limit=2`. |
+| limit   int | The number of attachments to return in the response. Possible values: `1–200`. Default: `10`. <br>For example, to limit the response to two attachments per page, use `limit=2`. |
 | --- | --- |
 | offset   int | The number of items to skip before starting to return results. <br>For example, to begin the results from the fourth item, use `offset=3`. |
 | filter[attachmentTypes]   array: string | Filters the response to only include attachments of the specified types. <br>Possible values: `rfiResponse`, `rfiOfficialResponse`, `rfiWebHiddenFiles`, `bridgeFiles`.<br>If not provided, the default filter is: `rfiResponse`, `rfiOfficialResponse`. |

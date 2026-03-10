@@ -20,7 +20,7 @@ Before an app can use APS APIs, you must register that app. APS then assigns a C
   1. Specify your email address and click **NEXT**.
   2. In the next screen, specify your password and click **SIGN IN**.
 
-    If you donât have an Autodesk account:
+    If you don’t have an Autodesk account:
 
   1. Click the **CREATE ACCOUNT** link. The Create account page displays.
 
@@ -36,7 +36,7 @@ Before an app can use APS APIs, you must register that app. APS then assigns a C
 2. Click **Create application**. The Create Application page displays.
 
 3. Enter a name for the app and select an application type. For more information, see [Application Types](https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/App-types/).
-Note: The application (APS app) created by selecting the application type âDesktop, Mobile, Single-Page Appâ is for a client with public keys, and âTraditional Web App, Server-to-Server Appâ is for a client with private keys.
+Note: The application (APS app) created by selecting the application type “Desktop, Mobile, Single-Page App” is for a client with public keys, and “Traditional Web App, Server-to-Server App” is for a client with private keys.
 
 4. Click **Create**. A page to capture the details of your app is displayed.
 

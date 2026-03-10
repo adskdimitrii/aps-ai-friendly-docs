@@ -8,7 +8,7 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/cost/cost-update-existing
 
 This tutorial demonstrates how to update existing timesheets. The steps include finding the timesheet ID and updating the timesheet.
 
-Note that the Cost API timesheets endpoints used in this tutorial are designed only for use with a third party timesheet reporting (tracking) app (e.g. Riskcast, Rhumbix, QuickBooks Time, or ClickUp) that youâve integrated with Cost Management.
+Note that the Cost API timesheets endpoints used in this tutorial are designed only for use with a third party timesheet reporting (tracking) app (e.g. Riskcast, Rhumbix, QuickBooks Time, or ClickUp) that you’ve integrated with Cost Management.
 
 ## [Before You Begin](#before-you-begin)
 
@@ -63,7 +63,7 @@ Find the timesheet you want to update and note the timesheet ID (`6f7f7780-3867-
 
 ## [Step 2: Update the Timesheet by ID](#step-2-update-the-timesheet-by-id)
 
-To update the timesheet, use the timesheet ID (`6f7f7780-3867-4aa3-9f37-8ae53532a590`) to call [PATCH time-sheets/:id](../http-docs/http-cost-time-sheets-id-PATCH.md). Provide updated values for any of the endpointâs request payload fields.
+To update the timesheet, use the timesheet ID (`6f7f7780-3867-4aa3-9f37-8ae53532a590`) to call [PATCH time-sheets/:id](../http-docs/http-cost-time-sheets-id-PATCH.md). Provide updated values for any of the endpoint’s request payload fields.
 
 ### Request
 

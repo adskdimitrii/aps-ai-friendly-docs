@@ -27,7 +27,7 @@ Retrieves a budget specified by ID.
 ## [Headers](#headers)
 
 - Authorization*string Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow.
-- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your projectâs region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
+- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
 
 * Required
 
@@ -43,7 +43,7 @@ Retrieves a budget specified by ID.
 
 ## [Query String Parameters](#query-string-parameters)
 
-| include   array: string | Include related items in the response. For example, `include=attributes` returns custom attributes representing the responseâs âpropertiesâ. Possible values include: `segments`, `contract`, `attributes`, `compounded`. |
+| include   array: string | Include related items in the response. For example, `include=attributes` returns custom attributes representing the response’s “properties”. Possible values include: `segments`, `contract`, `attributes`, `compounded`. |
 | --- | --- |
 
 ### Response
@@ -75,7 +75,7 @@ Retrieves a budget specified by ID.
 | codeSegmentValues   object | Not relevant |
 | name   string | The name of the budget. <br>Max length: 1024 |
 | description   string | The detail description of the budget. <br>Max length: 2048 |
-| quantity   number | The quantity of labor, material,â¦ planned for the budget. |
+| quantity   number | The quantity of labor, material,… planned for the budget. |
 | inputQuantity   number,null | The input quantity planned for the budget. |
 | ratio   number | The ratio of the quantity the resources used on the budget. |
 | unitPrice   number,string,null | Unit price of a budget. |
@@ -90,7 +90,7 @@ Retrieves a budget specified by ID.
 | approvedInScopeChangeOrders   number | The total amount of in-scope changes committed to the supplier. |
 | pendingChangeOrders   number | The total amount of changes not committed to the supplier. |
 | reserves   number | The total amount of changes under estimation. |
-| actualQuantity   number | The total of the actual quantity of labor, material,â¦ for the budget. |
+| actualQuantity   number | The total of the actual quantity of labor, material,… for the budget. |
 | actualUnitPrice   number,string,null | Average unit price for the actual cost of the budget. |
 | actualCost   number | The total amount of actual cost of the budget. |
 | mainContractId   string: UUID | Not relevant |
@@ -99,7 +99,7 @@ Retrieves a budget specified by ID.
 | contractIds   array: string | Not relevant |
 | costUnitPrice   number,string,null | Not relevant |
 | locations   array,null | A list of the IDs of the project locations where this item applies. <br>For more information, see the Locations [Help documentation](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/locations-nodes-GET/) help. |
-| locationPaths   array,null | A list of the IDs of the project locations where this item applies, along with the node paths of these locations in the projectâs locations tree. <br>For more information, see the Locations [Help documentation](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/locations-nodes-GET/) help. |
+| locationPaths   array,null | A list of the IDs of the project locations where this item applies, along with the node paths of these locations in the project’s locations tree. <br>For more information, see the Locations [Help documentation](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/locations-nodes-GET/) help. |
 | plannedStartDate   string,null | Not relevant |
 | plannedEndDate   string,null | Not relevant |
 | actualStartDate   string,null | Not relevant |
@@ -113,12 +113,12 @@ Retrieves a budget specified by ID.
 | forecastVariance   number | The total amount of the forecast variance, equals to `projectedBudget` - `forecastFinalCost`. |
 | forecastCostComplete   number | The total amount of the forecast cost to complete, equals to `forecastFinalCost` - `actualCost`. |
 | varianceTotal   number | The total amount of the variance of a budget, equals to `projectedBudget` - `projectedCost`. |
-| externalId   string | The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the itemâs ID in the external system. <br>Max length: 255 |
+| externalId   string | The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the item’s ID in the external system. <br>Max length: 255 |
 | externalSystem   string | The name of the external ERP system integrated with Cost Management. Use this name to identify and search for data within the integrated system. <br>Max length: 255 |
 | externalMessage   string | A message generated by the external ERP system that explains the sync status of the integration. For example, common values include `success` or `fail` to indicate the result of the integration operation. <br>Max length: 255 |
 | lastSyncTime   datetime: ISO 8601 | The date and time when the item was last synchronized with the external ERP system. This value is updated by the external system and is in ISO 8601 format. |
 | integrationState   string,null | The state of the item during the integration with the external ERP system (such as SignNow). An item can be a `budget`, `contract`, `main contract`, `main contract item`, `cost item`, `expense`, `expense item`, `change order`, or `schedule of value`. For more details, see [Integrate with External System](../how-to-docs/cost-integrate-with-external-system.md) tutorial. Possible values: <br>`locked`: the item is currently locked within the ERP system, preventing modifications until unlocked. To unlock and modify the item, use the relevant PATCH endpoint to set `integrationState` to `null`. For example, for a budget, call [PATCH budgets](en/docs/bim360/v1/reference/http/cost-budgets-budgetId-PATCH/). For a contract, call [PATCH contracts](en/docs/bim360/v1/reference/http/cost-contracts-contractId-PATCH/). For more details, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Integrated_and_Locked).<br>`integrated`: the item has been successfully added to the ERP system.<br>`failed`: the item encountered an error during the integration process and was not successfully added to the ERP system. For example, if a user tries to integrate `contracts` from an ERP system and the updates fail, the `integrationState` can be set to `failed`. Retry the sync process or analyze the issue if it continues to fail.<br>`null`: The item has not been integrated with the ERP system. This is default value.<br>For more information regarding integrations within the Cost Management system, see [Integrations in Cost Management](https://help.autodesk.com/view/BUILD/ENU/?guid=Cost_Integrations). |
-| integrationStateChangedAt   string,null | The date and time that the itemâs integration status was last changed. |
+| integrationStateChangedAt   string,null | The date and time that the item’s integration status was last changed. |
 | integrationStateChangedBy   string,null | The user who last changed the integration status. This is the ID of a user managed by the BIM 360/ACC Admin. |
 | createdAt   datetime: ISO 8601 | The date and time that the item was created, in ISO 8601 format. |
 | updatedAt   datetime: ISO 8601 | The date and time that the item was last updated, in ISO 8601 format. |

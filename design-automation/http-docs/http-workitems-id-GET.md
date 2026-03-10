@@ -10,8 +10,8 @@ GET
 
 Gets the status of a specific WorkItem.
 
-Typically used to âpollâ for the completion of a WorkItem, but see the use of the âonCompleteâ argument for
-an alternative that does not require âpollingâ.
+Typically used to ‘poll’ for the completion of a WorkItem, but see the use of the ‘onComplete’ argument for
+an alternative that does not require ‘polling’.
 
 Limits:
 
@@ -48,7 +48,7 @@ Limits:
 | 200   OK | Successfully get the status of a WorkItem. |
 | --- | --- |
 | 403   Forbidden | The user is not authorized to get the WorkItem status. |
-| 404   Not Found | The WorkItem status doesnât exist. |
+| 404   Not Found | The WorkItem status doesn’t exist. |
 
 ### Response
 

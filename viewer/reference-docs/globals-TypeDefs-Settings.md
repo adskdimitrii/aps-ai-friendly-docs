@@ -46,9 +46,9 @@ Object used to apply the preferences by a Profile
 | wheelSetsPivot   boolean | Sets wheel-zoom action to automatically reset the orbit pivot to the location under the cursor. |
 | selectionSetsPivot   boolean | Sets selection / un-selection action to automatically reset the orbit pivot to be the center of the multiple selection. |
 | bimWalkNavigatorType   string | Sets the BimWalk tool navigator. |
-| bimWalkGravity   boolean | Toggles the BimWalk toolâs gravity. |
-| defaultNavigationTool3D   string | Sets which navigation tool will be used by the viewer. (ie: âextractor_definedâ \|\| âbimwalkâ) |
-| explodeStrategy   string | Sets which algorithm is used when exploding a model. Supported values are âhierarchyâ (default) and âradialâ. Other values are treated as âradialâ. |
+| bimWalkGravity   boolean | Toggles the BimWalk tool’s gravity. |
+| defaultNavigationTool3D   string | Sets which navigation tool will be used by the viewer. (ie: ‘extractor_defined’ \|\| ‘bimwalk’) |
+| explodeStrategy   string | Sets which algorithm is used when exploding a model. Supported values are ‘hierarchy’ (default) and ‘radial’. Other values are treated as ‘radial’. |
 | loadingAnimation   boolean | Toggles loading animation for 2D Models. |
 | forcePDFCalibration   boolean | Force PDF calibration before measuring. |
 | forceLeafletCalibration   boolean | Force Leaflet calibration before measuring. |

@@ -12,11 +12,11 @@ GET
 
 Retrieves the progress of a specific review in the specified project.
 
-This endpoint tracks the current state of each step in the reviewâs approval workflow, showing the assigned candidates, whether steps have been claimed or submitted, and who performed each action. Results are returned in reverse chronological order (most recent action first).
+This endpoint tracks the current state of each step in the review’s approval workflow, showing the assigned candidates, whether steps have been claimed or submitted, and who performed each action. Results are returned in reverse chronological order (most recent action first).
 
 Note that this endpoint only returns data for the current round of the review.
 
-To retrieve the reviewâs configuration and metadata, call [GET reviews/:reviewId](http-reviews-getreview-GET.md).
+To retrieve the review’s configuration and metadata, call [GET reviews/:reviewId](http-reviews-getreview-GET.md).
 
 For more details about reviews, see the [Help documentation](https://help.autodesk.com/view/DOCS/ENU/?guid=Reviews).
 > Note that this endpoint is not compatible with BIM 360 projects.
@@ -35,7 +35,7 @@ For more details about reviews, see the [Help documentation](https://help.autode
 
 | Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
-| x-user-id   string | The ID of a user on whose behalf the request is made. Your application has access to all users specified by the administrator in the SaaS Integrations UI. Use this header to specify which user should be affected by the request. <br>This header is only required when using two-legged authentication. It is not needed for three-legged authentication.<br>Only userâs Autodesk ID (`autodeskId`) can be accepted. |
+| x-user-id   string | The ID of a user on whose behalf the request is made. Your application has access to all users specified by the administrator in the SaaS Integrations UI. Use this header to specify which user should be affected by the request. <br>This header is only required when using two-legged authentication. It is not needed for three-legged authentication.<br>Only user’s Autodesk ID (`autodeskId`) can be accepted. |
 
 * Required
 
@@ -43,7 +43,7 @@ For more details about reviews, see the [Help documentation](https://help.autode
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You can provide the project ID with or without the â**b.**" prefix.
+- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You can provide the project ID with or without the “**b.**" prefix.
 
 - Example with prefix: **b.563a4c30-e30d-4869-ac02-2a18b6447abe**
 - Example without prefix: **563a4c30-e30d-4869-ac02-2a18b6447abe**
@@ -53,7 +53,7 @@ For more details about reviews, see the [Help documentation](https://help.autode
 
 ## [Query String Parameters](#query-string-parameters)
 
-| limit   int | The maximum number of review-progress records to return. Valid range: `1â50`. Default: `50`. For example: `limit=2`. |
+| limit   int | The maximum number of review-progress records to return. Valid range: `1–50`. Default: `50`. For example: `limit=2`. |
 | --- | --- |
 | offset   int | The zero-based index of the first record to return. Use with `limit` for pagination. Default: `0`. For example: `offset=10`. |
 
@@ -95,7 +95,7 @@ Expand all
 | autodeskId   string | The Autodesk ID of the company. |
 | name   string | The name of the company. |
 | endTime   datetime: ISO 8601 | The date and time when the step ended. This value is set when the step is completed, either by being submitted or voided. |
-| notes   string | Additional information recorded for this step in the reviewâs progress. |
+| notes   string | Additional information recorded for this step in the review’s progress. |
 | status   enum:string | The current status of the step. Possible values: <br>`CLAIMED`: A user has claimed the step.`UNCLAIMED`: No user has claimed the step.`SUBMITTED`: A user submitted the step (e.g., approved/rejected/custom).`VOID`: The step was voided. |
 | pagination   object | Metadata about the paginated results. |
 | limit   int | The maximum number of results returned per page. |

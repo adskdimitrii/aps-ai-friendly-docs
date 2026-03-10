@@ -12,7 +12,7 @@ PATCH
 
 Updates an existing custom attribute definition for a project.
 
-Use this endpoint to change the attributeâs name, description, status, or possible values.
+Use this endpoint to change the attribute’s name, description, status, or possible values.
 The attribute can be used when creating or updating RFIs.
 
 For more information on custom attributes, see the [Custom RFI Fields](https://help.autodesk.com/view/BUILD/ENU/?guid=Custom_RFI_Fields) help topic.
@@ -41,7 +41,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 | attributeId   string | The ID of the custom attribute. |
 

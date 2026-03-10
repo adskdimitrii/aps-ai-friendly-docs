@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/forms/retrieve-forms/
 
 # Retrieve Forms
 
-This tutorial demonstrates how to retrieve a projectâs Forms.
+This tutorial demonstrates how to retrieve a project’s Forms.
 
 ## [Before You Begin](#before-you-begin)
 
@@ -16,7 +16,7 @@ This tutorial demonstrates how to retrieve a projectâs Forms.
 
 ## [Step 1: Find the Form Template IDs](#step-1-find-the-form-template-ids)
 
-Use the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) to retrieve the projectâs Form Templates, by calling [GET form-templates](../http-docs/http-forms-form-templates-GET.md).
+Use the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) to retrieve the project’s Form Templates, by calling [GET form-templates](../http-docs/http-forms-form-templates-GET.md).
 
 ### Request
 
@@ -78,7 +78,7 @@ The response payload includes the Form Template IDs (`data.id`).
 
 ## [Step 2: Find the Form IDs](#step-2-find-the-form-ids)
 
-Use the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and template ID (`2f634a22-779d-4930-9f08-8391a41fea05`) from previous step to retrieve the projectâs Forms, by calling [GET forms](../http-docs/http-forms-forms-GET.md).
+Use the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and template ID (`2f634a22-779d-4930-9f08-8391a41fea05`) from previous step to retrieve the project’s Forms, by calling [GET forms](../http-docs/http-forms-forms-GET.md).
 
 ### Request
 

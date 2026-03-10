@@ -22,7 +22,7 @@ FeatureFlags.set('ENABLE_FEATURE', true);
 
 ```
 
-FeatureFlags.registerInitializationCallback(âEXPOSE_FEATUREâ, (enable, initializationData) => { â¦ });
+FeatureFlags.registerInitializationCallback(‘EXPOSE_FEATURE’, (enable, initializationData) => { … });
 
 ---
 

@@ -35,7 +35,7 @@ This may take up to 2 minutes. During this time the app will not be able to make
 
 ## [URI Parameters](#uri-parameters)
 
-| id   string | Must be âmeâ for the call to succeed. |
+| id   string | Must be “me” for the call to succeed. |
 | --- | --- |
 
 ### Response

@@ -1,10 +1,10 @@
-# Task 4 â Publish an Activity
+# Task 4 – Publish an Activity
 
 Source: https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/autocad/task4-publish-activity/
 
 ---
 
-# Task 4 â Publish an Activity
+# Task 4 – Publish an Activity
 
 An Activity is an action that can be executed in the Automation Service. You create and post Activities to run specific AppBundles.
 
@@ -73,7 +73,7 @@ Show More
 | Attribute | Description |
 | --- | --- |
 | `id` | The name given to your new Activity. |
-| `commandLine` | The command run by this Activity.       - `$(engine.path)\\accoreconsole.exe` - The full path to the AutoCAD engine.      The version of AutoCAD to be used is defined in the request body as âengineâ: âAutodesk.AutoCAD+24_3 (Autocad 2024).   More information about engines can be found in the Additional notes section of the [previous step](en/docs/design-automation/v3/tutorials/autocad/task-3-upload-appbundle#additional-notes) .       - `$(args[InputDwg].path)` - The full path to the folder that the file identified by the parameter `InputDwg` is downloaded to.       - `$(appbundles[ListLayers].path)` - The full path to where the AppBundle specified under `appbundles` is unzipped to.       - `$(settings[script].path)` - The full path to the file where the Automation Service saves the value of the setting named script.       For more information on command line options for the AccoreConsole see [Getting Started with AccoreConsole](https://adndevblog.typepad.com/autocad/2012/04/getting-started-with-accoreconsole.html) |
+| `commandLine` | The command run by this Activity.       - `$(engine.path)\\accoreconsole.exe` - The full path to the AutoCAD engine.      The version of AutoCAD to be used is defined in the request body as “engine”: “Autodesk.AutoCAD+24_3 (Autocad 2024).   More information about engines can be found in the Additional notes section of the [previous step](en/docs/design-automation/v3/tutorials/autocad/task-3-upload-appbundle#additional-notes) .       - `$(args[InputDwg].path)` - The full path to the folder that the file identified by the parameter `InputDwg` is downloaded to.       - `$(appbundles[ListLayers].path)` - The full path to where the AppBundle specified under `appbundles` is unzipped to.       - `$(settings[script].path)` - The full path to the file where the Automation Service saves the value of the setting named script.       For more information on command line options for the AccoreConsole see [Getting Started with AccoreConsole](https://adndevblog.typepad.com/autocad/2012/04/getting-started-with-accoreconsole.html) |
 | `parameters` | Defines the inputs and outputs that need to be provided when the Activity is executed.   Input parameters are identified by the attribute `"verb":"get"`. Output parameters are identified by the attribute `"verb":"put"`. |
 | `engine` | The engine on which your Activity runs. The available engine versions are described in the Additional notes section in [Task 3](en/docs/design-automation/v3/tutorials/autocad/task-3-upload-appbundle#additional-notes) |
 | `appbundles` | The fully qualified id of the AppBundle referred to in `commandLine`. |
@@ -208,7 +208,7 @@ curl -X POST \
 
 Show More
 
-**Note:** You can omit `id` from the request body. If you include `id` in the request body, set it to `null`. If you donât set it to `null`, the Automation Service throws an error.
+**Note:** You can omit `id` from the request body. If you include `id` in the request body, set it to `null`. If you don’t set it to `null`, the Automation Service throws an error.
 
 ### Response
 

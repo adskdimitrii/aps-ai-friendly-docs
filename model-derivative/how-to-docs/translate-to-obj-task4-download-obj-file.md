@@ -1,10 +1,10 @@
-# Task 4 â Download OBJ file
+# Task 4 – Download OBJ file
 
 Source: https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-to-obj/task4-download-obj-file/
 
 ---
 
-# Task 4 â Download OBJ file
+# Task 4 – Download OBJ file
 
 In order to download the translated OBJ file, you must wait until the translation job is complete. There are two ways you can do this:
 

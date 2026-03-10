@@ -62,7 +62,7 @@ A server error was returned when accessing a network resource (HTTP 5xx)
 
 ## [NETWORK_UNHANDLED_RESPONSE_CODE](#network-unhandled-response-code)
 
-An unhandled response code was returned when accessing a network resource (HTTP âeverything elseâ)
+An unhandled response code was returned when accessing a network resource (HTTP ‘everything else’)
 
 | type |
 | --- |

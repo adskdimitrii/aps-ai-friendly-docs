@@ -31,7 +31,7 @@ You must combine your Client ID with the Client Secret and convert it to a Base6
     | JavaScript | `btoa()` function |
     | Python | `b64encode()` function from the `base64` module |
     | C# | `Convert.ToBase64String()` method |
-    **Note:** There are online tools that you can use to convert the combined string to a Base64 encoded string. However, we donât recommend that you use such tools. Exposing your Client ID and Client Secret to an online tool can pose a security threat.
+    **Note:** There are online tools that you can use to convert the combined string to a Base64 encoded string. However, we don’t recommend that you use such tools. Exposing your Client ID and Client Secret to an online tool can pose a security threat.
 
     You should receive a string that looks like `RjZEbjh5cGVtMWo4UDZzVXo4SVgzcG1Tc09BOTlHVVQ6QVNOa3c4S3F6MXQwV1hISw==`.
 
@@ -78,4 +78,4 @@ Connection: keep-alive
 
 Show More
 
-You can now use the access token to make calls to other API endpoints that require the `data:read` scope and have an âapp onlyâ or âuser context optionalâ authentication context until the token expires.
+You can now use the access token to make calls to other API endpoints that require the `data:read` scope and have an “app only” or “user context optional” authentication context until the token expires.

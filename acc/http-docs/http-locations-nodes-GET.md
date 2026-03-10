@@ -12,7 +12,7 @@ GET
 
 Retrieves an array of nodes (locations) from the specified locations tree (LBS). Returns all nodes in the tree by default.
 
-To include each nodeâs `path` (an array of its ancestor nodesâ names) in the response, use the `filter[id]` parameter to specify a comma-separated list of nodes to return.
+To include each node’s `path` (an array of its ancestor nodes’ names) in the response, use the `filter[id]` parameter to specify a comma-separated list of nodes to return.
 
 For more information about working with a locations tree, see the [Configure a Locations Tree tutorial](../how-to-docs/locations-configure-locations-tree.md).
 
@@ -85,7 +85,7 @@ Expand all
 | name   string | The name of this LBS node. <br>Max length: 255 |
 | description   string | Not relevant |
 | barcode   string | The barcode that represents this LBS node. This value must be unique per project. <br>Max length: 255 |
-| order   int | This nodeâs position relative to its sibling nodes. Nodes with the same parent have a defined sequence order. A node with a lower `order` value will be positioned before a node with a higher `order` value. <br>This is zero-based; for example, a node with an `order` value of `3` is the fourth node among its sibling nodes.<br>If an existing sibling node has the same or higher `order` value, that value will be incremented to make room for the new node. |
+| order   int | This node’s position relative to its sibling nodes. Nodes with the same parent have a defined sequence order. A node with a lower `order` value will be positioned before a node with a higher `order` value. <br>This is zero-based; for example, a node with an `order` value of `3` is the fourth node among its sibling nodes.<br>If an existing sibling node has the same or higher `order` value, that value will be incremented to make room for the new node. |
 | documentCount   int | This field is reserved for future use. |
 | path   array: string | The path from the root node to the current node. Note that this is only included if you use the `filter[id]` parameter. |
 

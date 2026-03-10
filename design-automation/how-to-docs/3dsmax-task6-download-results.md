@@ -12,7 +12,7 @@ By the end of this task, you will be able to:
 > - Check the execution status of the WorkItem.
 > - Download the results to your local machine.
 
-You will use the following operations to check the WorkItemâs status and download the result.
+You will use the following operations to check the WorkItem’s status and download the result.
 
 | HTTP Request | Description |
 | --- | --- |
@@ -27,7 +27,7 @@ However, execution time may be longer when the Automation Service experiences he
 In this walkthrough, you will be waiting for the WorkItem to finish by querying the WorkItem status.
 However, the best practice is to use the `onComplete` argument when submitting WorkItem.
 This onComplete argument enables you tp specify a callback URL that will be called once the WorkItem is completed.
-The onComplete argument can be specified when sending a WorkItem and doesnât need to be defined within an activity.
+The onComplete argument can be specified when sending a WorkItem and doesn’t need to be defined within an activity.
 For more information see the documentation on callbacks [here](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/callbacks/).
 
 For now, send this request periodically until the value of the response body parameter status is something other than `pending` or `inprogress`.
@@ -120,7 +120,7 @@ curl -X GET \
 
 ```
 
-**Note:** This download is directly from S3 (or a CDN). So, it doesnât need an `Authorization` header.
+**Note:** This download is directly from S3 (or a CDN). So, it doesn’t need an `Authorization` header.
 
 ### Response
 

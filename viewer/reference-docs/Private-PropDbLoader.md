@@ -105,7 +105,7 @@ Expand all
 
 ## [getPropertySet(dbIds, options, onSuccess, onError)](#getpropertyset-dbids-options-onsuccess-onerror)
 
-Retrieves properties related to the specified dbIds. The results object that is passed into the onSuccess callback contains the displayName and displayCategory separated by a â/â as the key and all of the related properties as the entryâs value. The results can be used to create a new [PropertySet](Viewing-PropertySet.md) instance.
+Retrieves properties related to the specified dbIds. The results object that is passed into the onSuccess callback contains the displayName and displayCategory separated by a ‘/’ as the key and all of the related properties as the entry’s value. The results can be used to create a new [PropertySet](Viewing-PropertySet.md) instance.
 
 ### Parameters
 
@@ -168,7 +168,7 @@ await executeUserFunction('function myCustomFunction(pdb, userData) { ... }');
 ```
 
 Note that the function must be fully self-contained, and free of any syntax that causes e.g. babel
-to change it using polyfills (e.g. decopomposition operators). Since the polyfills donât exist
+to change it using polyfills (e.g. decopomposition operators). Since the polyfills don’t exist
 in the worker, the function could fail depending on babeling.
 
 ---

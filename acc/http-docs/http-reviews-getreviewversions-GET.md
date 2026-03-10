@@ -12,7 +12,7 @@ GET
 
 Retrieves the file versions included in the latest round of the specified review.
 
-A review may go through multiple rounds when the âBack to initiatorâ feature is used. This endpoint only returns data from the most recent round.
+A review may go through multiple rounds when the “Back to initiator” feature is used. This endpoint only returns data from the most recent round.
 
 The response includes approval statuses, file version names, copied version URNs (if applicable), and any custom attributes captured during the review.
 
@@ -36,7 +36,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 | Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
 | --- | --- |
-| x-user-id   string | The ID of a user on whose behalf the request is made. Your application has access to all users specified by the administrator in the SaaS Integrations UI. Use this header to specify which user should be affected by the request. <br>This header is only required when using two-legged authentication. It is not needed for three-legged authentication.<br>Only userâs Autodesk ID (`autodeskId`) can be accepted. |
+| x-user-id   string | The ID of a user on whose behalf the request is made. Your application has access to all users specified by the administrator in the SaaS Integrations UI. Use this header to specify which user should be affected by the request. <br>This header is only required when using two-legged authentication. It is not needed for three-legged authentication.<br>Only user’s Autodesk ID (`autodeskId`) can be accepted. |
 
 * Required
 
@@ -44,12 +44,12 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You can provide the project ID with or without the â**b.**" prefix.
+- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You can provide the project ID with or without the “**b.**" prefix.
 
 - Example with prefix: **b.563a4c30-e30d-4869-ac02-2a18b6447abe**
 - Example without prefix: **563a4c30-e30d-4869-ac02-2a18b6447abe**
 - reviewIdstring: UUID The unique ID of the review.
-It must be in UUID format â not the numeric sequence ID shown in the Reviews UI. To find the review ID, call [GET reviews](en/docs/acc/v1/reference/http/reviews-reviews-GET/).
+It must be in UUID format — not the numeric sequence ID shown in the Reviews UI. To find the review ID, call [GET reviews](en/docs/acc/v1/reference/http/reviews-reviews-GET/).
 
 ### Request
 
@@ -58,7 +58,7 @@ It must be in UUID format â not the numeric sequence ID shown in the Review
 | limit   int | The number of file versions to return in the response. Possible values: `1-50`. Maximum: `50`. Default: `50`. For example: `limit=2`. |
 | --- | --- |
 | offset   int | The index of the first result to return (zero-based). Default: `0`. For example: `offset=10`. |
-| filter[approveStatus]   array | Filters the results based on the approval status assigned to each file during the review. It should be URL-encoded. <br>The filter applies to the `label` of the approval status, as defined in the workflow â not the internal value.<br>For example, if your workflow includes a status labeled `Approved with comments`, you would filter using that label:<br>`filter[approveStatus]=Approved with comments`.<br>This is especially useful when a workflow includes multiple approval options with customized labels.<br>Note: It supports multiple values.<br>For example, if you want to filter with 2 labels: both `Approved` and `Rejected`, you could filter with the query string:<br>`filter[approveStatus]=Approved&filter[approveStatus]=Rejected` |
+| filter[approveStatus]   array | Filters the results based on the approval status assigned to each file during the review. It should be URL-encoded. <br>The filter applies to the `label` of the approval status, as defined in the workflow — not the internal value.<br>For example, if your workflow includes a status labeled `Approved with comments`, you would filter using that label:<br>`filter[approveStatus]=Approved with comments`.<br>This is especially useful when a workflow includes multiple approval options with customized labels.<br>Note: It supports multiple values.<br>For example, if you want to filter with 2 labels: both `Approved` and `Rejected`, you could filter with the query string:<br>`filter[approveStatus]=Approved&filter[approveStatus]=Rejected` |
 
 ### Response
 

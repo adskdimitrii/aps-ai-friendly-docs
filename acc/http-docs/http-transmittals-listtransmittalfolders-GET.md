@@ -53,7 +53,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 | limit   int | The maximum number of results to return per page. <br>Acceptable values: 1-200.<br>Default value: 20.<br>For example, to limit the response to two results per page, use `limit=2`. |
 | --- | --- |
 | offset   int | The index from which the response starts returning results. <br>Default value: 0.<br>For example, to skip the first three results, use `offset=3`. |
-| sort   enum:string | Sorts the folders by a supported field and order. <br>By default, folders are sorted in ascending order by `name` (`name asc`).<br>To sort in descending order, add `desc` after the field name.<br>Format: `sort=<field> [asc or desc]`<br>Supported fields: `name`, `lastUpdatedAt`, `updatedByName`.<br>Examples:<br>`sort=name asc` â sorts folders alphabetically by name.`sort=lastUpdatedAt desc` â sorts folders by last updated time in descending order.<br>Possible values: `name`, `lastUpdatedAt`, `updatedByName`, `name asc`, `lastUpdatedAt asc`, `updatedByName asc`, `name desc`, `lastUpdatedAt desc`, `updatedByName desc` |
+| sort   enum:string | Sorts the folders by a supported field and order. <br>By default, folders are sorted in ascending order by `name` (`name asc`).<br>To sort in descending order, add `desc` after the field name.<br>Format: `sort=<field> [asc or desc]`<br>Supported fields: `name`, `lastUpdatedAt`, `updatedByName`.<br>Examples:<br>`sort=name asc` – sorts folders alphabetically by name.`sort=lastUpdatedAt desc` – sorts folders by last updated time in descending order.<br>Possible values: `name`, `lastUpdatedAt`, `updatedByName`, `name asc`, `lastUpdatedAt asc`, `updatedByName asc`, `name desc`, `lastUpdatedAt desc`, `updatedByName desc` |
 
 ### Response
 
@@ -82,7 +82,7 @@ Expand all
 | lastUpdatedAt   datetime: ISO 8601 | The date and time when the folder was last modified, in ISO 8601 format. |
 | updatedByName   string | The Autodesk ID of the user who last modified the folder. |
 | updatedBy   string | The Autodesk ID of the user who last modified the folder. For details about the user, call [GET user](http-admin-projectsprojectId-users-userId-GET.md). |
-| isDeleted   boolean | Indicates whether the folder is deleted. <br>`true` â The folder is deleted, either directly or because its parent folder was deleted.<br>`false` â The folder is not deleted. |
+| isDeleted   boolean | Indicates whether the folder is deleted. <br>`true` – The folder is deleted, either directly or because its parent folder was deleted.<br>`false` – The folder is not deleted. |
 | pagination   object | The list of pagination details for the response. |
 | limit   int | The maximum number of results returned per page. |
 | offset   int | The number of results skipped before the current page, starting from zero. |

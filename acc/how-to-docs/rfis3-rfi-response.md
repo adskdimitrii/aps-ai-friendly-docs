@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/rfis3/rfi-response/
 
 # Submit an RFI Response
 
-This tutorial demonstrates how to submit a response to an RFI in an Autodesk Construction Cloud (ACC) project. The steps include verifying the userâs permissions, creating a response, and optionally including file attachments.
+This tutorial demonstrates how to submit a response to an RFI in an Autodesk Construction Cloud (ACC) project. The steps include verifying the user’s permissions, creating a response, and optionally including file attachments.
 
 ## [Before You Begin](#before-you-begin)
 
@@ -389,8 +389,8 @@ Show More
 
 Look for the `permittedActions` object in the response.
 
-- `createResponse` â If `true`, the user can submit a response directly.
-- `createResponseOnBehalf` â If `true`, the user can submit a response on behalf of another project member.
+- `createResponse` – If `true`, the user can submit a response directly.
+- `createResponseOnBehalf` – If `true`, the user can submit a response on behalf of another project member.
 - If both are `false`, the user does not have permission to respond via the API.
 
 If `createResponseOnBehalf` is `true`, you must include the `onBehalf` field when posting the response. The value must be a valid user ID (e.g., from `assignedTo` or `reviewers`).
@@ -402,8 +402,8 @@ To do this, upload each file to the `virtual folder` associated with the RFI usi
 
 After uploading a file, collect the following values for each attachment. These values are required when creating the RFI response payload.
 
-- `objectId` â The unique identifier for the uploaded file. This value also serves as the `storageUrn` when attaching the file to the RFI response.
-- `objectKey` â The file name used in the object storage service (OSS).
+- `objectId` – The unique identifier for the uploaded file. This value also serves as the `storageUrn` when attaching the file to the RFI response.
+- `objectKey` – The file name used in the object storage service (OSS).
 
 ### Example Attachment Data
 
@@ -417,19 +417,19 @@ After uploading a file, collect the following values for each attachment. These 
 
 ## [Step 3: Submit the RFI Response](#step-3-submit-the-rfi-response)
 
-Once youâve verified that the user has the required permissions and optionally uploaded attachments, you can create the RFI response.
+Once you’ve verified that the user has the required permissions and optionally uploaded attachments, you can create the RFI response.
 
 Call [POST response](https://aps.autodesk.com/en/docs/acc/v1/reference/http/rfis-V3-response-POST/) using the project ID (`ce8edd30-ef28-467c-8d99-7d7051097ee0`), the RFI ID (`rfiId`) (`a1d12f69-3c02-4bba-936d-cccd73f001ee`). Include the response text, and if applicable, the `onBehalf` field and attachments.
 
 ### Important Request Fields
 
-- `text` â The response text.
-- `onBehalf` â Required if `createResponse` is false and `createResponseOnBehalf` is true.
-- `attachments` â An optional array of attachment objects. Each object must include:
-  * `attachmentType` â Set to `rfiResponse`.
-  * `displayName` â The name that will appear in the UI.
-  * `fileName` â The actual OSS file name (same as `objectKey`).
-  * `storageUrn` â The URN of the uploaded file (same as `objectId` from Step 2).
+- `text` – The response text.
+- `onBehalf` – Required if `createResponse` is false and `createResponseOnBehalf` is true.
+- `attachments` – An optional array of attachment objects. Each object must include:
+  * `attachmentType` – Set to `rfiResponse`.
+  * `displayName` – The name that will appear in the UI.
+  * `fileName` – The actual OSS file name (same as `objectKey`).
+  * `storageUrn` – The URN of the uploaded file (same as `objectId` from Step 2).
 
 ### Request
 

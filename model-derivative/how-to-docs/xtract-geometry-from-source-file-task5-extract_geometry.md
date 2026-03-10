@@ -1,12 +1,12 @@
-# Task 5 â Extract Geometry
+# Task 5 – Extract Geometry
 
 Source: https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/xtract-geometry-from-source-file/task5-extract_geometry/
 
 ---
 
-# Task 5 â Extract Geometry
+# Task 5 – Extract Geometry
 
-In the previous task you listed the properties of the objects contained within a view. In this task, you select two specific objects and translate them into the OBJ format. You use [`Create Translation Job`_](#id7) to translate the objects. This request is the same as the one you sent in Task 3 when you translated the Inventor model to SVF2. However, for this task you explicitly specify what objects to translate, so that the server doesnât translate the entire model. When you translate specific objects, you can only translate to the OBJ format.
+In the previous task you listed the properties of the objects contained within a view. In this task, you select two specific objects and translate them into the OBJ format. You use [`Create Translation Job`_](#id7) to translate the objects. This request is the same as the one you sent in Task 3 when you translated the Inventor model to SVF2. However, for this task you explicitly specify what objects to translate, so that the server doesn’t translate the entire model. When you translate specific objects, you can only translate to the OBJ format.
 
 By the end of this task you will be able to:
 

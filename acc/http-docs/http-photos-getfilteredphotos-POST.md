@@ -17,7 +17,7 @@ This endpoint accepts a set of optional media property filters, then uses suppli
 search for and return media within a project that satisfy those filters. If no filters are set,
 this endpoint returns all assets within a project.
 
-The endpoint paginates returned media. If you donât specify pagination fields, your query will
+The endpoint paginates returned media. If you don’t specify pagination fields, your query will
 execute using the default page size. If you want to specify a different a page size, define
 the limit in the request body.
 
@@ -56,7 +56,7 @@ objects.
 
 Expand all
 
-| cursorState   string | An opaque cursor token that identifies where the next page of paginated results should start. Itâs returned in each paginated response so that it can be supplied in the next request to continue paginated results. If a paginated response contains no `cursorState` value, then there are no further pages to return. If provided, all other body parameters are ignored. |
+| cursorState   string | An opaque cursor token that identifies where the next page of paginated results should start. It’s returned in each paginated response so that it can be supplied in the next request to continue paginated results. If a paginated response contains no `cursorState` value, then there are no further pages to return. If provided, all other body parameters are ignored. |
 | --- | --- |
 | filter   object | Parameters to filter media by |
 | createdAt   string | Filter by when the media was submitted to the server. A string that specifies a date and time or a date and time range at which all returned objects mast have been updated. A single date and time takes this format: `YYYY-MM-DDThh:mm:ss.SSSZ`, A date and time range takes this format: `YYYY-MM-DDThh:mm:ss.SSSZ..YYYY-MM-DDThh:mm:ss.SSSZ`. Range queries can be closed or open in either direction: `YYYY-MM-DDThh:mm:ss.SSSZ..` or `..YYYY-MM-DDThh:mm:ss.SSSZ`. |
@@ -89,7 +89,7 @@ Expand all
 | limit   int | Number of result in a page |
 | nextPost   object | Information to fetch the next results of data via POST |
 | body   object | The POST body to use to get the next result |
-| cursorState   string | An opaque cursor token that identifies where the next page of paginated results should start. Itâs returned in each paginated response so that it can be supplied in the next request to continue paginated results. If a paginated response contains no `cursorState` value, then there are no further pages to return. |
+| cursorState   string | An opaque cursor token that identifies where the next page of paginated results should start. It’s returned in each paginated response so that it can be supplied in the next request to continue paginated results. If a paginated response contains no `cursorState` value, then there are no further pages to return. |
 | url   string | The URL to get the next result |
 | results   array: object | The filtered media |
 | createdAt   datetime: ISO 8601 | The time when the media was created at (ISO8601 Date time format in UTC). |
@@ -104,7 +104,7 @@ Expand all
 | longitude   number | Longitude in decimal degrees |
 | mediaType   enum:string | The type of the media (`NORMAL` is for a normal photo) Possible values: `NORMAL`, `INFRARED`, `PHOTOSPHERE`, `VIDEO` |
 | projectId   string: UUID | The id of the project <br>Max length: 36 |
-| signedUrls   object | URLs to the mediaâs assets. Accessible by anyone but is short-lived. Must be explicitly requested via `` `include `` field |
+| signedUrls   object | URLs to the media’s assets. Accessible by anyone but is short-lived. Must be explicitly requested via `` `include `` field |
 | fileUrl   string | Signed URL to the original asset |
 | thumbnailUrl   string | Signed URL to the thumbnail asset |
 | size   number | Filesize of the media in bytes |
@@ -113,7 +113,7 @@ Expand all
 | type   enum:string | The type of object this media was initially added with Possible values: `FIELD-REPORT`, `FORM`, `ISSUE`, `RFI`, `MARKUP`, `ASSET`, `GALLERY`, `MEETING`, `SUBMITTAL`, `LOGO` |
 | updatedAt   datetime: ISO 8601 | The time when the media was last updated (ISO8601 Date time format in UTC). |
 | updatedBy   string | The actor that last updated the media. This is an Autodesk ID. |
-| urls   object | URLs to the mediaâs assets. Requires API auth headers (<data:read>) to access it. |
+| urls   object | URLs to the media’s assets. Requires API auth headers (<data:read>) to access it. |
 | fileUrl   string | URL to the original asset |
 | thumbnailUrl   string | URL to the thumbnail asset |
 | userCreatedAt   datetime: ISO 8601 | The time when the media was added to the project at (whether it was offline/locally or online) at (ISO8601 Date time format in UTC). |

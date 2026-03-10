@@ -16,7 +16,7 @@ This endpoint accepts a set of optional status query parameters (described below
 to search for and return statuses within a project that satisfy those parameters. If no parameters are set,
 this endpoint returns all active statuses within a project.
 
-The endpoint paginates returned statuses. If you donât specify pagination fields, your query will execute
+The endpoint paginates returned statuses. If you don’t specify pagination fields, your query will execute
 using the default page size. If you want to specify a different a page size, use the `limit` query parameter.
 
 A paginated response to a query includes pagination information that may contain a `nextUrl` field. Use the
@@ -25,7 +25,7 @@ to request the next page in the query, and so on until the response contains no 
 the query is finished returning objects. Note that you should not edit the `nextUrl` value to alter filter and
 sort values.
 
-If you want to create your own sequence of requests to retrieve all of a queryâs pages without using`nextUrl`, you can use the `cursorState` value returned by each request to specify where the next request
+If you want to create your own sequence of requests to retrieve all of a query’s pages without using`nextUrl`, you can use the `cursorState` value returned by each request to specify where the next request
 should start the next page.
 
 To understand the basics of asset statuses, and the Assets settings that define them, see the [Assets Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/assets/).
@@ -53,14 +53,14 @@ To understand the basics of asset statuses, and the Assets settings that define 
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form âb.{UUID}â. |
+| projectId   string | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
 | --- | --- |
 
 ### Request
 
 ## [Query String Parameters](#query-string-parameters)
 
-| cursorState   string | An opaque cursor token that identifies where the next page of paginated results should start. Itâs returned in each paginated response so that it can be supplied in the next request to continue paginated results. If a paginated response contains no `cursorState` value, then there are no further pages to return. <br>Omit this field to initiate a paginated request or to restart pagination. |
+| cursorState   string | An opaque cursor token that identifies where the next page of paginated results should start. It’s returned in each paginated response so that it can be supplied in the next request to continue paginated results. If a paginated response contains no `cursorState` value, then there are no further pages to return. <br>Omit this field to initiate a paginated request or to restart pagination. |
 | --- | --- |
 | limit   int | The maximum number of objects that can be returned in a page. A request might return fewer objects than the limit if the Assets service runs out of specified objects to return - at the end of a set of paged results, for example. The maximum limit is `200`; the default limit is `25`. |
 | includeDeleted   boolean | Whether or not soft-deleted object should be included in the response. If `true`, soft-deleted objects are returned. If `false`, they are not. The default is `false`. |
@@ -88,10 +88,10 @@ Expand all
 | pagination   object |  |
 | --- | --- |
 | limit   int | The maximum number of objects that can be returned in a page. A request might return fewer objects than the limit if the Assets service runs out of specified objects to return - at the end of a set of paged results, for example. The maximum limit is `200`; the default limit is `25`. |
-| cursorState   string | An opaque cursor token that identifies where the next page of paginated results should start. Itâs returned in each paginated response so that it can be supplied in the next request to continue paginated results. If a paginated response contains no `cursorState` value, then there are no further pages to return. <br>Omit this field to initiate a paginated request or to restart pagination. |
+| cursorState   string | An opaque cursor token that identifies where the next page of paginated results should start. It’s returned in each paginated response so that it can be supplied in the next request to continue paginated results. If a paginated response contains no `cursorState` value, then there are no further pages to return. <br>Omit this field to initiate a paginated request or to restart pagination. |
 | nextUrl   string | A URL that requests the next page for this query. |
 | results   array: object | Result statuses |
-| label   string | The display label of the status. This label appears in the Assets UI when viewing statuses. The label must be unique within this status set, but does not need to be unique within the project (in other words, the same label can be used in multiple status sets in the same project). âUniquenessâ in this context means case-insensitive. |
+| label   string | The display label of the status. This label appears in the Assets UI when viewing statuses. The label must be unique within this status set, but does not need to be unique within the project (in other words, the same label can be used in multiple status sets in the same project). “Uniqueness” in this context means case-insensitive. |
 | description   string | A description of the status. |
 | color   string | The color of the status as the status appears in the Assets UI. <br>This field is not restricted as it is primarily a tool for the Assets UI to use.<br>However, there are only certain colors that the Autodesk Construction Cloud Assets UI knows how to operate with. Understood color values are: `adsk-black`, `adsk-white`, `adsk-charcoal-900`, `adsk-charcoal-800`, `adsk-charcoal-700`, `adsk-charcoal-600`, `adsk-charcoal-500`, `adsk-charcoal-400`, `adsk-charcoal-300`, `adsk-charcoal-200`, `adsk-charcoal-100`, `adsk-charcoal-050`, `adsk-blue-700`, `adsk-blue-500`, `adsk-blue-300`, `adsk-blue-100`, `adsk-red-700`, `adsk-red-500`, `adsk-red-300`, `adsk-green-700`, `adsk-green-500`, `adsk-green-300`, `adsk-yellow-orange-700`, `adsk-yellow-orange-500`, `adsk-yellow-orange-300`, `adsk-dark-blue-700`, `adsk-dark-blue-500`, `adsk-dark-blue-300`, `adsk-pink-700`, `adsk-pink-500`, `adsk-pink-300`, `adsk-turquoise-700`, `adsk-turquoise-500`, `adsk-turquoise-300`, `adsk-purple-700`, `adsk-purple-500`, `adsk-purple-300`, `adsk-salmon-700`, `adsk-salmon-500`, `adsk-salmon-300`, `adsk-brown-700`, `adsk-brown-500`, `adsk-brown-300`.<br>Using colors other than those specified here is not disallowed, but may result in unexpected behavior in<br>the Assets UI. |
 | statusStepSetId   string: UUID | The ID of the status set to which the new status belongs. |
@@ -104,9 +104,9 @@ Expand all
 | deletedBy   string | The actor that deleted the component. This is an Autodesk / Oxygen ID. |
 | isActive   boolean | A flag indicating whether the component is active or inactive (`isActive` is `true` if-and-only-if `deletedAt` is empty). |
 | version   int | A global sequence number that is incremented any time a component of this type is created, updated, or deleted. If you cache components, you can use the version value to compare the cached component to the same component online to see if the component has been updated. If the online component has a higher version value, it has been updated. |
-| projectId   string: UUID | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form âb.{UUID}â. |
-| bucket   string | An immutable string assigned to a status on its creation, typically created by incorporating the statusâs label into a larger string that is guaranteed to be unique within a project. The bucket name remains the same for the life of the status, and doesnât change even if the label does. The bucket value is a useful tool for semantic identification. |
-| sortOrder   int | A value that indicates the order of a status within its status set. Each status in the set has a sort order value that indicates its order relative to other statuses in the set. A status setâs sort order values donât necessarily start at 1, and may not be sequential. The only way to know a statusâs order within a set is to compare its sort order value with the sort order values of other statuses. |
+| projectId   string: UUID | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
+| bucket   string | An immutable string assigned to a status on its creation, typically created by incorporating the status’s label into a larger string that is guaranteed to be unique within a project. The bucket name remains the same for the life of the status, and doesn’t change even if the label does. The bucket value is a useful tool for semantic identification. |
+| sortOrder   int | A value that indicates the order of a status within its status set. Each status in the set has a sort order value that indicates its order relative to other statuses in the set. A status set’s sort order values don’t necessarily start at 1, and may not be sequential. The only way to know a status’s order within a set is to compare its sort order value with the sort order values of other statuses. |
 
 ## [Example](#example)
 

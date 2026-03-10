@@ -1,10 +1,10 @@
-# Task 4 â Extract Metadata
+# Task 4 – Extract Metadata
 
 Source: https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/xtract-geometry-from-source-file/task4-extract_metadata/
 
 ---
 
-# Task 4 â Extract Metadata
+# Task 4 – Extract Metadata
 
 To extract geometry, you must know the object IDs of the geometries to extract. To get the object ID of geometry you must first get the metadata GUID of the Viewable it resides on.
 

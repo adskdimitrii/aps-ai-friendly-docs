@@ -12,7 +12,7 @@ Source: https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/overview/
 
 The Viewer SDK provides an extension framework that allows developers to:
 
-- Customize the Viewerâs appearance, controls, and behavior.
+- Customize the Viewer’s appearance, controls, and behavior.
 - Customize the content and location of the Viewer toolbar.
 - Write custom extensions to further customize the user experience.
 
@@ -32,7 +32,7 @@ You can interact with the viewer in the following example. Click the drop-down i
 
 [https://codepen.io/autodesk-platform-services/embed/MWqmXxG?default-tab=result&amp;theme-id=light](https://codepen.io/autodesk-platform-services/embed/MWqmXxG?default-tab=result&amp;theme-id=light)
 
-**Tip**: To experiment with customizing the Viewer, copy the following snippet and then click EDIT ON CODEPEN at upper right in the example. When CodePen opens, paste the snippet to the end of the original code in the **JS** tab. This snippet isolates all objects that contain the word âconcreteâ in their metadata.
+**Tip**: To experiment with customizing the Viewer, copy the following snippet and then click EDIT ON CODEPEN at upper right in the example. When CodePen opens, paste the snippet to the end of the original code in the **JS** tab. This snippet isolates all objects that contain the word “concrete” in their metadata.
 
 ```
 viewer.addEventListener(Autodesk.Viewing.GEOMETRY_LOADED_EVENT, function () {
@@ -48,7 +48,7 @@ viewer.addEventListener(Autodesk.Viewing.GEOMETRY_LOADED_EVENT, function () {
 Before you can display a model in the viewer, it must be translated into the SVF or SVF2 format. There are two ways to do this:
 
 - If the file is in a BIM 360 or ACC workspace, the SVF/SVF2 file is automatically generated.
-- Upload the model to the Object Storage Service (OSS). After uploading you can call the Model Derivative APIâs [POST Start Translation Job](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/http/jobs/job-POST/) operation to perform the translation.
+- Upload the model to the Object Storage Service (OSS). After uploading you can call the Model Derivative API’s [POST Start Translation Job](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/http/jobs/job-POST/) operation to perform the translation.
 
 For more information, see the Model Derivative tutorial [Prepare a File for the Viewer](https://aps.autodesk.com/en/docs/model-derivative/v2/).
 

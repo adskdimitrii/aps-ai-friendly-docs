@@ -1,10 +1,10 @@
-# Task 4 â Publish an Activity
+# Task 4 – Publish an Activity
 
 Source: https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/inventor/task4-publish-activity/
 
 ---
 
-# Task 4 â Publish an Activity
+# Task 4 – Publish an Activity
 
 An Activity is an action that can be executed on the Automation Service. You create and post Activities to run specific AppBundles.
 
@@ -91,8 +91,8 @@ Show More
 | Attribute | Description |
 | --- | --- |
 | `id` | The name given to your new Activity. |
-| `commandLine` | The command run by this Activity.       - `$(engine.path)\\InventorCoreConsole.exe` - The full path to the Inventor engine.      The version of Inventor to be used is defined in the request body as âengineâ: âAutodesk.Inventor+24 (Inventor 2020).   More information about engines can be found in the Additional notes section of the [previous step](inventor-task3-upload-appbundle.md#additional-notes) .       - `$(args[InventorDoc].path)` - The full path to the folder that the file identified by the parameter InventorDoc is downloaded to.       - `$(appbundles[ChangeParamApp].path)` - The full path to where the AppBundle specified under `appbundles` is unzipped to.       - `$(args[InventorParams].path)` - The full path to where the JSON file carrying the height and width parameters is saved to. |
-| `parameters` | Defines the inputs and outputs that need to be provided when the Activity is executed.   Input parameters are identified by the attribute âverbâ:âgetâ. Output parameters are identified by the attribute `âverbâ:âputâ. |
+| `commandLine` | The command run by this Activity.       - `$(engine.path)\\InventorCoreConsole.exe` - The full path to the Inventor engine.      The version of Inventor to be used is defined in the request body as “engine”: “Autodesk.Inventor+24 (Inventor 2020).   More information about engines can be found in the Additional notes section of the [previous step](inventor-task3-upload-appbundle.md#additional-notes) .       - `$(args[InventorDoc].path)` - The full path to the folder that the file identified by the parameter InventorDoc is downloaded to.       - `$(appbundles[ChangeParamApp].path)` - The full path to where the AppBundle specified under `appbundles` is unzipped to.       - `$(args[InventorParams].path)` - The full path to where the JSON file carrying the height and width parameters is saved to. |
+| `parameters` | Defines the inputs and outputs that need to be provided when the Activity is executed.   Input parameters are identified by the attribute “verb”:”get”. Output parameters are identified by the attribute `”verb”:”put”. |
 | `engine` | The engine on which your Activity runs. The available engine versions are described in the Additional notes section in [Task 3](inventor-task3-upload-appbundle.md#additional-notes) |
 | `appbundles` | The fully qualified id of the AppBundle referred to in `commandLine`. |
 
@@ -251,7 +251,7 @@ curl -X POST \
 
 Show More
 
-**Note:** You can omit `id` from the request body. If you include `id` in the request body, set it to `null`. If you donât set it to `null`, the Automation Service throws an error.
+**Note:** You can omit `id` from the request body. If you include `id` in the request body, set it to `null`. If you don’t set it to `null`, the Automation Service throws an error.
 
 ### Response
 

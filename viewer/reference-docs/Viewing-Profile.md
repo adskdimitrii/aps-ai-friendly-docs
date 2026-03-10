@@ -50,12 +50,12 @@ const profile = new Autodesk.Viewing.Profile(profileSettings);
 
 ## [apply(prefs, override)](#apply-prefs-override)
 
-Applies the profileâs settings to the viewer preferences. To make the viewer react to the updated preferences please reference [Autodesk.Viewing.Viewer3D#setProfile](Viewing-Viewer3D.md#setProfile/).
+Applies the profile’s settings to the viewer preferences. To make the viewer react to the updated preferences please reference [Autodesk.Viewing.Viewer3D#setProfile](Viewing-Viewer3D.md#setProfile/).
 
 ### Parameters
 
 | prefs*   [Autodesk.Viewing.Private.Preferences](Private-Preferences.md) | preferences instance. |
 | --- | --- |
-| override   boolean | Override all existing preferences with the profileâs preferences. |
+| override   boolean | Override all existing preferences with the profile’s preferences. |
 
 * Required

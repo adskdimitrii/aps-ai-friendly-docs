@@ -75,7 +75,7 @@ propertySet.forEach((key, properties) => {
 
 ## [getValue2PropertiesMap(properties)](#getvalue2propertiesmap-properties)
 
-Returns an object with a key representing the propertyâs displayValue and the value being all of the property names associated with it.
+Returns an object with a key representing the property’s displayValue and the value being all of the property names associated with it.
 
 see [Autodesk.Viewing.PropertySet#forEach](Viewing-PropertySet.md#forEach/) see [PropertyResult](globals-TypeDefs-PropertyResult.md)
 
@@ -153,7 +153,7 @@ Returns an array of keys that have properties with displayCategories
 
 ## [merge(propertySet)](#merge-propertyset)
 
-Merges the passed in PropertySet map with the current PropertySetâs map.
+Merges the passed in PropertySet map with the current PropertySet’s map.
 
 ### Parameters
 

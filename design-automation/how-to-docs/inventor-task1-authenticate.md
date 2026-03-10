@@ -1,10 +1,10 @@
-# Task 1 â Obtain an Access Token
+# Task 1 – Obtain an Access Token
 
 Source: https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/inventor/task1-authenticate/
 
 ---
 
-# Task 1 â Obtain an Access Token
+# Task 1 – Obtain an Access Token
 
 This task produces a two-legged OAuth token with a scope sufficient to authenticate the remaining tasks in this walkthrough.
 
@@ -39,7 +39,7 @@ You must combine your Client ID with the Client Secret and convert it to a Base6
     | JavaScript | `btoa()` function |
     | Python | `b64encode()` function from the `base64` module |
     | C# | `Convert.ToBase64String()` method |
-    **Note:** There are online tools that you can use to convert the combined string to a Base64 encoded string. However, we donât recommend that you use such tools. Exposing your Client ID and Client Secret to an online tool can be a security threat.
+    **Note:** There are online tools that you can use to convert the combined string to a Base64 encoded string. However, we don’t recommend that you use such tools. Exposing your Client ID and Client Secret to an online tool can be a security threat.
 
     You should receive a string that looks like `RjZEbjh5cGVtMWo4UDZzVXo4SVgzcG1Tc09BOTlHVVQ6QVNOa3c4S3F6MXQwV1hISw==`.
 

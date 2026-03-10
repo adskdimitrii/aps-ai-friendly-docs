@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/interactive_
 
 # Customizing Viewer UI
 
-This example illustrates adding a custom button next to the Viewer toolbar. The event handler for the buttonâs onClick event changes the lighting preset of the Viewer to Snow Field (16).
+This example illustrates adding a custom button next to the Viewer toolbar. The event handler for the button’s onClick event changes the lighting preset of the Viewer to Snow Field (16).
 
 [https://codepen.io/autodesk-platform-services/embed/oNQyKBb?default-tab=js%2Cresult&amp;theme-id=light](https://codepen.io/autodesk-platform-services/embed/oNQyKBb?default-tab=js%2Cresult&amp;theme-id=light)
 

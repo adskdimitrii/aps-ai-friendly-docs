@@ -1,14 +1,14 @@
-# Task 7 â Submit a WorkItem
+# Task 7 – Submit a WorkItem
 
 Source: https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/revit/step7-post-workitem/
 
 ---
 
-# Task 7 â Submit a WorkItem
+# Task 7 – Submit a WorkItem
 
 When you post a WorkItem to the Automation Service, you are instructing the service to execute an Activity.
 
-The relationship between an Activity and a WorkItem can be thought of as a âfunction definitionâ and âfunction callâ, respectively.
+The relationship between an Activity and a WorkItem can be thought of as a “function definition” and “function call”, respectively.
 Named parameters of the Activity have corresponding named arguments of the WorkItem.
 Like in function calls, optional parameters of the Activity can be skipped and left unspecified while posting a WorkItem.
 
@@ -63,8 +63,8 @@ To create a work item to execute the Activity DeleteWallsActivity:
 >
 > | Attribute | Description |
 > | --- | --- |
-> | `activityId` | The target Activity defined by âowner.activity+aliasâ(`<YOUR_NICKNAME>.DeleteWallsActivity+test`) this WorkItem will execute. |
-> | `arguments` | The argument list that is required by the Activity (`DeleteWallsActivity`):       - `rvtFile` - The URN of the input file that the Automation Service must âgetâ from OSS.   - `result` - The URN of the output file that the Automation Service must âputâ (upload) to OSS. |
+> | `activityId` | The target Activity defined by “owner.activity+alias”(`<YOUR_NICKNAME>.DeleteWallsActivity+test`) this WorkItem will execute. |
+> | `arguments` | The argument list that is required by the Activity (`DeleteWallsActivity`):       - `rvtFile` - The URN of the input file that the Automation Service must “get” from OSS.   - `result` - The URN of the output file that the Automation Service must “put” (upload) to OSS. |
 
 ### Response
 
@@ -82,12 +82,12 @@ To create a work item to execute the Activity DeleteWallsActivity:
 ## [Step 2 - Check status of a WorkItem](#step-2-check-status-of-a-workitem)
 
 WorkItems are queued before they are processed.
-A WorkItemâs processing time will vary depending on the size and complexity of the input files, the type of processing done by the AppBundle, and the size of the output files.
+A WorkItem’s processing time will vary depending on the size and complexity of the input files, the type of processing done by the AppBundle, and the size of the output files.
 
 In this walkthrough, you will be checking the WorkItem status to see if it has completed.
 However, the best practice is to use the `onComplete` argument when submitting a WorkItem.
 This onComplete argument enables you to specify a callback URL, which will be called once the WorkItem is completed.
-For more information on the `onComplete` argument see âOutput arguments: onComplete callbackâ under the Additional notes section below.
+For more information on the `onComplete` argument see “Output arguments: onComplete callback” under the Additional notes section below.
 
 You can check the status of a WorkItem by calling `[GET] /workitems/{id}`:
 
@@ -124,7 +124,7 @@ Show More
 | Attribute | Description |
 | --- | --- |
 | `status` | Indicates if execution is pending, successful, failed or cancelled. |
-| `reportUrl` | The URL to get the report log for this WorkItemâs execution. |
+| `reportUrl` | The URL to get the report log for this WorkItem’s execution. |
 
 ## [Additional notes](#additional-notes)
 
@@ -194,7 +194,7 @@ Show More
 
 A sample eTransmit file `TopHost.zip` is available at [TopHost.zip](https://revitio.s3.amazonaws.com/documentation/TopHost.zip).
 
-The name of the âRoot Modelâ is read from the manifest file. The root model is then found in the zip.
+The name of the “Root Model” is read from the manifest file. The root model is then found in the zip.
 
 #### Host RVT file with linked models
 
@@ -255,7 +255,7 @@ TopHost.rvt
 
 #### RvtLinks in sub-folders
 
-The WorkItemâs `localName` variable can be used to create a folder structure inside the working directory. For example, a Revit file **Host.rvt** containing a relative link **SubFolder/Link.rvt** can be defined in this way for `rvtFile` in the WorkItem:
+The WorkItem’s `localName` variable can be used to create a folder structure inside the working directory. For example, a Revit file **Host.rvt** containing a relative link **SubFolder/Link.rvt** can be defined in this way for `rvtFile` in the WorkItem:
 
 ```
 {

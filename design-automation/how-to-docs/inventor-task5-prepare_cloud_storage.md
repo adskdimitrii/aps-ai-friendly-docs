@@ -1,10 +1,10 @@
-# Task 5 â Prepare Cloud Storage
+# Task 5 – Prepare Cloud Storage
 
 Source: https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/inventor/task5-prepare_cloud_storage/
 
 ---
 
-# Task 5 â Prepare Cloud Storage
+# Task 5 – Prepare Cloud Storage
 
 In Task 6 you use a WorkItem to execute the Activity you created in the previous task. At that time, the Automation Service takes an Inventor part or assembly file from a cloud storage repository as input, processes it, and uploads the resized part or assembly back to cloud storage.
 The Automation Service does not retain the inputs or outputs. It simply downloads the input files, processes them, and saves the output files back to cloud storage. After that it discards the local copies of the files.
@@ -119,7 +119,7 @@ Show More
 
 The file itself can then be uploaded to the signed url as per the following example.
 
-**Note:** This upload is directly to S3 and doesnât need an `Authorization` header.
+**Note:** This upload is directly to S3 and doesn’t need an `Authorization` header.
 
 ### Request
 

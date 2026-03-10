@@ -13,8 +13,8 @@ POST
 Adds an attachment to a submittal item within a project. This allows users to include relevant files as part of the submittal process.
 
 There are two ways to attach files:
-> 1. Attach a local file â attach a file from your local machine.
-> 2. Attach an existing file from the Files tool â link a file already stored in the system.
+> 1. Attach a local file – attach a file from your local machine.
+> 2. Attach an existing file from the Files tool – link a file already stored in the system.
 
 To verify user permissions and required fields, call [GET item/:id](http-submittals-items-itemId-GET.md).
 
@@ -50,7 +50,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the â**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
 - itemIdstring The ID of the submittal item. To find the item ID, call [GET items](http-submittals-items-GET.md).
 
 ### Request
@@ -63,7 +63,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 | isFileUploaded   boolean | Specifies whether the attachment upload has been completed. This value controls how the system processes the attachment. <br>`true`: if the attachment is complete.`false`: if the attachment is still in progress.<br>Behavior:<br>For local file uploads: The system initially considers the file as not uploaded (`false`). After completing the upload, you must set `isFileUploaded: true` using [PATCH attachments/:id](http-submittals-attachments-attachmentId-PATCH.md) to allow the system to process the attachment.For Files tool attachments: Always set to `true` since the file was uploaded earlier.<br>This field cannot be explicitly set to `false` in the request. If omitted, it defaults to `false`. |
 | urn   string | The unique identifier for the file version in the Files tool. This field is required for referencing a specific file version when attaching a file from the Files tool. This field is not applicable for local file uploads. When attaching a file from the Files tool, both `urn` and `urnTypeId` must be provided. |
 | urnTypeId*   enum:string | Specifies the type of URN associated with the attachment. <br>Possible values: `2` |
-| categoryId   enum:string | Specifies the workflow state of the submittal item associated with the attachment. If omitted, the system assigns one based on the current state. <br>Note that you can only set category IDs `1`-`4` when adding an attachment. Category IDs `5`-`8` are system-generated and appear in responses for historical records.<br>In some cases, you must manually set `categoryId`:<br>1. Subcontractor Submissions: When a subcontractor creates an item in the `Open (Submitted) - (mgr-1)` state, set `categoryId` to `1` (**Submission**) instead of `2` (**For Review**).<br>2. Final Response in Non-Standard Closures: When closing an item from a state other than `Open (Reviewed) - (mgr-2)`, set `categoryId` to `4` (**Final Response**) if uploading a final response.<br>Possible values:<br>`1`: **Submission** â Initial submission.`2`: **For Review** â Submitted and awaiting review.`3`: **Review Response** â A response provided during review.`4`: **Final Response** â The final response in the submittal workflow.<br>To retrieve the list of available category ID values, call [GET metadata](http-submittals-metadata-GET.md) and refer to the attachment categories list in the response. |
+| categoryId   enum:string | Specifies the workflow state of the submittal item associated with the attachment. If omitted, the system assigns one based on the current state. <br>Note that you can only set category IDs `1`-`4` when adding an attachment. Category IDs `5`-`8` are system-generated and appear in responses for historical records.<br>In some cases, you must manually set `categoryId`:<br>1. Subcontractor Submissions: When a subcontractor creates an item in the `Open (Submitted) - (mgr-1)` state, set `categoryId` to `1` (**Submission**) instead of `2` (**For Review**).<br>2. Final Response in Non-Standard Closures: When closing an item from a state other than `Open (Reviewed) - (mgr-2)`, set `categoryId` to `4` (**Final Response**) if uploading a final response.<br>Possible values:<br>`1`: **Submission** – Initial submission.`2`: **For Review** – Submitted and awaiting review.`3`: **Review Response** – A response provided during review.`4`: **Final Response** – The final response in the submittal workflow.<br>To retrieve the list of available category ID values, call [GET metadata](http-submittals-metadata-GET.md) and refer to the attachment categories list in the response. |
 
 * Required
 
@@ -110,7 +110,7 @@ Expand all
 | permittedActions   array: object | A list of actions that the user is allowed to perform on the attachment. |
 | id   string | The ID of the action in the format `type_of_object::action`. For example, `Attachment::retrieve`. |
 | fields   object | A mapping of field names to lists of possible values for each field. Note that an empty array indicates that there is no specific set of values for those fields. |
-| mandatoryFields   array: string | Fields required to perform specific actions. The required fields depend on the userâs role and the action. |
+| mandatoryFields   array: string | Fields required to perform specific actions. The required fields depend on the user’s role and the action. |
 | transitions   array: string | Not relevant |
 
 ## [Example](#example)
