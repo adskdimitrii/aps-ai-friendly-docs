@@ -11,6 +11,7 @@ Local markdown mirror of Autodesk Platform Services (APS) documentation with scr
 - [Model Derivative Docs](model-derivative/README.md) - Extract Data from Files, Convert, Export
 - [Viewer v7 Docs](viewer/README.md) - Web Viewer
 - [Design Automation Docs](design-automation/README.md) - Also Known as `Automation APIs`
+- [AEC Data Model Docs](aecdatamodel/README.md) - GraphQL API for BIM Element Data
 - [Webhooks Docs](webhooks/README.md)
 
 ## Re-Crawl
