@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/webhooks/tutorials/create-a-hook-cost-m
 
 # Creating a Webhook and Listening to Events
 
-This walkthrough demonstrates how to create a Webhook to register callbacks for specified types of [Autodesk Construction Cloud (ACC) and BIM 360 Cost Management events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/cost_management_events/). The steps include finding the scope ID for the events, choosing the event type for the webhook to listen for, preparing to handle callbacks, and creating the webhook.
+This walkthrough demonstrates how to create a Webhook to register callbacks for specified types of [Forma and BIM 360 Cost Management events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/cost_management_events/). The steps include finding the scope ID for the events, choosing the event type for the webhook to listen for, preparing to handle callbacks, and creating the webhook.
 
 For more details about the Cost Management API, see the [Cost Management Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/cost-management/).
 

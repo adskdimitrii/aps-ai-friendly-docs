@@ -12,20 +12,20 @@ This tutorial demonstrates how to extract the inventory items for a takeoff proj
 - Retrieving all the takeoff types
 - Retrieving all the takeoff items
 
-To learn more about the inventory tool, see the [ACC Takeoff Inventory](https://help.autodesk.com/view/TAKEOFF/ENU/?guid=Inventory) help documentation.
+To learn more about the inventory tool, see the [Forma Takeoff Inventory](https://help.autodesk.com/view/TAKEOFF/ENU/?guid=Inventory) help documentation.
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](https://aps.autodesk.com/myapps), and select Autodesk Construction Cloud API.
-- Provision your app to acquire access to your ACC account.
+- [Register an app](https://aps.autodesk.com/myapps), and select the Forma API.
+- Provision your app to acquire access to your Forma hub.
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:read` scope.
-- Verify that you have access to the relevant ACC project.
+- Verify that you have access to the relevant Forma project.
 
 ## [Step 1: Retrieve the Packages](#step-1-retrieve-the-packages)
 
 Use the project ID (`7388a640-3bff-4328-9dc2-aafe62359958`) to retrieve the packages, by calling [GET packages](../http-docs/http-takeoff-projects-project_id-packages-GET.md).
 
-To find the project ID, see the [Retrieve ACC Account and project ID](getting-started-retrieve-account-and-project-id.md) tutorial.
+To find the project ID, see the [Retrieve Forma Hub and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial.
 
 ### Request
 

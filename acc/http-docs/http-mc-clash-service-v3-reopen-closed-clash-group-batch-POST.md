@@ -16,7 +16,7 @@ This endpoint essentially deletes the specified closed clash groups. This operat
 
 The response contains information about the created clash group job.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

@@ -10,17 +10,17 @@ GET
 
 # accounts/{accountId}/companies
 
-Returns a list of companies in an account.
+Returns a list of companies in a hub.
 
 You can also use this endpoint to filter out the list of companies by setting the filter parameters.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
 | Method and URI | GET https://developer.api.autodesk.com/construction/admin/v1/accounts/:accountId/companies |
 | --- | --- |
-| Authentication Context | user context optional |
+| Authentication Context | User context optional |
 | Required OAuth Scopes | `account:read` |
 | Data Format | JSON |
 
@@ -28,10 +28,10 @@ You can also use this endpoint to filter out the list of companies by setting th
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 | Region   string | Specifies the region where your request should be routed. If not set, the request is routed automatically, which may result in a slight increase in latency. <br>Possible values: `US`, `EMEA`. For a complete list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
-| User-Id   string | The ID of a user on whose behalf your request is acting. <br>Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.<br>You can use either the user’s ACC ID (`id`), or their Autodesk ID (`autodeskId`).<br>Note that this header is required for Account Admin POST, PATCH, and DELETE endpoints if you want to use a 2-legged authentication context. This header is optional for Account Admin GET endpoints. |
+| User-Id   string | The ID of a user on whose behalf your request is acting. <br>Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.<br>You can use either the user’s Forma ID (`id`), or their Autodesk ID (`autodeskId`).<br>Note that this header is required for hub Admin POST, PATCH, and DELETE endpoints if you want to use a 2-legged authentication context. This header is optional for hub Admin GET endpoints. |
 
 * Required
 
@@ -39,7 +39,7 @@ You can also use this endpoint to filter out the list of companies by setting th
 
 ## [URI Parameters](#uri-parameters)
 
-| accountId   string: UUID | The ID of the ACC account that contains the project being created or the projects being retrieved. This corresponds to the hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID, remove the “**b.**" prefix. For example, a hub ID of `b.c8b0c73d-3ae9` translates to an account ID of `c8b0c73d-3ae9`. |
+| accountId   string: UUID | The ID of the hub that contains the projects. This corresponds to the hub ID used in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/), with the “**b.**" prefix removed. For example, `b.c8b0c73d-3ae9` becomes `c8b0c73d-3ae9`. |
 | --- | --- |
 
 ### Request
@@ -52,6 +52,7 @@ You can also use this endpoint to filter out the list of companies by setting th
 | filter[erpId]   string | Filter companies by ERP Id. Can be a partial match based on the value of filterTextMatch provided. <br>Max length: 255 |
 | filter[taxId]   string | Filter companies by tax Id. Can be a partial match based on the value of filterTextMatch provided. <br>Max length: 255 |
 | filter[updatedAt]   string | Filter companies by updated at date range. The range must be specified with dates in an ISO-8601 format with time required. The start and end dates of the range should be separated by .. One of the dates in the range may be omitted. For example, to get everything on or before June 1, 2019 the range would be ..2019-06-01T23:59:59.999Z. To get everything after June 1, 2019 the range would be 2019-06-01T00:00:00.000Z... <br>Max length: 100 |
+| filter[status]   enum:string | Filters companies by status. Possible values: `active`, `inactive`, `all`. Defaults to `active`. |
 | orFilters   array: string | List of filtered fields to apply an “or” operator. Valid list of fields are erpId, name, taxId, trade, updatedAt. |
 | filterTextMatch   enum:string | Specifies how text-based filters should match values in supported fields. <br>This parameter can be used in any endpoint that supports text-based filtering (e.g., `filter[name]`, `filter[jobNumber]`, `filter[companyName]`, etc.).<br>Possible values:<br>`contains` (default) – Matches if the field contains the specified text anywhere<br>`startsWith` – Matches if the field starts with the specified text<br>`endsWith` – Matches if the field ends with the specified text<br>`equals` – Matches only if the field exactly matches the specified text<br>Matching is case-insensitive.<br>Wildcards and regular expressions are not supported. |
 | sort   array: string | The list of fields to sort by. When multiple fields are listed the later property is used to sort the resources where the previous fields have the same value. Each property can be followed by a direction modifier of either asc (ascending) or desc (descending). If no direction is specified then asc is assumed. Valid fields for sorting are name, trade, erpId, taxId, status, createdAt, updatedAt, projectSize and userSize. Default sort is name. |
@@ -90,15 +91,15 @@ Expand all
 | previousUrl   string | The URL for the previous page of records, if applicable. Max length: 2000 characters. <br>Max length: 2000 |
 | results   array: object | The requested page of companies. |
 | id   string: UUID | Id of the company. |
-| accountId   string: UUID | The identifier of the account this company is associated with. |
-| name   string | The name of the company. The company name should be unique under an account. <br>Max length: 255 |
+| accountId   string: UUID | The identifier of the hub this company is associated with. |
+| name   string | The name of the company. The company name should be unique under a hub. <br>Max length: 255 |
 | trade   string | Trade or company type based on specialization. <br>Max length: 255 |
 | addresses   array: object | The company addresses. |
 | type   enum:string | The address type. Will always be: `Main` |
 | addressLine1   string | The street address line 1. <br>Max length: 255 |
 | addressLine2   string | The street address line 2. <br>Max length: 255 |
 | city   string | City. <br>Max length: 255 |
-| stateOrProvince   null,string | The state or province location. Only valid state/province names and ISO 3166-1 alpha-2 codes will be accepted. The provided state or province must exist in the provided country. <br>Max length: 255 |
+| stateOrProvince   null,string | The state or province location. Only valid state/province names and ISO 3166-2 alpha-2 codes will be accepted. The provided state or province must exist in the provided country. <br>Max length: 255 |
 | postalCode   string | The zip or postal code in which this address is located. <br>Max length: 255 |
 | country   null,string | Only valid country names and ISO 3166-1 alpha-2 codes will be accepted. <br>Max length: 255 |
 | phone   string | Phone Number. <br>Max length: 255 |
@@ -121,7 +122,7 @@ The list of requested companies.
 ### Request
 
 ```
-curl -v 'https://developer.api.autodesk.com/construction/admin/v1/accounts/d73fc742-4538-401c-8d0f-853b49b750b2/companies?filter[name]=Plumbing unlimited&filter[trade]=Plumbing&filter[erpId]=companyErpId&filter[taxId]=434920482-22&filter[updatedAt]=2019-06-01T00:00:00.000Z..&orFilters=name,trade&filterTextMatch=contains&sort=name&fields=name&limit=20' \
+curl -v 'https://developer.api.autodesk.com/construction/admin/v1/accounts/d73fc742-4538-401c-8d0f-853b49b750b2/companies?filter[name]=Plumbing unlimited&filter[trade]=Plumbing&filter[erpId]=companyErpId&filter[taxId]=434920482-22&filter[updatedAt]=2019-06-01T00:00:00.000Z..&filter[status]=active&orFilters=name,trade&filterTextMatch=contains&sort=name&fields=name&limit=20' \
   -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a'
 
 ```

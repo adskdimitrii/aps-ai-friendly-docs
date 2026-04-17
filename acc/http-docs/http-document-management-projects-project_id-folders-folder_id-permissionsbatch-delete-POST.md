@@ -14,7 +14,7 @@ Deletes all the permissions assigned to specified users, roles, and companies. T
 
 Note that you cannot delete permission for project admins, who are always assigned full permissions.
 
-For more information about folder permissions, see the [BIM 360 Help documentation](http://help.autodesk.com/view/BIM360D/ENU/?guid=GUID-2643FEEF-B48A-45A1-B354-797DAD628C37) or the [ACC Files Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Folder_Permissions).
+For more information about folder permissions, see the [BIM 360 Help documentation](http://help.autodesk.com/view/BIM360D/ENU/?guid=GUID-2643FEEF-B48A-45A1-B354-797DAD628C37) or the [Forma Files Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Folder_Permissions).
 
 In addition to the permissions that were assigned to the user for this folder, the user also inherits permissions from any parent folder. After deleting permissions for the folder, the user will still continue to have permissions that were inherited from any parent folder. In order to completely delete the user’s permissions, you need to also delete the user’s permissions from all parent folders.
 
@@ -22,7 +22,7 @@ Note that in addition to inherited permissions, the user might also have been as
 
 If you are calling this endpoint on behalf of a user, the user needs to have `CONTROL` permissions for the folder.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

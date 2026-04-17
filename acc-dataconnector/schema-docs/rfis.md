@@ -289,4 +289,4 @@ Information about all the BIM 360 RFIs (requests for information) in a project, 
 | 33 | bridged_source | boolean |  | Is the RFI was a source of a bridge action |
 | 34 | bridged_target | boolean |  | Is the RFI was a target of a bridge action |
 
-© Copyright 2026 Autodesk Inc. | [Autodesk Construction Cloud](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)
+© Copyright 2026 Autodesk Inc. | [Autodesk Forma](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)

@@ -14,7 +14,7 @@ Retrieves information about a given clash job.
 
 Many POST calls to clash endpoints result in a job. This endpoint can be used to track the progress of these jobs.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

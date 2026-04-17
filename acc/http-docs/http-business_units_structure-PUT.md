@@ -12,7 +12,7 @@ PUT
 
 Creates or redefines the business units of a specific BIM 360 account.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
@@ -36,7 +36,7 @@ Creates or redefines the business units of a specific BIM 360 account.
 
 ## [URI Parameters](#uri-parameters)
 
-| account_id   string: UUID | The account ID of the business unit. This corresponds to hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID you need to remove the “**b.**" prefix. For example, a hub ID of **b.**c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. |
+| account_id   string: UUID | The account/hub ID of the business unit. This corresponds to the hub ID used in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/), with the “**b.**" prefix removed. For example, **b.**c8b0c73d-3ae9 becomes c8b0c73d-3ae9. |
 | --- | --- |
 
 ### Request
@@ -80,7 +80,7 @@ Expand all
 | business_units   array:object |  |
 | --- | --- |
 | id   string: UUID | Business unit ID |
-| account_id   string: UUID | Account ID |
+| account_id   string: UUID | Account/Hub ID |
 | parent_id   string: UUID | The ID of the parent business unit |
 | name   string | The name of the business unit |
 | path   string | The path of the business unit in the tree structure |
@@ -90,7 +90,7 @@ Expand all
 
 ## [Example](#example)
 
-Successful Updating Account Business Units (200)
+Successful Updating Account/Hub Business Units (200)
 
 ### Request
 

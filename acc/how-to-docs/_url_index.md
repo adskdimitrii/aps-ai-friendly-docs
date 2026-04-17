@@ -24,13 +24,15 @@ Config source: https://developer.doc.config.autodesk.com/bPlouYTd/acc_v1.json
 - https://aps.autodesk.com/en/docs/acc/tutorials/data-connector/dc-tutorial-find-update-data-request/
 - https://aps.autodesk.com/en/docs/acc/tutorials/data-connector/dc-tutorial-retrieve-data-extract/
 - https://aps.autodesk.com/en/docs/acc/tutorials/data-connector/dc-tutorial-submit-data-request/
-- https://aps.autodesk.com/en/docs/acc/tutorials/files/download-document-s3/
-- https://aps.autodesk.com/en/docs/acc/tutorials/files/export-pdf-files/
-- https://aps.autodesk.com/en/docs/acc/tutorials/files/rcm-linked-files/
-- https://aps.autodesk.com/en/docs/acc/tutorials/files/upload-document-s3/
+- https://aps.autodesk.com/en/docs/acc/tutorials/files /download-document-s3/
+- https://aps.autodesk.com/en/docs/acc/tutorials/files /export-pdf-files/
+- https://aps.autodesk.com/en/docs/acc/tutorials/files /rcm-linked-files/
+- https://aps.autodesk.com/en/docs/acc/tutorials/files /upload-document-s3/
 - https://aps.autodesk.com/en/docs/acc/tutorials/forms/create-update-forms/
+- https://aps.autodesk.com/en/docs/acc/tutorials/forms/manage-layouts-and-tables/
 - https://aps.autodesk.com/en/docs/acc/tutorials/forms/retrieve-forms/
 - https://aps.autodesk.com/en/docs/acc/tutorials/forms/retrieve-forms-based-on-locations/
+- https://aps.autodesk.com/en/docs/acc/tutorials/forms/retrieve-forms-v2/
 - https://aps.autodesk.com/en/docs/acc/tutorials/getting-started/manage-access-to-acc/
 - https://aps.autodesk.com/en/docs/acc/tutorials/getting-started/retrieve-account-and-project-id/
 - https://aps.autodesk.com/en/docs/acc/tutorials/issues/add-references-to-issues/

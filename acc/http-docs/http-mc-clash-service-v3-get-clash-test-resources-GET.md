@@ -16,7 +16,7 @@ When a clash test against a model set version is successful it produces three fi
 
 Returns a list of URLs and secure headers necessary to access the resources generated for the given clash test.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

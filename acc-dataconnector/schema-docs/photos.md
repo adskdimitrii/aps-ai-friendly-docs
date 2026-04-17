@@ -97,4 +97,4 @@ Photo Referencers such as RFI, Issues
 | 7 | created_at | timestamp: SQL |  | The datetime the row was created on the server. |
 | 8 | edge_urn | string | Max Length: 255 | This column was created to account for Form's complex visibility rules that depend on the state of the Form. Instead of having the Form as the Referencer, the Form Template becomes the Referencer, and the Form URN becomes the edge that moves between various Form Template URNs (for example, each Form Template will have multiple URNs that correspond to the various states that the Form can be in: DRAFT, PUBLISHED, etc..). |
 
-© Copyright 2026 Autodesk Inc. | [Autodesk Construction Cloud](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)
+© Copyright 2026 Autodesk Inc. | [Autodesk Forma](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)

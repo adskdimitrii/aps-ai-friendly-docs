@@ -40,4 +40,4 @@ The location trees for BIM 360.
 | 5 | created_at | timestamp: SQL |  | Creation time of the tree |
 | 6 | updated_at | timestamp: SQL |  | Update time for the tree |
 
-© Copyright 2026 Autodesk Inc. | [Autodesk Construction Cloud](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)
+© Copyright 2026 Autodesk Inc. | [Autodesk Forma](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)

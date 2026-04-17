@@ -18,7 +18,7 @@ When you call [Create Translation Job](http-job-POST.md), set `checkReferences` 
 
 | Method and URI | POST https://developer.api.autodesk.com/modelderivative/v2/designdata/{urn}/references |
 | --- | --- |
-| Authentication Context | user context optional |
+| Authentication Context | User context optional |
 | Required OAuth Scopes | `data:read` `data:write` `data:create` |
 | Data Format | JSON |
 
@@ -26,7 +26,7 @@ When you call [Create Translation Job](http-job-POST.md), set `checkReferences` 
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account flow](https://aps.autodesk.com/en/docs/ssa/v1/tutorials/getting-started-with-ssa/task3-generate-3-legged-access-token/). The Secure Service Account flow generates tokens without user interaction but maintains user context for headless server-to-server operations. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 | region   string | Specifies the data center where the manifest and derivatives of the specified source design are stored. Possible values are: <br>`US` - (Default) Data center for the US region.`EMEA` - Data center for the European Union, Middle East, and Africa.`AUS` - Data center for the Australia region.`CAN` - Data center for the Canada region.`DEU` - Data center for the Germany region.`IND` - Data center for the India region.`JPN` - Data center for the Japan region.`GBR` - Data center for the United Kingdom region. |
 | Content-Type*   string | Must be `application/json` |

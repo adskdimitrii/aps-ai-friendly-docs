@@ -12,7 +12,7 @@ GET
 
 Retrieves information about all the issues in a project, including details about their associated comments and attachments.
 
-We support retrieving file-related (pushpin) issues. However, we do not currently support retrieving sheet-related issues from the ACC Build Sheets tool.
+We support retrieving file-related (pushpin) issues. However, we do not currently support retrieving sheet-related issues from the Forma Build Sheets tool.
 
 Note that this endpoint is not compatible with BIM 360 projects.
 
@@ -20,7 +20,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 | Method and URI | GET https://developer.api.autodesk.com/construction/issues/v1/projects/{projectId}/issues |
 | --- | --- |
-| Authentication Context | user context required |
+| Authentication Context | User context required |
 | Required OAuth Scopes | `data:read` |
 | Data Format | JSON |
 
@@ -28,9 +28,8 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
-| --- | --- |
-| x-ads-region   string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`.<br>For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
+- Authorization*string Must be `Bearer <token>`, where `<token>` is a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context.
+- x-ads-regionstring The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. Possible values: `US`, `EMEA`.For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.
 
 * Required
 
@@ -38,7 +37,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the Forma API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Request
@@ -50,7 +49,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 | filter[issueTypeId]   array: string: uuid | Filter issues by the unique identifier of the category of the issue. Note that the API name for category is `type`. Separate multiple values with commas. |
 | filter[issueSubtypeId]   array: string: uuid | Filter issues by the unique identifier of the type of the issue. Note that the API name for type is `subtype`. Separate multiple values with commas. |
 | filter[status]   string | Filter issues by their status. Separate multiple values with commas. |
-| filter[linkedDocumentUrn]   array: string | Retrieves pushpin issues associated with the specified files. We support all file types that are compatible with the Files tool. You need to specify the URL-encoded file item IDs. To find the file item IDs, use the [Data Management](https://aps.autodesk.com/en/docs/data/v2/developers_guide/overview/) API. <br>Note that you need to specify the 3D model item ID, which retrieves all pushpins associated with all 2D sheets and views associated with the 3D model. Similarly, if you specify a specific PDF file it retrieves all the pushpin issues associated with all the PDF file pages. We do not currently support retrieving pushpin issues associated with a specific 2D sheet or view.<br>By default, it returns pushpins for the latest version of the file. To retrieve pushpins for a specific version of a file together with pushpins for all previous versions of the specified file version, specify the version number, in the following format: `@[version-number]`.<br>For example, `filter[linkedDocument]=urn%3Aadsk.wipprod%3Adm.lineage%3AtFbo9zuDTW-nPh45gnM4gA@2`.<br>Separate multiple values with commas.<br>Note that we do not currently support filtering sheets from the ACC Build Sheets tool. |
+| filter[linkedDocumentUrn]   array: string | Retrieves pushpin issues associated with the specified files. We support all file types that are compatible with the Files tool. You need to specify the URL-encoded file item IDs. To find the file item IDs, use the [Data Management](https://aps.autodesk.com/en/docs/data/v2/developers_guide/overview/) API. <br>Note that you need to specify the 3D model item ID, which retrieves all pushpins associated with all 2D sheets and views associated with the 3D model. Similarly, if you specify a specific PDF file it retrieves all the pushpin issues associated with all the PDF file pages. We do not currently support retrieving pushpin issues associated with a specific 2D sheet or view.<br>By default, it returns pushpins for the latest version of the file. To retrieve pushpins for a specific version of a file together with pushpins for all previous versions of the specified file version, specify the version number, in the following format: `@[version-number]`.<br>For example, `filter[linkedDocument]=urn%3Aadsk.wipprod%3Adm.lineage%3AtFbo9zuDTW-nPh45gnM4gA@2`.<br>Separate multiple values with commas.<br>Note that we do not currently support filtering sheets from the Forma Build Sheets tool. |
 | filter[dueDate]   string | Filter issues by due date, in one of the following URL-encoded format: YYYY-MM-DD. Separate multiple values with commas. We support the following filtering options: <br>Date range: e.g., `2022-03-02..2022-03-03`Specific day: e.g., `2022-03-02`Specific start date: e.g., `2022-03-02..`Specific end date: e.g., `..2022-03-02`<br>For more details, see [JSON API Filtering](http://jsonapi.org/format/#fetching-filtering). |
 | filter[startDate]   string | Filter issues by start date, in one of the following URL-encoded format: YYYY-MM-DD. Separate multiple values with commas. We support the following filtering options: <br>Date range: e.g., `2022-03-02..2022-03-03`Specific day: e.g., `2022-03-02`Specific start date: e.g., `2022-03-02..`Specific end date: e.g., `..2022-03-02`<br>For more details, see [JSON API Filtering](http://jsonapi.org/format/#fetching-filtering). |
 | filter[deleted]   boolean | Filter deleted issues. For example, `filter[deleted]=true`. If set to `true` it only returns deleted issues. If set to `false` it only returns undeleted issues. Note that we do not currently support returning both deleted and undeleted issues. Default value: `false`. <br>Project members with *View and assign to their company* and *Full visibility* can view deleted published and unpublished issues they originally created. Project members with Manage issues or Manage member permissions access can view all published issues that were deleted in a project. In addition, they can see unpublished deleted issues if they are an issue watcher, assignee, or creator.<br>For more information about deleted issues see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Issues_Search_Filter). |
@@ -116,7 +115,7 @@ Expand all
 | locationDetails   string | The location related to the issue, provided as plain text. Maximum 250 characters. |
 | linkedDocuments   array: object | Information about the files associated with issues (pushpins). |
 | type   enum:string | The type of file. Possible values: <br>`TwoDVectorPushpin` (3D models) `TwoDRasterPushpin` (2D sheets and views) |
-| urn   string | The ID of the file associated with the issue (pushpin). Note that we do not currently support data associated with the ACC Build Sheet tool. |
+| urn   string | The ID of the file associated with the issue (pushpin). Note that we do not currently support data associated with the Forma Build Sheets tool. |
 | createdBy   string | The Autodesk ID of the user who created the pushpin issue. |
 | createdAt   datetime: ISO 8601 | The date and time the pushpin was created, in ISO8601 format. |
 | createdAtVersion   int | The version of the file the pushin issue was added to. For information about file versions, see the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). |
@@ -142,10 +141,10 @@ Expand all
 | rootCauseId   string: UUID | The unique identifier of the type of root cause for the issue. |
 | officialResponse   object | Not relevant |
 | issueTemplateId   string: UUID | Not relevant |
-| permittedStatuses   array: string | A list of statuses accessible to the current user, this is based on the current status of the issue and the user permissions. <br>Possible Values: `open`, `pending`, `in_review`, `closed`. |
-| permittedAttributes   array: string | A list of attributes the current user can manipulate in the current context. `issueTypeId`, `linkedDocument`, `links`, `ownerId`, `officialResponse`, `rootCauseId`, `snapshotUrn` are not applicable. <br>Possible Values: `title`, `description`, `issueTypeId`, `issueSubtypeId`, `status`, `assignedTo`, `assignedToType`, `dueDate`, `locationId`, `locationDetails`, `linkedDocuments`, `links`, `ownerId`, `rootCauseId`, `officialResponse`, `customAttributes`, `snapshotUrn`, `startDate`, `published`, `deleted`, `watchers`. |
+| permittedStatuses   array: string | A list of statuses accessible to the current user, this is based on the current status of the issue and the user permissions. <br>Possible Values: `draft`, `open`, `pending`, `in_review`, `closed`. |
+| permittedAttributes   array: string | A list of attributes the current user can manipulate in the current context. `issueTypeId`, `linkedDocument`, `links`, `ownerId`, `officialResponse`, `rootCauseId`, `snapshotUrn` are not applicable. <br>Possible Values: `title`, `description`, `issueTypeId`, `issueSubtypeId`, `status`, `assignedTo`, `assignedToType`, `dueDate`, `locationId`, `locationDetails`, `linkedDocuments`, `links`, `ownerId`, `rootCauseId`, `officialResponse`, `customAttributes`, `snapshotUrn`, `startDate`, `published`, `deleted`, `watchers`, `placements`, `watcherObjects`, `gpsCoordinates`. |
 | published   boolean | States whether the issue is published. Default value: `false` (e.g. unpublished). |
-| permittedActions   array: string | The list of actions permitted for the user for this issue in its current state. <br>Note that if a user with *View and assign to their company* permissions attempts to assign a user from a another company to the issue, it will return an error.<br>Possible Values: `assign_all` (can assign another user from another company to the issue), `assign_same_company` (can only assign another user from the same company to the issue), `clear_assignee`, `delete`, `add_comment`, `add_attachment`, `remove_attachment`.<br>The following values are not relevant: `add_attachment`, `remove_attachment`. |
+| permittedActions   array: string | The list of actions permitted for the user for this issue in its current state. <br>Note that if a user with *View and assign to their company* permissions attempts to assign a user from a another company to the issue, it will return an error.<br>Possible Values: `assign_all` (can assign another user from another company to the issue), `assign_same_company` (can only assign another user from the same company to the issue), `clear_assignee`, `copy` (can copy the issue), `delete`, `add_comment`, `add_attachment`, `remove_attachment`, `upsert_pin`, `unlink_pin`.<br>The following values are not relevant: `add_attachment`, `remove_attachment`. |
 | commentCount   int | The number of comments in this issue. |
 | attachmentCount   int | Not relevant |
 | openedBy   string | Not relevant |
@@ -159,7 +158,10 @@ Expand all
 | watchers   array: string | The list of watchers for the issue. To find the name of the watcher, call [GET users](http-users-GET.md). |
 | customAttributes   array: object | A list of custom attributes of the specific issue. |
 | attributeDefinitionId   string: UUID | The unique identifier of the custom attribute. |
-| value   object | Custom attribute value. Possible value types: `string`, `number`, `null`. |
+| value   one of | Custom attribute value. Possible value types: `string`, `number`, `null`. |
+| 0   string |  |
+| 1   number |  |
+| 2   null |  |
 | type   enum:string | The type of attribute. Possible values: `numeric`, `paragraph`, `list` (this corresponds to `dropdown` in the UI), `text`. |
 | title   string | Free text description of the attribute. |
 | gpsCoordinates   object | A GPS Coordinate which represents the geo location of the issue. |
@@ -227,13 +229,13 @@ curl -v 'https://developer.api.autodesk.com/construction/issues/v1/projects/:pro
               "is3D": true
             },
             "position": {
-              "x": -0.35907751666652,
-              "y": 0.23,
-              "z": 0.9998
+              "x": 2,
+              "y": 3,
+              "z": 8
             },
-            "objectId": 3,
-            "externalId": "4",
-            "viewerState": true
+            "objectId": 1220,
+            "externalId": "01a239ce-47cc-4e94-8aa3-2a39866cfc61",
+            "viewerState": {}
           }
         }
       ],

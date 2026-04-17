@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/submittals/submittal-tran
 
 # Manage Submittal Item Transitions
 
-This tutorial demonstrates how to transition submittal items through the submittal lifecycle for an Autodesk Construction Cloud (ACC) project.
+This tutorial demonstrates how to transition submittal items through the submittal lifecycle for a Forma project.
 The steps include verifying the user’s permissions and transitioning the submittal item to different states.
 
 For more information about working with submittals, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Create_Submittal).
@@ -15,8 +15,8 @@ For more information about working with submittals, see the [Help documentation]
 
 - [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` `data:write` scopes.
-- Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to create an item in by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `91b5ea71-e3ea-495b-999d-57443a8af6a4`.
+- Verify that you have access to the relevant hub and Forma project.
+- Find the relevant project ID for the project you want to create an item in by following the [Retrieve a Forma Hub ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `91b5ea71-e3ea-495b-999d-57443a8af6a4`.
 - Ensure you have assigned manager-level permissions to at least one user for the project via the UI. You will need to assign the submittal item to a user with manager-level permissions during the tutorial. For instructions on setting up roles and permissions see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Submittals_Permissions).
 - This tutorial assumes an item was created in Submit state `sbc-1` by a user with manager permissions. For more information on creating a submittal item, see the [Create a Submittal Item](submittals-create-submittal-item.md) tutorial.
 - This tutorial assumes that a review workflow has already been added to the item and that the workflow includes one step with one required task. Currently, the Submittals API does not support creating custom steps or tasks directly. The recommended approach is to associate the submittal item with a review template that already includes predefined steps and tasks. See the [Create Submittal Items](submittals-create-submittal-item.md#step-6-get-review-templates-optional) tutorial (step 6) for more details.
@@ -2314,4 +2314,4 @@ Show More
 - The `stateId` is now `sbc-2`, confirming the submittal has transitioned to the Closed state.
 - The `statusId` is `3`, indicating that the submittal item is officially closed and the workflow is complete.
 
-Congratulations! You have successfully transitioned submittal items through their lifecycle in ACC.
+Congratulations! You have successfully transitioned submittal items through their lifecycle in Forma.

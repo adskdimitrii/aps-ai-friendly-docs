@@ -12,7 +12,7 @@ This tutorial demonstrates how to retrieve a project’s Forms.
 
 - [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:read` scope.
-- Verify that you have access to the relevant ACC project.
+- Verify that you have access to the relevant Forma project.
 
 ## [Step 1: Find the Form Template IDs](#step-1-find-the-form-template-ids)
 
@@ -78,7 +78,7 @@ The response payload includes the Form Template IDs (`data.id`).
 
 ## [Step 2: Find the Form IDs](#step-2-find-the-form-ids)
 
-Use the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and template ID (`2f634a22-779d-4930-9f08-8391a41fea05`) from previous step to retrieve the project’s Forms, by calling [GET forms](../http-docs/http-forms-forms-GET.md).
+Use the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and template ID (`2f634a22-779d-4930-9f08-8391a41fea05`) from previous step to retrieve the project’s Forms, by calling [GET forms](https://aps.autodesk.com/en/docs/acc/v1/reference/http/forms-forms-(Deprecated/)-GET).
 
 ### Request
 

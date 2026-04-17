@@ -27,7 +27,7 @@ Note that the RFIs API does not use the same names for workflow roles as the RFI
 | Reviewer 1 (EMEA workflow) | Construction Manager (`projectCoordinator`) |
 | Reviewer (US workflow) / Reviewer 2 (EMEA workflow) | Architect (`projectReviewer`) |
 
-To assign users to workflow roles, open the ACC RFIs module, click Settings on the top right, and select Permissions. Select the appropriate role from the Workflow role dropdown on the right. Note that in order to allocate workflow roles, you must have User Admin status.
+To assign users to workflow roles, open the Forma RFIs module, click Settings on the top right, and select Permissions. Select the appropriate role from the Workflow role dropdown on the right. Note that in order to allocate workflow roles, you must have User Admin status.
 
 At each stage in the workflow you can assign an RFI to a user. In order to assign an RFI to a user at specific stages in the workflow, the user needs to have been assigned specific workflow roles. For more details, see the [RFIs help](https://help.autodesk.com/view/BUILD/ENU/?guid=RFI_Workflow_Setup) documentation.
 
@@ -46,11 +46,11 @@ This tutorial is using the default RFI workflow with a single reviewer. For info
 
 ## [Step 1: Verify the User’s Permissions](#step-1-verify-the-user-s-permissions)
 
-Before the user creates an RFI you need to verify that the user has permissions to create it. Users who have been assigned either creator (`projectSC`) or manager (`projectGC`) workflow roles can create RFIs. All users in the project are automatically assigned the creator workflow role. To assign creator or manager workflow roles to project members, open the ACC RFIs module, click Settings on the top right, and select Permissions. A list of users is displayed. Select the appropriate role from the Workflow role dropdown on the right. Note that in order to allocate workflow roles, you must have User Admin status.
+Before the user creates an RFI you need to verify that the user has permissions to create it. Users who have been assigned either creator (`projectSC`) or manager (`projectGC`) workflow roles can create RFIs. All users in the project are automatically assigned the creator workflow role. To assign creator or manager workflow roles to project members, open the Forma RFIs module, click Settings on the top right, and select Permissions. A list of users is displayed. Select the appropriate role from the Workflow role dropdown on the right. Note that in order to allocate workflow roles, you must have User Admin status.
 
 Use the project ID (`afc6e536-3a12-4ecf-8302-3f283d50dc6f`) to call [GET users/me](https://aps.autodesk.com/en/docs/acc/v1/reference/http/rfis-v3-users-me-GET/) to verify the user’s permissions for creating RFIs.
 
-Note that only users who are members of a project can potentially create and edit RFIs for the project. To check which users are members of a project, call GET users ([BIM 360](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/admin-v1-projects-projectId-users-GET/) or [ACC](../http-docs/http-users-GET.md)). If a user is not a project member, the endpoint will return an error. Note that although we support grouping users by project for BIM 360 projects, we currently only support grouping users by account for ACC projects.
+Note that only users who are members of a project can potentially create and edit RFIs for the project. To check which users are members of a project, call GET users ([BIM 360](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/admin-v1-projects-projectId-users-GET/) or [Forma](../http-docs/http-users-GET.md)). If a user is not a project member, the endpoint will return an error. Note that although we support grouping users by project for BIM 360 projects, we currently only support grouping users by hub for Forma projects.
 
 Note that if a user is not a project member, the endpoint will return an error.
 
@@ -2264,4 +2264,4 @@ Show More
 
 The RFI is considered closed and cannot be updated further unless reopened. This is the final step in the RFI workflow.
 
-Congratulations! You have successfully transitioned an ACC RFI from draft to closed.
+Congratulations! You have successfully transitioned a Forma RFI from draft to closed.

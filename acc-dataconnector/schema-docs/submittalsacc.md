@@ -325,4 +325,4 @@ Review tasks for ACC Build Submittal items.
 | 19 | step_id | string: UUID |  | ID of the parent step Foreign Key: Table: steps.id Column: |
 | 20 | assigned_to_type | enum: string | Possible Values: 1 - user 2 - company 3 - role | Indication for assigned_to id type |
 
-© Copyright 2026 Autodesk Inc. | [Autodesk Construction Cloud](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)
+© Copyright 2026 Autodesk Inc. | [Autodesk Forma](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)

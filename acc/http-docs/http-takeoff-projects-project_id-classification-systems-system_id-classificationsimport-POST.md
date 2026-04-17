@@ -14,7 +14,7 @@ Updates a classification system.
 
 A classification system categorizes and organizes construction information in a hierarchical structure, and is used to label items in a takeoff project.
 
-For more information about the classification system, see the [ACC Configure Takeoff Settings](https://help.autodesk.com/view/TAKEOFF/ENU/?guid=Configure_Takeoff_Settings) help documentation.
+For more information about the classification system, see the [Forma Configure Takeoff Settings](https://help.autodesk.com/view/TAKEOFF/ENU/?guid=Configure_Takeoff_Settings) help documentation.
 
 Note that this endpoint updates a classification system with a new name and/or classifications configured as a JSON object in the payload, created from a spreadsheet file.
 
@@ -30,7 +30,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 | Method and URI | POST https://developer.api.autodesk.com/construction/takeoff/v1/projects/{projectId}/classification-systems/{systemId}/classifications:import |
 | --- | --- |
-| Authentication Context | user context required |
+| Authentication Context | User context required |
 | Required OAuth Scopes | `data:write` |
 | Data Format | JSON |
 
@@ -38,7 +38,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 | region   string | Specifies the region where the service is located. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
 | Content-Type*   string | Must be `application/json` |
@@ -49,7 +49,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring: UUID The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/), and can be specified in the form of “UUID” or b.”UUID”.To learn how to find the project ID, see the [Retrieve ACC Account and project ID](../how-to-docs/getting-started-retrieve-account-and-project-id.md) tutorial.
+- projectIdstring: UUID The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/), and can be specified in the form of “UUID” or b.”UUID”.To learn how to find the project ID, see the [Retrieve Forma hub and project ID](../how-to-docs/getting-started-retrieve-account-and-project-id.md) tutorial.
 - systemIdstring: UUID The classification system ID. To find the ID, call [GET classification-systems](http-takeoff-projects-project_id-classification-systems-GET.md).
 
 ### Request
@@ -60,7 +60,7 @@ Expand all
 
 | classificationSystemName   string | The classification system name. <br>Max length: 200 |
 | --- | --- |
-| classifications*   array: object | The classification hierarchy. <br>The classification hierarchy is configured as a JSON array in the payload, created from a spreadsheet file.<br>Max size: `30000`.<br>For more details, see the [ACC Configure Takeoff Settings](https://help.autodesk.com/view/TAKEOFF/ENU/?guid=Configure_Takeoff_Settings) help documentation. |
+| classifications*   array: object | The classification hierarchy. <br>The classification hierarchy is configured as a JSON array in the payload, created from a spreadsheet file.<br>Max size: `30000`.<br>For more details, see the [Forma Configure Takeoff Settings](https://help.autodesk.com/view/TAKEOFF/ENU/?guid=Configure_Takeoff_Settings) help documentation. |
 | code*   string | The classification code. <br>Max length: 256 |
 | parentCode*   string | The classification parent code. <br>Its value may be `null`, indicating that this classification is at the top level of the hierarchy.<br>Max length: 256 |
 | description*   string | A description of the classification. <br>Max length: 256 |

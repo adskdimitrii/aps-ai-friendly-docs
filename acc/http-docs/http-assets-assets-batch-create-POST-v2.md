@@ -22,7 +22,7 @@ To find the custom attributes assigned to a category, use [GET categories/:categ
 
 To understand the basics of assets and the Assets settings that define them, see the [Assets Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/assets/).
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
@@ -46,7 +46,7 @@ To understand the basics of assets and the Assets settings that define them, see
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
+| projectId   string | The Forma project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
 | --- | --- |
 
 ### Request

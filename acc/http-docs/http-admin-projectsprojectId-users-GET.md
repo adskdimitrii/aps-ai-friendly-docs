@@ -17,15 +17,15 @@ There are two primary reasons to do this:
 - To verify that all users assigned to the project have been activated as members of the project.
 - To check other information about users, such as their project user ID, roles, and products.
 
-Note that if you want to retrieve information about users associated with a particular Autodesk account, call the [GET users](http-users-GET.md) endpoint.
+Note that if you want to retrieve information about users associated with a particular Autodesk hub, call the [GET users](http-users-GET.md) endpoint.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
 | Method and URI | GET https://developer.api.autodesk.com/construction/admin/v1/projects/:projectId/users |
 | --- | --- |
-| Authentication Context | user context optional |
+| Authentication Context | User context optional |
 | Required OAuth Scopes | `account:read` |
 | Data Format | JSON |
 
@@ -33,10 +33,10 @@ Note that if you want to retrieve information about users associated with a part
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 | Region   string | Specifies the region where your request should be routed. If not set, the request is routed automatically, which may result in a slight increase in latency. <br>Possible values: `US`, `EMEA`. For a complete list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
-| User-Id   string | The ID of a user on whose behalf your request is acting. <br>Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.<br>You can use either the user’s ACC ID (`id`), or their Autodesk ID (`autodeskId`).<br>Note that this header is required for Account Admin POST, PATCH, and DELETE endpoints if you want to use a 2-legged authentication context. This header is optional for Account Admin GET endpoints. |
+| User-Id   string | The ID of a user on whose behalf your request is acting. <br>Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.<br>You can use either the user’s Forma ID (`id`), or their Autodesk ID (`autodeskId`).<br>Note that this header is required for hub Admin POST, PATCH, and DELETE endpoints if you want to use a 2-legged authentication context. This header is optional for hub Admin GET endpoints. |
 
 * Required
 
@@ -44,22 +44,23 @@ Note that if you want to retrieve information about users associated with a part
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the ACC API you need to remove the “**b.**" prefix. For example, a project ID of `b.a4be0c34a-4ab7` translates to a project ID of `a4be0c34a-4ab7`. |
+| projectId   string: UUID | The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the Forma API you need to remove the “**b.**" prefix. For example, a project ID of `b.a4be0c34a-4ab7` translates to a project ID of `a4be0c34a-4ab7`. |
 | --- | --- |
 
 ### Request
 
 ## [Query String Parameters](#query-string-parameters)
 
-| filter[products]   array: string | A comma-separated list of the products that the returned users must have access to in the specified project. Only users that have access to one or more of the specified products are returned. <br>Note that every product in the same account as the project is activated for the project, and a separate subset of these products is active for each user. This endpoint can retrieve users from ACC or BIM 360 projects.<br>Some products are exclusive to ACC or to BIM 360, others are available on both platforms. Specify only the products on the appropriate platform for the users you want to retrieve.<br>Possible ACC values: `accountAdministration`, `autoSpecs`, `build`, `buildingConnected`, `capitalPlanning`, `cloudWorksharing`, `cost`, `designCollaboration`, `docs`, `financials`, `insight`, `modelCoordination`, `projectAdministration`, `takeoff`, and `workshopxr`.<br>Possible BIM 360 values: `accountAdministration`, `assets`, `cloudWorksharing`, `costManagement`, `designCollaboration`, `documentManagement`, `field`, `fieldManagement`, `glue`, `insight`, `modelCoordination`, `plan`, `projectAdministration`, `projectHome`, `projectManagement`, and `quantification`. |
+| filter[products]   array: string | A comma-separated list of the products that the returned users must have access to in the specified project. Only users that have access to one or more of the specified products are returned. <br>Note that every product in the same hub as the project is activated for the project, and a separate subset of these products is active for each user. This endpoint can retrieve users from Forma or BIM 360 projects.<br>Some products are exclusive to Forma or to BIM 360, others are available on both platforms. Specify only the products on the appropriate platform for the users you want to retrieve.<br>Possible Forma values: `accountAdministration`, `autoSpecs`, `build`, `buildingConnected`, `capitalPlanning`, `cloudWorksharing`, `cost`, `designCollaboration`, `docs`, `financials`, `insight`, `modelCoordination`, `projectAdministration`, `takeoff`, and `workshopxr`.<br>Possible BIM 360 values: `accountAdministration`, `assets`, `cloudWorksharing`, `costManagement`, `designCollaboration`, `documentManagement`, `field`, `fieldManagement`, `glue`, `insight`, `modelCoordination`, `plan`, `projectAdministration`, `projectHome`, `projectManagement`, and `quantification`. |
 | --- | --- |
 | filter[name]   string | A user name or name pattern that the returned users must have. Can be a partial match based on the value of `filterTextMatch` that you provide. <br>For example:<br>`filter[name]=Sample filterTextMatch=startsWith`<br>Max length: 255 |
 | filter[email]   string | A user email address or address pattern that the returned users must have. This can be a partial match based on the value of `filterTextMatch` that you provide. <br>For example:<br>`filter[email]=sample filterTextMatch=startsWith`<br>Max length: 255 |
-| filter[accessLevels]   array: string | A list of user access levels that the returned users must have. <br>Possible values: `accouantAdmin`, `projectAdmin`, `executive`.<br>Max length: 255 |
+| filter[accessLevels]   array: string | A list of user access levels that the returned users must have. <br>Possible values: `accountAdmin`, `projectAdmin`, `executive`.<br>Max length: 255 |
+| filter[addedOn]   string | Filters users by the date they were added to the project (YYYY-MM-DD). Only users that were added on this date are returned. |
 | filter[companyId]   string | The ID of a company that the returned users must represent. <br>Max length: 255 |
 | filter[companyName]   string | The name of a company that returned users must be associated with. Can be a partial match based on the value of `filterTextMatch` that you provide. <br>For example: `filter[companyName]=Sample filterTextMatch=startsWith`<br>Max length: 255 |
 | filter[autodeskId]   array: string | A list of the Autodesk IDs of users to retrieve. |
-| filter[id]   array: string: uuid | A list of the ACC IDs of users to retrieve. |
+| filter[id]   array: string: uuid | A list of the Forma IDs of users to retrieve. |
 | filter[roleId]   string: UUID | The ID of a user role that the returned users must have. <br>To obtain a role ID for this filter, you can inspect the `roleId` field in previous responses to this endpoint or to the [GET projects/:projectId/users/:userId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-users-userId-GET/) endpoint.<br>Max length: 255 |
 | filter[roleIds]   array: string: uuid | A list of the IDs of user roles that the returned users must have. <br>To obtain a role ID for this filter, you can inspect the `roleId` field in previous responses to this endpoint or to the [GET projects/:projectId/users/:userId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-users-userId-GET/) endpoint. |
 | filter[status]   array: string | A list of statuses that the returned project users must be in. The default values are `active` and `pending`. <br>Possible values: `active`, `pending`, and `deleted`. |
@@ -102,7 +103,7 @@ Expand all
 | previousUrl   string | The URL for the previous page of records, if applicable. Max length: 2000 characters. <br>Max length: 2000 |
 | results   array: object | The requested page of project users. |
 | email   string | The email of the user. <br>Max length: 255 |
-| id   string: UUID | The ACC ID of the user. |
+| id   string: UUID | The Forma ID of the user. |
 | name   string | The full name of the user. <br>Max length: 255 |
 | firstName   string | The user’s first name. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
 | lastName   string | The user’s last name. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
@@ -111,9 +112,9 @@ Expand all
 | addressLine1   string | The user’s address line 1. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
 | addressLine2   string | The user’s address line 2. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
 | city   string | The User’s city. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
-| stateOrProvince   string | The state or province of the user. The accepted values here change depending on which country is provided. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
+| stateOrProvince   null,string | The state or province of the user. The accepted values here change depending on which country is provided. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
 | postalCode   string | The zip or postal code of the user. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
-| country   string | The user’s country. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
+| country   null,string | The user’s country. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
 | imageUrl   string | The URL of the user’s avatar. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
 | phone   object | The user’s phone number. This data syncs from the user’s Autodesk profile. |
 | number   string | User’s phone number |
@@ -122,10 +123,10 @@ Expand all
 | jobTitle   string | The user’s job title. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
 | industry   string | The industry the user works in. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
 | aboutMe   string | A short bio about the user. This data syncs from the user’s Autodesk profile. <br>Max length: 255 |
-| accessLevels   object | Flags that identify a returned user’s access levels in the account or project. |
-| accountAdmin   boolean | Indicates whether the user is an account administrator for the account. Possible values: <br>`true`: The user is an account administrator.`false`: The user is not an account administrator. |
+| accessLevels   object | Flags that identify a returned user’s access levels in the hub or project. |
+| accountAdmin   boolean | Indicates whether the user is a hub administrator for the hub. Possible values: <br>`true`: The user is a hub administrator.`false`: The user is not a hub administrator. |
 | projectAdmin   boolean | Indicates whether the user is a project administrator for the project. Possible values: <br>`true`: The user is a project administrator.`false`: The user is not a project administrator. |
-| executive   boolean | Indicates whether the user is an executive in the account. Possible values: <br>`true`: The user is an executive.`false`: The user is not an executive. |
+| executive   boolean | Indicates whether the user is an executive in the hub. Possible values: <br>`true`: The user is an executive.`false`: The user is not an executive. |
 | addedOn   datetime: ISO 8601 | The timestamp when the user was first given access to any product on the project. |
 | updatedAt   datetime: ISO 8601 | The timestamp when the project user was last updated, in ISO 8601 format. |
 | companyId   null,string | The ID of the company that the user is representing in the project. To obtain a list of all company IDs associated with a project, call [GET projects/:projectId/companies](http-projects--project_id-companies-GET.md). |
@@ -134,9 +135,9 @@ Expand all
 | roles   array: object | A list of the role IDs and names that are associated with the user in the project. |
 | id   string: UUID | The ID of a role that the user belongs to in the project. |
 | name   string | The name of a role that the user belongs to in the project. |
-| status   string | The status of the user in the project. A pending user could be waiting for their products to activate, or the user hasn’t accepted an email to create an account with Autodesk. <br>Possible values:<br>`active`: The user has been added to the project.`pending`: The user is in the process of being added to the project.`disabled`: The user has been temporarily suspended from the project.`deleted`: The user has been removed from the project. |
-| products   array: object | Information about the products activated in the specified project for this user. |
-| key   enum:string | A machine-readable identifier for the product (e.g., docs, build). <br>Each product has a unique key used throughout the API for identification, filtering, and integration logic (e.g., in query parameters like `filter[key]`).<br>Possible values: ACC - `autoSpecs`, `build`, `cost`, `designCollaboration`, `docs`, `insight`, `modelCoordination`, `projectAdministration`, and `takeoff`.<br>BIM 360 - `assets`, `costManagement`, `designCollaboration`, `documentManagement`, `field`, `fieldManagement`, `glue`, `insight`, `modelCoordination`, `plan`, `projectAdministration`, `projectHome`, `projectManagement`, and `quantification`.<br>Note that this endpoint returns only ACC products. Other endpoints, such as [GET projects](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-accountsaccountidprojects-GET/) and [GET projects/:projectId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-GET/), may return both ACC and BIM 360 projects. In those responses, product keys may include BIM 360 values. |
+| status   string | The status of the user in the project. A pending user could be waiting for their products to activate, or the user hasn’t accepted an email to create a hub with Autodesk. <br>Possible values:<br>`active`: The user has been added to the project.`pending`: The user is in the process of being added to the project.`disabled`: The user has been temporarily suspended from the project.`deleted`: The user has been removed from the project. |
+| products   array: object | Information about the products activated in the specified project for this user. Do not include this field if the requester has Member Manager access level. |
+| key   enum:string | A machine-readable identifier for the product (e.g., docs, build). <br>Each product has a unique key used throughout the API for identification, filtering, and integration logic (e.g., in query parameters like `filter[key]`).<br>Possible values: Forma - `autoSpecs`, `build`, `cost`, `designCollaboration`, `docs`, `insight`, `modelCoordination`, `projectAdministration`, and `takeoff`.<br>BIM 360 - `assets`, `costManagement`, `designCollaboration`, `documentManagement`, `field`, `fieldManagement`, `glue`, `insight`, `modelCoordination`, `plan`, `projectAdministration`, `projectHome`, `projectManagement`, and `quantification`.<br>Note that this endpoint returns only Forma products. Other endpoints, such as [GET projects](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-accountsaccountidprojects-GET/) and [GET projects/:projectId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-GET/), may return both Forma and BIM 360 projects. In those responses, product keys may include BIM 360 values. |
 | access   enum:string | The user’s type of access to the product identified by `key`. Possible values: <br>`administrator``member``none`<br>Note that when you’re using a POST or PATCH endpoint to set this value, you must adhere to the following guidelines:<br>If you set a product’s `key` to `projectAdministration` and you set `access` to `none`, all other products should be set to `member` access for the user.If you set a product’s `key` to `projectAdministration` and you set `access` to `administrator`, all other products should be set to `administrator` access for the user.You cannot set a product’s `key` to `projectAdministration` and set `access` to `member`. |
 
 ## [Example](#example)
@@ -146,7 +147,7 @@ A list of requested project users.
 ### Request
 
 ```
-curl -v 'https://developer.api.autodesk.com/construction/admin/v1/projects/367d5cc2-9008-462c-96e5-c9491db85d93/users?filter[products]=build,cost&filter[name]=Sample User&filter[email]=sampleUser1@autodesk.com&filter[accessLevels]=accountAdmin,executive&filter[companyId]=d1163421-e7eb-4862-ac15-b33777ba42de&filter[companyName]=Sample Company&filter[autodeskId]=User123,User124&filter[id]=39712a51-bd64-446a-9c72-48c4e43d0a0d,d1163421-e7eb-4862-ac15-b33777ba42de&filter[roleId]=cda845af-05f0-4c46-9108-71b993946c35&filter[roleIds]=cda845af-05f0-4c46-9108-71b993946c35,b8e84a73-7506-4d3f-b221-93691df2a359&filter[status]=active,pending&sort=name&fields=name,email&orFilters=id,name&filterTextMatch=contains&limit=20' \
+curl -v 'https://developer.api.autodesk.com/construction/admin/v1/projects/367d5cc2-9008-462c-96e5-c9491db85d93/users?filter[products]=build,cost&filter[name]=Sample User&filter[email]=sampleUser1@autodesk.com&filter[accessLevels]=accountAdmin,executive&filter[addedOn]=2024-01-01&filter[companyId]=d1163421-e7eb-4862-ac15-b33777ba42de&filter[companyName]=Sample Company&filter[autodeskId]=User123,User124&filter[id]=39712a51-bd64-446a-9c72-48c4e43d0a0d,d1163421-e7eb-4862-ac15-b33777ba42de&filter[roleId]=cda845af-05f0-4c46-9108-71b993946c35&filter[roleIds]=cda845af-05f0-4c46-9108-71b993946c35,b8e84a73-7506-4d3f-b221-93691df2a359&filter[status]=active,pending&sort=name&fields=name,email&orFilters=id,name&filterTextMatch=contains&limit=20' \
   -H 'Authorization: Bearer AuIPTf4KYLTYGVnOHQ0cuolwCW2a'
 
 ```

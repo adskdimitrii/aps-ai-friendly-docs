@@ -12,13 +12,13 @@ GET
 
 Retrieves the details of a change order specified by ID.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
 | Method and URI | GET https://developer.api.autodesk.com/cost/v1/containers/:containerId/change-orders/:changeOrder/:id |
 | --- | --- |
-| Authentication Context | user context required |
+| Authentication Context | User context required |
 | Required OAuth Scopes | `data:read` |
 | Data Format | JSON |
 
@@ -26,8 +26,8 @@ Retrieves the details of a change order specified by ID.
 
 ## [Headers](#headers)
 
-- Authorization*string Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow.
-- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
+- Authorization*string Must be `Bearer <token>`, where `<token>` is a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context.
+- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [Forma Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
 
 * Required
 
@@ -106,7 +106,7 @@ Expand all
 | lastSyncTime   datetime: ISO 8601 | The date and time when the item was last synchronized with the external ERP system. This value is updated by the external system and is in ISO 8601 format. |
 | integrationState   string,null | The state of the item during the integration with the external ERP system (such as SignNow). An item can be a `budget`, `contract`, `main contract`, `main contract item`, `cost item`, `expense`, `expense item`, `change order`, or `schedule of value`. For more details, see [Integrate with External System](../how-to-docs/cost-integrate-with-external-system.md) tutorial. Possible values: <br>`locked`: the item is currently locked within the ERP system, preventing modifications until unlocked. To unlock and modify the item, use the relevant PATCH endpoint to set `integrationState` to `null`. For example, for a budget, call [PATCH budgets](http-cost-budgets-budgetId-PATCH.md). For a contract, call [PATCH contracts](http-cost-contracts-contractId-PATCH.md). For more details, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Integrated_and_Locked).<br>`integrated`: the item has been successfully added to the ERP system.<br>`failed`: the item encountered an error during the integration process and was not successfully added to the ERP system. For example, if a user tries to integrate `contracts` from an ERP system and the updates fail, the `integrationState` can be set to `failed`. Retry the sync process or analyze the issue if it continues to fail.<br>`null`: The item has not been integrated with the ERP system. This is default value.<br>For more information regarding integrations within the Cost Management system, see [Integrations in Cost Management](https://help.autodesk.com/view/BUILD/ENU/?guid=Cost_Integrations). |
 | integrationStateChangedAt   string,null | The date and time that the item’s integration status was last changed. |
-| integrationStateChangedBy   string,null | The user who last changed the integration status. This is the ID of a user managed by the BIM 360/ACC Admin. |
+| integrationStateChangedBy   string,null | The user who last changed the integration status. This is the ID of a user managed by the BIM 360/Forma Admin. |
 | createdAt   datetime: ISO 8601 | The date and time that the item was created, in ISO 8601 format. |
 | updatedAt   datetime: ISO 8601 | The date and time that the item was last updated, in ISO 8601 format. |
 | properties   array: object | The custom attributes of the change order. |
@@ -122,22 +122,22 @@ Expand all
 | variableMarkupFormulaItems   array: object | The variables when apply markup formula. |
 | id   string | The id of the markup formula item. |
 | amount   number,string,null | The amount of the markup formula item. |
-| companyId   string,null | The BIM360/ACC ID of the company. For RFQ & SCO it’s the supplier company. For OCO and OCO it’s the owner company. For PCO, when PCO acts as RFQ it’s the supplier company, when PCO asts as RCO it’s the owner company, otherwise it’s empty. |
-| companyUid   string,null | The unique ID (UUID) of the company in this account. Detailed company information can be retrieved using this UUID by calling [GET companies/:company_id](http-companies--company_id-GET.md) in the response. |
-| architectCompanyId   string,null | The BIM360/ACC ID of the architecture firm. |
-| architectCompanyUid   string,null | The unique ID (UUID) of the company in this account. Detailed company information can be retrieved using this UUID by calling [GET companies/:company_id](http-companies--company_id-GET.md) in the response. |
-| architectContactId   string,null | The BIM360/ACC ID of the primary contact at the architecture firm. |
+| companyId   string,null | The BIM360/Forma ID of the company. For RFQ & SCO it’s the supplier company. For OCO and OCO it’s the owner company. For PCO, when PCO acts as RFQ it’s the supplier company, when PCO asts as RCO it’s the owner company, otherwise it’s empty. |
+| companyUid   string,null | The unique ID (UUID) of the company in this hub. Detailed company information can be retrieved using this UUID by calling [GET companies/:company_id](http-companies--company_id-GET.md) in the response. |
+| architectCompanyId   string,null | The BIM360/Forma ID of the architecture firm. |
+| architectCompanyUid   string,null | The unique ID (UUID) of the company in this hub. Detailed company information can be retrieved using this UUID by calling [GET companies/:company_id](http-companies--company_id-GET.md) in the response. |
+| architectContactId   string,null | The BIM360/Forma ID of the primary contact at the architecture firm. |
 | additionalCollaborators   array: object | The additional collaborator company and contacts. |
-| companyId   string | The BIM360/ACC ID of the firm. |
-| companyUid   string,null | The unique ID (UUID) of the company in this account. Detailed company information can be retrieved using this UUID by calling [GET companies/:company_id](http-companies--company_id-GET.md) in the response. |
-| contactIds   array: string | The BIM360/ACC user ID of the contacts in the firm. |
+| companyId   string | The BIM360/Forma ID of the firm. |
+| companyUid   string,null | The unique ID (UUID) of the company in this hub. Detailed company information can be retrieved using this UUID by calling [GET companies/:company_id](http-companies--company_id-GET.md) in the response. |
+| contactIds   array: string | The BIM360/Forma user ID of the contacts in the firm. |
 | contactId   string,null | Not relevant |
 | contacts   array: string | Not relevant |
 | sourceType   string,null | The type of entity from which the change order is created (e.g., RFI, Issue). |
 | comments   array: object | The list of comments associated with the change order. |
 | createdAt   string | The date and time when the comment was created, in ISO 8601 format. |
 | content   string | The text content of the comment. |
-| creatorId   string | The BIM 360/ACC user ID of the comment’s author. For details about the author, see [GET users](http-admin-projectsprojectId-users-GET.md). |
+| creatorId   string | The BIM 360/Forma user ID of the comment’s author. For details about the author, see [GET users](http-admin-projectsprojectId-users-GET.md). |
 
 ## [Example](#example)
 

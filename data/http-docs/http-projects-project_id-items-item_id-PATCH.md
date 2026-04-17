@@ -10,15 +10,15 @@ PATCH
 
 # projects/:project_id/items/:item_id
 
-Updates the properties of the given `item_id` object. Note that updating the displayName of an item is not supported for BIM 360 Docs or ACC items. Instead, use the [POST projects/:project_id/versions](http-projects-project_id-versions-POST.md) endpoint.
+Updates the properties of the given `item_id` object. Note that updating the displayName of an item is not supported for BIM 360 Docs or Forma items. Instead, use the [POST projects/:project_id/versions](http-projects-project_id-versions-POST.md) endpoint.
 
-**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/).
+Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
 | Method and URI | PATCH https://developer.api.autodesk.com/data/v1/projects/:project_id/items/:item_id |
 | --- | --- |
-| Authentication Context | user context optional |
+| Authentication Context | User context optional |
 | Required OAuth Scopes | `data:write` |
 | Data Format | JSON |
 
@@ -26,7 +26,7 @@ Updates the properties of the given `item_id` object. Note that updating the dis
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 | Content-Type*   string | Must be `application/vnd.api+json` |
 | x-user-id   string | In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified. |
@@ -37,7 +37,7 @@ Updates the properties of the given `item_id` object. Note that updating the dis
 
 ## [URI Parameters](#uri-parameters)
 
-| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a “**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
+| project_id   string | The unique identifier of a project. <br>To convert BIM 360 or Forma Project IDs to Data Management Project IDs, prefix them with `b.` For example, a Project ID of `c8b0c73d-3ae9` becomes `b.c8b0c73d-3ae9`. |
 | --- | --- |
 | item_id   string | The unique identifier of an item. |
 
@@ -58,7 +58,7 @@ Expand all
 | attributes   object | Attributes of the item. |
 | extension   object | Extended information on the resource. |
 | data   object | Additional properties to modify. <br>Contains extended properties for this resource based on the extension schema type and version. The ability to modify these properties depends on whether the schema type and version allow it. |
-| description   string | The new description of the item (0-255 characters). This property is only available for items BIM 360 Docs or ACC projects. |
+| description   string | The new description of the item (0-255 characters). This property is only available for items BIM 360 Docs or Forma projects. |
 
 * Required
 
@@ -107,8 +107,8 @@ Expand all
 | schema   object | An object containing an API link property. |
 | href   string | A hyperlink reference to this resource. |
 | data   object | Additional properties that the resource data possesses. <br>Contains extended properties for this resource based on the extension schema type and version. The properties documented under this object may not always be present. |
-| description   string | The item’s description property. <br>**Note:**<br>This attribute is available only for items in BIM 360 Docs or ACC projects. |
-| reviewState   string | Indicates the current status of items/lineages. <br>This parameter denotes the state of extracted document sheets, showing if they are awaiting publication. It applies to PDFs, IFCs, and DWFs in the [BIM360 Plans folder](https://help.autodesk.com/view/BIM360D/ENU/?guid=GUID-1B49B17A-12C3-47A1-9AAC-EFC46AF9D7AD) It tracks the progression through review and publication stages. Key states are `NEEDS_REVIEW` and `ACCEPTED`.<br>**Note:**<br>This attribute is available only for items in BIM 360 Docs or ACC projects.It does not indicate the status of BIM360 project files or ACC docs in the review process <br>  To check review status of BIM360 project files, use [BIM360 Batch GET](../../acc/http-docs/http-document-management-versionsbatch-get-POST.md) instead  To check the review status of ACC docs, use [ACC Batch GET](../../acc/http-docs/http-document-management-versionsbatch-get-POST.md) instead It does not track ACC Sheets extraction status from Revit/DWG files. Use [Review Sheets](../../acc/http-docs/http-sheets-review-sheets-GET.md) for that purpose. |
+| description   string | The item’s description property. <br>**Note:**<br>This attribute is available only for items in BIM 360 Docs or Forma projects. |
+| reviewState   string | Indicates the current status of items/lineages. <br>This parameter denotes the state of extracted document sheets, showing if they are awaiting publication. It applies to PDFs, IFCs, and DWFs in the [BIM360 Plans folder](https://help.autodesk.com/view/BIM360D/ENU/?guid=GUID-1B49B17A-12C3-47A1-9AAC-EFC46AF9D7AD) It tracks the progression through review and publication stages. Key states are `NEEDS_REVIEW` and `ACCEPTED`.<br>**Note:**<br>This attribute is available only for items in BIM 360 Docs or Forma projects.It does not indicate the status of BIM360 project files or Forma Data Management files in the review process <br>  To check review status of BIM360 project files, use [BIM360 Batch GET](../../acc/http-docs/http-document-management-versionsbatch-get-POST.md) instead  To check the review status of Forma Data Management files, use [Forma Batch GET](../../acc/http-docs/http-document-management-versionsbatch-get-POST.md) instead It does not track Forma Sheets extraction status from Revit/DWG files. Use [Review Sheets](../../acc/http-docs/http-sheets-review-sheets-GET.md) for that purpose. |
 | pathInProject   string | The relative path of the item starting from project’s root folder. <br>Note: this attribute is not available in search results. |
 | relationships   object | Information on other resources that shares a relationship with this item. |
 | parent   object | Information on resources that are found above this resource. |

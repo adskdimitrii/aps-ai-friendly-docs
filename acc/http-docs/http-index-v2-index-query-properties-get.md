@@ -12,7 +12,7 @@ GET
 
 Retrieve the query specific properties index. Since the properties index, once created, is immutable, the response will set a long expiration HTTP header for efficient client side caching.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

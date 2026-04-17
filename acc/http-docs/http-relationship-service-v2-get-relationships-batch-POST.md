@@ -14,7 +14,7 @@ Retrieves a list of one or more relationships by passing an array of relationshi
 
 The response contains a list of the requested relationship objects.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

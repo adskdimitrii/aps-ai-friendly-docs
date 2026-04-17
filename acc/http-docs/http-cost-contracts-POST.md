@@ -12,13 +12,13 @@ POST
 
 Creates a contract in the specific project.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
 | Method and URI | POST https://developer.api.autodesk.com/cost/v1/containers/:containerId/contracts |
 | --- | --- |
-| Authentication Context | user context required |
+| Authentication Context | User context required |
 | Required OAuth Scopes | `data:write` |
 | Data Format | JSON |
 
@@ -26,10 +26,10 @@ Creates a contract in the specific project.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
-| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.<br>To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
+| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [Forma Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.<br>To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
 
 * Required
 
@@ -53,7 +53,7 @@ Expand all
 | name*   string | The name of the contract. <br>Max length: 1024 |
 | description   string | The detailed description of a contract. <br>Max length: 2048 |
 | companyId   string,null | The ID of a company managed by a BIM 360 Admin. Detailed company information can be retrieved by calling [GET projects/:project_id/companies](http-projects--project_id-companies-GET.md) and locating the member_group_id in the response. |
-| companyUid   string,null | The unique ID (UUID) of the company in this account. Detailed company information can be retrieved using this UUID by calling [GET companies/:company_id](http-companies--company_id-GET.md) in the response. |
+| companyUid   string,null | The unique ID (UUID) of the company in this hub. Detailed company information can be retrieved using this UUID by calling [GET companies/:company_id](http-companies--company_id-GET.md) in the response. |
 | type   string,null | The type of contract. For example, `consultant` or `purchase order`. The `type` can be customized by the project admin. |
 | contactId   string,null | The unique identifier of the default contact for the supplier. This ID is generated and managed by the BIM 360 Admin service. The `contactId` can be used to query user information such as `email` and `company`. |
 | recipients   array: object | Not relevant |
@@ -124,7 +124,7 @@ Expand all
 | name   string | The name of the contract. <br>Max length: 1024 |
 | description   string | The detailed description of a contract. <br>Max length: 2048 |
 | companyId   string,null | The ID of a company managed by a BIM 360 Admin. Detailed company information can be retrieved by calling [GET projects/:project_id/companies](http-projects--project_id-companies-GET.md) and locating the member_group_id in the response. |
-| companyUid   string,null | The unique ID (UUID) of the company in this account. Detailed company information can be retrieved using this UUID by calling [GET companies/:company_id](http-companies--company_id-GET.md) in the response. |
+| companyUid   string,null | The unique ID (UUID) of the company in this hub. Detailed company information can be retrieved using this UUID by calling [GET companies/:company_id](http-companies--company_id-GET.md) in the response. |
 | type   string,null | The type of contract. For example, `consultant` or `purchase order`. The `type` can be customized by the project admin. |
 | contactId   string,null | The unique identifier of the default contact for the supplier. This ID is generated and managed by the BIM 360 Admin service. The `contactId` can be used to query user information such as `email` and `company`. |
 | recipients   array: object | Not relevant |

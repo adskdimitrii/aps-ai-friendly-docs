@@ -1,16 +1,16 @@
-# Attach Files From the ACC Files Tool to Submittals
+# Attach Files From the Forma Files Tool to Submittals
 
 Source: https://aps.autodesk.com/en/docs/acc/tutorials/submittals/attach-files-tool/
 
 ---
 
-# Attach Files From the ACC Files Tool to Submittals
+# Attach Files From the Forma Files Tool to Submittals
 
-This tutorial demonstrates how to attach files from the ACC Files tool to a submittal item.
+This tutorial demonstrates how to attach files from the Forma Files tool to a submittal item.
 
-The steps include verifying the user permissions and gathering required fields for attaching the file, finding the folder containing the file in ACC Files, finding the version ID of the file you want to attach, and attaching the file to a submittal item. For information about uploading files to the ACC Files tool, see the [Upload Files to the ACC Files Tool](files-upload-document-s3.md) tutorial.
+The steps include verifying the user permissions and gathering required fields for attaching the file, finding the folder containing the file in Forma Files, finding the version ID of the file you want to attach, and attaching the file to a submittal item. For information about uploading files to the Forma Files tool, see the [Upload Files to the Forma Files Tool](https://aps.autodesk.com/en/docs/acc/v1/tutorials/files/upload-document-s3/) tutorial.
 
-ACC files are stored in the Data Management service. To access the files, you need to [provision access](https://get-started.aps.autodesk.com/#provision-access-in-other-products) to the Data Management API.
+Forma files are stored in the Data Management service. To access the files, you need to [provision access](https://get-started.aps.autodesk.com/#provision-access-in-other-products) to the Data Management API.
 
 For information about attaching local files to submittals, see the [Attach Local Files to a Submittal Item](https://aps.autodesk.com/en/docs/acc/v1/tutorials/attach-local-files/) tutorial.
 
@@ -21,8 +21,8 @@ For more information about working with submittals, see the [Help documentation]
 - [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` `data:write` scopes.
 - This tutorial assumes an item was created in Submit state `sbc-1` by a user with manager permissions. For more information on creating a submittal item, see the [Create a Submittal Item](submittals-create-submittal-item.md) tutorial. In this example, assume the submittal item ID is `463c0b75-7c85-43ce-aa9f-74781aa29070`.
-- Verify that you have access to the relevant account and ACC project.
-- Find the relevant account ID and project ID for the account and project that contains the file you want to attach to a submittal item. See the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial for more details. In this example, assume the account ID (hub ID) is `b.43939999-0bf2-490d-8e4a-c1cb1097125c`, and project ID is `b.55451d9a-b6a5-429d-8bc3-6074765c52e0`.
+- Verify that you have access to the relevant hub and Forma project.
+- Find the relevant hub ID and project ID for the hub and project that contains the file you want to attach to a submittal item. See the [Retrieve a Hub ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial for more details. In this example, assume the hub ID is `b.43939999-0bf2-490d-8e4a-c1cb1097125c`, and project ID is `b.55451d9a-b6a5-429d-8bc3-6074765c52e0`.
 - Ensure you have assigned manager-level permissions to at least one user for the project via the UI. To assign a manager to a submittal item, you need to ensure the user has the necessary permissions and roles set within the project. For instructions on setting up roles and permissions see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Submittals_Permissions).
 - The Submittal Item workflow progresses through several sequential states. Below are the states in the UI and their equivalent API names:
     | UI State | API Name |
@@ -431,17 +431,17 @@ Note the following fields that are relevant for calling POST attachments in step
 > * Under the same `"id": "Attachment::create"` entry, the `fields` array lists optional parameters:
 > + `categoryId`: Links the attachment to a specific workflow state.
 > + `urn`: The version ID of the file being attached.
-> + `isFileUploaded`: Set to `true` if the file has already been uploaded in the ACC Files tool.
+> + `isFileUploaded`: Set to `true` if the file has already been uploaded in the Forma Files tool.
 
 ## [Step 2: Find the Folder ID](#step-2-find-the-folder-id)
 
-When we attach the file to a submittal item we will need to provide the version ID of the file that was uploaded to the ACC Files tool. To find the version ID we need to use several [Data Management API](https://aps.autodesk.com/en/docs/data/v2/developers_guide/overview/).
+When we attach the file to a submittal item we will need to provide the version ID of the file that was uploaded to the Forma Files tool. To find the version ID we need to use several [Data Management API](https://aps.autodesk.com/en/docs/data/v2/developers_guide/overview/).
 
-Note that the ACC account ID corresponds to a Data Management hub ID. To convert an account ID into a hub ID you need to add a `b.` prefix. For example, an account ID of `c8b0c73d-3ae9` translates to a hub ID of `b.c8b0c73d-3ae9`.
+Note that the Forma hub ID corresponds to a Data Management hub ID. To convert an account ID into a hub ID you need to add a `b.` prefix. For example, an account ID of `c8b0c73d-3ae9` translates to a hub ID of `b.c8b0c73d-3ae9`.
 
 Note that an account in Data Management is called a hub.
 
-Use the account ID (hub ID) (`b.43939999-0bf2-490d-8e4a-c1cb1097125c`) and the project ID (`b.55451d9a-b6a5-429d-8bc3-6074765c52e0`) to call [GET topFolders](../../data/http-docs/http-hubs-hub_id-projects-project_id-topFolders-GET.md) to get the top-level folders for the project. For details about retrieving account and project IDs, see the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial.
+Use the account ID (hub ID) (`b.43939999-0bf2-490d-8e4a-c1cb1097125c`) and the project ID (`b.55451d9a-b6a5-429d-8bc3-6074765c52e0`) to call [GET topFolders](../../data/http-docs/http-hubs-hub_id-projects-project_id-topFolders-GET.md) to get the top-level folders for the project. For details about retrieving hub and project IDs, see the [Retrieve a Hub ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial.
 
 ### Request
 
@@ -1087,4 +1087,4 @@ Show More
 
 Once the request is completed successfully, the response will include the attachment ID, name, and other metadata, confirming that the file has been linked to the submittal item.
 
-Congratulations, You have added an attachment to a submittal item from the ACC Files tool.
+Congratulations, You have added an attachment to a submittal item from the Forma Files tool.

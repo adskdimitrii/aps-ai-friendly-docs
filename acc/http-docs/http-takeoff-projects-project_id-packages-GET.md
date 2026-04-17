@@ -14,7 +14,7 @@ Retrieves the takeoff packages for a project.
 
 Takeoff packages organize and contain all takeoff data related to a scope of work in your project.
 
-For more information about takeoff packages, see the [ACC Takeoff - Working with Packages](https://help.autodesk.com/view/TAKEOFF/ENU/?guid=Work_with_Packages) help documentation.
+For more information about takeoff packages, see the [Forma Takeoff - Working with Packages](https://help.autodesk.com/view/TAKEOFF/ENU/?guid=Work_with_Packages) help documentation.
 
 To learn how this endpoint is used, see the [Takeoff Extract Inventory](../how-to-docs/takeoff-takeoff-extract-inventory.md) tutorial.
 
@@ -28,7 +28,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 | Method and URI | GET https://developer.api.autodesk.com/construction/takeoff/v1/projects/{projectId}/packages |
 | --- | --- |
-| Authentication Context | user context required |
+| Authentication Context | User context required |
 | Required OAuth Scopes | `data:read` |
 | Data Format | JSON |
 
@@ -36,9 +36,8 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
-| --- | --- |
-| region   string | Specifies the region where the service is located. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
+- Authorization*string Must be `Bearer <token>`, where `<token>` is a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context.
+- regionstring Specifies the region where the service is located. Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.
 
 * Required
 
@@ -46,7 +45,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/), and can be specified in the form of “UUID” or b.”UUID”.<br>To learn how to find the project ID, see the [Retrieve ACC Account and project ID](../how-to-docs/getting-started-retrieve-account-and-project-id.md) tutorial. |
+| projectId   string: UUID | The ID of the project. <br>This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/), and can be specified in the form of “UUID” or b.”UUID”.<br>To learn how to find the project ID, see the [Retrieve Forma hub and project ID](../how-to-docs/getting-started-retrieve-account-and-project-id.md) tutorial. |
 | --- | --- |
 
 ### Request

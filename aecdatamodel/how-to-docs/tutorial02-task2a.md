@@ -21,7 +21,7 @@ You will use the following query in this guide:
 
 ## [Step 1: Request for a particular ElementGroup](#step-1-request-for-a-particular-elementgroup)
 
-The [elementGroupnAtTip](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/queries/elementGroupnAtTip/) query returns a [ElementGroup](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/objects/elementGroup/) object. The ElementGroup object contains an array of [elements](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/objects/elements/) objects. For this exercise, we request the `name` field and the entire history object of the elementGroup.
+The [elementGroupnAtTip](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/queries/elementGroupnAtTip/) query returns a [ElementGroup](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/objects/elementGroup/) object. The ElementGroup object contains an array of [elements](../reference-docs/objects-elements.md) objects. For this exercise, we request the `name` field and the entire history object of the elementGroup.
 
 1. In the [AEC Data Model Explorer](https://aecdatamodel-explorer.autodesk.io/), the query is populated by default in the **Query Pane**. You can also edit or update the query as per your requirement and run it.
 

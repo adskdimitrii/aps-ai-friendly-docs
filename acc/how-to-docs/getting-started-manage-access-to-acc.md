@@ -1,21 +1,21 @@
-# Manage API Access to ACC Services
+# Manage API Access to Forma Services
 
 Source: https://aps.autodesk.com/en/docs/acc/tutorials/getting-started/manage-access-to-acc/
 
 ---
 
-# Manage API Access to ACC Services
+# Manage API Access to Forma Services
 
-This walkthrough explains how to enable API access for an application in Autodesk Construction Cloud (ACC). Provisioning API access allows your app to interact with ACC services.
+This walkthrough explains how to enable API access for an application in Forma. Provisioning API access allows your app to interact with Forma services.
 
 ## [Before You Begin](#before-you-begin)
 
-Verify that you have Admin access to an Autodesk Construction Cloud (ACC) account.
+Verify that you have Admin access to a Forma hub.
 - [Register an app](../../oauth/how-to-docs/create-app.md), and note the [client ID](https://aps.autodesk.com/myapps).
 
-## [Step 1: Access Account Administration](#step-1-access-account-administration)
+## [Step 1: Access Hub Administration](#step-1-access-hub-administration)
 
-Log in to your **ACC account**, and go to **Account Admin**.
+Log in to your **Forma hub**, and go to **Hub Admin**.
 
 
 

@@ -6,20 +6,20 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/autospecs/retrieve-smart-
 
 # Retrieve a Smart Register
 
-This tutorial demonstrates how to retrieve submittal logs that have been imported to the AutoSpecs Smart Register. The steps include retrieving the hub ID for the account in which you want to retrieve the submittal logs, retrieving the ID of the project in which you want to retrieve the submittal logs, retrieving the ID of the relevant version, and retrieving the Smart Register.
+This tutorial demonstrates how to retrieve submittal logs that have been imported to the AutoSpecs Smart Register. The steps include retrieving the hub ID for the hub in which you want to retrieve the submittal logs, retrieving the ID of the project in which you want to retrieve the submittal logs, retrieving the ID of the relevant version, and retrieving the Smart Register.
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](https://aps.autodesk.com/myapps), and select the Data Management and Autodesk Construction Cloud APIs.
+- [Register an app](https://aps.autodesk.com/myapps), and select the Data Management and Forma APIs.
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:read` scope.
-- Verify that you have access to the relevant ACC account and project. Ensure that the logged in user has access to AutoSpecs.
+- Verify that you have access to the relevant hub and Forma project. Ensure that the logged in user has access to AutoSpecs.
 - Upload a spec book to the project. See the [Upload a Spec Book](https://help.autodesk.com/view/AUTOSPECS/ENU/?guid=AutoSpecs_upload) documentation for more details. Note the AutoSpecs API does not currently support uploading spec books.
 
-## [Step 1: Find the Hub ID for the ACC Account](#step-1-find-the-hub-id-for-the-acc-account)
+## [Step 1: Find the Hub ID](#step-1-find-the-hub-id)
 
-In order to retrieve the ID of the project in which you want to retrieve the Smart Register, you first need to retrieve the ID of the relevant account. Call [GET hubs](../../data/http-docs/http-hubs-GET.md) to find the hub ID for the ACC account that contains the Smart Register you want to retrieve.
+In order to retrieve the ID of the project in which you want to retrieve the Smart Register, you first need to retrieve the ID of the relevant hub. Call [GET hubs](../../data/http-docs/http-hubs-GET.md) to find the hub ID for the Forma hub that contains the Smart Register you want to retrieve.
 
-Note that the ACC account ID corresponds to a Data Management hub ID. To convert an account ID into a hub ID you need to add a “**b.**" prefix. For example, an account ID of `d952a4eb-ad57-4d64-b9ab-d540b3b4522e` translates to a hub ID of `**b.**\d952a4eb-ad57-4d64-b9ab-d540b3b4522e`.
+Note that the Forma hub ID corresponds to a Data Management hub ID. To convert a hub ID you need to add a “**b.**" prefix. For example, a hub ID of `d952a4eb-ad57-4d64-b9ab-d540b3b4522e` translates to a Data Management hub ID of `**b.**\d952a4eb-ad57-4d64-b9ab-d540b3b4522e`.
 
 ### Request
 
@@ -45,7 +45,7 @@ curl -X GET -H "Authorization: Bearer nFRJxzCD8OOUr7hzBwbr06D76zAT" "https://dev
       "type": "hubs",
       "id": "b.86b832e9-b22b-2acf-344b-454b3431ac8c",
       "attributes": {
-        "name": "My First Account",
+        "name": "My First Hub",
         "extension": {
           "type": "hubs:autodesk.bim360:Account",
           "version": "1.0",
@@ -63,15 +63,15 @@ curl -X GET -H "Authorization: Bearer nFRJxzCD8OOUr7hzBwbr06D76zAT" "https://dev
 
 Show More
 
-In this example, assume that the account (and the corresponding Data Management hub) that contains the Smart Register you want to retrieve is called `My First Account`.
+In this example, assume that the hub that contains the Smart Register you want to retrieve is called `My First Hub`.
 
 Find the hub (`data.name`), and note the hub ID - `b.86b832e9-b22b-2acf-344b-454b3431ac8c`.
 
 ## [Step 2: Find the Project ID](#step-2-find-the-project-id)
 
-Use the hub ID (`b.86b832e9-b22b-2acf-344b-454b3431ac8c`) to call [GET hubs/:hub_id/projects](../../data/http-docs/http-hubs-hub_id-projects-GET.md) to get a list of all the projects in the account.
+Use the hub ID (`b.86b832e9-b22b-2acf-344b-454b3431ac8c`) to call [GET hubs/:hub_id/projects](../../data/http-docs/http-hubs-hub_id-projects-GET.md) to get a list of all the projects in the hub.
 
-Note that the project ID in ACC corresponds to the project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in ACC to a project ID in the Data Management API, you need to add a “**b.**" prefix. For example, a project ID of `75c643d1-c80b-4bca-800f-111a1111aa1a` translates to a project ID of `**b.**\75c643d1-c80b-4bca-800f-111a1111aa1a`.
+Note that the project ID in Forma corresponds to the project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in Forma to a project ID in the Data Management API, you need to add a “**b.**" prefix. For example, a project ID of `75c643d1-c80b-4bca-800f-111a1111aa1a` translates to a project ID of `**b.**\75c643d1-c80b-4bca-800f-111a1111aa1a`.
 
 ### Request
 

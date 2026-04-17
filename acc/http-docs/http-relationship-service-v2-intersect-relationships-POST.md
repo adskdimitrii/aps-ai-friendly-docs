@@ -16,7 +16,7 @@ Also accepts a set of WITH entities, that allow filtering down of the relationsh
 
 The response contains a list of relationships that contain entities matching the search criteria.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

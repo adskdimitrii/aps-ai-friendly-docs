@@ -10,24 +10,24 @@ GET
 
 # accounts/{accountId}/jobs
 
-Returns an array of Data Connector jobs spawned by requests from the authenticated user. The array can contain all jobs associated with a specified project, or all jobs associated with all projects in the user’s account. The user must have project administrator or executive overview permissions:
+Returns an array of Data Connector jobs spawned by requests from the authenticated user. The array can contain all jobs associated with a specified project, or all jobs associated with all projects in the user’s hub. The user must have project administrator or executive overview permissions:
 
 - Users with project administrator permissions may retrieve jobs for one project.
-- Users with executive overview permissions may retrieve jobs for one project or all projects in their account.
+- Users with executive overview permissions may retrieve jobs for one project or all projects in their hub.
 
-Returned information for each job in the array includes the job ID, the ID of its associated request, the ID of the account where the request was created, and the ID and email address of the user who created the request. It also includes information about when the job was created, when it was started and completed (if it has been), its completion status, and its current execution status.
+Returned information for each job in the array includes the job ID, the ID of its associated request, the ID of the hub where the request was created, and the ID and email address of the user who created the request. It also includes information about when the job was created, when it was started and completed (if it has been), its completion status, and its current execution status.
 
 To get request IDs for your requests, use [GET requests](http-data-connector-requests-GET.md).
 
 To understand the basics of requests, the jobs they spawn, and the data extracts returned by the jobs, see the [Data Connector API Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/data-connector/).
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
 | Method and URI | GET https://developer.api.autodesk.com/data-connector/v1/accounts/:accountId/jobs |
 | --- | --- |
-| Authentication Context | user context required |
+| Authentication Context | User context required |
 | Required OAuth Scopes | `data:read` |
 | Data Format | JSON |
 
@@ -35,7 +35,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 
 * Required
@@ -44,7 +44,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 
 ## [URI Parameters](#uri-parameters)
 
-| accountId   string: UUID | The account ID. You can derive it from your hub ID if necessary: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial “b.” from the hub ID to get your account ID. |
+| accountId   string: UUID | The ID of the hub. To obtain the hub ID, call [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API and remove the “b.” prefix. |
 | --- | --- |
 
 ### Request
@@ -57,7 +57,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 | offset   int | The number of data objects to skip before starting to starting to collect the result set. Default value: 0 |
 | projectId   string | Project ID of the returned Data Connector objects. |
 | sortFields   string | A string of comma-separated names of the fields by which to sort the returned jobs. The results are sorted by the first field, then by the second field, and so on. Jobs are sorted by each field in ascending order by default; you can prepend any field name with a hyphen ( `-` ) to sort in descending order. Invalid fields and whitespaces are ignored. <br>Possible values: `projectId`, `createdBy`, `createdByEmail`, `createdAt`, `status`, `completionStatus`, `startedAt`, `completedAt`, `startDate`, `endDate`. |
-| filter[field_to_filter]   string | Return only the Data Connector jobs in which the specified field has the specified value. Use the following format in the endpoint URL: `filter[field_to_filter]=_filter_value_`. <br>Note that you can provide multiple job filters in the URL, but you may not filter on multiple values of the same field.<br>Possible `field_to_filter` values: `projectId`, `createdAt`, `status`, `completionStatus`, `startedAt`, `completedAt`, `startDate`, `endDate`. You can also retrieve all Data Connector jobs in the current account by specifying `filter[projectId]=null`.<br>For the `createdAt`, `startedAt`, and `completedAt` fields (which accept a date range), specify the range in the form *firstdate..lastdate*, in ISO 8601 format with the time required. You can alternatively omit the first date (for example, to get everything on or before June 1, 2019 the range would be `..2019-06-01T23:59:59.999Z`). You can also omit the last date (for example, to get everything after June 1, 2019 the range would be `2019-06-01T00:00:00.000Z..`)<br>Additional notes on using `startDate` and `endDate`:<br>If you provide only `startDate` or `endDate` (but not both), Data Connector uses that single date for both `startDate` and `endDate`.If you request more than the Maximum Date Range Allowed for an extraction, the default date range as documented in the schema documentation is returned.For the `activities` service group, data replication can be delayed up to 20 minutes, so your requests should account for that delay. |
+| filter[field_to_filter]   string | Return only the Data Connector jobs in which the specified field has the specified value. Use the following format in the endpoint URL: `filter[field_to_filter]=_filter_value_`. <br>Note that you can provide multiple job filters in the URL, but you may not filter on multiple values of the same field.<br>Possible `field_to_filter` values: `projectId`, `createdAt`, `status`, `completionStatus`, `startedAt`, `completedAt`, `startDate`, `endDate`. You can also retrieve all Data Connector jobs in the current hub by specifying `filter[projectId]=null`.<br>For the `createdAt`, `startedAt`, and `completedAt` fields (which accept a date range), specify the range in the form *firstdate..lastdate*, in ISO 8601 format with the time required. You can alternatively omit the first date (for example, to get everything on or before June 1, 2019 the range would be `..2019-06-01T23:59:59.999Z`). You can also omit the last date (for example, to get everything after June 1, 2019 the range would be `2019-06-01T00:00:00.000Z..`)<br>Additional notes on using `startDate` and `endDate`:<br>If you provide only `startDate` or `endDate` (but not both), Data Connector uses that single date for both `startDate` and `endDate`.If you request more than the Maximum Date Range Allowed for an extraction, the default date range as documented in the schema documentation is returned.For the `activities` service group, data replication can be delayed up to 20 minutes, so your requests should account for that delay. |
 
 ### Response
 
@@ -87,10 +87,10 @@ Expand all
 | results   array: object | An array of job records. |
 | id   string: UUID | The job ID. |
 | requestId   string: UUID | The ID of the data request that spawned the job. |
-| accountId   string: UUID | The account ID. |
+| accountId   string: UUID | The hub ID. |
 | projectId   string: UUID | The project ID. |
 | projectIdList   array: string | The list of project IDs |
-| createdBy   string | The BIM 360 / ACC user ID of the user who created the data request that spawned this job. |
+| createdBy   string | The BIM 360 / Forma user ID of the user who created the data request that spawned this job. |
 | createdByEmail   string | The email address of the user who created the data request that spawned this job. |
 | createdAt   datetime: ISO 8601 | The date and time the job was created, presented in ISO 8601 format. |
 | status   string | The current status of the job. Possible values: `queued`, `running`, `complete`. |

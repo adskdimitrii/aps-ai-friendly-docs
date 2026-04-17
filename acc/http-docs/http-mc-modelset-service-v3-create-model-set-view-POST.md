@@ -16,7 +16,7 @@ A view consists of a chosen set of distinct model document lineages that exist w
 
 The response contains information about the created model set view job.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

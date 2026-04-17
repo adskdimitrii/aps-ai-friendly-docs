@@ -1,14 +1,16 @@
 # SearchResults
 
-Source: https://aps.autodesk.com/en/docs/viewer/v7/reference/globals/Functions/SearchResults/
+Source: https://aps.autodesk.com/en/docs/viewer/v7/reference/globals/Classes/SearchResults/
 
 ---
 
-Functions
+Classes
 
 # SearchResults
 
-## [Parameters](#parameters)
+## [new SearchResults(parent, excludeRoot, container)](#new-searchresults-parent-excluderoot-container)
+
+### Parameters
 
 | parent*   HTMLElement | HTMLElement where the search result will be inserted |
 | --- | --- |

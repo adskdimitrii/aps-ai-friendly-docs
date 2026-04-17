@@ -10,15 +10,15 @@ GET
 
 # accounts/{accountId}/users/{userId}/projects
 
-Returns a list of projects for a specified user within an Autodesk Construction Cloud (ACC) or BIM 360 account. Only projects the user participates in will be returned. The calling user must be an account administrator.
+Returns a list of projects for a specified user within a Forma or BIM 360 account. Only projects the user participates in will be returned. The calling user must be an account or hub administrator.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
 | Method and URI | GET https://developer.api.autodesk.com/construction/admin/v1/accounts/:accountId/users/:userId/projects |
 | --- | --- |
-| Authentication Context | user context optional |
+| Authentication Context | User context optional |
 | Required OAuth Scopes | `account:read` |
 | Data Format | JSON |
 
@@ -26,10 +26,10 @@ Returns a list of projects for a specified user within an Autodesk Construction 
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 | Region   string | Specifies the region where your request should be routed. If not set, the request is routed automatically, which may result in a slight increase in latency. <br>Possible values: `US`, `EMEA`. For a complete list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
-| User-Id   string | The ID of a user on whose behalf your request is acting. <br>Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.<br>You can use either the user’s ACC ID (`id`), or their Autodesk ID (`autodeskId`).<br>Note that this header is required for Account Admin POST, PATCH, and DELETE endpoints if you want to use a 2-legged authentication context. This header is optional for Account Admin GET endpoints. |
+| User-Id   string | The ID of a user on whose behalf your request is acting. <br>Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.<br>You can use either the user’s Forma ID (`id`), or their Autodesk ID (`autodeskId`).<br>Note that this header is required for hub Admin POST, PATCH, and DELETE endpoints if you want to use a 2-legged authentication context. This header is optional for hub Admin GET endpoints. |
 
 * Required
 
@@ -37,9 +37,9 @@ Returns a list of projects for a specified user within an Autodesk Construction 
 
 ## [URI Parameters](#uri-parameters)
 
-| accountId   string: UUID | The ID of the ACC account that contains the project being created or the projects being retrieved. This corresponds to the hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID, remove the “**b.**" prefix. For example, a hub ID of `b.c8b0c73d-3ae9` translates to an account ID of `c8b0c73d-3ae9`. |
+| accountId   string: UUID | The ID of the hub that contains the projects. This corresponds to the hub ID used in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/), with the “**b.**" prefix removed. For example, `b.c8b0c73d-3ae9` becomes `c8b0c73d-3ae9`. |
 | --- | --- |
-| userId   string | The ID of the user. To find the ID call [GET users](http-admin-projectsprojectId-users-GET.md). You can use either the ACC ID (`id`) or the Autodesk ID (`autodeskId`). |
+| userId   string | The ID of the user. To find the ID call [GET users](http-admin-projectsprojectId-users-GET.md). You can use either the Forma ID (`id`) or the Autodesk ID (`autodeskId`). |
 
 ### Request
 
@@ -48,9 +48,9 @@ Returns a list of projects for a specified user within an Autodesk Construction 
 | filter[id]   array: string: uuid | A list of project IDs to filter by. |
 | --- | --- |
 | fields   array: string | A comma-separated list of user project fields to include in the response. If not specified, all available fields are included by default. <br>Possible values: `accessLevels`, `accountId`, `addressLine1`, `addressLine2`, `city`, `constructionType`, `country`, `createdAt`, `classification`, `deliveryMethod`, `endDate`, `imageUrl`, `jobNumber`, `latitude`, `longitude`, `name`, `platform`, `postalCode`, `projectValue`, `sheetCount`, `startDate`, `stateOrProvince`, `status`, `thumbnailImageUrl`, `timezone`, `type`, `updatedAt`, `contractType` and `currentPhase`. |
-| filter[classification]   array: string | Filters projects by classification. Possible values: <br>`production` – Standard production projects. `template` – Project templates that can be cloned to create production projects. `component` – Placeholder projects that contain standardized components (e.g., forms) for use across projects. Only one component project is permitted per account. Known as a library in the ACC unified products UI. `sample` – The single sample project automatically created upon ACC trial setup. Only one sample project is permitted per account.<br>Max length: 255 |
+| filter[classification]   array: string | Filters projects by classification. Possible values: <br>`production` – Standard production projects. `template` – Project templates that can be cloned to create production projects. `component` – Placeholder projects that contain standardized components (e.g., forms) for use across projects. Only one component project is permitted per hub. Known as a library in the Forma unified products UI. `sample` – The single sample project automatically created upon Forma trial setup. Only one sample project is permitted per hub.<br>Max length: 255 |
 | filter[name]   string | Filters projects by name. Supports partial matches when used with `filterTextMatch`. For example `filter[name]=ABCco&filterTextMatch=startsWith` returns projects whose names start with “ABCco”. <br>Max length: 255 |
-| filter[platform]   array: string | Filters by platform. Possible values: `acc` (Autodesk Construction Cloud) and `bim360` (BIM 360). <br>Max length: 255 |
+| filter[platform]   array: string | Filters by platform. Possible values: `acc` (Forma) and `bim360` (BIM 360). <br>Max length: 255 |
 | filter[status]   array: string | Filters projects by status. Possible values: `active`, `pending`, `archived`, `suspended`. |
 | filter[type]   array: string | Filters by project type. To exclude a type, prefix it with `-` (e.g., `-Bridge` excludes bridge projects). <br>Possible values: `Airport`, `Assisted Living / Nursing Home`, `Bridge`, `Canal / Waterway`, `Convention Center`, `Court House`, `Data Center`, `Dams / Flood Control / Reservoirs`, `Demonstration Project`, `Dormitory`, `Education Facility`, `Government Building`, `Harbor / River Development`, `Hospital`, `Hotel / Motel`, `Library`, `Manufacturing / Factory`, `Medical Laboratory`, `Medical Office`, `Military Facility`, `Mining Facility`, `Multi-Family Housing`, `Museum`, `Oil & Gas`,``Plant``, `Office`, `OutPatient Surgery Center`, `Parking Structure / Garage`, `Performing Arts`, `Power Plant`, `Prison / Correctional Facility`, `Rail`, `Recreation Building`, `Religious Building`, `Research Facility / Laboratory`, `Restaurant`, `Retail`, `Seaport`, `Single-Family Housing`, `Solar Farm`, `Stadium/Arena`, `Streets / Roads / Highways`, `Template Project`, `Theme Park`, `Training Project`, `Transportation Building`, `Tunnel`, `Utilities`, `Warehouse (non-manufacturing)`, `Waste Water / Sewers`, `Water Supply`, `Wind Farm`. |
 | filter[jobNumber]   string | Filters by a user-defined project identifier. Supports partial matches when used with `filterTextMatch`. For example, `filter[jobNumber]=HP-0002&filterTextMatch=equals` returns projects where the job number is exactly “HP-0002”. <br>Max length: 255 |
@@ -96,7 +96,7 @@ Expand all
 | startDate   null,string | The estimated start date for the project, in ISO 8601 format. |
 | endDate   null,string | The estimated end date for the project, in ISO 8601 format. |
 | type   string | The type of the project. Any value is accepted, but the following are recommended: <br>Possible values: `Convention Center`, `Data Center`, `Hotel / Motel`, `Office`, `Parking Structure / Garage`, `Performing Arts`, `Restaurant`, `Retail`, `Stadium / Arena`, `Theme Park`, `Warehouse (non-manufacturing)`, `Assisted Living / Nursing Home`, `Hospital`, `Medical Laboratory`, `Medical Office`, `OutPatient Surgery Center`, `Court House`, `Dormitory`, `Education Facility`, `Government Building`, `Library`, `Military Facility`, `Museum`, `Prison / Correctional Facility`, `Recreation Building`, `Religious Building`, `Research Facility / Laboratory`, `Multi-Family Housing`, `Single-Family Housing`, `Airport`, `Bridge`, `Canal / Waterway`, `Dams / Flood Control / Reservoirs`, `Harbor / River Development`, `Rail`, `Seaport`, `Streets / Roads / Highways`, `Transportation Building`, `Tunnel`, `Waste Water / Sewers`, `Water Supply`, `Manufacturing / Factory`, `Mining Facility`, `Oil & Gas`, `Plant`, `Power Plant`, `Solar Farm`, `Utilities`, `Wind Farm`, `Demonstration Project`, `Template Project` and `Training Project`.<br>Max length: 255 |
-| classification   enum:string | The classification of the project. Possible values: <br>`production` – Standard project.`template` – A project that serves as a template for creating new projects.`component` – A placeholder project containing reusable components (e.g., forms). Only one component project is allowed per account. Known as a library in the ACC UI.`sample` – A single sample project automatically created for ACC trials (limited to one per account). |
+| classification   enum:string | The classification of the project. Possible values: <br>`production` – Standard project.`template` – A project that serves as a template for creating new projects.`component` – A placeholder project containing reusable components (e.g., forms). Only one component project is allowed per hub. Known as a library in the Forma UI.`sample` – A single sample project automatically created for Forma trials (limited to one per hub). |
 | projectValue   object | Contains details about the estimated cost of the project, including the amount (`value`) and the currency (`currency`). |
 | value   number | The estimated cost of the project, based on the `currency` specified in the currency field. Default: `0`. |
 | currency   enum:string | The currency of the project value. Default: `USD`. Possible values: `AED`, `AFN`, `ALL`, `AMD`, `ANG`, `AOA`, `ARS`, `AUD`, `AWG`, `AZN`, `BAM`, `BBD`, `BDT`, `BGN`, `BHD`, `BIF`, `BMD`, `BND`, `BOB`, `BOV`, `BRL`, `BSD`, `BTN`, `BWP`, `BYN`, `BYR`, `BZD`, `CAD`, `CDF`, `CHE`, `CHF`, `CHW`, `CLF`, `CLP`, `CNY`, `COP`, `COU`, `CRC`, `CUC`, `CUP`, `CVE`, `CZK`, `DJF`, `DKK`, `DOP`, `DZD`, `EEK`, `EGP`, `ERN`, `ETB`, `EUR`, `FJD`, `FKP`, `GBP`, `GEL`, `GHS`, `GIP`, `GMD`, `GNF`, `GTQ`, `GYD`, `HKD`, `HNL`, `HRK`, `HTG`, `HUF`, `IDR`, `ILS`, `INR`, `IQD`, `IRR`, `ISK`, `JMD`, `JOD`, `JPY`, `KES`, `KGS`, `KHR`, `KMF`, `KPW`, `KRW`, `KWD`, `KYD`, `KZT`, `LAK`, `LBP`, `LKR`, `LRD`, `LSL`, `LTL`, `LVL`, `LYD`, `MAD`, `MDL`, `MGA`, `MKD`, `MMK`, `MNT`, `MOP`, `MRU`, `MUR`, `MVR`, `MWK`, `MXN`, `MXV`, `MYR`, `MZN`, `NAD`, `NGN`, `NIO`, `NOK`, `NPR`, `NZD`, `OMR`, `PAB`, `PEN`, `PGK`, `PHP`, `PKR`, `PLN`, `PYG`, `QAR`, `RON`, `RSD`, `RUB`, `RWF`, `SAR`, `SBD`, `SCR`, `SDG`, `SEK`, `SGD`, `SHP`, `SLE`, `SLL`, `SOS`, `SRD`, `SSP`, `STN`, `SVC`, `SYP`, `SZL`, `THB`, `TJS`, `TMT`, `TND`, `TOP`, `TRL`, `TRY`, `TTD`, `TWD`, `TZS`, `UAH`, `UGX`, `USD`, `USN`, `UYI`, `UYU`, `UYW`, `UZS`, `VED`, `VES`, `VND`, `VUV`, `WST`, `XAF`, `XAG`, `XAU`, `XBA`, `XBB`, `XBC`, `XBD`, `XCD`, `XDR`, `XOF`, `XPD`, `XPF`, `XPT`, `XSU`, `XTS`, `XUA`, `XXX`, `YER`, `ZAR`, `ZMW`, `ZWL` |
@@ -107,7 +107,7 @@ Expand all
 | city   null,string | The city wher the project is located. <br>Max length: 255 |
 | stateOrProvince   null,string | The state or province where the project is located. It must be a valid name or an ISO 3166-2 code. The provided state or province must exist in the country of the project. <br>Max length: 255 |
 | postalCode   null,string | The postal or ZIP code of the project location. <br>Max length: 255 |
-| country   null,string | The country where the project is located, using an ISO 3166-1 code. <br>Max length: 255 |
+| country   null,string | The country where the project is located, using an ISO 3166-1 alpha-2 code. <br>Max length: 255 |
 | latitude   null,string | The latitude coordinate of the project location. <br>Max length: 25 |
 | longitude   null,string | The longitude coordinate of the project location. <br>Max length: 25 |
 | timezone   null,string | The time zone where the project is located. It must be a valid IANA time zone name from the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g., `America/New_York`). If no time zone is set, this field may be `null`. Possible values: `Pacific/Honolulu`, `America/Juneau`, `America/Los_Angeles`, `America/Phoenix`, `America/Denver`, `America/Chicago`, `America/New_York`, `America/Indiana/Indianapolis`, `Pacific/Pago_Pago`, `Pacific/Midway`, `America/Tijuana`, `America/Chihuahua`, `America/Mazatlan`, `America/Guatemala`, `America/Mexico_City`, `America/Monterrey`, `America/Regina`, `America/Bogota`, `America/Lima`, `America/Caracas`, `America/Halifax`, `America/Guyana`, `America/La_Paz`, `America/Santiago`, `America/St_Johns`, `America/Sao_Paulo`, `America/Argentina/Buenos_Aires`, `America/Godthab`, `Atlantic/South_Georgia`, `Atlantic/Azores`, `Atlantic/Cape_Verde`, `Africa/Casablanca`, `Europe/Dublin`, `Europe/Lisbon`, `Europe/London`, `Africa/Monrovia`, `Etc/UTC`, `Europe/Amsterdam`, `Europe/Belgrade`, `Europe/Berlin`, `Europe/Bratislava`, `Europe/Brussels`, `Europe/Budapest`, `Europe/Copenhagen`, `Europe/Ljubljana`, `Europe/Madrid`, `Europe/Paris`, `Europe/Prague`, `Europe/Rome`, `Europe/Sarajevo`, `Europe/Skopje`, `Europe/Stockholm`, `Europe/Vienna`, `Europe/Warsaw`, `Africa/Algiers`, `Europe/Zagreb`, `Europe/Athens`, `Europe/Bucharest`, `Africa/Cairo`, `Africa/Harare`, `Europe/Helsinki`, `Europe/Istanbul`, `Asia/Jerusalem`, `Europe/Kiev`, `Africa/Johannesburg`, `Europe/Riga`, `Europe/Sofia`, `Europe/Tallinn`, `Europe/Vilnius`, `Asia/Baghdad`, `Asia/Kuwait`, `Europe/Minsk`, `Africa/Nairobi`, `Asia/Riyadh`, `Asia/Tehran`, `Asia/Muscat`, `Asia/Baku`, `Europe/Moscow`, `Asia/Tbilisi`, `Asia/Yerevan`, `Asia/Kabul`, `Asia/Karachi`, `Asia/Tashkent`, `Asia/Kolkata`, `Asia/Colombo`, `Asia/Kathmandu`, `Asia/Almaty`, `Asia/Dhaka`, `Asia/Yekaterinburg`, `Asia/Rangoon`, `Asia/Bangkok`, `Asia/Jakarta`, `Asia/Novosibirsk`, `Asia/Shanghai`, `Asia/Chongqing`, `Asia/Hong_Kong`, `Asia/Krasnoyarsk`, `Asia/Kuala_Lumpur`, `Australia/Perth`, `Asia/Singapore`, `Asia/Taipei`, `Asia/Ulaanbaatar`, `Asia/Urumqi`, `Asia/Irkutsk`, `Asia/Tokyo`, `Asia/Seoul`, `Australia/Adelaide`, `Australia/Darwin`, `Australia/Brisbane`, `Australia/Melbourne`, `Pacific/Guam`, `Australia/Hobart`, `Pacific/Port_Moresby`, `Australia/Sydney`, `Asia/Yakutsk`, `Pacific/Noumea`, `Asia/Vladivostok`, `Pacific/Auckland`, `Pacific/Fiji`, `Asia/Kamchatka`, `Asia/Magadan`, `Pacific/Majuro`, `Pacific/Guadalcanal`, `Pacific/Tongatapu`, `Pacific/Apia`, `Pacific/Fakaofo` |
@@ -119,7 +119,7 @@ Expand all
 | thumbnailImageUrl   string | The URL of the project’s thumbnail image. This field can be `null`. <br>Max length: 255 |
 | createdAt   datetime: ISO 8601 | The timestamp when the project was created, in ISO 8601 format. This value is set at creation and does not change. |
 | updatedAt   datetime: ISO 8601 | The timestamp when the project was last updated, in ISO 8601 format. This reflects changes to project fields but not updates to resources within the project. |
-| accountId   string: UUID | The account ID associated with the project. |
+| accountId   string: UUID | The hub ID associated with the project. |
 | sheetCount   null,integer | The total number of sheets associated with the project. <br>Note that this field is relevant only in responses. It is ignored in requests. |
 | platform   enum:string | The APS platform where the project is stored. Possible values: `acc`, `bim360`. <br>Note that this field is relevant only in responses. It is ignored in requests. |
 | accessLevels   object | Information about the user’s access roles in the project. |
@@ -168,7 +168,7 @@ curl -v 'https://developer.api.autodesk.com/construction/admin/v1/accounts/d73fc
       "city": "San Francisco",
       "stateOrProvince": "California",
       "postalCode": "94001",
-      "country": "United States",
+      "country": "US",
       "latitude": "37.773972",
       "longitude": "-122.431297",
       "timezone": "America/Los_Angeles",

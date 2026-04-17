@@ -45,3 +45,5 @@ The AEC Data Mode Explorer is a web-based interface designed for performing quer
 ## [Step 6: Next steps](#step-6-next-steps)
 
 For an enhanced learning experience, it is advisable to begin with the [Getting Started](aps.autodesk.com/en/docs/aecdatamodel/v1/tutorials/tutorial01/) section before moving on to the [Working with Advanced Queries](aps.autodesk.com/en/docs/aecdatamodel/v1/tutorials/tutorial02/) section. Following this recommended learning path will facilitate smoother progress throughout the course.
+
+When you are ready for specialized workflows, use [Retrieve Geometry Data](https://aps.autodesk.com/en/docs/aecdatamodel/v1/tutorials/geometry/geometry_query/) for geometry queries and exports, and [Extensibility of Element Data](extend_element_data-create_property_definition.md) for custom properties on elements.

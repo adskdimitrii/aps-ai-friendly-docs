@@ -6,12 +6,18 @@ Source: https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=sch
 
 # schedule Schema Description
 
-**Documentation Updated:** 2023-12-04  
+**Documentation Updated:** 2026-03-10  
 
 - [activities](#activities)
 - [activity_codes](#activity_codes)
 - [comments](#comments)
 - [dependencies](#dependencies)
+- [plan_commitments](#plan_commitments)
+- [plan_handoffs](#plan_handoffs)
+- [plan_plans](#plan_plans)
+- [plan_project_settings](#plan_project_settings)
+- [plan_task_comments](#plan_task_comments)
+- [plan_tasks](#plan_tasks)
 - [resources](#resources)
 - [schedules](#schedules)
 
@@ -101,6 +107,141 @@ Activity dependencies (links) belonging to the latest schedule revision
 | 8 | created_at | timestamp: SQL |  | Creation time of the dependency |
 | 9 | updated_at | timestamp: SQL |  | Update time of the dependency |
 
+## plan_commitments
+
+The Workplan commitments in ACC Build
+
+| ordinal_position | column_name | data_type | constraints | notes |
+| --- | --- | --- | --- | --- |
+| 1 | id | string: UUID |  | The commitment ID |
+| 2 | bim360_account_id | string: UUID |  | BIM 360 HQ Account ID. |
+| 3 | bim360_project_id | string: UUID |  | BIM 360 HQ Project ID. |
+| 4 | plan_id | string: UUID |  | The plan ID derived from the linked task Foreign Key: Table: plans Column: id |
+| 5 | task_id | string: UUID |  | The task ID this commitment is made against Foreign Key: Table: tasks Column: id |
+| 6 | replanned_commitment_id | string: UUID |  | The ID of the commitment this one replans Foreign Key: Table: commitments Column: id |
+| 7 | root_cause_id | string: UUID |  | The root cause ID when commitment is incomplete |
+| 8 | task_type | string |  | The task type of the commitment |
+| 9 | work_type | string |  | The work type of the commitment |
+| 10 | status | string |  | The current status of the commitment |
+| 11 | start_date | date: string |  | The start date of the commitment |
+| 12 | finish_date | date: string |  | The finish date of the commitment |
+| 13 | duration | number |  | The duration value when the task was committed |
+| 14 | assigned_member_id | string: null |  | The member ID assigned to the commitment |
+| 15 | assigned_company_id | string: null |  | The company ID assigned to the commitment |
+| 16 | assigned_role_id | string: null |  | The role ID assigned to the commitment |
+| 17 | location_id | string: UUID |  | The location ID associated with the commitment |
+| 18 | wbs_id | string: UUID |  | The WBS ID associated with the commitment |
+| 19 | crew_size | number |  | The crew size committed to the task |
+| 20 | was_start_changed | boolean |  | Whether the start date was changed from the original task |
+| 21 | was_duration_changed | boolean |  | Whether the duration was changed from the original task |
+| 22 | was_finish_changed | boolean |  | Whether the finish date was changed from the original task |
+| 23 | created_by | string |  | The user who created the commitment |
+| 24 | created_at | timestamp: SQL |  | Creation time of the commitment |
+| 25 | updated_by | string |  | The user who last updated the commitment |
+| 26 | updated_at | timestamp: SQL |  | Last update time of the commitment |
+
+## plan_handoffs
+
+The Workplan task handoffs in ACC Build
+
+| ordinal_position | column_name | data_type | constraints | notes |
+| --- | --- | --- | --- | --- |
+| 1 | id | string: UUID |  | The handoff ID |
+| 2 | bim360_account_id | string: UUID |  | BIM 360 HQ Account ID. |
+| 3 | bim360_project_id | string: UUID |  | BIM 360 HQ Project ID. |
+| 4 | plan_id | string: UUID |  | The plan ID this handoff belongs to Foreign Key: Table: plans Column: id |
+| 5 | source_task | string: UUID |  | The source task ID of the handoff Foreign Key: Table: tasks Column: id |
+| 6 | target_task | string: UUID |  | The target task ID of the handoff Foreign Key: Table: tasks Column: id |
+| 7 | created_by | string |  | The user who created the handoff |
+| 8 | created_at | timestamp: SQL |  | Creation time of the handoff |
+| 9 | updated_by | string |  | The user who last updated the handoff |
+| 10 | updated_at | timestamp: SQL |  | Last update time of the handoff |
+
+## plan_plans
+
+The Workplan plans in ACC Build
+
+| ordinal_position | column_name | data_type | constraints | notes |
+| --- | --- | --- | --- | --- |
+| 1 | id | string: UUID |  | The plan ID |
+| 2 | bim360_account_id | string: UUID |  | BIM 360 HQ Account ID. |
+| 3 | bim360_project_id | string: UUID |  | BIM 360 HQ Project ID. |
+| 4 | name | string |  | The plan name |
+| 5 | schedule_id | string: UUID |  | The connected schedule ID for the plan Foreign Key: Table: schedules Column: id |
+| 6 | created_by | string |  | The user who created the plan |
+| 7 | updated_by | string |  | The user who last updated the plan |
+| 8 | created_at | timestamp: SQL |  | Creation time of the plan |
+| 9 | updated_at | timestamp: SQL |  | Last update time of the plan |
+
+## plan_project_settings
+
+The Workplan project settings in ACC Build
+
+| ordinal_position | column_name | data_type | constraints | notes |
+| --- | --- | --- | --- | --- |
+| 1 | bim360_account_id | string: UUID |  | BIM 360 HQ Account ID. |
+| 2 | bim360_project_id | string: UUID |  | BIM 360 HQ Project ID. |
+| 3 | non_working_dates | string |  | Non-working dates configured for the project (JSON array) |
+| 4 | first_day_of_the_week | string: null |  | The first day of the project working week |
+| 5 | working_days | string: null |  | The project working days configuration |
+| 6 | wbs_tree | string |  | The WBS tree structure for the project (JSON) |
+| 7 | created_by | string |  | The user who created the project settings |
+| 8 | created_at | timestamp: SQL |  | Creation time of the project settings |
+| 9 | updated_by | string |  | The user who last updated the project settings |
+| 10 | updated_at | timestamp: SQL |  | Last update time of the project settings |
+
+## plan_task_comments
+
+The Workplan tasks comments in ACC Build
+
+| ordinal_position | column_name | data_type | constraints | notes |
+| --- | --- | --- | --- | --- |
+| 1 | id | string: UUID |  | The task comments ID |
+| 2 | bim360_account_id | string: UUID |  | BIM 360 HQ Account ID. |
+| 3 | bim360_project_id | string: UUID |  | BIM 360 HQ Project ID. |
+| 4 | task_id | string: UUID |  | The task ID for the task comment Foreign Key: Table: tasks Column: id |
+| 5 | plan_id | string: UUID |  | The plan ID for the task comment Foreign Key: Table: plans Column: id |
+| 6 | body | string |  | The body of the task comment |
+| 7 | created_at | timestamp: SQL |  | Creation time of the task comment |
+| 8 | created_by | string |  | The user who created the task comment |
+
+## plan_tasks
+
+The Workplan tasks in ACC Build
+
+| ordinal_position | column_name | data_type | constraints | notes |
+| --- | --- | --- | --- | --- |
+| 1 | id | string: UUID |  | The task ID |
+| 2 | plan_id | string: UUID |  | The plan ID this task belongs to Foreign Key: Table: plans Column: id |
+| 3 | bim360_account_id | string: UUID |  | BIM 360 HQ Account ID. |
+| 4 | bim360_project_id | string: UUID |  | BIM 360 HQ Project ID. |
+| 5 | parent_task_id | string: UUID |  | The parent task ID for hierarchical task structures Foreign Key: Table: tasks Column: id |
+| 6 | activity_unique_id | number |  | The task's connected schedule activity id Foreign Key: Table: schedule_activities Column: unique_id |
+| 7 | unique_id | number |  | The unique sequential identifier of the task within the plan |
+| 8 | task_type | string |  | The task type (e.g. task, milestone) |
+| 9 | work_type | string |  | The work type of the task |
+| 10 | status | string |  | The current status of the task |
+| 11 | title | string |  | the task title |
+| 12 | description | string |  | The task description |
+| 13 | start_date | date: string |  | The start date of the task |
+| 14 | finish_date | date: string |  | The finish date of the task |
+| 15 | duration | number |  | The duration of the task in working days |
+| 16 | location_id | string: UUID |  | The location ID associated with the task |
+| 17 | assigned_member_id | string: null |  | The member ID assigned to the task |
+| 18 | assigned_company_id | string: null |  | The company ID assigned to the task |
+| 19 | assigned_role_id | string: null |  | The role ID assigned to the task |
+| 20 | wbs_id | string: UUID |  | The WBS ID associated with the task |
+| 21 | completion_percentage | number |  | The completion percentage of the task (0-100) |
+| 22 | crew_size | number |  | The crew size assigned to the task |
+| 23 | priority | number |  | The priority of the task |
+| 24 | comments_count | number |  | The number of comments on the task |
+| 25 | commitments_count | number |  | The total number of commitments and replans of the task |
+| 26 | task_imports_id | string |  | The import ID if the task was imported from Excel |
+| 27 | created_by | string |  | The user who created the task |
+| 28 | created_at | timestamp: SQL |  | Creation time of the task |
+| 29 | updated_by | string |  | The user who last updated the task |
+| 30 | updated_at | timestamp: SQL |  | Last update time of the task |
+
 ## resources
 
 Resource (Assignees) assignments to Activities belonging to the latest schedule revision
@@ -137,4 +278,4 @@ Schedules in ACC Build
 | 10 | created_at | timestamp: SQL |  | Creation time of the schedule |
 | 11 | updated_at | timestamp: SQL |  | Update time of the schedule |
 
-© Copyright 2026 Autodesk Inc. | [Autodesk Construction Cloud](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)
+© Copyright 2026 Autodesk Inc. | [Autodesk Forma](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)

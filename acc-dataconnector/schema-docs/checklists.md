@@ -421,4 +421,4 @@ Information about BIM 360 Field Management templates (all versions), including d
 | 16 | share_status | enum: string | Possible Values: active detached deleted | Status of account level template in project. Possible values are active/detached/deleted. |
 | 17 | deleted_at | timestamp: SQL |  | Date and time the resource was deleted. |
 
-© Copyright 2026 Autodesk Inc. | [Autodesk Construction Cloud](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)
+© Copyright 2026 Autodesk Inc. | [Autodesk Forma](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)

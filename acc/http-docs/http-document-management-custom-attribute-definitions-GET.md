@@ -18,7 +18,7 @@ To retrieve the values that were assigned to a document’s custom attributes, c
 
 For more details about custom attributes, see the [Update Custom Attributes](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/document-management/download-document/update-custom-attribute-values/) tutorial.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

@@ -6,16 +6,16 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/submittals/attach-local-f
 
 # Attach Local Files to Submittals
 
-This tutorial demonstrates how to attach local files to a submittal item in an Autodesk Construction Cloud (ACC) project. The steps include verifying the user’s permissions and gathering required fields, creating the attachment object, generating a signed S3 URL, uploading the file to the signed URL, and updating the attachment status. For more information on working with submittals, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Create_Submittal).
+This tutorial demonstrates how to attach local files to a submittal item in a Forma project. The steps include verifying the user’s permissions and gathering required fields, creating the attachment object, generating a signed S3 URL, uploading the file to the signed URL, and updating the attachment status. For more information on working with submittals, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Create_Submittal).
 
-For information about attaching files to submittals that were already uploaded to the ACC Files tool, see the [Attach Files to Submittals from the Files Tool](https://aps.autodesk.com/en/docs/acc/v1/tutorials/attach-files-tool/) tutorial.
+For information about attaching files to submittals that were already uploaded to the Forma Files tool, see the [Attach Files to Submittals from the Files Tool](https://aps.autodesk.com/en/docs/acc/v1/tutorials/attach-files-tool/) tutorial.
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` `data:write` scopes.
-- Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to create a submittal item in by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `91b5ea71-e3ea-495b-999d-57443a8af6a4`.
+- Verify that you have access to the relevant hub and Forma project.
+- Find the relevant project ID for the project you want to create a submittal item in by following the [Retrieve a Hub ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `91b5ea71-e3ea-495b-999d-57443a8af6a4`.
 - This tutorial assumes an item was created in Submit state `sbc-1` by a user with manager permissions. For more information on creating a submittal item, see the [Create a Submittal Item](submittals-create-submittal-item.md) tutorial. In this example, assume the submittal item ID is `938eb16d-5603-4df9-adcd-00f75d48e145`.
 - Ensure you have assigned manager-level permissions to at least one user for the project via the UI. To assign a manager to a submittal item, you need to ensure the user has the necessary permissions and roles set within the project. For instructions on setting up roles and permissions see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Submittals_Permissions).
 - The Submittal Item workflow progresses through several sequential states. Below are the states in the UI and their equivalent API names:
@@ -698,4 +698,4 @@ curl -X PATCH 'https://developer.api.autodesk.com/construction/submittals/v2/pro
 
 Show More
 
-Congratulations! You have successfully added a local attachment to a submittal item in Autodesk Construction Cloud. The attachment is now part of the submittal workflow and ready for further processing or review.
+Congratulations! You have successfully added a local attachment to a submittal item in Forma. The attachment is now part of the submittal workflow and ready for further processing or review.

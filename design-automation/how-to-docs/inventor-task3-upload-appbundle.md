@@ -196,6 +196,9 @@ of the AppBundle. Consequently, endpoints referencing the AppBundle using the al
 | `Autodesk.Inventor+2022` | Inventor 2022 | “engine”: “Autodesk.Inventor+2022” |
 | `Autodesk.Inventor+2023` | Inventor 2023 | “engine”: “Autodesk.Inventor+2023” |
 | `Autodesk.Inventor+2024` | Inventor 2024 | “engine”: “Autodesk.Inventor+2024” |
+| `Autodesk.Inventor+2025` | Inventor 2025 | “engine”: “Autodesk.Inventor+2025” |
+| `Autodesk.Inventor+2026` | Inventor 2026 | “engine”: “Autodesk.Inventor+2026” |
+| `Autodesk.Inventor+2027` | Inventor 2027 | “engine”: “Autodesk.Inventor+2027” |
 
 **Notes:**
 

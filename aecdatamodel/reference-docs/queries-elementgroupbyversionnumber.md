@@ -15,8 +15,8 @@ Retrieves elementGroup by version number and ID.
 **Template for Query:**
 
 ```
-query GetElementGroupByVersionNumber($elementGroupId: ID!, $versionNumber: Int!) {
-  elementGroupByVersionNumber(elementGroupId: $elementGroupId, versionNumber: $versionNumber) {
+query GetElementGroupByVersionNumber($elementGroupId: ID!, $versionNumber: Int!, $versionFilter: VersionFilterInput) {
+  elementGroupByVersionNumber(elementGroupId: $elementGroupId, versionNumber: $versionNumber, versionFilter: $versionFilter) {
     # ElementGroupByVersionNumber Fields
   }
 }
@@ -28,7 +28,8 @@ query GetElementGroupByVersionNumber($elementGroupId: ID!, $versionNumber: Int!)
 ```
 {
   "elementGroupId" : "<SOME-ID-TYPE-SCALAR-VALUE>",
-  "versionNumber" : "<SOME-INT-TYPE-SCALAR-VALUE>"
+  "versionNumber" : "<SOME-INT-TYPE-SCALAR-VALUE>",
+  "versionFilter" : "<SOME-VERSIONFILTER-INPUT-TYPE-VALUE>"
 }
 
 ```
@@ -38,6 +39,7 @@ query GetElementGroupByVersionNumber($elementGroupId: ID!, $versionNumber: Int!)
 | elementGroupId*   [ID!](scalars.md) `non-null` | The ID of the elementGroup. |
 | --- | --- |
 | versionNumber*   [Int!](scalars.md) `non-null` | Version number to be retrieved. |
+| versionFilter   [VersionFilterInput](inputs-versionfilterinput.md) | Optional. Specifies version resolution behavior (e.g. whether the versionNumber refers to a PUBLISHED or WIP version). Defaults to PUBLISHED if not provided. |
 
 * Required
 

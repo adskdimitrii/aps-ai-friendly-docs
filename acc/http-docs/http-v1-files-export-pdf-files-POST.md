@@ -10,7 +10,7 @@ POST
 
 # projects/{projectId}/exports
 
-Exports one or more individual PDFs, or 2D views and sheets (from DWG or RVT files) as PDFs from the ACC files module. All PDFs are packaged into a single ZIP file.
+Exports one or more individual PDFs, or 2D views and sheets (from DWG or RVT files) as PDFs from the Forma files module. All PDFs are packaged into a single ZIP file.
 
 Notes:
 
@@ -40,7 +40,7 @@ For more details about exporting files, see the [Export Files](https://help.auto
 
 | Method and URI | POST https://developer.api.autodesk.com/construction/files/v1/projects/{projectId}/exports |
 | --- | --- |
-| Authentication Context | user context optional |
+| Authentication Context | User context optional |
 | Required OAuth Scopes | `data:write` |
 | Data Format | JSON |
 
@@ -48,9 +48,9 @@ For more details about exporting files, see the [Export Files](https://help.auto
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
-| x-user-id   string | The ID of a user on whose behalf your API request is acting. Required if you’re using a 2-legged authentication context, which must be 2-legged OAuth2 security with user impersonation. <br>The app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified.<br>You can use either the user’s ACC ID (id), or their Autodesk ID (autodeskId). |
+| x-user-id   string | The ID of a user on whose behalf your API request is acting. Required if you’re using a 2-legged authentication context, which must be 2-legged OAuth2 security with user impersonation. <br>The app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified.<br>You can use either the user’s Forma ID (id), or their Autodesk ID (autodeskId). |
 | Content-Type*   string | Must be `application/json` |
 
 * Required
@@ -95,10 +95,10 @@ Expand all
 | --- | --- |
 | 400   Bad Request | The parameters of the requested operation are invalid. <br>Sample error code with possible messages:<br>ERR_BAD_INPUT: <br>  Multiple documents only can be exported as a ZIP file.  2D views and sheets in DWG or RVT format can only be exported as a ZIP file.  Some resources are not valid types (only PDF, DWG, and RVT are accepted). |
 | 401   Unauthorized | The provided bearer token is not valid. <br>Sample error code with possible messages:<br>ERR_AUTHENTICATED_ERROR: <br>  Authentication header is not correct |
-| 403   Forbidden | The user or service represented by the bearer token does not have permission to perform this operation. <br>Sample error code with possible messages:<br>ERR_NOT_ALLOWED: <br>  Account inactive  Project inactive  User inactive  Api access deny  User {userId} does not have download permission on resource {resource} |
-| 404   Not Found | The resources requested, e.g. project, account, user, and any files included, do not exist. <br>Sample error code with possible messages:<br>ERR_RESOURCE_NOT_EXIST: <br>  Some resources are not found  Account not found  Project not found  Project user not found |
+| 403   Forbidden | The user or service represented by the bearer token does not have permission to perform this operation. <br>Sample error code with possible messages:<br>ERR_NOT_ALLOWED: <br>  Hub inactive  Project inactive  User inactive  Api access deny  User {userId} does not have download permission on resource {resource} |
+| 404   Not Found | The resources requested, e.g. project, hub, user, and any files included, do not exist. <br>Sample error code with possible messages:<br>ERR_RESOURCE_NOT_EXIST: <br>  Some resources are not found  Hub not found  Project not found  Project user not found |
 | 422   Unprocessable Entity | The total file size exceeds the 10GB maximum limit. <br>Sample error code with possible messages:<br>ERR_FILES_TOO_LARGE: <br>  The overall file size is over 10GB. |
-| 500   Internal Server Error | An unknown error occurred on the server. <br>Sample error code with possible messages:<br>ERR_INTERNAL_SERVER_ERROR: <br>  Request failed for internal exception xxx  Failed to get account  Failed to get project  Failed to get user |
+| 500   Internal Server Error | An unknown error occurred on the server. <br>Sample error code with possible messages:<br>ERR_INTERNAL_SERVER_ERROR: <br>  Request failed for internal exception xxx  Failed to get hub  Failed to get project  Failed to get user |
 
 ### Response
 

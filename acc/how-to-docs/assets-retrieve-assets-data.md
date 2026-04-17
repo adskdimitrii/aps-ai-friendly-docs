@@ -1,12 +1,12 @@
-# Retrieve ACC Assets Data
+# Retrieve Forma Assets Data
 
 Source: https://aps.autodesk.com/en/docs/acc/tutorials/assets/retrieve-assets-data/
 
 ---
 
-# Retrieve ACC Assets Data
+# Retrieve Forma Assets Data
 
-This tutorial demonstrates how to fetch your complete set of Autodesk Construction Cloud Asset data and project settings. This can be for the entirety of your Asset data, or filtered to a subset of Asset data.
+This tutorial demonstrates how to fetch your complete set of Forma Asset data and project settings. This can be for the entirety of your Asset data, or filtered to a subset of Asset data.
 
 This set will include the assets themselves, as well as all of the surrounding Asset project settings:
 
@@ -29,14 +29,14 @@ Most of the endpoints detailed below are paginated. Assets API uses cursor-based
 | `nextUrl` | The URL for the next paginated request. Contains the `cursorState` and any additional filters that have been applied. The `cursorState` is returned independently as well to give the client more flexibility in how they wish to paginate through entities. If `nextUrl` is missing from the response, you have reached the end of the pagination and all results have been returned. |
 | `totalResults` | Not returned for all pagination endpoints, but if present will provide the total number of entities that can be returned through the pagination. |
 
-For more details about Autodesk Construction Cloud Assets API, see the [Assets Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/assets/).
+For more details about Forma Assets API, see the [Assets Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/assets/).
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](https://aps.autodesk.com/myapps), and select the Data Management and Autodesk Construction Cloud APIs.
+- [Register an app](https://aps.autodesk.com/myapps), and select the Data Management and Forma APIs.
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` scope.
-- Verify that you have access to the relevant Autodesk Construction Cloud account, project, and folder.
-- Retrieve the relevant [ACC account and project ID](getting-started-retrieve-account-and-project-id.md). In this tutorial we will use the example project ID `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`, but you should replace that with the project ID you have retrieved for your project.
+- Verify that you have access to the relevant Forma hub, project, and folder.
+- Retrieve the relevant [Forma Hub and Project ID](getting-started-retrieve-account-and-project-id.md). In this tutorial we will use the example project ID `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`, but you should replace that with the project ID you have retrieved for your project.
 
 ## [Step 1: Fetch Assets](#step-1-fetch-assets)
 
@@ -575,7 +575,7 @@ You can search for all relationships in your project which include an â€œassetâ€
 
 | Query Parameter | Value(s) |
 | --- | --- |
-| `domain` | The Assets Relationship domain: `autodesk-bim360-asset` (NOTE: the domain is the same for Autodesk Construction Cloud assets or BIM360 assets) |
+| `domain` | The Assets Relationship domain: `autodesk-bim360-asset` (NOTE: the domain is the same for Forma assets or BIM360 assets) |
 | `type` | The Assets Relationship types (see below for available options) |
 | `id` | OPTIONAL - ID of the Asset to search relationships for |
 | `withDomain` | OPTIONAL - The related entity domain (see below for available options) |
@@ -586,7 +586,7 @@ You can search for all relationships in your project which include an â€œassetâ€
 
 Note that this list of Parameters is not exhaustive. More information on the Relationship API will be provided as it becomes available.
 
-Also note that different Domains and Types are available for Autodesk Construction Cloud asset relationships than for BIM30 asset relationships, and that this is not necessarily determined by the domain itself. For example, and `issue` in the `autodesk-bim360-issue` domain can be related to an Autodesk Construction Cloud asset, as seen in the table below.
+Also note that different Domains and Types are available for Forma asset relationships than for BIM30 asset relationships, and that this is not necessarily determined by the domain itself. For example, and `issue` in the `autodesk-bim360-issue` domain can be related to a Forma asset, as seen in the table below.
 
 | Type | Related Domain | Related Type |
 | --- | --- | --- |
@@ -649,4 +649,4 @@ Show More
 
 For more information on querying the Relationship API, see the [Relationship Querying Tutorial](relationships-relationships-tutorial.md).
 
-Once you have the entities and their relationships to the given assets you can use the relevant APIs to fetch the data for the given entities. This may require setting up access to other APIs, depending on what type of entities are linked to your Assets. See [Retrieve Issues](issues-retrieve-issues.md) and [Get Forms Endpoint](../http-docs/http-forms-forms-GET.md) for examples of retrieving related entities.
+Once you have the entities and their relationships to the given assets you can use the relevant APIs to fetch the data for the given entities. This may require setting up access to other APIs, depending on what type of entities are linked to your Assets. See [Retrieve Issues](issues-retrieve-issues.md) and [Get Forms Endpoint](https://aps.autodesk.com/en/docs/acc/v1/reference/http/forms-forms-(Deprecated/)-GET/) for examples of retrieving related entities.

@@ -14,13 +14,13 @@ The workflow snapshot may differ from the current definition of the approval wor
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](https://aps.autodesk.com/myapps), and select `Autodesk Construction Cloud APIs` in the `API Access` dropdown.
+- [Register an app](https://aps.autodesk.com/myapps), and select `Forma APIs` in the `API Access` dropdown.
 - Acquire a [3-legged](../../oauth/how-to-docs/get-3-legged-token.md) or [2-legged](../../oauth/how-to-docs/get-2-legged-token.md) OAuth token with `data:read` scopes for querying.
   * For a 3-legged token, ensure that the user has permission to access the review and the files.
   * For a 2-legged token, the `x-user-id` header is required. Retrieve the user’s Autodesk ID by calling [GET projects/:projectId/users](../http-docs/http-admin-projectsprojectId-users-GET.md) with your 2-legged OAuth token and the user’s email address. Ensure that the user is a project administrator or a candidate of the review.
-- Find the project ID for the project you want to work with by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `9ba6681e-1952-4d54-aac4-9de6d9858dd4`.
+- Find the project ID for the project you want to work with by following the [Retrieve a Forma Hub ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `9ba6681e-1952-4d54-aac4-9de6d9858dd4`.
 - Find the review ID by calling [GET reviews](../http-docs/http-reviews-reviews-GET.md). In this example, assume the review ID is `4e609369-e950-4097-b7d3-e6cf1c3c5415`.
-- Verify that you have access to the relevant ACC account, project, folders, and files.
+- Verify that you have access to the relevant Forma hub, project, folders, and files.
 
 ## [Step 1: Get File Versions Included in the Review](#step-1-get-file-versions-included-in-the-review)
 

@@ -1,12 +1,12 @@
-# Managing ACC Assets
+# Managing Forma Assets
 
 Source: https://aps.autodesk.com/en/docs/acc/tutorials/assets/manage-assets/
 
 ---
 
-# Managing ACC Assets
+# Managing Forma Assets
 
-Managing assets is the core of the functionality the Autodesk Construction Cloud Assets service provides. This tutorial demonstrates how to use the ACC Assets API to manage a ACC project’s assets. This will include:
+Managing assets is the core of the functionality the Forma Assets service provides. This tutorial demonstrates how to use the Forma Assets API to manage a Forma project’s assets. This will include:
 
 - Creating new assets
 - Updating existing assets
@@ -15,7 +15,7 @@ Managing assets is the core of the functionality the Autodesk Construction Cloud
 - Deleting relationships between assets and other entities
 
 This tutorial assumes that the project’s Asset settings have already been set up. For more details on how to do this,
-see the [Setup ACC Assets Project Settings](assets-create-assets-project-settings.md) tutorial.
+see the [Setup Forma Assets Project Settings](assets-create-assets-project-settings.md) tutorial.
 
 ## [Batch Endpoints](#batch-endpoints)
 
@@ -27,14 +27,14 @@ When fetching entities in batch, invalid entities that are requested will simply
 
 Batch endpoints generally support operating on up to 100 entities at a given time, unless otherwise noted in the endpoint documentation.
 
-For more details about Autodesk Construction Cloud Assets API, see the [Assets Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/assets/).
+For more details about Forma Assets API, see the [Assets Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/assets/).
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](https://aps.autodesk.com/myapps), and select the Data Management and Autodesk Construction Cloud APIs.
+- [Register an app](https://aps.autodesk.com/myapps), and select the Data Management and Forma APIs.
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create` and `data:write` scopes.
-- Verify that you have access to the relevant Autodesk Construction Cloud account, project, and folder.
-- Retrieve the relevant [ACC account and project ID](getting-started-retrieve-account-and-project-id.md). In this tutorial we will use the example project ID `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`, but you should replace that with the project ID you have retrieved for your project.
+- Verify that you have access to the relevant Forma hub, project, and folder.
+- Retrieve the relevant [Forma Hub and Project ID](getting-started-retrieve-account-and-project-id.md). In this tutorial we will use the example project ID `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`, but you should replace that with the project ID you have retrieved for your project.
 
 ## [Step 1: Create new Assets](#step-1-create-new-assets)
 
@@ -44,7 +44,7 @@ This is a batch endpoint that can be used to create multiple assets at a time. T
 
 Unlike batch fetch endpoints, batch creating assets is “all-or-nothing”. If any of the asset definitions in the request are invalid, none of the assets will be created and a `400 - Error: Bad Request` will be returned with a list of the violations that need to be corrected before the request can succeed.
 
-For more details on finding out which categories, statuses, and custom attributes are available and required, see the [Retrieve ACC Assets Data](assets-retrieve-assets-data.md) tutorial.
+For more details on finding out which categories, statuses, and custom attributes are available and required, see the [Retrieve Forma Assets Data](assets-retrieve-assets-data.md) tutorial.
 
 ### Request
 
@@ -136,7 +136,7 @@ This is a batch endpoint that can be used to modify multiple assets at a time. T
 
 Unlike batch fetch endpoints, batch updating assets is “all-or-nothing”. If any of the asset patches in the request are invalid, none of the assets will be updated and a `400 - Error: Bad Request` will be returned with a list of the violations that need to be corrected before the request can succeed.
 
-For more details on finding out which categories, statuses, and custom attributes are available and required, see the [Retrieve ACC Assets Data](assets-retrieve-assets-data.md) tutorial.
+For more details on finding out which categories, statuses, and custom attributes are available and required, see the [Retrieve Forma Assets Data](assets-retrieve-assets-data.md) tutorial.
 
 ### Request
 
@@ -286,9 +286,9 @@ Show More
 
 To create asset relationships, attaching an issue to an asset for example, the preferred means is to use the Relationship API. For more information on how to create relationships please see Create Relationships tutorial</en/docs/bim360/v1/tutorials/relationships/relationships-create/>.
 
-In order to create a relationship between an asset and another entity, you will need to obtain the ID of the entity you wish to link to the asset. This may require setting up access to other Autodesk APIs, depending on what type of entities you wish to link to your assets. See the [GET issues](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/field-issues-GET/) or [GET forms](../http-docs/http-forms-forms-GET.md) for examples of retrieving related entities. In this example we will assume we fetched the issues for the project, and wish to attach an issue with ID `a3311fc6-4571-4fca-9fb4-37120d976bd2` to the asset.
+In order to create a relationship between an asset and another entity, you will need to obtain the ID of the entity you wish to link to the asset. This may require setting up access to other Autodesk APIs, depending on what type of entities you wish to link to your assets. See the [GET issues](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/field-issues-GET/) or [GET forms](https://aps.autodesk.com/en/docs/acc/v1/reference/http/forms-forms-(Deprecated/)-GET/) for examples of retrieving related entities. In this example we will assume we fetched the issues for the project, and wish to attach an issue with ID `a3311fc6-4571-4fca-9fb4-37120d976bd2` to the asset.
 
-Note that within Autodesk Construction Cloud projects, assets may be linked to any of the following domains and types:
+Note that within Forma projects, assets may be linked to any of the following domains and types:
 
 | Domain | Entity Type |
 | --- | --- |

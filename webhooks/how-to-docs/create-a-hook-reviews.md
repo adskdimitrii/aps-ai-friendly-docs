@@ -1,12 +1,12 @@
-# Creating a Webhook and Listening to ACC Reviews Events
+# Creating a Webhook and Listening to Forma Reviews Events
 
 Source: https://aps.autodesk.com/en/docs/webhooks/tutorials/create-a-hook-reviews/
 
 ---
 
-# Creating a Webhook and Listening to ACC Reviews Events
+# Creating a Webhook and Listening to Forma Reviews Events
 
-This walkthrough demonstrates how to create a Webhook to register callbacks for specified types of [Autodesk Construction Cloud (ACC) Reviews events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/reviews_events/). The steps include finding the scope ID for the events, choosing the event type for the webhook to listen for, preparing to handle callbacks, and creating the webhook.
+This walkthrough demonstrates how to create a Webhook to register callbacks for specified types of [Forma Reviews events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/reviews_events/). The steps include finding the scope ID for the events, choosing the event type for the webhook to listen for, preparing to handle callbacks, and creating the webhook.
 
 For more details about the Reviews API, see the [Reviews Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/reviews/).
 
@@ -20,7 +20,7 @@ For more details about the Reviews API, see the [Reviews Field Guide](https://ap
 
 ## [Step 1: Find the Scope ID for Events](#step-1-find-the-scope-id-for-events)
 
-The Webhooks service uses the project ID as the scope for ACC Reviews events. To find the project ID, see the [Retrieve Project ID](../../acc/how-to-docs/getting-started-retrieve-account-and-project-id.md) tutorial.
+The Webhooks service uses the project ID as the scope for Forma Reviews events. To find the project ID, see the [Retrieve Project ID](../../acc/how-to-docs/getting-started-retrieve-account-and-project-id.md) tutorial.
 
 For more information about webhook scopes, see the [Field Guide](https://aps.autodesk.com/en/docs/webhooks/v1/developers_guide/field-guide/).
 

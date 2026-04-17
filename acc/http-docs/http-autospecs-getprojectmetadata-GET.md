@@ -10,7 +10,7 @@ GET
 
 # projects/{projectId}/metadata
 
-Retrieves Autospecs-related information about the specified ACC project, including details about the project versions and the region.
+Retrieves Autospecs-related information about the specified Forma project, including details about the project versions and the region.
 
 ## [Resource Information](#resource-information)
 
@@ -33,7 +33,7 @@ Retrieves Autospecs-related information about the specified ACC project, includi
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/developers_guide/overview/) to retrieve the project ID. For more information, see the [Retrieve a Project ID tutorial](../how-to-docs/getting-started-retrieve-account-and-project-id.md). You need to convert the project ID into a project ID for the ACC API by removing the “b.” prefix. For example, a project ID of b.a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/developers_guide/overview/) to retrieve the project ID. For more information, see the [Retrieve a Project ID tutorial](../how-to-docs/getting-started-retrieve-account-and-project-id.md). You need to convert the project ID into a project ID for the Forma API by removing the “b.” prefix. For example, a project ID of b.a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Response
@@ -53,7 +53,7 @@ Retrieves Autospecs-related information about the specified ACC project, includi
 
 Expand all
 
-| projectId   string | The ACC project ID. |
+| projectId   string | The Forma project ID. |
 | --- | --- |
 | region   enum:string | The region of the specification PDFs that were uploaded for this project. Currently, AutoSpecs supports CSI MasterFormat for the United States and Canada. Possible values: `USA`, `Canada`, `Others` |
 | versions   array: object | Information about the versions for the project. |

@@ -14,13 +14,13 @@ Updates the specified timesheet in the given project.
 
 Note that Cost API timesheets endpoints are designed only for use with a third party tracking app that you’ve synchronized with Cost Management. For more information, see [Performance Tracking](https://help.autodesk.com/view/BUILD/ENU/?guid=Cost_Performance_Tracking).
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
 | Method and URI | PATCH https://developer.api.autodesk.com/cost/v1/containers/:containerId/time-sheets/:id |
 | --- | --- |
-| Authentication Context | user context required |
+| Authentication Context | User context required |
 | Required OAuth Scopes | `data:write` |
 | Data Format | JSON |
 
@@ -28,10 +28,10 @@ Note that Cost API timesheets endpoints are designed only for use with a third p
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
-| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.<br>To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
+| region   string | Specifies the region where the project data resides. <br>By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.<br>Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [Forma Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.<br>To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page. |
 
 * Required
 
@@ -87,8 +87,8 @@ The timesheet
 | inputUnit   string | The input unit of measurement of the timesheet. Currently this value should always be `hr`. |
 | outputQuantity   number | The quantity of material used during time period covered by the timesheet. |
 | outputUnit   string | The output unit of measurement of the timesheet. |
-| creatorId   string,null | The BIM 360/ACC ID of the user who created the timesheet. |
-| changedBy   string,null | The BIM 360/ACC ID of the user who made the last change to the timesheet. |
+| creatorId   string,null | The BIM 360/Forma ID of the user who created the timesheet. |
+| changedBy   string,null | The BIM 360/Forma ID of the user who made the last change to the timesheet. |
 | createdAt   datetime: ISO 8601 | The date and time that the item was created, in ISO 8601 format. |
 | updatedAt   datetime: ISO 8601 | The date and time that the item was last updated, in ISO 8601 format. |
 

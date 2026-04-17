@@ -10,11 +10,11 @@ GET
 
 # projects/:project_id/companies
 
-Query all the partner companies in a specific BIM 360 project.
+Query all the partner companies in a specific BIM 360/Forma project.
 
-To query all the partner companies in the account, see [GET companies](http-companies-GET.md).
+To query all the partner companies in the account/hub, see [GET companies](http-companies-GET.md).
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
@@ -37,7 +37,7 @@ To query all the partner companies in the account, see [GET companies](http-comp
 
 ## [URI Parameters](#uri-parameters)
 
-| account_id   string: UUID | The account ID of the project. This corresponds to hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID you need to remove the “**b.**" prefix. For example, a hub ID of **b.**c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. |
+| account_id   string: UUID | The account/hub ID of the company. This corresponds to the hub ID used in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/), with the “**b.**" prefix removed. For example, **b.**c8b0c73d-3ae9 becomes c8b0c73d-3ae9. |
 | --- | --- |
 | project_id   string: UUID | The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the BIM 360 API you need to remove the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 
@@ -72,9 +72,9 @@ A successful response is an array of companies, flat JSON objects with the follo
 
 | id   string: UUID | Company ID |
 | --- | --- |
-| account_id   string: UUID | Account ID |
+| account_id   string: UUID | Account/Hub ID |
 | project_id   string: UUID | Project ID |
-| name   string | Company name should be unique under an account       Max length: 255 |
+| name   string | Company name should be unique under an account/hub       Max length: 255 |
 | trade   string | Trade type based on specialization       Refer to the `trade` list in the [Parameters](https://aps.autodesk.com/en/docs/bim360/v1/overview/parameters/) guide. |
 | address_line_1   string | Company address line 1       Max length: 255 |
 | address_line_2   string | Company address line 2       Max length: 255 |
@@ -91,7 +91,7 @@ A successful response is an array of companies, flat JSON objects with the follo
 
 ## [Example](#example)
 
-Successful Listing of Companies in an Account (200)
+Successful Listing of Companies in an Account/Hub (200)
 
 ### Request
 

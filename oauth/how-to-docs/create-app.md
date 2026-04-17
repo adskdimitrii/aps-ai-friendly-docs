@@ -6,48 +6,99 @@ Source: https://aps.autodesk.com/en/docs/oauth/v2/tutorials/create-app/
 
 # Create an App
 
-Before an app can use APS APIs, you must register that app. APS then assigns a Client ID and a Client Secret to the app. The Client ID uniquely identifies the app. The Client Secret is similar to a password. You use it to validate your Client ID when obtaining an access token.
+This walkthrough guides you through creating (registering) an app. The process generates a Client ID and Client Secret for your app, which you use to obtain access tokens and authenticate your API calls.
 
-## [Step 1: Log in to the APS developer portal](#step-1-log-in-to-the-aps-developer-portal)
+In APS, “create an app,” “register an app,” and “get a Client ID and Client Secret” all refer to the same process.
 
-1. Go to the [APS developer portal](https://aps.autodesk.com).
+To complete this setup, you need:
+
+- An APS account
+- A developer hub
+
+If you do not have an APS account, start with **Step 1: Create an APS account**.
+
+If you already have an APS account, sign in at <https://aps.autodesk.com>, then continue to **Step 2: Set up a developer hub**.
+
+## [Step 1: Create an APS account](#step-1-create-an-aps-account)
+
+1. Visit the [Autodesk Platform Services portal](https://aps.autodesk.com).
+
+2. Click **Sign in** in the upper-right corner.
+
+3. Click **Create account**.
+
+4. Follow the on-screen instructions to complete account setup. When finished, you will see a page titled **It seems you don’t have a hub yet**.
 
 
-2. Click **SIGN IN**. The Sign in page displays.
+**Important:** During account setup, you will receive a backup code. Store it securely. You can use this code to access your account if you are unable to receive a one-time password.
+
+## [Step 2: Set up a developer hub](#step-2-set-up-a-developer-hub)
+
+Before you can register an app, you must have a developer hub.
+
+### What is a developer hub?
+
+A developer hub is a collaboration workspace where a team can build, share, and manage apps.
+
+If you are part of a [team](https://www.autodesk.com/support/account/admin/users/manage-teams), your team may already have a developer hub. Ask your team admin to add you, then continue to **Step 3: Register an app**.
+
+- If your team has an APS plan but has not created a developer hub yet:
+  * If you are the team admin, continue to **Create a developer hub**.
+  * Otherwise, ask your team admin to create one.
+- If your team does not have an APS plan, or if you want your own developer hub, follow the steps below.
+
+### Get an APS plan
+
+1. If you see the **It seems you don’t have a hub yet** page, click **View options** in the **Get an APS plan** card.
+If you do not see this page, visit <https://www.autodesk.com/products/autodesk-platform-services/overview>.
+
+2. Scroll to the **Autodesk Platform Services cloud APIs** section.
 
 
-3. If you already have an Autodesk account:
-  1. Specify your email address and click **NEXT**.
-  2. In the next screen, specify your password and click **SIGN IN**.
+3. Select your preferred plan tier.
+    **Tip:** The Free tier provides monthly access to APS APIs with usage caps on paid APIs.
 
-    If you don’t have an Autodesk account:
+4. Follow the on-screen instructions to complete the purchase process. When finished, you will see a confirmation screen similar to the following:
 
-  1. Click the **CREATE ACCOUNT** link. The Create account page displays.
 
-  2. Fill out the form and click **CREATE ACCOUNT**. The verification required screen displays.
-  3. Check your email, and click the verification link on the email sent to you by Autodesk. The Account verified page is displayed.
-  4. Click **DONE**. You are redirected to a Welcome Page.
-  5. Specify your details and click **SUBMIT**. The APS Account Details page displays.
+### Create a developer hub
 
-## [Step 2: Register an App](#step-2-register-an-app)
+1. Visit <https://manage.autodesk.com>.
+2. Navigate to **Products and Services** > **Hubs**.
 
-1. From the Profile menu on the top right of the page, click **Applications**.
+3. Click **Create hub**, then:
+  1. Select **APS developer hub**
+  2. Enter a name and optional description
+  3. Click **Create and Activate**
 
-2. Click **Create application**. The Create Application page displays.
+## [Step 3: Register an app](#step-3-register-an-app)
 
-3. Enter a name for the app and select an application type. For more information, see [Application Types](https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/App-types/).
-Note: The application (APS app) created by selecting the application type “Desktop, Mobile, Single-Page App” is for a client with public keys, and “Traditional Web App, Server-to-Server App” is for a client with private keys.
+1. Visit <https://aps.autodesk.com> and sign in.
 
-4. Click **Create**. A page to capture the details of your app is displayed.
+2. Open your profile menu and select **My applications**.
 
-5. Enter the details of your app as follows:
-  1. In the **Description** box, enter a short description of the app.
-  2. In the **Callback URL** box, enter the URL of the app that is designated to receive the authorization code on behalf of your app. For more information see [API Basics](https://aps.autodesk.com/en/docs/oauth/v2/overview/basics/).
-  3. From the **API Access** drop-down, select the APIs that you want to use in your app.
+
+3. Select your developer hub from the **Developer Hub** dropdown.
+
+
+4. Click **Create application**, then configure the following:
+  - **Name**: Enter a descriptive name for your app.
+  - **Application Type**: Select the application type for your app.
+
+    For more information, see [Application Types](https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/App-types/).
+
+
+
+5. Configure the app settings:
+  - **Description**: Enter a short description of your app.
+  - **API Access**: Select the APIs your app will use.
+
+
+
 6. Click **Save changes**.
 
-## [Step 3: Note down Client ID and Client Secret](#step-3-note-down-client-id-and-client-secret)
+## [Step 4: Save your client credentials](#step-4-save-your-client-credentials)
 
-Once you register an app, you will see a Client ID and Client Secret in your newly created app page. You will need these in all other OAuth flows and, by extension, to complete every other walkthrough on this site.
+After registering the app, copy the **Client ID** and **Client Secret** from **App settings**. You will use these credentials to obtain access tokens.
 
-
+**Warning:** Store your Client Secret securely. Never commit it to source control, share it publicly, or include it in client-side code. For production environments, use a secure secrets manager.

@@ -12,17 +12,17 @@ POST
 
 Creates a data request for an authenticated user. The user can optionally limit the request to one project. The user must have executive overview or project administrator permissions.
 
-As a successfully created data request spawns jobs, those jobs will send status email to the data request creator when completed. If the data request contains a callback URL, jobs will also call that URL when completed. Data Connector requests and their resulting jobs are subject to rate limits: an account can create a maximum of 24 jobs within a 24-hour period, and an individual user can create up to 24 jobs within the same timeframe. For more details, see the [Rate Limits](https://aps.autodesk.com/en/docs/bim360/v1/overview/rate-limits/data-connector-rate-limits/) page.
+As a successfully created data request spawns jobs, those jobs will send status email to the data request creator when completed. If the data request contains a callback URL, jobs will also call that URL when completed. Data Connector requests and their resulting jobs are subject to rate limits: a hub can create a maximum of 24 jobs within a 24-hour period, and an individual user can create up to 24 jobs within the same timeframe. For more details, see the [Rate Limits](https://aps.autodesk.com/en/docs/bim360/v1/overview/rate-limits/data-connector-rate-limits/) page.
 
 To understand the basics of requests, the jobs they spawn, and the data extracts returned by the jobs, see the [Data Connector API Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/data-connector/).
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
 | Method and URI | POST https://developer.api.autodesk.com/data-connector/v1/accounts/:accountId/requests |
 | --- | --- |
-| Authentication Context | user context required |
+| Authentication Context | User context required |
 | Required OAuth Scopes | `data:create` |
 | Data Format | JSON |
 
@@ -30,7 +30,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 
@@ -40,7 +40,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 
 ## [URI Parameters](#uri-parameters)
 
-| accountId   string: UUID | The account ID. You can derive it from your hub ID if necessary: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial “b.” from the hub ID to get your account ID. |
+| accountId   string: UUID | The ID of the hub. To obtain the hub ID, call [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API and remove the “b.” prefix. |
 | --- | --- |
 
 ### Request
@@ -54,7 +54,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 | reoccuringInterval   int | The number of `scheduleInterval` units to wait between job execution for the request. For example, a `scheduleInterval` value of `WEEK` and a `reoccuringInterval` value of `2` means the job will run every two weeks. <br>This value is required and must be a non-zero integer for all values of `scheduleInterval` except for a `scheduleInterval` value of `ONE_TIME`, in which case this value is ignored. |
 | effectiveFrom   datetime: ISO 8601 | The date and time when a one-time job execution or a recurring interval schedule begins, presented in ISO 8601 format. If the date and time is before the current time, execution of scheduling begins immediately. This value is required. |
 | effectiveTo   datetime: ISO 8601 | The date and time when the recurring interval schedule ends, presented in ISO 8601 format. This value must not be supplied for `scheduleInterval` values of `ONE_TIME`, but is required for all other `scheduleInterval` values. |
-| serviceGroups   array: string | The service groups from which to extract data, separated by commas. This required value must identify at least one service group. <br>Possible values: `all`, `activities`, `admin`, `assets`, `checklists`, `cost`, `dailylogs`, `forms`, `iq`, `issues`, `locations`, `markups`, `meetingminutes`, `photos`, `relationships`, `reviews`, `rfis`, `schedule`, `sheets`, `submittals`, `submittalsacc`, `transmittals`.<br>Note that the `admin` service includes both project and account admin, and `all` produces an extract containing all currently available service groups. |
+| serviceGroups   array: string | The service groups from which to extract data, separated by commas. This required value must identify at least one service group. <br>Possible values: `all`, `activities`, `admin`, `assets`, `checklists`, `cost`, `dailylogs`, `forms`, `iq`, `issues`, `locations`, `markups`, `meetingminutes`, `photos`, `relationships`, `reviews`, `rfis`, `schedule`, `sheets`, `submittals`, `submittalsacc`, `transmittals`.<br>Note that the `admin` service includes both project and hub admin, and `all` produces an extract containing all currently available service groups. |
 | callbackUrl   string | The callback URL specified for the data request. If specified, the Data Connection service calls the URL each time a job executes for the request. The service sends a POST request that provides job execution information. The JSON payload in the POST request contains the following: `{ "accountId": "account_id", "requestId": "request_id", "jobId": "data_connector_job_id", "state": "complete", "success": true or false }`. <br>If not specified, the Data Connection service does not provide a callback. |
 | sendEmail   boolean | Send a notification email to the user upon job completion. Values: true or false (default is true) |
 | projectId   string | (Legacy): A single project ID for the data request. Superseded by `projectIdList`. |
@@ -86,20 +86,20 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 | --- | --- |
 | description   string | The user-entered description of this data request. If not supplied, the default value is a null string. |
 | isActive   boolean | The data request’s active/inactive status. Possible values: `true` the request is active; `false` the request is inactive. |
-| accountId   string: UUID | The account ID. |
+| accountId   string: UUID | The hub ID. |
 | projectId   string: UUID | (Legacy): A single project ID for the data request. Superseded by `projectIdList`. |
 | projectIdList   array: string | A list of up to 50 project IDs included in the data request. This field contains the project IDs for which data is being extracted. If both `projectId` and `projectIdList` were included in the request, this field contains the values from `projectIdList`. |
-| createdBy   string | The BIM 360 / ACC user ID of the user who created the data request. |
+| createdBy   string | The BIM 360 / Forma user ID of the user who created the data request. |
 | createdByEmail   string | The email address of the user who created the data request. |
 | createdAt   datetime: ISO 8601 | The date and time the data request was created, presented in ISO 8601 format. |
-| updatedBy   string | The BIM 360 / ACC user ID of the user who last updated the data request. |
+| updatedBy   string | The BIM 360 / Forma user ID of the user who last updated the data request. |
 | updatedAt   datetime: ISO 8601 | The date and time the data request was last updated, presented in ISO 8601 format. |
 | scheduleInterval   string | The scheduling interval unit for jobs spawned by this data request. This value is multiplied by the `reoccurringInterval` attribute to specify the length of the recurring interval at which jobs run. Possible values: <br>`ONE_TIME`: Run the job only once`DAY`: Set the recurring job interval in days`WEEK`: Set the recurring job interval in weeks`MONTH`: Set the recurring job interval in months`YEAR`: Set the recurring job interval in years |
 | reoccuringInterval   int | The number of `scheduleInterval` units to wait between job execution for the request. For example, a `scheduleInterval` value of `WEEK` and a `reoccuringInterval` value of `2` means the job will run every two weeks. |
 | effectiveFrom   datetime: ISO 8601 | The date and time when a one-time job execution or a recurring interval schedule begins, presented in ISO 8601 format. |
 | effectiveTo   datetime: ISO 8601 | The date and time when the recurring interval schedule ends, presented in ISO 8601 format. |
 | lastQueuedAt   datetime: ISO 8601 | The date and time the last job for this data request was scheduled to execute, presented in ISO 8601 format. |
-| serviceGroups   array: string | The service groups from which data has been extracted, separated by commas. <br>Possible values: `all`, `activities`, `admin`, `assets`, `checklists`, `cost`, `dailylogs`, `forms`, `iq`, `issues`, `locations`, `markups`, `meetingminutes`, `photos`, `relationships`, `reviews`, `rfis`, `schedule`, `sheets`, `submittals`, `submittalsacc`, `transmittals`.<br>Note that the `admin` service includes both project and account admin, and `all` indicates that the extract contains all currently available service groups. |
+| serviceGroups   array: string | The service groups from which data has been extracted, separated by commas. <br>Possible values: `all`, `activities`, `admin`, `assets`, `checklists`, `cost`, `dailylogs`, `forms`, `iq`, `issues`, `locations`, `markups`, `meetingminutes`, `photos`, `relationships`, `reviews`, `rfis`, `schedule`, `sheets`, `submittals`, `submittalsacc`, `transmittals`.<br>Note that the `admin` service includes both project and hub admin, and `all` indicates that the extract contains all currently available service groups. |
 | callbackUrl   string | The callback URL specified for the data request. If specified, the Data Connection service calls the URL each time a job executes for the request. The service sends a POST request that provides job execution information. The JSON payload in the POST request contains the following: `{ "accountId": "account_id", "requestId": "request_id", "jobId": "data_connector_job_id", "state": "complete", "success": true or false }`. |
 | sendEmail   boolean | Send a notification email to the user upon job completion. Values: true or false (default is true) |
 | startDate   string | The start date and time for the data extraction, in ISO 8601 format. <br>This field applies only to schemas supporting date range extraction. The detailed schema documentation delivered with each data extract identifies the schemas and tables that support date range extraction.<br>Additional notes on using `startDate` and `endDate`:<br>If you provide only `startDate` or `endDate` (but not both), Data Connector uses that single date for both `startDate` and `endDate`.If you request more than the Maximum Date Range Allowed for an extraction, the default date range as documented in the schema documentation is returned.For the `activities` service group, data replication can be delayed up to 20 minutes, so your requests should account for that delay. |

@@ -155,7 +155,7 @@ viewer.loadDocumentNode(viewerDocument, defaultModel, { // ...options
 
 ## [Property Query Language](#property-query-language)
 
-The property queries use a simplified version of the [ACC Model Property Service Query Language](../../acc/how-to-docs/model-properties-query-ref.md), but with a reduced feature set.
+The property queries use a simplified version of the [Forma Model Property Service Query Language](../../acc/how-to-docs/model-properties-query-ref.md), but with a reduced feature set.
 Only `$or`, `$and`, `$not`, `$in`, `$eq`, `$ne`, `$like`, `$isnull`, `$notnull`, and `$coalesce` expressions are currently supported.
 
 ### Property Query Examples

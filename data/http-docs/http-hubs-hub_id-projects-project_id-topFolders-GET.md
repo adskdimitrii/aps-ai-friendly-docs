@@ -18,13 +18,13 @@ it returns all the highest level folders in the folder hierarchy the user has ac
 
 Note that when users have access to a folder, access is automatically granted to its subfolders.
 
-**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/).
+Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
 | Method and URI | GET https://developer.api.autodesk.com/project/v1/hubs/:hub_id/projects/:project_id/topFolders |
 | --- | --- |
-| Authentication Context | user context optional |
+| Authentication Context | User context optional |
 | Required OAuth Scopes | `data:read` |
 | Data Format | JSON |
 
@@ -32,9 +32,8 @@ Note that when users have access to a folder, access is automatically granted to
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
-| --- | --- |
-| x-user-id   string | In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified. |
+- Authorization*string Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context.
+- x-user-idstring In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified.
 
 * Required
 
@@ -44,7 +43,7 @@ Note that when users have access to a folder, access is automatically granted to
 
 | hub_id   string | The unique identifier of a hub. |
 | --- | --- |
-| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a “**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
+| project_id   string | The unique identifier of a project. <br>To convert BIM 360 or Forma Project IDs to Data Management Project IDs, prefix them with `b.` For example, a Project ID of `c8b0c73d-3ae9` becomes `b.c8b0c73d-3ae9`. |
 
 ### Request
 
@@ -80,9 +79,9 @@ Expand all
 | attributes   object | The attributes of the folder. |
 | extension   object | The extension object of the data. |
 | data   object | A collection of properties applied to the folder. |
-| isRoot   boolean | Determines if folder is root folder. Note that this feature is only available for BIM 360 and ACC projects. |
-| folderType   string | Type of folder. Possible values: `normal`, `plan`, `shared`, `recycle`, `drawing`. <br>Note that `recycle` and `drawing` only exist in old projects.<br>Note that this feature is only available for BIM 360 and ACC projects. |
-| folderParents   array: object | Parent folders of the current folder. Note that this feature is only available for BIM 360 and ACC projects. |
+| isRoot   boolean | Determines if folder is root folder. Note that this feature is only available for BIM 360 and Forma projects. |
+| folderType   string | Type of folder. Possible values: `normal`, `plan`, `shared`, `recycle`, `drawing`. <br>Note that `recycle` and `drawing` only exist in old projects.<br>Note that this feature is only available for BIM 360 and Forma projects. |
+| folderParents   array: object | Parent folders of the current folder. Note that this feature is only available for BIM 360 and Forma projects. |
 | urn   string | The unique identifier of the folder. |
 | parentUrn   string | The unique identifier of the parent folder. |
 | title   string | The name of the folder. |

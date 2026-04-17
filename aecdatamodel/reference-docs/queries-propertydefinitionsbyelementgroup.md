@@ -36,10 +36,10 @@ query GetPropertyDefinitionsByElementGroup($elementGroupId: ID!, $filter: Proper
 
 ## [Arguments](#arguments)
 
-| elementGroupId*   [ID!](https://aps.autodesk.com/en/docs/aecdatamodel-beta/v1/reference/scalars/) `non-null` | ElementGroup to retrieve property definitions of. |
+| elementGroupId*   [ID!](scalars.md) `non-null` | ElementGroup to retrieve property definitions of. |
 | --- | --- |
-| filter   [PropertyDefinitionFilterInput](https://aps.autodesk.com/en/docs/aecdatamodel-beta/v1/reference/inputs/propertydefinitionfilterinput/) | Specifies how to filter on property definitions. |
-| pagination   [PaginationInput](https://aps.autodesk.com/en/docs/aecdatamodel-beta/v1/reference/inputs/paginationinput/) | Specifies how to split the response into multiple pages. |
+| filter   [PropertyDefinitionFilterInput](inputs-propertydefinitionfilterinput.md) | Specifies how to filter on property definitions. |
+| pagination   [PaginationInput](inputs-paginationinput.md) | Specifies how to split the response into multiple pages. |
 
 * Required
 
@@ -47,4 +47,4 @@ query GetPropertyDefinitionsByElementGroup($elementGroupId: ID!, $filter: Proper
 
 | Value Type | Description |
 | --- | --- |
-| [PropertyDefinitions!](https://aps.autodesk.com/en/docs/aecdatamodel-beta/v1/reference/objects/propertydefinitions/) `non-null` | List of property definitions. |
+| [PropertyDefinitions!](objects-propertydefinitions.md) `non-null` | List of property definitions. |

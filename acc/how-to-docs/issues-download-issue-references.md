@@ -6,13 +6,13 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/issues/download-issue-ref
 
 # Download Issue References
 
-This tutorial demonstrates how to download references such as ACC photos that are associated with ACC issues. The steps include, finding the ID of the relevant issue, using the Relationships API to find the IDs of the references (such as photos) associated with the relevant issue, retreiving a signed-URL of the reference, and using the signed-URL to download the reference.
+This tutorial demonstrates how to download references such as Forma photos that are associated with Forma issues. The steps include, finding the ID of the relevant issue, using the Relationships API to find the IDs of the references (such as photos) associated with the relevant issue, retreiving a signed-URL of the reference, and using the signed-URL to download the reference.
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:read` scope.
-- Verify that you have access to the relevant account and ACC project.
+- Verify that you have access to the relevant hub and Forma project.
 - Find the relevant project ID for the project you want to create an issue in by following the [Retrieve a Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`.
 
 ## [Step 1: Find the Relevant Issue](#step-1-find-the-relevant-issue)
@@ -247,4 +247,4 @@ curl -X GET "https://s3.amazonaws.com/com.autodesk.oss-persistent/f0/7b/66/4df1b
 
 ```
 
-Congratulations! You have downloaded a photo associated with an ACC issue.
+Congratulations! You have downloaded a photo associated with a Forma issue.

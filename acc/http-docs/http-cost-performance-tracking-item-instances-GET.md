@@ -12,13 +12,13 @@ GET
 
 Retrieves one or more performance tracking item instances in the given project. For more information about performance tracking, see the [Cost Management API Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/cost-management/).
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
 | Method and URI | GET https://developer.api.autodesk.com/cost/v1/containers/:containerId/performance-tracking-item-instances |
 | --- | --- |
-| Authentication Context | user context required |
+| Authentication Context | User context required |
 | Required OAuth Scopes | `data:read` |
 | Data Format | JSON |
 
@@ -26,8 +26,8 @@ Retrieves one or more performance tracking item instances in the given project. 
 
 ## [Headers](#headers)
 
-- Authorization*string Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow.
-- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
+- Authorization*string Must be `Bearer <token>`, where `<token>` is a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context.
+- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [Forma Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
 
 * Required
 
@@ -97,8 +97,8 @@ Expand all
 | trackedOutputQuantity   number,null | The reported quantity of material used so far on the tracking item instance |
 | adjustedOutputQuantity   number,null | The overriding output quantity that you specified to reflect a change (if any) in the scope of the tracking item instance. This value will be used instead of the value of `outputQuantity` in future performance tracking and forecasting for this tracking item instance. |
 | performanceRatio   number,null | The tracking item instance’s planned productivity rate (`inputQuantity`/`outputQuantity`) divided by its tracked productivity rate (`trackedInputQuantity`/`trackedOutputQuantity`). |
-| creatorId   string,null | The BIM 360/ACC ID of the user who created the tracking item instance. |
-| changedBy   string,null | The BIM 360/ACC ID of the user who made the last change to the tracking item instance. |
+| creatorId   string,null | The BIM 360/Forma ID of the user who created the tracking item instance. |
+| changedBy   string,null | The BIM 360/Forma ID of the user who made the last change to the tracking item instance. |
 | locations   array,null | A list of the IDs of the project locations where this item applies. <br>For more information, see the Locations [Help documentation](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/locations-nodes-GET/) help. |
 | locationPaths   array,null | A list of the IDs of the project locations where this item applies, along with the node paths of these locations in the project’s locations tree. <br>For more information, see the Locations [Help documentation](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/locations-nodes-GET/) help. |
 | createdAt   datetime: ISO 8601 | The date and time that the item was created, in ISO 8601 format. |

@@ -12,19 +12,19 @@ GET
 
 Returns information about a specified job that was spawned by a data request created by the authenticated user. The user must have project administrator or executive overview permissions.
 
-Returned information includes the job ID, the ID of its request, the ID of the account where the request was created, and the ID and email address of the user who created the request. It also includes information about when the job was created, when it was started and completed (if it has been), its completion status, and its current execution status.
+Returned information includes the job ID, the ID of its request, the ID of the hub where the request was created, and the ID and email address of the user who created the request. It also includes information about when the job was created, when it was started and completed (if it has been), its completion status, and its current execution status.
 
 To get job IDs for a request, use [GET requests/:requestId/jobs](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/data-connector-requests-requestid-jobs-GET/).
 
 To understand the basics of requests, the jobs they spawn, and the data extracts returned by the jobs, see the [Data Connector API Field Guide](https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/data-connector/).
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
 | Method and URI | GET https://developer.api.autodesk.com/data-connector/v1/accounts/:accountId/jobs/:jobId |
 | --- | --- |
-| Authentication Context | user context required |
+| Authentication Context | User context required |
 | Required OAuth Scopes | `data:write` |
 | Data Format | JSON |
 
@@ -32,7 +32,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 
 * Required
@@ -41,7 +41,7 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 
 ## [URI Parameters](#uri-parameters)
 
-| accountId   string: UUID | The account ID. You can derive it from your hub ID if necessary: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial “b.” from the hub ID to get your account ID. |
+| accountId   string: UUID | The ID of the hub. To obtain the hub ID, call [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API and remove the “b.” prefix. |
 | --- | --- |
 | jobId   string: UUID | The job ID |
 
@@ -66,10 +66,10 @@ To understand the basics of requests, the jobs they spawn, and the data extracts
 | id   string: UUID | The job ID. |
 | --- | --- |
 | requestId   string: UUID | The ID of the data request that spawned the job. |
-| accountId   string: UUID | The account ID. |
+| accountId   string: UUID | The hub ID. |
 | projectId   string: UUID | The project ID. |
 | projectIdList   array: string | The list of project IDs |
-| createdBy   string | The BIM 360 / ACC user ID of the user who created the data request that spawned this job. |
+| createdBy   string | The BIM 360 / Forma user ID of the user who created the data request that spawned this job. |
 | createdByEmail   string | The email address of the user who created the data request that spawned this job. |
 | createdAt   datetime: ISO 8601 | The date and time the job was created, presented in ISO 8601 format. |
 | status   string | The current status of the job. Possible values: `queued`, `running`, `complete`. |

@@ -27,7 +27,7 @@ Callers also have the option to include `withDomain`, `withType` and `withId` to
 
 The response contains a list of relationships, restricted by the number specified by the `pageLimit` property. If set (that is, if there are more results than can be displayed at once), you can provide the `continuationToken` property in the response in a separate call to retrieve additional results.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

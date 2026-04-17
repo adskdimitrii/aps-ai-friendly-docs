@@ -6,14 +6,14 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/rfis3/rfi-response/
 
 # Submit an RFI Response
 
-This tutorial demonstrates how to submit a response to an RFI in an Autodesk Construction Cloud (ACC) project. The steps include verifying the user’s permissions, creating a response, and optionally including file attachments.
+This tutorial demonstrates how to submit a response to an RFI in a Forma project. The steps include verifying the user’s permissions, creating a response, and optionally including file attachments.
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:write` `account:read` scopes.
-- Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to create an RFI in by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the account ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`, the project ID is `ce8edd30-ef28-467c-8d99-7d7051097ee0` and the RFI ID is `a1d12f69-3c02-4bba-936d-cccd73f001ee`.
+- Verify that you have access to the relevant hub and Forma project.
+- Find the relevant project ID for the project you want to create an RFI in by following the [Retrieve a Hub ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the hub ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`, the project ID is `ce8edd30-ef28-467c-8d99-7d7051097ee0` and the RFI ID is `a1d12f69-3c02-4bba-936d-cccd73f001ee`.
 
 ## [Step 1: Check if the User Can Submit a Response](#step-1-check-if-the-user-can-submit-a-response)
 
@@ -881,4 +881,4 @@ Show More
 Show More
 
 Congratulations! You have successfully submitted an RFI response.
-The response is now visible in the Autodesk Construction Cloud RFI UI, along with any files you attached.
+The response is now visible in the Forma RFI UI, along with any files you attached.

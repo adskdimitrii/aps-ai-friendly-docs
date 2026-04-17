@@ -16,7 +16,7 @@ This operation determines which specific versions of the document lineages conta
 
 Returns the requested model set view version object.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

@@ -6,13 +6,13 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/data-connector/dc-tutoria
 
 # Submit a Data Request
 
-This phase of the tutorial demonstrates how to submit a data request that extracts service data from within a BIM 360/ACC account. In this tutorial, your data request will be a recurring request that spawns a job once every week, and returns extracted data for seven different services.
+This phase of the tutorial demonstrates how to submit a data request that extracts service data from within a BIM 360 account or Forma hub. In this tutorial, your data request will be a recurring request that spawns a job once every week, and returns extracted data for seven different services.
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create`, `data:read`, and `data:write` scopes. The token’s authenticated user must have executive overview permissions or project administrator permissions.
-- Verify that you have access to a relevant BIM 360/ACC account that contains at least one project. If you don’t know your account ID, you can derive it from your hub ID: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial “b.” from the hub ID to get your account ID. For example, a hub ID of `b.c8b0c73d-3ae9` translates to an account ID of `c8b0c73d-3ae9`.
+- Verify that you have access to a relevant BIM 360 account or Forma hub that contains at least one project. If you don’t know your account ID, you can derive it from your hub ID: Use [GET hubs](../../data/http-docs/http-hubs-GET.md) in the Data Management API to retrieve your hub ID. Remove the initial “b.” from the hub ID to get your account ID. For example, a hub ID of `b.c8b0c73d-3ae9` translates to an account ID of `c8b0c73d-3ae9`.
 
 ## [Step 1: Determine Your Data Parameters](#step-1-determine-your-data-parameters)
 
@@ -22,11 +22,11 @@ To make a data request, you’ll have to provide request parameter values that c
 - `scheduleInterval` specifies the interval unit we’ll use for scheduling. In this case we measure in weeks, so the value is `WEEK`.
 - `reoccuringInterval` specifies the number of units to wait between job spawns. Because we want this request to spawn a job once every week, the value is `1`.
 - `effectiveFrom` and `effectiveTo` define the starting and ending times for the recurring jobs. It’s during this time that the jobs spawn and execute, starting on the `effectiveFrom` time and ending on the `effectiveTo` time. These two values define date and time in ISO 8601 format. For this example, we’ll set a one-year interval. Our example values: `2020-11-19T16:00:00Z` start time, `2021-11-19T16:00:00Z` end time.
-- `serviceGroups` defines the scope of the data extraction for this data request: the services for which we want to examine data. In this case, we look at admin, issues, locations, submittals, cost, and rfis. You can also specify `all` to extract data for all service groups. Note that the admin service covers both project and account administration.
+- `serviceGroups` defines the scope of the data extraction for this data request: the services for which we want to examine data. In this case, we look at admin, issues, locations, submittals, cost, and rfis. You can also specify `all` to extract data for all service groups. Note that the admin service covers both project and account/hub administration.
 -
 
 `projectId` specifies which project to extract data from. Usage depends on the permissions level of the authenticated user:
-:   * Executive Overview permissions — (optional) If neither `projectId` or `projectIdList` is specified, the request will apply to all projects in the user’s account.
+:   * Executive Overview permissions — (optional) If neither `projectId` or `projectIdList` is specified, the request will apply to all projects in the user’s account/hub.
       * Project Administrator permissions — (required) If neither `projectId` or [``](#id1)projectIdList` is specified, the request will fail.
 
 - `projectIdList` specifies the list of projects to extract data from. `projectId` can be omitted if `projectIdList` is used. If both are provided, `projectIdList` takes precedence. The user needs to have either Executive Overview permission, or Project Administrator permission in all the projects provided in the list. Otherwise, the request will fail.
@@ -34,10 +34,10 @@ To make a data request, you’ll have to provide request parameter values that c
 
 ## [Step 2: Create a Data Request](#step-2-create-a-data-request)
 
-Create a data request using the [POST requests](../http-docs/http-data-connector-requests-POST.md) endpoint, specifying the account ID of your account. This tutorial demonstrates recurring data requests for two scenarios:
+Create a data request using the [POST requests](../http-docs/http-data-connector-requests-POST.md) endpoint, specifying the account/hub ID. This tutorial demonstrates recurring data requests for two scenarios:
 
 1. Retrieving data for a specific list of projects using `projectIdList`.
-2. Retrieving data for all active projects in the account using `projectStatus`.
+2. Retrieving data for all active projects in the account/hub using `projectStatus`.
 
 ### Scenario 1: Requesting Data for Specific Projects
 
@@ -108,7 +108,7 @@ Show More
 
 ### Scenario 2: Requesting Data for Active Projects
 
-If the user has executive overview permissions and wants to retrieve data for all active projects in the account, use the `projectStatus` field.
+If the user has executive overview permissions and wants to retrieve data for all active projects in the account/hub, use the `projectStatus` field.
 
 ### Request
 

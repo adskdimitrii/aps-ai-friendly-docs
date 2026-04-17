@@ -12,7 +12,7 @@ GET
 
 Retrieves a specified takeoff item for a package.
 
-For more information about takeoff items, see the [ACC Takeoff](https://help.autodesk.com/view/TAKEOFF/ENU/?guid=Takeoff_Types) help documentation.
+For more information about takeoff items, see the [Forma Takeoff](https://help.autodesk.com/view/TAKEOFF/ENU/?guid=Takeoff_Types) help documentation.
 
 To find the takeoff packages for a project, call [GET packages](http-takeoff-projects-project_id-packages-GET.md).
 
@@ -22,7 +22,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 | Method and URI | GET https://developer.api.autodesk.com/construction/takeoff/v1/projects/{projectId}/packages/{packageId}/takeoff-items/{takeoffItemId} |
 | --- | --- |
-| Authentication Context | user context required |
+| Authentication Context | User context required |
 | Required OAuth Scopes | `data:read` |
 | Data Format | JSON |
 
@@ -30,9 +30,8 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
-| --- | --- |
-| region   string | Specifies the region where the service is located. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
+- Authorization*string Must be `Bearer <token>`, where `<token>` is a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context.
+- regionstring Specifies the region where the service is located. Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.
 
 * Required
 
@@ -40,7 +39,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/), and can be specified in the form of “UUID” or b.”UUID”.<br>To learn how to find the project ID, see the [Retrieve ACC Account and project ID](../how-to-docs/getting-started-retrieve-account-and-project-id.md) tutorial. |
+| projectId   string: UUID | The ID of the project. <br>This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/), and can be specified in the form of “UUID” or b.”UUID”.<br>To learn how to find the project ID, see the [Retrieve Forma hub and project ID](../how-to-docs/getting-started-retrieve-account-and-project-id.md) tutorial. |
 | --- | --- |
 | packageId   string: UUID | The takeoff package ID. <br>To find the ID, call [GET packages](http-takeoff-projects-project_id-packages-GET.md). |
 | takeoffItemId   string: UUID | The takeoff item ID. <br>To find the ID, call [GET takeoff-items](http-takeoff-projects-project_id-packages-package_id-takeoff-items-GET.md). |
@@ -77,8 +76,8 @@ Expand all
 | source   enum:string | Specifies how a takeoff property value was obtained. Possible values: `MANUAL_ENTRY`, `BIM_PROPERTY`, `MEASUREMENT` |
 | value | The value of a takeoff instance. |
 | anyOf | The value of a takeoff instance. |
-| 0   number | A number representation of the property value. |
-| 1   string | A string representation of the property value. |
+| Number   number | A number representation of the property value. |
+| String   string | A string representation of the property value. |
 | primaryQuantity   object | The quantity of a takeoff. |
 | outputName   string | A custom output name from the user. |
 | classificationCodeOne   string | The classification code selected from the first classification system. |
@@ -133,7 +132,7 @@ curl -v 'https://developer.api.autodesk.com/construction/takeoff/v1/projects/:pr
   ],
   "primaryQuantity": {
     "outputName": "Bedroom Wall",
-    "classificationCodeOne": "085113",
+    "classificationCodeOne": "015113",
     "classificationCodeTwo": "011223",
     "quantity": 15,
     "unitOfMeasure": "EA"
@@ -141,7 +140,7 @@ curl -v 'https://developer.api.autodesk.com/construction/takeoff/v1/projects/:pr
   "secondaryQuantities": [
     {
       "outputName": "Wall Paint",
-      "classificationCodeOne": "098732",
+      "classificationCodeOne": "016732",
       "classificationCodeTwo": "011665",
       "quantity": 45,
       "unitOfMeasure": "LF"

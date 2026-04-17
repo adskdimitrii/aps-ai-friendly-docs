@@ -6,51 +6,99 @@ Documentation for the AEC Data Model API (GraphQL-based API for accessing BIM el
 ## Content Summary
 
 ### Getting Started
-Prerequisites and setup before working with the API. See [Before You Begin](how-to-docs/before_you_begin.md) for onboarding steps and OAuth requirements.
 
-### Tutorial 1: Getting Started (~4 files)
-Step-by-step walkthrough for navigating the AEC Data Model from hubs down to elements.
-- [Get Hubs](how-to-docs/tutorial01-gethubs.md) — query for available hubs
-- [Get Projects](how-to-docs/tutorial01-getprojects.md) — list projects within a hub
-- [Navigate to ElementGroups within a Project](how-to-docs/tutorial01-nav-elements.md) — traverse the element group hierarchy
-- [Get Elements from a Category](how-to-docs/tutorial01-elementsbycategory.md) — filter elements by category
+Prerequisite setup and orientation for the AEC Data Model API.
 
-### Tutorial 2: Advanced Queries (~7 files)
-More complex query patterns including filtering, versioning, and property-based searches.
-- [Get ElementGroups Based on Metadata](how-to-docs/tutorial02-task1a.md) — filter element groups using metadata properties
-- [Get Versions of an ElementGroup](how-to-docs/tutorial02-task2a.md) — access version history
-- [Get Element Instances of a Particular Type](how-to-docs/tutorial02-task3a.md)
-- [Get Element Instances in a Category by Version](how-to-docs/tutorial02-task4a.md)
-- [Get Project Elements with Specific Properties](how-to-docs/tutorial02-task5a.md)
-- [Get Elements by Using Instances or Reference](how-to-docs/tutorial02-task6a.md)
-- [Get Distinct Values of Properties](how-to-docs/tutorial02-distinctvaluesquery.md)
+- [Before You Begin](how-to-docs/before_you_begin.md)
 
-### Reference: GraphQL Endpoint
-- [GraphQL Endpoint](reference-docs/graphqlendpoint.md) — endpoint URL, authentication headers, and request format for the AEC Data Model GraphQL API
+### Tutorial 1: Hubs, Projects & Element Navigation (4 files)
 
-### Reference: Queries (~24 files)
-All top-level GraphQL queries available in the API.
-- **Hubs & Projects**: [hubs](reference-docs/queries-hubs.md), [hub](reference-docs/queries-hub.md), [projects](reference-docs/queries-projects.md), [project](reference-docs/queries-project.md)
-- **Folders**: [foldersByProject](reference-docs/queries-foldersbyproject.md), [foldersByFolder](reference-docs/queries-foldersbyfolder.md), [folder](reference-docs/queries-folder.md)
-- **ElementGroups**: [elementGroupsByHub](reference-docs/queries-elementgroupsbyhub.md), [elementGroupsByProject](reference-docs/queries-elementgroupsbyproject.md), [elementGroupsByFolder](reference-docs/queries-elementgroupsbyfolder.md), [elementGroupsByFolderAndSubFolders](reference-docs/queries-elementgroupsbyfolderandsubfolders.md), [elementGroupAtTip](reference-docs/queries-elementgroupattip.md), [elementGroupByVersionNumber](reference-docs/queries-elementgroupbyversionnumber.md), [elementGroupExtractionStatus](reference-docs/queries-elementgroupextractionstatus.md), [elementGroupExtractionStatusAtTip](reference-docs/queries-elementgroupextractionstatusattip.md)
-- **Elements**: [elementsByHub](reference-docs/queries-elementsbyhub.md), [elementsByProject](reference-docs/queries-elementsbyproject.md), [elementsByFolder](reference-docs/queries-elementsbyfolder.md), [elementsByElementGroup](reference-docs/queries-elementsbyelementgroup.md), [elementsByElementGroupAtVersion](reference-docs/queries-elementsbyelementgroupatversion.md), [elementAtTip](reference-docs/queries-elementattip.md)
-- **Properties**: [propertyDefinitionsByElementGroup](reference-docs/queries-propertydefinitionsbyelementgroup.md), [distinctPropertyValuesInElementGroupById](reference-docs/queries-distinctpropertyvaluesinelementgroupbyid.md), [distinctPropertyValuesInElementGroupByName](reference-docs/queries-distinctpropertyvaluesinelementgroupbyname.md)
+Step-by-step introduction to discovering hubs and projects, browsing folders, and querying elements by category.
 
-### Reference: Objects (~30 files)
-GraphQL object types returned by the API.
-- **Core**: [ElementGroup](reference-docs/objects-elementgroup.md), [ElementGroups](reference-docs/objects-elementgroups.md), [Element](reference-docs/objects-element.md), [Elements](reference-docs/objects-elements.md)
-- **Versions**: [ElementGroupVersion](reference-docs/objects-elementgroupversion.md), [ElementGroupVersions](reference-docs/objects-elementgroupversions.md), [ElementGroupVersionHistory](reference-docs/objects-elementgroupversionhistory.md), [ExtractionStatus](reference-docs/objects-extractionstatus.md), [ElementGroupExtractionStatus](reference-docs/objects-elementgroupextractionstatus.md)
-- **Identifiers**: [ElementGroupAlternativeIdentifiers](reference-docs/objects-elementgroupalternativeidentifiers.md), [ElementAlternativeIdentifiers](reference-docs/objects-elementalternativeidentifiers.md), [ProjectAlternativeIdentifiers](reference-docs/objects-projectalternativeidentifiers.md)
-- **Hub/Project/Folder**: [Hub](reference-docs/objects-hub.md), [Hubs](reference-docs/objects-hubs.md), [Project](reference-docs/objects-project.md), [Projects](reference-docs/objects-projects.md), [Folder](reference-docs/objects-folder.md), [Folders](reference-docs/objects-folders.md), [User](reference-docs/objects-user.md)
-- **Properties**: [Property](reference-docs/objects-property.md), [Properties](reference-docs/objects-properties.md), [PropertyDefinition](reference-docs/objects-propertydefinition.md), [PropertyDefinitions](reference-docs/objects-propertydefinitions.md), [PropertyDefinitionCollection](reference-docs/objects-propertydefinitioncollection.md), [ReferenceProperty](reference-docs/objects-referenceproperty.md), [ReferenceProperties](reference-docs/objects-referenceproperties.md), [DistinctPropertyValue](reference-docs/objects-distinctpropertyvalue.md), [DistinctPropertyValues](reference-docs/objects-distinctpropertyvalues.md), [DistinctPropertyValuesCollection](reference-docs/objects-distinctpropertyvaluescollection.md)
-- **Other**: [Pagination](reference-docs/objects-pagination.md), [Comparators](reference-docs/objects-comparators.md)
+- [Get Hubs](how-to-docs/tutorial01-gethubs.md)
+- [Get Projects](how-to-docs/tutorial01-getprojects.md)
+- [Elements by Category](how-to-docs/tutorial01-elementsbycategory.md)
+- [Navigate Elements](how-to-docs/tutorial01-nav-elements.md)
 
-### Reference: Inputs (~13 files)
-Input types used as query arguments and filters.
-- [ElementFilterInput](reference-docs/inputs-elementfilterinput.md), [ElementGroupFilterInput](reference-docs/inputs-elementgroupfilterinput.md), [ElementGroupVersionFilterInput](reference-docs/inputs-elementgroupversionfilterinput.md), [ElementPropertyFilterInput](reference-docs/inputs-elementpropertyfilterinput.md), [ElementReferenceFilterInput](reference-docs/inputs-elementreferencefilterinput.md)
-- [FolderFilterInput](reference-docs/inputs-folderfilterinput.md), [HubFilterInput](reference-docs/inputs-hubfilterinput.md), [ProjectFilterInput](reference-docs/inputs-projectfilterinput.md), [PaginationInput](reference-docs/inputs-paginationinput.md)
-- [PropertyFilterInput](reference-docs/inputs-propertyfilterinput.md), [PropertyDefinitionFilterInput](reference-docs/inputs-propertydefinitionfilterinput.md), [ReferencePropertyFilterInput](reference-docs/inputs-referencepropertyfilterinput.md), [ValueComparatorInput](reference-docs/inputs-valuecomparatorinput.md)
+### Tutorial 2: Advanced Queries (7 files)
 
-### Reference: Scalars
-- [Scalars](reference-docs/scalars.md) — custom scalar types used in the API schema
+Multi-part series covering distinct value queries, filtering strategies, and pagination patterns.
+
+- [Distinct Values Query](how-to-docs/tutorial02-distinctvaluesquery.md)
+- Tasks: [1a](how-to-docs/tutorial02-task1a.md) · [2a](how-to-docs/tutorial02-task2a.md) · [3a](how-to-docs/tutorial02-task3a.md) · [4a](how-to-docs/tutorial02-task4a.md) · [5a](how-to-docs/tutorial02-task5a.md) · [6a](how-to-docs/tutorial02-task6a.md)
+
+### Extend Element Data — Custom Properties (7 files)
+
+How-to guides for adding, updating, and removing custom properties on elements, including cost properties, category binding filters, and property definition lifecycle management.
+
+- [Create Property Definition](how-to-docs/extend_element_data-create_property_definition.md)
+- [Custom Property Elements](how-to-docs/extend_element_data-custom_property_elements.md)
+- [Category Binding Filter Workflow](how-to-docs/extend_element_data-category_binding_filter_workflow.md)
+- [Update Cost Property](how-to-docs/extend_element_data-update_cost_property.md)
+- [Remove Cost Property](how-to-docs/extend_element_data-remove_cost_property.md)
+- [Retrieve All Elements](how-to-docs/extend_element_data-retrieve_all_elements.md)
+- [Additional Information](how-to-docs/extend_element_data-additional_information.md)
+
+### Geometry (2 files)
+
+Guides for querying and filtering model elements by geometric properties and axis origin.
+
+- [Filter Elements by Origin](how-to-docs/geometry-filter-elements-by-origin.md)
+- [Get Axis Origin Elements](how-to-docs/geometry-get-axis-origin-elements.md)
+
+### Diff API (1 file)
+
+Tutorial for comparing element and element group versions using the Diff API.
+
+- [Diff API Tutorial](how-to-docs/diff_api-diff_api_tutorial.md)
+
+### Revit Sync (1 file)
+
+Guide for querying model synchronization data from Revit.
+
+- [Query Sync Data](how-to-docs/revit_sync-query_sync_data.md)
+
+### GraphQL API Reference — Queries (~39 files)
+
+Full reference for all available GraphQL queries, covering element retrieval, element groups, folder/hub/project traversal, geometry data, property definitions, distinct value aggregation, and version diff queries.
+
+Representative entries:
+- [Elements by Element Group](reference-docs/queries-elementsbyelementgroup.md)
+- [Elements by Project](reference-docs/queries-elementsbyproject.md)
+- [Element Groups by Folder](reference-docs/queries-elementgroupsbyfolder.md)
+- [Geometry Data by Element](reference-docs/queries-geometrydatabyelement.md)
+- [Diff Element by Version with Latest](reference-docs/queries-diffelementbyversionwithlatest.md)
+- [Property Definition Collections by Hub](reference-docs/queries-propertydefinitioncollectionsbyhub.md)
+- [Distinct Property Values in Element Group by ID](reference-docs/queries-distinctpropertyvaluesinelementgroupbyid.md)
+- 32 additional query reference files
+
+### GraphQL API Reference — Object Types (~68 files)
+
+Reference for all GraphQL return types, including elements, element groups, geometry primitives, property definitions, hubs, projects, folders, diff results, and pagination wrappers.
+
+Representative entries:
+- [Element](reference-docs/objects-element.md) · [Elements](reference-docs/objects-elements.md) · [ElementGroup](reference-docs/objects-elementgroup.md) · [ElementGroupVersion](reference-docs/objects-elementgroupversion.md)
+- [GeometryDataOutput](reference-docs/objects-geometrydataoutput.md) · [GeometryPiece](reference-docs/objects-geometrypiece.md) · [GeometryInstance](reference-docs/objects-geometryinstance.md)
+- [PropertyDefinition](reference-docs/objects-propertydefinition.md) · [PropertyDefinitionCollection](reference-docs/objects-propertydefinitioncollection.md)
+- [Hub](reference-docs/objects-hub.md) · [Project](reference-docs/objects-project.md) · [Folder](reference-docs/objects-folder.md)
+- ~58 additional object type reference files
+
+### GraphQL API Reference — Input Types (~30 files)
+
+Reference for all input types used in query arguments and mutations, covering element/group/geometry/property filters, extensibility inputs, pagination, and version filtering.
+
+Representative entries:
+- [ElementFilterInput](reference-docs/inputs-elementfilterinput.md)
+- [ElementGroupFilterInput](reference-docs/inputs-elementgroupfilterinput.md)
+- [GeometryComponentsFilterInput](reference-docs/inputs-geometrycomponentsfilterinput.md)
+- [PropertyDefinitionFilterInput](reference-docs/inputs-propertydefinitionfilterinput.md)
+- [PaginationInput](reference-docs/inputs-paginationinput.md)
+- 25 additional input type reference files
+
+### GraphQL Endpoint & Scalars
+
+Reference for the GraphQL endpoint configuration and all custom scalar type definitions.
+
+- [GraphQL Endpoint](reference-docs/graphqlendpoint.md)
+- [Scalars](reference-docs/scalars.md)
 <!-- GENERATED:CONTENT_SUMMARY:END -->

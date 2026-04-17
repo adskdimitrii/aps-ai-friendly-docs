@@ -22,7 +22,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 | Method and URI | GET https://developer.api.autodesk.com/construction/sheets/v1/projects/{projectId}/collections/{collectionId} |
 | --- | --- |
-| Authentication Context | user context optional |
+| Authentication Context | User context optional |
 | Required OAuth Scopes | `data:read` |
 | Data Format | JSON |
 
@@ -30,9 +30,8 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
-| --- | --- |
-| x-user-id   string | The ID of the user on whose behalf the API request is made. This header is optional when using a 2-legged OAuth2, but required if using 2-legged OAuth2 with user impersonation. <br>When using 2-legged OAuth2 without user impersonation, your app has access to all users defined by the administrator in the SaaS integrations UI. However, when user impersonation is enabled, the API call is restricted to act only on behalf of the specified user. This header is not relevant for 3-legged OAuth2.<br>You can use either the user’s ACC ID (id), or their Autodesk ID (autodeskId). |
+- Authorization*string Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context.
+- x-user-idstring The ID of the user on whose behalf the API request is made. This header is optional when using a 2-legged OAuth2, but required if using 2-legged OAuth2 with user impersonation. When using 2-legged OAuth2 without user impersonation, your app has access to all users defined by the administrator in the SaaS integrations UI. However, when user impersonation is enabled, the API call is restricted to act only on behalf of the specified user. This header is not relevant for 3-legged OAuth2.You can use either the user’s Forma ID (id), or their Autodesk ID (autodeskId).
 
 * Required
 
@@ -51,9 +50,9 @@ Note that this endpoint is not compatible with BIM 360 projects.
 | --- | --- |
 | 400   Bad Request | The parameters of the requested operation are invalid. <br>Sample error code with possible messages:<br>ERR_BAD_INPUT: <br>  Failed to parse the token |
 | 401   Unauthorized | The provided bearer token is not valid. <br>Sample error code with possible messages:<br>ERR_AUTHENTICATED_ERROR: <br>  Authentication header is not correct |
-| 403   Forbidden | The user or service represented by the bearer token does not have permission to perform this operation. <br>Sample error code with possible messages:<br>ERR_NOT_ALLOWED: <br>  Account inactive  Project inactive  User inactive  API access denied  User {userId} does not have download permission on resource {resource} |
-| 404   Not Found | The requested resources, such as the project, account, user, sheet, or collection, do not exist. <br>Sample error code with possible messages:<br>ERR_RESOURCE_NOT_EXIST: <br>  Project not found  Project user not found  The collection does not exist |
-| 500   Internal Server Error | An unknown error occurred on the server. <br>Sample error code with possible messages:<br>ERR_INTERNAL_SERVER_ERROR: <br>  Request failed for internal exception xxx  Failed to get account  Failed to get project  Failed to get user |
+| 403   Forbidden | The user or service represented by the bearer token does not have permission to perform this operation. <br>Sample error code with possible messages:<br>ERR_NOT_ALLOWED: <br>  Hub inactive  Project inactive  User inactive  API access denied  User {userId} does not have download permission on resource {resource} |
+| 404   Not Found | The requested resources, such as the project, hub, user, sheet, or collection, do not exist. <br>Sample error code with possible messages:<br>ERR_RESOURCE_NOT_EXIST: <br>  Project not found  Project user not found  The collection does not exist |
+| 500   Internal Server Error | An unknown error occurred on the server. <br>Sample error code with possible messages:<br>ERR_INTERNAL_SERVER_ERROR: <br>  Request failed for internal exception xxx  Failed to get hub  Failed to get project  Failed to get user |
 
 ### Response
 
@@ -61,7 +60,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 | id   string: UUID | The unique identifier of the collection. |
 | --- | --- |
-| name   string | The name of the collection. This corresponds to the Name column in the ACC Sheets Collections Settings UI. |
+| name   string | The name of the collection. This corresponds to the Name column in the Forma Sheets Collections Settings UI. |
 | createdAt   datetime: ISO 8601 | The date and time the collection was created. |
 | createdBy   string | The Autodesk ID of the user who created the collection. |
 | createdByName   string | The name of the user who created the collection. |

@@ -19,8 +19,8 @@ Note that this workflow is a temporary method for determining permissions, and w
 - [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:read` scope.
 - Verify that you have project admin or executive overview permissions.
-- Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to retrieve users for by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the account ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`, and the project ID is `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`.
+- Verify that you have access to the relevant hub and Forma project.
+- Find the relevant project ID for the project you want to retrieve users for by following the [Retrieve a Forma Hub and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the hub ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`, and the project ID is `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`.
 
 ## [Step 1: Submit a Data Request](#step-1-submit-a-data-request)
 

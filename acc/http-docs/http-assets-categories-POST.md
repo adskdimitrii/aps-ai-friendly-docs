@@ -17,7 +17,7 @@ of an existing category within the tree. This endpoint does not explicitly assoc
 custom attributes with the new category.
 
 To assign a status set to a category, use [PUT categories/:categoryId/status-step-set/:statusStepSetId](http-assets-categories-category-id-status-step-set-status-step-set-id-PUT.md).
-To assign an Asset custom attribute to a category, use [PUT categories/:categoryId/custom-attributes/:customAttributeId](http-assets-categories-category-id-custom-attributes-custom-attribute-id-PUT.md).
+To assign an Asset custom attribute to a category, use [PUT categories/:categoryId/custom-attributes/:customAttributeId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/assets-categories-category-id-custom-attributes-custom-attribute-id-PUT/).
 
 Note that the new category will inherit a status set and any existing custom attributes from its parent
 
@@ -25,7 +25,7 @@ category. The status set may be overridden; the custom attributes may be added t
 
 To understand the basics of categories, category inheritance, and the Assets settings that define them, see the [Assets Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/assets/).
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
@@ -49,7 +49,7 @@ To understand the basics of categories, category inheritance, and the Assets set
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
+| projectId   string | The Forma project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
 | --- | --- |
 
 ### Request

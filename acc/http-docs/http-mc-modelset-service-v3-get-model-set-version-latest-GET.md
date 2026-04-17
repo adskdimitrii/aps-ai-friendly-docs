@@ -14,7 +14,7 @@ Retrieves the latest version of a given model set based on the model set ID.
 
 Returns the requested model set version object.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

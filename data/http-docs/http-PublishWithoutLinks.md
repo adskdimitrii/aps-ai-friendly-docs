@@ -26,7 +26,7 @@ Note that you do not need to create an empty storage object when uploading model
 Note that PublishWithoutLinks is a Data Management command. Commands enable you to perform complex operations on multiple resources
 rather than standard CRUD operations. For more details about commands, see the[Commands](https://aps.autodesk.com/en/docs/data/v2/overview/commands/) overview section.
 
-**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/).
+Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

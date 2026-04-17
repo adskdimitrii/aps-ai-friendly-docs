@@ -16,7 +16,7 @@ The new screenshot cannot be retrieved from the service until it has been associ
 
 Returns a token representing the uploaded screenshot.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

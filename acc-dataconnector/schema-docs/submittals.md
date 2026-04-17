@@ -202,4 +202,4 @@ Submittal Spec Sections for the BIM 360 system.
 | 10 | is_deleted | boolean |  | is the spec deleted |
 | 11 | deleted_at | timestamp: SQL |  | when was the spec deleted |
 
-© Copyright 2026 Autodesk Inc. | [Autodesk Construction Cloud](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)
+© Copyright 2026 Autodesk Inc. | [Autodesk Forma](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)

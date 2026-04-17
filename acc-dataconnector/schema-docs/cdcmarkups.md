@@ -104,4 +104,4 @@ Combined with markup table to place markups on layers and surfaces. - This is th
 | 16 | placement_text | string |  | Text content for the given markup-placement. THIS WILL OVERRIDE TEXT IN MARKUP.MARKUP_TEXT. If there is text present in this column, it is the current text of the given placement. If this field is blank, check the "markup_text" column by merging with the "markup" table to get text (if there is any for this placement). NOTE: if the markup is a feature bound markup (feature_bound_type is present), the text here is inaccurate and should be ignored. |
 | 17 | adsk_row_id | string |  | Unique row identifier to be used in CDC operations |
 
-© Copyright 2026 Autodesk Inc. | [Autodesk Construction Cloud](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)
+© Copyright 2026 Autodesk Inc. | [Autodesk Forma](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)

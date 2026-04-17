@@ -6,17 +6,17 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/forms/create-update-forms
 
 # Manage Forms
 
-This tutorial demonstrates how to manage ACC Forms for an ACC project. The steps include, retrieving the form template that you want to create the form from, creating the form, adding form details, updating main form fields - both tabular and non-tabular, and submitting the form.
+This tutorial demonstrates how to manage Forma Forms for a Forma project. The steps include, retrieving the form template that you want to create the form from, creating the form, adding form details, updating main form fields - both tabular and non-tabular, and submitting the form.
 
 For more information about Forms, see the [Forms help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Build_Forms_about_forms_html).
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](https://aps.autodesk.com/myapps), and select Autodesk Construction Cloud API
+- [Register an app](https://aps.autodesk.com/myapps), and select Forma APIs.
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` and `data:write` scopes.
 - Find the relevant project ID, by following the [Retrieve a Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `cd13503e-1265-49c3-b2da-477c57cda60c`.
-- Verify that you have access to the relevant ACC project.
-- Verify that you were added as a contributor to the form templates in that project, see the [`Forms help documentation<https://help.autodesk.com/view/BUILD/ENU/?guid=Build_Forms_about_forms_html>`_](#id20) for information about creating and configuring templates.
+- Verify that you have access to the relevant Forma project.
+- Verify that you were added as a contributor to the form templates in that project, see the [Forms help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Build_Forms_about_forms_html) for information about creating and configuring templates.
 
 ## [Step 1: Find the Form Template](#step-1-find-the-form-template)
 
@@ -315,7 +315,7 @@ Show More
 
 ## [Step 4: Update the Main Form Fields](#step-4-update-the-main-form-fields)
 
-Use the project ID (`cd13503e-1265-49c3-b2da-477c57cda60c`), the form ID (`76ee8c34-1897-4720-bb4f-9ae82c9af02e`), and the relevant information field information (see Step 2) to call [PUT forms/{formId}/values:batch-update](../http-docs/http-forms-valuesbatch-update-PUT.md) to update the main form fields - both tabular (`tabularValues`) and non-tabular (`customValues`).
+Use the project ID (`cd13503e-1265-49c3-b2da-477c57cda60c`), the form ID (`76ee8c34-1897-4720-bb4f-9ae82c9af02e`), and the relevant information field information (see Step 2) to call [PUT forms/{formId}/values:batch-update](https://aps.autodesk.com/en/docs/acc/v1/reference/http/forms-valuesbatch-update-(Deprecated/)-PUT) to update the main form fields - both tabular (`tabularValues`) and non-tabular (`customValues`).
 
 For details about attributes that are included in the main form field section of a form, see the [Help](https://help.autodesk.com/view/BUILD/ENU/?guid=Build_Forms_use_html) documentation.
 

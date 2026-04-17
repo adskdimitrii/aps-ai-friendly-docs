@@ -6,13 +6,13 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/issues/download-issue-att
 
 # Download Issue Attachments
 
-This tutorial demonstrates how to download attachments that were added to issues in ACC Issues. The steps include finding the issue containing the attachment you want to download, retrieving attachment information, generating a signed URL for the attachment, and using the signed URL to download the attachment.
+This tutorial demonstrates how to download attachments that were added to issues in Forma Issues. The steps include finding the issue containing the attachment you want to download, retrieving attachment information, generating a signed URL for the attachment, and using the signed URL to download the attachment.
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:read` scope.
-- Verify that you have access to the relevant account and ACC project.
+- Verify that you have access to the relevant hub and Forma project.
 - Find the relevant project ID for the project you want to download an attachment from. See the [Retrieve a Project ID](getting-started-retrieve-account-and-project-id.md) tutorial for more details. In this example, assume the project ID is `b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`.
 
 ## [Step 1: Find the Issue ID](#step-1-find-the-issue-id)
@@ -231,4 +231,4 @@ curl -X GET "https://cdn.us.oss.api.autodesk.com/com.autodesk.oss-persistent/us-
 
 The file will be downloaded and saved to your current directory with the specified filename. The HTTP response will be 200 OK with the file content in the response body.
 
-Congratulations! You have successfully downloaded an attachment from an ACC issue. The file is now available on your local system for viewing, sharing, or further processing.
+Congratulations! You have successfully downloaded an attachment from a Forma issue. The file is now available on your local system for viewing, sharing, or further processing.

@@ -12,7 +12,7 @@ GET
 
 Retrieve a specific fields dictionary associated with a diff index. Once created, the fields dictionary is immutable. The response will set a long expiration HTTP header for efficient client-side caching.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

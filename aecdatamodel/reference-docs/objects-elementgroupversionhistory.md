@@ -24,6 +24,7 @@ Expand all
 | pagination   [PaginationInput](inputs-paginationinput.md) | Specifies how to split the response into multiple pages. |
 | versionByNumber   [ElementGroupVersion](objects-elementgroupversion.md) | Query for a specific version by its version number. |
 | versionNumber   [Int](scalars.md) | Version number to use for fetching version. |
+| versionFilter   [VersionFilterInput](inputs-versionfilterinput.md) | Optional. Specifies version resolution behavior (e.g. whether the versionNumber refers to a PUBLISHED or WIP version). Defaults to PUBLISHED if not provided. |
 
 * Required
 

@@ -6,14 +6,14 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/rfis3/rfi-official-respon
 
 # Create RFI Official Response
 
-This tutorial demonstrates how to create an official response for an RFI in an Autodesk Construction Cloud (ACC) project. The steps include verifying the user’s permissions, creating an official response, and optionally adding attachments. You can only create an official response for an RFI that is in open status and that has not yet received an official response. You must be assigned to the RFI or included in its list of permitted reviewers.
+This tutorial demonstrates how to create an official response for an RFI in a Forma project. The steps include verifying the user’s permissions, creating an official response, and optionally adding attachments. You can only create an official response for an RFI that is in open status and that has not yet received an official response. You must be assigned to the RFI or included in its list of permitted reviewers.
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:write` `account:read` scopes.
-- Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to create an RFI in by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the account ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`, the project ID is `ce8edd30-ef28-467c-8d99-7d7051097ee0` and the RFI ID is `a1d12f69-3c02-4bba-936d-cccd73f001ee`.
+- Verify that you have access to the relevant hub and Forma project.
+- Find the relevant project ID for the project you want to create an RFI in by following the [Retrieve a Hub ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the hub ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`, the project ID is `ce8edd30-ef28-467c-8d99-7d7051097ee0` and the RFI ID is `a1d12f69-3c02-4bba-936d-cccd73f001ee`.
 
 ## [Step 1: Find the RFI ID](#step-1-find-the-rfi-id)
 

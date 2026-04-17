@@ -12,13 +12,13 @@ Approval workflows control the sequence of steps that files must pass through be
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](https://aps.autodesk.com/myapps), and select `Autodesk Construction Cloud APIs` in the `API Access` dropdown.
+- [Register an app](https://aps.autodesk.com/myapps), and select `Forma APIs` in the `API Access` dropdown.
 - Acquire a [3-legged](../../oauth/how-to-docs/get-3-legged-token.md) or [2-legged](../../oauth/how-to-docs/get-2-legged-token.md) OAuth token with `data:read` and `data:write` scopes for operating approval workflows.
   * For a 3-legged token, ensure that the user is a project administrator.
   * For a 2-legged token, the `x-user-id` header is required. Retrieve the user’s Autodesk ID by calling [GET projects/:projectId/users](../http-docs/http-admin-projectsprojectId-users-GET.md) with your 2-legged OAuth token and the user’s email address. Ensure that the user is a project administrator.
-- Find the project ID for the project you want to create an approval workflow in by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `9ba6681e-1952-4d54-aac4-9de6d9858dd4`.
-- Verify that you have access to the relevant ACC account, project, and folders.
-  * If you need to obtain the URNs of folders, follow the [Export Files From the ACC Files Tool](files-export-pdf-files.md) tutorial to get the URNs you need.
+- Find the project ID for the project you want to create an approval workflow in by following the [Retrieve a Forma Hub ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `9ba6681e-1952-4d54-aac4-9de6d9858dd4`.
+- Verify that you have access to the relevant Forma hub, project, and folders.
+  * If you need to obtain the URNs of folders, follow the [Export Files From the Forma Files Tool](https://aps.autodesk.com/en/docs/acc/v1/tutorials/files/export-pdf-files/) tutorial to get the URNs you need.
 
 ## [Step 1: Prepare the Workflow Payload](#step-1-prepare-the-workflow-payload)
 

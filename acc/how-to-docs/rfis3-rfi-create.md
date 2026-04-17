@@ -6,14 +6,14 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/rfis3/rfi-create/
 
 # Create an RFI
 
-This tutorial demonstrates how to create an RFI item for an Autodesk Construction Cloud (ACC) project. The steps include verifying the user’s permissions, retrieving the RFI type ID, retrieving the next custom identifier (optional), identifying the assignee’s ID, and creating the RFI.
+This tutorial demonstrates how to create an RFI item for a Forma project. The steps include verifying the user’s permissions, retrieving the RFI type ID, retrieving the next custom identifier (optional), identifying the assignee’s ID, and creating the RFI.
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:write` `account:read` scopes.
-- Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to create an RFI in by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the account ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`, and the project ID is `ce8edd30-ef28-467c-8d99-7d7051097ee0`.
+- Verify that you have access to the relevant hub and Forma project.
+- Find the relevant project ID for the project you want to create an RFI in by following the [Retrieve a Hub ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the hub ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`, and the project ID is `ce8edd30-ef28-467c-8d99-7d7051097ee0`.
 
 ## [Step 1: Verify the User’s Permissions](#step-1-verify-the-user-s-permissions)
 
@@ -1203,4 +1203,4 @@ Note that virtual folder creation is triggered as a separate asynchronous job wh
 Until this folder is successfully created, users cannot upload files into it.
 To confirm that the folder is ready, call GET rfis/:id </en/docs/acc/v1/reference/http/rfis-rfis-id-GET/> and check that the `virtualFolderUrn` field appears in the response.
 
-Congratulations! You have created an ACC RFI.
+Congratulations! You have created a Forma RFI.

@@ -18,7 +18,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 | Method and URI | PATCH https://developer.api.autodesk.com/construction/rfis/v3/projects/:projectId/rfis/:rfiId/responses/:responseId |
 | --- | --- |
-| Authentication Context | user context required |
+| Authentication Context | User context required |
 | Required OAuth Scopes | `data:write` `data:create` |
 | Data Format | JSON |
 
@@ -26,7 +26,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 
@@ -36,7 +36,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the Forma API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 | rfiId   string | The ID of the RFI. To find the ID, call [POST search:rfis](http-rfis-rfi-search-POST.md). |
 | responseId   string | The ID of the response. To find the ID, call [GET rfis/:id](http-rfis-rfis-id-GET.md). |
@@ -84,9 +84,9 @@ Expand all
 | customIdentifier   string | The user-defined identifier of the RFI. |
 | title   string | The title of the RFI. |
 | question   string,null | The question submitted in the RFI. |
-| virtualFolderUrn   string,null | The URN of the virtual folder created for the RFI. This folder stores all attachments related to the RFI. <br>The `virtualFolderUrn` is required when uploading attachments to an RFI. See the [Upload Attachment](../how-to-docs/files-upload-document-s3.md) tutorial for more details. |
-| status   enum:string | The current status of the RFI. Available values depend on the RFI’s workflow type: <br>For single-reviewer workflows (US):<br>Possible values: `draft`, `submitted`, `open`, `answered`, `rejected`, `closed`, `void`.<br>For multi-reviewer workflows (EMEA):<br>Possible values: `draft`, `submitted`, `openRev1` (manager), `openRev2` (reviewers), `answeredRev1`, `answeredManager`, `closed`, `void`.<br>To determine the workflow type, call [GET users/me](http-rfis-users-me-GET.md) and check the `workflowType` value.<br>For details on RFI workflows in the ACC UI, see [About RFI Workflows – Autodesk Help](https://help.autodesk.com/view/BUILD/ENU/?guid=RFI_Workflow_Setup). |
-| previousStatus   enum:string | The previous status of the RFI, if one exists. This field is omitted if the RFI has no prior status (e.g., when newly created).  > For single-reviewer workflows (US): >  >  > > Possible values: > > `draft`, `submitted`, `open`, `answered`, `rejected`, `closed`, `void`. > <br>For multi-reviewer workflows (EMEA):<br>Possible values: > `draft`, `submitted`, `openRev1` (manager), `openRev2` (reviewers), `answeredRev1`, `answeredManager`, `closed`, `void`.<br>To determine the workflow type, call [GET users/me](http-rfis-users-me-GET.md) and check the `workflowType` value.<br>For details on RFI workflows in the ACC UI, see [About RFI Workflows – Autodesk Help](https://help.autodesk.com/view/BUILD/ENU/?guid=RFI_Workflow_Setup). |
+| virtualFolderUrn   string,null | The URN of the virtual folder created for the RFI. This folder stores all attachments related to the RFI. <br>The `virtualFolderUrn` is required when uploading attachments to an RFI. See the [Upload Attachment](https://aps.autodesk.com/en/docs/acc/v1/tutorials/files/upload-document-s3/) tutorial for more details. |
+| status   enum:string | The current status of the RFI. Available values depend on the RFI’s workflow type: <br>For single-reviewer workflows (US):<br>Possible values: `draft`, `submitted`, `open`, `answered`, `rejected`, `closed`, `void`.<br>For multi-reviewer workflows (EMEA):<br>Possible values: `draft`, `submitted`, `openRev1` (manager), `openRev2` (reviewers), `answeredRev1`, `answeredManager`, `closed`, `void`.<br>To determine the workflow type, call [GET users/me](http-rfis-users-me-GET.md) and check the `workflowType` value.<br>For details on RFI workflows in the Forma UI, see [About RFI Workflows – Autodesk Help](https://help.autodesk.com/view/BUILD/ENU/?guid=RFI_Workflow_Setup). |
+| previousStatus   enum:string | The previous status of the RFI, if one exists. This field is omitted if the RFI has no prior status (e.g., when newly created).  > For single-reviewer workflows (US): >  >  > > Possible values: > > `draft`, `submitted`, `open`, `answered`, `rejected`, `closed`, `void`. > <br>For multi-reviewer workflows (EMEA):<br>Possible values: > `draft`, `submitted`, `openRev1` (manager), `openRev2` (reviewers), `answeredRev1`, `answeredManager`, `closed`, `void`.<br>To determine the workflow type, call [GET users/me](http-rfis-users-me-GET.md) and check the `workflowType` value.<br>For details on RFI workflows in the Forma UI, see [About RFI Workflows – Autodesk Help](https://help.autodesk.com/view/BUILD/ENU/?guid=RFI_Workflow_Setup). |
 | workflowType   enum:string | The workflow type assigned to the RFI, which determines the allowed status transitions and the review path. Possible values: <br>`US`: Single-reviewer workflow`EU`: Multi-reviewer workflow<br>This value affects how statuses like `submitted`, `openRev1`, or `answeredManager` behave. For status definitions, see the `status` and `previousStatus` fields. |
 | assignedTo   array: object | The list of users assigned to the RFI. |
 | id   string | The Autodesk ID of the assigned user. <br>To find details about the user, call [GET users](http-admin-projectsprojectId-users-GET.md).<br>To retrieve the list of available assignees, call [GET rfi-types](https://aps.autodesk.com/en/docs/acc/v1/reference/http/rfis-rfi-types-GET/) and check the `manager` and `projectReviewer` fields. |

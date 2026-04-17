@@ -268,7 +268,7 @@ Returns the default camera.
 
 Returns up vector as an array of 3.
 
-Note: This returns the original up vector as stored in the metadata, but does not take into account the world up rotation.
+Note: This returns the up vector as stored in the metadata (or the overridden up vector if specified), but does not take into account the world up rotation.
 
 ## [getNorthVector()](#getnorthvector)
 

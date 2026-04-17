@@ -14,7 +14,7 @@ Retrieves a list of summaries for all clash tests that have been executed for a 
 
 The response contains a list of matching clash test summaries, restricted by the number specified by the `pageLimit` property. If set (that is, if there are more results than can be displayed at once), you can provide the `continuationToken` property in the response in a separate call to retrieve additional results.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

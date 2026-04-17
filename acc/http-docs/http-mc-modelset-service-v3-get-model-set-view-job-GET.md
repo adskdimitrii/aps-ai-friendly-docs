@@ -14,7 +14,7 @@ Retrieves information about a given model set view job.
 
 Many PATCH, POST and DELETE calls to model set views endpoints will result in a job. You can use this endpoint to track the progress of these jobs.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

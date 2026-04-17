@@ -25,8 +25,8 @@ Expand all
 | propertyDefinitions*   [PropertyDefinitions!](objects-propertydefinitions.md) `non-null` | Get all Property Definitions used in this elementGroup |
 | filter   [PropertyDefinitionFilterInput](inputs-propertydefinitionfilterinput.md) | Specifies how to filter on property definitions. |
 | pagination   [PaginationInput](inputs-paginationinput.md) | Specifies how to split the response into multiple pages. |
-| version   [ElementGroupVersion](objects-elementgroupversion.md) | Specific version of this ElementGroup. |
-| versionHistory*   [ElementGroupVersionHistory!](objects-elementgroupversionhistory.md) `non-null` | Version history for this elementGroup |
+| version   [ElementGroupVersion](objects-elementgroupversion.md) | Specific version of this ElementGroup, null with extension group currently. |
+| versionHistory*   [ElementGroupVersionHistory!](objects-elementgroupversionhistory.md) `non-null` | Version history for this elementGroup. Empty with extension group currently. |
 | createdBy   [User](objects-user.md) | User responsible for creating this elementGroup |
 | createdOn   [DateTime](scalars.md) | Timestamp of elementGroup creation |
 | lastModifiedBy   [User](objects-user.md) | Latest user who modified this elementGroup |

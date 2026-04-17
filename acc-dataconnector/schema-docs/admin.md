@@ -6,7 +6,7 @@ Source: https://developer.api.autodesk.com/data-connector/v1/doc/schema?name=adm
 
 # admin Schema Description
 
-**Documentation Updated:** 2026-01-14  
+**Documentation Updated:** 2026-02-17  
 
 - [account_services](#account_services)
 - [accounts](#accounts)
@@ -56,6 +56,7 @@ Business units for use in BIM 360.
 | 3 | parent_id | string: UUID |  | Parent ID of the Business Unit |
 | 4 | name | string | Max length: 255 | Name of the Business Unit |
 | 5 | description | string | Max length: 255 | Description for the Business Unit |
+| 6 | path | string |  | Location of the Business Unit, built by the tree of Parent IDs. Kept up to date |
 
 ## companies
 
@@ -278,4 +279,4 @@ Users in BIM 360.
 | 25 | created_at | timestamp: SQL |  | Time user was added to the account |
 | 26 | updated_at | timestamp: SQL |  | Last time the user record was updated |
 
-© Copyright 2026 Autodesk Inc. | [Autodesk Construction Cloud](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)
+© Copyright 2026 Autodesk Inc. | [Autodesk Forma](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)

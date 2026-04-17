@@ -1,6 +1,6 @@
 # Download RVT Files from a Published Model
 
-Source: https://aps.autodesk.com/en/docs/acc/tutorials/files/rcm-linked-files/
+Source: https://aps.autodesk.com/en/docs/acc/tutorials/files /rcm-linked-files/
 
 ---
 
@@ -16,16 +16,16 @@ Each time you retrieve the signed URLs, they are newly generated and valid for 1
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](https://aps.autodesk.com/myapps), and select the Data Management and Autodesk Construction Cloud APIs.
+- [Register an app](https://aps.autodesk.com/myapps), and select the Data Management and Forma APIs.
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:read` scope.
-- Verify that you have access to the relevant ACC or BIM 360 account, project, and folder.
+- Verify that you have access to the relevant Forma or BIM 360 hub, project, and folder.
 - Ensure that the Revit model has been published to the cloud from Revit, and that it is a Cloud Workshared model.
 
-## [Step 1: Find the Hub ID for the BIM 360 or ACC Account](#step-1-find-the-hub-id-for-the-bim-360-or-acc-account)
+## [Step 1: Find the Hub ID for the BIM 360 or Forma Hub](#step-1-find-the-hub-id-for-the-bim-360-or-forma-hub)
 
 The first four steps show how to use Data Management endpoints to locate the version ID of the Revit host model. You first need to find the ID of the hub (account) that contains the project where the Revit host model is stored.
 
-Call [GET hubs](../../data/http-docs/http-hubs-GET.md) to retrieve a list of the BIM 360 or ACC accounts your app has access to.
+Call [GET hubs](../../data/http-docs/http-hubs-GET.md) to retrieve a list of the BIM 360 or Forma hubs your app has access to.
 
 Note that the BIM 360 account ID corresponds to a Data Management hub ID. To convert an account ID into a hub ID you need to add a “**b.**" prefix. For example, the account ID `c8b0c73d-3ae9` becomes `b.c8b0c73d-3ae9`.
 
@@ -81,7 +81,7 @@ Find the project that contains the Cloud Workshared Revit model from which you w
 
 Use the hub ID (`b.35da59e5-4acb-4979-85f1-518047215eaa`) to call [GET hubs/:hub_id/projects](../../data/http-docs/http-hubs-hub_id-projects-GET.md) to get a list of all the projects in the hub. Find the project ID of the project that contains the folder of the Cloud Workshared Revit model from which you want to retrieve the linked RVT files.
 
-Note that the project ID in BIM 360 corresponds to the project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in BIM 360 or ACC to a project ID in the Data Management API, you need to add a “**b.**" prefix. For example, a project ID of `a4be0c34a-4ab7` translates to a project ID of `b.a4be0c34a-4ab7`.
+Note that the project ID in BIM 360 or Forma corresponds to the project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in BIM 360 or Forma to a project ID in the Data Management API, you need to add a “**b.**" prefix. For example, a project ID of `a4be0c34a-4ab7` translates to a project ID of `b.a4be0c34a-4ab7`.
 
 ### Request
 
@@ -375,4 +375,4 @@ curl -X GET "https://c4r-s-ue1-project-data.s3.amazonaws.com/publish/0932a81e-e4
 
 ```
 
-Congratulations! You have downloaded a Revit model from ACC using a signed URL.
+Congratulations! You have downloaded a Revit model from Forma using a signed URL.

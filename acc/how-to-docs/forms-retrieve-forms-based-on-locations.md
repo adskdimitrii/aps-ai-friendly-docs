@@ -12,7 +12,7 @@ This tutorial demonstrates how to retrieve forms that are associated with a spec
 
 - [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:read` scope.
-- Verify that you have access to the relevant ACC project, and find the project ID. In the example, the project ID is `9ba6681e-1952-4d54-aac4-9de6d9858dd4`.
+- Verify that you have access to the relevant Forma project, and find the project ID. In the example, the project ID is `9ba6681e-1952-4d54-aac4-9de6d9858dd4`.
 
 ## [Step 1: Find the Locations for the Project](#step-1-find-the-locations-for-the-project)
 
@@ -81,7 +81,7 @@ The response payload includes the location IDs in the `results` object.
 
 ## [Step 2: Find the Forms](#step-2-find-the-forms)
 
-Use the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and the location IDs that you retrieved in the previous step to call [GET forms](../http-docs/http-forms-forms-GET.md), and use the locations filter to only retrieve forms that are associated with the specified locations.
+Use the project ID (`9ba6681e-1952-4d54-aac4-9de6d9858dd4`) and the location IDs that you retrieved in the previous step to call [GET forms](https://aps.autodesk.com/en/docs/acc/v1/reference/http/forms-forms-(Deprecated/)-GET), and use the locations filter to only retrieve forms that are associated with the specified locations.
 
 ### request
 

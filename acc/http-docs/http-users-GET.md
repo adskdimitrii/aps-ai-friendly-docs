@@ -4,7 +4,7 @@ Source: https://aps.autodesk.com/en/docs/acc/reference/http/users-GET/
 
 ---
 
-Account Users
+Hub Users
 
 GET
 
@@ -12,7 +12,7 @@ GET
 
 Query all the users in a specific BIM 360 account.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
@@ -35,7 +35,7 @@ Query all the users in a specific BIM 360 account.
 
 ## [URI Parameters](#uri-parameters)
 
-| account_id   string: UUID | The account ID of the users. This corresponds to hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID you need to remove the “**b.**" prefix. For example, a hub ID of **b.**c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. |
+| account_id   string: UUID | The account/hub ID of the users. This corresponds to hub ID in the Data Management API. To obtain hub ID you need to remove the “b.” prefix. For example: b.c8b0c73d-3ae9 becomes c8b0c73d-3ae9. |
 | --- | --- |
 
 ### Request
@@ -69,12 +69,12 @@ A successful response is an array of users, flat JSON objects with the following
 
 | id   string: UUID | BIM 360 user ID |
 | --- | --- |
-| account_id   string: UUID | Account ID |
-| role   string | The role of the user in the account       Possible values:   `account_admin`: user has BIM 360 account administration access   `account_user` : normal project user   `project_admin`: user has Project administration privileges at a service level |
+| account_id   string: UUID | Account/Hub ID |
+| role   string | The role of the user in the account/hub       Possible values:   `account_admin`: user has BIM 360 account administration access   `account_user` : normal project user   `project_admin`: user has Project administration privileges at a service level |
 | status   string | Status of the user in the system       Possible values:   `active`: user is active and has logged into the system sucessfully   `inactive`: user is disabled   `pending`: user is invited and is yet to accept the invitation   `not_invited`: user is not invited |
 | company_id   string: UUID | The user’s default company ID in BIM 360 |
 | company_name   string | The name of the user’s default company name in BIM 360 |
-| last_sign_in   datetime: ISO 8601 | The time and date of the user’s most recent sign-in, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss.sssZ`). Note that this field is not supported by ACC Unified products. The value is updated only when the user logs into one of the following services associated with the specified BIM 360 account: BIM 360 Account Admin, BIM 360 Project Admin, BIM 360 Document Management, BIM 360 Field (Classic), or BIM 360 Plan. |
+| last_sign_in   datetime: ISO 8601 | The time and date of the user’s most recent sign-in, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss.sssZ`). Note that this field is not supported by Forma Unified products. The value is updated only when the user logs into one of the following services associated with the specified BIM 360 account: BIM 360 Account Admin, BIM 360 Project Admin, BIM 360 Document Management, BIM 360 Field (Classic), or BIM 360 Plan. |
 | email   string | User’s email       Max length: 255 |
 | name   string | Default display name       Max length: 255 |
 | nickname   string | Nick name for user       Max length: 255 |
@@ -100,7 +100,7 @@ A successful response is an array of users, flat JSON objects with the following
 
 ## [Example](#example)
 
-Successful Listing of Users in an Account (200)
+Successful Listing of Users in an Account/Hub (200)
 
 ### Request
 

@@ -12,17 +12,17 @@ By the end of this guide, you will be able to:
 
 - Fetch elementGroups from a hub based on the metadata using AEC Data Model Explorer.
 - Use filters on metadata like createdOn or createdBy on elementGroups with greater than or less than operators.
-- Understand the options and fields in the documentation on the [elementGroupsByHub](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/queries/elementgroupsbyhub/) query and [elementGroup](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/objects/elementgroup/) object.
+- Understand the options and fields in the documentation on the [elementGroupsByHub](../reference-docs/queries-elementgroupsbyhub.md) query and [elementGroup](../reference-docs/objects-elementgroup.md) object.
 
 You will use the following query in this guide:
 
 | Type | Operation | Description |
 | --- | --- | --- |
-| Query | [elementGroupsByHub](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/queries/elementgroupsbyhub/) | Retrieves elementGroups in the given hub, using additional RSQL filters if provided. |
+| Query | [elementGroupsByHub](../reference-docs/queries-elementgroupsbyhub.md) | Retrieves elementGroups in the given hub, using additional RSQL filters if provided. |
 
 ## [Step 1: Request ElementGroups by Hub](#step-1-request-elementgroups-by-hub)
 
-The [elementGroupsByHub](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/queries/elementgroupsbyhub/) query returns an [ElementGroups](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/objects/elementgroups/) object. While the ElementGroups object has many fields, for this exercise, we will be requesting the `id` and the `name` fields only.
+The [elementGroupsByHub](../reference-docs/queries-elementgroupsbyhub.md) query returns an [ElementGroups](../reference-docs/objects-elementgroups.md) object. While the ElementGroups object has many fields, for this exercise, we will be requesting the `id` and the `name` fields only.
 > 1. In [AEC Data Model Explorer](https://aecdatamodel-explorer.autodesk.io/), the query is populated by default in the **Query Pane**. You can also edit or update the query as per your requirement and run it.
 >
 >

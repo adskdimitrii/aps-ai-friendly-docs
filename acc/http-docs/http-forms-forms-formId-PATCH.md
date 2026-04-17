@@ -16,13 +16,13 @@ To edit a form, it must be in `draft` or `inReview` status and the user must hav
 
 See the [Manage Forms tutorial](../how-to-docs/forms-create-update-forms.md) for details about updating form details.
 
-To update the form’s main form fields (tabular and non-tabular) use [PUT values:batch-upsert API](http-forms-valuesbatch-update-PUT.md).
+To update the form’s main form fields (tabular and non-tabular) use [PUT values:batch-upsert API](https://aps.autodesk.com/en/docs/acc/v1/reference/http/forms-valuesbatch-update-(Deprecated/)-PUT).
 
 ## [Resource Information](#resource-information)
 
 | Method and URI | PATCH https://developer.api.autodesk.com/construction/forms/v1/projects/:projectId/form-templates/:templateId/forms/:formId |
 | --- | --- |
-| Authentication Context | user context required |
+| Authentication Context | User context required |
 | Required OAuth Scopes | `data:write` |
 | Data Format | JSON |
 
@@ -30,7 +30,7 @@ To update the form’s main form fields (tabular and non-tabular) use [PUT value
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 
@@ -40,10 +40,10 @@ To update the form’s main form fields (tabular and non-tabular) use [PUT value
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the Forma API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
-| templateId   string | The unique identifier of the form template. <br>Use [GET forms](http-forms-forms-GET.md) to retrieve a form’s template ID. |
-| formId   string | The unique identifier of the form. <br>Use [GET forms](http-forms-forms-GET.md) to retrieve the form ID. |
+| templateId   string | The unique identifier of the form template. <br>Use [GET forms](https://aps.autodesk.com/en/docs/acc/v1/reference/http/forms-forms-(Deprecated/)-GET/) to retrieve a form’s template ID. |
+| formId   string | The unique identifier of the form. <br>Use [GET forms](https://aps.autodesk.com/en/docs/acc/v1/reference/http/forms-forms-(Deprecated/)-GET/) to retrieve the form ID. |
 
 ### Request
 
@@ -71,8 +71,8 @@ To update the form’s main form fields (tabular and non-tabular) use [PUT value
 | 403   Forbidden | The request was not accepted because the client is authenticated, but is not authorized to access the target resource |
 | 404   Not Found | The resource cannot be found |
 | 409   Conflict | The request could not be completed due to a conflict with the current state of the target resource |
-| 429   Too Many Requests | The request could not be completed due to a conflict with the current state of the target resource |
-| 500   Internal Server Error | The request could not be completed due to a conflict with the current state of the target resource |
+| 429   Too Many Requests | The request could not be completed due to the rate limit of the target resource |
+| 500   Internal Server Error | The request could not be completed due to an internal server error |
 
 ### Response
 
@@ -89,7 +89,7 @@ Expand all
 | assigneeId   string | The unique identifier of the user, role, or company the form is assigned to. |
 | assigneeType   enum:string | Type of entity the form is assigned to. Possible values: `company`, `role`, `user` |
 | locationId   string | Location identifier associated with the form. For more information about the location, see [GET nodes](http-locations-nodes-GET.md). |
-| updatedAt   datetime: ISO 8601 | When form was last updated, UTC date and time in ISO-8601 format. |
+| updatedAt   datetime: ISO 8601 | The date when the form was last updated, UTC date and time in ISO-8601 format. |
 | createdBy   string | The unique identifier of the user who created the form. |
 | notes   string | Text for the form’s notes section. |
 | description   string | Text for the form’s description section. |
@@ -105,7 +105,7 @@ Expand all
 | value   string | The value of the PDF field. |
 | pdfUrl   string | For PDF forms, the URL to download the form’s PDF. |
 | weather   object | Weather forecast captured on the form. |
-| summaryKey   string | A code describing the the weather (e.g. Clear, PartlyCloudy). |
+| summaryKey   string | A code describing the weather conditions. For weather data from DarkSky (legacy), possible values are: `clear`, `rain`, `snow`, `sleet`, `wind`, `fog`, `cloudy`, `partlyCloudy`. For weather data from WeatherKit, values come from Apple’s WeatherCondition codes and include: `Clear`, `MostlyClear`, `PartlyCloudy`, `MostlyCloudy`, `Cloudy`, `Rain`, `HeavyRain`, `Drizzle`, `Snow`, `HeavySnow`, `Flurries`, `Sleet`, `FreezingRain`, `FreezingDrizzle`, `Hail`, `Thunderstorms`, `IsolatedThunderstorms`, `ScatteredThunderstorms`, `StrongStorms`, `Windy`, `Breezy`, `Foggy`, `Haze`, `Smoky`, `Blizzard`, `BlowingDust`, `BlowingSnow`, `TropicalStorm`, `Hurricane`, `SunShowers`, `Hot`, `Frigid`, `WintryMix`. Check the `provider` field to determine which value set to expect. Additional values may appear as Apple’s WeatherKit condition codes evolve. |
 | precipitationAccumulation   number | Amount of precipitation accumulated throughout the day. |
 | precipitationAccumulationUnit   string | Indicates the measurement unit of the `precipitationAccumulation`. |
 | temperatureMin   number | Minimum temperature during the day. |
@@ -123,32 +123,10 @@ Expand all
 | windSpeed   number | Average wind speed. |
 | windBearing   int | Direction of the wind, in degrees. |
 | humidity   number | A percentage value indicating the humidity. |
-| fetchedAt   datetime: ISO 8601 | Date when weather was fetched from weather API. |
-| createdAt   datetime: ISO 8601 | Date when weather was first fetched. |
-| updatedAt   datetime: ISO 8601 | When the weather was last updated. |
+| fetchedAt   datetime: ISO 8601 | The date when weather was fetched from weather API. |
+| createdAt   datetime: ISO 8601 | The date when weather was first fetched. |
+| updatedAt   datetime: ISO 8601 | The date when the weather was last updated. |
 | provider   enum:string | Indicates the source of the weather data. Possible values: `darksky`, `weatherkit` |
-| tabularValues   object | For non-PDF forms, data stored in the tables on the form. |
-| worklogEntries   array: object | Entries associated with work log table in a Form. |
-| id   string | Unique identifier for the work log row. |
-| deleted   boolean | Indicates if the work log row has been deleted. |
-| trade   string | A text field indicating the worker’s trade. |
-| timespan   int | Total duration of work performed (in milliseconds). |
-| headcount   int | Number of workers. |
-| description   string | A text description of the work performed. |
-| materialsEntries   array: object | Entries associated with materials table in a Form. |
-| id   string | Unique identifier for the material log row. |
-| deleted   boolean | Indicates if the material log row has been deleted. |
-| item   string | Text indicating the material used. |
-| quantity   number | The quantity of material that was used. |
-| unit   string | The unit of measure for the quantity specified. |
-| description   string | Additional description of the materials. |
-| equipmentEntries   array: object | Entries associated with equipment table in a Form. |
-| id   string | Unique identifier for the equipment log row. |
-| deleted   boolean | Indicates if the equipment log row has been deleted. |
-| item   string | Text indicating the equipment utilized. |
-| timespan   int | The total time all equipment was utilized (in milliseconds). |
-| quantity   number | The amount of equipment utilized. |
-| description   string | Text describing the equipment utilized. |
 | customValues   array: object | For non-PDF forms, data stored in the form fields. |
 | fieldId   string | The unique identifier of the field. |
 | sectionLabel   string | Name of the section containing this field. |
@@ -164,8 +142,8 @@ Expand all
 | notes   string | Text for the field’s notes section. <br>Max length: 8000 |
 | lastReopenedBy   string | Unique identifier for the user that last re-opened the Form (if applicable). |
 | lastSubmitterSignature   string | Signature of the reviewer who last submitted the Form (if applicable). Signature value (base64 encoded SVG). |
-| userCreatedAt   datetime: ISO 8601 | When form was created on the client, UTC date and time in ISO-8601 format. |
-| createdAt   datetime: ISO 8601 | When form was created on the server, UTC date and time in ISO-8601 format. |
+| userCreatedAt   datetime: ISO 8601 | Timestamp when the form was created on the client device or external system. This may differ from createdAt if the form was created offline and synced later. UTC date and time in ISO-8601 format. |
+| createdAt   datetime: ISO 8601 | Timestamp when the form was received and stored on the server. UTC date and time in ISO-8601 format. |
 
 ## [Example](#example)
 

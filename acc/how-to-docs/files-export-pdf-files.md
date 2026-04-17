@@ -1,12 +1,12 @@
-# Export Files from the ACC Files Tool
+# Export Files from the Forma Files Tool
 
-Source: https://aps.autodesk.com/en/docs/acc/tutorials/files/export-pdf-files/
+Source: https://aps.autodesk.com/en/docs/acc/tutorials/files /export-pdf-files/
 
 ---
 
-# Export Files from the ACC Files Tool
+# Export Files from the Forma Files Tool
 
-This tutorial demonstrates how to export PDF, RVT and DWG files that were uploaded to the ACC Files module. The steps include finding the IDs of the files you want to export, exporting the files (you can optionally also export associated markups and hyperlinks), verifying the status of the export, getting a download link, and downloading the exported files.
+This tutorial demonstrates how to export PDF, RVT and DWG files that were uploaded to the Forma Files tool. The steps include finding the IDs of the files you want to export, exporting the files (you can optionally also export associated markups and hyperlinks), verifying the status of the export, getting a download link, and downloading the exported files.
 
 Note that you can only export PDF, RVT, and DWG files. A maximum of 200 files is allowed in a single export operation. When exporting multiple files at once, they will be compressed and exported as a single ZIP file.
 
@@ -14,11 +14,11 @@ For more information about exporting files, see the [Export Files help documenta
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](https://aps.autodesk.com/myapps), and select Autodesk Construction Cloud API.
-- [Provision your app](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/) to acquire access to your ACC account.
+- [Register an app](https://aps.autodesk.com/myapps), and select Forma APIs.
+- [Provision your app](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/) to acquire access to your Forma hub.
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:write` scope.
 - Find the relevant hub ID and project ID for the project from which you want to export files by following the [Retrieve a Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. Assume that the hub ID is `b.cGVyc29uYWw6cGUyOWNjZjMy`, and the project ID is `b.139532ee-5cdb-4c9e-a293-652693991e65`.
-- Verify that you have access to the relevant ACC project.
+- Verify that you have access to the relevant Forma project.
 
 ## [Step 1: Find the Folder ID of the Files to Export](#step-1-find-the-folder-id-of-the-files-to-export)
 
@@ -213,7 +213,7 @@ Note that some lines in this payload example have been omitted for readability.
 
 Show More
 
-Find the name of the file you want to export - `included[i].attributes.displayName` (A-102 FLOOR PLANS). It is the name that appears in the ACC Files module UI. Note the version ID - `included[i].id` (<urn:adsk.wipprod:fs.file:vf.15Rg8B38Qp-SEu6HzXlTNg?version=1>).
+Find the name of the file you want to export - `included[i].attributes.displayName` (A-102 FLOOR PLANS). It is the name that appears in the Forma Files tool UI. Note the version ID - `included[i].id` (<urn:adsk.wipprod:fs.file:vf.15Rg8B38Qp-SEu6HzXlTNg?version=1>).
 
 ## [Step 3: Export the Files](#step-3-export-the-files)
 
@@ -346,4 +346,4 @@ with chunked content body
 
 ```
 
-Congratulations! You have exported files from the ACC Files module.
+Congratulations! You have exported files from the Forma Files tool.

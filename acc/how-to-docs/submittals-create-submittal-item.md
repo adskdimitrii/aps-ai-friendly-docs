@@ -6,14 +6,14 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/submittals/create-submitt
 
 # Create Submittal Items
 
-This tutorial demonstrates how to create a submittal item for an Autodesk Construction Cloud (ACC) project. The steps include verifying the user’s permissions, retrieving the item type ID, finding or creating the spec ID, optionally setting a custom number for the new item, identifying the assignee’s ID, and creating the item. For more information on working with submittals, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Create_Submittal).
+This tutorial demonstrates how to create a submittal item for a Forma project. The steps include verifying the user’s permissions, retrieving the item type ID, finding or creating the spec ID, optionally setting a custom number for the new item, identifying the assignee’s ID, and creating the item. For more information on working with submittals, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Create_Submittal).
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` `data:write` scopes.
-- Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to create an item in by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `91b5ea71-e3ea-495b-999d-57443a8af6a4`.
+- Verify that you have access to the relevant hub and Forma project.
+- Find the relevant project ID for the project you want to create an item in by following the [Retrieve a Hub ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `91b5ea71-e3ea-495b-999d-57443a8af6a4`.
 - Make sure you have chosen at least one ‘manager’ through the UI. To assign a manager to a submittal item, you need to ensure the user has the necessary permissions and roles set within the project. For instructions on setting up roles and permissions see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Submittals_Permissions).
 
 ## [Step 1: Verify User Permissions](#step-1-verify-user-permissions)
@@ -1461,4 +1461,4 @@ Show More
 
 Show More
 
-Congratulations! You have successfully created a submittal item in ACC.
+Congratulations! You have successfully created a submittal item in Forma.

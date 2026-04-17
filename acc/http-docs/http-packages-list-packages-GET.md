@@ -10,7 +10,7 @@ GET
 
 # projects/{projectId}/packages
 
-Retrieves a list of all packages within a specified ACC project.
+Retrieves a list of all packages within a specified Forma project.
 
 With two-legged authentication, returns all packages in the project. With two-legged authentication and the `x-user-id` header, or with three-legged authentication, returns only the packages that the specified or current user has permission to access.
 
@@ -20,7 +20,7 @@ For information about creating packages, see the [Create Packages](https://help.
 
 | Method and URI | GET https://developer.api.autodesk.com/construction/packages/v1/projects/{projectId}/packages |
 | --- | --- |
-| Authentication Context | user context optional |
+| Authentication Context | User context optional |
 | Required OAuth Scopes | `data:read` |
 | Data Format | JSON |
 
@@ -28,9 +28,8 @@ For information about creating packages, see the [Create Packages](https://help.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
-| --- | --- |
-| x-user-id   string | The Autodesk ID of the user on whose behalf the request is made. <br>This header is required only when using two-legged authentication. It is not needed for three-legged authentication.<br>Your application can access only those users who are assigned to it in the SaaS Integrations UI.<br>Only user Autodesk IDs (`autodeskId`) are supported. |
+- Authorization*string Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context.
+- x-user-idstring The Autodesk ID of the user on whose behalf the request is made. This header is required only when using two-legged authentication. It is not needed for three-legged authentication.Your application can access only those users who are assigned to it in the SaaS Integrations UI.Only user Autodesk IDs (`autodeskId`) are supported.
 
 * Required
 

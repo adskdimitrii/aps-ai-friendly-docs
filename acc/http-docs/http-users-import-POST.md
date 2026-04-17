@@ -4,15 +4,15 @@ Source: https://aps.autodesk.com/en/docs/acc/reference/http/users-import-POST/
 
 ---
 
-Account Users
+Hub Users
 
 POST
 
 # users/import
 
-Bulk import users to the master member directory in a BIM 360 account. (50 users maximum can be included in each call.)
+Bulk import users to the master member directory in a BIM 360 account of Forma hub. (50 users maximum can be included in each call.)
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
@@ -36,7 +36,7 @@ Bulk import users to the master member directory in a BIM 360 account. (50 users
 
 ## [URI Parameters](#uri-parameters)
 
-| account_id   string: UUID | The account ID of the users. This corresponds to hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID you need to remove the “**b.**" prefix. For example, a hub ID of **b.**c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9. |
+| account_id   string: UUID | The account/hub ID of the users. This corresponds to hub ID in the Data Management API. To obtain hub ID you need to remove the “b.” prefix. For example: b.c8b0c73d-3ae9 becomes c8b0c73d-3ae9. |
 | --- | --- |
 
 ### Request

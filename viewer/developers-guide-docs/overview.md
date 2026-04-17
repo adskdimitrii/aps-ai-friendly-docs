@@ -47,7 +47,7 @@ viewer.addEventListener(Autodesk.Viewing.GEOMETRY_LOADED_EVENT, function () {
 
 Before you can display a model in the viewer, it must be translated into the SVF or SVF2 format. There are two ways to do this:
 
-- If the file is in a BIM 360 or ACC workspace, the SVF/SVF2 file is automatically generated.
+- If the file is in a BIM 360 or Forma workspace, the SVF/SVF2 file is automatically generated.
 - Upload the model to the Object Storage Service (OSS). After uploading you can call the Model Derivative API’s [POST Start Translation Job](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/http/jobs/job-POST/) operation to perform the translation.
 
 For more information, see the Model Derivative tutorial [Prepare a File for the Viewer](https://aps.autodesk.com/en/docs/model-derivative/v2/).

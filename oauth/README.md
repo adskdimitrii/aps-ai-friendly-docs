@@ -7,57 +7,57 @@ This document does not link to all references. If you can't find what you're loo
 
 ### Overview & Fundamentals
 
-Introductory and conceptual material for understanding APS OAuth. Covers the OAuth basics, a developer field guide, and a high-level overview of the authentication system.
+Introductory and conceptual material covering OAuth basics, a developer field guide, and error handling guidance. 4 files.
 
 - [Overview](developers-guide-docs/overview.md)
 - [Basics](developers-guide-docs/basics.md)
 - [Field Guide](developers-guide-docs/field-guide.md)
+- [Error Handling](developers-guide-docs/error_handling.md)
 
-### App Types & Authentication Patterns
+### Application Types
 
-Explains the different application types supported by APS and how to choose the right OAuth flow for each.
+Conceptual guides covering the different OAuth app types supported by APS: generic app types, machine-to-machine (2-legged), native/desktop, and traditional web apps. 4 files.
 
 - [App Types Overview](developers-guide-docs/App-types-App-types.md)
-- [Machine-to-Machine](developers-guide-docs/App-types-Machine-to-machine.md)
+- [Machine-to-Machine Apps](developers-guide-docs/App-types-Machine-to-machine.md)
 - [Native Apps](developers-guide-docs/App-types-native.md)
 - [Traditional Web Apps](developers-guide-docs/App-types-traditionalweb.md)
 
-### Authentication Flows (How-To Guides)
-
-Step-by-step tutorials for obtaining tokens and setting up your application. Covers 2-legged, 3-legged, PKCE, and ID token flows.
-
-- [Create an App](how-to-docs/create-app.md)
-- [Get a 2-Legged Token](how-to-docs/get-2-legged-token.md)
-- [Get a 3-Legged Token](how-to-docs/get-3-legged-token.md)
-- [Get a 3-Legged Token (PKCE)](how-to-docs/get-3-legged-token-pkce-get-3-legged-token-pkce.md)
-- [Get a 3-Legged Token (PKCE – Private)](how-to-docs/get-3-legged-token-pkce-get-3-legged-token-pkce-private.md)
-- [Get an ID Token](how-to-docs/get-ID-token.md)
-- [Code Challenge](how-to-docs/code-challenge.md)
-
-### API Endpoints (HTTP Reference)
-
-Full HTTP reference for all OAuth endpoints — authorization, token issuance, introspection, revocation, logout, OpenID configuration, and asymmetric keys.
-
-- [GET /authorize](http-docs/http-authorize-GET.md)
-- [POST /gettoken](http-docs/http-gettoken-POST.md)
-- [POST /introspect](http-docs/http-introspect-POST.md)
-- [POST /revoke](http-docs/http-revoke-POST.md)
-- [GET /logout](http-docs/http-logout-GET.md)
-- [GET /openid-configuration](http-docs/http-openid-GET.md)
-- [GET /asymmetrickeys](http-docs/http-asymmetrickeys-GET.md)
-
 ### Scopes & Security
 
-Covers the available OAuth scopes and asymmetric encryption details used in token signing and verification.
+Reference material on OAuth scopes and asymmetric encryption used in token signing. 2 files.
 
 - [Scopes](developers-guide-docs/scopes.md)
 - [Asymmetric Encryption](developers-guide-docs/asymmetric-encryption.md)
 
-### Rate Limiting & Error Handling
+### Rate Limiting
 
-Guidance on API rate limits specific to OAuth and the Forge platform, plus error handling strategies.
+Rate limit guidance specific to OAuth endpoints and the broader Forge/APS platform. 2 files.
 
 - [OAuth Rate Limits](developers-guide-docs/rate-limiting-oauth-rate-limits.md)
 - [Forge Rate Limits](developers-guide-docs/rate-limiting-forge-rate-limits.md)
-- [Error Handling](developers-guide-docs/error_handling.md)
+
+### Authentication Flows (How-To)
+
+Step-by-step guides for obtaining tokens and setting up an application. Covers 2-legged, 3-legged, PKCE, and ID token flows.
+
+- [Create an App](how-to-docs/create-app.md)
+- [Get 2-Legged Token](how-to-docs/get-2-legged-token.md)
+- [Get 3-Legged Token](how-to-docs/get-3-legged-token.md)
+- [Get 3-Legged Token (PKCE)](how-to-docs/get-3-legged-token-pkce-get-3-legged-token-pkce.md)
+- [Get 3-Legged Token (PKCE – Private Client)](how-to-docs/get-3-legged-token-pkce-get-3-legged-token-pkce-private.md)
+- [Generate Code Challenge](how-to-docs/code-challenge.md)
+- [Get ID Token](how-to-docs/get-ID-token.md)
+
+### HTTP API Reference
+
+Full HTTP endpoint documentation for the OAuth API. 7 endpoints.
+
+- [GET /authorize](http-docs/http-authorize-GET.md)
+- [POST /gettoken](http-docs/http-gettoken-POST.md)
+- [POST /revoke](http-docs/http-revoke-POST.md)
+- [POST /introspect](http-docs/http-introspect-POST.md)
+- [GET /logout](http-docs/http-logout-GET.md)
+- [GET /openid-configuration](http-docs/http-openid-GET.md)
+- [GET /asymmetrickeys](http-docs/http-asymmetrickeys-GET.md)
 <!-- GENERATED:CONTENT_SUMMARY:END -->

@@ -13,18 +13,18 @@ POST
 Creates a new folder. To delete and restore folders,
 use the [PATCH projects/:project_id/folders/:folder_id](http-projects-project_id-folders-folder_id-PATCH.md) endpoint.
 
-**BIM 360 and ACC**
+**BIM 360 and Forma**
 
 1. To access Docs folders using the Data Management API you need to provision your app in the Account Administrator portal. For more details, see the [Manage Access to Docs](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/manage-access-to-docs/) tutorial.
 2. The number of subfolder levels is limited to 25.
 
-**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/).
+Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
 | Method and URI | POST https://developer.api.autodesk.com/data/v1/projects/:project_id/folders |
 | --- | --- |
-| Authentication Context | user context optional |
+| Authentication Context | User context optional |
 | Required OAuth Scopes | `data:create` |
 | Data Format | JSON |
 
@@ -32,7 +32,7 @@ use the [PATCH projects/:project_id/folders/:folder_id](http-projects-project_id
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 | Content-Type*   string | Must be `application/vnd.api+json` |
 | x-user-id   string | In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified. <br>Note that for a three-legged OAuth flow or for a two-legged OAuth flow with user impersonation (`x-user-id`), the user must have permission to create a subfolder in the specified parent folder (`data.attributes.relationships.parent.data.id`).<br>For information about managing and verifying folder permissions for BIM 360 Docs, see the section on [Managing Folder Permissions](http://help.autodesk.com/view/BIM360D/ENU/?guid=GUID-2643FEEF-B48A-45A1-B354-797DAD628C37). |
@@ -43,7 +43,7 @@ use the [PATCH projects/:project_id/folders/:folder_id](http-projects-project_id
 
 ## [URI Parameters](#uri-parameters)
 
-| project_id   string | The unique identifier of a project. <br>For BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a “**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9. |
+| project_id   string | The unique identifier of a project. <br>To convert BIM 360 or Forma Project IDs to Data Management Project IDs, prefix them with `b.` For example, a Project ID of `c8b0c73d-3ae9` becomes `b.c8b0c73d-3ae9`. |
 | --- | --- |
 
 ### Request

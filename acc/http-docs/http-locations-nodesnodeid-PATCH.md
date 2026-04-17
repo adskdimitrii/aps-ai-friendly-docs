@@ -24,7 +24,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 | Method and URI | PATCH https://developer.api.autodesk.com/construction/locations/v2/projects/:projectId/trees/:treeId/nodes/:nodeId |
 | --- | --- |
-| Authentication Context | user context required |
+| Authentication Context | User context required |
 | Required OAuth Scopes | `data:write` |
 | Data Format | JSON |
 
@@ -32,7 +32,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 
@@ -42,7 +42,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The identifier of the project that contains your locations tree. <br>Use the Data Management API to [retrieve the relevant ACC account and project IDs](../how-to-docs/getting-started-retrieve-account-and-project-id.md). |
+| projectId   string: UUID | The identifier of the project that contains your locations tree. <br>Use the Data Management API to [retrieve the relevant Forma hub and project IDs](../how-to-docs/getting-started-retrieve-account-and-project-id.md). |
 | --- | --- |
 | treeId   string | Must be `default`. Currently a project can contain only the default tree. |
 | nodeId   string: UUID | The unique identifier of an LBS node. <br>To find node IDs, call the [GET nodes](http-locations-nodes-GET.md) endpoint and check the value of `results.id` in the returned nodes. |

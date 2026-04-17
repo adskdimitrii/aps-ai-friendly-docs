@@ -16,7 +16,7 @@ Note that this operation is not guaranteed to result in a new version of the mod
 
 The response contains information about the created model set job.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

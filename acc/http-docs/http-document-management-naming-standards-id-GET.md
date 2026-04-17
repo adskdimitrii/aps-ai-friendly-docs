@@ -18,7 +18,7 @@ Note that the order of the objects that the endpoint returns in the response cor
 
 Note that we currently support one file naming standard per project.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

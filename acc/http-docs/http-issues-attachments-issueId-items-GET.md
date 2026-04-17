@@ -20,7 +20,7 @@ For details about downloading an attachment, see the [Download Issue Attachment]
 
 | Method and URI | GET https://developer.api.autodesk.com/construction/issues/v1/projects/{projectId}/attachments/{issueId}/items |
 | --- | --- |
-| Authentication Context | user context required |
+| Authentication Context | User context required |
 | Required OAuth Scopes | `data:read` |
 | Data Format | JSON |
 
@@ -28,7 +28,7 @@ For details about downloading an attachment, see the [Download Issue Attachment]
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 
 * Required
@@ -37,7 +37,7 @@ For details about downloading an attachment, see the [Download Issue Attachment]
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+- projectIdstring: UUID The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the Forma API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
 - issueIdstring: UUID The unique identifier of the issue. To find the ID, call [GET issues](http-issues-issues-GET.md).
 
 ### Response
@@ -60,8 +60,8 @@ Expand all
 | attachments   array: object | A collection of attachments linked to the issue. |
 | --- | --- |
 | attachmentId   string: UUID | The unique identifier for the attachment, set by the client when creating the attachment reference. This can be any unique GUID, but it is recommended to use the OSS storage GUID. |
-| displayName   string | The human-readable display name for the attachment, including the file extension (for example, `.pdf`, `.jpg`, `.dwg`). This name appears in the ACC web UI and is used when downloading the file from the issue. |
-| fileName   string | The unique filename of the attachment, as stored in Autodesk Docs (OSS). This is the name assigned to the uploaded file in the system, typically formatted as {attachmentId}.{fileExtension}. |
+| displayName   string | The human-readable display name for the attachment, including the file extension (for example, `.pdf`, `.jpg`, `.dwg`). This name appears in the Forma web UI and is used when downloading the file from the issue. |
+| fileName   string | The unique filename of the attachment, as stored in Autodesk Forma Data Management (OSS). This is the name assigned to the uploaded file in the system, typically formatted as {attachmentId}.{fileExtension}. |
 | attachmentType   enum:string | The type of attachment. For issue attachments, this value is always `issue-attachment`. Will always be: `issue-attachment` |
 | storageUrn   string | The Object Storage Service (OSS) URN identifying where the attachment file is stored in Autodesk’s cloud infrastructure. Use this value when downloading the file (see the Download Issue Attachment </en/docs/acc/v1/tutorials/issues/download-issue-attachments/>_ tutorial). |
 | fileSize   int | The size of the file in bytes. |
@@ -69,7 +69,7 @@ Expand all
 | domainEntityId   string: UUID | The ID of the issue that owns the attachment. |
 | lineageUrn   string | The document lineage URN for the attachment’s source file. |
 | version   int | The document version number. |
-| versionUrn   string | The URN for the specific file version that was attached to the issue. This may differ from the latest version URN (`tipVersionUrn`) if a newer version of the file exists in Autodesk Docs. |
+| versionUrn   string | The URN for the specific file version that was attached to the issue. This may differ from the latest version URN (`tipVersionUrn`) if a newer version of the file exists in Autodesk Forma Data Management. |
 | tipVersionUrn   string | The URN for the latest (tip) version of the file. |
 | bubbleUrn   string | Not relevant |
 | createdBy   string | The ID of the user who created the issue attachment. For details about the user, call [GET users](http-admin-projectsprojectId-users-GET.md). |

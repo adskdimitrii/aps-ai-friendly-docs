@@ -10,19 +10,19 @@ GET
 
 # hubs/:hub_id/projects
 
-Returns a collection of projects for a given `hub_id`. A project represents a BIM 360 Team project, a Fusion Team project, a BIM 360 Docs project, or an A360 Personal project. Multiple projects can be created within a single hub. Only active projects are listed.
+Returns a collection of projects for a given `hub_id`. A project represents a BIM 360 Team project, a Fusion Team project, a BIM 360 Docs project, a Forma project, or an A360 Personal project. Multiple projects can be created within a single hub. Only active projects are listed.
 
-Note that for BIM 360 Docs, a hub ID corresponds to an account ID in the [BIM 360 API](https://aps.autodesk.com/en/docs/bim360/v1/). To convert an account ID into a hub ID you need to add a "**b.**" prefix. For example, an account ID of c8b0c73d-3ae9 translates to a hub ID of **b.**c8b0c73d-3ae9.
+For BIM 360 Docs, a Data Management Hub ID corresponds to an Account ID. For Forma, a Data Management Hub ID corresponds to a Forma Hub ID. To convert either to a Data Management Hub ID, prefix the ID with `b.` For example, a BIM 360 Account ID or Forma Hub ID of `c8b0c73d-3ae9` translates to a Data Management Hub ID of `b.c8b0c73d-3ae9`.
 
-Similarly, for BIM 360 Docs, the project ID in the Data Management API corresponds to the project ID in the BIM 360 API. To convert a project ID in the BIM 360 API into a project ID in the Data Management API you need to add a "**b.**" prefix. For example, a project ID of c8b0c73d-3ae9 translates to a project ID of **b.**c8b0c73d-3ae9.
+Similarly, to convert BIM 360 or Forma Project IDs to Data Management Project IDs, prefix them with `b.` For example, a Project ID of `c8b0c73d-3ae9` becomes `b.c8b0c73d-3ae9`.
 
-**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/).
+Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
 | Method and URI | GET https://developer.api.autodesk.com/project/v1/hubs/:hub_id/projects |
 | --- | --- |
-| Authentication Context | user context optional |
+| Authentication Context | User context optional |
 | Required OAuth Scopes | `data:read` |
 | Data Format | JSON |
 
@@ -30,9 +30,8 @@ Similarly, for BIM 360 Docs, the project ID in the Data Management API correspon
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
-| --- | --- |
-| x-user-id   string | In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified. |
+- Authorization*string Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context.
+- x-user-idstring In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified.
 
 * Required
 
@@ -94,7 +93,7 @@ Expand all
 | schema   object | An object containing an API link property. |
 | href   string | A hyperlink reference to this resource. |
 | data   object | Additional properties that the resource’s data possesses. Note that the types of properties in the `data` object changes according to the resource type. |
-| projectType   string | The type of project. Only relevant for BIM 360 and ACC projects. Possible values: `BIM360`, `ACC`. |
+| projectType   string | The type of project. Only relevant for BIM 360 and Forma projects. Possible values: `BIM360` (for BIM 360 projects), `ACC` (for Forma projects). |
 | relationships   object | The resources that share a relationship with this project. |
 | hub   object | Information on resources that are found above this resource. |
 | links   object | The object containing information on links of related resources. |

@@ -1,12 +1,12 @@
-# Export Sheets from ACC Build
+# Export Sheets from Forma Build
 
 Source: https://aps.autodesk.com/en/docs/acc/tutorials/sheets/export-sheets/
 
 ---
 
-# Export Sheets from ACC Build
+# Export Sheets from Forma Build
 
-This tutorial demonstrates how to export sheets from the Sheets tool in ACC Build into a new downloadable PDF file. The steps include finding the IDs of the sheets you want to export, exporting the sheets (you can optionally also export associated markups and hyperlinks), verifying the status of the export, getting a download link, and downloading the exported sheets.
+This tutorial demonstrates how to export sheets from the Sheets tool in Forma Build into a new downloadable PDF file. The steps include finding the IDs of the sheets you want to export, exporting the sheets (you can optionally also export associated markups and hyperlinks), verifying the status of the export, getting a download link, and downloading the exported sheets.
 
 Note the following limitations for exporting sheets:
 
@@ -17,11 +17,11 @@ For more information about exporting sheets, See the [Help documentation](https:
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](https://aps.autodesk.com/myapps), and select the Autodesk Construction Cloud API.
-- [Provision your app](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/) to acquire access to your ACC account.
+- [Register an app](https://aps.autodesk.com/myapps), and select Forma APIs.
+- [Provision your app](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/) to acquire access to your Forma hub.
 - Acquire a [2-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [3-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth token with `data:write` scope.
 - Find the project ID for the project that contains the sheets you want to export by following the [Retrieve a Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this tutorial, assume that the project ID is `b.139532ee-5cdb-4c9e-a293-652693991e65`.
-- Verify that you have access to the relevant ACC project, and that you have the permissions to export sheets. Note that by default, users are allowed to export sheets.
+- Verify that you have access to the relevant Forma project, and that you have the permissions to export sheets. Note that by default, users are allowed to export sheets.
 
 ## [Step 1: Find the IDs of the Sheets to Export](#step-1-find-the-ids-of-the-sheets-to-export)
 
@@ -98,7 +98,7 @@ Show More
 
 Note the IDs of the sheets (`results[i].id`) you want to export (`0d7a5883-1694-3078-a06d-ad24413f8b06`).
 
-## [Step 2: Export the ACC Sheets](#step-2-export-the-acc-sheets)
+## [Step 2: Export the Forma Sheets](#step-2-export-the-forma-sheets)
 
 To export the sheet, use the project ID (`b.139532ee-5cdb-4c9e-a293-652693991e65`) and the sheet ID (`0d7a5883-1694-3078-a06d-ad24413f8b06`) to call [POST exports](../http-docs/http-sheets-exports-POST.md).
 
@@ -212,4 +212,4 @@ with chunked content body
 
 ```
 
-Congratulations! You have exported sheets from ACC Build.
+Congratulations! You have exported sheets from Forma Build.

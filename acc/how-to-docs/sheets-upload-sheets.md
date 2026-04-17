@@ -1,24 +1,24 @@
-# Upload Files to ACC Sheets
+# Upload Files to Forma Sheets
 
 Source: https://aps.autodesk.com/en/docs/acc/tutorials/sheets/upload-sheets/
 
 ---
 
-# Upload Files to ACC Sheets
+# Upload Files to Forma Sheets
 
-This tutorial demonstrates how to upload files to the ACC Sheets tool, which extracts and splits the file into individual sheets. The steps include, creating a version set, creating a storage object, generating a signed URL, uploading the file, extracting and splitting the file into individual sheets, checking the status of the upload, reviewing the sheets, and publishing them.
+This tutorial demonstrates how to upload files to the Forma Sheets tool, which extracts and splits the file into individual sheets. The steps include, creating a version set, creating a storage object, generating a signed URL, uploading the file, extracting and splitting the file into individual sheets, checking the status of the upload, reviewing the sheets, and publishing them.
 
 For more information about sheets, see the [Sheets Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Upload_And_Publish_Sheets).
 
-Note the Sheets API currently only supports adding PDF files to ACC sheets. We will be supporting more files types in the future.
+Note the Sheets API currently only supports adding PDF files to Forma sheets. We will be supporting more files types in the future.
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](https://aps.autodesk.com/myapps), and select Autodesk Construction Cloud API.
-- [Provision your app](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/) to acquire access to your ACC account.
+- [Register an app](https://aps.autodesk.com/myapps), and select the Forma API.
+- [Provision your app](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/) to acquire access to your Forma hub.
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` and `data:write` scopes.
-- Find the relevant project ID for the project you want to upload the sheets to by following the [Retrieve a Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `9ba6681e-1952-4d54-aac4-9de6d9858dd4`.
-- Verify that you have access to the relevant ACC project.
+- Find the relevant project ID for the project you want to upload the sheets to by following the [Retrieve a Hub ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `9ba6681e-1952-4d54-aac4-9de6d9858dd4`.
+- Verify that you have access to the relevant Forma project.
 
 ## [Step 1: Create a Version Set](#step-1-create-a-version-set)
 
@@ -90,7 +90,7 @@ curl 'https://developer.api.autodesk.com/construction/sheets/v1/projects/9ba6681
 
 The storage URN includes the following sections: `<urn:adsk.objects:os.object>:<bucket_key>/<object_key>`. In the above response, the bucket key is `bimdocs.9ba6681e-1952-4d54-aac4-9de6d9858dd4` and the object key is `67a2d96a-b1d7-474f-86ba-9e01a5c0f5be.pdf`.
 
-Note that although this endpoint is similar to the Data Management endpoint [Data Management POST storage](../../data/http-docs/http-projects-project_id-storage-POST.md), you can only use Data Management storage objects for uploading ACC files. You can only use the [ACC POST storage](../http-docs/http-sheets-storage-POST.md) endpoint for uploading sheets.
+Note that although this endpoint is similar to the Data Management endpoint [Data Management POST storage](../../data/http-docs/http-projects-project_id-storage-POST.md), you can only use Data Management storage objects for uploading Forma files. You can only use the [Forma POST storage](../http-docs/http-sheets-storage-POST.md) endpoint for uploading sheets.
 
 ## [Step 3: Generate a Signed S3 URL](#step-3-generate-a-signed-s3-url)
 

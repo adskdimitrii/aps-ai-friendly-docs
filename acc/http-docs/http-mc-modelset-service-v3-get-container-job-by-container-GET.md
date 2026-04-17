@@ -16,7 +16,7 @@ All calls to the containers resource result in a job. You can use this endpoint 
 
 You can find the `x-ads-region` to use from the `GET hubs` endpoint, under `data.attributes.region`. See [GET hubs/:hub_id](../../data/http-docs/http-hubs-hub_id-GET.md) for more information.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

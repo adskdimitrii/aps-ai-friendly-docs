@@ -113,4 +113,4 @@ Weather information for a Daily Log
 | 19 | created_at | timestamp: SQL |  | Date and time the resource was last created in ISO8601 format. |
 | 20 | updated_at | timestamp: SQL |  | Date and time the resource was last updated in ISO8601 format. |
 
-© Copyright 2026 Autodesk Inc. | [Autodesk Construction Cloud](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)
+© Copyright 2026 Autodesk Inc. | [Autodesk Forma](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)

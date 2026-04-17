@@ -12,13 +12,13 @@ GET
 
 Retrieves a payment in the given project.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
 | Method and URI | GET https://developer.api.autodesk.com/cost/v1/containers/:containerId/payments/:id |
 | --- | --- |
-| Authentication Context | user context required |
+| Authentication Context | User context required |
 | Required OAuth Scopes | `data:read` |
 | Data Format | JSON |
 
@@ -26,8 +26,8 @@ Retrieves a payment in the given project.
 
 ## [Headers](#headers)
 
-- Authorization*string Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow.
-- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [ACC Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
+- Authorization*string Must be `Bearer <token>`, where `<token>` is a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context.
+- regionstring Specifies the region where the project data resides. By default, the request is routed automatically. However, specifying the region can improve performance by avoiding lookup overhead.Possible values: country or region codes such as `US` or `EMEA`. For the full list of supported regions, see the [Forma Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.To verify your project’s region, refer to the *Working with BIM 360 Services in Different Regions* section on the [API Basics](https://aps.autodesk.com/en/docs/bim360/v1/overview/basics/#bim-360-account-admin) page.
 
 * Required
 
@@ -149,14 +149,14 @@ Expand all
 | id   string | This is the ID of a user managed by BIM 360 Admin. |
 | isDefault   boolean | True if this is the default recipient of a Contract or Change Order. |
 | companyId   string,null | The ID of a company managed by a BIM 360 Admin. Detailed company information can be retrieved by calling [GET projects/:project_id/companies](http-projects--project_id-companies-GET.md) and locating the member_group_id in the response. |
-| companyUid   string,null | The unique ID (UUID) of the company in this account. Detailed company information can be retrieved using this UUID by calling [GET companies/:company_id](http-companies--company_id-GET.md) in the response. |
-| architectCompanyId   string,null | The BIM360/ACC ID of the architecture firm. The detailed company information can be retrieved from [GET projects/:project_id/companies](http-projects--project_id-companies-GET.md) endpoint by searching the member_group_id in the response. |
+| companyUid   string,null | The unique ID (UUID) of the company in this hub. Detailed company information can be retrieved using this UUID by calling [GET companies/:company_id](http-companies--company_id-GET.md) in the response. |
+| architectCompanyId   string,null | The BIM360/Forma ID of the architecture firm. The detailed company information can be retrieved from [GET projects/:project_id/companies](http-projects--project_id-companies-GET.md) endpoint by searching the member_group_id in the response. |
 | architectCompanyUid   string,null | The unique ID of the architecture firm. The detailed company information can be retrieved by this uuid from GET companies/:company_id <en/docs/bim360/v1/reference/http/companies-:company_id-GET/> in the response |
-| architectContactId   string,null | The BIM360/ACC ID of the primary contact at the architecture firm. |
+| architectContactId   string,null | The BIM360/Forma ID of the primary contact at the architecture firm. |
 | additionalCollaborators   array: object | The additional collaborator company and contacts. |
-| companyId   string | The BIM360/ACC ID of the firm. |
-| companyUid   string,null | The unique ID (UUID) of the company in this account. Detailed company information can be retrieved using this UUID by calling [GET companies/:company_id](http-companies--company_id-GET.md) in the response. |
-| contactIds   array: string | The BIM360/ACC user ID of the contacts in the firm. |
+| companyId   string | The BIM360/Forma ID of the firm. |
+| companyUid   string,null | The unique ID (UUID) of the company in this hub. Detailed company information can be retrieved using this UUID by calling [GET companies/:company_id](http-companies--company_id-GET.md) in the response. |
+| contactIds   array: string | The BIM360/Forma user ID of the contacts in the firm. |
 | approvedAt   string,null | The date and time that the item was approved, in ISO 8601 format. |
 | calculatedAt   string,null | The date and time that the item was calculated, in ISO 8601 format. |
 | calculatedBy   string | The ID of the user who calculated the payment. |
@@ -168,7 +168,7 @@ Expand all
 | internalSystem   string,null | Not relevant |
 | integrationState   string,null | The state of the item during the integration with the external ERP system (such as SignNow). An item can be a `budget`, `contract`, `main contract`, `main contract item`, `cost item`, `expense`, `expense item`, `change order`, or `schedule of value`. For more details, see [Integrate with External System](../how-to-docs/cost-integrate-with-external-system.md) tutorial. Possible values: <br>`locked`: the item is currently locked within the ERP system, preventing modifications until unlocked. To unlock and modify the item, use the relevant PATCH endpoint to set `integrationState` to `null`. For example, for a budget, call [PATCH budgets](http-cost-budgets-budgetId-PATCH.md). For a contract, call [PATCH contracts](http-cost-contracts-contractId-PATCH.md). For more details, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Integrated_and_Locked).<br>`integrated`: the item has been successfully added to the ERP system.<br>`failed`: the item encountered an error during the integration process and was not successfully added to the ERP system. For example, if a user tries to integrate `contracts` from an ERP system and the updates fail, the `integrationState` can be set to `failed`. Retry the sync process or analyze the issue if it continues to fail.<br>`null`: The item has not been integrated with the ERP system. This is default value.<br>For more information regarding integrations within the Cost Management system, see [Integrations in Cost Management](https://help.autodesk.com/view/BUILD/ENU/?guid=Cost_Integrations). |
 | integrationStateChangedAt   string,null | The date and time that the item’s integration status was last changed. |
-| integrationStateChangedBy   string,null | The user who last changed the integration status. This is the ID of a user managed by the BIM 360/ACC Admin. |
+| integrationStateChangedBy   string,null | The user who last changed the integration status. This is the ID of a user managed by the BIM 360/Forma Admin. |
 | externalId   string | The identifier assigned to an item in its original external ERP system. Use this ID to track and look up data within the integrated system. Note that this value comes from the item’s ID in the external system. <br>Max length: 255 |
 | externalSystem   string | The name of the external ERP system integrated with Cost Management. Use this name to identify and search for data within the integrated system. <br>Max length: 255 |
 | externalMessage   string | A message generated by the external ERP system that explains the sync status of the integration. For example, common values include `success` or `fail` to indicate the result of the integration operation. <br>Max length: 255 |

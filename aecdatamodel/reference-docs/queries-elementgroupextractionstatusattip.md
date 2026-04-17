@@ -35,9 +35,9 @@ query GetElementGroupExtractionStatusAtTip($fileUrn: ID!, $accProjectId: ID!) {
 
 ## [Arguments](#arguments)
 
-| fileUrn*   [ID!](https://aps.autodesk.com/en/docs/aecdatamodel-beta/v1/reference/scalars/) `non-null` | File to retrieve elementGroup extraction status from. |
+| fileUrn*   [ID!](scalars.md) `non-null` | File to retrieve elementGroup extraction status from. |
 | --- | --- |
-| accProjectId*   [ID!](https://aps.autodesk.com/en/docs/aecdatamodel-beta/v1/reference/scalars/) `non-null` | Forma Project Id of the elementGroup. |
+| accProjectId*   [ID!](scalars.md) `non-null` | Forma Project Id of the elementGroup. |
 
 * Required
 

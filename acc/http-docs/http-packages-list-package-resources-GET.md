@@ -22,7 +22,7 @@ For information about adding files to a package, see the [Add Files](https://hel
 
 | Method and URI | GET https://developer.api.autodesk.com/construction/packages/v1/projects/{projectId}/packages/{packageId}/resources |
 | --- | --- |
-| Authentication Context | user context optional |
+| Authentication Context | User context optional |
 | Required OAuth Scopes | `data:read` |
 | Data Format | JSON |
 
@@ -30,9 +30,8 @@ For information about adding files to a package, see the [Add Files](https://hel
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
-| --- | --- |
-| x-user-id   string | The Autodesk ID of the user on whose behalf the request is made. <br>This header is required only when using two-legged authentication. It is not needed for three-legged authentication.<br>Your application can access only those users who are assigned to it in the SaaS Integrations UI.<br>Only user Autodesk IDs (`autodeskId`) are supported. |
+- Authorization*string Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context.
+- x-user-idstring The Autodesk ID of the user on whose behalf the request is made. This header is required only when using two-legged authentication. It is not needed for three-legged authentication.Your application can access only those users who are assigned to it in the SaaS Integrations UI.Only user Autodesk IDs (`autodeskId`) are supported.
 
 * Required
 
@@ -76,7 +75,7 @@ Expand all
 
 | results   array: object | The list of results. |
 | --- | --- |
-| urn   string | The ID (URN) of the file version in ACC. |
+| urn   string | The ID (URN) of the file version in Forma. |
 | id   string: UUID | The unique identifier (UUID) of the file version. |
 | createdAt   string | The time and date the file version was created. |
 | createdBy   string | The Autodesk ID of the user who created the version. For details about the user, call [GET users](http-admin-projectsprojectId-users-GET.md). |
@@ -84,10 +83,10 @@ Expand all
 | updatedAt   string | The time and date when the file version was last modified. |
 | updatedBy   string | The Autodesk ID of the user who last modified the version. For details about the user, call [GET users](http-admin-projectsprojectId-users-GET.md). |
 | updatedByName   string | The name of the user who last modified the file version. |
-| name   string | The file name in ACC Files. <br>Max length: 255 |
+| name   string | The file name in Forma Files. <br>Max length: 255 |
 | description   string | The description of the file version. |
 | isDeleted   boolean | Indicates whether the file version has been deleted. <br>`true` – The file version is deleted, either directly or because its parent folder was deleted.<br>`false` – The file version is not deleted. |
-| entityType   enum:string | The type of file version. Possible values:  > `SEED_FILE` – A document that was not split into sheets when uploaded to ACC Files.`DOCUMENT` – A document that was split into sheets when uploaded to ACC Files. |
+| entityType   enum:string | The type of file version. Possible values:  > `SEED_FILE` – A document that was not split into sheets when uploaded to Forma Files.`DOCUMENT` – A document that was split into sheets when uploaded to Forma Files. |
 | parentFolderUrn   string | The ID (URN) of the parent folder that contains the file version. |
 | storageUrn   string | The URN of the file version’s storage object. |
 | customAttributes   array: object | A list of custom attributes assigned to the file version. <br>For more information, see [Customize Documents with Attributes](https://help.autodesk.com/view/DOCS/ENU/?guid=File_attributes). |
@@ -95,7 +94,7 @@ Expand all
 | type   enum:string | The data type of the custom attribute. Possible values:  > `string` – Text field.`date` – Date field.`array` – Drop-down list. |
 | name   string | The name of the custom attribute. |
 | value   string | The value of the custom attribute. |
-| version   int | The version number of the resource in ACC Files. <br>This number increases when the file is completely replaced (for example, re-uploaded and overwritten), not when it is merely updated or saved. |
+| version   int | The version number of the resource in Forma Files. <br>This number increases when the file is completely replaced (for example, re-uploaded and overwritten), not when it is merely updated or saved. |
 | approvalStatus   object | The approval status of the file version. <br>For more information, see [File Status](https://help.autodesk.com/view/DOCS/ENU/?guid=Reviews_Files) documentation. |
 | id   string | The unique identifier of the approval status. |
 | label   string | The customized label of the approval status. <br>Max length: 255 |

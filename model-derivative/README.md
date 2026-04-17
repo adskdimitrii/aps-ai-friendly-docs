@@ -5,65 +5,89 @@ This document does not link to all references. If you can't find what you're loo
 <!-- GENERATED:CONTENT_SUMMARY:START -->
 ## Content Summary
 
-### Viewer Preparation Tutorials
+### HTTP API Reference — Translation Jobs
 
-Step-by-step guides for uploading source files to OSS, translating them, and displaying models in the APS Viewer. Two tutorial series, each covering authentication, upload, translation, and display steps (9 files total).
+Submit translation jobs and check supported formats.
 
-- [About: Prepare File for Viewer](how-to-docs/prep-file4viewer-about-this-tutorial.md)
-- [Task 3: Translate Source File](how-to-docs/prep-file4viewer-task3-translate-source-file.md)
-- [Task 4: Display Model](how-to-docs/prep-file4viewer-task4-display_model.md)
-- [About: Prepare Room Info for Viewer](how-to-docs/prep-roominfo4viewer-about-this-tutorial.md)
-- [Task 4: Display Model (Room Info)](how-to-docs/prep-roominfo4viewer-task4-display_model.md)
-- Plus 4 additional task files across both series.
+- [POST /job](http-docs/http-job-POST.md) — initiate a translation/derivative job
+- [GET /formats](http-docs/http-formats-GET.md) — list supported input/output formats
+- [POST /urn/references](http-docs/http-urn-references-POST.md) — set references for files with external dependencies
 
-### Format Translation Tutorials
+### HTTP API Reference — Manifest & Derivatives
 
-Tutorials covering translation of files to specific output formats (OBJ, STL) and handling files with external references (xrefs). Each series walks through authentication, OSS upload, translation job submission, and download (13 files total).
+Retrieve, download, and manage derivative outputs and manifests (5 files).
 
-- [About: Translate to OBJ](how-to-docs/translate-to-obj-about-this-tutorial.md)
-- [Task 4: Download OBJ File](how-to-docs/translate-to-obj-task4-download-obj-file.md)
-- [About: Translate ZIP to STL](how-to-docs/translate-zip-to-stl-about-this-tutorial.md)
-- [Task 4: Download STL File](how-to-docs/translate-zip-to-stl-task4-download-stl-file.md)
-- [About: Translate File with Xrefs](how-to-docs/translate-source-file-containing-xref-about-this-tutorial.md)
-- [Task 4: Download STL File (Xref)](how-to-docs/translate-source-file-containing-xref-task4-download-stl-file.md)
-- Plus 7 additional task files across the three series.
+- [GET /urn/manifest](http-docs/http-urn-manifest-GET.md)
+- [DELETE /urn/manifest](http-docs/http-urn-manifest-DELETE.md)
+- [GET /urn/manifest/:derivativeUrn](http-docs/http-urn-manifest-derivativeurn-GET.md)
+- [HEAD /urn/manifest/:derivativeUrn](http-docs/http-urn-manifest-derivativeurn-HEAD.md)
+- [GET /urn/manifest/:derivativeUrn/signedcookies](http-docs/http-urn-manifest-derivativeUrn-signedcookies-GET.md)
 
-### Data Extraction Tutorials
+### HTTP API Reference — Metadata & Properties
 
-End-to-end tutorials for extracting structured data (metadata, geometry) from translated source files. Covers geometry extraction in 5 tasks and metadata extraction in 4 tasks (14 files total).
+Query model structure, geometry metadata, and object properties (4 files).
 
-- [About: Extract Geometry from Source File](how-to-docs/xtract-geometry-from-source-file-about-this-tutorial.md)
-- [Task 4: Extract Metadata](how-to-docs/xtract-geometry-from-source-file-task4-extract_metadata.md)
-- [Task 5: Extract Geometry](how-to-docs/xtract-geometry-from-source-file-task5-extract_geometry.md)
-- [About: Extract Metadata](how-to-docs/xtract-metadata-about-this-tutorial.md)
-- [Task 4: Extract Metadata](how-to-docs/xtract-metadata-task4-extract_metadata.md)
-- Plus 9 additional task files across both series.
+- [GET /urn/metadata](http-docs/http-urn-metadata-GET.md)
+- [GET /urn/metadata/:guid](http-docs/http-urn-metadata-guid-GET.md)
+- [GET /urn/metadata/:guid/properties](http-docs/http-urn-metadata-guid-properties-GET.md)
+- [POST /urn/metadata/:guid/properties/query](http-docs/http-urn-metadata-guid-properties-query-POST.md)
 
-### Translation & Job Submission API
+### HTTP API Reference — Thumbnails
 
-HTTP reference for submitting translation jobs, querying supported output formats, and setting references for files with external dependencies (3 files).
+- [GET /urn/thumbnail](http-docs/http-urn-thumbnail-GET.md) — retrieve a thumbnail image for a translated model
 
-- [POST /job](http-docs/http-job-POST.md) — Submit a translation job
-- [GET /formats](http-docs/http-formats-GET.md) — List supported output formats
-- [POST /{urn}/references](http-docs/http-urn-references-POST.md) — Set references for xref-based files
+### Tutorial: Prepare a File for the Viewer (5 files)
 
-### Manifest & Derivatives API
+End-to-end walkthrough uploading a source file to OSS, translating it, and displaying it in the viewer.
 
-HTTP reference for retrieving, deleting, and downloading translation manifests and derivative files, including signed cookie access for streaming (6 files).
+- [About](how-to-docs/prep-file4viewer-about-this-tutorial.md)
+- [Task 1 — Authenticate](how-to-docs/prep-file4viewer-task1-authenticate.md)
+- [Task 2 — Upload to OSS](how-to-docs/prep-file4viewer-task2-upload_source_file_to_oss.md)
+- [Task 3 — Translate](how-to-docs/prep-file4viewer-task3-translate-source-file.md)
+- [Task 4 — Display Model](how-to-docs/prep-file4viewer-task4-display_model.md)
 
-- [GET /{urn}/manifest](http-docs/http-urn-manifest-GET.md) — Retrieve translation manifest
-- [DELETE /{urn}/manifest](http-docs/http-urn-manifest-DELETE.md) — Delete manifest and derivatives
-- [GET /{urn}/manifest/{derivativeUrn}](http-docs/http-urn-manifest-derivativeurn-GET.md) — Download a specific derivative
-- [HEAD /{urn}/manifest/{derivativeUrn}](http-docs/http-urn-manifest-derivativeurn-HEAD.md) — Check derivative existence
-- [GET /{urn}/manifest/{derivativeUrn}/signedcookies](http-docs/http-urn-manifest-derivativeUrn-signedcookies-GET.md) — Get signed cookies for derivative access
+### Tutorial: Prepare Room Info for the Viewer (5 files)
 
-### Metadata & Thumbnail API
+Similar flow focused on extracting and displaying room information.
 
-HTTP reference for querying model metadata, object hierarchies, properties, and fetching model thumbnails (5 files).
+- [About](how-to-docs/prep-roominfo4viewer-about-this-tutorial.md)
+- [Task 3 — Translate](how-to-docs/prep-roominfo4viewer-task3-translate-source-file.md)
+- [Task 4 — Display Model](how-to-docs/prep-roominfo4viewer-task4-display_model.md) + 2 more task files
 
-- [GET /{urn}/metadata](http-docs/http-urn-metadata-GET.md) — List model views (GUIDs)
-- [GET /{urn}/metadata/{guid}](http-docs/http-urn-metadata-guid-GET.md) — Get object tree for a view
-- [GET /{urn}/metadata/{guid}/properties](http-docs/http-urn-metadata-guid-properties-GET.md) — Get object properties
-- [POST /{urn}/metadata/{guid}/properties:query](http-docs/http-urn-metadata-guid-properties-query-POST.md) — Query properties with filters
-- [GET /{urn}/thumbnail](http-docs/http-urn-thumbnail-GET.md) — Retrieve model thumbnail
+### Tutorial: Translate a File with Cross-References (5 files)
+
+Covers handling files that reference external assets, with STL download as output.
+
+- [About](how-to-docs/translate-source-file-containing-xref-about-this-tutorial.md)
+- [Task 3 — Translate](how-to-docs/translate-source-file-containing-xref-task3-translate-source-file.md)
+- [Task 4 — Download STL](how-to-docs/translate-source-file-containing-xref-task4-download-stl-file.md) + 2 more task files
+
+### Tutorial: Translate to OBJ (5 files)
+
+Upload a source file, translate to OBJ format, and download the result.
+
+- [About](how-to-docs/translate-to-obj-about-this-tutorial.md)
+- [Task 4 — Download OBJ](how-to-docs/translate-to-obj-task4-download-obj-file.md) + 3 more task files
+
+### Tutorial: Translate ZIP to STL (5 files)
+
+Package a model as a ZIP, translate it, and download an STL derivative.
+
+- [About](how-to-docs/translate-zip-to-stl-about-this-tutorial.md)
+- [Task 4 — Download STL](how-to-docs/translate-zip-to-stl-task4-download-stl-file.md) + 3 more task files
+
+### Tutorial: Extract Geometry from a Source File (6 files)
+
+Five-task tutorial covering upload, translation, metadata extraction, and geometry extraction.
+
+- [About](how-to-docs/xtract-geometry-from-source-file-about-this-tutorial.md)
+- [Task 4 — Extract Metadata](how-to-docs/xtract-geometry-from-source-file-task4-extract_metadata.md)
+- [Task 5 — Extract Geometry](how-to-docs/xtract-geometry-from-source-file-task5-extract_geometry.md) + 3 more task files
+
+### Tutorial: Extract Metadata (5 files)
+
+Focused walkthrough on pulling model metadata after translation.
+
+- [About](how-to-docs/xtract-metadata-about-this-tutorial.md)
+- [Task 4 — Extract Metadata](how-to-docs/xtract-metadata-task4-extract_metadata.md) + 3 more task files
 <!-- GENERATED:CONTENT_SUMMARY:END -->

@@ -66,7 +66,7 @@ An object will not be accessible until this endpoint is called. This endpoint mu
 | 400   BAD REQUEST | The request could not be understood by the server due to malformed syntax or missing request headers. The client SHOULD NOT repeat the request without modifications.   The response body may give an indication of what is wrong with the request. |
 | 401   UNAUTHORIZED | The supplied Authorization header was not valid or the supplied token scope was not acceptable. Verify Authentication and try again. |
 | 403   FORBIDDEN | The Authorization was successfully validated but permission is not granted. Don’t try again unless you solve permissions first. |
-| 404   NOT FOUND | Object or bucket does not exist |
+| 404   NOT FOUND | Bucket does not exist |
 | 429   RATE-LIMIT EXCEEDED | The maximum number of API calls that an app can make per minute was exceeded. |
 | 500   INTERNAL SERVER ERROR | Internal failure while processing the request, reason depends on error |
 

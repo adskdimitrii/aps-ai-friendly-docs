@@ -23,7 +23,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 | Method and URI | GET https://developer.api.autodesk.com/construction/issues/v1/projects/{projectId}/users/me |
 | --- | --- |
-| Authentication Context | user context required |
+| Authentication Context | User context required |
 | Required OAuth Scopes | `data:read` |
 | Data Format | JSON |
 
@@ -31,9 +31,8 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
-| --- | --- |
-| x-ads-region   string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`.<br>For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
+- Authorization*string Must be `Bearer <token>`, where `<token>` is a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context.
+- x-ads-regionstring The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. Possible values: `US`, `EMEA`.For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page.
 
 * Required
 
@@ -41,7 +40,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the Forma API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Response
@@ -67,7 +66,7 @@ Expand all
 | canManageTemplates   boolean | Not relevant |
 | issues   object |  |
 | new   object | If this object appears in the response, it indicates that the user can create and modify issues. |
-| permittedActions   array: string | The list of actions permitted for the user for this issue in its current state. <br>Possible Values: `assign_all` (can assign another user from another company to the issue), `assign_same_company` (can only assign another user from the same company to the issue), `clear_assignee`, `delete`, `add_comment`, `add_attachment`, `remove_attachment`.<br>The following values are not relevant: `add_attachment`, `remove_attachment`. |
+| permittedActions   array: string | The list of actions permitted for the user for this issue in its current state. <br>Possible Values: `assign_all` (can assign another user from another company to the issue), `assign_same_company` (can only assign another user from the same company to the issue), `clear_assignee`, `copy` (can copy the issue), `delete`, `add_comment`, `add_attachment`, `remove_attachment`.<br>The following values are not relevant: `add_attachment`, `remove_attachment`. |
 | permittedAttributes   array: string | A list of attributes you are allowed to open a new issue. `issueTypeId`, `linkedDocument`, `links`, `ownerId`, `officialResponse`, `rootCauseId`, `snapshotUrn` are not applicable. <br>Possible Values: `title`, `description`, `issueTypeId`, `issueSubtypeId`, `status`, `assignedTo`, `assignedToType`, `dueDate`, `locationId`, `locationDetails`, `linkedDocuments`, `links`, `ownerId`, `rootCauseId`, `officialResponse`, `customAttributes`, `snapshotUrn`, `startDate`, `published`, `deleted`, `watchers`. |
 | permittedStatuses   array: string | A list of available statuses for the project. <br>Possible values: `draft`, `open`, `pending`, `in_progress`, `completed`, `in_review`, `not_approved`, `in_dispute`, `closed`.<br>For more information about statuses, see the [Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Issues_Statuses). |
 | permitted_actions   array: string | Not relevant |

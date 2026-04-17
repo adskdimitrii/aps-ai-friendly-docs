@@ -14,7 +14,7 @@ Retrieves a list of clashes associated with assigned or closed clash groups in a
 
 The response contains a list of clash IDs that take part in closed or assigned clash groups.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

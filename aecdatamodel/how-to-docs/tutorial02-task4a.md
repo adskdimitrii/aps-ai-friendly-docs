@@ -19,11 +19,11 @@ You will use the following queries in this guide:
 
 | Type | Operation | Description |
 | --- | --- | --- |
-| Query | [ElementsByElementGroup](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/queries/elementsbyelementgroup/) | Retrieves elementGroups in the given project, using additional RSQL filters if provided. |
+| Query | [ElementsByElementGroup](../reference-docs/queries-elementsbyelementgroup.md) | Retrieves elementGroups in the given project, using additional RSQL filters if provided. |
 
 ## [Step 1: Request elements matching the specified classification filter](#step-1-request-elements-matching-the-specified-classification-filter)
 
-The [ElementsByElementGroup](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/queries/elementsbyelementgroup/) query returns [Elements](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/objects/elements/) object, which contains an array of Elements objects.
+The [ElementsByElementGroup](../reference-docs/queries-elementsbyelementgroup.md) query returns [Elements](../reference-docs/objects-elements.md) object, which contains an array of Elements objects.
 
 For this exercise, we request all elements instances that contain:
 :   - Elements id, name field, and properties.

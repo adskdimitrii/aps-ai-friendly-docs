@@ -1,12 +1,12 @@
-# Setup ACC Assets Project Settings
+# Setup Forma Assets Project Settings
 
 Source: https://aps.autodesk.com/en/docs/acc/tutorials/assets/create-assets-project-settings/
 
 ---
 
-# Setup ACC Assets Project Settings
+# Setup Forma Assets Project Settings
 
-This tutorial demonstrates how to setup a new Autodesk Construction Cloud project’s Asset settings. This will include:
+This tutorial demonstrates how to setup a new Forma project’s Asset settings. This will include:
 
 - Creating new categories
 - Creating new status sets with Asset statuses
@@ -15,14 +15,14 @@ This tutorial demonstrates how to setup a new Autodesk Construction Cloud projec
 - Assigning Asset custom attributes to the desired categories
 - Adding relationships between categories and other entities (e.g. form templates)
 
-For more details about Autodesk Construction Cloud Assets API, see the [Assets Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/assets/).
+For more details about Forma Assets API, see the [Assets Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/assets/).
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](https://aps.autodesk.com/myapps), and select the Data Management and Autodesk Construction Cloud APIs.
+- [Register an app](https://aps.autodesk.com/myapps), and select the Data Management and Forma APIs.
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create` `data:read` and `data:write` scopes.
-- Verify that you have access to the relevant Autodesk Construction Cloud account, project, and folder.
-- Retrieve the relevant [ACC account and project ID](getting-started-retrieve-account-and-project-id.md). In this tutorial we will use the example project ID `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`, but you should replace that with the project ID you have retrieved for your project.
+- Verify that you have access to the relevant Forma hub, project, and folder.
+- Retrieve the relevant [Forma hub and project ID](getting-started-retrieve-account-and-project-id.md). In this tutorial we will use the example project ID `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`, but you should replace that with the project ID you have retrieved for your project.
 
 ## [Step 1: Create Categories](#step-1-create-categories)
 
@@ -319,7 +319,7 @@ There is no batch-create API for Assets custom attributes at this time, so each 
 
 Once the desired categories and custom attributes have been created, you can assign custom attributes to categories to specify which attributes are available to assets in the given category.
 
-To assign a custom attribute to a category, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`), category ID (`124`), and custom attribute ID (`3063f212-6ce9-494e-b749-eb73b4445bf0`) to call [PUT assets/v1/projects/:projectId/categories/:categoryId/custom-attributes/:customAttributeId](../http-docs/http-assets-categories-category-id-custom-attributes-custom-attribute-id-PUT.md).
+To assign a custom attribute to a category, use the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`), category ID (`124`), and custom attribute ID (`3063f212-6ce9-494e-b749-eb73b4445bf0`) to call [PUT assets/v1/projects/:projectId/categories/:categoryId/custom-attributes/:customAttributeId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/assets-categories-category-id-custom-attributes-custom-attribute-id-PUT/).
 
 This endpoints will return the custom attributes assigned to the given category. By default this will only return the custom attributes explicitly assigned to the given category. If you wish to return the full set of custom attributes assigned to the given category, you can set the query parameter `includeInherited=true`. When `includeInherited=true` is set, an additional field will be included in the response for each returned custom attribute `inheritedFromCategoryId` which will indicate from which explicit category assignment the custom attribute is inherited from.
 

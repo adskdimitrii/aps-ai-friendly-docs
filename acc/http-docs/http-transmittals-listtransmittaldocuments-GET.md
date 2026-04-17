@@ -92,7 +92,7 @@ Expand all
 | parentFolderUrn   string | The URN of the folder that contains the document. |
 | folderType   string | The type of folder that contains the document. |
 | revisionLabel   string | The revision label assigned to the document. |
-| storageUrn   string | The storage URN of the document. You can use the storage URN to download the document. For details, see the [Download Files](../how-to-docs/files-download-document-s3.md) tutorial. |
+| storageUrn   string | The storage URN of the document. You can use the storage URN to download the document. For details, see the [Download Files](https://aps.autodesk.com/en/docs/acc/v1/tutorials/files/download-document-s3/) tutorial. |
 | pagination   object | The list of pagination details for the response. |
 | limit   int | The maximum number of results returned per page. |
 | offset   int | The number of results skipped before the current page, starting from zero. |

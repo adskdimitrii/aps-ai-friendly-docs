@@ -15,7 +15,7 @@ Note that when a relationship is deleted, it is “soft” deleted, meaning it c
 
 Note that in order to delete a relationship, you must have access to both entities in the relationship.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

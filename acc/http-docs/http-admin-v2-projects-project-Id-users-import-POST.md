@@ -20,7 +20,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 | Method and URI | POST https://developer.api.autodesk.com/construction/admin/v2/projects/:projectId/users:import |
 | --- | --- |
-| Authentication Context | user context optional |
+| Authentication Context | User context optional |
 | Required OAuth Scopes | `account:write` |
 | Data Format | JSON |
 
@@ -28,12 +28,12 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
-| Accept-Language   string | This header is not currently supported in the Account Admin API. |
-| Region   string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`. For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
-| User-Id   string | Note that this header is not relevant for Account Admin GET endpoints. <br>The ID of a user on whose behalf your API request is acting. Required if you’re using a 2-legged authentication context, which must be *2-legged OAuth2 security with user impersonation*.<br>Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.<br>You can use either the user’s ACC ID (`id`), or their Autodesk ID (`autodeskId`). |
+| Accept-Language   string | This header is not currently supported in the Hub Admin API. |
+| Region   string | The region that the data is stored in. For a full list of supported regions, please check [here](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/). |
+| User-Id   string | Note that this header is not relevant for Hub Admin GET endpoints. <br>The ID of a user on whose behalf your API request is acting. Required if you’re using a 2-legged authentication context, which must be *2-legged OAuth2 security with user impersonation*.<br>Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.<br>You can use either the user’s Forma ID (`id`), or their Autodesk ID (`autodeskId`). |
 
 * Required
 
@@ -41,14 +41,14 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the ACC API you need to remove the “**b.**" prefix. For example, a project ID of `b.a4be0c34a-4ab7` translates to a project ID of `a4be0c34a-4ab7`. |
+| projectId   string: UUID | The ID of the project. This corresponds to project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in the Data Management API into a project ID in the Forma API you need to remove the “**b.**" prefix. For example, a project ID of `b.a4be0c34a-4ab7` translates to a project ID of `a4be0c34a-4ab7`. |
 | --- | --- |
 
 ### Request
 
 ## [Body Structure](#body-structure)
 
-The users and their data to import.
+The users to add to the project and their associated data.
 
 Expand all
 
@@ -60,9 +60,10 @@ Expand all
 | userId   string | Not relevant |
 | companyId   null,string | The ID of the company that the user is representing in the project. To obtain a list of all company IDs associated with a project, call [GET projects/:projectId/companies](http-projects--project_id-companies-GET.md). |
 | roleIds   array: string | A list of the IDs of the user’s roles in the project. <br>To obtain role IDs for this parameter, you can call [GET projects/:projectId/users](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-users-GET/) endpoint or [GET projects/:projectId/users/:userId](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-users-userId-GET/) and inspect the `roleId` field in the response. |
-| products*   array: object | Information about the products activated in the specified project for this imported user. |
+| products   array: object | Information about the products activated in the project and the user’s access level for each product. Do not include this field if the requester has Member Manager access level. If it is included, the request will be rejected. |
 | key*   string | A keyword that identifies the product. <br>Possible values: `autoSpecs`, `build`, `cost`, `designCollaboration`, `docs`, `insight`, `modelCoordination`, `projectAdministration`, and `takeoff`. |
 | access*   enum:string | The user’s type of access to the product identified by `key`. Possible values: <br>`administrator``member``none`<br>Note that when you’re using a POST or PATCH endpoint to set this value, you must adhere to the following guidelines:<br>If you set a product’s `key` to `projectAdministration` and you set `access` to `none`, all other products should be set to `member` access for the user.If you set a product’s `key` to `projectAdministration` and you set `access` to `administrator`, all other products should be set to `administrator` access for the user.You cannot set a product’s `key` to `projectAdministration` and set `access` to `member`. |
+| suppressAdministrativeEmails   boolean | Controls whether project invitation emails are sent to the invited users. <br>`true`: prevents project invitation emails from being sent to users.<br>`false`: (default) send project invitation emails to the invited users. |
 
 * Required
 
@@ -150,7 +151,8 @@ curl -v 'https://developer.api.autodesk.com/construction/admin/v2/projects/367d5
               }
             ]
           }
-        ]
+        ],
+        "suppressAdministrativeEmails": true
       }'
 
 ```

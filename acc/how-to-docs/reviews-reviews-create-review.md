@@ -10,14 +10,14 @@ This tutorial demonstrates how to create a review in a project. The steps includ
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](https://aps.autodesk.com/myapps), and select `Autodesk Construction Cloud APIs` in the `API Access` dropdown.
+- [Register an app](https://aps.autodesk.com/myapps), and select `Forma APIs` in the `API Access` dropdown.
 - Acquire a [3-legged](../../oauth/how-to-docs/get-3-legged-token.md) or [2-legged](../../oauth/how-to-docs/get-2-legged-token.md) OAuth token with `data:read` and `data:write` scopes.
   * For a 3-legged token, ensure that the user has permission to access the project and files.
   * For a 2-legged token, the `x-user-id` header is required. Retrieve the user’s Autodesk ID by calling [GET projects/:projectId/users](../http-docs/http-admin-projectsprojectId-users-GET.md) with your 2-legged OAuth token and the user’s email address. Ensure that the user is a project administrator or a candidate in the workflow.
-- Find the project ID for the project you want to work with by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `9ba6681e-1952-4d54-aac4-9de6d9858dd4`.
+- Find the project ID for the project you want to work with by following the [Retrieve a Forma Hub ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `9ba6681e-1952-4d54-aac4-9de6d9858dd4`.
 - Find the workflow ID for the approval workflow you want to use by calling [GET workflows](../http-docs/http-reviews-workflows-GET.md). In this example, assume the workflow ID is `a4e60936-e950-4097-b7d3-e6cf1c3c5415`.
-- Obtain the URNs of the file versions that you want to include in the review. To find file version URNs, follow the first four steps of the [Download a File](files-download-document-s3.md) tutorial.
-- Verify that you have access to the relevant ACC account, project, folders, and files.
+- Obtain the URNs of the file versions that you want to include in the review. To find file version URNs, follow the first four steps of the [Download a File](https://aps.autodesk.com/en/docs/acc/v1/tutorials/files/download-document-s3/) tutorial.
+- Verify that you have access to the relevant Forma hub, project, folders, and files.
 
 ## [Step 1 (optional): Gather Required IDs and URNs](#step-1-optional-gather-required-ids-and-urns)
 
@@ -61,8 +61,8 @@ Show More
 ### Notes
 
 - **Reviewer step ID** — Use the Reviewer step `id` (e.g., `Lane_3ReoxO2T0o`) if you plan to override candidates in your request (`workflowOptions.steps[].id`).
-- **File version URNs** — To find file version URNs, follow the first four steps of the [Download a File](files-download-document-s3.md) tutorial and note the `included.id` values.
-- **Target folder URN (optional)** — If you plan to set `workflowOptions.copyFilesOptions.folderUrn`, ensure the workflow allows it (`copyFilesOptions.enabled = true` and `copyFilesOptions.allowOverride = true`). You can locate a folder URN using the [Upload Files to the ACC Files tool](files-upload-document-s3.md) tutorial and note the `data.id`.
+- **File version URNs** — To find file version URNs, follow the first four steps of the [Download a File](https://aps.autodesk.com/en/docs/acc/v1/tutorials/files/download-document-s3/) tutorial and note the `included.id` values.
+- **Target folder URN (optional)** — If you plan to set `workflowOptions.copyFilesOptions.folderUrn`, ensure the workflow allows it (`copyFilesOptions.enabled = true` and `copyFilesOptions.allowOverride = true`). You can locate a folder URN using the [Upload Files to the Forma Files tool](https://aps.autodesk.com/en/docs/acc/v1/tutorials/files/upload-document-s3/) tutorial and note the `data.id`.
 - To override reviewer candidates, the workflow must allow it: `additionalOptions.allowInitiatorToEdit = true`.
 
 ## [Step 2: Create a Review](#step-2-create-a-review)
@@ -191,7 +191,7 @@ When a review is created, the system validates its files in the background.
 If any file is invalid or missing, the review may later change from `OPEN` to `FAILED` even though the initial request returned `201 Created`.
 
 Rather than repeatedly calling [GET reviews/:id](../http-docs/http-reviews-getreview-GET.md), register a webhook for the `review.created-1.0` event. See the [Creating a Webhook and Listening to Events](../../webhooks/how-to-docs/create-a-hook-reviews.md) tutorial for more details.
-ACC sends a POST message to your callback URL when the review finishes initialization—whether successful or failed.
+Forma sends a POST message to your callback URL when the review finishes initialization—whether successful or failed.
 
 When registering a webhook, you must provide a callback endpoint with a POST method to receive messages about the result of the Review creation.
 
@@ -224,7 +224,7 @@ curl 'https://developer.api.autodesk.com/webhooks/v1/systems/autodesk.constructi
 
 Show More
 
-After the review finishes initialization, ACC sends a POST request to your callback URL with the following payload:
+After the review finishes initialization, Forma sends a POST request to your callback URL with the following payload:
 
 ### Response
 

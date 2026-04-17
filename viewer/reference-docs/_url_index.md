@@ -84,8 +84,8 @@ Config source: https://developer.doc.config.autodesk.com/bPlouYTd/viewer_v7.json
 - https://aps.autodesk.com/en/docs/viewer/v7/reference/Viewing/Viewer3D/
 - https://aps.autodesk.com/en/docs/viewer/v7/reference/Viewing/ViewingUtilities/
 - https://aps.autodesk.com/en/docs/viewer/v7/reference/globals/Classes/GlobalManagerProvider/
+- https://aps.autodesk.com/en/docs/viewer/v7/reference/globals/Classes/SearchResults/
 - https://aps.autodesk.com/en/docs/viewer/v7/reference/globals/Functions/GlobalManagerMixin/
-- https://aps.autodesk.com/en/docs/viewer/v7/reference/globals/Functions/SearchResults/
 - https://aps.autodesk.com/en/docs/viewer/v7/reference/globals/Functions/cloneHTMLElementsToWrapperElement/
 - https://aps.autodesk.com/en/docs/viewer/v7/reference/globals/Functions/create/
 - https://aps.autodesk.com/en/docs/viewer/v7/reference/globals/Functions/setCompassRotation/

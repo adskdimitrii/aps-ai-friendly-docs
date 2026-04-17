@@ -1002,4 +1002,4 @@ Budget transference details in cost management - This is the Change Data Capture
 | 21 | deleted_at | timestamp: SQL |  | Timestamp when the row was deleted Column used for filtering Date Range Extraction requests |
 | 22 | adsk_row_id | string |  | Unique row identifier to be used in CDC operations |
 
-© Copyright 2026 Autodesk Inc. | [Autodesk Construction Cloud](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)
+© Copyright 2026 Autodesk Inc. | [Autodesk Forma](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)

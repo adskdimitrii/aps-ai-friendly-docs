@@ -18,7 +18,7 @@ This method can accept either a list of assigned clash group IDs or a list of BI
 
 The response contains a list of assigned clash groups.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

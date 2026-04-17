@@ -21,7 +21,7 @@ You will use the following query in this guide:
 
 ## [Step 1: Request for a list of ElementGroups within a Project](#step-1-request-for-a-list-of-elementgroups-within-a-project)
 
-The [elementGroupsByProject](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/queries/elementgroupsbyproject/) query returns [ElementGroups](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/objects/elementgroups/) object. The `ElementGroups` object contains a list of ElementGroups.
+The [elementGroupsByProject](../reference-docs/queries-elementgroupsbyproject.md) query returns [ElementGroups](../reference-docs/objects-elementgroups.md) object. The `ElementGroups` object contains a list of ElementGroups.
 > 1. In [AEC Data Model Explorer](https://aecdatamodel-explorer.autodesk.io/), the query is populated by default in the **Query Pane**. You can also edit or update the query as per your requirement and run it.
 >
 >

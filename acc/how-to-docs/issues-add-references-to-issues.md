@@ -6,14 +6,14 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/issues/add-references-to-
 
 # Add References To Issues
 
-This tutorial demonstrates how to add references such as ACC photos to ACC issues. The steps include verifying the user’s permissions, finding the ID of the references (in this example, the photo) you want to add to the issue, and using the Relationships API to add it to the issue.
+This tutorial demonstrates how to add references such as Forma photos to Forma issues. The steps include verifying the user’s permissions, finding the ID of the references (in this example, the photo) you want to add to the issue, and using the Relationships API to add it to the issue.
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:write` scope.
-- Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to create an issue in by following the [Retrieve a Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`.
+- Verify that you have access to the relevant hub and Forma project.
+- Find the relevant project ID for the project you want to create an issue in by following the [Retrieve Forma Hub and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`.
 
 Note that we do not currently support document-related (pusphin) issues or linked documents.
 
@@ -163,7 +163,7 @@ Note the ID (`results.[id]`) - (`3570f222-6c54-4b01-90e6-e701749f0222`) of the i
 
 To find the ID of the photo you want to add to the issue, call [GET photos](../http-docs/http-photos-getfilteredphotos-POST.md) using the project ID (`f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`) to get a list of all the photos for the project.
 
-Note you cannot currently upload photos to the ACC Photo tool using the Photos API. You can only upload photos via the Photos UI. We will be supporting the photos API upload in the near future. As a workaround you can upload photos to the ACC Files tool using the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/developers_guide/overview/) and add a file reference to the issue. See the [Upload Files](https://aps.autodesk.com/en/docs/acc/v1/tutorials/document-management/upload-document/) tutorial for details.
+Note you cannot currently upload photos to the Forma Photo tool using the Photos API. You can only upload photos via the Photos UI. We will be supporting the photos API upload in the near future. As a workaround you can upload photos to the Forma Files tool using the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/developers_guide/overview/) and add a file reference to the issue. See the [Upload Files](https://aps.autodesk.com/en/docs/acc/v1/tutorials/document-management/upload-document/) tutorial for details.
 
 ### Request
 
@@ -227,7 +227,7 @@ Show More
 
 Note the ID (`results.[id]`) - (`5439bfb7-8006-4388-a454-f02560f99566`) of the photo you want to add to the issue.
 
-If you want to add a new photo to the issue, upload the photo to ACC Docs using the Data Management API. See the [Upload Files](https://aps.autodesk.com/en/docs/acc/v1/tutorials/document-management/upload-document/) tutorial for details. Note the item ID (`included.[id]`) in the response.
+If you want to add a new photo to the issue, upload the photo to Forma Data Management using the Data Management API. See the [Upload Files](https://aps.autodesk.com/en/docs/acc/v1/tutorials/document-management/upload-document/) tutorial for details. Note the item ID (`included.[id]`) in the response.
 
 ## [Step 4: Add the Reference (Photo) to the Issue](#step-4-add-the-reference-photo-to-the-issue)
 
@@ -238,9 +238,9 @@ If you uploaded the photo via the Photos UI, use the following types and domains
 For the issue: use an `issue` type, and an `autodesk-bim360-issue` domain.
 For the photo: use a `photo` type, and an `autodesk-contruction-photo` domain.
 
-If you uploaded the photo to ACC Files using the Data Management API, use the following types and domains:
+If you uploaded the photo to Forma Files using the Data Management API, use the following types and domains:
 
-For the issue: use an `issue` type, and an `autodesk-bim360-issue` domain. (Note that the issues API currently uses the `autodesk-bim360-issue` domain for both for both ACC and BIM 360 relationships.)
+For the issue: use an `issue` type, and an `autodesk-bim360-issue` domain. (Note that the issues API currently uses the `autodesk-bim360-issue` domain for both for both Forma and BIM 360 relationships.)
 For the file: use a `documentlineage` type, and an `autodesk-bim360-documentmanagement` domain.
 
 Note that container ID in the relationships ID is equivalent to the project ID.
@@ -306,4 +306,4 @@ Show More
 
 Show More
 
-Congratulations! You have added a photo to an ACC issue.
+Congratulations! You have added a photo to a Forma issue.

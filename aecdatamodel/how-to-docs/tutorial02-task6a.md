@@ -26,7 +26,7 @@ You will use the following query in this guide:
 
 First, list all concrete material elements under a elementGroup. This is done by fetching elements of category ‘Materials’ having an ‘Element Name’ property matching the string ‘Concrete’.
 
-The [Elements](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/queries/elements/) query returns [Elements](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/objects/elements/) object, which contains an array of Elements objects.
+The [Elements](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/queries/elements/) query returns [Elements](../reference-docs/objects-elements.md) object, which contains an array of Elements objects.
 
 For this exercise, we request all elements instances with
 - Elements id, name field, and properties.

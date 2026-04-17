@@ -20,8 +20,7 @@ Call this endpoint before creating or updating an RFI to:
 - Get the list of potential assignees for workflow roles.
 - Determine the default due date offset for an RFI type.
 
-The values returned by this endpoint reflect the configuration set by project admins in ACC Docs and Project Management.
-
+The values returned by this endpoint reflect the configuration set by project admins in Forma Data Management and Project Management.
 For more information about creating and updating RFIs, see [POST rfis](http-rfis-rfis-POST.md) and [PATCH rfis/:id](http-rfis-rfis-id-PATCH.md).
 
 Note that this endpoint is not compatible with BIM 360 projects.
@@ -30,7 +29,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 | Method and URI | GET https://developer.api.autodesk.com/construction/rfis/v3/projects/:projectId/rfi-types |
 | --- | --- |
-| Authentication Context | user context required |
+| Authentication Context | User context required |
 | Required OAuth Scopes | `data:read` |
 | Data Format | JSON |
 
@@ -38,7 +37,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 
 * Required
@@ -47,7 +46,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the Forma API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Request
@@ -79,7 +78,7 @@ Expand all
 | results   array: object | The list of RFI types configured for the project. |
 | --- | --- |
 | id   string: UUID | The ID of the default RFI type assigned to the project. This is the unique identifier of the RFI type that will be selected by default when creating a new RFI. |
-| name   string | The name of the RFI type, as configured by the project admin. This name is shown in the ACC UI and in the API when selecting an RFI type. <br>Max length: 50 |
+| name   string | The name of the RFI type, as configured by the project admin. This name is shown in the Forma UI and in the API when selecting an RFI type. <br>Max length: 50 |
 | wfType   enum:string | The workflow type used for this RFI type. <br>Possible values:<br>`US`: The US-style workflow, with a Reviewer and optional Manager.`EU`: The EU-style workflow, with a Project Coordinator and Project Reviewer.<br>The workflow type determines the available statuses and workflow roles for RFIs of this type. |
 | status   enum:string | The current status of the RFI type. <br>Possible values:<br>`active`: The type is available for use when creating or updating RFIs.`inactive`: The type exists but cannot currently be selected when creating RFIs.`hidden`: The type is hidden from users in the UI but may still appear in the API.<br>Only active types are available by default when creating new RFIs. |
 | isDefault   boolean | `true`: This RFI type is the default for the project. <br>`false`: (default) This RFI type is not the default. |
@@ -102,7 +101,7 @@ Expand all
 | priority   string,null | The default priority for new RFIs of this type. <br>The available priority values are configured in Project Admin.<br>If no default is set, this field is `null`.<br>Note that the API does not auto-populate this value when creating an RFI. Clients are responsible for applying the default if desired.<br>Some possible values: `null`, `High`, `Normal`, `Low`. |
 | discipline   array: string | The list of available disciplines for RFIs. <br>Each discipline is configured in Project Admin. Some possible values: `Architectural`, `Civil/Site`, `Concrete`, `Electrical`, `Exterior Envelope`, `Fire Protection`, `Interior/Finishes`, `Landscaping`, `Masonry`, `Mechanical`, `Plumbing`, `Structural`, `Other`. |
 | category   array: string | A list of predefined categories to assign to the RFI. <br>Categories help group RFIs for filtering and reporting. Each value must match a category configured in the project’s RFI settings. Categories are case-sensitive and project-specific.<br>RFI categories are configured in Project Admin and may differ between projects.<br>Some possible values: `Code Compliance`, `Constructability`, `Design Coordination`, `Documentation Conflict`, `Documentation Incomplete`, `Field condition`, `Other`. |
-| reference   string,null | The default value for the Reference field when creating a new RFI. <br>This is typically used when the RFI was created in another system.<br>Note that the API does not auto-populate this value. Clients are responsible for applying the default if desired.<br>Max length: 1000 |
+| reference   string,null | The default value for the Reference field when creating a new RFI. <br>This is typically used when the RFI was created in another system.<br>Note that the API does not auto-populate this value. Clients are responsible for applying the default if desired.<br>Max length: 20 |
 | bridgeTargetProjectIds   array,null | Not relevant |
 | pagination   object | The pagination object. |
 | limit   int | The number of items returned per page. |

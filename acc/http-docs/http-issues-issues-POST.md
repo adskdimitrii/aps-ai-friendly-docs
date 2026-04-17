@@ -16,9 +16,9 @@ To verify whether a user can create issues for a specific project, call [GET use
 
 To verify whether a user can create issues for a specific project, call GET users/me and verify that the `issues` section includes the `new` object.
 
-You can add references to objects, such as photos and documents. Note that we currently only support directly uploading objects to ACC Docs. You cannot directly upload other objects such as photos and documents unless you upload them to ACC Docs as a file. See the [Add References To Issues](../how-to-docs/issues-add-references-to-issues.md) tutorial for more details.
+You can add references to objects, such as photos and documents. Note that we currently only support directly uploading objects to Forma Data Management. You cannot directly upload other objects such as photos and documents unless you upload them to Forma Data Management as a file. See the [Add References To Issues](../how-to-docs/issues-add-references-to-issues.md) tutorial for more details.
 
-We support retrieving file-related (pushpin) issues. However, we do not currently support retrieving sheet-related issues from the ACC Build Sheets tool.
+We support retrieving file-related (pushpin) issues. However, we do not currently support retrieving sheet-related issues from the Forma Build Sheets tool.
 
 This endpoint automatically triggers the `issue.created-1.0` webhook event when a new issue is created. If you’ve configured a webhook subscription for this event, your application will receive a notification. For more information, see the [Issues Webhooks section](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/issues/#issues-webhooks) in the Field Guide.
 
@@ -28,7 +28,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 | Method and URI | POST https://developer.api.autodesk.com/construction/issues/v1/projects/{projectId}/issues |
 | --- | --- |
-| Authentication Context | user context required |
+| Authentication Context | User context required |
 | Required OAuth Scopes | `data:write` |
 | Data Format | JSON |
 
@@ -36,7 +36,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 | x-ads-region   string | The region to which your request should be routed. If not set, the request is routed automatically but may incur a small latency increase. <br>Possible values: `US`, `EMEA`.<br>For the full list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
 | Content-Type*   string | Must be `application/json` |
@@ -47,7 +47,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the Forma API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 
 ### Request
@@ -73,11 +73,14 @@ Expand all
 | rootCauseId   string: UUID | The unique identifier of the type of root cause for the issue. |
 | issueTemplateId   string: UUID | Not relevant |
 | published   boolean | States whether the issue is published. Default value: `false` (e.g. unpublished). |
-| permittedActions   array: string | The list of actions permitted for the user for this issue in its current state. <br>Note that if a user with *View and assign to their company* permissions attempts to assign a user from a another company to the issue, it will return an error.<br>Possible Values: `assign_all` (can assign another user from another company to the issue), `assign_same_company` (can only assign another user from the same company to the issue), `clear_assignee`, `delete`, `add_comment`, `add_attachment`, `remove_attachment`.<br>The following values are not relevant: `add_attachment`, `remove_attachment`. |
+| permittedActions   array: string | The list of actions permitted for the user for this issue in its current state. <br>Note that if a user with *View and assign to their company* permissions attempts to assign a user from a another company to the issue, it will return an error.<br>Possible Values: `assign_all` (can assign another user from another company to the issue), `assign_same_company` (can only assign another user from the same company to the issue), `clear_assignee`, `copy` (can copy the issue), `delete`, `add_comment`, `add_attachment`, `remove_attachment`, `upsert_pin`, `unlink_pin`.<br>The following values are not relevant: `add_attachment`, `remove_attachment`. |
 | watchers   array: string | The Autodesk ID of the member you want to assign as a watcher for the issue. <br>We do not currently provide endpoints to programmatically find the member IDs that you are permitted to assign as watchers for the issue. We recommend using the Data Connector API to extract the permitted IDs. See the [Retrieve Available Members](../how-to-docs/issues-retrieve-available-members-roles-companies.md) tutorial for more details. |
 | customAttributes   array: object | A list of custom attributes of the specific issue. |
 | attributeDefinitionId*   string: UUID | The unique identifier of the custom attribute. |
-| value*   object | Custom attribute value. Possible value types: `string`, `number`, `null`. |
+| value*   one of | Custom attribute value. Possible value types: `string`, `number`, `null`. |
+| 0*   string |  |
+| 1*   number |  |
+| 2*   null |  |
 | gpsCoordinates   object | A GPS Coordinate which represents the geo location of the issue. |
 | latitude   number |  |
 | longitude   number |  |
@@ -122,7 +125,7 @@ Expand all
 | locationDetails   string | The location related to the issue, provided as plain text. Maximum 250 characters. |
 | linkedDocuments   array: object | Information about the files associated with issues (pushpins). |
 | type   enum:string | The type of file. Possible values: <br>`TwoDVectorPushpin` (3D models) `TwoDRasterPushpin` (2D sheets and views) |
-| urn   string | The ID of the file associated with the issue (pushpin). Note that we do not currently support data associated with the ACC Build Sheet tool. |
+| urn   string | The ID of the file associated with the issue (pushpin). Note that we do not currently support data associated with the Forma Build Sheets tool. |
 | createdBy   string | The Autodesk ID of the user who created the pushpin issue. |
 | createdAt   datetime: ISO 8601 | The date and time the pushpin was created, in ISO8601 format. |
 | createdAtVersion   int | The version of the file the pushin issue was added to. For information about file versions, see the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). |
@@ -148,10 +151,10 @@ Expand all
 | rootCauseId   string: UUID | The unique identifier of the type of root cause for the issue. |
 | officialResponse   object | Not relevant |
 | issueTemplateId   string: UUID | Not relevant |
-| permittedStatuses   array: string | A list of statuses accessible to the current user, this is based on the current status of the issue and the user permissions. <br>Possible Values: `open`, `pending`, `in_review`, `closed`. |
-| permittedAttributes   array: string | A list of attributes the current user can manipulate in the current context. `issueTypeId`, `linkedDocument`, `links`, `ownerId`, `officialResponse`, `rootCauseId`, `snapshotUrn` are not applicable. <br>Possible Values: `title`, `description`, `issueTypeId`, `issueSubtypeId`, `status`, `assignedTo`, `assignedToType`, `dueDate`, `locationId`, `locationDetails`, `linkedDocuments`, `links`, `ownerId`, `rootCauseId`, `officialResponse`, `customAttributes`, `snapshotUrn`, `startDate`, `published`, `deleted`, `watchers`. |
+| permittedStatuses   array: string | A list of statuses accessible to the current user, this is based on the current status of the issue and the user permissions. <br>Possible Values: `draft`, `open`, `pending`, `in_review`, `closed`. |
+| permittedAttributes   array: string | A list of attributes the current user can manipulate in the current context. `issueTypeId`, `linkedDocument`, `links`, `ownerId`, `officialResponse`, `rootCauseId`, `snapshotUrn` are not applicable. <br>Possible Values: `title`, `description`, `issueTypeId`, `issueSubtypeId`, `status`, `assignedTo`, `assignedToType`, `dueDate`, `locationId`, `locationDetails`, `linkedDocuments`, `links`, `ownerId`, `rootCauseId`, `officialResponse`, `customAttributes`, `snapshotUrn`, `startDate`, `published`, `deleted`, `watchers`, `placements`, `watcherObjects`, `gpsCoordinates`. |
 | published   boolean | States whether the issue is published. Default value: `false` (e.g. unpublished). |
-| permittedActions   array: string | The list of actions permitted for the user for this issue in its current state. <br>Note that if a user with *View and assign to their company* permissions attempts to assign a user from a another company to the issue, it will return an error.<br>Possible Values: `assign_all` (can assign another user from another company to the issue), `assign_same_company` (can only assign another user from the same company to the issue), `clear_assignee`, `delete`, `add_comment`, `add_attachment`, `remove_attachment`.<br>The following values are not relevant: `add_attachment`, `remove_attachment`. |
+| permittedActions   array: string | The list of actions permitted for the user for this issue in its current state. <br>Note that if a user with *View and assign to their company* permissions attempts to assign a user from a another company to the issue, it will return an error.<br>Possible Values: `assign_all` (can assign another user from another company to the issue), `assign_same_company` (can only assign another user from the same company to the issue), `clear_assignee`, `copy` (can copy the issue), `delete`, `add_comment`, `add_attachment`, `remove_attachment`, `upsert_pin`, `unlink_pin`.<br>The following values are not relevant: `add_attachment`, `remove_attachment`. |
 | commentCount   int | The number of comments in this issue. |
 | attachmentCount   int | Not relevant |
 | openedBy   string | Not relevant |
@@ -165,13 +168,17 @@ Expand all
 | watchers   array: string | The list of watchers for the issue. To find the name of the watcher, call [GET users](http-users-GET.md). |
 | customAttributes   array: object | A list of custom attributes of the specific issue. |
 | attributeDefinitionId   string: UUID | The unique identifier of the custom attribute. |
-| value   object | Custom attribute value. Possible value types: `string`, `number`, `null`. |
+| value   one of | Custom attribute value. Possible value types: `string`, `number`, `null`. |
+| 0   string |  |
+| 1   number |  |
+| 2   null |  |
 | type   enum:string | The type of attribute. Possible values: `numeric`, `paragraph`, `list` (this corresponds to `dropdown` in the UI), `text`. |
 | title   string | Free text description of the attribute. |
 | gpsCoordinates   object | A GPS Coordinate which represents the geo location of the issue. |
 | latitude   number |  |
 | longitude   number |  |
 | snapshotHasMarkups   boolean | Not relevant |
+| hash   string | Not relevant |
 
 ## [Example](#example)
 
@@ -263,13 +270,13 @@ Show More
           "is3D": true
         },
         "position": {
-          "x": -0.35907751666652,
-          "y": 0.23,
-          "z": 0.9998
+          "x": 2,
+          "y": 3,
+          "z": 8
         },
-        "objectId": 3,
-        "externalId": "4",
-        "viewerState": true
+        "objectId": 1220,
+        "externalId": "01a239ce-47cc-4e94-8aa3-2a39866cfc61",
+        "viewerState": {}
       }
     }
   ],
@@ -315,7 +322,8 @@ Show More
     "latitude": 35.7795897,
     "longitude": -78.6381787
   },
-  "snapshotHasMarkups": false
+  "snapshotHasMarkups": false,
+  "hash": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
 }
 
 ```

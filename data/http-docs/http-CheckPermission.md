@@ -49,7 +49,7 @@ The following table compares the terms used by BIM 360 Team, Fusion Team, and A3
 
 **Note:** CheckPermission is a Data Management command. Unlike typical CRUD operations, commands let you perform complex operations on multiple resources. For more details see [Commands](https://aps.autodesk.com/en/docs/data/v2/overview/commands/) .
 
-**New!** Autodesk Construction Cloud platform (ACC). Note that this endpoint is compatible with ACC projects. For more information about the Autodesk Construction Cloud APIs, see the [Autodesk Construction Cloud documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/).
+Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

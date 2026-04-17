@@ -17,7 +17,7 @@ Note that in order to create a relationship between two entities, the entities m
 
 Note that one entity may be related to a batch of up to 20 entities within a single API call.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

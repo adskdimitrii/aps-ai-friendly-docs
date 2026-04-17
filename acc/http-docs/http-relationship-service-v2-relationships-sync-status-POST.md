@@ -12,7 +12,7 @@ POST
 
 Retrieves the relationship synchronization status for the caller as one or more synchronization tokens. This can be based on an optional array of input tokens.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

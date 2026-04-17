@@ -16,7 +16,7 @@ For more details about submittal attachments, see the [Submittal Attachments Hel
 
 For details about attaching local files, see the [Attach Local File to Submittals](../how-to-docs/submittals-attach-local-files.md) tutorial.
 
-For details about attaching exising files from the Files tool, see the [Attach Files From the ACC Files Tool to Submittals](../how-to-docs/submittals-attach-files-tool.md) tutorial.
+For details about attaching exising files from the Files tool, see the [Attach Files From the Forma Files Tool to Submittals](../how-to-docs/submittals-attach-files-tool.md) tutorial.
 
 Note that this endpoint is not compatible with BIM 360 projects.
 
@@ -24,7 +24,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 | Method and URI | PATCH https://developer.api.autodesk.com/construction/submittals/v2/projects/:projectId/items/:itemId/attachments/:attachmentId |
 | --- | --- |
-| Authentication Context | user context required |
+| Authentication Context | User context required |
 | Required OAuth Scopes | `data:write` |
 | Data Format | JSON |
 
@@ -32,7 +32,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via a [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 | Content-Type*   string | Must be `application/json` |
 
@@ -42,7 +42,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the ACC API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
+| projectId   string: UUID | The ID of the project. <br>Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/) to retrieve the project ID. For more information, see the [Retrieve a Project ID](https://forge.autodesk.com/en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/) tutorial. You need to convert the project ID into a project ID for the Forma API by removing the “**b.**" prefix. For example, a project ID of **b.**a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7. |
 | --- | --- |
 | itemId   string | The ID of the submittal item. To find the item ID, call [GET items](http-submittals-items-GET.md). |
 | attachmentId   string | The ID of the attachment. To find the ID, call [GET attachments](http-submittals-items-itemId-attachments-GET.md). |
@@ -82,7 +82,7 @@ Expand all
 | asyncState   enum:string | Represents the state of the asynchronous process triggered after marking the file upload as complete (`isFileUploaded=true`). The backend initiates this process to generate the `URN` for the attachment. <br>Possible values:  > `1` - Pending (the request is queued and awaiting processing).`2` - Started (the backend process to generate the `URN` has begun).`3` - Success (the `URN` was successfully created).`4` - Failure (the process failed, and the `URN` was not created). |
 | uploadUrn   string | The unique identifier for the upload session associated with the attachment applicable only to local file uploads. This value is used to generate a URL for uploading the actual file. |
 | urn   string | The unique identifier for a specific file version in the Files tool. |
-| urnVersion   int | The version number of the file in Autodesk Docs. |
+| urnVersion   int | The version number of the file in Autodesk Forma Data Management. |
 | revisionFolderUrn   string | Not relevant |
 | revision   int | Not relevant |
 | urnTypeId   enum:string | Specifies the type of urn associated with the attachment. This value identifies the storage type for the file reference. <br>Possible values: `2` This value is always set to `2` for both local and Files tool attachments. |

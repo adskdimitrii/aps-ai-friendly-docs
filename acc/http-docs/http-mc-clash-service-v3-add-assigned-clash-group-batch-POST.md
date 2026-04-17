@@ -18,7 +18,7 @@ Clash groups that need resolving via a design change are stored as assigned clas
 
 The response contains information about the created clash group job.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

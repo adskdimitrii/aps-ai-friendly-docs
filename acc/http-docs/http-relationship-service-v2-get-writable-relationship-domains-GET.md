@@ -15,7 +15,7 @@ Note that some entity types belong to a `bim360` domain, and others to a `constr
 
 To learn how this endpoint is used, see the [Create a Relationship tutorial](../how-to-docs/relationships-relationships-create.md).
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

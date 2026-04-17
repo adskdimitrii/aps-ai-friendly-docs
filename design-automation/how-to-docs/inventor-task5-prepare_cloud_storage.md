@@ -171,4 +171,4 @@ The Activity `ChangeParamApp` you created in the previous task, generates an *.i
 **Notes:**
 
 - The access token should allow reading/writing from/to the object in the bucket.
-- The OSS buckets and ACC/BIM360 buckets both work, you need to provide the correct token accordingly, such as providing 3-legged token for buckets owned by ACC/BIM360.
+- The OSS buckets and Forma/BIM360 buckets both work, you need to provide the correct token accordingly, such as providing 3-legged token for buckets owned by Forma/BIM360.

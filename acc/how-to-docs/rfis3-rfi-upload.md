@@ -8,22 +8,22 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/rfis3/rfi-upload/
 
 This tutorial demonstrates how to upload attachments to RFIs. The process includes locating the ID of the project that contains the RFI, identifying the virtual folder where the attachment will be stored, creating an empty storage object, generating a signed S3 URL, and uploading the attachment using that URL.
 
-For more details about ACC Document management, see the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/overview/).
+For more details about Forma Data Management, see the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/overview/).
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](https://aps.autodesk.com/myapps), and select the Data Management and Autodesk Construction Cloud APIs.
+- [Register an app](https://aps.autodesk.com/myapps), and select the Data Management and Forma APIs.
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:create` `data:read` and `data:write` scopes.
 - Assume the RFI that you want to add the attachment to is `31a3f98d-34a8-4d4c-a362-3cc9de44f89c`.
-- Verify that you have access to the relevant ACC account, project, and folder.
+- Verify that you have access to the relevant Forma hub, project, and folder.
 
-## [Step 1: Find the Hub ID for the ACC Account](#step-1-find-the-hub-id-for-the-acc-account)
+## [Step 1: Find the Hub ID for the Forma Hub](#step-1-find-the-hub-id-for-the-forma-hub)
 
 The first few steps of the tutorial demonstrate how to find the ID of the project that contains the RFI. This involves using several Data Management endpoints to find the folder ID.
 
-Call [GET hubs](../../data/http-docs/http-hubs-GET.md) to find the hub ID for the ACC account that includes the project that contains the RFI you want to add the attachment to.
+Call [GET hubs](../../data/http-docs/http-hubs-GET.md) to find the hub ID for the Forma hub that includes the project that contains the RFI you want to add the attachment to.
 
-Note that the ACC account ID corresponds to a Data Management hub ID. To convert an account ID into a hub ID you need to add a “**b.**" prefix. For example, an account ID of c8b0c73d-3ae9 translates to a hub ID of **b.**c8b0c73d-3ae9.
+Note that the Forma hub ID corresponds to a Data Management hub ID. To convert an account ID into a hub ID you need to add a “**b.**" prefix. For example, an account ID of c8b0c73d-3ae9 translates to a hub ID of **b.**c8b0c73d-3ae9.
 
 ### Request
 
@@ -75,7 +75,7 @@ Find the hub (`data.name`), and note the hub ID - `b.cGVyc29uYWw6cGUyOWNjZjMy`.
 
 Use the hub ID (`b.cGVyc29uYWw6cGUyOWNjZjMy`) to call [GET hubs/:hub_id/projects](../../data/http-docs/http-hubs-hub_id-projects-GET.md) to get a list of all the projects in the hub. Find the project ID of the project that contains the RFI you want to upload the attachment to.
 
-Note that the project ID in ACC corresponds to the project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in ACC to a project ID in the Data Management API, you need to add a “**b.**" prefix. For example, a project ID of a4be0c34a-4ab7 translates to a project ID of **b.**a4be0c34a-4ab7.
+Note that the project ID in Forma corresponds to the project ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a project ID in Forma to a project ID in the Data Management API, you need to add a “**b.**" prefix. For example, a project ID of a4be0c34a-4ab7 translates to a project ID of **b.**a4be0c34a-4ab7.
 
 ### Request
 
@@ -434,7 +434,7 @@ Note the bucket key - `wip.dm.prod` and the object key - `2a6d61f2-49df-4d7b.jpg
 
 ## [Step 5: Generate a Signed S3 URL](#step-5-generate-a-signed-s3-url)
 
-ACC stores files in Amazon S3, and uploads must go through signed URLs for security. Use the bucket key and object key to generate a signed upload URL for your storage object.
+Forma stores files in Amazon S3, and uploads must go through signed URLs for security. Use the bucket key and object key to generate a signed upload URL for your storage object.
 
 Use the bucket key (`wip.dm.prod`) and the object key (`2a6d61f2-49df-4d7b.jpg`) to call [GET buckets/:bucketKey/objects/:objectKey/signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-GET.md) to generate a signed URL for the storage object.
 

@@ -23,7 +23,7 @@ You will use the following query in this guide:
 
 ## [Step 1: Request for a list of elements in an ElementGroup](#step-1-request-for-a-list-of-elements-in-an-elementgroup)
 
-The [elementsByElementGroup](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/queries/elementsByElementGroup/) query returns an [Elements](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/objects/elements/) object.
+The [elementsByElementGroup](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/queries/elementsByElementGroup/) query returns an [Elements](../reference-docs/objects-elements.md) object.
 
 1. In [AEC Data Model Explorer](https://aecdatamodel-explorer.autodesk.io/), the query is populated by default in the **Query Pane**. You can also edit or update the query as per your requirement and run it.
 

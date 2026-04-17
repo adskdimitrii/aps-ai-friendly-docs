@@ -19,7 +19,7 @@ Updates a specific model set view.
 
 If no property changes are supplied, an error is returned.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

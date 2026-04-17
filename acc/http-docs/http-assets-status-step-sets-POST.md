@@ -18,7 +18,7 @@ Each status set has its own unique set of statuses, and statuses are not shared 
 
 To understand the basics of status sets, and the Assets settings that define them, see the [Assets Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/assets/).
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
@@ -42,7 +42,7 @@ To understand the basics of status sets, and the Assets settings that define the
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
+| projectId   string | The Forma project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
 | --- | --- |
 
 ### Request
@@ -64,7 +64,7 @@ Expand all
 | values*   array: object | An array of asset statuses to populate the new status set. This array defines new statuses. |
 | label*   string | The display label of the status. This label appears in the Assets UI when viewing statuses. The label must be unique within this status set, but does not need to be unique within the project (in other words, the same label can be used in multiple status sets in the same project). “Uniqueness” in this context means case-insensitive. |
 | description   string | A description of the status. |
-| color   string | The color of the status as the status appears in the Assets UI. <br>This field is not restricted as it is primarily a tool for the Assets UI to use.<br>However, there are only certain colors that the Autodesk Construction Cloud Assets UI knows how to operate with. Understood color values are: `adsk-black`, `adsk-white`, `adsk-charcoal-900`, `adsk-charcoal-800`, `adsk-charcoal-700`, `adsk-charcoal-600`, `adsk-charcoal-500`, `adsk-charcoal-400`, `adsk-charcoal-300`, `adsk-charcoal-200`, `adsk-charcoal-100`, `adsk-charcoal-050`, `adsk-blue-700`, `adsk-blue-500`, `adsk-blue-300`, `adsk-blue-100`, `adsk-red-700`, `adsk-red-500`, `adsk-red-300`, `adsk-green-700`, `adsk-green-500`, `adsk-green-300`, `adsk-yellow-orange-700`, `adsk-yellow-orange-500`, `adsk-yellow-orange-300`, `adsk-dark-blue-700`, `adsk-dark-blue-500`, `adsk-dark-blue-300`, `adsk-pink-700`, `adsk-pink-500`, `adsk-pink-300`, `adsk-turquoise-700`, `adsk-turquoise-500`, `adsk-turquoise-300`, `adsk-purple-700`, `adsk-purple-500`, `adsk-purple-300`, `adsk-salmon-700`, `adsk-salmon-500`, `adsk-salmon-300`, `adsk-brown-700`, `adsk-brown-500`, `adsk-brown-300`.<br>Using colors other than those specified here is not disallowed, but may result in unexpected behavior in<br>the Assets UI. |
+| color   string | The color of the status as the status appears in the Assets UI. <br>This field is not restricted as it is primarily a tool for the Assets UI to use.<br>However, there are only certain colors that the Forma Assets UI knows how to operate with. Understood color values are: `adsk-black`, `adsk-white`, `adsk-charcoal-900`, `adsk-charcoal-800`, `adsk-charcoal-700`, `adsk-charcoal-600`, `adsk-charcoal-500`, `adsk-charcoal-400`, `adsk-charcoal-300`, `adsk-charcoal-200`, `adsk-charcoal-100`, `adsk-charcoal-050`, `adsk-blue-700`, `adsk-blue-500`, `adsk-blue-300`, `adsk-blue-100`, `adsk-red-700`, `adsk-red-500`, `adsk-red-300`, `adsk-green-700`, `adsk-green-500`, `adsk-green-300`, `adsk-yellow-orange-700`, `adsk-yellow-orange-500`, `adsk-yellow-orange-300`, `adsk-dark-blue-700`, `adsk-dark-blue-500`, `adsk-dark-blue-300`, `adsk-pink-700`, `adsk-pink-500`, `adsk-pink-300`, `adsk-turquoise-700`, `adsk-turquoise-500`, `adsk-turquoise-300`, `adsk-purple-700`, `adsk-purple-500`, `adsk-purple-300`, `adsk-salmon-700`, `adsk-salmon-500`, `adsk-salmon-300`, `adsk-brown-700`, `adsk-brown-500`, `adsk-brown-300`.<br>Using colors other than those specified here is not disallowed, but may result in unexpected behavior in<br>the Assets UI. |
 
 * Required
 
@@ -98,14 +98,14 @@ Expand all
 | deletedBy   string | The actor that deleted the component. This is an Autodesk / Oxygen ID. |
 | isActive   boolean | A flag indicating whether the component is active or inactive (`isActive` is `true` if-and-only-if `deletedAt` is empty). |
 | version   int | A global sequence number that is incremented any time a component of this type is created, updated, or deleted. If you cache components, you can use the version value to compare the cached component to the same component online to see if the component has been updated. If the online component has a higher version value, it has been updated. |
-| projectId   string: UUID | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
+| projectId   string: UUID | The Forma project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
 | name   string | The display name for the status set. This name appears in the Assets UI when viewing status sets. <br>Max length: 100 |
 | description   string | A description of the status set. <br>Max length: 500 |
 | isDefault   boolean | Specifies if this is the status set that is assigned to categories by default - that is, this is the status set that will be assigned to categories if no other status set has been assigned, either explicitly or through inheritance. If `true`, it’s the default status set. If `false`, it’s not. |
 | values   array: object | An array of statuses that belong to this status set. |
 | label   string | The display label of the status. This label appears in the Assets UI when viewing statuses. The label must be unique within this status set, but does not need to be unique within the project (in other words, the same label can be used in multiple status sets in the same project). “Uniqueness” in this context means case-insensitive. |
 | description   string | A description of the status. |
-| color   string | The color of the status as the status appears in the Assets UI. <br>This field is not restricted as it is primarily a tool for the Assets UI to use.<br>However, there are only certain colors that the Autodesk Construction Cloud Assets UI knows how to operate with. Understood color values are: `adsk-black`, `adsk-white`, `adsk-charcoal-900`, `adsk-charcoal-800`, `adsk-charcoal-700`, `adsk-charcoal-600`, `adsk-charcoal-500`, `adsk-charcoal-400`, `adsk-charcoal-300`, `adsk-charcoal-200`, `adsk-charcoal-100`, `adsk-charcoal-050`, `adsk-blue-700`, `adsk-blue-500`, `adsk-blue-300`, `adsk-blue-100`, `adsk-red-700`, `adsk-red-500`, `adsk-red-300`, `adsk-green-700`, `adsk-green-500`, `adsk-green-300`, `adsk-yellow-orange-700`, `adsk-yellow-orange-500`, `adsk-yellow-orange-300`, `adsk-dark-blue-700`, `adsk-dark-blue-500`, `adsk-dark-blue-300`, `adsk-pink-700`, `adsk-pink-500`, `adsk-pink-300`, `adsk-turquoise-700`, `adsk-turquoise-500`, `adsk-turquoise-300`, `adsk-purple-700`, `adsk-purple-500`, `adsk-purple-300`, `adsk-salmon-700`, `adsk-salmon-500`, `adsk-salmon-300`, `adsk-brown-700`, `adsk-brown-500`, `adsk-brown-300`.<br>Using colors other than those specified here is not disallowed, but may result in unexpected behavior in<br>the Assets UI. |
+| color   string | The color of the status as the status appears in the Assets UI. <br>This field is not restricted as it is primarily a tool for the Assets UI to use.<br>However, there are only certain colors that the Forma Assets UI knows how to operate with. Understood color values are: `adsk-black`, `adsk-white`, `adsk-charcoal-900`, `adsk-charcoal-800`, `adsk-charcoal-700`, `adsk-charcoal-600`, `adsk-charcoal-500`, `adsk-charcoal-400`, `adsk-charcoal-300`, `adsk-charcoal-200`, `adsk-charcoal-100`, `adsk-charcoal-050`, `adsk-blue-700`, `adsk-blue-500`, `adsk-blue-300`, `adsk-blue-100`, `adsk-red-700`, `adsk-red-500`, `adsk-red-300`, `adsk-green-700`, `adsk-green-500`, `adsk-green-300`, `adsk-yellow-orange-700`, `adsk-yellow-orange-500`, `adsk-yellow-orange-300`, `adsk-dark-blue-700`, `adsk-dark-blue-500`, `adsk-dark-blue-300`, `adsk-pink-700`, `adsk-pink-500`, `adsk-pink-300`, `adsk-turquoise-700`, `adsk-turquoise-500`, `adsk-turquoise-300`, `adsk-purple-700`, `adsk-purple-500`, `adsk-purple-300`, `adsk-salmon-700`, `adsk-salmon-500`, `adsk-salmon-300`, `adsk-brown-700`, `adsk-brown-500`, `adsk-brown-300`.<br>Using colors other than those specified here is not disallowed, but may result in unexpected behavior in<br>the Assets UI. |
 | statusStepSetId   string: UUID | The ID of the status set to which the new status belongs. |
 | id   string | The ID of the component. |
 | createdAt   string | The time when the component was created (ISO8601 Date time format in UTC). |
@@ -116,7 +116,7 @@ Expand all
 | deletedBy   string | The actor that deleted the component. This is an Autodesk / Oxygen ID. |
 | isActive   boolean | A flag indicating whether the component is active or inactive (`isActive` is `true` if-and-only-if `deletedAt` is empty). |
 | version   int | A global sequence number that is incremented any time a component of this type is created, updated, or deleted. If you cache components, you can use the version value to compare the cached component to the same component online to see if the component has been updated. If the online component has a higher version value, it has been updated. |
-| projectId   string: UUID | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
+| projectId   string: UUID | The Forma project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
 | bucket   string | An immutable string assigned to a status on its creation, typically created by incorporating the status’s label into a larger string that is guaranteed to be unique within a project. The bucket name remains the same for the life of the status, and doesn’t change even if the label does. The bucket value is a useful tool for semantic identification. |
 | sortOrder   int | A value that indicates the order of a status within its status set. Each status in the set has a sort order value that indicates its order relative to other statuses in the set. A status set’s sort order values don’t necessarily start at 1, and may not be sequential. The only way to know a status’s order within a set is to compare its sort order value with the sort order values of other statuses. |
 

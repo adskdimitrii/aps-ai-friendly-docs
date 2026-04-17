@@ -15,8 +15,8 @@ Retrieves elements from given elementGroup at given elementGroup version, using 
 **Template for Query:**
 
 ```
-query GetElementsByElementGroupAtVersion($elementGroupId: ID!, $versionNumber: Int!, $filter: ElementFilterInput, $pagination: PaginationInput) {
-  elementsByElementGroupAtVersion(elementGroupId: $elementGroupId, versionNumber: $versionNumber, filter: $filter, pagination: $pagination) {
+query GetElementsByElementGroupAtVersion($elementGroupId: ID!, $versionNumber: Int!, $versionFilter: VersionFilterInput, $filter: ElementFilterInput, $pagination: PaginationInput) {
+  elementsByElementGroupAtVersion(elementGroupId: $elementGroupId, versionNumber: $versionNumber, versionFilter: $versionFilter, filter: $filter, pagination: $pagination) {
     # ElementsByElementGroupAtVersion Fields
   }
 }
@@ -29,6 +29,7 @@ query GetElementsByElementGroupAtVersion($elementGroupId: ID!, $versionNumber: I
 {
   "elementGroupId" : "<SOME-ID-TYPE-SCALAR-VALUE>",
   "versionNumber" : "<SOME-INT-TYPE-SCALAR-VALUE>",
+  "versionFilter" : "<SOME-VERSIONFILTER-INPUT-TYPE-VALUE>",
   "filter" : "<SOME-ELEMENTFILTER-INPUT-TYPE-VALUE>",
   "pagination" : "<SOME-PAGINATION-INPUT-TYPE-VALUE>"
 }
@@ -40,6 +41,7 @@ query GetElementsByElementGroupAtVersion($elementGroupId: ID!, $versionNumber: I
 | elementGroupId*   [ID!](scalars.md) `non-null` | ElementGroup to retrieve elements from. |
 | --- | --- |
 | versionNumber*   [Int!](scalars.md) `non-null` | ElementGroup version to retrieve elements from. |
+| versionFilter   [VersionFilterInput](inputs-versionfilterinput.md) | Optional. Specifies version resolution behavior (e.g. whether `versionNumber` refers to a PUBLISHED or WIP version). Defaults to PUBLISHED if not provided. |
 | filter   [ElementFilterInput](inputs-elementfilterinput.md) | RSQL filter to use for searching elements. |
 | pagination   [PaginationInput](inputs-paginationinput.md) | Specifies how to split the response into multiple pages. |
 

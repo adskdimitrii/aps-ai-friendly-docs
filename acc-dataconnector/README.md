@@ -7,63 +7,76 @@ The Data Connector provides bulk data extraction for ACC projects. This folder d
 <!-- GENERATED:CONTENT_SUMMARY:START -->
 ## Content Summary
 
-### Schema Changes Changelog
-A chronological log of all schema additions, modifications, deprecations, and deletions across all service groups.
-- [Schema Changes](schema-docs/changes.md)
+All documentation in this domain covers **ACC Data Connector schema definitions** — field-level reference for the tables and columns exposed by the Data Connector extraction pipeline. Files are in [`schema-docs/`](schema-docs/).
 
-### Activities (~21 tables)
-Audit trail data for admin, assets, bridge, cost, docs, issues, RFIs, sheets, and submittals — including activity records, change logs, custom attribute definitions, naming standards, and permissions.
-- [activities](schema-docs/activities.md)
-- Sub-schemas: [activities_admin_verb_column_details](schema-docs/activities_admin_verb_column_details.md), [activities_assets_verb_column_details](schema-docs/activities_assets_verb_column_details.md), [activities_cost_verb_column_details](schema-docs/activities_cost_verb_column_details.md), [activities_docs_verb_column_details](schema-docs/activities_docs_verb_column_details.md), [activities_issues_verb_column_details](schema-docs/activities_issues_verb_column_details.md), [activities_rfis_verb_column_details](schema-docs/activities_rfis_verb_column_details.md), [activities_sheets_verb_column_details](schema-docs/activities_sheets_verb_column_details.md), [activities_submittals_verb_column_details](schema-docs/activities_submittals_verb_column_details.md), [activities_bridge_verb_column_details](schema-docs/activities_bridge_verb_column_details.md)
+### Overview
 
-### Admin
-Account and project structure: accounts, projects, users, roles, companies, business units, services, and products.
-- [admin](schema-docs/admin.md) — 16 tables
+- [Index](schema-docs/_index.md) — top-level index of all available Data Connector schemas.
+
+### Activities
+
+Schema for the unified activity feed and per-module verb column details (10 files).
+
+- [Activities](schema-docs/activities.md) — base activity table schema
+- [Admin verb details](schema-docs/activities_admin_verb_column_details.md), [Assets](schema-docs/activities_assets_verb_column_details.md), [Bridge](schema-docs/activities_bridge_verb_column_details.md), [Cost](schema-docs/activities_cost_verb_column_details.md), [Docs](schema-docs/activities_docs_verb_column_details.md), [Issues](schema-docs/activities_issues_verb_column_details.md), [RFIs](schema-docs/activities_rfis_verb_column_details.md), [Sheets](schema-docs/activities_sheets_verb_column_details.md), [Submittals](schema-docs/activities_submittals_verb_column_details.md)
+
+### Admin & Projects
+
+Schema for project and account administration tables (3 files).
+
+- [Admin](schema-docs/admin.md), [CDC Admin](schema-docs/cdcadmin.md), [CDC v2 Admin](schema-docs/cdcv2admin.md)
+
+### Cost Management
+
+Schema for cost, estimates, and change management tables (5 files).
+
+- [Cost](schema-docs/cost.md), [CDC Cost](schema-docs/cdccost.md), [Estimates](schema-docs/estimates.md), [Changes](schema-docs/changes.md), [Packages](schema-docs/packages.md)
+
+### Issues & RFIs
+
+Schema for issues (ACC and BIM 360) and RFI tables (5 files).
+
+- [Issues](schema-docs/issues.md), [Issues (BIM 360)](schema-docs/issuesbim360.md), [CDC Issues](schema-docs/cdcissues.md), [RFIs](schema-docs/rfis.md), [CDC RFIs](schema-docs/cdcrfis.md)
 
 ### Assets
-Asset lifecycle data including asset records, categories, custom attributes, and status steps.
-- [assets](schema-docs/assets.md)
 
-### Cost (~40+ tables)
-Full cost control schema: budgets, contracts, change orders, cost items, payments, schedule of values, expenses, time sheets, distribution curves, and approval workflows.
-- [cost](schema-docs/cost.md)
-- [estimates](schema-docs/estimates.md)
+- [Assets](schema-docs/assets.md) — schema for asset tracking tables.
 
-### Issues
-Construction issue tracking with attachments, comments, custom attributes, placements, viewables, root causes, and subtypes.
-- [issues](schema-docs/issues.md) — 13 tables (ACC Issues)
-- [issuesbim360](schema-docs/issuesbim360.md) — BIM 360 issue schema variant
+### Sheets & Markups
 
-### RFIs
-RFI records, responses, comments, attachments, and workflow data.
-- [rfis](schema-docs/rfis.md)
+Schema for sheet management, markups, and photos (5 files).
 
-### Sheets
-Sheet metadata, version sets, uploads, and exports.
-- [sheets](schema-docs/sheets.md)
+- [Sheets](schema-docs/sheets.md), [CDC Sheets](schema-docs/cdcsheets.md), [Markups](schema-docs/markups.md), [CDC Markups](schema-docs/cdcmarkups.md), [Photos](schema-docs/photos.md)
 
-### Submittals
-Submittal items, packages, specs, tasks, revisions, and attachments.
-- [submittals](schema-docs/submittals.md)
-- [submittalsacc](schema-docs/submittalsacc.md)
+### Submittals & Transmittals
 
-### Checklists, Forms & Daily Logs
-- [checklists](schema-docs/checklists.md)
-- [forms](schema-docs/forms.md)
-- [dailylogs](schema-docs/dailylogs.md)
+Schema for submittal and transmittal workflows (5 files).
 
-### Model Coordination
-Clash detection and model coordination data.
-- [clashes](schema-docs/clashes.md)
+- [Submittals](schema-docs/submittals.md), [Submittals ACC](schema-docs/submittalsacc.md), [CDC Submittals ACC](schema-docs/cdcsubmittalsacc.md), [Transmittals](schema-docs/transmittals.md), [CDC Transmittals](schema-docs/cdctransmittals.md)
 
-### Locations, Relationships & Reviews
-- [locations](schema-docs/locations.md)
-- [relationships](schema-docs/relationships.md)
-- [reviews](schema-docs/reviews.md)
+### Schedule
 
-### Other Service Groups
-- [schedule](schema-docs/schedule.md), [classifications](schema-docs/classifications.md), [takeoff](schema-docs/takeoff.md), [markups](schema-docs/markups.md), [meetingminutes](schema-docs/meetingminutes.md), [photos](schema-docs/photos.md), [packages](schema-docs/packages.md), [transmittals](schema-docs/transmittals.md), [iq](schema-docs/iq.md)
+- [Schedule](schema-docs/schedule.md), [CDC Schedule](schema-docs/cdcschedule.md)
 
-### CDC (Cross-Data-Center) Variants
-Alternative schema variants for CDC-routed data: [cdcadmin](schema-docs/cdcadmin.md), [cdccost](schema-docs/cdccost.md), [cdcissues](schema-docs/cdcissues.md), [cdcrfis](schema-docs/cdcrfis.md), [cdcsheets](schema-docs/cdcsheets.md), [cdcsubmittalsacc](schema-docs/cdcsubmittalsacc.md), [cdcschedule](schema-docs/cdcschedule.md), [cdclocations](schema-docs/cdclocations.md), [cdcmarkups](schema-docs/cdcmarkups.md), [cdcmeetingminutes](schema-docs/cdcmeetingminutes.md), [cdcrelationships](schema-docs/cdcrelationships.md), [cdctransmittals](schema-docs/cdctransmittals.md), [cdciq](schema-docs/cdciq.md), [cdcv2admin](schema-docs/cdcv2admin.md)
+### Field Management
+
+Schema for daily field operations (4 files).
+
+- [Checklists](schema-docs/checklists.md), [Forms](schema-docs/forms.md), [Reviews](schema-docs/reviews.md), [Daily Logs](schema-docs/dailylogs.md)
+
+### Locations & Classifications
+
+- [Locations](schema-docs/locations.md), [CDC Locations](schema-docs/cdclocations.md), [Classifications](schema-docs/classifications.md)
+
+### Relationships & Clashes
+
+- [Relationships](schema-docs/relationships.md), [CDC Relationships](schema-docs/cdcrelationships.md), [Clashes](schema-docs/clashes.md)
+
+### Meeting Minutes
+
+- [Meeting Minutes](schema-docs/meetingminutes.md), [CDC Meeting Minutes](schema-docs/cdcmeetingminutes.md)
+
+### Insight & Quality (IQ) and Takeoff
+
+- [IQ](schema-docs/iq.md), [CDC IQ](schema-docs/cdciq.md), [Takeoff](schema-docs/takeoff.md)
 <!-- GENERATED:CONTENT_SUMMARY:END -->

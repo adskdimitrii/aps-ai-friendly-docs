@@ -14,7 +14,7 @@ Query input for filtering Elements.
 
 ## [Fields](#fields)
 
-| query   [String](scalars.md) | Filter query in RSQL format for searching elements. For more details, please refer to: [Advanced Filtering](https://aps.autodesk.com/en/docs/aecdatamodel/v1/developers_guide/API%20Essentials/aecdatamodel/v1/) |
+| query   [String](scalars.md) | Filter query in RSQL format for searching elements. For more details, please refer to: [Advanced Filtering](https://aps.autodesk.com/en/docs/aecdatamodel/v1/developers_guide/filtering/advanced-filtering/) |
 | --- | --- |
 | name   [[String!]](/en/docs/aecdatamodel/v1/reference/scalars) | Filter for elements with a specified name |
 | nameWithComparator   [[ValueComparatorInput!]](/en/docs/aecdatamodel/v1/reference/inputs/valuecomparatorinput) | Filter for elements with a specified name and comparator to apply |
@@ -22,8 +22,10 @@ Query input for filtering Elements.
 | references   [[ElementReferenceFilterInput!]](/en/docs/aecdatamodel/v1/reference/inputs/elementreferencefilterinput) | Filter for elements with specified reference properties |
 | createdBy   [[String!]](/en/docs/aecdatamodel/v1/reference/scalars) | Filter for elements created by a specified user (email) |
 | lastModifiedBy   [[String!]](/en/docs/aecdatamodel/v1/reference/scalars) | Filter for elements last modified by a specified user (email) |
-| elementId   [[String!]](/en/docs/aecdatamodel-beta/v1/reference/scalars) | Filter for elements by their ids |
-| revitElementId   [[String!]](/en/docs/aecdatamodel-beta/v1/reference/scalars) | Filter for elements by their revit element ids |
+| elementId   [[String!]](/en/docs/aecdatamodel/v1/reference/scalars) | Filter for elements by their ids |
+| revitElementId   [[String!]](/en/docs/aecdatamodel/v1/reference/scalars) | Filter for elements by their revit element ids |
+| extensibilityFilter   [ExtensibilityFilterInput](inputs-extensibilityfilterinput.md) | Filter for elements by their extension properties |
+| originComponentFilter   [OriginComponentFilterInput](inputs-origincomponentfilterinput.md) | Filter for elements by their origin component |
 
 ## [Where Used](#where-used)
 
@@ -35,5 +37,7 @@ Query input for filtering Elements.
 | Argument for Query | [elementsByElementGroup](queries-elementsbyelementgroup.md) | Retrieves elements from given elementGroup, using additional RSQL filters if provided. |
 | Argument for Query | [elementsByElementGroups](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/queries/elementsbyelementgroups/) | Retrieves elements from a given set of elementGroups, using additional RSQL filters if provided. |
 | Argument for Query | [elementsByElementGroupAtVersion](queries-elementsbyelementgroupatversion.md) | Retrieves elements from given elementGroup at given elementGroup version, using additional RSQL filters if provided. |
+| Argument for Query | [distinctPropertyValuesInElementGroupById](queries-distinctpropertyvaluesinelementgroupbyid.md) | Retrieves distinct values in an ElementGroup given a property definition ID. |
+| Argument for Query | [distinctPropertyValuesInElementGroupByName](queries-distinctpropertyvaluesinelementgroupbyname.md) | Retrieves distinct values in an ElementGroup given a property name. |
 | Argument for Field | [Element](objects-element.md) | Represents an element type. |
 | Argument for Field | [ElementGroup](objects-elementgroup.md) | Represents a Revit model. |

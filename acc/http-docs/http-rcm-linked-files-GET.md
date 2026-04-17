@@ -18,9 +18,9 @@ This API is only supported for models published after February 7, 2025.
 
 The `Authorization` header token can be obtained through either the [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow or the [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) OAuth flow with user impersonation, which requires the `x-user-Id` header.
 
-For details on how to use this endpoint, see the [Download RVT Files from a Published Model](../how-to-docs/files-rcm-linked-files.md) tutorial.
+For details on how to use this endpoint, see the [Download RVT Files from a Published Model](https://aps.autodesk.com/en/docs/acc/v1/tutorials/files/rcm-linked-files/) tutorial.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 Note that for a 3-legged OAuth flow or for a 2-legged OAuth flow with user impersonation (`x-user-id`), the user must have at least `download` permission to the Revit (RVT) cloud model.
 
@@ -36,9 +36,8 @@ Note that for a 3-legged OAuth flow or for a 2-legged OAuth flow with user imper
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
-| --- | --- |
-| x-user-id   string | The ID of the user on whose behalf the request is made. This header is only required when using two-legged authentication with user impersonation. It is not needed for three-legged authentication. <br>By providing this header, the API call is limited to act on behalf of the user specified. The user must have at least download permission to the host model.<br>Your application can act on behalf of any user who has been authorized in the SaaS Integrations UI. You can only provide the user’s Autodesk ID (`autodeskId`) as the value of this header. |
+- Authorization*string Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context.
+- x-user-idstring The ID of the user on whose behalf the request is made. This header is only required when using two-legged authentication with user impersonation. It is not needed for three-legged authentication. By providing this header, the API call is limited to act on behalf of the user specified. The user must have at least download permission to the host model.Your application can act on behalf of any user who has been authorized in the SaaS Integrations UI. You can only provide the user’s Autodesk ID (`autodeskId`) as the value of this header.
 
 * Required
 
@@ -50,7 +49,7 @@ Note that for a 3-legged OAuth flow or for a 2-legged OAuth flow with user imper
 
 - Example with prefix: `b.563a4c30-e30d-4869-ac02-2a18b6447abe`
 - Example without prefix: `563a4c30-e30d-4869-ac02-2a18b6447abe`
-- versionIdstring The URL-encoded version ID (URN) of the published Revit model version for which you want to retrieve linked files. When a Cloud Workshared Revit model is published in BIM 360 or the Autodesk Construction Cloud (ACC), a new version ID is created for each published Revit model version.Every time a model is updated and published, it receives a new unique version ID.You must provide a version ID to retrieve the linked files for that specific published Revit model version.To retrieve the latest (`tip`) version ID, use [GET projects/:project_id/folders/:folder_id/contents](../../data/http-docs/http-projects-project_id-folders-folder_id-contents-GET.md). To filter out non-cloud workshared Revit files, use the `items:autodesk.bim360:C4RModel` filter .To retrieve a specific past version, use [GET projects/:project_id/items/:item_id/versions](../../data/http-docs/http-projects-project_id-items-item_id-versions-GET.md).For more details about retrieving the version ID, see the [Retrieve Signed URLs for Linked RVT Files](../how-to-docs/files-rcm-linked-files.md) tutorial.
+- versionIdstring The URL-encoded version ID (URN) of the published Revit model version for which you want to retrieve linked files. When a Cloud Workshared Revit model is published in BIM 360 or Forma, a new version ID is created for each published Revit model version.Every time a model is updated and published, it receives a new unique version ID.You must provide a version ID to retrieve the linked files for that specific published Revit model version.To retrieve the latest (`tip`) version ID, use [GET projects/:project_id/folders/:folder_id/contents](../../data/http-docs/http-projects-project_id-folders-folder_id-contents-GET.md). To filter out non-cloud workshared Revit files, use the `items:autodesk.bim360:C4RModel` filter .To retrieve a specific past version, use [GET projects/:project_id/items/:item_id/versions](../../data/http-docs/http-projects-project_id-items-item_id-versions-GET.md).For more details about retrieving the version ID, see the [Retrieve Signed URLs for Linked RVT Files](https://aps.autodesk.com/en/docs/acc/v1/tutorials/files/rcm-linked-files/) tutorial.
 
 ### Request
 

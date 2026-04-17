@@ -26,7 +26,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 | Method and URI | POST https://developer.api.autodesk.com/construction/reviews/v1/projects/{projectId}/reviews |
 | --- | --- |
-| Authentication Context | user context optional |
+| Authentication Context | User context optional |
 | Required OAuth Scopes | `data:write` |
 | Data Format | JSON |
 
@@ -34,7 +34,7 @@ Note that this endpoint is not compatible with BIM 360 projects.
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 | x-user-id   string | The ID of a user on whose behalf the request is made. Your application has access to all users specified by the administrator in the SaaS Integrations UI. Use this header to specify which user should be affected by the request. <br>This header is only required when using two-legged authentication. It is not needed for three-legged authentication.<br>Only user’s Autodesk ID (`autodeskId`) can be accepted. |
 | Content-Type*   string | Must be `application/json` |
@@ -59,12 +59,12 @@ Expand all
 | name*   string | The name of the review. Maximum length: 255 characters. <br>Max length: 255 |
 | --- | --- |
 | fileVersions*   array: object | The file versions to include in the review. Maximum: 1000 items. |
-| urn*   string | The URN of the file version. <br>You can find this value by following the first four steps of the [Download a File](../how-to-docs/files-download-document-s3.md) tutorial and noting the `included.id` field in the response. Note that the Step 4 request in the tutorial returns only the latest version of each file in the folder.<br>Use the `included.attributes.name` or `included.attributes.displayName` fields in the response to confirm you have the correct file. |
+| urn*   string | The URN of the file version. <br>You can find this value by following the first four steps of the [Download a File](https://aps.autodesk.com/en/docs/acc/v1/tutorials/files/download-document-s3/) tutorial and noting the `included.id` field in the response. Note that the Step 4 request in the tutorial returns only the latest version of each file in the folder.<br>Use the `included.attributes.name` or `included.attributes.displayName` fields in the response to confirm you have the correct file. |
 | workflowId*   string: UUID | The ID of the approval workflow used to create the review. <br>To list available workflows, call [GET workflows](http-reviews-workflows-GET.md). |
 | notes   string | A note about the review. In the UI, this appears as the `Description` field. <br>Maximum length: 4096 characters.<br>Max length: 4096 |
 | workflowOptions   object | Optional parameters that override approval workflow settings for this review (for example, steps, copy settings, or additional options). |
 | copyFilesOptions   object | (`Copy approved files` in the UI) Option for copying approved files when the review is complete. |
-| folderUrn   string | (`Then copy approved files to` in the UI) The URN of the target folder where approved files will be copied. <br>To find the folder URN, follow the first four steps of the [Upload Files to the ACC Files tool](../how-to-docs/files-upload-document-s3.md) tutorial and note the `data.id` field in the response. Use `data.attributes.name` or `data.attributes.displayName` to confirm you have the correct folder. |
+| folderUrn   string | (`Then copy approved files to` in the UI) The URN of the target folder where approved files will be copied. <br>To find the folder URN, follow the first four steps of the [Upload Files to the Forma Files tool](https://aps.autodesk.com/en/docs/acc/v1/tutorials/files/upload-document-s3/) tutorial and note the `data.id` field in the response. Use `data.attributes.name` or `data.attributes.displayName` to confirm you have the correct folder. |
 | steps   array: object | Assigns participants to the steps defined in the approval workflow. If omitted, the review inherits default candidates from the workflow. If provided, your assignments replace the defaults for that step. Multiple `REVIEWER` steps run sequentially in the order returned by [GET workflows](http-reviews-workflows-GET.md). |
 | id*   string | The ID of the step in the approval workflow. Use this value to set the candidates for the step when creating the review. Retrieve step IDs by calling [GET workflows](http-reviews-workflows-GET.md). |
 | candidates*   object | (Displayed in the UI when selecting Reviewers/Approvers for a step) Defines the users, roles, or companies to specify for this step of the approval workflow. At least one of the fields (`users`, `roles`, or `companies`) must be provided. |

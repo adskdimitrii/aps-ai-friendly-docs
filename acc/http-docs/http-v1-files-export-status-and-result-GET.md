@@ -24,7 +24,7 @@ For more details about exporting files, see the [Export Files](https://help.auto
 
 | Method and URI | GET https://developer.api.autodesk.com/construction/files/v1/projects/{projectId}/exports/{exportId} |
 | --- | --- |
-| Authentication Context | user context optional |
+| Authentication Context | User context optional |
 | Required OAuth Scopes | `data:read` |
 | Data Format | JSON |
 
@@ -32,9 +32,8 @@ For more details about exporting files, see the [Export Files](https://help.auto
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
-| --- | --- |
-| x-user-id   string | The ID of a user on whose behalf your API request is acting. Required if you’re using a 2-legged authentication context, which must be 2-legged OAuth2 security with user impersonation. <br>The app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified.<br>You can use either the user’s ACC ID (id), or their Autodesk ID (autodeskId). |
+- Authorization*string Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context.
+- x-user-idstring The ID of a user on whose behalf your API request is acting. Required if you’re using a 2-legged authentication context, which must be 2-legged OAuth2 security with user impersonation. The app has access to all users specified by the administrator in the SaaS integrations UI. By providing this header, the API call will be limited to act on behalf of only the user specified.You can use either the user’s Forma ID (id), or their Autodesk ID (autodeskId).
 
 * Required
 
@@ -53,9 +52,9 @@ For more details about exporting files, see the [Export Files](https://help.auto
 | --- | --- |
 | 400   Bad Request | The parameters of the requested operation are invalid. <br>Sample error code with possible messages:<br>ERR_BAD_INPUT: <br>  Failed to parse the token |
 | 401   Unauthorized | The provided bearer token is not valid. <br>Sample error code with possible messages:<br>ERR_AUTHENTICATED_ERROR: <br>  Authentication header is not correct |
-| 403   Forbidden | The user or service represented by the bearer token does not have permission to perform this operation. <br>Sample error code with possible messages:<br>ERR_NOT_ALLOWED: <br>  Account inactive  Project inactive  User inactive  Api access deny  User {userId} does not have download permission on resource {resource} |
+| 403   Forbidden | The user or service represented by the bearer token does not have permission to perform this operation. <br>Sample error code with possible messages:<br>ERR_NOT_ALLOWED: <br>  Hub inactive  Project inactive  User inactive  Api access deny  User {userId} does not have download permission on resource {resource} |
 | 404   Not Found | The project, project user or the exporting job is not found <br>Sample error code with possible messages:<br>ERR_RESOURCE_NOT_EXIST: <br>  Project not found  Project user not found  The job does not exist |
-| 500   Internal Server Error | An unknown error occurred on the server. <br>Sample error code with possible messages:<br>ERR_INTERNAL_SERVER_ERROR: <br>  Request failed for internal exception xxx  Failed to get account  Failed to get project  Failed to get user ERR_WORKFLOW_TIMEOUT <br>  Workflow Timeout Error |
+| 500   Internal Server Error | An unknown error occurred on the server. <br>Sample error code with possible messages:<br>ERR_INTERNAL_SERVER_ERROR: <br>  Request failed for internal exception xxx  Failed to get hub  Failed to get project  Failed to get user ERR_WORKFLOW_TIMEOUT <br>  Workflow Timeout Error |
 
 ### Response
 

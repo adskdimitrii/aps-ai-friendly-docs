@@ -22,12 +22,33 @@ The following describes the columns included for each schema change and the mean
 - **watermark**: watermark number for the change set - this can be used to see the changes that were grouped together in a release  
 *Note: the colors have no meaning other than to to help visually group changes*
 
+## March, 2026
+
+The following changes were made to the ACC Data Schema during the month of March, 2026
+
+| service_group | table | column | change_type | notes | watermark |
+| --- | --- | --- | --- | --- | --- |
+| cdcschedule | plan_tasks |  | ADDED | plan_tasks table added to the schema. | 1773188741 |
+| cdcschedule | plan_task_comments |  | ADDED | plan_task_comments table added to the schema. | 1773188741 |
+| cdcschedule | plan_project_settings |  | ADDED | plan_project_settings table added to the schema. | 1773188741 |
+| cdcschedule | plan_plans |  | ADDED | plan_plans table added to the schema. | 1773188741 |
+| cdcschedule | plan_handoffs |  | ADDED | plan_handoffs table added to the schema. | 1773188741 |
+| cdcschedule | plan_commitments |  | ADDED | plan_commitments table added to the schema. | 1773188741 |
+| schedule | plan_tasks |  | ADDED | plan_tasks table added to the schema. | 1773188741 |
+| schedule | plan_task_comments |  | ADDED | plan_task_comments table added to the schema. | 1773188741 |
+| schedule | plan_project_settings |  | ADDED | plan_project_settings table added to the schema. | 1773188741 |
+| schedule | plan_plans |  | ADDED | plan_plans table added to the schema. | 1773188741 |
+| schedule | plan_handoffs |  | ADDED | plan_handoffs table added to the schema. | 1773188741 |
+| schedule | plan_commitments |  | ADDED | plan_commitments table added to the schema. | 1773188741 |
+| admin | business_units | path | ADDED | Column added to the business_units table in the schema. | 1773188741 |
+
 ## February, 2026
 
 The following changes were made to the ACC Data Schema during the month of February, 2026
 
 | service_group | table | column | change_type | notes | watermark |
 | --- | --- | --- | --- | --- | --- |
+|  |
 | forms | weather_hours | hour | MODIFIED | Changed data type from string to time | 1770238801 |
 | cdcissues | viewables | guid | MODIFIED | Changed data type to string | 1770238801 |
 | cdcissues | viewables | file_version | MODIFIED | Changed data type from string to number | 1770238801 |
@@ -857,4 +878,4 @@ The following changes were made to the ACC Data Schema during the month of Janua
 | admin | project_user_products | created_at | ADDED | Column added to the project_user_products table in the schema. | 1695408731 |
 | forms | native_form_values |  | ADDED | native_form_values table added to the schema. | 1695408731 |
 
-© Copyright 2026 Autodesk Inc. | [Autodesk Construction Cloud](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)
+© Copyright 2026 Autodesk Inc. | [Autodesk Forma](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)

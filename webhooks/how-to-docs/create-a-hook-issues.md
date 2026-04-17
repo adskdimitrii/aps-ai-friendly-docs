@@ -1,30 +1,30 @@
-# Creating a Webhook and Listening to ACC Issue Events
+# Creating a Webhook and Listening to Forma Issue Events
 
 Source: https://aps.autodesk.com/en/docs/webhooks/tutorials/create-a-hook-issues/
 
 ---
 
-# Creating a Webhook and Listening to ACC Issue Events
+# Creating a Webhook and Listening to Forma Issue Events
 
-This walkthrough demonstrates how to create a webhook to register callbacks for [Autodesk Construction Cloud (ACC) Issue events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/issues_events/). The steps include finding the scope ID for the events, choosing the event type for the webhook to listen for, preparing to handle callbacks, and creating the webhook.
+This walkthrough demonstrates how to create a webhook to register callbacks for [Forma Issue events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/issues_events/). The steps include finding the scope ID for the events, choosing the event type for the webhook to listen for, preparing to handle callbacks, and creating the webhook.
 
-For more details about the Autodesk Construction Cloud (ACC) Issues API, see the [Issues API Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/issues/).
+For more details about the Forma Issues API, see the [Issues API Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/issues/).
 
 ## [Before You Begin](#before-you-begin)
 
-- [Register an app](https://aps.autodesk.com/myapps) and select the ACC Issues API.
+- [Register an app](https://aps.autodesk.com/myapps) and select the Forma Issues API.
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read` and `data:create` scopes. These are required to access the Webhooks API and to create a webhook. For more information about scopes, see the [Scopes section](../../oauth/developers-guide-docs/scopes.md) in the Authentication API.
-- Only users with **Project Admin** permissions can successfully create webhooks for ACC Issues.
+- Only users with **Project Admin** permissions can successfully create webhooks for Forma Issues.
 
 ## [Step 1 : Find the Scope ID for Events](#step-1-find-the-scope-id-for-events)
 
-The Webhooks service uses the project ID as the scope for ACC Issue events. To find the project ID, see the [`Retrieve Project ID /en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/>`_](#id1) tutorial.
+The Webhooks service uses the project ID as the scope for Forma Issue events. To find the project ID, see the [`Retrieve Project ID /en/docs/acc/v1/tutorials/getting-started/retrieve-account-and-project-id/>`_](#id2) tutorial.
 
 For more information about webhook scopes, see the [Field Guide](https://aps.autodesk.com/en/docs/webhooks/v1/developers_guide/field-guide/).
 
 ## [Step 2 : Select an Event Type for Webhook Registration](#step-2-select-an-event-type-for-webhook-registration)
 
-The Webhooks service currently supports the events listed on the [ACC Issue Events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/issues_events/) page.
+The Webhooks service currently supports the events listed on the [Forma Issue Events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/issues_events/) page.
 
 You can specify multiple event types by including wildcards in the event type name using the asterisk (`*`) character, which matches zero or more characters in the name. For example:
 
@@ -97,6 +97,6 @@ Connection: keep-alive
 
 ```
 
-Note that creating a webhook for ACC Issues requires Project Admin permissions for the target project.
+Note that creating a webhook for Forma Issues requires Project Admin permissions for the target project.
 
 Your configured `callbackUrl` should receive the notifications when a new issue is created in the project `d6a37470-0539-40eb-89ff-9aeb8680066d`.

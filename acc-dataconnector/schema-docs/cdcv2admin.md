@@ -284,4 +284,4 @@ Users in BIM 360. - This is the Change Data Capture (CDC) enabled version of the
 | 167 | deleted_at | timestamp: SQL |  | Timestamp when the user was deleted Column used for filtering Date Range Extraction requests |
 | 168 | adsk_row_id | string |  | Unique row identifier to be used in CDC operations |
 
-© Copyright 2025 Autodesk Inc. | [Autodesk Construction Cloud](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)
+© Copyright 2026 Autodesk Inc. | [Autodesk Forma](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)

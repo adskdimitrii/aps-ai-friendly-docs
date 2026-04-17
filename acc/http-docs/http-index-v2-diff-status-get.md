@@ -12,7 +12,7 @@ GET
 
 Retrieve the diff status for the given diff ID. Depending on the state different properties might be present or missing. E.g., if the diff job is not finished yet, the manifest, fields, and properties links might be missing, but the retryAt property will be present. If the processing failed for some reason, the errors property will contain some information. Once the final result of the diff job has been determined (either finished or failed), the status is assumed to be immutable and the response will set a long expiration HTTP header for efficient client side caching.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

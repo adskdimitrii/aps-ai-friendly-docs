@@ -6,9 +6,9 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/admin/admin-create-config
 
 # Create and Configure Projects
 
-This tutorial demonstrates how to create and configure an ACC project. The steps include creating the project, checking the product activation status, assigning members to the project, and retrieving information about the project and its members.
+This tutorial demonstrates how to create and configure a Forma project. The steps include creating the project, checking the product activation status, assigning members to the project, and retrieving information about the project and its members.
 
-For more information about projects, project templates, and project members, see the [Account Administration API Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/admin/).
+For more information about projects, project templates, and project members, see the [Hub Administration API Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/admin/).
 
 ## [Before You Begin](#before-you-begin)
 
@@ -16,11 +16,11 @@ For more information about projects, project templates, and project members, see
 -
 
 Acquire a [3-legged](../../oauth/how-to-docs/get-3-legged-token.md) or [2-legged](../../oauth/how-to-docs/get-2-legged-token.md) Oauth token with `data:read`, `data:write`, `account:read`, and `account:write` scopes.
-:   * For a 3-legged token, ensure that the user is an account administrator (or a project administrator if **Allow project administrators to create projects and project templates** is enabled in Account Settings).
-      * For a 2-legged token, the `User-Id` header is required to process the Account Admin endpoints. Retrieve the user ID by calling [GET users/search](../http-docs/http-users-search-GET.md) with your 2-legged OAuth token and the user’s email address. Ensure that the user is an account administrator (or a project administrator if **Allow project administrators to create projects and project templates** is enabled in Account Settings).
+:   * For a 3-legged token, ensure that the user is a Hub Admin (or a project administrator if **Allow project administrators to create projects and project templates** is enabled in Hub Settings).
+      * For a 2-legged token, the `User-Id` header is required to process the Hub Admin endpoints. Retrieve the user ID by calling [GET users/search](../http-docs/http-users-search-GET.md) with your 2-legged OAuth token and the user’s email address. Ensure that the user is a Hub Admin (or a project administrator if **Allow project administrators to create projects and project templates** is enabled in Hub Settings).
 
-- Verify that you have access to the relevant account.
-- Find the relevant account ID for the account you want to create a project in by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the account ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`.
+- Verify that you have access to the relevant hub.
+- Find the relevant hub ID for the hub you want to create a project in by following the [Retrieve Forma Hub and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the hub ID is `g5s4e3b5-vbta-6b02-d23a-5d55f36ba876`.
 
 ## [Step 1: Create a Project](#step-1-create-a-project)
 
@@ -29,7 +29,7 @@ You can create a project in two ways:
 - Option 1A — Clone the project from a project template. This assumes an appropriate project template has been created and configured. We strongly recommend this if you expect to implement multiple similar projects.
 - Option 1B — Create the project directly. This option works well for a one-off project when you don’t have a project template.
 
-Note that you can use [POST projects](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-accountsaccountidprojects-POST/) to create a project template, then use the ACC Build UI to edit the template details and permissions, add project members to the template, and configure the template’s notification settings. For more information about working with project templates, see [Project Administration > Project Templates](https://help.autodesk.com/view/BUILD/ENU/?guid=Templates_About) and [Account Administration > Project Templates](https://help.autodesk.com/view/BUILD/ENU/?guid=Account_Admin_Project_Templates) in Build Help.
+Note that you can use [POST projects](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-accountsaccountidprojects-POST/) to create a project template, then use the Forma Build UI to edit the template details and permissions, add project members to the template, and configure the template’s notification settings. For more information about working with project templates, see [Project Administration > Project Templates](https://help.autodesk.com/view/BUILD/ENU/?guid=Templates_About) and [Hub Administration > Project Templates](https://help.autodesk.com/view/BUILD/ENU/?guid=Account_Admin_Project_Templates) in Build Help.
 
 ### Option 1A: Clone the project from a project template
 
@@ -151,7 +151,7 @@ Note that this operation does not automatically assign the template project memb
 
 ### Option 1B: Create the project directly
 
-To create the project, call [POST projects](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-accountsaccountidprojects-POST/). This endpoint automatically adds to the project all of the products (and their settings) that are associated with the current ACC account.
+To create the project, call [POST projects](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-accountsaccountidprojects-POST/). This endpoint automatically adds to the project all of the products (and their settings) that are associated with the current Forma hub.
 
 #### Request
 
@@ -318,7 +318,7 @@ Show More
 
 Show More
 
-Find and note the project ID (`id`) - `3e354e66-ac8b-41dd-9bc1-93fc182c25dd`. Once the project is created, the Account Admin service launches an asynchronous job to activate all of the added products.
+Find and note the project ID (`id`) - `3e354e66-ac8b-41dd-9bc1-93fc182c25dd`. Once the project is created, the Hub Admin service launches an asynchronous job to activate all of the added products.
 
 Note that currently, you cannot use `jobId` to check the progress of product activation in your project.
 
@@ -420,7 +420,7 @@ How you assign project members depends on how you created your project:
 
 If you just cloned your project from a template, call [POST users](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-users-POST/) to assign a project administrator to the project, which triggers the assignment of all template project members to the project.
 
-The administrator can be any user who is currently in the same account as the project. Include the products object in the request, with `products.key` set to `projectAdministration`, and `products.access` set to `administrator`.
+The administrator can be any user who is currently in the same hub as the project. Include the products object in the request, with `products.key` set to `projectAdministration`, and `products.access` set to `administrator`.
 
 Note that the template *configuration* members are never automatically assigned to a cloned project.
 
@@ -524,7 +524,7 @@ Show More
 
 Note that you identify the user by `email` in the request, and the response contains the user’s new project `id`.
 
-Note that if you assign a project administrator who isn’t in the cloned project’s account, the template project members are not automatically assigned to the new project. In that case, you can assign the same members (as well as additional users from the same account) directly to the project (Option 3B).
+Note that if you assign a project administrator who isn’t in the cloned project’s hub, the template project members are not automatically assigned to the new project. In that case, you can assign the same members (as well as additional users from the same hub) directly to the project (Option 3B).
 
 ### Option 3B: Assign one or more project members directly
 
@@ -537,7 +537,7 @@ You can assign project members directly to a cloned or production project:
 
 Call [POST projects/:projectId/users:import](https://aps.autodesk.com/en/docs/acc/v1/reference/http/admin-projects-projectId-users-import-POST/) to assign one or more users to the project at a time. Include at least one project administrator if you haven’t done so already.
 
-The administrator can be any user who is currently in the same account as the project. Include the products object in the request, with `products.key` set to `projectAdministration`, and `products.access` set to `administrator`.
+The administrator can be any user who is currently in the same hub as the project. Include the products object in the request, with `products.key` set to `projectAdministration`, and `products.access` set to `administrator`.
 
 #### Request
 

@@ -97,4 +97,4 @@ List of structures on project level
 | 5 | created_at | timestamp: SQL |  | Timestamp the structure was created at |
 | 6 | updated_at | timestamp: SQL |  | Timestamp the structure was updated at |
 
-© Copyright 2026 Autodesk Inc. | [Autodesk Construction Cloud](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)
+© Copyright 2026 Autodesk Inc. | [Autodesk Forma](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)

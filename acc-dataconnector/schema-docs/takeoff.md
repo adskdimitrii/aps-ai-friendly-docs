@@ -182,4 +182,4 @@ Takeoff types are used to organize and describe groups of takeoff items with sha
 | 8 | updated_at | timestamp: SQL |  | Date the resource was updated |
 | 9 | package_id | string: UUID |  | Foreign Key: Table: packages Column: id |
 
-© Copyright 2026 Autodesk Inc. | [Autodesk Construction Cloud](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)
+© Copyright 2026 Autodesk Inc. | [Autodesk Forma](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)

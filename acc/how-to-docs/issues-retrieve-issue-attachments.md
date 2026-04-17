@@ -6,14 +6,14 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/issues/retrieve-issue-att
 
 # Retrieve Issue Attachments
 
-This tutorial demonstrates how to retrieve information about attachments associated with issues in an Autodesk Construction Cloud (ACC) project. The steps include finding issues in a project and retrieving attachment information for a specific issue.
+This tutorial demonstrates how to retrieve information about attachments associated with issues in a Forma project. The steps include finding issues in a project and retrieving attachment information for a specific issue.
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:read` scope.
-- Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project containing issues with attachments by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`.
+- Verify that you have access to the relevant hub and Forma project.
+- Find the relevant project ID for the project containing issues with attachments by following the [Retrieve a Forma Hub and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the project ID is `b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`.
 
 ## [Step 1: Find Issues in Project](#step-1-find-issues-in-project)
 
@@ -167,4 +167,4 @@ curl -v 'https://developer.api.autodesk.com/construction/issues/v1/projects/b8c4
 
 Show More
 
-Congratulations! You have successfully retrieved attachment information for an issue in Autodesk Construction Cloud. You can use this information to display attachment details, check file sizes, or prepare for downloading specific attachments.
+Congratulations! You have successfully retrieved attachment information for an issue in Forma. You can use this information to display attachment details, check file sizes, or prepare for downloading specific attachments.

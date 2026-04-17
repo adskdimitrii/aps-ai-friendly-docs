@@ -21,7 +21,7 @@ from the parent category.
 
 To understand the basics of status sets, inheritance, and the Assets settings that define them, see the [Assets Field Guide](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/assets/).
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
@@ -44,7 +44,7 @@ To understand the basics of status sets, inheritance, and the Assets settings th
 
 ## [URI Parameters](#uri-parameters)
 
-| projectId   string | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
+| projectId   string | The Forma project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
 | --- | --- |
 | categoryId   string | The category ID |
 | statusStepSetId   string: UUID | The status set ID |
@@ -77,7 +77,7 @@ To understand the basics of status sets, inheritance, and the Assets settings th
 | deletedBy   string | The actor that deleted the component. This is an Autodesk / Oxygen ID. |
 | isActive   boolean | A flag indicating whether the component is active or inactive (`isActive` is `true` if-and-only-if `deletedAt` is empty). |
 | version   int | A global sequence number that is incremented any time a component of this type is created, updated, or deleted. If you cache components, you can use the version value to compare the cached component to the same component online to see if the component has been updated. If the online component has a higher version value, it has been updated. |
-| projectId   string: UUID | The Autodesk Construction Cloud project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
+| projectId   string: UUID | The Forma project ID. Must be a UUID or a project ID of the form “b.{UUID}”. |
 | categoryId   string | The ID of the category to which the status set is assigned. |
 | statusStepSetId   string: UUID | The ID of the status set assigned to the category. |
 

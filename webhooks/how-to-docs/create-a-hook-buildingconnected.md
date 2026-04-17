@@ -110,3 +110,7 @@ Connection: keep-alive
 ```
 
 Your configured `callbackUrl` should receive the notifications when a new comment is added to an opportunity for your company `594206015caedd954831e5b8`.
+
+### Alpha Environment
+
+To create a webhook for the BuildingConnected alpha environment, use `autodesk.construction.bc.alpha` as the `system` value instead of `autodesk.construction.bc`.

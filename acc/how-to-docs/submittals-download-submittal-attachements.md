@@ -6,14 +6,14 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/submittals/download-submi
 
 # Download Submittal Attachments
 
-This tutorial demonstrates how to download attachments that were added to submittal items in ACC Submittals. For more information about ACC Submittals, see the [Submittals Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Submittals_Overview). The steps include finding the ID of the submittal item that is associated with the attachment that you want to download, finding the storage object ID for the relevant attachment, retreiving a signed-URL for the attachment, and using the signed-URL to download the attachment.
+This tutorial demonstrates how to download attachments that were added to submittal items in Forma Submittals. For more information about Forma Submittals, see the [Submittals Help documentation](https://help.autodesk.com/view/BUILD/ENU/?guid=Submittals_Overview). The steps include finding the ID of the submittal item that is associated with the attachment that you want to download, finding the storage object ID for the relevant attachment, retreiving a signed-URL for the attachment, and using the signed-URL to download the attachment.
 
 ## [Before You Begin](#before-you-begin)
 
 - [Register an app](https://aps.autodesk.com/myapps)
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with the `data:read` scope.
-- Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to download an attachment from. See the [Retrieve a Project ID](getting-started-retrieve-account-and-project-id.md) tutorial for more details. In this example, assume the project ID is `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`.
+- Verify that you have access to the relevant hub and Forma project.
+- Find the relevant project ID for the project you want to download an attachment from. See the [Retrieve Forma Hub and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial for more details. In this example, assume the project ID is `f6a1e3b5-abaa-4b01-b33a-5d55f36ba047`.
 
 ## [Step 1: Find the Submittal Item ID](#step-1-find-the-submittal-item-id)
 
@@ -292,4 +292,4 @@ curl -X GET "https://cdn.us.oss.api.autodesk.com/com.autodesk.oss-persistent/us-
 
 ```
 
-Congratulations! You have downloaded an attachment from ACC submittals.
+Congratulations! You have downloaded an attachment from Forma submittals.

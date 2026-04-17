@@ -231,4 +231,4 @@ Root Causes for BIM 360 Issues.
 | 12 | deleted_at | timestamp: SQL |  | Date and time the issue type was deleted in ISO8601 format |
 | 13 | is_system | boolean |  | Is this a system level root cause? |
 
-© Copyright 2026 Autodesk Inc. | [Autodesk Construction Cloud](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)
+© Copyright 2026 Autodesk Inc. | [Autodesk Forma](https://construction.autodesk.com/) | [About Autodesk](https://www.autodesk.com/company)

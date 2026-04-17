@@ -16,7 +16,7 @@ You can use the BIM360 Issues API to obtain individual issues. See [GET issues/:
 
 The response contains context for the set of assigned clash groups.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

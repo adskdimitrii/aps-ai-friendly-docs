@@ -14,7 +14,7 @@ Retrieves a requested relationship based on the relationship’s ID.
 
 Returns the requested relationship object.
 
-  Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+  Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 

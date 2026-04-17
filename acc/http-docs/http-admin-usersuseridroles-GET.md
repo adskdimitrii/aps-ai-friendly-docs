@@ -12,14 +12,14 @@ GET
 
 Returns the roles assigned to a specific user across the projects they belong to.
 
-Only users with account admin permissions can call this endpoint. To verify a user’s permissions, call [GET users](http-admin-projectsprojectId-users-GET.md).
-> Note that this endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.
+Only users with hub admin permissions can call this endpoint. To verify a user’s permissions, call [GET users](http-admin-projectsprojectId-users-GET.md).
+> Note that this endpoint is compatible with both BIM 360 and Forma projects.
 
 ## [Resource Information](#resource-information)
 
 | Method and URI | GET https://developer.api.autodesk.com/construction/admin/v1/accounts/:accountId/users/:userId/roles |
 | --- | --- |
-| Authentication Context | user context optional |
+| Authentication Context | User context optional |
 | Required OAuth Scopes | `account:read` |
 | Data Format | JSON |
 
@@ -27,10 +27,10 @@ Only users with account admin permissions can call this endpoint. To verify a us
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is obtained via either a [two-legged](../../oauth/how-to-docs/get-2-legged-token.md) or [three-legged](../../oauth/how-to-docs/get-3-legged-token.md) OAuth flow. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 | Region   string | Specifies the region where your request should be routed. If not set, the request is routed automatically, which may result in a slight increase in latency. <br>Possible values: `US`, `EMEA`. For a complete list of supported regions, see the [Regions](https://aps.autodesk.com/en/docs/acc/v1/overview/acc-regions/) page. |
-| User-Id   string | The ID of a user on whose behalf your request is acting. <br>Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.<br>You can use either the user’s ACC ID (`id`), or their Autodesk ID (`autodeskId`).<br>Note that this header is required for Account Admin POST, PATCH, and DELETE endpoints if you want to use a 2-legged authentication context. This header is optional for Account Admin GET endpoints. |
+| User-Id   string | The ID of a user on whose behalf your request is acting. <br>Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.<br>You can use either the user’s Forma ID (`id`), or their Autodesk ID (`autodeskId`).<br>Note that this header is required for hub Admin POST, PATCH, and DELETE endpoints if you want to use a 2-legged authentication context. This header is optional for hub Admin GET endpoints. |
 
 * Required
 
@@ -38,9 +38,9 @@ Only users with account admin permissions can call this endpoint. To verify a us
 
 ## [URI Parameters](#uri-parameters)
 
-| accountId   string: UUID | The ID of the ACC account that contains the project being created or the projects being retrieved. This corresponds to the hub ID in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/). To convert a hub ID into an account ID, remove the “**b.**" prefix. For example, a hub ID of `b.c8b0c73d-3ae9` translates to an account ID of `c8b0c73d-3ae9`. |
+| accountId   string: UUID | The ID of the hub that contains the projects. This corresponds to the hub ID used in the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/), with the “**b.**" prefix removed. For example, `b.c8b0c73d-3ae9` becomes `c8b0c73d-3ae9`. |
 | --- | --- |
-| userId   string | The ID of the user. To find the ID call [GET users](http-admin-projectsprojectId-users-GET.md). You can use either the ACC ID (`id`) or the Autodesk ID (`autodeskId`). |
+| userId   string | The ID of the user. To find the ID call [GET users](http-admin-projectsprojectId-users-GET.md). You can use either the Forma ID (`id`) or the Autodesk ID (`autodeskId`). |
 
 ### Request
 
@@ -51,7 +51,7 @@ Only users with account admin permissions can call this endpoint. To verify a us
 | filter[status]   array: string | Filters roles by their status. Accepts one or more of the following values: <br>`active` – The role is currently in use.<br>`inactive` – The role has been removed or is no longer in use. |
 | filter[name]   string | Filters roles by name. <br>By default, this performs a partial match (case-insensitive).<br>You can control how the match behaves by using the `filterTextMatch` parameter. For example, to match only names that start with (startsWith), end with (endsWith), or exactly equal (equals) the provided value. |
 | filterTextMatch   enum:string | Specifies how text-based filters should match values in supported fields. <br>This parameter can be used in any endpoint that supports text-based filtering (e.g., `filter[name]`, `filter[jobNumber]`, `filter[companyName]`, etc.).<br>Possible values:<br>`contains` (default) – Matches if the field contains the specified text anywhere<br>`startsWith` – Matches if the field starts with the specified text<br>`endsWith` – Matches if the field ends with the specified text<br>`equals` – Matches only if the field exactly matches the specified text<br>Matching is case-insensitive.<br>Wildcards and regular expressions are not supported. |
-| fields   array: string | A comma-separated list of response fields to include. Defaults to all fields if not specified. <br>Use this parameter to reduce the response size by retrieving only the fields you need.<br>Possible values:<br>`projectIds` – Projects where the user holds this role<br>`name` – Role name<br>`status` – Role status (active or inactive)<br>`key` – Internal key used to translate the role name<br>`createdAt` – Timestamp when the role was created<br>`updatedAt` – Timestamp when the role was last updated |
+| fields   array: string | A comma-separated list of response fields to include. Defaults to all fields if not specified. <br>Use this parameter to reduce the response size by retrieving only the fields you need.<br>Possible values:<br>`projectIds` – Projects where the user holds this role<br>`name` – Role name<br>`status` – Role status (active or inactive)<br>`key` – Internal key used to translate the role name<br>`isImmutable` – Indicates whether the role is immutable<br>`createdAt` – Timestamp when the role was created<br>`updatedAt` – Timestamp when the role was last updated |
 | sort   array: string | Sorts the results by one or more fields. <br>Each field can be followed by a direction modifier:<br>`asc` – Ascending order (default)<br>`desc` – Descending order<br>Possible values: `name`, `createdAt`, `updatedAt`.<br>Default sort: `name asc`<br>Example: `sort=name,updatedAt desc` |
 | limit   int | The maximum number of records to return in the response. <br>Default: `20`<br>Minimum: `1`<br>Maximum: `200` (If a larger value is provided, only 200 records are returned) |
 | offset   int | The index of the first record to return. <br>Used for pagination in combination with the `limit` parameter.<br>Example: `limit=20` and `offset=40` returns records 41–60. |

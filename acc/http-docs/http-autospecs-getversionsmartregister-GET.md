@@ -36,7 +36,7 @@ Note that we do not currently support updating the Smart Register or Smart Regis
 
 ## [URI Parameters](#uri-parameters)
 
-- projectIdstring The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/developers_guide/overview/) to retrieve the project ID. For more information, see the [Retrieve a Project ID tutorial](../how-to-docs/getting-started-retrieve-account-and-project-id.md). You need to convert the project ID into a project ID for the ACC API by removing the “b.” prefix. For example, a project ID of b.a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+- projectIdstring The ID of the project. Use the [Data Management API](https://aps.autodesk.com/en/docs/data/v2/developers_guide/overview/) to retrieve the project ID. For more information, see the [Retrieve a Project ID tutorial](../how-to-docs/getting-started-retrieve-account-and-project-id.md). You need to convert the project ID into a project ID for the Forma API by removing the “b.” prefix. For example, a project ID of b.a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
 - versionIdstring The AutoSpecs version ID of the project. For information about how to find the version ID, see the first few steps of the [Retrieve Submittal Log](https://aps.autodesk.com/en/docs/acc/v1/tutorials/autospecs/upload-document/) tutorial.
 
 ### Response

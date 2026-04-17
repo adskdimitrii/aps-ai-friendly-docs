@@ -11,17 +11,17 @@ In this guide, you will learn how to retrieve a list of all projects available w
 By the end of this guide, you will be able to:
 
 - Fetch project information like project ID and name of the project.
-- Understand the options and fields in the documentation on the [projects](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/queries/projects/) query, [Projects](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/objects/projects/) object, and [Project](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/objects/project/) object.
+- Understand the options and fields in the documentation on the [projects](../reference-docs/queries-projects.md) query, [Projects](../reference-docs/objects-projects.md) object, and [Project](../reference-docs/objects-project.md) object.
 
 You will use the following query in this guide:
 
 | Type | Operation | Description |
 | --- | --- | --- |
-| Query | [projects](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/queries/projects/) | Retrieves all projects within a specified hub. |
+| Query | [projects](../reference-docs/queries-projects.md) | Retrieves all projects within a specified hub. |
 
 ## [Step 1: Request for a list of Projects within a Hub](#step-1-request-for-a-list-of-projects-within-a-hub)
 
-The [projects](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/queries/projects/) query returns a [Projects](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/objects/projects/) object. The Projects object contains an array of [Project](https://aps.autodesk.com/en/docs/aecdatamodel/v1/reference/objects/project/) objects. In this exercise, we query for the `project id` and `project name` fields.
+The [projects](../reference-docs/queries-projects.md) query returns a [Projects](../reference-docs/objects-projects.md) object. The Projects object contains an array of [Project](../reference-docs/objects-project.md) objects. In this exercise, we query for the `project id` and `project name` fields.
 > 1. In the [AEC Data Model Explorer](https://aecdatamodel-explorer.autodesk.io/), the query is populated by default in the **Query Pane**. You can also edit or update the query as per your requirement and run it.
 >
 >

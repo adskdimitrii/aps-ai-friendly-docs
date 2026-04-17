@@ -26,7 +26,7 @@ Note that the Model Derivative API uses 2 types of URNs. The **design URN** is g
 
 | Method and URI | GET https://developer.api.autodesk.com/modelderivative/v2/designdata/{urn}/manifest/{derivativeUrn} |
 | --- | --- |
-| Authentication Context | user context optional |
+| Authentication Context | User context optional |
 | Required OAuth Scopes | `data:read` `data:write` |
 | Data Format | JSON |
 
@@ -34,7 +34,7 @@ Note that the Model Derivative API uses 2 types of URNs. The **design URN** is g
 
 ## [Headers](#headers)
 
-| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account flow](https://aps.autodesk.com/en/docs/ssa/v1/tutorials/getting-started-with-ssa/task3-generate-3-legged-access-token/). The Secure Service Account flow generates tokens without user interaction but maintains user context for headless server-to-server operations. |
+| Authorization*   string | Must be `Bearer <token>`, where `<token>` is a two-legged access token obtained via a [Client Credentials Grant flow](../../oauth/how-to-docs/get-2-legged-token.md), or a three-legged access token obtained via an [Authorization Code flow](../../oauth/how-to-docs/get-3-legged-token.md) or a [Secure Service Account (SSA) flow](../../ssa/tutorials-docs/getting-started-with-ssa-task3-generate-3-legged-access-token.md). <br>The SSA flow is designed for headless server-to-server operations. While it functions like a two-legged flow (no user interaction), it is classified as three-legged because it preserves user context. |
 | --- | --- |
 | Range   string | Specifies the byte range to download. Use this header to download a derivative in chunks, by requesting only a specific portion of the derivative. If not specified, the entire derivative is returned. <br>The format for specifying a range is `Range:bytes=start-end`, where:<br>`start` is the starting byte offset (inclusive).`end` is the ending byte offset (inclusive). If omitted, returns all bytes from the `start` offset to the end of the derivative.<br>For example:<br>`Range:bytes=0-63` - Returns the first 64 bytes`Range:bytes=64-127` - Returns the second set of 64 bytes`Range:bytes=1022` - Returns all the bytes from offset 1022 to the end<br>**Note:** You can specify only one range per request. |
 | region   string | Specifies the data center where the manifest and derivatives of the specified source design are stored. Possible values are: <br>`US` - (Default) Data center for the US region.`EMEA` - Data center for the European Union, Middle East, and Africa.`AUS` - Data center for the Australia region.`CAN` - Data center for the Canada region.`DEU` - Data center for the Germany region.`IND` - Data center for the India region.`JPN` - Data center for the Japan region.`GBR` - Data center for the United Kingdom region. |

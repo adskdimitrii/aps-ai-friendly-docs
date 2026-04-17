@@ -6,7 +6,7 @@ Source: https://aps.autodesk.com/en/docs/acc/tutorials/issues/upload-issue-attac
 
 # Upload Issue Attachments
 
-This tutorial demonstrates how to attach a local file to an issue in an Autodesk Construction Cloud project.
+This tutorial demonstrates how to attach a local file to an issue in a Forma project.
 
 The steps include finding the ID of the project’s top-level folder, creating an empty storage object for the file, uploading the file to the storage object in OSS, and creating the attachment record in the issue.
 
@@ -14,13 +14,13 @@ The steps include finding the ID of the project’s top-level folder, creating a
 
 - [Register an app](https://aps.autodesk.com/myapps).
 - Acquire a [3-legged OAuth token](../../oauth/how-to-docs/get-3-legged-token.md) with `data:read`, `data:write`, and `data:create` scopes.
-- Verify that you have access to the relevant account and ACC project.
-- Find the relevant project ID for the project you want to add an attachment to by following the [Retrieve an Account ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the account ID is `b.cGVyc29uYWw6cGUyOWNjZjMy`, and the project ID is `b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`.
+- Verify that you have access to the relevant hub and Forma project.
+- Find the relevant project ID for the project you want to add an attachment to by following the [Retrieve a Hub ID and Project ID](getting-started-retrieve-account-and-project-id.md) tutorial. In this example, assume the hub ID is `b.cGVyc29uYWw6cGUyOWNjZjMy`, and the project ID is `b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`.
 - This tutorial assumes you have an existing issue to attach the file to. For more information on creating an issue, see the [Create an Issue](issues-create-issues.md) tutorial. In this example, assume the issue ID is `d4f9c2e1-3b8a-4c7d-9e2f-1a5b8c9d0e3f`. This is also known as the `domainEntityId`.
 
 ## [Step 1: Find the Root Folder ID](#step-1-find-the-root-folder-id)
 
-Call [GET projects/:projectId/topFolders](../../data/http-docs/http-hubs-hub_id-projects-project_id-topFolders-GET.md) using the account ID (`b.cGVyc29uYWw6cGUyOWNjZjMy`) and project ID (`b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`) to get a list of the highest-level folders in the project.
+Call [GET projects/:projectId/topFolders](../../data/http-docs/http-hubs-hub_id-projects-project_id-topFolders-GET.md) using the hub ID (`b.cGVyc29uYWw6cGUyOWNjZjMy`) and project ID (`b8c45fe1-2ab3-4b71-8563-d9f9c5c2a7e5`) to get a list of the highest-level folders in the project.
 
 ### Request
 
@@ -257,7 +257,7 @@ Note that a successful call (`200`) returns an empty response.
 
 ## [Step 5: Complete the Upload](#step-5-complete-the-upload)
 
-Use the bucket key (`wip.dm.prod`) the object key (`` a9d330bc-411f-4aaf-874a-9844cc002d00.pdf` ``) and the upload key (`AQICAHifrJ6-BSHUmjAat4..........QWI-fuvghN23akgePMdmykV`) to call [POST signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-POST.md) to finalize the upload and register the file in Autodesk Docs.
+Use the bucket key (`wip.dm.prod`) the object key (`` a9d330bc-411f-4aaf-874a-9844cc002d00.pdf` ``) and the upload key (`AQICAHifrJ6-BSHUmjAat4..........QWI-fuvghN23akgePMdmykV`) to call [POST signeds3upload](../../data/http-docs/http-buckets--bucketKey-objects--objectKey-signeds3upload-POST.md) to finalize the upload and register the file in Autodesk Forma Data Management.
 
 This endpoint needs to be called within 24 hours from the time you began uploading the file.
 
@@ -300,7 +300,7 @@ Call [POST attachments](../http-docs/http-issues-attachments-POST.md) to attach 
 - `domainEntityId` - the ID of the issue to attach the file to. We defined the issue ID in the Before you Begin section.
 - `storageUrn` - the storage URN from step 2 - `urn:adsk.objects:os.object:wip.dm.prod/a9d330bc-411f-4aaf-874a-9844cc002d00.pdf`
 - `fileName` – the full filename including extension. This is the same as the object key from step 2. In this example - `a9d330bc-411f-4aaf-874a-9844cc002d00.pdf`.
-- `displayName` – a human-readable name for the attachment. In this example, `Project Plans.pdf`. This is what users will see in the ACC interface.
+- `displayName` – a human-readable name for the attachment. In this example, `Project Plans.pdf`. This is what users will see in the Forma interface.
 - `attachmentType` – this is always set to `issue-attachment`.
 - `attachmentId` – the file name derived from step 2 without the extension. In this example, `a9d330bc-411f-4aaf-874a-9844cc002d00`.
 
@@ -358,4 +358,4 @@ Show More
 
 Show More
 
-Congratulations! You have successfully attached a file to an issue in Autodesk Construction Cloud. The attachment is now associated with the issue and ready for viewing by team members.
+Congratulations! You have successfully attached a file to an issue in Forma. The attachment is now associated with the issue and ready for viewing by team members.
