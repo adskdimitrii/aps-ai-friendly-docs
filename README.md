@@ -14,6 +14,18 @@ Local markdown mirror of Autodesk Platform Services (APS) documentation with scr
 - [AEC Data Model Docs](aecdatamodel/README.md) - GraphQL API for BIM Element Data in ACC / Forma / OSS
 - [Webhooks Docs](webhooks/README.md)
 
+## How to Use
+
+```
+Create a new Python script that does the following:
+
+Given a URL to a Forma project data management folder, crawl all the RVT files in the folder and do the following:
+1. Using AEC Data Model, identify files with NO sheets.
+2. For each file with NO sheets, create a new Forma Issue, assign the person who uploaded the file, and ask them to please re-upload but provide sheets.
+
+Clone https://github.com/adskdimitrii/aps-ai-friendly-docs.git and use this documentation to help with your discovery and script design.
+```
+
 ## Re-Crawl
 
 See [CRAWL.md](CRAWL.md) - How to run crawlers and post-process tools.
