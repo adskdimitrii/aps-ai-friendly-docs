@@ -146,3 +146,22 @@ Local docs are a versioned snapshot. The docs an agent reads today are identical
 `llms.txt` is itself a large prompt (~several thousand tokens of instructions plus a glossary) that must be included or fetched before any question is answered. Each subsequent CDN page fetch adds more raw HTML that must be parsed and trimmed.
 
 Loading a targeted local file — for example just [acc/http-docs/http-issues-comments-POST.md](acc/http-docs/http-issues-comments-POST.md) — puts only the relevant schema into context. Smaller context windows mean lower inference cost and faster time-to-answer, which compounds across large automations that need to consult many endpoints.
+
+---
+
+### Local Docs vs. Hosted llms.txt — Summary
+
+| | Local Docs (this repo) | Hosted llms.txt |
+|---|---|---|
+| **Discovery speed** | Fast — grep/find in <1s | Slow — 5–7 HTTP round-trips |
+| **Tool calls per question** | 2–3 local reads | 5–7 network fetches |
+| **Works offline / air-gapped** | Yes | No |
+| **Always up to date** | No — requires re-crawl | Yes — live from Autodesk |
+| **Covers all APS APIs** | No — curated subset | Yes — full platform |
+| **Consistent across time** | Yes — versioned snapshot | No — changes without notice |
+| **Setup required** | Yes — crawl scripts to run | No |
+| **Crawler maintenance** | Yes — breaks on site changes | No |
+| **Targeted prompting** | Yes — link directly to files | No |
+| **Token cost per query** | Low — load only what's needed | High — large prompt + raw HTML |
+| **New/beta API coverage** | Only after re-crawl | Immediate |
+| **Team consistency** | Only if repo is shared/pinned | Always consistent |
