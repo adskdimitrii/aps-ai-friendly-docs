@@ -5,6 +5,7 @@ Local markdown mirror of Autodesk Platform Services (APS) documentation with scr
 ## Where to Find Things
 
 - [OAuth Docs](oauth/README.md) - ALL APIs Require OAuth
+- [Secure Service Accounts](ssa/README.md) - (SSA) CRUD Service Account Identity
 - [ACC Docs](acc/README.md) - Also known as BIM 360, Autodesk Construction Cloud & Forma
 - [ACC Data Connector Schema Docs](acc-dataconnector/README.md) - ACC/Forma Data Connector schema documentation
 - [Data Docs](data/README.md) - Object Secuire Storage (OSS), Core Data Managment for ACC / Forma
