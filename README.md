@@ -26,13 +26,12 @@ Given a URL to a Forma project data management folder, crawl all the RVT files i
 Clone https://github.com/adskdimitrii/aps-ai-friendly-docs.git and use this documentation to help with your discovery and script design.
 ```
 
+See more examples here: [HUMANS.md](HUMANS.md)
+
 ## Re-Crawl
 
 See [CRAWL.md](CRAWL.md) - How to run crawlers and post-process tools.
 
-## Humans
-
-See [HUMANS.md](HUMANS.md)
 
 ## Design Theory
 
