@@ -5,13 +5,13 @@ Local markdown mirror of Autodesk Platform Services (APS) documentation with scr
 ## Where to Find Things
 
 - [OAuth Docs](oauth/README.md) - ALL APIs Require OAuth
-- [ACC Docs](acc/README.md) - Autodesk Constructions Cloud APIs
-- [ACC Data Connector Schema Docs](acc-dataconnector/README.md) - ACC Data Connector schema documentation
-- [Data Docs](data/README.md) - OSS, Core Data Managment
+- [ACC Docs](acc/README.md) - Also known as BIM 360, Autodesk Construction Cloud & Forma
+- [ACC Data Connector Schema Docs](acc-dataconnector/README.md) - ACC/Forma Data Connector schema documentation
+- [Data Docs](data/README.md) - Object Secuire Storage (OSS), Core Data Managment for ACC / Forma
 - [Model Derivative Docs](model-derivative/README.md) - Extract Data from Files, Convert, Export
 - [Viewer v7 Docs](viewer/README.md) - Web Viewer
-- [Design Automation Docs](design-automation/README.md) - Also Known as `Automation APIs`
-- [AEC Data Model Docs](aecdatamodel/README.md) - GraphQL API for BIM Element Data
+- [Design Automation Docs](design-automation/README.md) - Also Known as `Automation APIs` run Revit / AutoCAD, etc... plugins in the cloud
+- [AEC Data Model Docs](aecdatamodel/README.md) - GraphQL API for BIM Element Data in ACC / Forma / OSS
 - [Webhooks Docs](webhooks/README.md)
 
 ## Re-Crawl
@@ -22,8 +22,6 @@ See [CRAWL.md](CRAWL.md) - How to run crawlers and post-process tools.
 
 See [HUMANS.md](HUMANS.md)
 
----
-
 ## Design Theory
 
-See [DESIGN.md](DESIGN.md) — why local docs outperform `llms.txt` for AI agents, with a worked example.
+See [DESIGN.md](DESIGN.md) — why local docs outperform `llms.txt` for agents, with a worked example.
