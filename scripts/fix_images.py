@@ -12,7 +12,7 @@ import argparse
 import re
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parent
+REPO_ROOT = Path(__file__).resolve().parent.parent
 
 # Regex for markdown image tags: ![alt](url)
 IMAGE_RE = re.compile(r"!\[([^\]]*)\]\(([^)]+)\)")

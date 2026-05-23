@@ -26,7 +26,7 @@ import argparse
 import re
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parent
+REPO_ROOT = Path(__file__).resolve().parent.parent
 
 # Matches Latin-1 high-byte sequences that are actually mojibake:
 # a leading byte in 0xC0-0xFF (À..ÿ) followed by one or two continuation

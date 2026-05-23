@@ -14,7 +14,7 @@ import argparse
 import re
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parent
+REPO_ROOT = Path(__file__).resolve().parent.parent
 APS_BASE = "https://aps.autodesk.com"
 
 # Regex for markdown links: [text](url) — but not images ![alt](url)

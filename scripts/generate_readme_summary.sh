@@ -10,6 +10,7 @@ set -euo pipefail
 #   ./generate_readme_summary.sh --all        # all domain folders
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(dirname "$SCRIPT_DIR")"
 
 MARKER_START="<!-- GENERATED:CONTENT_SUMMARY:START -->"
 MARKER_END="<!-- GENERATED:CONTENT_SUMMARY:END -->"
@@ -26,7 +27,7 @@ check_prerequisites() {
 
 # Return list of domain folders (directories that contain at least one subdir with .md files)
 list_domain_folders() {
-  for dir in "$SCRIPT_DIR"/*/; do
+  for dir in "$REPO_ROOT"/*/; do
     [ -d "$dir" ] || continue
     local name
     name="$(basename "$dir")"
@@ -211,7 +212,7 @@ insert_summary_into_readme() {
 
 process_domain() {
   local domain_name="$1"
-  local domain_path="$SCRIPT_DIR/$domain_name"
+  local domain_path="$REPO_ROOT/$domain_name"
 
   echo "Processing: $domain_name"
 
