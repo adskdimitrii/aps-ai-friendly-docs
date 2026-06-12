@@ -6,14 +6,16 @@ Local markdown mirror of Autodesk Platform Services (APS) documentation with scr
 
 - [OAuth Docs](oauth/README.md) - ALL APIs Require OAuth
 - [Secure Service Accounts](ssa/README.md) - (SSA) CRUD Service Account Identity
-- [ACC Docs](acc/README.md) - Also known as BIM 360, Autodesk Construction Cloud & Forma
-- [ACC Data Connector Schema Docs](acc-dataconnector/README.md) - ACC/Forma Data Connector schema documentation
+- [Forma / ACC Docs](acc/README.md) - Also known as BIM 360, Autodesk Construction Cloud & Forma
+- [Forma / ACC Data Connector Schema Docs](acc-dataconnector/README.md) - ACC/Forma Data Connector schema documentation
 - [Data Docs](data/README.md) - Object Secuire Storage (OSS), Core Data Managment for ACC / Forma
 - [Model Derivative Docs](model-derivative/README.md) - Extract Data from Files, Convert, Export
 - [Viewer v7 Docs](viewer/README.md) - Web Viewer
 - [Design Automation Docs](design-automation/README.md) - Also Known as `Automation APIs` run Revit / AutoCAD, etc... plugins in the cloud
 - [AEC Data Model Docs](aecdatamodel/README.md) - GraphQL API for BIM Element Data in ACC / Forma / OSS
 - [Webhooks Docs](webhooks/README.md)
+
+Note - ACC was renamed to Forma. When you see ACC it also means Forma.
 
 ## How to Use
 
