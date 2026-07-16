@@ -51,6 +51,7 @@ Config source: https://developer.doc.config.autodesk.com/bPlouYTd/aecdatamodel_v
 - https://aps.autodesk.com/en/docs/aecdatamodel/reference/objects/distinctpropertyvalues/
 - https://aps.autodesk.com/en/docs/aecdatamodel/reference/objects/distinctpropertyvaluescollection/
 - https://aps.autodesk.com/en/docs/aecdatamodel/reference/objects/downloadinfo/
+- https://aps.autodesk.com/en/docs/aecdatamodel/reference/objects/ecscomponents/
 - https://aps.autodesk.com/en/docs/aecdatamodel/reference/objects/element/
 - https://aps.autodesk.com/en/docs/aecdatamodel/reference/objects/elementalternativeidentifiers/
 - https://aps.autodesk.com/en/docs/aecdatamodel/reference/objects/elementalternativeidentifierscomponent/
